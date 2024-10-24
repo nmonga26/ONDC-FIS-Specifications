@@ -1,0 +1,388 @@
+search: &search
+  context: &search_context
+    location: &search_context_location
+      country: &search_context_location_country
+        code: &search_context_location_country_code
+          - &search_context_location_country_code_0
+            code: IND
+            description: Represents the country
+            reference: <PR/Issue/Discussion Links md format text>
+      city: &search_context_location_city
+        code: &search_context_location_city_code
+          - &search_context_location_city_code_0
+            code: std:080
+            description: Represent the city code that identifies the cities. In case of '*'
+              it will fetch all the cities where service is being provided.
+            reference: <PR/Issue/Discussion Links md format text>
+    domain: &search_context_domain
+      - &search_context_domain_0
+        code: ONDC:FIS13
+        description: Updated domain namespace
+        reference: <PR/Issue/Discussion Links md format text>
+    action: &search_context_action
+      - &search_context_action_0
+        code: search
+        description: buyer app specifies the search intent
+        reference: <PR/Issue/Discussion Links md format text>
+      - &search_context_action_1
+        code: on_search
+        description: seller app responds with the catalog based on the search intent
+        reference: <PR/Issue/Discussion Links md format text>
+      - &search_context_action_2
+        code: select
+        description: buyer app specifies the items & quantity selected by a buyer
+        reference: <PR/Issue/Discussion Links md format text>
+      - &search_context_action_3
+        code: on_select
+        description: seller app responds with the serviceability info, quote & O2D TAT
+          for selected items;
+        reference: <PR/Issue/Discussion Links md format text>
+      - &search_context_action_4
+        code: init
+        description: buyer & seller app specify & agree to the terms & conditions prior
+          to placing the order;
+        reference: <PR/Issue/Discussion Links md format text>
+      - &search_context_action_5
+        code: on_init
+        description: buyer & seller app specify & agree to the terms & conditions prior
+          to placing the order;
+        reference: <PR/Issue/Discussion Links md format text>
+      - &search_context_action_6
+        code: confirm
+        description: buyer app places the order on behalf of the buyer;
+        reference: <PR/Issue/Discussion Links md format text>
+      - &search_context_action_7
+        code: on_confirm
+        description: seller app responds to the order placed either through
+          auto-acceptance or deferred acceptance or rejection of the order
+        reference: <PR/Issue/Discussion Links md format text>
+      - &search_context_action_8
+        code: update
+        description: updates in the serviceable loc happens here
+        reference: <PR/Issue/Discussion Links md format text>
+      - &search_context_action_9
+        code: on_update
+        description: seller app responds with serviceable
+        reference: <PR/Issue/Discussion Links md format text
+      - &search_context_action_10
+        code: cancel
+        description: Cancellation of ride
+        reference: <PR/Issue/Discussion Links md format text>
+      - &search_context_action_11
+        code: on_cancel
+        description: Specifiy the cancellation of the state
+        reference: <PR/Issue/Discussion Links md format text>
+      - &search_context_action_12
+        code: track
+        description: Track the order
+        reference: <PR/Issue/Discussion Links md format text>
+      - &search_context_action_13
+        code: on_track
+        description: Return tracking infomation of the order
+        reference: <PR/Issue/Discussion Links md format text
+      - &search_context_action_14
+        code: status
+        description: Request for status of the vehicle
+        reference: <PR/Issue/Discussion Links md format text>
+      - &search_context_action_15
+        code: on_status
+        description: Return order with status , Driver pickup - driver drop
+        reference: <PR/Issue/Discussion Links md format text>
+      - &search_context_action_16
+        code: support
+        description: Fetch support information related to a particular order
+        reference: <PR/Issue/Discussion Links md format text>
+      - &search_context_action_17
+        code: on_support
+        description: Return support information related to order
+        reference: <PR/Issue/Discussion Links md format text
+  message: &search_message
+    intent: &search_message_intent
+      category: &search_message_intent_category
+        descriptor: &search_message_intent_category_descriptor
+          code: &search_message_intent_category_descriptor_code
+            - &search_message_intent_category_descriptor_code_0
+              code: TERM_LIFE_INSURANCE
+              description: Provides coverage for a specified period with no payout if the
+                policyholder survives the term
+              reference: <PR/Issue/Discussion Links md format text
+            - &search_message_intent_category_descriptor_code_1
+              code: ENDOWMENT_POLICY
+              description: Endowment Policy combines life insurance with a savings plan,
+                paying out either on death or after a set period
+              reference: <PR/Issue/Discussion Links md format text
+on_search: &on_search
+  context: *search_context
+  message: &on_search_message
+    catalog: &on_search_message_catalog
+      providers: &on_search_message_catalog_providers
+        categories: *search_message_intent_category
+        items: &on_search_message_catalog_providers_items
+          add_ons: &on_search_message_catalog_providers_items_add_ons
+            descriptor: &on_search_message_catalog_providers_items_add_ons_descriptor
+              code: &on_search_message_catalog_providers_items_add_ons_descriptor_code
+                - &on_search_message_catalog_providers_items_add_ons_descriptor_code_0
+                  code: NO_CLAIM_BONUS
+                  description: Describes a monetary benefit given to policy holders for every
+                    claim-free year
+                  reference: <PR/Issue/Discussion Links md format text
+                - &on_search_message_catalog_providers_items_add_ons_descriptor_code_1
+                  code: DAYCARE_COVER
+                  description: Describes treatments requiring hospitalization but only below
+                    24-hours due to medical advancements
+                  reference: <PR/Issue/Discussion Links md format text
+                - &on_search_message_catalog_providers_items_add_ons_descriptor_code_2
+                  code: DAILY_CASH_ALLOWANCE
+                  description: Describes a huge lump of a fixed amount that can be availed to pay
+                    for the additional inadmissible expenses when you are
+                    hospitalized
+                  reference: <PR/Issue/Discussion Links md format text
+                - &on_search_message_catalog_providers_items_add_ons_descriptor_code_3
+                  code: DOMICILIARY_EXPENSES
+                  description: Describes the cost of medicines, investigations and consultations
+                    etc. in respect of domiciliary treatment
+                  reference: <PR/Issue/Discussion Links md format text
+                - &on_search_message_catalog_providers_items_add_ons_descriptor_code_4
+                  code: HEALTH_CHECK_UPS
+                  description: Describes usually comprises a combination of various different
+                    tests such as a blood sugar test, lipid profile test, kidney
+                    test, eye exam, liver test, thyroid test and more
+                  reference: <PR/Issue/Discussion Links md format text
+          descriptor: *search_message_intent_category_descriptor
+          xinput: &on_search_message_catalog_providers_items_xinput
+            form_response: &on_search_message_catalog_providers_items_xinput_form_response
+              status: &on_search_message_catalog_providers_items_xinput_form_response_status
+                - &on_search_message_catalog_providers_items_xinput_form_response_status_0
+                  code: PENDING
+                  description: Describes the current state of the request.
+                  reference: <PR/Issue/Discussion Links md format text
+                - &on_search_message_catalog_providers_items_xinput_form_response_status_1
+                  code: APPROVED
+                  description: Describes the current state of the request.
+                  reference: <PR/Issue/Discussion Links md format text
+                - &on_search_message_catalog_providers_items_xinput_form_response_status_2
+                  code: REJECTED
+                  description: Describes the current state of the request.
+                  reference: <PR/Issue/Discussion Links md format text
+                - &on_search_message_catalog_providers_items_xinput_form_response_status_3
+                  code: EXPIRED
+                  description: Describes the current state of the request.
+                  reference: <PR/Issue/Discussion Links md format text
+                - &on_search_message_catalog_providers_items_xinput_form_response_status_4
+                  code: SUCCESS
+                  description: When form gets submitted successfully
+                  reference: <PR/Issue/Discussion Links md format text
+select: &select
+  context: *search_context
+  message: &select_message
+    order: &select_message_order
+      items: *on_search_message_catalog_providers_items
+on_select: &on_select
+  context: *search_context
+  message: &on_select_message
+    order: &on_select_message_order
+      items: *on_search_message_catalog_providers_items
+      quote: &on_select_message_order_quote
+        breakup: &on_select_message_order_quote_breakup
+          title: &on_select_message_order_quote_breakup_title
+            - &on_select_message_order_quote_breakup_title_0
+              code: BASE_PRICE
+              description: Describes the basic cost of something without adding anything
+                extra.
+              reference: <PR/Issue/Discussion Links md format text
+            - &on_select_message_order_quote_breakup_title_1
+              code: CONVIENCE_FEE
+              description: Describes a extra charge fee.
+              reference: <PR/Issue/Discussion Links md format text
+            - &on_select_message_order_quote_breakup_title_2
+              code: TAX
+              description: Describes the tax amount charge.
+              reference: <PR/Issue/Discussion Links md format text
+            - &on_select_message_order_quote_breakup_title_3
+              code: PROCESSING_FEE
+              description: Describes a charge or fee assessed for handling, processing a
+                particular transaction, service, or request.
+              reference: <PR/Issue/Discussion Links md format text
+            - &on_select_message_order_quote_breakup_title_4
+              code: ADD_ONS
+              description: Describes a charge for additional services.
+              reference: <PR/Issue/Discussion Links md format text
+init: &init
+  context: *search_context
+  message: &init_message
+    order: &init_message_order
+      items: *on_search_message_catalog_providers_items
+      payments: &init_message_order_payments
+        type: &init_message_order_payments_type
+          - &init_message_order_payments_type_0
+            code: PRE-FULFILLMENT
+            description: Payment happens pre completion of the service
+            reference: <PR/Issue/Discussion Links md format text
+          - &init_message_order_payments_type_1
+            code: ON-ORDER
+            description: Payment happens on order placement
+            reference: <PR/Issue/Discussion Links md format text
+          - &init_message_order_payments_type_2
+            code: PRE-ORDER
+            description: Payment happens before order placement
+            reference: <PR/Issue/Discussion Links md format text
+          - &init_message_order_payments_type_3
+            code: ON-FULFILLMENT
+            description: Payment happens on completion of the service
+            reference: <PR/Issue/Discussion Links md format text
+        collected_by: &init_message_order_payments_collected_by
+          - &init_message_order_payments_collected_by_0
+            code: BPP
+            description: When seller app is collecting the payment
+            reference: <PR/Issue/Discussion Links md format text
+          - &init_message_order_payments_collected_by_1
+            code: BAP
+            description: When buyer app is collecting the payment
+            reference: <PR/Issue/Discussion Links md format text
+        status: &init_message_order_payments_status
+          - &init_message_order_payments_status_0
+            code: PAID
+            description: Reflects current status wheteher installment has been paid or not
+            reference: <PR/Issue/Discussion Links md format text
+          - &init_message_order_payments_status_1
+            code: NOT-PAID
+            description: Reflects current status wheteher installment has been paid or not
+            reference: <PR/Issue/Discussion Links md format text
+          - &init_message_order_payments_status_2
+            code: FAILED
+            description: When the payment gets failed
+            reference: <PR/Issue/Discussion Links md format text
+          - &init_message_order_payments_status_3
+            code: OVERDUE
+            description: When the payment has not been paid and went to overdue state
+            reference: <PR/Issue/Discussion Links md format text
+          - &init_message_order_payments_status_4
+            code: DEFAULTED
+            description: After certain duration of overdue payment, it eventually comes to
+              default state
+            reference: <PR/Issue/Discussion Links md format text
+      quote: *on_select_message_order_quote
+on_init: *init
+confirm: *select
+on_confirm: &on_confirm
+  context: *search_context
+  message: &on_confirm_message
+    order: &on_confirm_message_order
+      items: *on_search_message_catalog_providers_items
+      fulfillments: &on_confirm_message_order_fulfillments
+        state: &on_confirm_message_order_fulfillments_state
+          descriptor: &on_confirm_message_order_fulfillments_state_descriptor
+            code: &on_confirm_message_order_fulfillments_state_descriptor_code
+              - &on_confirm_message_order_fulfillments_state_descriptor_code_0
+                code: GRANTED
+                description: Describes if claim has been granted
+                reference: <PR/Issue/Discussion Links md format text
+              - &on_confirm_message_order_fulfillments_state_descriptor_code_1
+                code: PROCESSING
+                description: Describes if claim application is under processing
+                reference: <PR/Issue/Discussion Links md format text
+              - &on_confirm_message_order_fulfillments_state_descriptor_code_2
+                code: INITIATED
+                description: Describes if claim has been initiated
+                reference: <PR/Issue/Discussion Links md format text
+              - &on_confirm_message_order_fulfillments_state_descriptor_code_3
+                code: PROCESSED
+                description: Describes if claim has been processed
+                reference: <PR/Issue/Discussion Links md format text
+              - &on_confirm_message_order_fulfillments_state_descriptor_code_4
+                code: REJECTED
+                description: Describes if claim has been rejected
+                reference: <PR/Issue/Discussion Links md format text
+              - &on_confirm_message_order_fulfillments_state_descriptor_code_5
+                code: ONLINE_RENEW
+                description: Describes if renewal is online
+                reference: <PR/Issue/Discussion Links md format text
+        type: &on_confirm_message_order_fulfillments_type
+          - &on_confirm_message_order_fulfillments_type_0
+            code: RENEWAL
+            description: Describes the fulfilment type.
+            reference: <PR/Issue/Discussion Links md format text
+          - &on_confirm_message_order_fulfillments_type_1
+            code: CLAIM
+            description: Describes the fulfilment type.
+            reference: <PR/Issue/Discussion Links md format text
+          - &on_confirm_message_order_fulfillments_type_2
+            code: POLICY
+            description: Describes the fulfilment type.
+            reference: <PR/Issue/Discussion Links md format text
+      payments: *init_message_order_payments
+      documents: &on_confirm_message_order_documents
+        descriptor: &on_confirm_message_order_documents_descriptor
+          code: &on_confirm_message_order_documents_descriptor_code
+            - &on_confirm_message_order_documents_descriptor_code_0
+              code: POLICY_DOC
+              description: Describes your digitally signed policy document
+              reference: <PR/Issue/Discussion Links md format text
+            - &on_confirm_message_order_documents_descriptor_code_1
+              code: CLAIM_DOC
+              description: Describes url for policy claim
+              reference: <PR/Issue/Discussion Links md format text
+            - &on_confirm_message_order_documents_descriptor_code_2
+              code: RENEW_DOC
+              description: Describes url for policy renew
+              reference: <PR/Issue/Discussion Links md format text
+      cancellation_terms: &on_confirm_message_order_cancellation_terms
+        fulfillment_state: &on_confirm_message_order_cancellation_terms_fulfillment_state
+          descriptor: &on_confirm_message_order_cancellation_terms_fulfillment_state_descriptor
+            code: &on_confirm_message_order_cancellation_terms_fulfillment_state_descriptor_code
+              - &on_confirm_message_order_cancellation_terms_fulfillment_state_descriptor_code_0
+                code: INSURANCE_PROCESSING
+                description: When the bank in the process of verification of insured before
+                  deliveriving the ammount
+                reference: <PR/Issue/Discussion Links md format text
+              - &on_confirm_message_order_cancellation_terms_fulfillment_state_descriptor_code_1
+                code: INSURANCE_GRANTED
+                description: When the bank delivers the amount to the insured after verification
+                  and approval
+                reference: <PR/Issue/Discussion Links md format text
+      quote: *on_select_message_order_quote
+      status: &on_confirm_message_order_status
+        - &on_confirm_message_order_status_0
+          code: ACTIVE
+          description: Describes the status of the order.
+          reference: <PR/Issue/Discussion Links md format text
+        - &on_confirm_message_order_status_1
+          code: COMPLETE
+          description: Describes the status of the order.
+          reference: <PR/Issue/Discussion Links md format text
+        - &on_confirm_message_order_status_2
+          code: CANCELLED
+          description: Describes the status of the order.
+          reference: <PR/Issue/Discussion Links md format text
+        - &on_confirm_message_order_status_3
+          code: CANCELLATION_INITIATED
+          description: Describes the status of the order.
+          reference: <PR/Issue/Discussion Links md format text
+status: &status
+  context: *search_context
+on_status: &on_status
+  context: *search_context
+  message: &on_status_message
+    order: &on_status_message_order
+      items: *on_search_message_catalog_providers_items
+      fulfillments: *on_confirm_message_order_fulfillments
+      payments: *init_message_order_payments
+      documents: *on_confirm_message_order_documents
+      quote: *on_select_message_order_quote
+      status: *on_confirm_message_order_status
+cancel: *status
+on_cancel: &on_cancel
+  context: *search_context
+  message: &on_cancel_message
+    order: &on_cancel_message_order
+      items: *on_search_message_catalog_providers_items
+      payments: *init_message_order_payments
+      documents: *on_confirm_message_order_documents
+      quote: *on_select_message_order_quote
+      status: *on_confirm_message_order_status
+update: &update
+  context: *search_context
+  message: &update_message
+    order: &update_message_order
+      payments: *init_message_order_payments
+on_update: *on_status

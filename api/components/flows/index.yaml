@@ -1,6 +1,2 @@
-- $ref: "./health-insurance/index1.yaml"
-- $ref: "./health-insurance/form-status-health-insurance.yaml"
-- $ref: "./health-insurance/form-status-application-html.yaml"
-- $ref: "./health-insurance/insurance-claim.yaml"
-- $ref: "./health-insurance/insurance-renewal.yaml"
-- $ref: "./health-insurance/cancel-flow.yaml"
+- $ref: ./journey-with-medical-checkup/index.yaml
+- $ref: ./journey-without-medical-checkup/index.yaml

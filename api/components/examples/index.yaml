@@ -1,5 +1,5 @@
-health-insurance:
-  summary: health-insurance
-  description: health-insurance
+life-insurance:
+  summary: Life Insurance
+  description: 'Life Insurance API examples'
   example_set:
-    $ref: "./health-insurance/health-insurance.yaml"
+    $ref: ./life-insurance/index.yaml
