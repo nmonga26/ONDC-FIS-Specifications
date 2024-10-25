@@ -92,6 +92,26 @@ on_select:
         $ref: ./on_select/on_select_0.yaml
 on_status:
   examples:
+    - summary: on_status-ped-form-processing
+      description: TBD
+      value:
+        $ref: ./on_status/on_status-ped-form-processing.yaml
+    - summary: on_status-review-form-processed
+      description: TBD
+      value:
+        $ref: ./on_status/on_status-review-form-processed.yaml
+    - summary: on_status_ekyc
+      description: TBD
+      value:
+        $ref: ./on_status/on_status_ekyc.yaml
+    - summary: on_status_medical_checkup
+      description: TBD
+      value:
+        $ref: ./on_status/on_status_medical_checkup.yaml
+    - summary: on_status_payment_update
+      description: TBD
+      value:
+        $ref: ./on_status/on_status_payment_update.yaml
     - summary: on_status-claim
       description: TBD
       value:
@@ -112,14 +132,6 @@ on_status:
       description: TBD
       value:
         $ref: ./on_status/on_status-form-submitted.yaml
-    - summary: on_status-ped-form-processing
-      description: TBD
-      value:
-        $ref: ./on_status/on_status-ped-form-processing.yaml
-    - summary: on_status-review-form-processed
-      description: TBD
-      value:
-        $ref: ./on_status/on_status-review-form-processed.yaml
     - summary: on_status_renew_completed
       description: TBD
       value:
@@ -156,10 +168,6 @@ select:
         $ref: ./select/select_0.yaml
 status:
   examples:
-    - summary: form-status-request
-      description: TBD
-      value:
-        $ref: ./status/form-status-request.yaml
     - summary: review-form-status-request
       description: TBD
       value:
@@ -168,6 +176,10 @@ status:
       description: TBD
       value:
         $ref: ./status/status-request-form-ped.yaml
+    - summary: form-status-request
+      description: TBD
+      value:
+        $ref: ./status/form-status-request.yaml
     - summary: status-request-renewal
       description: TBD
       value:

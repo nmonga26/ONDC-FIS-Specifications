@@ -1,2 +1,2 @@
-- $ref: ./journey-with-medical-checkup/index.yaml
-- $ref: ./journey-without-medical-checkup/index.yaml
+- $ref: ./life_insurance_application___medical_checkup_required/index.yaml
+- $ref: ./life_insurance_application___no_medical_checkup_required/index.yaml

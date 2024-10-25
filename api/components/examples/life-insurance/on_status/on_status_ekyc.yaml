@@ -1,5 +1,5 @@
 context:
-  action: confirm
+  action: on_init
   bap_id: fis.test.bap.io
   bap_uri: https://fis.test.bap.io/
   bpp_id: fis.test.bpp.io
@@ -10,8 +10,8 @@ context:
       code: IND
     city:
       code: '*'
-  message_id: 953c3fdc-09e3-44b6-a391-67463c17d7d2
-  timestamp: '2023-07-24T05:41:20.401Z'
+  message_id: 519da438-68dc-4f2c-bd10-79c0f88c3924
+  timestamp: '2023-07-24T05:40:26.618Z'
   transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
   ttl: PT24H
   version: 2.0.0
@@ -54,11 +54,11 @@ message:
               - descriptor:
                   code: MEDICAL_CHECKUP
                   name: Offline Medical checkup
-                value: Done
+                value: Pending
               - descriptor:
                   code: FINAL_PAYMENT
                   name: Final revised payment after medical checkup
-                value: Done
+                value: Pending
           - descriptor:
               code: CONSNENT_INFO
               name: Consent Information
@@ -105,24 +105,11 @@ message:
           duration: P1Y
           label: TENURE
         xinput:
-          head:
-            descriptor:
-              name: Customer Information
-            index:
-              min: 0
-              cur: 1
-              max: 3
-            headings:
-              - EKYC
-              - MEDICAL_DETAILS
-              - MEDICAL_CHECKUP_APPOINTMENT_FORM
-              - NOMINEE_DETAILS
           form:
-            id: MEDICAL_DETAILS_FORM_ID
-            mime_type: application/html
-            url: https://fis.test.bpp.io/form/medical_dtls
-            resubmit: true
-            multiple_sumbissions: false
+            id: EKYC_FORM_ID
+          form_response:
+            status: SUCCESS
+            submission_id: 79850933-4e41-4c76-bbe6-c5a392481226
           required: true
         add_ons:
           - id: A1
@@ -136,17 +123,102 @@ message:
               value: '100'
               currency: INR
     provider:
+      descriptor:
+        long_desc: >-
+          ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
+          Motor, Marine etc
+        name: ABC Insurance Ltd.
+        short_desc: 'ABC Insurance Ltd. India '
+        images:
+          - url: >-
+              https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
+            size_type: xs
       id: P1
+    quote:
+      id: OFFER_ID/PROPOSAL_ID
+      breakup:
+        - price:
+            value: '900'
+            currency: INR
+          title: BASE_PRICE
+        - price:
+            value: '50'
+            currency: INR
+          title: CONVIENCE_FEE
+        - price:
+            value: '40'
+            currency: INR
+          title: TAX
+        - price:
+            value: '10'
+            currency: INR
+          title: PROCESSING_FEE
+        - title: ADD_ONS
+          item:
+            id: CHILD_ITEM_ID_I1
+            add_ons:
+              - id: A1
+          price:
+            value: '100'
+            currency: INR
+      price:
+        currency: INR
+        value: '1100'
+      ttl: PT15D
+    tags:
+      - descriptor:
+          code: CONTACT_INFO
+          name: Contact Info
+        list:
+          - descriptor:
+              code: GRO_NAME
+              name: Gro name
+            value: ICICI
+          - descriptor:
+              code: GRO_EMAIL
+              name: Gro email
+            value: lifeline@iciciprulife.com
+          - descriptor:
+              code: GRO_CONTACT_NUMBER
+              name: Gro contact number
+            value: 1860 266 7766
+          - descriptor:
+              code: CUSTOMER_SUPPORT_LINK
+              name: Customer support link
+            value: >-
+              https://buy.iciciprulife.com/buy/GrievanceRedStep.htm?execution=e1s1
+          - descriptor:
+              code: CUSTOMER_SUPPORT_CONTACT_NUMBER
+              name: Customer support contact number
+            value: 1800 1080
+          - descriptor:
+              code: CUSTOMER_SUPPORT_EMAIL
+              name: Customer support email
+            value: customer.care@icicibank.com
+      - descriptor:
+          code: LSP_INFO
+          name: Lsp Info
+        list:
+          - descriptor:
+              code: LSP_NAME
+              name: Lsp name
+            value: ICICI_LSP
+          - descriptor:
+              code: LSP_EMAIL
+              name: Lsp email
+            value: lsp@iciciprulife.com
+          - descriptor:
+              code: LSP_CONTACT_NUMBER
+              name: Lsp contact number
+            value: 1860 266 7766
+          - descriptor:
+              code: LSP_ADDRESS
+              name: Lsp Address
+            value: >-
+              One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound
+              841, Senapati Bapat Marg, Elphinstone Road, Mumbai 400013
     payments:
       - collected_by: BPP
-        url: >-
-          https://www.abcinsurance.com/pg-gateway/payment?amount=1100&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
-        params:
-          amount: '240000'
-          currency: INR
-          transaction_id: 97ca91e3-3bd1-4bbf-a066-4db2a6070b6e
-        status: NOT-PAID
-        type: PRE-FULFILLMENT
         tags:
           - descriptor:
               code: BAP_TERMS

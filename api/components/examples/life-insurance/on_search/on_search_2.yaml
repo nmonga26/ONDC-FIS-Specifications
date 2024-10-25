@@ -49,10 +49,6 @@ message:
                   name: Check List
                 list:
                   - descriptor:
-                      code: MEDICAL_CHECKUP_PAYMENT
-                      name: Part payment for medical checkup
-                    value: Pending
-                  - descriptor:
                       code: BENEFICIARY_KYC
                       name: Kyc of the life to be insured
                     value: Pending
@@ -65,17 +61,9 @@ message:
                       name: Offline Medical checkup
                     value: Pending
                   - descriptor:
-                      code: DELTA_PAYMENT
+                      code: FINAL_PAYMENT
                       name: Final revised payment after medical checkup
                     value: Pending
-              - descriptor:
-                  code: CONSNENT_INFO
-                  name: Consent Information
-                list:
-                  - descriptor:
-                      code: CONSENT_HANDLE
-                      name: Generated Consent Handle
-                    value: <var:consent_handle_value>
               - descriptor:
                   code: GENERAL_INFO
                   name: General Information
