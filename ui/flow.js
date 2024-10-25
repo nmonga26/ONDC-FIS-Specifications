@@ -69,18 +69,19 @@ async function loadSteps(steps) {
     //   '<pre class="yaml-content">' +
     //   (step?.api === "form" ? step.example.value : JSON.stringify(step.example.value, null, 2)) +
     //   "</pre>";
-    yamlDiv.innerHTML = step?.api === "form" ? '<div>'+'<pre class="yaml-content">'+'<xmp>'+step.example.value+'</xmp>'+'</pre>'+'<div class="flow-forms">'+step.example.value+'</div>'+'</div>'
-      :'<pre class="yaml-content">' +
-       JSON.stringify(step.example.value, null, 2) +
-      "</pre>";
-    content.innerHTML = "<div>" + "<h3>" + step.summary + "</h3>" + "</div>";
+    // yamlDiv.innerHTML = step?.api === "form" ? '<div>'+'<pre class="yaml-content">'+'<xmp>'+step.example.value+'</xmp>'+'</pre>'+'<div class="flow-forms">'+step.example.value+'</div>'+'</div>'
+    //   :'<pre class="yaml-content">' +
+    //    JSON.stringify(step.example.value, null, 2) +
+    //   "</pre>";
+    // content.innerHTML = "<div>" + "<h3>" + step.summary + "</h3>" + "</div>";
 
-    // if(step?.api === "form") {
-    //   yamlDiv.innerHTML = '<div>'+'<pre class="yaml-content">'+'<xmp>'+step.example.value+'</xmp>'+'</pre>'+'<div class="flow-forms">'+step.example.value+'</div>'+'</div>'
-    // } else {
-    //   const formatter = new JSONFormatter(step.example.value, Infinity);
-    //   yamlDiv.appendChild(formatter.render());
-    // }
+    if(step?.api === "form") {
+      yamlDiv.innerHTML = '<div>'+'<pre class="yaml-content">'+'<xmp>'+step.example.value+'</xmp>'+'</pre>'+'<div class="flow-forms">'+step.example.value+'</div>'+'</div>'
+    } else {
+      // const formatter = new JSONFormatter(step.example.value, Infinity);
+      yamlDiv.appendChild(renderjson(step.example.value));
+      renderjson.set_show_to_level("all");
+    }
     content.appendChild(mermaidDiv);
     content.appendChild(yamlDiv);
     yamlDiv.appendChild(copyButton);

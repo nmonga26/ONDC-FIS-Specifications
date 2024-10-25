@@ -220,25 +220,27 @@
       background-color: #000000;
     }
 
-    .json-formatter-key {
-      color: #fff !important;
+    .renderjson .disclosure    { 
+      color: white;        
+      font-size: 150%; 
+    }
+    .renderjson .syntax        { 
+      color: white; 
+    }
+    .renderjson .string        { 
+      color: white; 
+    }
+    .renderjson .number        {
+       color: white; 
+      }
+    .renderjson .boolean       { color: white; }
+    .renderjson .key           { color: white; }
+    .renderjson .keyword       { color: white; }
+    .renderjson .object.syntax { 
+      color: white; 
       font-weight: bold;
     }
-
-    .json-formatter-toggler-link,
-    .json-formatter-value,
-    .json-formatter-string,
-    .json-formatter-number,
-    .json-formatter-boolean,
-    .json-formatter-null,
-    .json-formatter-bracket {
-      color: #fff !important;
-    }
-
-    .json-formatter-constructor-name {
-      color: #119e4a;
-    }
-
+    .renderjson .array.syntax  { color: white; }
 
     .copy-code-button {
       height: 32px;
@@ -750,6 +752,7 @@
     <script src="ui/log-submission.js"></script>
     <script src="ui/change-log.js"></script>
     <script src="ui/branches.js"></script>
+    <script type="text/javascript" src="ui/renderjson.js"></script>
     <!-- Your existing scripts here -->
   </body>
 </html>
