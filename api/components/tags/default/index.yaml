@@ -1,86 +1,19 @@
 search:
   message:
     intent:
-      payment: &a11
-        tags:
-          - code: BUYER_FINDER_FEES
-            description: Describes the finder fees of the loan for buyer
-            reference: <PR/Issue/Discussion Links md format text>
-            list: &a4
-              - code: BUYER_FINDER_FEES_TYPE
-                description: Buyer finder fee type.
-                reference: <PR/Issue/Discussion Links md format text>
-                list:
-                  - code: amount
-                    description: Describes, the Buyer App’s fee is a flat amount in INR.
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: percent- annualized
-                    description: Describes, the Buyer App’s fee is set as a percentage of the Total
-                      Loan Disbursed for a 12-month tenure loan.
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: percent
-                    description: Describes, the Buyer App’s fee is an absolute percentage.
-                    reference: <PR/Issue/Discussion Links md format text>
-              - code: BUYER_FINDER_FEES_PERCENTAGE
-                description: Buyer finder fee in percentage
-                reference: <PR/Issue/Discussion Links md format text>
-          - code: SETTLEMENT_TERMS
-            description: Describes the settlement terms of the loan
-            reference: <PR/Issue/Discussion Links md format text>
-            list: &a5
-              - code: SETTLEMENT_WINDOW
-                description: Time window to complete settlement for the loan
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: SETTLEMENT_BASIS
-                description: Basis required to complete settlement
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: SETTLEMENT_TYPE
-                description: Payment method to complete settlement
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: MANDATORY_ARBITRATION
-                description: Flag to denote if dispute can be resolved through arbitration
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: COURT_JURISDICTION
-                description: Denotes court that will have jurisdiction for the case
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: DELAY_INTEREST
-                description: Denotes interest to be paid as a delay charge
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: STATIC_TERMS
-                description: Terms for settlement
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: SETTLEMENT_AMOUNT
-                description: Denotes settlement amount
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: OFFLINE_CONTRACT
-                description: Denotes offline contract
-                reference: <PR/Issue/Discussion Links md format text>
-          - &a12
-            code: BREAKUP
-            description: Describes the breakup of EMIS
-            reference: <PR/Issue/Discussion Links md format text>
-            list: &a6
-              - code: PRINCIPAL_AMOUNT
-                description: Describes the loan principal, should include unit INR
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: INTEREST_AMOUNT
-                description: Describes the loan interest, should include unit INR
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: PROCESSING_FEE
-                description: Describes the loan processing fee, should include unit INR or %
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: OTHER_UPFRONT_CHARGES
-                description: Describes the other upfront charges, should include unit INR or %
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: NET_DISBURSED_AMOUNT
-                description: Describes the net disbursed amount, should include unit INR
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: OTHER_CHARGES
-                description: Describes the other charges, should include unit INR
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: INSURANCE_CHARGES, should include unit INR
-                description: Describes the insurance Charges
-                reference: <PR/Issue/Discussion Links md format text>
+      tags: &bapTerms
+        - &bap_terms
+          code: BAP_TERMS
+          description: Describes the finder fees of the loan for buyer
+          reference: <PR/Issue/Discussion Links md format text>
+          list: 
+            - code: STATIC_TERMS
+              description: Describes the static terms
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: OFFLINE_CONTRACT
+              description: Describes the offline contract.
+              reference: <PR/Issue/Discussion Links md format text>  
+
 on_search:
   message:
     catalog:
@@ -223,6 +156,19 @@ on_search:
               - code: E_SIGN
                 description: Borrower's E_SIGN status
                 reference: <PR/Issue/Discussion Links md format text
+      tags: &bppTerms
+        - &bpp_terms 
+          code: BPP_TERMS
+          description: Describes the finder fees of the loan for buyer
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            - code: STATIC_TERMS
+              description: Describes the static terms
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: OFFLINE_CONTRACT
+              description: Describes the offline contract.
+              reference: <PR/Issue/Discussion Links md format text>  
+
 on_select:
   message:
     order:
@@ -232,8 +178,53 @@ on_select:
 init:
   message:
     order:
-      payments: *a11
-on_init: &a14
+      tags: *bapTerms
+
+
+on_init: 
+  message:
+    order:
+      payments: &a15
+        tags:
+          - &a12
+            code: BREAKUP
+            description: Describes the breakup of EMIS
+            reference: <PR/Issue/Discussion Links md format text>
+            list: &a6
+              - code: PRINCIPAL_AMOUNT
+                description: Describes the loan principal, should include unit INR
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: INTEREST_AMOUNT
+                description: Describes the loan interest, should include unit INR
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: PROCESSING_FEE
+                description: Describes the loan processing fee, should include unit INR or %
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: OTHER_UPFRONT_CHARGES
+                description: Describes the other upfront charges, should include unit INR or %
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: NET_DISBURSED_AMOUNT
+                description: Describes the net disbursed amount, should include unit INR
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: OTHER_CHARGES
+                description: Describes the other charges, should include unit INR
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: INSURANCE_CHARGES, should include unit INR
+                description: Describes the insurance Charges
+                reference: <PR/Issue/Discussion Links md format text>
+      
+      items: *a9
+      provider: &a18
+        tags: *a13
+        fulfillments: *a10
+      tags: *bppTerms  
+confirm:
+  message:
+    order:
+      tags: 
+        - *bap_terms
+        - *bpp_terms
+on_confirm: &a14
   message:
     order:
       payments: &a15
@@ -243,7 +234,9 @@ on_init: &a14
       provider: &a18
         tags: *a13
         fulfillments: *a10
-on_confirm: *a14
+      tags:
+        - *bap_terms
+        - *bpp_terms
 on_status: *a14
 on_update:
   message:
