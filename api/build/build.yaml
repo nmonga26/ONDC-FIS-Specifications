@@ -4290,49 +4290,6 @@ x-flows:
               catalog:
                 descriptor:
                   name: ICICI Bank
-                fulfillments:
-                  - id: '1333'
-                    customer:
-                      person:
-                        name: John Doe
-                        dob: '1998-09-12'
-                        gender: Male
-                        creds:
-                          - id: BXU87Y252U
-                            type: PAN
-                      contact:
-                        email: john.doe@gmail.com
-                        phone: '7888888888'
-                    tags:
-                      - descriptor:
-                          code: CHECKLISTS
-                          name: Applicant Checklists
-                        list:
-                          - descriptor:
-                              code: KYC
-                              name: KYC
-                            value: PENDING
-                          - descriptor:
-                              code: E_SIGN
-                              name: E Sign Required
-                            value: PENDING
-                  - id: '1334'
-                    customer:
-                      person:
-                        name: Co Applicant 1
-                    tags:
-                      - descriptor:
-                          code: CHECKLISTS
-                          name: Applicant Checklists
-                        list:
-                          - descriptor:
-                              code: KYC
-                              name: KYC
-                            value: PENDING
-                          - descriptor:
-                              code: E_SIGN
-                              name: E Sign Required
-                            value: PENDING
                 providers:
                   - id: PROVIDER_ID
                     descriptor:
@@ -4507,6 +4464,49 @@ x-flows:
                               One Indiabulls centre, Tower 1, 18th Floor Jupiter
                               mill compound 841, Senapati Bapat Marg,
                               Elphinstone Road, Mumbai 400013
+                    fulfillments:
+                      - id: '1333'
+                        customer:
+                          person:
+                            name: John Doe
+                            dob: '1998-09-12'
+                            gender: Male
+                            creds:
+                              - id: BXU87Y252U
+                                type: PAN
+                          contact:
+                            email: john.doe@gmail.com
+                            phone: '7888888888'
+                        tags:
+                          - descriptor:
+                              code: CHECKLISTS
+                              name: Applicant Checklists
+                            list:
+                              - descriptor:
+                                  code: KYC
+                                  name: KYC
+                                value: PENDING
+                              - descriptor:
+                                  code: E_SIGN
+                                  name: E Sign Required
+                                value: PENDING
+                      - id: '1334'
+                        customer:
+                          person:
+                            name: Co Applicant 1
+                        tags:
+                          - descriptor:
+                              code: CHECKLISTS
+                              name: Applicant Checklists
+                            list:
+                              - descriptor:
+                                  code: KYC
+                                  name: KYC
+                                value: PENDING
+                              - descriptor:
+                                  code: E_SIGN
+                                  name: E Sign Required
+                                value: PENDING
                 tags:
                   - display: false
                     descriptor:
@@ -4572,31 +4572,31 @@ x-flows:
               order:
                 provider:
                   id: PROVIDER_ID
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
                 items:
                   - id: CHILD_ITEM_ID_WORKING_CAPITAL_LOAN
                     parent_item_id: ITEM_ID_WORKING_CAPITAL_LOAN
@@ -4652,57 +4652,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: PENDING
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: PENDING
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -4910,6 +4859,57 @@ x-flows:
                         url: >-
                           https://bpp.credit.becknprotocol.org/xinput/link/kyc-link
                       required: true
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: PENDING
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: PENDING
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
         details:
           - description: 'The lender will share form input for individual KYC '
             mermaid: |-
@@ -4983,57 +4983,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -5230,6 +5179,57 @@ x-flows:
                       form_response:
                         status: SUCCESS
                         submission_id: form_submission_id_individual_kyc_F03
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
         details:
           - description: >-
               The lender sends the completion status of Individual KYC through
@@ -5274,31 +5274,31 @@ x-flows:
               order:
                 provider:
                   id: PROVIDER_ID
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
                 items:
                   - id: CHILD_ITEM_ID_WORKING_CAPITAL_LOAN
                     parent_item_id: ITEM_ID_WORKING_CAPITAL_LOAN
@@ -5358,57 +5358,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -5616,6 +5565,57 @@ x-flows:
                         url: >-
                           https://bpp.credit.becknprotocol.org/xinput/link/business-kyc
                       required: true
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
         details:
           - description: The borrower receives form for entity KYC
             mermaid: |-
@@ -5729,31 +5729,31 @@ x-flows:
               order:
                 provider:
                   id: PROVIDER_ID
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
                 items:
                   - id: CHILD_ITEM_ID_WORKING_CAPITAL_LOAN
                     parent_item_id: ITEM_ID_WORKING_CAPITAL_LOAN
@@ -5833,31 +5833,31 @@ x-flows:
               order:
                 provider:
                   id: PROVIDER_ID
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
                 items:
                   - id: CHILD_ITEM_ID_WORKING_CAPITAL_LOAN
                     parent_item_id: ITEM_ID_WORKING_CAPITAL_LOAN
@@ -5924,57 +5924,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -6198,6 +6147,57 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
         details:
           - description: The borrower receives form details for account information
             mermaid: |-
@@ -6280,31 +6280,31 @@ x-flows:
               order:
                 provider:
                   id: PROVIDER_ID
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
                 items:
                   - id: CHILD_ITEM_ID_WORKING_CAPITAL_LOAN
                     parent_item_id: ITEM_ID_WORKING_CAPITAL_LOAN
@@ -6383,57 +6383,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -6665,6 +6614,57 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
         details:
           - description: >-
               The lender shares the information for e-nach and payment link for
@@ -6744,57 +6744,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -7029,6 +6978,57 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: >-
               The lender sends the completion status of e-mandate and payment
@@ -7174,57 +7174,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -7457,6 +7406,57 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
         details:
           - description: The lender sends the form input for e signing the loan agreement
             mermaid: |-
@@ -7532,57 +7532,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -7817,6 +7766,57 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: >-
               The lender sends the completion status of e-sign and payment
@@ -7983,57 +7983,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -8283,6 +8232,57 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: The Lender shares the working capital line details with order id.
             mermaid: |-
@@ -8751,16 +8751,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1335'
-                      customer:
-                        person:
-                          name: John Doe
-                          creds:
-                            - type: OTP
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -8919,6 +8909,16 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1335'
+                    customer:
+                      person:
+                        name: John Doe
+                        creds:
+                          - type: OTP
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
         details:
           - description: >-
               The lender will share the disbursement and repayment details along
@@ -9064,17 +9064,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1335'
-                      customer:
-                        person:
-                          name: John Doe
-                          creds:
-                            - type: OTP
-                              id: '12345'
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -9247,6 +9236,17 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1335'
+                    customer:
+                      person:
+                        name: John Doe
+                        creds:
+                          - type: OTP
+                            id: '12345'
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
         details:
           - description: The lender will acknowledge the borrower's consent for disbursal
             mermaid: |
@@ -9303,17 +9303,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1335'
-                      customer:
-                        person:
-                          name: John Doe
-                          creds:
-                            - type: OTP
-                              id: '12345'
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -9489,6 +9478,17 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1335'
+                    customer:
+                      person:
+                        name: John Doe
+                        creds:
+                          - type: OTP
+                            id: '12345'
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
         details:
           - description: >-
               The lender sends the completion of disbursal through unsolicited
@@ -9543,57 +9543,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -9839,6 +9788,57 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: >-
               The lender updates base transaction through unsolicited on_update
@@ -9963,18 +9963,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1335'
-                      customer:
-                        person:
-                          name: John Doe
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      stops:
-                        - authorization:
-                            type: OTP
-                            token: '1222'
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -10182,6 +10170,18 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1335'
+                    customer:
+                      person:
+                        name: John Doe
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    stops:
+                      - authorization:
+                          type: OTP
+                          token: '1222'
         details:
           - description: >-
               The lender(BPP) will provide a payment details for missed emi
@@ -10236,18 +10236,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1335'
-                      customer:
-                        person:
-                          name: John Doe
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      stops:
-                        - authorization:
-                            type: OTP
-                            token: '1222'
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -10455,6 +10443,18 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1335'
+                    customer:
+                      person:
+                        name: John Doe
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    stops:
+                      - authorization:
+                          type: OTP
+                          token: '1222'
         details:
           - description: >-
               The lender will update payment success details to borrower on
@@ -10507,57 +10507,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -10803,6 +10752,57 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: The lender will update quotation in the base transaction
             mermaid: |-
@@ -10924,17 +10924,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1335'
-                      customer:
-                        person:
-                          name: John Doe
-                          creds:
-                            - type: OTP
-                              id: '12345'
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -11149,6 +11138,17 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1335'
+                    customer:
+                      person:
+                        name: John Doe
+                        creds:
+                          - type: OTP
+                            id: '12345'
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
         details:
           - description: >-
               The lender will provide a payment details for prepart payment and
@@ -11203,17 +11203,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1335'
-                      customer:
-                        person:
-                          name: John Doe
-                          creds:
-                            - type: OTP
-                              id: '12345'
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -11430,6 +11419,17 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1335'
+                    customer:
+                      person:
+                        name: John Doe
+                        creds:
+                          - type: OTP
+                            id: '12345'
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
         details:
           - description: >-
               The lender will update payment details for pre-part payment and
@@ -11482,57 +11482,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -11778,6 +11727,57 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: The lender will update quotation in the base transaction
             mermaid: |-
@@ -11896,57 +11896,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -12230,6 +12179,57 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: >-
               The lender will provide a payment details for foreclosure of
@@ -12280,57 +12280,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -12614,6 +12563,57 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: The lender will update quotation in the base transaction
             mermaid: |-
@@ -12727,57 +12727,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -13027,6 +12976,57 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: >-
               The lender initiates loan cancellation request and shares the
@@ -13080,57 +13080,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -13380,6 +13329,57 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: The lender confirms the credit line cancellation
             mermaid: |
@@ -13532,31 +13532,31 @@ x-flows:
               order:
                 provider:
                   id: PROVIDER_ID
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
                 items:
                   - id: CHILD_ITEM_ID_WORKING_CAPITAL_LOAN
                     parent_item_id: ITEM_ID_WORKING_CAPITAL_LOAN
@@ -13811,57 +13811,6 @@ x-examples:
                       long_desc: ICICI Bank Ltd, India.
                       name: ICICI Bank
                       short_desc: ICICI Bank Ltd
-                    fulfillments:
-                      - id: '1333'
-                        customer:
-                          person:
-                            name: John Doe
-                            dob: '1998-09-12'
-                            gender: Male
-                            creds:
-                              - id: BXU87Y252U
-                                type: PAN
-                          contact:
-                            email: john.doe@gmail.com
-                            phone: '7888888888'
-                        tags:
-                          - descriptor:
-                              code: CHECKLISTS
-                              name: Applicant Checklists
-                            list:
-                              - descriptor:
-                                  code: KYC
-                                  name: KYC
-                                value: COMPLETED
-                              - descriptor:
-                                  code: E_SIGN
-                                  name: E Sign Required
-                                value: PENDING
-                      - id: '1334'
-                        customer:
-                          person:
-                            name: Co Applicant 1
-                            dob: '1998-09-12'
-                            gender: Male
-                            creds:
-                              - id: BXU87Y252A
-                                type: PAN
-                          contact:
-                            email: applicant.1@gmail.com
-                            phone: '7888888888'
-                        tags:
-                          - descriptor:
-                              code: CHECKLISTS
-                              name: Applicant Checklists
-                            list:
-                              - descriptor:
-                                  code: KYC
-                                  name: KYC
-                                value: COMPLETED
-                              - descriptor:
-                                  code: E_SIGN
-                                  name: E Sign Required
-                                value: PENDING
                     tags:
                       - descriptor:
                           code: LSP_INFO
@@ -14052,6 +14001,57 @@ x-examples:
                                 name: Esign
                               value: PENDING
                           display: true
+                  fulfillments:
+                    - id: '1333'
+                      customer:
+                        person:
+                          name: John Doe
+                          dob: '1998-09-12'
+                          gender: Male
+                          creds:
+                            - id: BXU87Y252U
+                              type: PAN
+                        contact:
+                          email: john.doe@gmail.com
+                          phone: '7888888888'
+                      tags:
+                        - descriptor:
+                            code: CHECKLISTS
+                            name: Applicant Checklists
+                          list:
+                            - descriptor:
+                                code: KYC
+                                name: KYC
+                              value: COMPLETED
+                            - descriptor:
+                                code: E_SIGN
+                                name: E Sign Required
+                              value: PENDING
+                    - id: '1334'
+                      customer:
+                        person:
+                          name: Co Applicant 1
+                          dob: '1998-09-12'
+                          gender: Male
+                          creds:
+                            - id: BXU87Y252A
+                              type: PAN
+                        contact:
+                          email: applicant.1@gmail.com
+                          phone: '7888888888'
+                      tags:
+                        - descriptor:
+                            code: CHECKLISTS
+                            name: Applicant Checklists
+                          list:
+                            - descriptor:
+                                code: KYC
+                                name: KYC
+                              value: COMPLETED
+                            - descriptor:
+                                code: E_SIGN
+                                name: E Sign Required
+                              value: PENDING
           - summary: on_select_individual_kyc
             description: TBD
             value: *ref_32
@@ -14098,57 +14098,6 @@ x-examples:
                       long_desc: ICICI Bank Ltd, India.
                       name: ICICI Bank
                       short_desc: ICICI Bank Ltd
-                    fulfillments:
-                      - id: '1333'
-                        customer:
-                          person:
-                            name: John Doe
-                            dob: '1998-09-12'
-                            gender: Male
-                            creds:
-                              - id: BXU87Y252U
-                                type: PAN
-                          contact:
-                            email: john.doe@gmail.com
-                            phone: '7888888888'
-                        tags:
-                          - descriptor:
-                              code: CHECKLISTS
-                              name: Applicant Checklists
-                            list:
-                              - descriptor:
-                                  code: KYC
-                                  name: KYC
-                                value: COMPLETED
-                              - descriptor:
-                                  code: E_SIGN
-                                  name: E Sign Required
-                                value: PENDING
-                      - id: '1334'
-                        customer:
-                          person:
-                            name: Co Applicant 1
-                            dob: '1998-09-12'
-                            gender: Male
-                            creds:
-                              - id: BXU87Y252A
-                                type: PAN
-                          contact:
-                            email: applicant.1@gmail.com
-                            phone: '7888888888'
-                        tags:
-                          - descriptor:
-                              code: CHECKLISTS
-                              name: Applicant Checklists
-                            list:
-                              - descriptor:
-                                  code: KYC
-                                  name: KYC
-                                value: COMPLETED
-                              - descriptor:
-                                  code: E_SIGN
-                                  name: E Sign Required
-                                value: PENDING
                     tags:
                       - descriptor:
                           code: LSP_INFO
@@ -14344,6 +14293,57 @@ x-examples:
                           id: form_individual_kyc_F03
                         form_response:
                           status: PENDING
+                  fulfillments:
+                    - id: '1333'
+                      customer:
+                        person:
+                          name: John Doe
+                          dob: '1998-09-12'
+                          gender: Male
+                          creds:
+                            - id: BXU87Y252U
+                              type: PAN
+                        contact:
+                          email: john.doe@gmail.com
+                          phone: '7888888888'
+                      tags:
+                        - descriptor:
+                            code: CHECKLISTS
+                            name: Applicant Checklists
+                          list:
+                            - descriptor:
+                                code: KYC
+                                name: KYC
+                              value: COMPLETED
+                            - descriptor:
+                                code: E_SIGN
+                                name: E Sign Required
+                              value: PENDING
+                    - id: '1334'
+                      customer:
+                        person:
+                          name: Co Applicant 1
+                          dob: '1998-09-12'
+                          gender: Male
+                          creds:
+                            - id: BXU87Y252A
+                              type: PAN
+                        contact:
+                          email: applicant.1@gmail.com
+                          phone: '7888888888'
+                      tags:
+                        - descriptor:
+                            code: CHECKLISTS
+                            name: Applicant Checklists
+                          list:
+                            - descriptor:
+                                code: KYC
+                                name: KYC
+                              value: COMPLETED
+                            - descriptor:
+                                code: E_SIGN
+                                name: E Sign Required
+                              value: PENDING
       on_update:
         examples:
           - summary: on_update_cancellation_update_status.yaml
@@ -15913,65 +15913,63 @@ x-attributes:
                 description: >-
                   This describes the complete formulated description of the loan
                   provider whose catalog items have been selected.
-              fulfillments:
-                id:
-                  required: MANDATORY
-                  type: string
-                  owner: BPP
-                  usage: '--'
-                  description: Unique fulfillment ID generated by the BPP for this order.
-                customer:
-                  person:
-                    name:
+            fulfillments:
+              id:
+                required: MANDATORY
+                type: string
+                owner: BPP
+                usage: '--'
+                description: Unique fulfillment ID generated by the BPP for this order.
+              customer:
+                person:
+                  name:
+                    required: OPTIONAL
+                    type: string
+                    owner: BPP
+                    usage: '--'
+                    description: The customer's full name.
+                  dob:
+                    required: OPTIONAL
+                    type: string
+                    owner: BPP
+                    usage: '--'
+                    description: Customer's date of birth in ISO 8601 format (YYYY-MM-DD).
+                  gender:
+                    required: OPTIONAL
+                    type: string
+                    owner: BPP
+                    usage: '--'
+                    description: >-
+                      Customer's gender. Use a controlled vocabulary or codes
+                      for consistency.
+                  creds:
+                    id:
                       required: OPTIONAL
                       type: string
                       owner: BPP
                       usage: '--'
-                      description: The customer's full name.
-                    dob:
+                      description: PAN number of customer
+                    type:
                       required: OPTIONAL
                       type: string
                       owner: BPP
                       usage: '--'
-                      description: >-
-                        Customer's date of birth in ISO 8601 format
-                        (YYYY-MM-DD).
-                    gender:
-                      required: OPTIONAL
-                      type: string
-                      owner: BPP
-                      usage: '--'
-                      description: >-
-                        Customer's gender. Use a controlled vocabulary or codes
-                        for consistency.
-                    creds:
-                      id:
-                        required: OPTIONAL
-                        type: string
-                        owner: BPP
-                        usage: '--'
-                        description: PAN number of customer
-                      type:
-                        required: OPTIONAL
-                        type: string
-                        owner: BPP
-                        usage: '--'
-                        description: Type of identification document (e.g., 'PAN')
-                  contact:
-                    email:
-                      required: OPTIONAL
-                      type: string
-                      owner: BPP
-                      usage: '--'
-                      description: Customer's email address.
-                    phone:
-                      required: OPTIONAL
-                      type: string
-                      owner: BPP
-                      usage: '--'
-                      description: >-
-                        Customer's phone number. Use the E.164 standard format
-                        (e.g., +15551234567).
+                      description: Type of identification document (e.g., 'PAN')
+                contact:
+                  email:
+                    required: OPTIONAL
+                    type: string
+                    owner: BPP
+                    usage: '--'
+                    description: Customer's email address.
+                  phone:
+                    required: OPTIONAL
+                    type: string
+                    owner: BPP
+                    usage: '--'
+                    description: >-
+                      Customer's phone number. Use the E.164 standard format
+                      (e.g., +15551234567).
             items:
               id:
                 required: MANDATORY
