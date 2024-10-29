@@ -237,6 +237,10 @@ paths:
                       $ref: '#/components/schemas/Option/properties/id'
                     descriptor:
                       $ref: '#/components/schemas/Descriptor'
+                    tags:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/TagGroup'
                   required:
                     - order_id
               required:
@@ -943,6 +947,10 @@ components:
         ttl:
           description: Duration in seconds after which this catalog will expire
           type: string
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagGroup'
     Category:
       description: A label under which a collection of items can be grouped.
       type: object
@@ -1813,6 +1821,10 @@ components:
             - COMPLETE
             - CANCELLED
             - CANCELLATION_INITIATED
+            - ACCEPTED
+            - REJECTED
+            - CREATED
+            - COMPLETED
         type:
           description: >-
             This is used to indicate the type of order being created to BPPs.
@@ -1957,6 +1969,10 @@ components:
             - $ref: '#/components/schemas/City'
         contact:
           $ref: '#/components/schemas/Contact'
+        creds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Credential'
     Payment:
       description: >-
         Describes the terms of settlement between the BAP and the BPP for a
@@ -2040,6 +2056,7 @@ components:
             - NOT-PAID
             - DELAYED
             - DEFERRED
+            - FAILED
         time:
           $ref: '#/components/schemas/Time'
         tags:
@@ -6743,6 +6760,43 @@ x-flows:
                               name: IDV value
                               short_desc: Describes the IDV value
                             value: '300000'
+                      - descriptor:
+                          code: VAHAN_DETAILS
+                          name: Vahan Details
+                        list:
+                          - descriptor:
+                              code: MODEL
+                            value: X100
+                          - descriptor:
+                              code: MAKE
+                            value: BMX
+                          - descriptor:
+                              code: FUEL_TYPE
+                            value: Petrol
+                          - descriptor:
+                              code: VARIANT
+                            value: ZX
+                          - descriptor:
+                              code: REGISTERED_CITY
+                            value: Bangalore
+                          - descriptor:
+                              code: REGISTERED_DATE
+                            value: '2022-01-13'
+                          - descriptor:
+                              code: CHASSIS_NUMBER
+                            value: nvuwi3n23io90
+                          - descriptor:
+                              code: ENGINE_NUMBER
+                            value: 98vd98e32
+                          - descriptor:
+                              code: PREVIOUS_POLICY_NUMBER
+                            value: f5f90d6e8f924
+                          - descriptor:
+                              code: PREVIOUS_INSURER
+                            value: XYZ
+                          - descriptor:
+                              code: PREVIOUS_POLICY_END_DATE
+                            value: '2022-01-02'
                 payments:
                   - collected_by: BPP
                     url: >-
@@ -7188,6 +7242,43 @@ x-flows:
                               name: IDV value
                               short_desc: Describes the IDV value
                             value: '300000'
+                      - descriptor:
+                          code: VAHAN_DETAILS
+                          name: Vahan Details
+                        list:
+                          - descriptor:
+                              code: MODEL
+                            value: X100
+                          - descriptor:
+                              code: MAKE
+                            value: BMX
+                          - descriptor:
+                              code: FUEL_TYPE
+                            value: Petrol
+                          - descriptor:
+                              code: VARIANT
+                            value: ZX
+                          - descriptor:
+                              code: REGISTERED_CITY
+                            value: Bangalore
+                          - descriptor:
+                              code: REGISTERED_DATE
+                            value: '2022-01-13'
+                          - descriptor:
+                              code: CHASSIS_NUMBER
+                            value: nvuwi3n23io90
+                          - descriptor:
+                              code: ENGINE_NUMBER
+                            value: 98vd98e32
+                          - descriptor:
+                              code: PREVIOUS_POLICY_NUMBER
+                            value: f5f90d6e8f924
+                          - descriptor:
+                              code: PREVIOUS_INSURER
+                            value: XYZ
+                          - descriptor:
+                              code: PREVIOUS_POLICY_END_DATE
+                            value: '2022-01-02'
                 payments:
                   - collected_by: BPP
                     url: >-
