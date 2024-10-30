@@ -7488,10 +7488,6 @@ x-flows:
                               short_desc: Each installment amount of repayment
                             value: PT30D
                         display: true
-                    xinput:
-                      form_response:
-                        status: REJECTED
-                        submission_id: 79850933-4e41-4c76-bbe6-c5a392481226
                 quote:
                   id: LOAN_LEAD_ID_OR_SIMILAR
                   price:
@@ -9241,23 +9237,27 @@ x-flows:
                   id: LOAN_LEAD_ID_OR_SIMILAR
                   price:
                     currency: INR
-                    value: '223836'
+                    value: '242336'
                   breakup:
                     - title: PRINCIPAL
                       price:
-                        value: '60920'
-                        currency: INR
-                    - title: INSURANCE_CHARGES
-                      price:
-                        value: '500'
+                        value: '200000'
                         currency: INR
                     - title: INTEREST
                       price:
-                        value: '12000'
+                        value: '30000'
                         currency: INR
                     - title: PROCESSING_FEE
                       price:
                         value: '1800'
+                        currency: INR
+                    - title: OTHER_UPFRONT_CHARGES
+                      price:
+                        value: '0'
+                        currency: INR
+                    - title: INSURANCE_CHARGES
+                      price:
+                        value: '500'
                         currency: INR
                     - title: NET_DISBURSED_AMOUNT
                       price:
@@ -9640,23 +9640,27 @@ x-flows:
                   id: LOAN_LEAD_ID_OR_SIMILAR
                   price:
                     currency: INR
-                    value: '223836'
+                    value: '242336'
                   breakup:
                     - title: PRINCIPAL
                       price:
-                        value: '60920'
+                        value: '200000'
                         currency: INR
                     - title: INTEREST
                       price:
-                        value: '12000'
-                        currency: INR
-                    - title: INSURANCE_CHARGES
-                      price:
-                        value: '500'
+                        value: '30000'
                         currency: INR
                     - title: PROCESSING_FEE
                       price:
                         value: '1800'
+                        currency: INR
+                    - title: OTHER_UPFRONT_CHARGES
+                      price:
+                        value: '0'
+                        currency: INR
+                    - title: INSURANCE_CHARGES
+                      price:
+                        value: '500'
                         currency: INR
                     - title: NET_DISBURSED_AMOUNT
                       price:
@@ -10118,23 +10122,23 @@ x-flows:
                   id: LOAN_LEAD_ID_OR_SIMILAR
                   price:
                     currency: INR
-                    value: '224800'
+                    value: '237300'
                   breakup:
                     - title: PRINCIPAL
                       price:
-                        value: '80720'
-                        currency: INR
-                    - title: INSURANCE_CHARGES
-                      price:
-                        value: '500'
+                        value: '200000'
                         currency: INR
                     - title: INTEREST
                       price:
-                        value: '12000'
+                        value: '30000'
                         currency: INR
                     - title: PROCESSING_FEE
                       price:
                         value: '1800'
+                        currency: INR
+                    - title: INSURANCE_CHARGES
+                      price:
+                        value: '500'
                         currency: INR
                     - title: OTHER_CHARGES
                       price:
@@ -10151,6 +10155,10 @@ x-flows:
                     - title: OUTSTANDING_INTEREST
                       price:
                         value: '6000'
+                        currency: INR
+                    - title: OTHER_UPFRONT_CHARGES
+                      price:
+                        value: '0'
                         currency: INR
                     - title: PRE_PAYMENT_CHARGE
                       price:
@@ -10515,23 +10523,23 @@ x-flows:
                   id: LOAN_LEAD_ID_OR_SIMILAR
                   price:
                     currency: INR
-                    value: '224800'
+                    value: '237300'
                   breakup:
                     - title: PRINCIPAL
                       price:
-                        value: '80720'
-                        currency: INR
-                    - title: INSURANCE_CHARGES
-                      price:
-                        value: '500'
+                        value: '200000'
                         currency: INR
                     - title: INTEREST
                       price:
-                        value: '12000'
+                        value: '30000'
                         currency: INR
                     - title: PROCESSING_FEE
                       price:
                         value: '1800'
+                        currency: INR
+                    - title: INSURANCE_CHARGES
+                      price:
+                        value: '500'
                         currency: INR
                     - title: OTHER_CHARGES
                       price:
@@ -10541,13 +10549,17 @@ x-flows:
                       price:
                         value: '197700'
                         currency: INR
-                    - title: OUTSTANDING_PRINCIPA
+                    - title: OUTSTANDING_PRINCIPAL
                       price:
                         value: '119280'
                         currency: INR
                     - title: OUTSTANDING_INTEREST
                       price:
                         value: '6000'
+                        currency: INR
+                    - title: OTHER_UPFRONT_CHARGES
+                      price:
+                        value: '0'
                         currency: INR
                     - title: PRE_PAYMENT_CHARGE
                       price:
@@ -10991,7 +11003,7 @@ x-flows:
                   id: LOAN_LEAD_ID_OR_SIMILAR
                   price:
                     currency: INR
-                    value: '233800'
+                    value: '234300'
                   breakup:
                     - title: PRINCIPAL
                       price:
@@ -11000,6 +11012,10 @@ x-flows:
                     - title: INTEREST
                       price:
                         value: '30000'
+                        currency: INR
+                    - title: OTHER_UPFRONT_CHARGES
+                      price:
+                        value: '0'
                         currency: INR
                     - title: INSURANCE_CHARGES
                       price:
@@ -11385,7 +11401,7 @@ x-flows:
                   id: LOAN_LEAD_ID_OR_SIMILAR
                   price:
                     currency: INR
-                    value: '233800'
+                    value: '234300'
                   breakup:
                     - title: PRINCIPAL
                       price:
@@ -11394,6 +11410,10 @@ x-flows:
                     - title: INTEREST
                       price:
                         value: '30000'
+                        currency: INR
+                    - title: OTHER_UPFRONT_CHARGES
+                      price:
+                        value: '0'
                         currency: INR
                     - title: INSURANCE_CHARGES
                       price:
@@ -14127,6 +14147,127 @@ x-attributes:
                   the customer wants to pay for the order.
                 owner: BAP
                 type: object
+              tags:
+                BUYER_FINDER_FEES:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes Buyer finder fee
+                  owner: BAP
+                  type: string
+                  list:
+                    BUYER_FINDER_FEES_TYPE:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes Buyer finder fee type
+                      owner: BAP
+                      type: string
+                    BUYER_FINDER_FEES_PERCENTAGE:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes Buyer finder fee percentage
+                      owner: BAP
+                      type: string
+                SETTLEMENT_TERMS:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes settlement terms
+                  owner: BAP
+                  type: string
+                  list:
+                    DELAY_INTEREST:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes delay interest
+                      owner: BAP
+                      type: string
+                    STATIC_TERMS:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes static terms
+                      owner: BAP
+                      type: string
+                    OFFLINE_CONTRACT:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes offline contract
+                      owner: BAP
+                      type: string
+            provider:
+              id:
+                required: optional
+                usage: b9e9a97c0fa5
+                description: It refers to the unique id of the loan provider
+                owner: BPP
+                type: false
+              items:
+                id:
+                  required: optional
+                  usage: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+                  description: >-
+                    This describes the unique id of the the availed product or
+                    service generated by the system.
+                  owner: BPP
+                  type: string
+                xinput:
+                  form:
+                    id:
+                      required: optional
+                      usage: d097c2f5-cb8d-42fe-900e-dfecdede16fb
+                      description: Describes unique form id.
+                      owner: BPP
+                      type: string
+                    _description:
+                      required: optional
+                      usage: '--'
+                      description: Describes a form
+                      owner: BPP
+                      type: object
+                  form_response:
+                    status:
+                      required: optional
+                      usage: SUCCESS
+                      description: |
+                        Describes the status of form 
+                      owner: BAP
+                      type: string
+                    submission_id:
+                      required: optional
+                      usage: cb8d-42fe-900e-dfecdede16fb
+                      description: >-
+                        Unique submission id which a borrower got as a reponse
+                        after successful submission of form 
+                      owner: BAP
+                      type: string
+                    _description:
+                      required: optional
+                      usage: '--'
+                      description: Describes the response to a form submission
+                      owner: BAP
+                      type: object
+                  _description:
+                    required: optional
+                    usage: '--'
+                    description: >-
+                      Additional input required from the customer to purchase /
+                      avail this item
+                    owner: BAP/BPP
+                    type: object
+                _description:
+                  required: optional
+                  usage: '--'
+                  description: >-
+                    The provider from which the customer wants to place to the
+                    order from
+                  owner: BAP/BPP
+                  type: object
+              _description:
+                required: optional
+                usage: '--'
+                description: >-
+                  The provider from which the customer wants to place to the
+                  order from
+                owner: BAP/BPP
+                type: object
       on_search:
         context:
           location:
@@ -14474,7 +14615,7 @@ x-attributes:
                   head:
                     descriptor:
                       name:
-                        required: Mandatory
+                        required: Optional
                         usage: Customer Information
                         description: >-
                           This describes the heading of the form where we are
@@ -14483,7 +14624,7 @@ x-attributes:
                         owner: BPP
                         type: string
                       _description:
-                        required: Mandatory
+                        required: optional
                         usage: '--'
                         description: >-
                           This refers to the header information of the input of
@@ -14502,7 +14643,7 @@ x-attributes:
                         owner: BPP
                         type: number
                       max:
-                        required: Mandatory
+                        required: Optional
                         usage: false
                         description: >-
                           This refers to the maximum integer value of the xinput
@@ -14511,7 +14652,7 @@ x-attributes:
                         owner: BPP
                         type: number
                       cur:
-                        required: Mandatory
+                        required: Optional
                         usage: false
                         description: >-
                           This refers to the current integer value of the xinput
@@ -14520,7 +14661,7 @@ x-attributes:
                         owner: BPP
                         type: number
                       _description:
-                        required: Mandatory
+                        required: Optional
                         usage: '--'
                         description: >-
                           It refers to the integer value of the index number of
@@ -14528,7 +14669,7 @@ x-attributes:
                         owner: BPP
                         type: object
                     _description:
-                      required: Mandatory
+                      required: Optional
                       usage: '--'
                       description: >-
                         This refers to the header information of the input of
@@ -14537,14 +14678,14 @@ x-attributes:
                       owner: BPP
                       type: object
                     headings:
-                      required: Mandatory
+                      required: Optional
                       usage: Personal Information
                       description: This is the forms heading names.
                       owner: BPP
                       type: string
                   form:
                     url:
-                      required: Mandatory
+                      required: Optional
                       usage: >-
                         https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75
                       description: >-
@@ -14554,13 +14695,13 @@ x-attributes:
                       owner: BPP
                       type: string
                     mime_type:
-                      required: Mandatory
+                      required: Optional
                       usage: text/html
                       description: This describes the type of the form generated.
                       owner: BPP
                       type: string
                     resubmit:
-                      required: Mandatory
+                      required: Optional
                       usage: false
                       description: >-
                         After reopening the form, this attribute keeps in check
@@ -14568,7 +14709,7 @@ x-attributes:
                       owner: BPP
                       type: boolean
                     multiple_sumbissions:
-                      required: Mandatory
+                      required: Optional
                       usage: false
                       description: >-
                         This attribute defines if the form can be submitted
@@ -14576,13 +14717,13 @@ x-attributes:
                       owner: BPP
                       type: boolean
                     id:
-                      required: Mandatory
+                      required: Optional
                       usage: d097c2f5-cb8d-42fe-900e-dfecdede16fb
                       description: This refers to the unique system id of the form
                       owner: BPP
                       type: string
                     _description:
-                      required: Mandatory
+                      required: Optional
                       usage: '--'
                       description: >-
                         It refers to the detailed description of the used form
@@ -14590,7 +14731,7 @@ x-attributes:
                       owner: BPP
                       type: object
                   _description:
-                    required: Mandatory
+                    required: Optional
                     usage: '--'
                     description: >-
                       It refers to those information columns that requires
@@ -14599,13 +14740,29 @@ x-attributes:
                     owner: BPP
                     type: object
                   required:
-                    required: Mandatory
+                    required: Optional
                     usage: true
                     description: >-
                       This attribute specifies if the BPP requires the form data
                       mandatorily for order confirmation.
                     owner: BPP
                     type: boolean
+                  form_response:
+                    status:
+                      required: Optional
+                      usage: SUCCESS
+                      description: |
+                        Describes the status of form 
+                      owner: BAP
+                      type: string
+                    submission_id:
+                      required: Optional
+                      usage: 242ea230-2b57-4126-bd21-5929325de465
+                      description: >-
+                        Unique submission id which a borrower got as a reponse
+                        after successful submission of form 
+                      owner: BAP
+                      type: string
                 _description:
                   required: Mandatory
                   usage: '--'
@@ -14629,6 +14786,248 @@ x-attributes:
                     request.
                   owner: BPP
                   type: boolean
+                parent_item_id:
+                  required: Optional
+                  usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
+                  description: Unique item id of the parent item
+                  owner: BPP
+                  type: string
+                price:
+                  currency:
+                    required: Optional
+                    usage: INR
+                    description: Describes currency value in string form
+                    owner: BPP
+                    type: string
+                  value:
+                    required: Optional
+                    usage: 20000
+                    description: Describes price value in string form
+                    owner: BPP
+                    type: string
+                tags:
+                  INFO:
+                    required: Optional
+                    usage: '--'
+                    description: Describes general info
+                    owner: BPP
+                    type: string
+                    list:
+                      INTEREST_RATE:
+                        required: Optional
+                        usage: '--'
+                        description: Describes the interest rate, should include unit as %.
+                        owner: BPP
+                        type: string
+                      TERM:
+                        required: Optional
+                        usage: '--'
+                        description: Describes the loan term, should be in PT5M format
+                        owner: BPP
+                        type: string
+                      INTEREST_RATE_TYPE:
+                        required: Optional
+                        usage: '--'
+                        description: >-
+                          Describes the loan interest rate type, should be ENUM
+                          FIXED/FLOATING.
+                        owner: BPP
+                        type: string
+                      APPLICATION_FEE:
+                        required: Optional
+                        usage: '--'
+                        description: >-
+                          Describes the loan application fee, should include
+                          units INR or %
+                        owner: BPP
+                        type: string
+                      FORECLOSURE_FEE:
+                        required: Optional
+                        usage: '--'
+                        description: >-
+                          Describes the loan forecloure fee, should include
+                          units INR or %
+                        owner: BPP
+                        type: string
+                      INTEREST_RATE_CONVERSION_CHARGE:
+                        required: Optional
+                        usage: '--'
+                        description: >-
+                          Describes the loan interest rate conversion
+                          charge,should include units INR or %
+                        owner: BAP
+                        type: string
+                      OTHER_PENALTY_FEE:
+                        required: Optional
+                        usage: '--'
+                        description: >-
+                          Describes the loan penalty fee,should include units
+                          INR or %
+                        owner: BAP
+                        type: string
+                      DELAY_PENALTY_FEE:
+                        required: Optional
+                        usage: '--'
+                        description: >-
+                          Describes the loan interest rate type, should include
+                          units INR or %
+                        owner: BAP
+                        type: string
+                      ANNUAL_PERCENTAGE_RATE:
+                        required: Optional
+                        usage: '--'
+                        description: >-
+                          Describes the annual percentage fee, should include
+                          units INR or %
+                        owner: BAP
+                        type: string
+                      REPAYMENT_FREQUENCY:
+                        required: Optional
+                        usage: '--'
+                        description: Describes the repayment frequency
+                        owner: BAP
+                        type: string
+                      NUMBER_OF_INSTALLMENTS:
+                        required: Optional
+                        usage: '--'
+                        description: Describes the number of installments
+                        owner: BAP
+                        type: string
+                      TNC_LINK:
+                        required: Optional
+                        usage: '--'
+                        description: Describes the terms & conditions
+                        owner: BAP
+                        type: string
+                      COOL_OFF_PERIOD:
+                        required: Optional
+                        usage: '--'
+                        description: Describes the loan cool off period
+                        owner: BAP
+                        type: string
+                      INSTALLMENT_AMOUNT:
+                        required: Optional
+                        usage: '--'
+                        description: >-
+                          Describes the loan installment amount, should include
+                          unit INR
+                        owner: BAP
+                        type: string
+                      PRINCIPAL_AMOUNT:
+                        required: Optional
+                        usage: '--'
+                        description: Describes the loan principal, should include unit INR
+                        owner: BPP
+                        type: string
+                      INTEREST_AMOUNT:
+                        required: Optional
+                        usage: '--'
+                        description: >-
+                          Describes the loan interest rate, should include unit
+                          INR
+                        owner: BPP
+                        type: string
+                      PROCESSING_FEE:
+                        required: Optional
+                        usage: '--'
+                        description: >-
+                          Describes the loan processing fee, should include unit
+                          INR
+                        owner: BPP
+                        type: string
+                      OTHER_UPFRONT_CHARGES:
+                        required: Optional
+                        usage: '--'
+                        description: >-
+                          Describes the other charges, should include unit INR
+                          or %
+                        owner: BPP
+                        type: string
+                      INSURANCE_CHARGES:
+                        required: Optional
+                        usage: '--'
+                        description: >-
+                          Describes the insurance charges, should include unit
+                          INR
+                        owner: BPP
+                        type: string
+                      NET_DISBURSED_AMOUNT:
+                        required: Optional
+                        usage: '--'
+                        description: >-
+                          Describes the net disbursed amount, should include
+                          unit INR
+                        owner: BPP
+                        type: string
+                      OTHER_CHARGES:
+                        required: Optional
+                        usage: '--'
+                        description: Describes the other charges, should include unit INR
+                        owner: BPP
+                        type: string
+                      OFFER_VALIDITY:
+                        required: Optional
+                        usage: '--'
+                        description: Describes the offer validity
+                        owner: BPP
+                        type: string
+                      MIN_INTEREST_RATE:
+                        required: Optional
+                        usage: '--'
+                        description: >-
+                          Describes the min. interest rate, should include unit 
+                          %
+                        owner: BPP
+                        type: string
+                      MAX_INTEREST_RATE:
+                        required: Optional
+                        usage: '--'
+                        description: >-
+                          Describes the max. interest rate, should include unit 
+                          %
+                        owner: BPP
+                        type: string
+                      MIN_TENURE:
+                        required: Optional
+                        usage: '--'
+                        description: Describes the min. tenure
+                        owner: BPP
+                        type: string
+                      MAX_TENURE:
+                        required: Optional
+                        usage: '--'
+                        description: Describes the max. tenure
+                        owner: BPP
+                        type: string
+                      MIN_LOAN_AMOUNT:
+                        required: Optional
+                        usage: '--'
+                        description: >-
+                          Describes the min. loan amount tenure, should include
+                          unit INR
+                        owner: BPP
+                        type: string
+                      "MAX_LOAN_AMOUNT\n":
+                        required: Optional
+                        usage: '--'
+                        description: >-
+                          Describes the max. loan amount tenure, should include
+                          unit INR
+                        owner: BPP
+                        type: string
+                  CONSENT_INFO:
+                    required: Optional
+                    usage: '--'
+                    description: Describes consent info
+                    owner: BPP
+                    type: string
+                    list:
+                      CONSENT_HANDLER:
+                        required: Optional
+                        usage: '--'
+                        description: Describes consent handler info
+                        owner: BPP
+                        type: string
               _description:
                 required: Mandatory
                 usage: '--'
@@ -14657,6 +15056,144 @@ x-attributes:
                     how the customer wants to pay for the order.
                   owner: BAP/BPP
                   type: object
+                tags:
+                  BUYER_FINDER_FEES:
+                    required: Mandatory
+                    usage: '--'
+                    description: Describes Buyer finder fee
+                    owner: BAP
+                    type: string
+                    list:
+                      BUYER_FINDER_FEES_TYPE:
+                        required: Mandatory
+                        usage: '--'
+                        description: Describes Buyer finder fee type
+                        owner: BAP
+                        type: string
+                      BUYER_FINDER_FEES_PERCENTAGE:
+                        required: Mandatory
+                        usage: '--'
+                        description: Describes Buyer finder fee percentage
+                        owner: BAP
+                        type: string
+                  SETTLEMENT_TERMS:
+                    required: Mandatory
+                    usage: '--'
+                    description: Describes settlement terms
+                    owner: BAP
+                    type: string
+                    list:
+                      SETTLEMENT_WINDOW:
+                        required: Mandatory
+                        usage: '--'
+                        description: Describes settlement window
+                        owner: BAP
+                        type: string
+                      SETTLEMENT_BASIS:
+                        required: Mandatory
+                        usage: '--'
+                        description: Describes settlement basis
+                        owner: BAP
+                        type: string
+                      STATIC_TERMS:
+                        required: Mandatory
+                        usage: '--'
+                        description: Describes static terms
+                        owner: BAP
+                        type: string
+                      OFFLINE_CONTRACT:
+                        required: Mandatory
+                        usage: '--'
+                        description: Describes offline contract
+                        owner: BAP
+                        type: string
+                      MANDATORY_ARBITRATION:
+                        required: Mandatory
+                        usage: '--'
+                        description: Describes mandatory arbitration
+                        owner: BPP
+                        type: string
+                      COURT_JURISDICTION:
+                        required: Mandatory
+                        usage: '--'
+                        description: Describes court jurisdiction
+                        owner: BPP
+                        type: string
+              tags:
+                CONTACT_INFO:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes the contact info of GRO.
+                  owner: BPP
+                  type: string
+                  list:
+                    GRO_NAME:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro name
+                      owner: BPP
+                      type: string
+                    GRO_EMAIL:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro email
+                      owner: BPP
+                      type: string
+                    GRO_CONTACT_NUMBER:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro contact number
+                      owner: BPP
+                      type: string
+                    CUSTOMER_SUPPORT_LINK:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro customer support link
+                      owner: BPP
+                      type: string
+                    CUSTOMER_SUPPORT_CONTACT_NUMBER:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the customer support contact number
+                      owner: BPP
+                      type: string
+                    CUSTOMER_SUPPORT_EMAIL:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the support email
+                      owner: BPP
+                      type: string
+                LSP_INFO:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes the lsp info
+                  owner: BPP
+                  type: string
+                  list:
+                    LSP_NAME:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp name
+                      owner: BPP
+                      type: string
+                    LSP_EMAIL:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp email
+                      owner: BPP
+                      type: string
+                    LSP_CONTACT_NUMBER:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp contact number
+                      owner: BPP
+                      type: string
+                    LSP_ADDRESS:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp address
+                      owner: BPP
+                      type: string
             _description:
               required: Mandatory
               usage: '--'
@@ -14905,6 +15442,12 @@ x-attributes:
                   specified order.
                 owner: BAP/BPP
                 type: object
+              parent_item_id:
+                required: Mandatory
+                usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
+                description: Unique item id of the parent item
+                owner: BAP
+                type: string
             _description:
               required: Mandatory
               usage: '--'
@@ -15136,6 +15679,81 @@ x-attributes:
                   provider whose catalog items have been selected.
                 owner: BPP
                 type: object
+              tags:
+                CONTACT_INFO:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes the contact info of GRO.
+                  owner: BPP
+                  type: string
+                  list:
+                    GRO_NAME:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro name
+                      owner: BPP
+                      type: string
+                    GRO_EMAIL:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro email
+                      owner: BPP
+                      type: string
+                    GRO_CONTACT_NUMBER:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro contact number
+                      owner: BPP
+                      type: string
+                    CUSTOMER_SUPPORT_LINK:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro customer support link
+                      owner: BPP
+                      type: string
+                    CUSTOMER_SUPPORT_CONTACT_NUMBER:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the customer support contact number
+                      owner: BPP
+                      type: string
+                    CUSTOMER_SUPPORT_EMAIL:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the support email
+                      owner: BPP
+                      type: string
+                LSP_INFO:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes the lsp info
+                  owner: BPP
+                  type: string
+                  list:
+                    LSP_NAME:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp name
+                      owner: BPP
+                      type: string
+                    LSP_EMAIL:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp email
+                      owner: BPP
+                      type: string
+                    LSP_CONTACT_NUMBER:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp contact number
+                      owner: BPP
+                      type: string
+                    LSP_ADDRESS:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp address
+                      owner: BPP
+                      type: string
             items:
               id:
                 required: Mandatory
@@ -15380,6 +15998,118 @@ x-attributes:
                   description: This attribute specifies the currency for the item.
                   owner: BPP
                   type: string
+              parent_item_id:
+                required: Mandatory
+                usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
+                description: Unique item id of the parent item
+                owner: BAP
+                type: string
+              tags:
+                INFO:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes general info
+                  owner: BPP
+                  type: string
+                  list:
+                    INTEREST_RATE:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the interest rate
+                      owner: BPP
+                      type: string
+                    TERM:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the loan term
+                      owner: BPP
+                      type: string
+                    INTEREST_RATE_TYPE:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the loan interest rate type
+                      owner: BPP
+                      type: string
+                    APPLICATION_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan application fee, should include units
+                        INR or %
+                      owner: BPP
+                      type: string
+                    FORECLOSURE_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan forecloure fee, should include units
+                        INR or %
+                      owner: BPP
+                      type: string
+                    INTEREST_RATE_CONVERSION_CHARGE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan interest rate conversion
+                        charge,should include units INR or %
+                      owner: BPP
+                      type: string
+                    OTHER_PENALTY_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan penalty fee,should include units INR
+                        or %
+                      owner: BPP
+                      type: string
+                    DELAY_PENALTY_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan interest rate type, should include
+                        units INR or %
+                      owner: BPP
+                      type: string
+                    ANNUAL_PERCENTAGE_RATE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the annual percentage fee, should include
+                        units INR or %
+                      owner: BPP
+                      type: string
+                    REPAYMENT_FREQUENCY:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the repayment frequency
+                      owner: BPP
+                      type: string
+                    NUMBER_OF_INSTALLMENTS:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the number of installments
+                      owner: BPP
+                      type: string
+                    TNC_LINK:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the terms & conditions
+                      owner: BPP
+                      type: string
+                    COOL_OFF_PERIOD:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the loan cool off period
+                      owner: BPP
+                      type: string
+                    INSTALLMENT_AMOUNT:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan installment amount, should include
+                        unit INR
+                      owner: BPP
+                      type: string
             _description:
               required: Mandatory
               usage: '--'
@@ -15662,7 +16392,7 @@ x-attributes:
               xinput:
                 form_response:
                   status:
-                    required: Mandatory
+                    required: optional
                     usage: SUCCESS
                     description: >-
                       This refers to the submission status of the additional
@@ -15670,7 +16400,7 @@ x-attributes:
                     owner: BAP
                     type: string
                   submission_id:
-                    required: Mandatory
+                    required: optional
                     usage: 73ef9742-c17d-4c4e-92e3-b057960863af
                     description: >-
                       This refers to the id of the submitted form that a
@@ -15688,7 +16418,7 @@ x-attributes:
                     type: object
                 form:
                   id:
-                    required: Mandatory
+                    required: optional
                     usage: F02
                     description: This refers to the identifier of the generated form.
                     owner: BAP
@@ -15718,6 +16448,12 @@ x-attributes:
                   specified order.
                 owner: BAP/BPP
                 type: object
+              parent_item_id:
+                required: Mandatory
+                usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
+                description: Unique item id of the parent item
+                owner: BAP
+                type: string
             _description:
               required: Mandatory
               usage: '--'
@@ -15789,6 +16525,63 @@ x-attributes:
                   description: This attribute defines the payment params for this order.
                   owner: BAP/BPP
                   type: object
+              tags:
+                BUYER_FINDER_FEES:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes Buyer finder fee
+                  owner: BAP
+                  type: string
+                  list:
+                    BUYER_FINDER_FEES_TYPE:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes Buyer finder fee type
+                      owner: BAP
+                      type: string
+                    BUYER_FINDER_FEES_PERCENTAGE:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes Buyer finder fee percentage
+                      owner: BAP
+                      type: string
+                SETTLEMENT_TERMS:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes settlement terms
+                  owner: BAP
+                  type: string
+                  list:
+                    DELAY_INTEREST:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes delay interest
+                      owner: BAP
+                      type: string
+                    STATIC_TERMS:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes static terms
+                      owner: BAP
+                      type: string
+                    OFFLINE_CONTRACT:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes offline contract
+                      owner: BAP
+                      type: string
+                    SETTLEMENT_AMOUNT:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes settlement amount to counter-party
+                      owner: BAP
+                      type: string
+                    SETTLEMENT_TYPE:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes settlement type
+                      owner: BPP
+                      type: string
       on_init:
         context:
           location:
@@ -16015,6 +16808,81 @@ x-attributes:
                   provider whose catalog items have been selected.
                 owner: BPP
                 type: object
+              tags:
+                CONTACT_INFO:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes the contact info of GRO.
+                  owner: BPP
+                  type: string
+                  list:
+                    GRO_NAME:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro name
+                      owner: BPP
+                      type: string
+                    GRO_EMAIL:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro email
+                      owner: BPP
+                      type: string
+                    GRO_CONTACT_NUMBER:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro contact number
+                      owner: BPP
+                      type: string
+                    CUSTOMER_SUPPORT_LINK:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro customer support link
+                      owner: BPP
+                      type: string
+                    CUSTOMER_SUPPORT_CONTACT_NUMBER:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the customer support contact number
+                      owner: BPP
+                      type: string
+                    CUSTOMER_SUPPORT_EMAIL:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the support email
+                      owner: BPP
+                      type: string
+                LSP_INFO:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes the lsp info
+                  owner: BPP
+                  type: string
+                  list:
+                    LSP_NAME:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp name
+                      owner: BPP
+                      type: string
+                    LSP_EMAIL:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp email
+                      owner: BPP
+                      type: string
+                    LSP_CONTACT_NUMBER:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp contact number
+                      owner: BPP
+                      type: string
+                    LSP_ADDRESS:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp address
+                      owner: BPP
+                      type: string
             items:
               id:
                 required: Mandatory
@@ -16248,6 +17116,124 @@ x-attributes:
                     the order.
                   owner: BPP
                   type: boolean
+              parent_item_id:
+                required: Mandatory
+                usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
+                description: Unique item id of the parent item
+                owner: BAP
+                type: string
+              fulfillment_ids:
+                required: Mandatory
+                usage: F1
+                description: Describes the fulfilment-ids associated to an item.
+                owner: BPP
+                type: string
+              tags:
+                INFO:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes general info
+                  owner: BPP
+                  type: string
+                  list:
+                    INTEREST_RATE:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the interest rate
+                      owner: BPP
+                      type: string
+                    TERM:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the loan term
+                      owner: BPP
+                      type: string
+                    INTEREST_RATE_TYPE:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the loan interest rate type
+                      owner: BPP
+                      type: string
+                    APPLICATION_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan application fee, should include units
+                        INR or %
+                      owner: BPP
+                      type: string
+                    FORECLOSURE_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan forecloure fee, should include units
+                        INR or %
+                      owner: BPP
+                      type: string
+                    INTEREST_RATE_CONVERSION_CHARGE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan interest rate conversion
+                        charge,should include units INR or %
+                      owner: BPP
+                      type: string
+                    OTHER_PENALTY_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan penalty fee,should include units INR
+                        or %
+                      owner: BPP
+                      type: string
+                    DELAY_PENALTY_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan interest rate type, should include
+                        units INR or %
+                      owner: BPP
+                      type: string
+                    ANNUAL_PERCENTAGE_RATE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the annual percentage fee, should include
+                        units INR or %
+                      owner: BPP
+                      type: string
+                    REPAYMENT_FREQUENCY:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the repayment frequency
+                      owner: BPP
+                      type: string
+                    NUMBER_OF_INSTALLMENTS:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the number of installments
+                      owner: BPP
+                      type: string
+                    TNC_LINK:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the terms & conditions
+                      owner: BPP
+                      type: string
+                    COOL_OFF_PERIOD:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the loan cool off period
+                      owner: BPP
+                      type: string
+                    INSTALLMENT_AMOUNT:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan installment amount, should include
+                        unit INR
+                      owner: BPP
+                      type: string
             quote:
               id:
                 required: mandatory
@@ -16421,6 +17407,18 @@ x-attributes:
                     and completion status of the fulfillment process.
                   owner: BPP
                   type: object
+              type:
+                required: Mandatory
+                usage: LOAN
+                description: Describes the fulfilment type
+                owner: BPP
+                type: string
+              id:
+                required: Mandatory
+                usage: F1
+                description: Describes the fulfilment id
+                owner: BPP
+                type: string
             payments:
               id:
                 required: Mandatory
@@ -16542,6 +17540,128 @@ x-attributes:
                   gathering payments.
                 owner: BAP
                 type: string
+              tags:
+                BUYER_FINDER_FEES:
+                  required: Optional
+                  usage: '--'
+                  description: Describes Buyer finder fee
+                  owner: BAP
+                  type: string
+                  list:
+                    BUYER_FINDER_FEES_TYPE:
+                      required: Optional
+                      usage: '--'
+                      description: Describes Buyer finder fee type
+                      owner: BAP
+                      type: string
+                    BUYER_FINDER_FEES_PERCENTAGE:
+                      required: Optional
+                      usage: '--'
+                      description: Describes Buyer finder fee percentage
+                      owner: BAP
+                      type: string
+                SETTLEMENT_TERMS:
+                  required: Optional
+                  usage: '--'
+                  description: Describes settlement terms
+                  owner: BAP
+                  type: string
+                  list:
+                    SETTLEMENT_WINDOW:
+                      required: Optional
+                      usage: '--'
+                      description: Describes settlement window
+                      owner: BAP
+                      type: string
+                    SETTLEMENT_BASIS:
+                      required: Optional
+                      usage: '--'
+                      description: Describes settlement basis
+                      owner: BAP
+                      type: string
+                    STATIC_TERMS:
+                      required: Optional
+                      usage: '--'
+                      description: Describes static terms
+                      owner: BAP
+                      type: string
+                    OFFLINE_CONTRACT:
+                      required: Optional
+                      usage: '--'
+                      description: Describes offline contract
+                      owner: BAP
+                      type: string
+                    SETTLEMENT_AMOUNT:
+                      required: Optional
+                      usage: '--'
+                      description: Describes settlement amount to counter-party
+                      owner: BAP
+                      type: string
+                    MANDATORY_ARBITRATION:
+                      required: Optional
+                      usage: '--'
+                      description: Describes mandatory arbitration
+                      owner: BPP
+                      type: string
+                    COURT_JURISDICTION:
+                      required: Optional
+                      usage: '--'
+                      description: Describes court jurisdiction
+                      owner: BPP
+                      type: string
+                BREAKUP:
+                  required: Optional
+                  usage: '--'
+                  description: Describes Buyer finder fee
+                  owner: BPP
+                  type: string
+                  list:
+                    PRINCIPAL_AMOUNT:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the loan principal, should include unit INR
+                      owner: BPP
+                      type: string
+                    INTEREST_AMOUNT:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the loan interest, should include unit INR
+                      owner: BPP
+                      type: string
+                    PROCESSING_FEE:
+                      required: Optional
+                      usage: '--'
+                      description: >-
+                        Describes the loan processing fee, should include unit
+                        INR or %
+                      owner: BPP
+                      type: string
+                    OTHER_UPFRONT_CHARGES:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the loan charges, should include unit INR or %
+                      owner: BPP
+                      type: string
+                    INSURANCE_CHARGES:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the insurance charges, should include unit INR
+                      owner: BPP
+                      type: string
+                    NET_DISBURSED_AMOUNT:
+                      required: Optional
+                      usage: '--'
+                      description: >-
+                        Describes the net disbursed amount, should include unit
+                        INR
+                      owner: BPP
+                      type: string
+                    OTHER_CHARGES:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the other charges, should include unit INR
+                      owner: BPP
+                      type: string
             cancellation_terms:
               cancellation_fee:
                 percentage:
@@ -16772,7 +17892,7 @@ x-attributes:
               xinput:
                 form_response:
                   status:
-                    required: Mandatory
+                    required: optional
                     usage: SUCCESS
                     description: >-
                       This refers to the submission status of the additional
@@ -16780,7 +17900,7 @@ x-attributes:
                     owner: BAP
                     type: string
                   submission_id:
-                    required: Mandatory
+                    required: optional
                     usage: c844d5f4-29c3-4398-b594-8b4716ef5dbf
                     description: >-
                       Unique submission id which a borrower got as a reponse
@@ -16798,7 +17918,7 @@ x-attributes:
                     type: object
                 form:
                   id:
-                    required: Mandatory
+                    required: optional
                     usage: F01
                     description: This refers to the identifier of the generated form.
                     owner: BAP
@@ -16828,6 +17948,12 @@ x-attributes:
                   specified order.
                 owner: BAP/BPP
                 type: object
+              parent_item_id:
+                required: Mandatory
+                usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
+                description: Unique item id of the parent item
+                owner: BAP
+                type: string
             _description:
               required: mandatory
               usage: '--'
@@ -17099,6 +18225,81 @@ x-attributes:
                   provider whose catalog items have been selected.
                 owner: BPP
                 type: object
+              tags:
+                CONTACT_INFO:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes the contact info of GRO.
+                  owner: BPP
+                  type: string
+                  list:
+                    GRO_NAME:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro name
+                      owner: BPP
+                      type: string
+                    GRO_EMAIL:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro email
+                      owner: BPP
+                      type: string
+                    GRO_CONTACT_NUMBER:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro contact number
+                      owner: BPP
+                      type: string
+                    CUSTOMER_SUPPORT_LINK:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro customer support link
+                      owner: BPP
+                      type: string
+                    CUSTOMER_SUPPORT_CONTACT_NUMBER:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the customer support contact number
+                      owner: BPP
+                      type: string
+                    CUSTOMER_SUPPORT_EMAIL:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the support email
+                      owner: BPP
+                      type: string
+                LSP_INFO:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes the lsp info
+                  owner: BPP
+                  type: string
+                  list:
+                    LSP_NAME:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp name
+                      owner: BPP
+                      type: string
+                    LSP_EMAIL:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp email
+                      owner: BPP
+                      type: string
+                    LSP_CONTACT_NUMBER:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp contact number
+                      owner: BPP
+                      type: string
+                    LSP_ADDRESS:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp address
+                      owner: BPP
+                      type: string
             id:
               required: Mandatory
               usage: 66B7AEDF45
@@ -17200,6 +18401,124 @@ x-attributes:
                   has been offered to the end customer.
                 owner: BAP/BPP
                 type: object
+              parent_item_id:
+                required: Mandatory
+                usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
+                description: Unique item id of the parent item
+                owner: BAP
+                type: string
+              fulfillment_ids:
+                required: Mandatory
+                usage: F1
+                description: Describes the fulfilment-ids associated to an item.
+                owner: BPP
+                type: string
+              tags:
+                INFO:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes general info
+                  owner: BPP
+                  type: string
+                  list:
+                    INTEREST_RATE:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the interest rate
+                      owner: BPP
+                      type: string
+                    TERM:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the loan term
+                      owner: BPP
+                      type: string
+                    INTEREST_RATE_TYPE:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the loan interest rate type
+                      owner: BPP
+                      type: string
+                    APPLICATION_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan application fee, should include units
+                        INR or %
+                      owner: BPP
+                      type: string
+                    FORECLOSURE_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan forecloure fee, should include units
+                        INR or %
+                      owner: BPP
+                      type: string
+                    INTEREST_RATE_CONVERSION_CHARGE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan interest rate conversion
+                        charge,should include units INR or %
+                      owner: BPP
+                      type: string
+                    OTHER_PENALTY_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan penalty fee,should include units INR
+                        or %
+                      owner: BPP
+                      type: string
+                    DELAY_PENALTY_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan interest rate type, should include
+                        units INR or %
+                      owner: BPP
+                      type: string
+                    ANNUAL_PERCENTAGE_RATE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the annual percentage fee, should include
+                        units INR or %
+                      owner: BPP
+                      type: string
+                    REPAYMENT_FREQUENCY:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the repayment frequency
+                      owner: BPP
+                      type: string
+                    NUMBER_OF_INSTALLMENTS:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the number of installments
+                      owner: BPP
+                      type: string
+                    TNC_LINK:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the terms & conditions
+                      owner: BPP
+                      type: string
+                    COOL_OFF_PERIOD:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the loan cool off period
+                      owner: BPP
+                      type: string
+                    INSTALLMENT_AMOUNT:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan installment amount, should include
+                        unit INR
+                      owner: BPP
+                      type: string
             quote:
               id:
                 required: Mandatory
@@ -17377,6 +18696,18 @@ x-attributes:
                       It encapsulates the real time information on the progress and completion status of the fulfillment process.
                   owner: BPP
                   type: object
+              type:
+                required: Mandatory
+                usage: LOAN
+                description: Describes the fulfilment type
+                owner: BPP
+                type: string
+              id:
+                required: Mandatory
+                usage: F1
+                description: Describes the fulfilment id
+                owner: BPP
+                type: string
             payments:
               id:
                 required: Mandatory
@@ -17498,6 +18829,128 @@ x-attributes:
                   gathering payments.
                 owner: BAP
                 type: string
+              tags:
+                BUYER_FINDER_FEES:
+                  required: Optional
+                  usage: '--'
+                  description: Describes Buyer finder fee
+                  owner: BAP
+                  type: string
+                  list:
+                    BUYER_FINDER_FEES_TYPE:
+                      required: Optional
+                      usage: '--'
+                      description: Describes Buyer finder fee type
+                      owner: BAP
+                      type: string
+                    BUYER_FINDER_FEES_PERCENTAGE:
+                      required: Optional
+                      usage: '--'
+                      description: Describes Buyer finder fee percentage
+                      owner: BAP
+                      type: string
+                SETTLEMENT_TERMS:
+                  required: Optional
+                  usage: '--'
+                  description: Describes settlement terms
+                  owner: BAP
+                  type: string
+                  list:
+                    SETTLEMENT_WINDOW:
+                      required: Optional
+                      usage: '--'
+                      description: Describes settlement window
+                      owner: BAP
+                      type: string
+                    SETTLEMENT_BASIS:
+                      required: Optional
+                      usage: '--'
+                      description: Describes settlement basis
+                      owner: BAP
+                      type: string
+                    STATIC_TERMS:
+                      required: Optional
+                      usage: '--'
+                      description: Describes static terms
+                      owner: BAP
+                      type: string
+                    OFFLINE_CONTRACT:
+                      required: Optional
+                      usage: '--'
+                      description: Describes offline contract
+                      owner: BAP
+                      type: string
+                    SETTLEMENT_AMOUNT:
+                      required: Optional
+                      usage: '--'
+                      description: Describes settlement amount to counter-party
+                      owner: BAP
+                      type: string
+                    MANDATORY_ARBITRATION:
+                      required: Optional
+                      usage: '--'
+                      description: Describes mandatory arbitration
+                      owner: BPP
+                      type: string
+                    COURT_JURISDICTION:
+                      required: Optional
+                      usage: '--'
+                      description: Describes court jurisdiction
+                      owner: BPP
+                      type: string
+                BREAKUP:
+                  required: Optional
+                  usage: '--'
+                  description: Describes Buyer finder fee
+                  owner: BPP
+                  type: string
+                  list:
+                    PRINCIPAL_AMOUNT:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the loan principal, should include unit INR
+                      owner: BPP
+                      type: string
+                    INTEREST_AMOUNT:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the loan interest, should include unit INR
+                      owner: BPP
+                      type: string
+                    PROCESSING_FEE:
+                      required: Optional
+                      usage: '--'
+                      description: >-
+                        Describes the loan processing fee, should include unit
+                        INR or %
+                      owner: BPP
+                      type: string
+                    OTHER_UPFRONT_CHARGES:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the loan charges, should include unit INR or %
+                      owner: BPP
+                      type: string
+                    INSURANCE_CHARGES:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the insurance charges, should include unit INR
+                      owner: BPP
+                      type: string
+                    NET_DISBURSED_AMOUNT:
+                      required: Optional
+                      usage: '--'
+                      description: >-
+                        Describes the net disbursed amount, should include unit
+                        INR
+                      owner: BPP
+                      type: string
+                    OTHER_CHARGES:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the other charges, should include unit INR
+                      owner: BPP
+                      type: string
             cancellation_terms:
               cancellation_fee:
                 percentage:
@@ -17973,6 +19426,81 @@ x-attributes:
                   provider whose catalog items have been selected.
                 owner: BPP
                 type: object
+              tags:
+                CONTACT_INFO:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes the contact info of GRO.
+                  owner: BPP
+                  type: string
+                  list:
+                    GRO_NAME:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro name
+                      owner: BPP
+                      type: string
+                    GRO_EMAIL:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro email
+                      owner: BPP
+                      type: string
+                    GRO_CONTACT_NUMBER:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro contact number
+                      owner: BPP
+                      type: string
+                    CUSTOMER_SUPPORT_LINK:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro customer support link
+                      owner: BPP
+                      type: string
+                    CUSTOMER_SUPPORT_CONTACT_NUMBER:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the customer support contact number
+                      owner: BPP
+                      type: string
+                    CUSTOMER_SUPPORT_EMAIL:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the support email
+                      owner: BPP
+                      type: string
+                LSP_INFO:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes the lsp info
+                  owner: BPP
+                  type: string
+                  list:
+                    LSP_NAME:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp name
+                      owner: BPP
+                      type: string
+                    LSP_EMAIL:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp email
+                      owner: BPP
+                      type: string
+                    LSP_CONTACT_NUMBER:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp contact number
+                      owner: BPP
+                      type: string
+                    LSP_ADDRESS:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp address
+                      owner: BPP
+                      type: string
             items:
               id:
                 required: Mandatory
@@ -18113,6 +19641,124 @@ x-attributes:
                       input form generated from the system.
                     owner: BAP
                     type: object
+              parent_item_id:
+                required: Mandatory
+                usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
+                description: Unique item id of the parent item
+                owner: BAP
+                type: string
+              fulfillment_ids:
+                required: Optional
+                usage: F1
+                description: Describes the fulfilment-ids associated to an item.
+                owner: BPP
+                type: string
+              tags:
+                INFO:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes general info
+                  owner: BPP
+                  type: string
+                  list:
+                    INTEREST_RATE:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the interest rate
+                      owner: BPP
+                      type: string
+                    TERM:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the loan term
+                      owner: BPP
+                      type: string
+                    INTEREST_RATE_TYPE:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the loan interest rate type
+                      owner: BPP
+                      type: string
+                    APPLICATION_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan application fee, should include units
+                        INR or %
+                      owner: BPP
+                      type: string
+                    FORECLOSURE_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan forecloure fee, should include units
+                        INR or %
+                      owner: BPP
+                      type: string
+                    INTEREST_RATE_CONVERSION_CHARGE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan interest rate conversion
+                        charge,should include units INR or %
+                      owner: BPP
+                      type: string
+                    OTHER_PENALTY_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan penalty fee,should include units INR
+                        or %
+                      owner: BPP
+                      type: string
+                    DELAY_PENALTY_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan interest rate type, should include
+                        units INR or %
+                      owner: BPP
+                      type: string
+                    ANNUAL_PERCENTAGE_RATE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the annual percentage fee, should include
+                        units INR or %
+                      owner: BPP
+                      type: string
+                    REPAYMENT_FREQUENCY:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the repayment frequency
+                      owner: BPP
+                      type: string
+                    NUMBER_OF_INSTALLMENTS:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the number of installments
+                      owner: BPP
+                      type: string
+                    TNC_LINK:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the terms & conditions
+                      owner: BPP
+                      type: string
+                    COOL_OFF_PERIOD:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the loan cool off period
+                      owner: BPP
+                      type: string
+                    INSTALLMENT_AMOUNT:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan installment amount, should include
+                        unit INR
+                      owner: BPP
+                      type: string
             quote:
               id:
                 required: Mandatory
@@ -18288,6 +19934,18 @@ x-attributes:
                     and completion status of the fulfillment process.
                   owner: BPP
                   type: object
+              type:
+                required: Optional
+                usage: LOAN
+                description: Describes the fulfilment type
+                owner: BPP
+                type: string
+              id:
+                required: Optional
+                usage: F1
+                description: Describes the fulfilment id
+                owner: BPP
+                type: string
             payments:
               id:
                 required: optional
@@ -18435,6 +20093,128 @@ x-attributes:
                   gathering payments.
                 owner: BAP
                 type: string
+              tags:
+                BUYER_FINDER_FEES:
+                  required: Optional
+                  usage: '--'
+                  description: Describes Buyer finder fee
+                  owner: BAP
+                  type: string
+                  list:
+                    BUYER_FINDER_FEES_TYPE:
+                      required: Optional
+                      usage: '--'
+                      description: Describes Buyer finder fee type
+                      owner: BAP
+                      type: string
+                    BUYER_FINDER_FEES_PERCENTAGE:
+                      required: Optional
+                      usage: '--'
+                      description: Describes Buyer finder fee percentage
+                      owner: BAP
+                      type: string
+                SETTLEMENT_TERMS:
+                  required: Optional
+                  usage: '--'
+                  description: Describes settlement terms
+                  owner: BAP
+                  type: string
+                  list:
+                    SETTLEMENT_WINDOW:
+                      required: Optional
+                      usage: '--'
+                      description: Describes settlement window
+                      owner: BAP
+                      type: string
+                    SETTLEMENT_BASIS:
+                      required: Optional
+                      usage: '--'
+                      description: Describes settlement basis
+                      owner: BAP
+                      type: string
+                    STATIC_TERMS:
+                      required: Optional
+                      usage: '--'
+                      description: Describes static terms
+                      owner: BAP
+                      type: string
+                    OFFLINE_CONTRACT:
+                      required: Optional
+                      usage: '--'
+                      description: Describes offline contract
+                      owner: BAP
+                      type: string
+                    SETTLEMENT_AMOUNT:
+                      required: Optional
+                      usage: '--'
+                      description: Describes settlement amount to counter-party
+                      owner: BAP
+                      type: string
+                    MANDATORY_ARBITRATION:
+                      required: Optional
+                      usage: '--'
+                      description: Describes mandatory arbitration
+                      owner: BPP
+                      type: string
+                    COURT_JURISDICTION:
+                      required: Optional
+                      usage: '--'
+                      description: Describes court jurisdiction
+                      owner: BPP
+                      type: string
+                BREAKUP:
+                  required: Optional
+                  usage: '--'
+                  description: Describes Buyer finder fee
+                  owner: BPP
+                  type: string
+                  list:
+                    PRINCIPAL_AMOUNT:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the loan principal, should include unit INR
+                      owner: BPP
+                      type: string
+                    INTEREST_AMOUNT:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the loan interest, should include unit INR
+                      owner: BPP
+                      type: string
+                    PROCESSING_FEE:
+                      required: Optional
+                      usage: '--'
+                      description: >-
+                        Describes the loan processing fee, should include unit
+                        INR or %
+                      owner: BPP
+                      type: string
+                    OTHER_UPFRONT_CHARGES:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the loan charges, should include unit INR or %
+                      owner: BPP
+                      type: string
+                    INSURANCE_CHARGES:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the insurance charges, should include unit INR
+                      owner: BPP
+                      type: string
+                    NET_DISBURSED_AMOUNT:
+                      required: Optional
+                      usage: '--'
+                      description: >-
+                        Describes the net disbursed amount, should include unit
+                        INR
+                      owner: BPP
+                      type: string
+                    OTHER_CHARGES:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the other charges, should include unit INR
+                      owner: BPP
+                      type: string
             _description:
               required: Mandatory
               usage: '--'
@@ -19310,6 +21090,81 @@ x-attributes:
                   provider whose catalog items have been selected.
                 owner: BPP
                 type: object
+              tags:
+                CONTACT_INFO:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes the contact info of GRO.
+                  owner: BPP
+                  type: string
+                  list:
+                    GRO_NAME:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro name
+                      owner: BPP
+                      type: string
+                    GRO_EMAIL:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro email
+                      owner: BPP
+                      type: string
+                    GRO_CONTACT_NUMBER:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro contact number
+                      owner: BPP
+                      type: string
+                    CUSTOMER_SUPPORT_LINK:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the gro customer support link
+                      owner: BPP
+                      type: string
+                    CUSTOMER_SUPPORT_CONTACT_NUMBER:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the customer support contact number
+                      owner: BPP
+                      type: string
+                    CUSTOMER_SUPPORT_EMAIL:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the support email
+                      owner: BPP
+                      type: string
+                LSP_INFO:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes the lsp info
+                  owner: BPP
+                  type: string
+                  list:
+                    LSP_NAME:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp name
+                      owner: BPP
+                      type: string
+                    LSP_EMAIL:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp email
+                      owner: BPP
+                      type: string
+                    LSP_CONTACT_NUMBER:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp contact number
+                      owner: BPP
+                      type: string
+                    LSP_ADDRESS:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the lsp address
+                      owner: BPP
+                      type: string
             items:
               id:
                 required: Mandatory
@@ -19405,6 +21260,124 @@ x-attributes:
                   has been offered to the end customer.
                 owner: BAP/BPP
                 type: object
+              parent_item_id:
+                required: Mandatory
+                usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
+                description: Unique item id of the parent item
+                owner: BAP
+                type: string
+              fulfillment_ids:
+                required: Mandatory
+                usage: F1
+                description: Describes the fulfilment-ids associated to an item.
+                owner: BPP
+                type: string
+              tags:
+                INFO:
+                  required: Mandatory
+                  usage: '--'
+                  description: Describes general info
+                  owner: BPP
+                  type: string
+                  list:
+                    INTEREST_RATE:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the interest rate
+                      owner: BPP
+                      type: string
+                    TERM:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the loan term
+                      owner: BPP
+                      type: string
+                    INTEREST_RATE_TYPE:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the loan interest rate type
+                      owner: BPP
+                      type: string
+                    APPLICATION_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan application fee, should include units
+                        INR or %
+                      owner: BPP
+                      type: string
+                    FORECLOSURE_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan forecloure fee, should include units
+                        INR or %
+                      owner: BPP
+                      type: string
+                    INTEREST_RATE_CONVERSION_CHARGE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan interest rate conversion
+                        charge,should include units INR or %
+                      owner: BPP
+                      type: string
+                    OTHER_PENALTY_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan penalty fee,should include units INR
+                        or %
+                      owner: BPP
+                      type: string
+                    DELAY_PENALTY_FEE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan interest rate type, should include
+                        units INR or %
+                      owner: BPP
+                      type: string
+                    ANNUAL_PERCENTAGE_RATE:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the annual percentage fee, should include
+                        units INR or %
+                      owner: BPP
+                      type: string
+                    REPAYMENT_FREQUENCY:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the repayment frequency
+                      owner: BPP
+                      type: string
+                    NUMBER_OF_INSTALLMENTS:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the number of installments
+                      owner: BPP
+                      type: string
+                    TNC_LINK:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the terms & conditions
+                      owner: BPP
+                      type: string
+                    COOL_OFF_PERIOD:
+                      required: Mandatory
+                      usage: '--'
+                      description: Describes the loan cool off period
+                      owner: BPP
+                      type: string
+                    INSTALLMENT_AMOUNT:
+                      required: Mandatory
+                      usage: '--'
+                      description: >-
+                        Describes the loan installment amount, should include
+                        unit INR
+                      owner: BPP
+                      type: string
             quote:
               id:
                 required: Mandatory
@@ -19582,6 +21555,18 @@ x-attributes:
                       It encapsulates the real time information on the progress and completion status of the fulfillment process.
                   owner: BPP
                   type: object
+              type:
+                required: Mandatory
+                usage: LOAN
+                description: Describes the fulfilment type
+                owner: BPP
+                type: string
+              id:
+                required: Mandatory
+                usage: F1
+                description: Describes the fulfilment id
+                owner: BPP
+                type: string
             payments:
               id:
                 required: Mandatory
@@ -19703,6 +21688,128 @@ x-attributes:
                   gathering payments.
                 owner: BAP
                 type: string
+              tags:
+                BUYER_FINDER_FEES:
+                  required: Optional
+                  usage: '--'
+                  description: Describes Buyer finder fee
+                  owner: BAP
+                  type: string
+                  list:
+                    BUYER_FINDER_FEES_TYPE:
+                      required: Optional
+                      usage: '--'
+                      description: Describes Buyer finder fee type
+                      owner: BAP
+                      type: string
+                    BUYER_FINDER_FEES_PERCENTAGE:
+                      required: Optional
+                      usage: '--'
+                      description: Describes Buyer finder fee percentage
+                      owner: BAP
+                      type: string
+                SETTLEMENT_TERMS:
+                  required: Optional
+                  usage: '--'
+                  description: Describes settlement terms
+                  owner: BAP
+                  type: string
+                  list:
+                    SETTLEMENT_WINDOW:
+                      required: Optional
+                      usage: '--'
+                      description: Describes settlement window
+                      owner: BAP
+                      type: string
+                    SETTLEMENT_BASIS:
+                      required: Optional
+                      usage: '--'
+                      description: Describes settlement basis
+                      owner: BAP
+                      type: string
+                    STATIC_TERMS:
+                      required: Optional
+                      usage: '--'
+                      description: Describes static terms
+                      owner: BAP
+                      type: string
+                    OFFLINE_CONTRACT:
+                      required: Optional
+                      usage: '--'
+                      description: Describes offline contract
+                      owner: BAP
+                      type: string
+                    SETTLEMENT_AMOUNT:
+                      required: Optional
+                      usage: '--'
+                      description: Describes settlement amount to counter-party
+                      owner: BAP
+                      type: string
+                    MANDATORY_ARBITRATION:
+                      required: Optional
+                      usage: '--'
+                      description: Describes mandatory arbitration
+                      owner: BPP
+                      type: string
+                    COURT_JURISDICTION:
+                      required: Optional
+                      usage: '--'
+                      description: Describes court jurisdiction
+                      owner: BPP
+                      type: string
+                BREAKUP:
+                  required: Optional
+                  usage: '--'
+                  description: Describes Buyer finder fee
+                  owner: BPP
+                  type: string
+                  list:
+                    PRINCIPAL_AMOUNT:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the loan principal, should include unit INR
+                      owner: BPP
+                      type: string
+                    INTEREST_AMOUNT:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the loan interest, should include unit INR
+                      owner: BPP
+                      type: string
+                    PROCESSING_FEE:
+                      required: Optional
+                      usage: '--'
+                      description: >-
+                        Describes the loan processing fee, should include unit
+                        INR or %
+                      owner: BPP
+                      type: string
+                    OTHER_UPFRONT_CHARGES:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the loan charges, should include unit INR or %
+                      owner: BPP
+                      type: string
+                    INSURANCE_CHARGES:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the insurance charges, should include unit INR
+                      owner: BPP
+                      type: string
+                    NET_DISBURSED_AMOUNT:
+                      required: Optional
+                      usage: '--'
+                      description: >-
+                        Describes the net disbursed amount, should include unit
+                        INR
+                      owner: BPP
+                      type: string
+                    OTHER_CHARGES:
+                      required: Optional
+                      usage: '--'
+                      description: Describes the other charges, should include unit INR
+                      owner: BPP
+                      type: string
             cancellation_terms:
               cancellation_fee:
                 percentage:
@@ -19980,6 +22087,14 @@ x-errorcodes:
       Description: No. of applications with limit issue in "init" API.
       From: BPP
       code: 80227
+    - Event: Lender Policy rejection
+      Description: It includes rejection due to Lender policy terms.
+      From: BPP
+      code: 80228
+    - Event: Report not received from Bureau
+      Description: Bureau Report not parsed.
+      From: BPP
+      code: 80229
 x-tlc:
   code:
     - Term: Buyer App Fee Type

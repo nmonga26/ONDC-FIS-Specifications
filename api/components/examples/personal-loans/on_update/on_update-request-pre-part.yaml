@@ -171,28 +171,24 @@ message:
       id: LOAN_LEAD_ID_OR_SIMILAR
       price:
         currency: INR
-        value: "224800"
+        value: "237300"
       breakup:
-        # - title: Amount Received(Paid Installments)
-        #   price:
-        #     value: "92720"
-        #     currency: INR
         - title: PRINCIPAL
           price:
-            value: "80720"
+            value: "200000"
             currency: INR
-        - title: INSURANCE_CHARGES
-          price:
-            value: "500"
-            currency: INR    
         - title: INTEREST
           price:
-            value: "12000"
+            value: "30000"
             currency: INR
         - title: PROCESSING_FEE
           price:
             value: "1800"
             currency: INR
+        - title: INSURANCE_CHARGES
+          price:
+            value: "500"
+            currency: INR    
         - title: OTHER_CHARGES
           price:
             value: "0"
@@ -208,6 +204,10 @@ message:
         - title: OUTSTANDING_INTEREST
           price:
             value: "6000"
+            currency: INR
+        - title: OTHER_UPFRONT_CHARGES
+          price:
+            value: "0"
             currency: INR
         - title: PRE_PAYMENT_CHARGE
           price:

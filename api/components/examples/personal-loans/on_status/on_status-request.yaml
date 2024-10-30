@@ -167,10 +167,10 @@ message:
                   short_desc: Each installment amount of repayment
                 value: PT30D
             display: true
-        xinput:
-          form_response:
-            status: REJECTED
-            submission_id: 79850933-4e41-4c76-bbe6-c5a392481226     
+        # xinput:
+        #   form_response:
+        #     status: REJECTED
+        #     submission_id: 79850933-4e41-4c76-bbe6-c5a392481226     
     quote:
       id: LOAN_LEAD_ID_OR_SIMILAR
       price:

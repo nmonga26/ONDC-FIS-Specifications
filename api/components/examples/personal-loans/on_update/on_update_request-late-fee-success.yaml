@@ -171,7 +171,7 @@ message:
       id: LOAN_LEAD_ID_OR_SIMILAR
       price:
         currency: INR
-        value: "233800"
+        value: "234300"
       breakup:
         - title: PRINCIPAL
           price:
@@ -180,6 +180,10 @@ message:
         - title: INTEREST
           price:
             value: "30000"
+            currency: INR
+        - title: OTHER_UPFRONT_CHARGES
+          price:
+            value: "0"
             currency: INR
         - title: INSURANCE_CHARGES
           price:
@@ -197,11 +201,10 @@ message:
           price:
             value: "0"
             currency: INR
-            #Late fee Amount for 3rd Installment
         - title: LATE_FEE_AMOUNT
           price:
             value: "1500"
-            currency: INR       
+            currency: INR      
       ttl: PT15D
     fulfillments:
       - customer:
