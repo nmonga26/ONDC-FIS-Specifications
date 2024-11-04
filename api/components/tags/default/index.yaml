@@ -302,6 +302,24 @@ on_select:
                   processing the various consents and permissions associated
                   with a loan application or agreement.
                 reference: <PR/Issue/Discussion Links md format text>
+          - code: CHECKLIST
+            description: >-
+              Describes the list of form submission
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: SET_LOAN_AMOUNT
+                description: Describes the list of form submission
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: EMANDATE
+                description: Describes the list of form submission
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: ESIGN
+                description: Describes the list of form submission
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: KYC
+                description: Describes the list of form submission
+                reference: <PR/Issue/Discussion Links md format text>      
+
 init:
   message:
     order:

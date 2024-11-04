@@ -176,6 +176,27 @@ message:
                   name: Subvention Rate
                 value: 5 %
             display: true
+          - display: true
+            descriptor:
+              name: Checklists
+              code: CHECKLISTS
+            list:
+              - descriptor:
+                  name: Set Loan Amount
+                  code: SET_LOAN_AMOUNT
+                value: "F03_SUBMISSION_ID"
+              - descriptor:
+                  name: KYC
+                  code: KYC
+                value: "F04_SUBMISSION_ID"
+              - descriptor:
+                  name: Emandate
+                  code: EMANDATE
+                value: PENDING
+              - descriptor:
+                  name: Esign
+                  code: ESIGN
+                value: PENDING  
         xinput:
           form:
             id: F04

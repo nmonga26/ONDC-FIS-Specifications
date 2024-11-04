@@ -14,7 +14,7 @@ context:
   transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
   message_id: 0d30bfbf-87b8-43d2-8f95-36ebb9a24fd6
   ttl: PT10M
-  timestamp: "2023-05-25T05:23:03.443Z"
+  timestamp: "2023-05-25T05:24:10.443Z"
 message:
   order:
     id: LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID
@@ -585,4 +585,6 @@ message:
             to terminate an existing loan, releasing the borrower from repayment 
             obligations and confirming the loan's cancellation.
         mime_type: application/pdf
-        url: https://lender.com/loan/loan-cancellation/O1.pdf      
+        url: https://lender.com/loan/loan-cancellation/O1.pdf
+    created_at: '2023-05-25T05:23:03.443Z'
+    updated_at: '2023-05-25T05:24:10.443Z'          

@@ -8,7 +8,7 @@ context:
   transaction_id: ef9f7a0a-e0f2-4d96-aa34-6d9e42d1d207
   message_id: 980f2214-8b3b-4388-a511-55e922010f37
   action: on_update
-  timestamp: "2024-05-06T04:19:20.443Z"
+  timestamp: "2024-05-06T04:20:10.443Z"
   version: 2.2.0
   bap_uri: https://bap.purchase-finance.becknprotocol.io/
   bap_id: bap.purchase-finance.becknprotocol.io
@@ -18,6 +18,7 @@ context:
 message:
   order:
     id: LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID
+    status: ACTIVE
     provider:
       id: PROVIDER_ID
       descriptor:
@@ -182,6 +183,27 @@ message:
                   name: Subvention Rate
                 value: 5 %
             display: true
+          - display: true
+            descriptor:
+              name: Checklists
+              code: CHECKLISTS
+            list:
+              - descriptor:
+                  name: Set Loan Amount
+                  code: SET_LOAN_AMOUNT
+                value: "F03_SUBMISSION_ID"
+              - descriptor:
+                  name: KYC
+                  code: KYC
+                value: "F04_SUBMISSION_ID"
+              - descriptor:
+                  name: Emandate
+                  code: EMANDATE
+                value: F05_SUBMISSION_ID
+              - descriptor:
+                  name: Esign
+                  code: ESIGN
+                value: F06_SUBMISSION_ID
     fulfillments:
       - customer:
           person:
@@ -725,3 +747,15 @@ message:
             binding a lender and borrower in a formal financial arrangement.
         mime_type: application/pdf
         url: https://lender.com/loan/loan-agreement/O1.pdf
+      - descriptor:
+          code: LOAN_CANCELLATION
+          name: Loan Cancellation Document
+          short_desc: Download your Loan Cancellation document here
+          long_desc: >-
+            A Loan Cancellation Document is a formal agreement used to terminate
+            an existing loan, releasing the borrower from repayment obligations
+            and confirming the loan's cancellation.
+        mime_type: application/pdf
+        url: https://lender.com/loan/loan-cancellation/O1.pdf  
+    created_at: '2024-05-06T04:19:20.443Z'
+    updated_at: '2024-05-06T04:20:10.443Z'
