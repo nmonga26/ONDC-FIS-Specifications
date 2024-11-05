@@ -42,6 +42,12 @@ const BRANCHES = [
     status: "DRAFT",
   },
   {
+    code: "draft-FIS13-life",
+    name: "Life Insurance",
+    short_desc: "Insurance - Life Insurance",
+    status: "DRAFT",
+  },
+  {
     code: "draft-FIS14-enhancements",
     name: "Mutual Funds",
     short_desc: "Investments - Mutual Funds",
