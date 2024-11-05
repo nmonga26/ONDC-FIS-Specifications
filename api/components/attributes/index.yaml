@@ -1,0 +1,3 @@
+life-insurance:
+  attribute_set:
+    $ref: ./life-insurance/index.yaml

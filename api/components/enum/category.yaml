@@ -1,0 +1,9 @@
+descriptor:
+  code: 
+    - code: TERM_INSURANCE
+      description: Pure protection plan offering a death benefit for a specific term
+      reference: <PR/Issue/Discussion Links md format text
+    - code: ENDOWMENT_PLAN
+      description: Offers life cover and maturity benefits, aiding in long-term
+        savings
+      reference: <PR/Issue/Discussion Links md format text

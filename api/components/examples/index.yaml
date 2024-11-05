@@ -1,0 +1,5 @@
+life-insurance:
+  summary: Life Insurance
+  description: 'Life Insurance API examples'
+  example_set:
+    $ref: ./life-insurance/index.yaml

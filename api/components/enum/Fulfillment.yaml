@@ -1,0 +1,37 @@
+state:
+  descriptor:
+    code:
+      - code: GRANTED
+        description: Describes if claim has been granted
+        reference: <PR/Issue/Discussion Links md format text      
+      - code: PROCESSING
+        description: Describes if claim application is under processing
+        reference: <PR/Issue/Discussion Links md format text   
+      - code: INITIATED
+        description: Describes if claim has been initiated
+        reference: <PR/Issue/Discussion Links md format text
+      - code: PROCESSED
+        description: Describes if claim has been processed
+        reference: <PR/Issue/Discussion Links md format text
+      - code: REJECTED
+        description: Describes if claim has been rejected
+        reference: <PR/Issue/Discussion Links md format text
+      - code: ONLINE_RENEW
+        description: Describes if renewal is online
+        reference: <PR/Issue/Discussion Links md format text
+      # - code: INSPECTION_SUCCESSFUL
+      #   description: Describes if inspection has been successful
+      #   reference: <PR/Issue/Discussion Links md format text
+      # - code: INSPECTION_REJECTED
+      #   description: Describes if renewal has been rejected
+      #   reference: <PR/Issue/Discussion Links md format text    
+type:
+  - code: RENEWAL
+    description: Describes the fulfilment type.
+    reference: <PR/Issue/Discussion Links md format text
+  - code: CLAIM
+    description: Describes the fulfilment type.
+    reference: <PR/Issue/Discussion Links md format text
+  - code: POLICY
+    description: Describes the fulfilment type.
+    reference: <PR/Issue/Discussion Links md format text     

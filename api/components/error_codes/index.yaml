@@ -1,0 +1,62 @@
+code:
+  - Event: "General Error: An unspecified error occurred."
+    Description: "General "
+    From: BPP/BAP
+    code: 80215
+  - Event: "Data Validation Failed: Input data failed validation checks."
+    From: BPP
+    code: 80218
+  - Event: "Missing Data: Required data is missing."
+    Description: Form submission without mandatory details
+    From: BPP/BAP
+    code: 80217
+  - Event: "Service Unavailable: The service is temporarily unavailable."
+    Description: Form hosted by the seller is unavailable
+    From: BPP
+    code: 80219
+  - Event: Application submittion failure
+    Description: Buyer application could not submit the loan application to the lender/s
+    From: BAP
+    code: 80101
+  - Event: AA consent creation failure
+    Description: Lender could not create data fetch consent on account agreegator
+    From: BPP
+    code: 80201
+  - Event: AA data pull failure
+    Description: Lender could not retrieve bank statement from the AA
+    From: BPP
+    code: 80202
+  - Event: Offer return failure
+    Description: Lenders could not return loan offers to the buyer app
+    From: BPP
+    code: 80203
+  - Event: Offer acceptance failure
+    Description: "Buyer application could not submit user selected offer to the lender "
+    From: BAP
+    code: 80102
+  - Event: Beneficiary KYC failure
+    Description: Entity KYC failed on lender's platform - no retry
+    From: BPP
+    code: 80204
+  - Event: Proposer KYC failure
+    Description: Entity KYC failed on lender's platform - no retry
+    From: BPP
+    code: 80204
+  - Event: Medical Checkup Appointment booking failure
+    Description: Medical checkup booking failed
+    From: BPP
+    code: 80212
+  - Event: Payment initiation failure
+    Description: >-
+      Payment initiation failed on the buyer app (lender couldn't return the
+      payment link for ex)
+    From: BPP
+    code: 80212
+  - Event: Payment completion failure
+    Description: Payment completion failed on the lender's platform
+    From: BPP
+    code: 80213
+  - Event: Policy document sharing failure
+    Description: Payment completion failed on the lender's platform
+    From: BPP
+    code: 80213

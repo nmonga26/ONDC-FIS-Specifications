@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basic Details</title>
+</head>
+
+<body>
+
+<h1>Basic Details</h1>
+
+<form>
+<div>
+<h2>Beneficiary Information</h2>
+<label for="beneficiary-dob">Date of Birth:</label>
+<input type="date" id="beneficiary-dob" required>
+
+<label for="beneficiary-gender">Gender:</label>
+<select id="beneficiary-gender" required>
+<option value="M">Male</option>
+<option value="F">Female</option>
+<option value="O">Other</option>
+</select>
+
+<label for="beneficiary-phone">Phone (Numeric):</label>
+<input type="tel" id="beneficiary-phone" pattern="[0-9]*" required>
+
+<label for="beneficiary-smoker">Smoker or Tobacco Consumption:</label>
+<select id="beneficiary-smoker" required>
+<option value="true">Yes</option>
+<option value="false">No</option>
+</select>
+</div>
+
+<div>
+<h2>Proposer Information</h2>
+<label for="proposer-dob">Date of Birth:</label>
+<input type="date" id="proposer-dob" required>
+
+<label for="proposer-gender">Gender:</label>
+<select id="proposer-gender" required>
+<option value="M">Male</option>
+<option value="F">Female</option>
+<option value="O">Other</option>
+</select>
+
+<label for="proposer-phone">Phone (Numeric):</label>
+<input type="tel" id="proposer-phone" pattern="[0-9]*" required>
+
+<label for="proposer-occupation">Occupation:</label>
+<select id="proposer-occupation" required>
+<option value="Service Professional">Service Professional</option>
+<option value="Business">Business</option>
+<option value="Army/Navy/Police">Army/Navy/Police</option>
+<option value="Skilled Worker">Skilled Worker</option>
+<option value="Retired">Retired</option>
+<option value="Housewife">Housewife</option>
+<option value="Student">Student</option>
+<option value="Agriculture">Agriculture</option>
+<option value="Others">Others</option>
+</select>
+
+<label for="proposer-income">Income (Own/Spouse's/Parent's):</label>
+<input type="number" id="proposer-income" required>
+
+<label for="proposer-aaid">AAID (Optional):</label>
+<input type="text" id="proposer-aaid">
+</div>
+
+<div>
+<h2>Extra Information</h2>
+<label for="coverage-amount">Coverage Amount (Optional):</label>
+<input type="number" id="coverage-amount">
+
+<label for="coverage-till">Coverage Till (Age):</label>
+<input type="number" id="coverage-till">
+
+<label for="premium-frequency">Frequency of Premium Payment (Optional):</label>
+<select id="premium-frequency">
+<option value="Daily">Daily</option>
+<option value="Monthly">Monthly</option>
+<option value="Quarterly">Quarterly</option>
+<option value="Semi Annual">Semi Annual</option>
+<option value="Annual">Annual</option>
+</select>
+
+<label for="premium-pay-term"># of Years for Premium Payment (Pay Term) (Optional):</label>
+<input type="number" id="premium-pay-term">
+</div>
+
+<button type="submit">Submit</button>
+</form>
+
+</body>
+
+</html>
