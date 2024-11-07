@@ -185,7 +185,7 @@
                         },
                         {
                             "display": true,
-                            "descriptor": {"name": "Information", "code": "SUCCESS_INFORMATION"},
+                            "descriptor": {"name": "Information", "code": "INFORMATION"},
                             "list": [
                                 {
                                     "descriptor": {"name": "Remaining Instalments", "code": "REMAINING_INSTALMENTS"},
