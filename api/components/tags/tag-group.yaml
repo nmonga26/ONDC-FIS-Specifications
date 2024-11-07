@@ -5,11 +5,11 @@ items:
       reference: <PR/Issue/Discussion Links md format text>
       list:
         $ref: "./tag.yaml#/general-info"
-    - code: POLICY_DETAILS
-      description: Describes the details of a policy
-      reference: <PR/Issue/Discussion Links md format text>
-      list:
-        $ref: "./tag.yaml#/policy-details"
+    # - code: POLICY_DETAILS
+    #   description: Describes the details of a policy
+    #   reference: <PR/Issue/Discussion Links md format text>
+    #   list:
+    #     $ref: "./tag.yaml#/policy-details"
 payment:
   tags:
     - code: BUYER_FINDER_FEES

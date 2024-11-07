@@ -170,4 +170,4 @@ message:
       price:
         currency: INR
         value: "1100"
-      ttl: PT15D   
+      ttl: P15D   
