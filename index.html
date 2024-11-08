@@ -219,6 +219,22 @@
       overflow-y: auto;
       background-color: #000000;
     }
+    #mremaid-header{
+      display: flex;
+      justify-content: space-between;
+    }
+    #mermiad-collapse-icon{
+      transform: rotate(270deg);
+    }
+    #flow-description{
+      display: none;
+    }
+    #mermaid-container{
+      background-color: #f8f9fa;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
 
     .renderjson .disclosure    { 
       color: white;        
@@ -440,8 +456,13 @@
               </table>
               <div class="card">
                 <div class="card-body">
-                  <h5 id="flow-summary" class="card-title"></h5>
-                  <p id="flow-description" class="card-body"></p>
+                  <div id="mermaid-container">
+                    <div id="mremaid-header">
+                      <h5 id="flow-summary" class="card-title"></h5>
+                      <img id="mermiad-collapse-icon" onclick="mermaidToggle()" height="25" width="25" src="./icons/down-arrow.png" />
+                    </div>
+                    <p id="flow-description" class="card-body"></p>
+                  </div>
                   <div class="container">
                     <div class="row">
                       <div class="col-lg-3">

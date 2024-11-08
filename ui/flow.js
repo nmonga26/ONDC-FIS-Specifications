@@ -74,16 +74,19 @@ async function loadSteps(steps) {
     //    JSON.stringify(step.example.value, null, 2) +
     //   "</pre>";
     // content.innerHTML = "<div>" + "<h3>" + step.summary + "</h3>" + "</div>";
+    const flowForms = document.createElement("div");
+    flowForms.classList.add("flow-forms");
 
     if(step?.api === "form") {
-      yamlDiv.innerHTML = '<div>'+'<pre class="yaml-content">'+'<xmp>'+step.example.value+'</xmp>'+'</pre>'+'<div class="flow-forms">'+step.example.value+'</div>'+'</div>'
+      yamlDiv.innerHTML = '<div>'+'<pre class="yaml-content">'+'<xmp>'+step.example.value+'</xmp>'+'</pre>'
+      flowForms.innerHTML = '<div class="flow-forms">'+step.example.value+'</div>'+'</div>'
     } else {
-      // const formatter = new JSONFormatter(step.example.value, Infinity);
       yamlDiv.appendChild(renderjson(step.example.value));
       renderjson.set_show_to_level("all");
     }
     content.appendChild(mermaidDiv);
     content.appendChild(yamlDiv);
+    content.appendChild(flowForms)
     yamlDiv.appendChild(copyButton);
 
     yamlDiv.appendChild(copyButton);
@@ -188,5 +191,21 @@ function loadFlows(data) {
     loadFlow(flowID)
   } else {
     loadFlow(flows[0].summary);
+  }
+}
+
+function mermaidToggle() {
+  const arrowIcon = document.getElementById("mermiad-collapse-icon");
+  const mermaidConatiner = document.getElementById("flow-description");
+
+  const cssObj = window.getComputedStyle(mermaidConatiner, null);
+  let display = cssObj.getPropertyValue("display");
+
+  if (display === "none") {
+    arrowIcon.style.transform = "rotate(90deg)";
+    mermaidConatiner.style.display = "block";
+  } else {
+    arrowIcon.style.transform = "rotate(270deg)";
+    mermaidConatiner.style.display = "none";
   }
 }
