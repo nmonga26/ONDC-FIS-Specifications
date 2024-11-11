@@ -73,7 +73,7 @@ async function loadSteps(steps) {
     //   :'<pre class="yaml-content">' +
     //    JSON.stringify(step.example.value, null, 2) +
     //   "</pre>";
-    // content.innerHTML = "<div>" + "<h3>" + step.summary + "</h3>" + "</div>";
+    content.innerHTML = "<div>" + "<h3>" + step.summary + "</h3>" + "</div>";
     const flowForms = document.createElement("div");
     flowForms.classList.add("flow-forms");
 
@@ -81,8 +81,8 @@ async function loadSteps(steps) {
       yamlDiv.innerHTML = '<div>'+'<pre class="yaml-content">'+'<xmp>'+step.example.value+'</xmp>'+'</pre>'
       flowForms.innerHTML = '<div class="flow-forms">'+step.example.value+'</div>'+'</div>'
     } else {
-      yamlDiv.appendChild(renderjson(step.example.value));
       renderjson.set_show_to_level("all");
+      yamlDiv.appendChild(renderjson(step.example.value));
     }
     content.appendChild(mermaidDiv);
     content.appendChild(yamlDiv);
