@@ -237,6 +237,10 @@ paths:
                       $ref: '#/components/schemas/Option/properties/id'
                     descriptor:
                       $ref: '#/components/schemas/Descriptor'
+                    tags:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/TagGroup'
                   required:
                     - order_id
               required:
@@ -1820,6 +1824,7 @@ components:
             - ACCEPTED
             - REJECTED
             - CREATED
+            - COMPLETED
         type:
           description: >-
             This is used to indicate the type of order being created to BPPs.
@@ -3323,7 +3328,7 @@ x-flows:
               message_id: 818bab0a-5599-4acc-9783-7b28dd5a5ae0
               timestamp: '2023-07-22T15:01:07.785Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24H
+              ttl: P24H
               version: 2.0.0
             message:
               intent:
@@ -3397,7 +3402,7 @@ x-flows:
               message_id: 2c65fbd8-31c6-45c1-8cf8-522fbd548c7d
               timestamp: '2023-07-22T15:01:17.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24M
+              ttl: P24M
               version: 2.0.0
             message:
               catalog:
@@ -3575,7 +3580,7 @@ x-flows:
               message_id: bfa97ac4-0c6f-4fa7-a287-be61f2aa1c1d
               timestamp: '2023-07-22T15:03:18.179Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24H
+              ttl: P24H
               version: 2.0.0
             message:
               order:
@@ -3631,7 +3636,7 @@ x-flows:
               message_id: 2c65fbd8-31c6-45c1-8cf8-522fbd548c7d
               timestamp: '2023-07-22T15:03:18.179Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24H
+              ttl: P24H
               version: 2.0.0
             message:
               order:
@@ -3696,6 +3701,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: P1
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -3778,7 +3784,7 @@ x-flows:
               message_id: bfa97ac4-0c6f-4fa7-a287-be61f2aa1c1d
               timestamp: '2023-07-22T15:03:18.179Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24H
+              ttl: P24H
               version: 2.0.0
             message:
               order:
@@ -3832,7 +3838,7 @@ x-flows:
               message_id: 2c65fbd8-31c6-45c1-8cf8-522fbd548c7d
               timestamp: '2023-07-22T15:03:18.179Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24H
+              ttl: P24H
               version: 2.0.0
             message:
               order:
@@ -3909,6 +3915,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -3991,7 +3998,7 @@ x-flows:
               message_id: 2c65fbd8-31c6-45c1-8cf8-522fbd548c7d
               timestamp: '2023-07-22T15:01:17.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24M
+              ttl: P24M
               version: 2.0.0
             message:
               order:
@@ -4070,6 +4077,7 @@ x-flows:
                 provider:
                   id: P1
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -4126,7 +4134,7 @@ x-flows:
               message_id: 2c65fbd8-31c6-45c1-8cf8-522fbd548c7d
               timestamp: '2023-07-22T15:01:17.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24M
+              ttl: P24M
               version: 2.0.0
             message:
               order:
@@ -4260,6 +4268,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -4312,7 +4321,7 @@ x-flows:
               message_id: 2c65fbd8-31c6-45c1-8cf8-522fbd548c7d
               timestamp: '2023-07-22T15:01:17.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24M
+              ttl: P24M
               version: 2.0.0
             message:
               order:
@@ -4438,6 +4447,7 @@ x-flows:
                 provider:
                   id: P1
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -4490,7 +4500,7 @@ x-flows:
               message_id: 2c65fbd8-31c6-45c1-8cf8-522fbd548c7d
               timestamp: '2023-07-22T15:01:17.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24M
+              ttl: P24M
               version: 2.0.0
             message:
               order:
@@ -4529,6 +4539,11 @@ x-flows:
                     price:
                       currency: INR
                       value: '900'
+                    category_ids:
+                      - C1
+                    descriptor:
+                      name: ABC Marine Insurance Policy
+                      short_desc: ABC Marine Insurance Class A
                     time:
                       label: Coverage Time
                       range:
@@ -4638,6 +4653,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -4783,7 +4799,7 @@ x-flows:
               message_id: fc31bd92-c3e4-4641-a78e-8b1c38440f48
               timestamp: '2023-07-22T15:03:17.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24M
+              ttl: P24M
               version: 2.0.0
             message:
               order:
@@ -4835,6 +4851,11 @@ x-flows:
                     price:
                       currency: INR
                       value: '900'
+                    category_ids:
+                      - C1
+                    descriptor:
+                      name: ABC Marine Insurance Policy
+                      short_desc: ABC Marine Insurance Class A
                     time:
                       label: Coverage Time
                       range:
@@ -4945,6 +4966,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -5043,7 +5065,7 @@ x-flows:
               message_id: e2acdf5e-b6f1-4a48-8fca-836a015183f5
               timestamp: '2023-07-22T15:03:18.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24M
+              ttl: P24M
               version: 2.0.0
             message:
               order:
@@ -5098,6 +5120,11 @@ x-flows:
                     price:
                       currency: INR
                       value: '900'
+                    category_ids:
+                      - C1
+                    descriptor:
+                      name: ABC Marine Insurance Policy
+                      short_desc: ABC Marine Insurance Class A
                     time:
                       label: Coverage Time
                       range:
@@ -5208,6 +5235,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -5307,7 +5335,7 @@ x-flows:
               message_id: 2c65fbd8-31c6-45c1-8cf8-522fbd548c7d
               timestamp: '2023-07-22T15:03:19.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24M
+              ttl: P24M
               version: 2.0.0
             message:
               order:
@@ -5362,6 +5390,11 @@ x-flows:
                     price:
                       currency: INR
                       value: '900'
+                    category_ids:
+                      - C1
+                    descriptor:
+                      name: ABC Marine Insurance Policy
+                      short_desc: ABC Marine Insurance Class A
                     time:
                       label: Coverage Time
                       range:
@@ -5472,6 +5505,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -5570,7 +5604,7 @@ x-flows:
               message_id: e2acdf5e-b6f1-4a48-8fca-836a015183f5
               timestamp: '2023-07-22T15:03:20.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24M
+              ttl: P24M
               version: 2.0.0
             message:
               order:
@@ -5628,6 +5662,11 @@ x-flows:
                     price:
                       currency: INR
                       value: '900'
+                    category_ids:
+                      - C1
+                    descriptor:
+                      name: ABC Marine Insurance Policy
+                      short_desc: ABC Marine Insurance Class A
                     time:
                       label: Coverage Time
                       range:
@@ -5738,6 +5777,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -5914,7 +5954,7 @@ x-flows:
               message_id: a74a1e35-0d44-4c9c-88ba-6a705f7deada
               timestamp: '2023-07-22T15:01:17.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24M
+              ttl: P24M
               version: 2.0.0
             message:
               order:
@@ -5950,6 +5990,11 @@ x-flows:
                     type: POLICY
                 items:
                   - id: '1'
+                    category_ids:
+                      - C1
+                    descriptor:
+                      name: ABC Marine Insurance Policy
+                      short_desc: ABC Marine Insurance Class A
                     price:
                       currency: INR
                       value: '900'
@@ -6062,6 +6107,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -6160,7 +6206,7 @@ x-flows:
               message_id: 6fd62e92-1b80-45c8-ad14-a5204f86d80c
               timestamp: '2023-07-22T15:01:25.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24M
+              ttl: P24M
               version: 2.0.0
             message:
               order:
@@ -6199,6 +6245,11 @@ x-flows:
                     price:
                       currency: INR
                       value: '900'
+                    category_ids:
+                      - C1
+                    descriptor:
+                      name: ABC Marine Insurance Policy
+                      short_desc: ABC Marine Insurance Class A
                     time:
                       label: Coverage Time
                       range:
@@ -6308,6 +6359,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -6456,7 +6508,7 @@ x-flows:
               message_id: 945619ae-202a-410b-beb4-916eaa7bb520
               timestamp: '2023-07-22T15:03:19.179Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24H
+              ttl: P24H
               version: 2.0.0
             message:
               order:
@@ -6521,6 +6573,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -6571,7 +6624,7 @@ x-flows:
               message_id: 4d56de53-2d2b-4cf8-a33a-d2089151dc5a
               timestamp: '2023-07-22T15:01:17.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24M
+              ttl: P24M
               version: 2.0.0
             message:
               ref_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
@@ -6614,7 +6667,7 @@ x-flows:
               message_id: 4d56de53-2d2b-4cf8-a33a-d2089151dc5a
               timestamp: '2023-07-22T15:03:19.179Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24H
+              ttl: P24H
               version: 2.0.0
             message:
               order:
@@ -6679,6 +6732,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -6904,7 +6958,7 @@ x-flows:
               message_id: 2c65fbd8-31c6-45c1-8cf8-522fbd548c7d
               timestamp: '2023-07-22T15:03:18.179Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-              ttl: PT24H
+              ttl: P24H
               version: 2.0.0
             message:
               order:
@@ -6969,6 +7023,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -7056,7 +7111,7 @@ x-examples:
                 message_id: 2c65fbd8-31c6-45c1-8cf8-522fbd548c7d
                 timestamp: '2023-07-22T15:01:17.694Z'
                 transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-                ttl: PT24M
+                ttl: P24M
                 version: 2.0.0
               message:
                 order_id: '01'
@@ -7080,7 +7135,7 @@ x-examples:
                 message_id: bfa97ac4-0c6f-4fa7-a287-be61f2aa1c1d
                 timestamp: '2023-07-22T15:03:18.179Z'
                 transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-                ttl: PT24H
+                ttl: P24H
                 version: 2.0.0
               message:
                 order:
@@ -7118,6 +7173,8 @@ x-examples:
                         short_desc: ABC Marine Insurance Class A
                       fulfillment_ids:
                         - FULFILMENT_ID
+                      category_ids:
+                        - C1
                       id: I1
                       price:
                         currency: INR
@@ -7230,6 +7287,7 @@ x-examples:
                             https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                     id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                   quote:
+                    id: Q1
                     breakup:
                       - price:
                           value: '900'
@@ -7271,7 +7329,7 @@ x-examples:
                 message_id: a74a1e35-0d44-4c9c-88ba-6a705f7deada
                 timestamp: '2023-07-22T15:01:17.694Z'
                 transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-                ttl: PT24M
+                ttl: P24M
                 version: 2.0.0
               message:
                 order:
@@ -7306,6 +7364,8 @@ x-examples:
                     - descriptor:
                         name: ABC Marine Insurance Policy
                         short_desc: ABC Marine Insurance Class A
+                      category_ids:
+                        - C1
                       id: I1
                       price:
                         value: '1000'
@@ -7418,6 +7478,7 @@ x-examples:
                             https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                     id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                   quote:
+                    id: Q1
                     price:
                       value: '0'
                       currency: INR
