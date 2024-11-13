@@ -3473,7 +3473,7 @@ x-tags:
               description: Describes the list of form submission
               reference: <PR/Issue/Discussion Links md format text>
               list:
-                - code: SET_LOAN_AMOUNT
+                - code: SET_DOWN_PAYMENT
                   description: Describes the list of form submission
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: EMANDATE
@@ -17083,7 +17083,7 @@ x-flows:
                         list:
                           - descriptor:
                               name: Set Loan Amount
-                              code: SET_LOAN_AMOUNT
+                              code: SET_DOWN_PAYMENT
                             value: PENDING
                           - descriptor:
                               name: KYC
@@ -17106,7 +17106,7 @@ x-flows:
                           cur: 0
                           max: 1
                         headings:
-                          - SET_LOAN_AMOUNT
+                          - SET_DOWN_PAYMENT
                           - KYC
                       form:
                         id: F03
@@ -17452,7 +17452,7 @@ x-flows:
                         list:
                           - descriptor:
                               name: Set Loan Amount
-                              code: SET_LOAN_AMOUNT
+                              code: SET_DOWN_PAYMENT
                             value: F03_SUBMISSION_ID
                           - descriptor:
                               name: KYC
@@ -17475,7 +17475,7 @@ x-flows:
                           cur: 1
                           max: 1
                         headings:
-                          - SET_LOAN_AMOUNT
+                          - SET_DOWN_PAYMENT
                           - KYC
                       form:
                         id: F04
@@ -17802,7 +17802,7 @@ x-flows:
                         list:
                           - descriptor:
                               name: Set Loan Amount
-                              code: SET_LOAN_AMOUNT
+                              code: SET_DOWN_PAYMENT
                             value: F03_SUBMISSION_ID
                           - descriptor:
                               name: KYC
@@ -18159,7 +18159,7 @@ x-flows:
                         list:
                           - descriptor:
                               name: Set Loan Amount
-                              code: SET_LOAN_AMOUNT
+                              code: SET_DOWN_PAYMENT
                             value: F03_SUBMISSION_ID
                           - descriptor:
                               name: KYC
@@ -18626,7 +18626,7 @@ x-flows:
                         list:
                           - descriptor:
                               name: Set Loan Amount
-                              code: SET_LOAN_AMOUNT
+                              code: SET_DOWN_PAYMENT
                             value: F03_SUBMISSION_ID
                           - descriptor:
                               name: KYC
@@ -19250,7 +19250,7 @@ x-flows:
                         list:
                           - descriptor:
                               name: Set Loan Amount
-                              code: SET_LOAN_AMOUNT
+                              code: SET_DOWN_PAYMENT
                             value: F03_SUBMISSION_ID
                           - descriptor:
                               name: KYC
@@ -19863,7 +19863,7 @@ x-flows:
                         list:
                           - descriptor:
                               name: Set Loan Amount
-                              code: SET_LOAN_AMOUNT
+                              code: SET_DOWN_PAYMENT
                             value: F03_SUBMISSION_ID
                           - descriptor:
                               name: KYC
@@ -20451,7 +20451,7 @@ x-flows:
                         list:
                           - descriptor:
                               name: Set Loan Amount
-                              code: SET_LOAN_AMOUNT
+                              code: SET_DOWN_PAYMENT
                             value: F03_SUBMISSION_ID
                           - descriptor:
                               name: KYC
@@ -20997,7 +20997,7 @@ x-flows:
                         list:
                           - descriptor:
                               name: Set Loan Amount
-                              code: SET_LOAN_AMOUNT
+                              code: SET_DOWN_PAYMENT
                             value: F03_SUBMISSION_ID
                           - descriptor:
                               name: KYC
@@ -24598,7 +24598,7 @@ x-flows:
                         list:
                           - descriptor:
                               name: Set Loan Amount
-                              code: SET_LOAN_AMOUNT
+                              code: SET_DOWN_PAYMENT
                             value: F03_SUBMISSION_ID
                           - descriptor:
                               name: KYC
@@ -25200,7 +25200,7 @@ x-flows:
                         list:
                           - descriptor:
                               name: Set Loan Amount
-                              code: SET_LOAN_AMOUNT
+                              code: SET_DOWN_PAYMENT
                             value: F03_SUBMISSION_ID
                           - descriptor:
                               name: KYC
@@ -25870,7 +25870,7 @@ x-flows:
                         list:
                           - descriptor:
                               name: Set Loan Amount
-                              code: SET_LOAN_AMOUNT
+                              code: SET_DOWN_PAYMENT
                             value: F03_SUBMISSION_ID
                           - descriptor:
                               name: KYC
@@ -26480,7 +26480,7 @@ x-flows:
                         list:
                           - descriptor:
                               name: Set Loan Amount
-                              code: SET_LOAN_AMOUNT
+                              code: SET_DOWN_PAYMENT
                             value: F03_SUBMISSION_ID
                           - descriptor:
                               name: KYC
@@ -27170,7 +27170,7 @@ x-flows:
                         list:
                           - descriptor:
                               name: Set Loan Amount
-                              code: SET_LOAN_AMOUNT
+                              code: SET_DOWN_PAYMENT
                             value: F03_SUBMISSION_ID
                           - descriptor:
                               name: KYC
@@ -27775,7 +27775,7 @@ x-flows:
                         list:
                           - descriptor:
                               name: Set Loan Amount
-                              code: SET_LOAN_AMOUNT
+                              code: SET_DOWN_PAYMENT
                             value: F03_SUBMISSION_ID
                           - descriptor:
                               name: KYC

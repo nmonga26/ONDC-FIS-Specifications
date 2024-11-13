@@ -187,7 +187,7 @@ message:
             list:
               - descriptor:
                   name: Set Loan Amount
-                  code: SET_LOAN_AMOUNT
+                  code: SET_DOWN_PAYMENT
                 value: "F03_SUBMISSION_ID"
               - descriptor:
                   name: KYC

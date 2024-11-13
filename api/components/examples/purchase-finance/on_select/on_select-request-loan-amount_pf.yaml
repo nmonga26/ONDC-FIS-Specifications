@@ -185,7 +185,7 @@ message:
             list:
               - descriptor:
                   name: Set Loan Amount
-                  code: SET_LOAN_AMOUNT
+                  code: SET_DOWN_PAYMENT
                 value: PENDING
               - descriptor:
                   name: KYC
@@ -209,7 +209,7 @@ message:
               cur: 0
               max: 1
             headings:
-              - SET_LOAN_AMOUNT
+              - SET_DOWN_PAYMENT
               - KYC
           form:
             id: F03

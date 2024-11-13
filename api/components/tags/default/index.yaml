@@ -307,7 +307,7 @@ on_select:
               Describes the list of form submission
             reference: <PR/Issue/Discussion Links md format text>
             list:
-              - code: SET_LOAN_AMOUNT
+              - code: SET_DOWN_PAYMENT
                 description: Describes the list of form submission
                 reference: <PR/Issue/Discussion Links md format text>
               - code: EMANDATE
