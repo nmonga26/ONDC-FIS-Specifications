@@ -48,6 +48,8 @@ message:
       - descriptor:
           name: ABC Marine Insurance Policy
           short_desc: ABC Marine Insurance Class A
+        category_ids:
+          - "C1" 
         id: I1
         price:
           value: "1000"
@@ -158,6 +160,7 @@ message:
           - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
       id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
     quote:
+      id: Q1
       price:
         value: "0"
         currency: "INR"

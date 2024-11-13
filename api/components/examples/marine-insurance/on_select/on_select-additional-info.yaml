@@ -88,6 +88,7 @@ message:
           - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
       id: P1
     quote:
+      id: Q1
       breakup:
         - price:
             value: "900"
