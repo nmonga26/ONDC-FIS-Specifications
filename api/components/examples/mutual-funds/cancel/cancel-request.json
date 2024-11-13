@@ -27,8 +27,8 @@
             {
               "display": true,
               "descriptor": {
-                "name": "Customer Info",
-                "code": "CUSTOMER_INFO"
+                "name": "Consumer Info",
+                "code": "CONSUMER_INFO"
               },
               "list": [
                 {

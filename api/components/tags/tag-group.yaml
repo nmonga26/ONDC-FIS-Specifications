@@ -245,8 +245,8 @@ intent:
             - code: false
               description: Offline contract does not exist
 
-CUSTOMER_INFO:
-  - code: CUSTOMER_INFO
+CONSUMER_INFO:
+  - code: CONSUMER_INFO
     description : Describes the customer info tag group.
     reference: <PR/Issue/Discussion Links md format text>
     list:

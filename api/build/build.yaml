@@ -3805,7 +3805,7 @@ x-tags:
     message:
       tags:
         - &ref_19
-          code: CUSTOMER_INFO
+          code: CONSUMER_INFO
           description: Describes the customer info tag group.
           reference: <PR/Issue/Discussion Links md format text>
           list:
@@ -16419,8 +16419,8 @@ x-flows:
               tags:
                 - display: true
                   descriptor:
-                    name: Customer Info
-                    code: CUSTOMER_INFO
+                    name: Consumer Info
+                    code: CONSUMER_INFO
                   list:
                     - descriptor:
                         name: IP Address
@@ -16672,8 +16672,8 @@ x-flows:
                         value: 'true'
                   - display: true
                     descriptor:
-                      name: Customer Info
-                      code: CUSTOMER_INFO
+                      name: Consumer Info
+                      code: CONSUMER_INFO
                     list:
                       - descriptor:
                           name: IP Address
