@@ -145,7 +145,7 @@
                     "tags": [
                         {
                             "display": true,
-                            "descriptor": {"name": "Information"},
+                            "descriptor": {"name": "Information", "code": "ERROR_INFORMATION"},
                             "list": [
                                 {
                                     "descriptor": {"name": "Reason Code", "code": "REASON_CODE"},
@@ -228,6 +228,15 @@
                     ]
                 }
             ],
+            "cancellation_terms": [
+                {
+                  "reason_required": true,
+                  "external_ref": {
+                    "url": "https://api.sellerapp.com/cterms?id=214werw3w4",
+                    "mimetype": "text/html"
+                  }
+                }
+              ],
             "created_at": "2023-05-25T05:23:03.443Z",
             "updated_at": "2023-05-25T05:23:03.443Z"
         }

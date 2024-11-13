@@ -6594,6 +6594,8 @@ x-flows:
                           unit: INR
                     fulfillment_ids:
                       - ff_123
+                    payment_ids:
+                      - pmt_123
                     tags:
                       - display: true
                         descriptor:
@@ -6826,12 +6828,6 @@ x-flows:
                       - time:
                           schedule:
                             frequency: R6/2024-05-15/P1M
-                xinput:
-                  form:
-                    id: form_1
-                  form_response:
-                    status: SUCCESS
-                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -6987,8 +6983,8 @@ x-flows:
                     type: SIP
                     state:
                       descriptor:
-                        name: Initiated
-                        code: INITIATED
+                        name: Pending
+                        code: PENDING
                     customer:
                       person:
                         id: pan:arrpp7771n
@@ -7049,12 +7045,6 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
-                xinput:
-                  form:
-                    id: form_1
-                  form_response:
-                    status: SUCCESS
-                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -7303,12 +7293,6 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
-                xinput:
-                  form:
-                    id: form_1
-                  form_response:
-                    status: SUCCESS
-                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -10967,6 +10951,8 @@ x-flows:
                           unit: INR
                     fulfillment_ids:
                       - ff_123
+                    payment_ids:
+                      - pmt_123
                     tags:
                       - display: true
                         descriptor:
@@ -11264,8 +11250,8 @@ x-flows:
                     type: SIP
                     state:
                       descriptor:
-                        name: Initiated
-                        code: INITIATED
+                        name: Pending
+                        code: PENDING
                     customer:
                       person:
                         id: pan:arrpp7771n
@@ -11326,12 +11312,6 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
-                xinput:
-                  form:
-                    id: form_1
-                  form_response:
-                    status: SUCCESS
-                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -11588,12 +11568,6 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
-                xinput:
-                  form:
-                    id: form_1
-                  form_response:
-                    status: SUCCESS
-                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -12092,6 +12066,8 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    payment_ids:
+                      - pmt_123
                     quantity:
                       selected:
                         measure:
@@ -12501,8 +12477,8 @@ x-flows:
                     type: SIP
                     state:
                       descriptor:
-                        name: InProgress
-                        code: INITIATED
+                        name: Pending
+                        code: PENDING
                     customer:
                       person:
                         id: pan:arrpp7771n
@@ -14828,6 +14804,7 @@ x-flows:
                     tags:
                       - descriptor:
                           name: Information
+                          code: ERROR_INFORMATION
                         list:
                           - descriptor:
                               code: MODE
@@ -14885,6 +14862,11 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                cancellation_terms:
+                  - reason_required: true
+                    external_ref:
+                      url: https://api.sellerapp.com/cterms?id=214werw3w4
+                      mimetype: text/html
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: SIP Instalment
@@ -15061,6 +15043,7 @@ x-flows:
                       - display: true
                         descriptor:
                           name: Information
+                          code: SUCCESS_INFORMATION
                         list:
                           - descriptor:
                               name: Next Instalment Date
@@ -15070,12 +15053,6 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
-                xinput:
-                  form:
-                    id: form_1
-                  form_response:
-                    status: SUCCESS
-                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -15139,6 +15116,11 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                cancellation_terms:
+                  - reason_required: true
+                    external_ref:
+                      url: https://api.sellerapp.com/cterms?id=214werw3w4
+                      mimetype: text/html
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: On Confirm
@@ -15257,8 +15239,8 @@ x-flows:
                             type: SUB_BROKER_ARN
                     state:
                       descriptor:
-                        name: OnGoing
-                        code: ONGOING
+                        name: Pending
+                        code: PENDING
                 payments:
                   - id: pmt_234
                     collected_by: BPP
@@ -15429,8 +15411,8 @@ x-flows:
                     type: SIP_INSTALMENT
                     state:
                       descriptor:
-                        name: Completed
-                        code: COMPLETED
+                        name: initiated
+                        code: INITIATED
                     customer:
                       person:
                         id: pan:arrpp7771n
@@ -15617,6 +15599,7 @@ x-flows:
                       - display: true
                         descriptor:
                           name: Information
+                          code: SUCCESS_INFORMATION
                         list:
                           - descriptor:
                               name: Folio number
@@ -15685,6 +15668,11 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                cancellation_terms:
+                  - reason_required: true
+                    external_ref:
+                      url: https://api.sellerapp.com/cterms?id=214werw3w4
+                      mimetype: text/html
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: SIP Instalment - Payment Failure
@@ -15845,6 +15833,7 @@ x-flows:
                     tags:
                       - descriptor:
                           name: Information
+                          code: ERROR_INFORMATION
                         list:
                           - descriptor:
                               code: MODE
@@ -15902,6 +15891,11 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                cancellation_terms:
+                  - reason_required: true
+                    external_ref:
+                      url: https://api.sellerapp.com/cterms?id=214werw3w4
+                      mimetype: text/html
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: SIP Instalment - Failure
@@ -16061,6 +16055,7 @@ x-flows:
                       - display: true
                         descriptor:
                           name: Information
+                          code: ERROR_INFORMATION
                         list:
                           - descriptor:
                               name: Reason Code
@@ -16133,6 +16128,11 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                cancellation_terms:
+                  - reason_required: true
+                    external_ref:
+                      url: https://api.sellerapp.com/cterms?id=214werw3w4
+                      mimetype: text/html
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: SIP Auto Cancellation
@@ -16308,12 +16308,6 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
-                xinput:
-                  form:
-                    id: form_1
-                  form_response:
-                    status: SUCCESS
-                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -16341,6 +16335,11 @@ x-flows:
                     id: '08'
                     descriptor:
                       name: 3 consecutive instalments failed
+                cancellation_terms:
+                  - reason_required: true
+                    external_ref:
+                      url: https://api.sellerapp.com/cterms?id=214werw3w4
+                      mimetype: text/html
                 quote:
                   id: q1
                   price:
@@ -16594,12 +16593,6 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
-                xinput:
-                  form:
-                    id: form_1
-                  form_response:
-                    status: SUCCESS
-                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -16627,6 +16620,11 @@ x-flows:
                     id: '07'
                     descriptor:
                       name: Investment goal is achieved
+                cancellation_terms:
+                  - reason_required: true
+                    external_ref:
+                      url: https://api.sellerapp.com/cterms?id=214werw3w4
+                      mimetype: text/html
                 quote:
                   id: q1
                   price:
@@ -16855,17 +16853,12 @@ x-flows:
                       - display: true
                         descriptor:
                           name: Information
+                          code: SUCCESS_INFORMATION
                         list:
                           - descriptor:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '0'
-                xinput:
-                  form:
-                    id: form_1
-                  form_response:
-                    status: SUCCESS
-                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -16929,6 +16922,11 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                cancellation_terms:
+                  - reason_required: true
+                    external_ref:
+                      url: https://api.sellerapp.com/cterms?id=214werw3w4
+                      mimetype: text/html
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: Lumpsum Investment (Existing Folio - Investor selects/enters a folio)
@@ -17402,6 +17400,8 @@ x-flows:
                           unit: INR
                     fulfillment_ids:
                       - ff_789
+                    payment_ids:
+                      - pmt_123
                     tags:
                       - display: true
                         descriptor:
@@ -17774,6 +17774,10 @@ x-flows:
                             type: IP_ADDRESS
                       contact:
                         phone: '9916599123'
+                    state:
+                      descriptor:
+                        name: Pending
+                        code: PENDING
                     agent:
                       person:
                         id: euin:E52432
@@ -18321,6 +18325,7 @@ x-flows:
                       - display: true
                         descriptor:
                           name: Information
+                          code: SUCCESS_INFORMATION
                         list:
                           - descriptor:
                               name: Folio number
@@ -18389,6 +18394,11 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                cancellation_terms:
+                  - reason_required: true
+                    external_ref:
+                      url: https://api.sellerapp.com/cterms?id=214werw3w4
+                      mimetype: text/html
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: Lumpsum Investment - Payment Retry
@@ -18551,6 +18561,10 @@ x-flows:
                             type: IP_ADDRESS
                       contact:
                         phone: '9916599123'
+                    state:
+                      descriptor:
+                        name: Pending
+                        code: PENDING
                     agent:
                       person:
                         id: euin:E52432
@@ -18628,6 +18642,7 @@ x-flows:
                             value: NETBANKING
                       - descriptor:
                           name: Information
+                          code: ERROR_INFORMATION
                         list:
                           - descriptor:
                               name: Reason Code
@@ -18682,6 +18697,11 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                cancellation_terms:
+                  - reason_required: true
+                    external_ref:
+                      url: https://api.sellerapp.com/cterms?id=214werw3w4
+                      mimetype: text/html
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: Update
@@ -18774,6 +18794,9 @@ x-flows:
                           unit: INR
                     fulfillment_ids:
                       - ff_789
+                    payment_ids:
+                      - pmt_123
+                      - pmt_587
                     tags:
                       - display: true
                         descriptor:
@@ -18832,6 +18855,10 @@ x-flows:
                             type: IP_ADDRESS
                       contact:
                         phone: '9916599123'
+                    state:
+                      descriptor:
+                        name: Pending
+                        code: PENDING
                     agent:
                       person:
                         id: euin:E52432
@@ -18909,6 +18936,7 @@ x-flows:
                             value: NETBANKING
                       - descriptor:
                           name: Information
+                          code: ERROR_INFORMATION
                         list:
                           - descriptor:
                               name: Reason Code
@@ -18983,6 +19011,11 @@ x-flows:
                       price:
                         currency: INR
                         value: '3000'
+                cancellation_terms:
+                  - reason_required: true
+                    external_ref:
+                      url: https://api.sellerapp.com/cterms?id=214werw3w4
+                      mimetype: text/html
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: Lumpsum - New Folio
@@ -21612,8 +21645,8 @@ x-flows:
                     type: LUMPSUM
                     state:
                       descriptor:
-                        name: Initiated
-                        code: INITIATED
+                        name: Pending
+                        code: PENDING
                     customer:
                       person:
                         id: pan:arrpp7771n
@@ -21814,6 +21847,10 @@ x-flows:
                         id: pan:arrpp7771n
                       contact:
                         phone: '9916599123'
+                    state:
+                      descriptor:
+                        name: Initiated
+                        code: INITIATED
                     agent:
                       person:
                         id: euin:E52432
@@ -25439,6 +25476,11 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                cancellation_terms:
+                  - reason_required: true
+                    external_ref:
+                      url: https://api.sellerapp.com/cterms?id=214werw3w4
+                      mimetype: text/html
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: Redemption - Failure
@@ -25670,6 +25712,11 @@ x-flows:
                       price:
                         currency: INR
                         value: '3000'
+                cancellation_terms:
+                  - reason_required: true
+                    external_ref:
+                      url: https://api.sellerapp.com/cterms?id=214werw3w4
+                      mimetype: text/html
                 tags:
                   - display: false
                     descriptor:
@@ -25953,6 +26000,8 @@ x-examples:
                       descriptor:
                         name: ABC Mid Cap Fund - Regular - Growth
                         code: SCHEME_PLAN
+                      payment_ids:
+                        - pmt_587
                       quantity:
                         selected:
                           measure:
@@ -29271,6 +29320,9 @@ x-featureui:
     - stage-discovery.md
     - stage-fulfillment.md
     - stage-order.md
+x-testcasesui:
+  filenames:
+    - log-verification.md
 x-sandboxui:
   dropdown:
     - environment-name: staging

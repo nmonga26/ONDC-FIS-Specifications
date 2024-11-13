@@ -191,7 +191,7 @@
                         },
                         {
                             "display": true,
-                            "descriptor": {"name": "Information"},
+                            "descriptor": {"name": "Information", "code": "SUCCESS_INFORMATION"},
                             "list": [
                                 {
                                     "descriptor": {"name": "Next Instalment Date", "code": "NEXT_INSTALMENT_DATE"},
@@ -206,15 +206,6 @@
                     ]
                 }
             ],
-            "xinput": {
-                "form": {
-                    "id": "form_1"
-                },
-                "form_response": {
-                    "status": "SUCCESS",
-                    "submission_id": "6547-7456-7235-4386"
-                }
-            },
             "payments": [
                 {
                     "id": "pmt_123",
@@ -283,6 +274,15 @@
                     ]
                 }
             ],
+            "cancellation_terms": [
+                {
+                  "reason_required": true,
+                  "external_ref": {
+                    "url": "https://api.sellerapp.com/cterms?id=214werw3w4",
+                    "mimetype": "text/html"
+                  }
+                }
+              ],
             "created_at": "2023-05-25T05:23:03.443Z",
             "updated_at": "2023-05-25T05:23:03.443Z"
         }

@@ -192,15 +192,6 @@
                     ]
                 }
             ],
-            "xinput": {
-                "form": {
-                    "id": "form_1"
-                },
-                "form_response": {
-                    "status": "SUCCESS",
-                    "submission_id": "6547-7456-7235-4386"
-                }
-            },
             "payments": [
                 {
                     "id": "pmt_123",
@@ -236,6 +227,15 @@
                     "descriptor": { "name": "3 consecutive instalments failed" }
                 }
             },
+            "cancellation_terms": [
+                {
+                  "reason_required": true,
+                  "external_ref": {
+                    "url": "https://api.sellerapp.com/cterms?id=214werw3w4",
+                    "mimetype": "text/html"
+                  }
+                }
+              ],
             "quote": {
                 "id": "q1",
                 "price": { "currency": "INR", "value": "0" },
