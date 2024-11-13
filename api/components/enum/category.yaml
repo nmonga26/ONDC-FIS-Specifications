@@ -3,19 +3,27 @@ descriptor:
     - code: MOTOR_INSURANCE
       description: Describes a type of insurance that provides coverage for various motor vehicles                                      
       reference: <PR/Issue/Discussion Links md format text         
-    - code: COMPREHENSIVE_INSURANCE
+    - code: TWO_WHEELER_COMPRIHENSIVE_INSURANCE
       description: Describes a type of motor insurance plan that covers the insured person against both - own damages and any third party liabilities
       reference: <PR/Issue/Discussion Links md format text>
-    - code: FOUR_WHEELER_INSURANCE
-      description: Describes a type of motor insurance plan that provides coverage for four wheel vehicles like cars                                     
-      reference: <PR/Issue/Discussion Links md format text   
-    - code: THIRD_PARTY_INSURANCE
-      description: Describes a type of motor insurance that only covers liability towards third party involved in the accident
+    - code: TWO_WHEELER_THIRD_PARTY_INSURANCE
+      description: Describes a type of motor insurance plan that covers the insured person against both - own damages and any third party liabilities
       reference: <PR/Issue/Discussion Links md format text>
-    - code: TWO_WHEELER_INSURANCE
-      description: Describes a type of motor insurance plan that provides coverage for two wheel vehicles like motor bike, scooters etc
+    - code: TWO_WHEELER_OWN_DAMAGE
+      description: Describes a type of motor insurance plan that covers the insured person against both - own damages and any third party liabilities
+      reference: <PR/Issue/Discussion Links md format text>    
+    - code: FOUR_WHEELER_COMPRIHENSIVE_INSURANCE
+      description: Describes a type of motor insurance plan that covers the insured person against both - own damages and any third party liabilities
       reference: <PR/Issue/Discussion Links md format text>
-    - code: OWN_DAMAGE
-      description: Describes a type of motor insurance that provides coverage for damages to your insured vehicle
-      reference: <PR/Issue/Discussion Links md format text>  
-
+    - code: FOUR_WHEELER_THIRD_PARTY_INSURANCE
+      description: Describes a type of motor insurance plan that covers the insured person against both - own damages and any third party liabilities
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: FOUR_WHEELER_OWN_DAMAGE
+      description: Describes a type of motor insurance plan that covers the insured person against both - own damages and any third party liabilities
+      reference: <PR/Issue/Discussion Links md format text> 
+    - code: NEW_INSURANCE
+      description: Describes the new insurance type
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: TRANSFER_INSURANCE
+      description: Describes the transfer type insurance
+      reference: <PR/Issue/Discussion Links md format text>

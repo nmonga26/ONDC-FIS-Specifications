@@ -41,10 +41,10 @@ message:
           short_desc: ABC Individaul Health Insurance Class A with custom addon
         id: I1
         category_ids:
+          - C1
+          - C2
           - C3
-          - C4
-          - C5
-          - C6
+          - C8 
         price:
           value: "12505"
           currency: INR
