@@ -3566,7 +3566,7 @@ x-flows:
                         xinput:
                           head:
                             descriptor:
-                              name: Customer Information
+                              name: Personal Information
                             index:
                               min: 0
                               cur: 0
@@ -4140,12 +4140,12 @@ x-flows:
                               code: INSTALLMENT_AMOUNT
                               name: Installment amount
                               short_desc: Each installment amount of repayment
-                            value: PT30D
+                            value: '46360'
                         display: true
                     xinput:
                       head:
                         descriptor:
-                          name: Customer Information
+                          name: Set Loan Amount
                         index:
                           min: 0
                           cur: 0
@@ -4480,12 +4480,12 @@ x-flows:
                               code: INSTALLMENT_AMOUNT
                               name: Installment amount
                               short_desc: Each installment amount of repayment
-                            value: PT30D
+                            value: '46360'
                         display: true
                     xinput:
                       head:
                         descriptor:
-                          name: Customer Information
+                          name: Know your Customer
                         index:
                           min: 0
                           cur: 1
@@ -5309,12 +5309,12 @@ x-flows:
                               code: INSTALLMENT_AMOUNT
                               name: Installment amount
                               short_desc: Each installment amount of repayment
-                            value: PT30D
+                            value: '46360'
                         display: true
                     xinput:
                       head:
                         descriptor:
-                          name: Account Information
+                          name: Emandate
                         index:
                           min: 0
                           cur: 1
@@ -5754,12 +5754,12 @@ x-flows:
                               code: INSTALLMENT_AMOUNT
                               name: Installment amount
                               short_desc: Each installment amount of repayment
-                            value: PT30D
+                            value: '46360'
                         display: true
                     xinput:
                       head:
                         descriptor:
-                          name: Account Information
+                          name: Loan Agreement
                         index:
                           min: 0
                           cur: 2
@@ -6256,7 +6256,7 @@ x-flows:
                               code: INSTALLMENT_AMOUNT
                               name: Installment amount
                               short_desc: Each installment amount of repayment
-                            value: PT30D
+                            value: '46360'
                         display: true
                 quote:
                   id: LOAN_LEAD_ID_OR_SIMILAR
