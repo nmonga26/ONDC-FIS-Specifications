@@ -13,7 +13,7 @@ context:
   message_id: 385e3fb7-61e6-49a7-acbc-8ac05f934d4d
   timestamp: "2023-07-22T15:01:17.694Z"
   transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-  ttl: PT24H
+  ttl: P24H
   version: 2.0.0
 message:
   catalog:

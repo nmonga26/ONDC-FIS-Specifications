@@ -96,7 +96,7 @@ message:
         value: "12505"
       breakup:
         - price:
-            value: "11531"
+            value: "12531"
             currency: INR
           title: BASE_PRICE
         - price:
@@ -117,4 +117,4 @@ message:
           price:
             value: "900"
             currency: INR
-      ttl: PT15D       
+      ttl: P15D       

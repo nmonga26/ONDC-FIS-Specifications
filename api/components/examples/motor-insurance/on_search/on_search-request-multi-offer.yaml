@@ -13,7 +13,7 @@ context:
   message_id: 80bbe4c1-3740-4b2c-b3a0-def810f38e8f
   timestamp: "2023-07-24T05:40:05.651Z"
   transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-  ttl: PT24H
+  ttl: P24H
   version: 2.0.0
 message:
   catalog:
@@ -234,7 +234,7 @@ message:
           - id: CHILD_ITEM_CI1
             parent_item_id: I1
             price: 
-              value: "11531"
+              value: "12531"
               currency: INR
             category_ids:
               - C3
@@ -295,7 +295,7 @@ message:
                       code: BASE_PRICE
                       name: Base Price
                       short_desc: Base Price
-                    value: '11531'
+                    value: '12531'
                   - descriptor:
                       code: CONVIENCE_FEE
                       name: Convience Fee
@@ -315,7 +315,7 @@ message:
                       code: OFFER_VALIDITY
                       name: Offer validity
                       short_desc: Describes the offer validity
-                    value: 'PT15D' 
+                    value: 'P15D' 
                   - descriptor:
                       code: MANUAL_REVIEW
                       name: Manual Review
@@ -696,7 +696,7 @@ message:
                       code: OFFER_VALIDITY
                       name: Offer validity
                       short_desc: Describes the offer validity
-                    value: 'PT15D'
+                    value: 'P15D'
                   - descriptor:
                       code: MANUAL_REVIEW
                       name: Manual Review

@@ -13,7 +13,7 @@ context:
   message_id: bfa97ac4-0c6f-4fa7-a287-be61f2aa1c1d
   timestamp: "2023-07-22T15:03:18.179Z"
   transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
-  ttl: PT24H
+  ttl: P24H
   version: 2.0.0
 message:
   order:
@@ -34,7 +34,7 @@ message:
           name: 2-Wheeler 3rd Party Motor Insurance
           short_desc: 2-Wheeler 3rd Party Motor Insurance by ABC Insurance Provider
         price:
-          value: "11531"
+          value: "12531"
           currency: INR
         tags:
           - descriptor:
@@ -193,7 +193,7 @@ message:
       #       currency: INR
       breakup:
         - price:
-            value: "11531"
+            value: "12531"
             currency: INR
           title: BASE_PRICE
         - price:
@@ -214,4 +214,4 @@ message:
           price:
             value: "900"
             currency: INR
-      ttl: PT15D 
+      ttl: P15D 

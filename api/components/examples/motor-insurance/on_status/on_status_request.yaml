@@ -29,7 +29,7 @@ message:
           name: 2-Wheeler 3rd Party Motor Insurance
           short_desc: 2-Wheeler 3rd Party Motor Insurance by ABC Insurance Provider
         price:
-          value: "11531"
+          value: "12531"
           currency: "INR"
         tags:
           - descriptor:
@@ -159,7 +159,7 @@ message:
         value: "12505"
       breakup:
         - price:
-            value: "11531"
+            value: "12531"
             currency: INR
           title: BASE_PRICE
         - price:
@@ -180,7 +180,7 @@ message:
           price:
             value: "900"
             currency: INR
-      ttl: PT15D      
+      ttl: P15D      
     # fulfillments:
     #   - state:
     #       descriptor:
