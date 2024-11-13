@@ -69,8 +69,8 @@ info:
   - code:  PRINCIPAL_AMOUNT 
     description: Describes the principal amount, should include unit  INR
     reference: <PR/Issue/Discussion Links md format text> 
-  - code:  INTEREST_AMOUNT, should include unit  INR 
-    description: Describes the principal amount
+  - code:  INTEREST_AMOUNT,
+    description: Describes the interest amount
     reference: <PR/Issue/Discussion Links md format text>
   - code:  PROCESSING_FEE 
     description: Describes the Processing Fee, should include unit  INR
@@ -196,22 +196,8 @@ breakup:
   - code:  INTEREST_AMOUNT 
     description: Describes the loan interest, should include unit INR
     reference: <PR/Issue/Discussion Links md format text>
-  - code:  PROCESSING_FEE 
-    description: Describes the loan processing fee, should include unit INR or %
-    reference: <PR/Issue/Discussion Links md format text>
-  - code:  OTHER_UPFRONT_CHARGES 
-    description: Describes the other upfront charges, should include unit INR or %
-    reference: <PR/Issue/Discussion Links md format text>
-  - code:  NET_DISBURSED_AMOUNT 
-    description: Describes the net disbursed amount, should include unit INR
-    reference: <PR/Issue/Discussion Links md format text> 
-  - code:  OTHER_CHARGES
-    description: Describes the other charges, should include unit INR
-    reference: <PR/Issue/Discussion Links md format text>
-  - code:  INSURANCE_CHARGES, should include unit INR
-    description: Describes the insurance Charges
-    reference: <PR/Issue/Discussion Links md format text>
 utr:
   - code:  UTR_NUMBER
     description: Describes the Unique Transaction Reference
-    reference: <PR/Issue/Discussion Links md format text>  
+    reference: <PR/Issue/Discussion Links md format text>
+        

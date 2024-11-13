@@ -18,6 +18,7 @@ context:
 message:
   order:
     id: LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID
+    status: ACTIVE
     provider:
       id: PROVIDER_ID
       descriptor:
@@ -182,6 +183,27 @@ message:
                   name: Subvention Rate
                 value: 5 %
             display: true
+          - display: true
+            descriptor:
+              name: Checklists
+              code: CHECKLISTS
+            list:
+              - descriptor:
+                  name: Set Loan Amount
+                  code: SET_DOWN_PAYMENT
+                value: "F03_SUBMISSION_ID"
+              - descriptor:
+                  name: KYC
+                  code: KYC
+                value: "F04_SUBMISSION_ID"
+              - descriptor:
+                  name: Emandate
+                  code: EMANDATE
+                value: F05_SUBMISSION_ID
+              - descriptor:
+                  name: Esign
+                  code: ESIGN
+                value: F06_SUBMISSION_ID
     fulfillments:
       - customer:
           person:
@@ -647,3 +669,5 @@ message:
             and confirming the loan's cancellation.
         mime_type: application/pdf
         url: https://lender.com/loan/loan-cancellation/O1.pdf
+    created_at: '2024-05-06T04:19:20.443Z'
+    updated_at: '2024-05-07T07:20:10.443Z'
