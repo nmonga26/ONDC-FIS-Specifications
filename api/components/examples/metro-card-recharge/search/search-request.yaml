@@ -1,0 +1,20 @@
+context:
+  action: search
+  bap_id: api.example-bap.com
+  bap_uri: https://api.example-bap.com/ondc/metro
+  domain: ONDC:FIS11
+  location:
+    country:
+      code: IND
+    city:
+      code: '*'
+  message_id: 61ef16f2-7912-42d2-bf00-4fe6096d15fa
+  timestamp: "2024-11-23T05:40:00.651Z"
+  transaction_id: 4b991167-e506-44e7-bb4f-dccf1446fcaa
+  ttl: P24H
+  version: 2.0.0
+message:
+  intent:
+    category:
+      descriptor:
+        code: RECHARGE

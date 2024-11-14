@@ -1,0 +1,73 @@
+context:
+  action: select
+  bap_id: api.example-bap.com
+  bap_uri: https://api.example-bap.com/ondc/metro
+  bpp_id: api.example-bpp.com
+  bpp_uri: https://api.example-bpp.com/ondc/metro
+  domain: ONDC:FIS11
+  location:
+    country:
+      code: IND
+    city:
+      code: '*'
+  message_id: 5ea24707-ed17-4ef8-b4a1-fcf77eb10b29
+  timestamp: "2024-11-23T05:40:12.651Z"
+  transaction_id: 4b991167-e506-44e7-bb4f-dccf1446fcaa
+  ttl: P24H
+  version: 2.0.0
+message:
+  order:
+    provider:
+      id: P1
+      descriptor:
+        name: Delhi Metro Rail Limited
+        images:
+          - url: 'https://delhimetrorail.com/logos/logo.icon'
+    items:
+      - id: I1
+        category_ids:
+          - C1
+        descriptor:
+          name: Metro Card Recharge
+          code: RECHARGE
+          images: 
+            - url: 'https://delhimetrorail.com/logos/logo.ico' 
+        price:
+          currency: INR
+          value: '100'
+          minimum_value: '50'
+          maximum_value:  '500'
+        time:
+          label: Validity
+          duration: P1Y
+    fulfillments:
+      - id: F1
+        customer:
+          person:
+            creds:
+              - id: '00129812901'
+                type: CARD_IDENTIFIER
+        type: ''        
+    quote:
+      id: Q1
+      price:
+        value: '120'
+        currency: INR
+      breakup:
+        - title: BASE_FARE
+          item:
+            id: I1
+            price:
+              currency: INR
+              value: '100'
+        - title: CONVENIENCE_FEE
+          price:
+            currency: INR
+            value: '10'
+        - title: TAX
+          price:
+            currency: INR
+            value: '10'          
+         
+
+  
