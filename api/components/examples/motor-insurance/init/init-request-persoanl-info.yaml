@@ -30,10 +30,11 @@ message:
     items:
       - id: I1
         category_ids:
+          - C1
+          - C2
           - C3
-          - C4
-          - C5
-          - C6
+          - C8 
+          - C11
         add_ons:
           - id: A1
             quantity:

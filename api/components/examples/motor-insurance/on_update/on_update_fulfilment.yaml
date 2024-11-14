@@ -42,10 +42,11 @@ message:
         id: CHILD_ITEM_CI1
         parent_item_id: I1
         category_ids:
+          - C1
+          - C2
           - C3
-          - C4
-          - C5
-          - C6
+          - C8 
+          - C11
         price:
           value: "12505"
           currency: INR
