@@ -2777,7 +2777,7 @@ x-enum:
         category: &ref_1
           descriptor: &ref_2
             code:
-              - code: TERM_LIFE_INSURANCE
+              - code: LIFE_INSURANCE
                 description: >-
                   Provides coverage for a specified period with no payout if the
                   policyholder survives the term
@@ -3298,7 +3298,7 @@ x-flows:
         example: &ref_20
           value: &ref_22
             context:
-              domain: ONDC:FIS12
+              domain: ONDC:FIS13
               location:
                 country:
                   code: IND
@@ -3350,7 +3350,7 @@ x-flows:
         example:
           value: &ref_23
             context:
-              domain: ONDC:FIS12
+              domain: ONDC:FIS13
               location:
                 country:
                   code: IND
@@ -3703,7 +3703,7 @@ x-flows:
         example:
           value: &ref_24
             context:
-              domain: ONDC:FIS12
+              domain: ONDC:FIS13
               location:
                 country:
                   code: IND
@@ -3786,7 +3786,7 @@ x-flows:
         example: &ref_21
           value: &ref_25
             context:
-              domain: ONDC:FIS12
+              domain: ONDC:FIS13
               location:
                 country:
                   code: IND
@@ -9484,7 +9484,7 @@ x-examples:
             description: TBD
             value:
               context:
-                domain: ONDC:FIS12
+                domain: ONDC:FIS13
                 location:
                   country:
                     code: IND
@@ -11676,7 +11676,7 @@ x-examples:
             description: TBD
             value:
               context:
-                domain: ONDC:FIS12
+                domain: ONDC:FIS13
                 location:
                   country:
                     code: IND
@@ -11997,7 +11997,7 @@ x-attributes:
                   required: MANDATORY
                   type: TEXT
                   owner: BAP
-                  usage: TERM_INSURANCE
+                  usage: LIFE_INSURANCE
                   description: Type of insurance
                 _description:
                   required: MANDATORY
@@ -12602,7 +12602,7 @@ x-attributes:
                     required: MANDATORY
                     type: TEXT
                     owner: BPP
-                    usage: TERM_INSURANCE
+                    usage: LIFE_INSURANCE
                     description: Describes category code of Insurance
                   _description:
                     required: MANDATORY

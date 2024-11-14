@@ -102,7 +102,7 @@ search: &search
         descriptor: &search_message_intent_category_descriptor
           code: &search_message_intent_category_descriptor_code
             - &search_message_intent_category_descriptor_code_0
-              code: TERM_LIFE_INSURANCE
+              code: LIFE_INSURANCE
               description: Provides coverage for a specified period with no payout if the
                 policyholder survives the term
               reference: <PR/Issue/Discussion Links md format text
