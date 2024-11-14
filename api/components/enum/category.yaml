@@ -27,3 +27,9 @@ descriptor:
     - code: TRANSFER_INSURANCE
       description: Describes the transfer type insurance
       reference: <PR/Issue/Discussion Links md format text>
+    - code: FOUR_WHEELER_INSURANCE
+      description: Describes the transfer type insurance
+      reference: <PR/Issue/Discussion Links md format text>  
+    - code: TWO_WHEELER_INSURANCE
+      description: Describes the transfer type insurance
+      reference: <PR/Issue/Discussion Links md format text>

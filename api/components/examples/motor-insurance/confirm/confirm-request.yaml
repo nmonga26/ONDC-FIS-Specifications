@@ -36,6 +36,7 @@ message:
           - C2
           - C3
           - C8 
+          - C11
         add_ons:
           - id: A1
             quantity:

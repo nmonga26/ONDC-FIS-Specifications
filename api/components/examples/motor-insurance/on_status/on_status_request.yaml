@@ -25,6 +25,7 @@ message:
           - C2
           - C3
           - C8 
+          - C11
         descriptor:
           name: 2-Wheeler 3rd Party Motor Insurance
           short_desc: 2-Wheeler 3rd Party Motor Insurance by ABC Insurance Provider
