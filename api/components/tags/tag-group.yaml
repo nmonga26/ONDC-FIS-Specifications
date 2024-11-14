@@ -92,13 +92,14 @@ order:
           - code: 2FA_MOBILE_NUMBER_MASKED
             description : Mobile number to be used for doing 2fa
             reference: <PR/Issue/Discussion Links md format text>
-      - code: SUCCESS_INFORMATION
+      - code: INFORMATION
         description : Describes the finder fees for buyer
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          - code: FOLIO_NUMBER
-            description : Describes the finder fees for buyer
-            reference: <PR/Issue/Discussion Links md format text>
+          #moved as part of FOLIO_INFORMATION tag group
+          # - code: FOLIO_NUMBER
+          #   description : Describes the finder fees for buyer
+          #   reference: <PR/Issue/Discussion Links md format text>
           - code: UNITS
             description : Describes the finder fees for buyer
             reference: <PR/Issue/Discussion Links md format text>

@@ -9,7 +9,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/select/select-lumpsum-new-folio.json"
+        $ref: "../../examples/mutual-funds/select/select-lumpsum-new-folio-with-kyc-1.json"
   - summary: On Select
     api: on_select
     details:
@@ -17,7 +17,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_select/on_select-lumpsum-new-folio.json"
+        $ref: "../../examples/mutual-funds/on_select/on_select-lumpsum-new-folio-with-kyc_1.json"
   - summary: Get Form
     api: form
     details:
@@ -33,7 +33,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/select/select-sip-new-account-with-kyc-1.json"
+        $ref: "../../examples/mutual-funds/select/select-lumpsum-new-folio-with-kyc-2.json"
   - summary: On Select
     api: on_select
     details:
@@ -41,7 +41,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_select/on_select-sip-new-account-with-kyc-1.json"
+        $ref: "../../examples/mutual-funds/on_select/on_select-lumpsum-new-folio-with-kyc_2.json"
   - summary: Get Form
     api: form
     details:
@@ -57,7 +57,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_status/on_status-sip-new-account-with-kyc-f2submitted.json"
+        $ref: "../../examples/mutual-funds/on_status/on_status-lumpsum-with-kyc-2.json"
   - summary: Submit Form
     api: select
     details:
@@ -65,7 +65,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/select/select-sip-new-account-with-kyc-2.json"
+        $ref: "../../examples/mutual-funds/select/select-lumpsum-new-folio-with-kyc-3.json"
   - summary: On Select
     api: on_select
     details:
@@ -73,7 +73,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_select/on_select-sip-new-account-with-kyc-2.json"
+        $ref: "../../examples/mutual-funds/on_select/on_select-lumpsum-new-folio-with-kyc_3.json"
   - summary: Get Form
     api: form
     details:
@@ -89,7 +89,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_status/on_status-sip-new-account-with-kyc-f3submitted.json"
+        $ref: "../../examples/mutual-funds/on_status/on_status-lumpsum-with-kyc-3.json"
   - summary: Select
     api: select
     details:

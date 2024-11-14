@@ -112,11 +112,19 @@
               "display": true,
               "descriptor": {"name": "Checklists", "code": "CHECKLISTS"},
               "list": [
-                  {
-                      "descriptor": {"name": "Application Form", "code": "APPLICATION_FORM"},
-                      "value": "2650edf9-e69c-45c5-b129-89838f0b716e"
-                  }
-              ]
+                {
+                    "descriptor": {"name": "Application Form", "code": "APPLICATION_FORM_WITH_KYC"},
+                    "value": "4e6d19d3-f8b5-43d5-9d89-ab5b95af3d92"
+                },
+                {
+                    "descriptor": {"name": "KYC", "code": "KYC"},
+                    "value": "20d1fd2a-827d-460e-bd72-b21064d23002"
+                },
+                {
+                    "descriptor": {"name": "ESIGN", "code": "ESIGN"},
+                    "value": "2650edf9-e69c-45c5-b129-89838f0b716e"
+                }
+            ]
           }
           ]
         }

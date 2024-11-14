@@ -7,7 +7,13 @@ status:
     reference: <PR/Issue/Discussion Links md format text
   - code: REJECTED
     description: Reflects current order status
+    reference: <PR/Issue/Discussion Links md format text 
+  - code: CANCELLED
+    description: Reflects current order status
     reference: <PR/Issue/Discussion Links md format text
+  - code: COMPLETED
+    description: Reflects current order status
+    reference: <PR/Issue/Discussion Links md format text   
 
 cancellation_reason:
   - code: "00"

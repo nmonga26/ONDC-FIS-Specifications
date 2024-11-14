@@ -23,7 +23,6 @@
     "message": {
         "order": {
             "id": "mfp_3454dfadssf435345",
-            "ref_order_ids": ["mfpp_213adf123af"],
             "status": "COMPLETED",
             "provider": {
                 "id": "amc_1",
@@ -190,16 +189,6 @@
                                 {
                                     "descriptor": {"name": "Amount Multiples", "code": "AMOUNT_MULTIPLES"},
                                     "value": "1"
-                                }
-                            ]
-                        },
-                        {
-                            "display": true,
-                            "descriptor": {"name": "Information", "code": "SUCCESS_INFORMATION"},
-                            "list": [
-                                {
-                                    "descriptor": {"name": "Folio number", "code": "FOLIO_NUMBER"},
-                                    "value": "78953432/32"
                                 }
                             ]
                         }
