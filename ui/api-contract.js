@@ -66,7 +66,7 @@ async function fetchRequest(url){
 
 async function fetchBranches() {
   try {
-  const BRANCHES_URL= "https://api.github.com/repos/ondc-official/ONDC-FIS-Specifications/branches";
+  const BRANCHES_URL= "https://api.github.com/repos/ondc-official/ONDC-FIS-Specifications/branches?per_page=100&page=1";
   const TAGS_URL= "https://api.github.com/repos/ondc-official/ONDC-FIS-Specifications/tags";
                   
   let response1, response2;
