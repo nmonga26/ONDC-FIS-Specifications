@@ -228,7 +228,7 @@ steps: &steps
     example: *steps_4_example
     details: &steps_6_details
       - &steps_6_details_0
-        description: Insurer sends a cosent handle.
+        description: Insurer sends a consent handle.
         mermaid: |-
           sequenceDiagram
             title life insurance Discovery
@@ -246,7 +246,7 @@ steps: &steps
     details: &steps_7_details
       - &steps_7_details_0
         description: Buyer app selects a specific life insurance plan that suits their
-          needs and links the PAN & DOB submission details with it.
+          needs along with the available addon/riders
         mermaid: |-
           sequenceDiagram
             title  Selection
@@ -264,13 +264,11 @@ steps: &steps
       value: &steps_7_example_value
         $ref: ../../examples/life-insurance/select/select_0.yaml
   - &steps_8
-    summary: Insurer returns the response to selected life insurance plan and
-      medical checkup payment url if required
+    summary: Insurer returns the response to selected life insurance plan
     api: on_select
     details: &steps_8_details
       - &steps_8_details_0
-        description: Insurer responds with detailed information and medical checkup
-          payment url if required.
+        description: Insurer responds with detailed information.
         mermaid: |-
           sequenceDiagram
             title  Selection
@@ -292,19 +290,16 @@ steps: &steps
     details: &steps_9_details
       - &steps_9_details_0
         description: Buyer app initiates purchase of a specific life insurance plan that
-          suits their needs and links the EKYC submission details with it.
-        mermaid: >-
+          suits their needs. Buyer app passes submission-id of EKYC received in
+          unsolicited on_status in previous step.
+        mermaid: |-
           sequenceDiagram
             title Initializing Order
             participant Buyer Platform (BAP)
             participant Insurer Platform (BPP)
             participant Insurer Form Service
-            Buyer Platform (BAP)->>Insurer Form Service: Get Form(EKYC)
-            Insurer Form Service-->>Buyer Platform (BAP): Form Received
-            Buyer Platform (BAP)->>Insurer Form Service: Form Submission
-            Insurer Form Service-->>Buyer Platform (BAP): Submission ID
-            rect rgb(191, 223, 255)
-            Buyer Platform (BAP)->>Insurer Platform (BPP): init(with submissionID)
+           rect rgb(191, 223, 255)
+            Buyer Platform (BAP)->>Insurer Platform (BPP): init
             Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
             end
             Insurer Platform (BPP)->>Buyer Platform (BAP):on_init
@@ -314,28 +309,24 @@ steps: &steps
       value: &steps_9_example_value
         $ref: ../../examples/life-insurance/init/init_0.yaml
   - &steps_10
-    summary: Insurer returns the response to initailized life insurance plan with
+    summary: Insurer returns the response to initialized life insurance plan with
       ekyc form
     api: on_init
     details: &steps_10_details
       - &steps_10_details_0
         description: Insurer responds to buyer and ask for ekyc by sending a form.
-        mermaid: >-
+        mermaid: |-
           sequenceDiagram
             title Initializing Order
             participant Buyer Platform (BAP)
             participant Insurer Platform (BPP)
             participant Insurer Form Service
-            Buyer Platform (BAP)->>Insurer Form Service: Get Form(EKYC)
-            Insurer Form Service-->>Buyer Platform (BAP): Form Received
-            Buyer Platform (BAP)->>Insurer Form Service: Form Submission
-            Insurer Form Service-->>Buyer Platform (BAP): Submission ID
-            Buyer Platform (BAP)->>Insurer Platform (BPP): init(with submissionID)
+            Buyer Platform (BAP)->>Insurer Platform (BPP): init
             Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
-            rect rgb(191, 223, 255)
+           rect rgb(191, 223, 255) 
             Insurer Platform (BPP)->>Buyer Platform (BAP):on_init
-            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
-            end
+            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK 
+           end 
     reference: if any
     example: &steps_10_example
       value: &steps_10_example_value
@@ -363,7 +354,9 @@ steps: &steps
             Buyer Platform (BAP)->>Insurer Form Service: Form Submission
             Insurer Form Service-->>Buyer Platform (BAP): Submission ID
             end
-            Buyer Platform (BAP)->>Insurer Platform (BPP): init(with submissionID)
+           Insurer Platform (BPP)->>Buyer Platform (BAP):(EKYC) on_status
+            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK 
+           Buyer Platform (BAP)->>Insurer Platform (BPP): init(with submissionID)
             Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
             Insurer Platform (BPP)->>Buyer Platform (BAP):on_init
             Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK   
@@ -383,13 +376,15 @@ steps: &steps
             participant Buyer Platform (BAP)
             participant Insurer Platform (BPP)
             participant Insurer Form Service
-            rect rgb(191, 223, 255)
             Buyer Platform (BAP)->>Insurer Form Service: Get Form(EKYC)
             Insurer Form Service-->>Buyer Platform (BAP): Form Received
             Buyer Platform (BAP)->>Insurer Form Service: Form Submission
             Insurer Form Service-->>Buyer Platform (BAP): Submission ID
-            end
-            Buyer Platform (BAP)->>Insurer Platform (BPP): init(with submissionID)
+           rect rgb(191, 223, 255) 
+            Insurer Platform (BPP)->>Buyer Platform (BAP):(EKYC) on_status
+            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK 
+           end
+           Buyer Platform (BAP)->>Insurer Platform (BPP): init(with submissionID)
             Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
             Insurer Platform (BPP)->>Buyer Platform (BAP):on_init
             Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK   
@@ -403,8 +398,8 @@ steps: &steps
     details: &steps_13_details
       - &steps_13_details_0
         description: Buyer app initiates purchase of a specific life insurance plan that
-          suits their needs and links ekyc information submission details with
-          it.
+          suits their needs. Buyer app passes submission-id of EKYC received in
+          unsolicited on_status in previous step.
         mermaid: >-
           sequenceDiagram
             title Initializing Order
@@ -415,14 +410,16 @@ steps: &steps
             Insurer Form Service-->>Buyer Platform (BAP): Form Received
             Buyer Platform (BAP)->>Insurer Form Service: Form Submission
             Insurer Form Service-->>Buyer Platform (BAP): Submission ID
-            rect rgb(191, 223, 255)
+           Insurer Platform (BPP)->>Buyer Platform (BAP):(EKYC) on_status
+            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK 
+           rect rgb(191, 223, 255)
             Buyer Platform (BAP)->>Insurer Platform (BPP): init(with submissionID)
             Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
             end
             Insurer Platform (BPP)->>Buyer Platform (BAP):on_init
             Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK 
   - &steps_14
-    summary: Insurer returns the response to initailized life insurance plan and
+    summary: Insurer returns the response to initialized life insurance plan and
       responds with additional details form
     reference: if any
     api: on_init
@@ -443,6 +440,8 @@ steps: &steps
             Insurer Form Service-->>Buyer Platform (BAP): Form Received
             Buyer Platform (BAP)->>Insurer Form Service: Form Submission
             Insurer Form Service-->>Buyer Platform (BAP): Submission ID
+            Insurer Platform (BPP)->>Buyer Platform (BAP):(EKYC) on_status
+            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK 
             Buyer Platform (BAP)->>Insurer Platform (BPP): init(with submissionID)
             Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
             rect rgb(191, 223, 255)
@@ -486,8 +485,8 @@ steps: &steps
     details: &steps_16_details
       - &steps_16_details_0
         description: Buyer app initiates the check to determine whether medical
-          underwriting is needed & links additional information submission
-          details with it.
+          underwriting is needed. Buyer app passes submission-id of additional
+          information form received in previous step.
         mermaid: >-
           sequenceDiagram
             title Initializing Order
@@ -505,8 +504,9 @@ steps: &steps
             Insurer Platform (BPP)->>Buyer Platform (BAP):on_init
             Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK 
   - &steps_17
-    summary: Insurer returns the response to initailized life insurance plan and
-      responds with medical checkup form
+    summary: Insurer returns the response to initialized life insurance plan and
+      responds with medical checkup form & optionally, a medical checkup payment
+      link
     reference: if any
     api: on_init
     example: &steps_17_example
@@ -514,8 +514,11 @@ steps: &steps
         $ref: ../../examples/life-insurance/on_init/on_init_2.yaml
     details: &steps_17_details
       - &steps_17_details_0
-        description: Insurer returns the response to initailized life insurance plan and
-          responds with medical checkup form.
+        description: Insurer returns the response to initialized life insurance plan and
+          responds with medical checkup form. Seller can optionally send medical
+          checkup payment link if they do not want to bear the cost on
+          themselves. This payment would be non-refundable if medical checkup is
+          completed.
         mermaid: >-
           sequenceDiagram
             title Initializing Order
@@ -550,17 +553,21 @@ steps: &steps
             participant Insurer Platform (BPP)
             participant Insurer Form Service
             rect rgb(191, 223, 255)
-            Buyer Platform (BAP)->>Insurer Form Service: Get Form (Additional Details)
+            Buyer Platform (BAP)->>Insurer Form Service: Get Form (Medical Checkup)
             Insurer Form Service-->>Buyer Platform (BAP): Form Received
             Buyer Platform (BAP)->>Insurer Form Service: Form Submission
             Insurer Form Service-->>Buyer Platform (BAP): Submission ID
             end
+            Insurer Platform (BPP)->>Buyer Platform (BAP):(optional) (medical checkup payment status) on_status
+            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
+            Insurer Platform (BPP)->>Buyer Platform (BAP):(medical checkup status) on_status
+            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
             Buyer Platform (BAP)->>Insurer Platform (BPP): init(with submissionID)
             Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
             Insurer Platform (BPP)->>Buyer Platform (BAP):on_init
             Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK   
   - &steps_19
-    summary: Seller updates the status of medical checkup
+    summary: (Optional) Seller updates the status of medical checkup payment
     reference: if any
     api: on_status
     example: &steps_19_example
@@ -568,34 +575,8 @@ steps: &steps
         $ref: ../../examples/life-insurance/on_status/on_status_medical_checkup.yaml
     details: &steps_19_details
       - &steps_19_details_0
-        description: Seller app responds with the medical checkup status
-        mermaid: >-
-          sequenceDiagram
-            title Initializing Order
-            participant Buyer Platform (BAP)
-            participant Insurer Platform (BPP)
-            participant Insurer Form Service
-            rect rgb(191, 223, 255)
-            Buyer Platform (BAP)->>Insurer Form Service: Get Form(EKYC)
-            Insurer Form Service-->>Buyer Platform (BAP): Form Received
-            Buyer Platform (BAP)->>Insurer Form Service: Form Submission
-            Insurer Form Service-->>Buyer Platform (BAP): Submission ID
-            end
-            Buyer Platform (BAP)->>Insurer Platform (BPP): init(with submissionID)
-            Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
-            Insurer Platform (BPP)->>Buyer Platform (BAP):on_init
-            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK   
-  - &steps_20
-    summary: The buyer app requests the final quote if medical underwriting is done
-    reference: if any
-    api: init
-    example: &steps_20_example
-      value: &steps_20_example_value
-        $ref: ../../examples/life-insurance/init/init_3.yaml
-    details: &steps_20_details
-      - &steps_20_details_0
-        description: The buyer app requestes the final quote if medical underwriting is
-          done.
+        description: If medical payment link was passed in previous init, the BAP
+          initiates a payment and seller responds with status of the payment.
         mermaid: >-
           sequenceDiagram
             title Initializing Order
@@ -606,23 +587,85 @@ steps: &steps
             Insurer Form Service-->>Buyer Platform (BAP): Form Received
             Buyer Platform (BAP)->>Insurer Form Service: Form Submission
             Insurer Form Service-->>Buyer Platform (BAP): Submission ID
-            rect rgb(191, 223, 255)
+           rect rgb(191, 223, 255)
+           Insurer Platform (BPP)->>Buyer Platform (BAP):(optional) (medical checkup payment status) on_status
+            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK 
+           end 
+            Insurer Platform (BPP)->>Buyer Platform (BAP):(medical checkup status) on_status
+            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK 
+            Buyer Platform (BAP)->>Insurer Platform (BPP): init(with submissionID)
+            Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
+            Insurer Platform (BPP)->>Buyer Platform (BAP):on_init
+            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK   
+  - &steps_20
+    summary: Seller updates the status of medical checkup
+    reference: if any
+    api: on_status
+    example: *steps_19_example
+    details: &steps_20_details
+      - &steps_20_details_0
+        description: Seller app responds with the medical checkup status
+        mermaid: >-
+          sequenceDiagram
+            title Initializing Order
+            participant Buyer Platform (BAP)
+            participant Insurer Platform (BPP)
+            participant Insurer Form Service
+            Buyer Platform (BAP)->>Insurer Form Service: Get Form (Medical Checkup)
+            Insurer Form Service-->>Buyer Platform (BAP): Form Received
+            Buyer Platform (BAP)->>Insurer Form Service: Form Submission
+            Insurer Form Service-->>Buyer Platform (BAP): Submission ID
+            Insurer Platform (BPP)->>Buyer Platform (BAP): (optional) (medical checkup payment status) on_status
+            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK 
+           rect rgb(191, 223, 255)
+           Insurer Platform (BPP)->>Buyer Platform (BAP):(medical checkup status) on_status
+            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK 
+           end
+            Buyer Platform (BAP)->>Insurer Platform (BPP): init(with submissionID)
+            Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
+            Insurer Platform (BPP)->>Buyer Platform (BAP):on_init
+            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK   
+  - &steps_21
+    summary: The buyer app requests the final quote if medical underwriting is done
+    reference: if any
+    api: init
+    example: &steps_21_example
+      value: &steps_21_example_value
+        $ref: ../../examples/life-insurance/init/init_3.yaml
+    details: &steps_21_details
+      - &steps_21_details_0
+        description: The buyer app requests the final quote if medical underwriting is done.
+        mermaid: >-
+          sequenceDiagram
+            title Initializing Order
+            participant Buyer Platform (BAP)
+            participant Insurer Platform (BPP)
+            participant Insurer Form Service
+            Buyer Platform (BAP)->>Insurer Form Service: Get Form (Medical Checkup)
+            Insurer Form Service-->>Buyer Platform (BAP): Form Received
+            Buyer Platform (BAP)->>Insurer Form Service: Form Submission
+            Insurer Form Service-->>Buyer Platform (BAP): Submission ID
+            Insurer Platform (BPP)->>Buyer Platform (BAP): (optional) (medical checkup payment status) on_status
+            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK 
+           Insurer Platform (BPP)->>Buyer Platform (BAP):(medical checkup status) on_status
+            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK 
+           rect rgb(191, 223, 255)
             Buyer Platform (BAP)->>Insurer Platform (BPP): init(with submissionID)
             Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
             end
             Insurer Platform (BPP)->>Buyer Platform (BAP):on_init
             Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK 
-  - &steps_21
-    summary: Insurer returns the response to initailized life insurance plan with
+  - &steps_22
+    summary: Insurer returns the response to initialized life insurance plan with
       final quote of the product.
     reference: if any
     api: on_init
-    example: &steps_21_example
-      value: &steps_21_example_value
+    example: &steps_22_example
+      value: &steps_22_example_value
         $ref: ../../examples/life-insurance/on_init/on_init_3.yaml
-    details: &steps_21_details
-      - &steps_21_details_0
-        description: Insurer returns the response to initailized life insurance plan
+    details: &steps_22_details
+      - &steps_22_details_0
+        description: Insurer returns the response to initialized life insurance plan
           with final quote of the product and a payment link.
         mermaid: >-
           sequenceDiagram
@@ -634,47 +677,44 @@ steps: &steps
             Insurer Form Service-->>Buyer Platform (BAP): Form Received
             Buyer Platform (BAP)->>Insurer Form Service: Form Submission
             Insurer Form Service-->>Buyer Platform (BAP): Submission ID
+            Insurer Platform (BPP)->>Buyer Platform (BAP): (optional) (medical checkup payment status) on_status
+            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK 
+           Insurer Platform (BPP)->>Buyer Platform (BAP):(medical checkup status) on_status
+            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
             Buyer Platform (BAP)->>Insurer Platform (BPP): init(with submissionID)
             Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
             rect rgb(191, 223, 255)
             Insurer Platform (BPP)->>Buyer Platform (BAP):on_init
             Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
             end
-  - &steps_22
+  - &steps_23
     summary: Seller updates the status of payment
     reference: if any
     api: on_status
-    example: &steps_22_example
-      value: &steps_22_example_value
+    example: &steps_23_example
+      value: &steps_23_example_value
         $ref: ../../examples/life-insurance/on_status/on_status_payment_update.yaml
-    details: &steps_22_details
-      - &steps_22_details_0
+    details: &steps_23_details
+      - &steps_23_details_0
         description: Seller app responds with the payment status
         mermaid: >-
           sequenceDiagram
             title Initializing Order
             participant Buyer Platform (BAP)
             participant Insurer Platform (BPP)
-            participant Insurer Form Service
-            rect rgb(191, 223, 255)
-            Buyer Platform (BAP)->>Insurer Form Service: Get Form(EKYC)
-            Insurer Form Service-->>Buyer Platform (BAP): Form Received
-            Buyer Platform (BAP)->>Insurer Form Service: Form Submission
-            Insurer Form Service-->>Buyer Platform (BAP): Submission ID
-            end
-            Buyer Platform (BAP)->>Insurer Platform (BPP): init(with submissionID)
-            Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
-            Insurer Platform (BPP)->>Buyer Platform (BAP):on_init
-            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK   
-  - &steps_23
+           rect rgb(191, 223, 255)
+            Insurer Platform (BPP)->>Buyer Platform (BAP):(Final Payment) on_status
+            Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK  
+           end
+  - &steps_24
     summary: Buyer app confirms the life insurance request
     reference: if any
     api: confirm
-    example: &steps_23_example
-      value: &steps_23_example_value
+    example: &steps_24_example
+      value: &steps_24_example_value
         $ref: ../../examples/life-insurance/confirm/confirm.yaml
-    details: &steps_23_details
-      - &steps_23_details_0
+    details: &steps_24_details
+      - &steps_24_details_0
         description: Buyer app confirms the life insurance request and provides all the
           necessary information as per the terms.
         mermaid: |-
@@ -688,15 +728,15 @@ steps: &steps
             end
             Insurer Platform (BPP)->>Buyer Platform (BAP):on_confirm
             Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK 
-  - &steps_24
+  - &steps_25
     summary: Insurer confirms the life insurance order
     reference: if any
     api: on_confirm
-    example: &steps_24_example
-      value: &steps_24_example_value
+    example: &steps_25_example
+      value: &steps_25_example_value
         $ref: ../../examples/life-insurance/on_confirm/on_confirm_1.yaml
-    details: &steps_24_details
-      - &steps_24_details_0
+    details: &steps_25_details
+      - &steps_25_details_0
         description: Insurer confirms the life insurance and provides the confirmation
           details.
         mermaid: |-
