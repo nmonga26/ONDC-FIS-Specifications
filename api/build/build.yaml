@@ -275,6 +275,10 @@ paths:
                       $ref: '#/components/schemas/Option/properties/id'
                     descriptor:
                       $ref: '#/components/schemas/Descriptor'
+                    tags:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/TagGroup'
                   required:
                     - order_id
               required:
@@ -1351,6 +1355,7 @@ components:
             - text/html
             - application/html
             - application/xml
+            - text/html-multi
         resubmit:
           type: boolean
         multiple_sumbissions:
@@ -1888,6 +1893,11 @@ components:
             - ACTIVE
             - COMPLETE
             - CANCELLED
+            - CANCELLATION_INITIATED
+            - ACCEPTED
+            - REJECTED
+            - CREATED
+            - COMPLETED
         type:
           description: >-
             This is used to indicate the type of order being created to BPPs.
@@ -1964,6 +1974,13 @@ components:
                   specified in this object.
                 type: string
                 format: uri
+              old_policy_doc:
+                description: >-
+                  The URL from where the form can be fetched. The content
+                  fetched from the url must be processed as per the mime_type
+                  specified in this object.
+                type: string
+                format: uri
         refund_terms:
           description: Refund terms of this item
           type: array
@@ -2025,6 +2042,10 @@ components:
             - $ref: '#/components/schemas/City'
         contact:
           $ref: '#/components/schemas/Contact'
+        creds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Credential'
     Payment:
       description: >-
         Describes the terms of settlement between the BAP and the BPP for a
@@ -2108,6 +2129,7 @@ components:
             - NOT-PAID
             - DELAYED
             - DEFERRED
+            - FAILED
         time:
           $ref: '#/components/schemas/Time'
         tags:
@@ -2513,8 +2535,10 @@ components:
           type: string
         callback_phone:
           type: string
+          format: phone
         phone:
           type: string
+          format: phone
         email:
           type: string
           format: email
@@ -3110,102 +3134,25 @@ x-tags:
   search:
     message:
       intent:
-        payment: &ref_19
-          tags:
-            - code: BUYER_FINDER_FEES
-              description: Describes the finder fees of the loan for buyer
-              reference: <PR/Issue/Discussion Links md format text>
-              list:
-                - code: BUYER_FINDER_FEES_TYPE
-                  description: Buyer finder fee type.
-                  reference: <PR/Issue/Discussion Links md format text>
-                  list:
-                    - code: amount
-                      description: Describes, the Buyer App’s fee is a flat amount in INR.
-                      reference: <PR/Issue/Discussion Links md format text>
-                    - code: percent- annualized
-                      description: >-
-                        Describes, the Buyer App’s fee is set as a percentage of
-                        the Total Loan Disbursed for a 12-month tenure loan.
-                      reference: <PR/Issue/Discussion Links md format text>
-                    - code: percent
-                      description: >-
-                        Describes, the Buyer App’s fee is an absolute
-                        percentage.
-                      reference: <PR/Issue/Discussion Links md format text>
-                - code: BUYER_FINDER_FEES_PERCENTAGE
-                  description: Buyer finder fee in percentage
-                  reference: <PR/Issue/Discussion Links md format text>
-            - code: SETTLEMENT_TERMS
-              description: Describes the settlement terms of the loan
-              reference: <PR/Issue/Discussion Links md format text>
-              list:
-                - code: SETTLEMENT_WINDOW
-                  description: Time window to complete settlement for the loan
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: SETTLEMENT_BASIS
-                  description: Basis required to complete settlement
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: SETTLEMENT_TYPE
-                  description: Payment method to complete settlement
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: MANDATORY_ARBITRATION
-                  description: >-
-                    Flag to denote if dispute can be resolved through
-                    arbitration
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: COURT_JURISDICTION
-                  description: Denotes court that will have jurisdiction for the case
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: DELAY_INTEREST
-                  description: Denotes interest to be paid as a delay charge
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: STATIC_TERMS
-                  description: Terms for settlement
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: SETTLEMENT_AMOUNT
-                  description: Denotes settlement amount
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: OFFLINE_CONTRACT
-                  description: Denotes offline contract
-                  reference: <PR/Issue/Discussion Links md format text>
-            - &ref_20
-              code: BREAKUP
-              description: Describes the breakup of EMIS
-              reference: <PR/Issue/Discussion Links md format text>
-              list:
-                - code: PRINCIPAL_AMOUNT
-                  description: Describes the loan principal, should include unit INR
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: INTEREST_AMOUNT
-                  description: Describes the loan interest, should include unit INR
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: PROCESSING_FEE
-                  description: >-
-                    Describes the loan processing fee, should include unit INR
-                    or %
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: OTHER_UPFRONT_CHARGES
-                  description: >-
-                    Describes the other upfront charges, should include unit INR
-                    or %
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: NET_DISBURSED_AMOUNT
-                  description: Describes the net disbursed amount, should include unit INR
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: OTHER_CHARGES
-                  description: Describes the other charges, should include unit INR
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: INSURANCE_CHARGES, should include unit INR
-                  description: Describes the insurance Charges
-                  reference: <PR/Issue/Discussion Links md format text>
+        tags: &ref_19
+          - &ref_22
+            code: BAP_TERMS
+            description: Describes the finder fees of the loan for buyer
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: STATIC_TERMS
+                description: Describes the static terms
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: OFFLINE_CONTRACT
+                description: Describes the offline contract.
+                reference: <PR/Issue/Discussion Links md format text>
   on_search:
     message:
       catalog:
         providers:
           items: &ref_17
             tags:
-              - &ref_24
+              - &ref_27
                 code: INFO
                 description: >-
                   Describes the information of the loan like interest rate,
@@ -3258,7 +3205,7 @@ x-tags:
                   - code: CO_APPLICANT
                     description: Describes co applicant is required or not
                     reference: <PR/Issue/Discussion Links md format text>
-              - &ref_25
+              - &ref_28
                 code: CHECKLISTS
                 description: Describes the checklist must be fullfilled for loan approval
                 reference: <PR/Issue/Discussion Links md format text
@@ -3285,7 +3232,7 @@ x-tags:
                   - code: ESIGN
                     description: Esign for the loan agreement is done or not
                     reference: <PR/Issue/Discussion Links md format text
-          tags: &ref_21
+          tags: &ref_20
             - code: CONTACT_INFO
               description: >-
                 Describes the contact info of grievance redressal officer(GRO) &
@@ -3357,6 +3304,18 @@ x-tags:
                 - code: E_SIGN
                   description: Borrower's E_SIGN status
                   reference: <PR/Issue/Discussion Links md format text
+        tags: &ref_21
+          - &ref_23
+            code: BPP_TERMS
+            description: Describes the finder fees of the loan for buyer
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: STATIC_TERMS
+                description: Describes the static terms
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: OFFLINE_CONTRACT
+                description: Describes the offline contract.
+                reference: <PR/Issue/Discussion Links md format text>
   on_select:
     message:
       order:
@@ -3366,33 +3325,81 @@ x-tags:
   init:
     message:
       order:
-        payments: *ref_19
-  on_init: &ref_22
+        tags: *ref_19
+  on_init:
     message:
       order:
-        payments: &ref_23
+        payments:
           tags:
-            - *ref_20
+            - &ref_24
+              code: BREAKUP
+              description: Describes the breakup of EMIS
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: PRINCIPAL_AMOUNT
+                  description: Describes the loan principal, should include unit INR
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: INTEREST_AMOUNT
+                  description: Describes the loan interest, should include unit INR
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: PROCESSING_FEE
+                  description: >-
+                    Describes the loan processing fee, should include unit INR
+                    or %
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: OTHER_UPFRONT_CHARGES
+                  description: >-
+                    Describes the other upfront charges, should include unit INR
+                    or %
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: NET_DISBURSED_AMOUNT
+                  description: Describes the net disbursed amount, should include unit INR
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: OTHER_CHARGES
+                  description: Describes the other charges, should include unit INR
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: INSURANCE_CHARGES, should include unit INR
+                  description: Describes the insurance Charges
+                  reference: <PR/Issue/Discussion Links md format text>
         items: *ref_17
-        provider: &ref_26
-          tags: *ref_21
+        provider:
+          tags: *ref_20
           fulfillments: *ref_18
-  on_confirm: *ref_22
-  on_status: *ref_22
+        tags: *ref_21
+  confirm:
+    message:
+      order:
+        tags:
+          - *ref_22
+          - *ref_23
+  on_confirm: &ref_25
+    message:
+      order:
+        payments: &ref_26
+          tags:
+            - *ref_24
+        items: *ref_17
+        provider: &ref_29
+          tags: *ref_20
+          fulfillments: *ref_18
+        tags:
+          - *ref_22
+          - *ref_23
+  on_status: *ref_25
   on_update:
     message:
       order:
-        payments: *ref_23
+        payments: *ref_26
         items:
           tags:
-            - *ref_24
-            - *ref_25
+            - *ref_27
+            - *ref_28
             - code: LINKED_ORDER_IDS
               description: List of child order IDs of this particular order ID
               required: Optional
               list: []
               reference: <PR/Issue/Discussion Links md format text
-        provider: *ref_26
+        provider: *ref_29
 x-flows:
   - summary: Credit Line Assignment
     details:
@@ -3499,7 +3506,7 @@ x-flows:
         reference: if any
         api: search
         example:
-          value: &ref_59
+          value: &ref_62
             context:
               domain: ONDC:FIS12
               location:
@@ -3520,6 +3527,21 @@ x-flows:
                 category:
                   descriptor:
                     code: WORKING_CAPITAL_LOAN
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
         details:
           - description: >-
               User explore loan options by searching for working capital loan
@@ -3543,7 +3565,7 @@ x-flows:
         reference: if any
         api: on_search
         example:
-          value: &ref_45
+          value: &ref_48
             context:
               domain: ONDC:FIS12
               location:
@@ -3661,6 +3683,21 @@ x-flows:
                               One Indiabulls centre, Tower 1, 18th Floor Jupiter
                               mill compound 841, Senapati Bapat Marg,
                               Elphinstone Road, Mumbai 400013
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
         details:
           - description: >-
               The lender offers a static catalog details of loan types like
@@ -3873,7 +3910,7 @@ x-flows:
         reference: if any
         api: search
         example:
-          value: &ref_61
+          value: &ref_64
             context:
               domain: ONDC:FIS12
               location:
@@ -3906,6 +3943,21 @@ x-flows:
                         form_response:
                           status: SUCCESS
                           submission_id: form_submission_id_gst_bank_statement_F01
+                  tags:
+                    - display: false
+                      descriptor:
+                        name: BAP Terms of Engagement
+                        code: BAP_TERMS
+                      list:
+                        - descriptor:
+                            name: Static Terms (Transaction Level)
+                            code: STATIC_TERMS
+                          value: >-
+                            https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                        - descriptor:
+                            name: Offline Contract
+                            code: OFFLINE_CONTRACT
+                          value: 'true'
         details:
           - description: User submits the GST and Bank Statement information
             mermaid: |-
@@ -3928,7 +3980,7 @@ x-flows:
         reference: if any
         api: on_search
         example:
-          value: &ref_43
+          value: &ref_46
             context:
               domain: ONDC:FIS12
               location:
@@ -4047,6 +4099,21 @@ x-flows:
                               One Indiabulls centre, Tower 1, 18th Floor Jupiter
                               mill compound 841, Senapati Bapat Marg,
                               Elphinstone Road, Mumbai 400013
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
         details:
           - description: Lender provides the form input for business and financials details
             mermaid: |-
@@ -4117,7 +4184,7 @@ x-flows:
         reference: if any
         api: search
         example:
-          value: &ref_60
+          value: &ref_63
             context:
               domain: ONDC:FIS12
               location:
@@ -4162,6 +4229,21 @@ x-flows:
                         form_response:
                           status: SUCCESS
                           submission_id: form_submission_id_business_financial_F02
+                  tags:
+                    - display: false
+                      descriptor:
+                        name: BAP Terms of Engagement
+                        code: BAP_TERMS
+                      list:
+                        - descriptor:
+                            name: Static Terms (Transaction Level)
+                            code: STATIC_TERMS
+                          value: >-
+                            https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                        - descriptor:
+                            name: Offline Contract
+                            code: OFFLINE_CONTRACT
+                          value: 'true'
         details:
           - description: User submits the Business and Financial details information
             mermaid: |-
@@ -4186,7 +4268,7 @@ x-flows:
         reference: if any
         api: on_search
         example:
-          value: &ref_44
+          value: &ref_47
             context:
               domain: ONDC:FIS12
               location:
@@ -4208,49 +4290,6 @@ x-flows:
               catalog:
                 descriptor:
                   name: ICICI Bank
-                fulfillments:
-                  - id: '1333'
-                    customer:
-                      person:
-                        name: John Doe
-                        dob: '1998-09-12'
-                        gender: Male
-                        creds:
-                          - id: BXU87Y252U
-                            type: PAN
-                      contact:
-                        email: john.doe@gmail.com
-                        phone: '7888888888'
-                    tags:
-                      - descriptor:
-                          code: CHECKLISTS
-                          name: Applicant Checklists
-                        list:
-                          - descriptor:
-                              code: KYC
-                              name: KYC
-                            value: PENDING
-                          - descriptor:
-                              code: E_SIGN
-                              name: E Sign Required
-                            value: PENDING
-                  - id: '1334'
-                    customer:
-                      person:
-                        name: Co Applicant 1
-                    tags:
-                      - descriptor:
-                          code: CHECKLISTS
-                          name: Applicant Checklists
-                        list:
-                          - descriptor:
-                              code: KYC
-                              name: KYC
-                            value: PENDING
-                          - descriptor:
-                              code: E_SIGN
-                              name: E Sign Required
-                            value: PENDING
                 providers:
                   - id: PROVIDER_ID
                     descriptor:
@@ -4425,6 +4464,64 @@ x-flows:
                               One Indiabulls centre, Tower 1, 18th Floor Jupiter
                               mill compound 841, Senapati Bapat Marg,
                               Elphinstone Road, Mumbai 400013
+                    fulfillments:
+                      - id: '1333'
+                        customer:
+                          person:
+                            name: John Doe
+                            dob: '1998-09-12'
+                            gender: Male
+                            creds:
+                              - id: BXU87Y252U
+                                type: PAN
+                          contact:
+                            email: john.doe@gmail.com
+                            phone: '7888888888'
+                        tags:
+                          - descriptor:
+                              code: CHECKLISTS
+                              name: Applicant Checklists
+                            list:
+                              - descriptor:
+                                  code: KYC
+                                  name: KYC
+                                value: PENDING
+                              - descriptor:
+                                  code: E_SIGN
+                                  name: E Sign Required
+                                value: PENDING
+                      - id: '1334'
+                        customer:
+                          person:
+                            name: Co Applicant 1
+                        tags:
+                          - descriptor:
+                              code: CHECKLISTS
+                              name: Applicant Checklists
+                            list:
+                              - descriptor:
+                                  code: KYC
+                                  name: KYC
+                                value: PENDING
+                              - descriptor:
+                                  code: E_SIGN
+                                  name: E Sign Required
+                                value: PENDING
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
         details:
           - description: >-
               The lender will provide working capital loan offer with all the
@@ -4453,7 +4550,7 @@ x-flows:
         reference: if any
         api: select
         example:
-          value: &ref_63
+          value: &ref_66
             context:
               domain: ONDC:FIS12
               location:
@@ -4475,31 +4572,31 @@ x-flows:
               order:
                 provider:
                   id: PROVIDER_ID
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
                 items:
                   - id: CHILD_ITEM_ID_WORKING_CAPITAL_LOAN
                     parent_item_id: ITEM_ID_WORKING_CAPITAL_LOAN
@@ -4525,7 +4622,7 @@ x-flows:
         reference: if any
         api: on_select
         example:
-          value: &ref_29
+          value: &ref_32
             context:
               domain: ONDC:FIS12
               location:
@@ -4555,57 +4652,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: PENDING
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: PENDING
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -4813,6 +4859,57 @@ x-flows:
                         url: >-
                           https://bpp.credit.becknprotocol.org/xinput/link/kyc-link
                       required: true
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: PENDING
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: PENDING
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
         details:
           - description: 'The lender will share form input for individual KYC '
             mermaid: |-
@@ -4856,7 +4953,7 @@ x-flows:
         reference: if any
         api: on_status
         example:
-          value: &ref_30
+          value: &ref_33
             context:
               domain: ONDC:FIS12
               location:
@@ -4886,57 +4983,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -5133,6 +5179,57 @@ x-flows:
                       form_response:
                         status: SUCCESS
                         submission_id: form_submission_id_individual_kyc_F03
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
         details:
           - description: >-
               The lender sends the completion status of Individual KYC through
@@ -5155,7 +5252,7 @@ x-flows:
         reference: if any
         api: select
         example:
-          value: &ref_31
+          value: &ref_34
             context:
               domain: ONDC:FIS12
               location:
@@ -5177,31 +5274,31 @@ x-flows:
               order:
                 provider:
                   id: PROVIDER_ID
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
                 items:
                   - id: CHILD_ITEM_ID_WORKING_CAPITAL_LOAN
                     parent_item_id: ITEM_ID_WORKING_CAPITAL_LOAN
@@ -5230,8 +5327,8 @@ x-flows:
       - summary: The borrower receives form for entity KYC
         reference: if any
         api: on_select
-        example: &ref_27
-          value: &ref_28
+        example: &ref_30
+          value: &ref_31
             context:
               domain: ONDC:FIS12
               location:
@@ -5261,57 +5358,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -5519,6 +5565,57 @@ x-flows:
                         url: >-
                           https://bpp.credit.becknprotocol.org/xinput/link/business-kyc
                       required: true
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
         details:
           - description: The borrower receives form for entity KYC
             mermaid: |-
@@ -5610,7 +5707,7 @@ x-flows:
         reference: if any
         api: select
         example:
-          value: &ref_62
+          value: &ref_65
             context:
               domain: ONDC:FIS12
               location:
@@ -5632,31 +5729,31 @@ x-flows:
               order:
                 provider:
                   id: PROVIDER_ID
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
                 items:
                   - id: CHILD_ITEM_ID_WORKING_CAPITAL_LOAN
                     parent_item_id: ITEM_ID_WORKING_CAPITAL_LOAN
@@ -5689,7 +5786,7 @@ x-flows:
           Checklists 
         reference: if any
         api: on_select
-        example: *ref_27
+        example: *ref_30
         details:
           - description: >-
               The lender will acknowledge the borrower's completion of entity
@@ -5714,7 +5811,7 @@ x-flows:
         reference: if any
         api: init
         example:
-          value: &ref_67
+          value: &ref_70
             context:
               domain: ONDC:FIS12
               location:
@@ -5736,34 +5833,49 @@ x-flows:
               order:
                 provider:
                   id: PROVIDER_ID
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
                 items:
                   - id: CHILD_ITEM_ID_WORKING_CAPITAL_LOAN
                     parent_item_id: ITEM_ID_WORKING_CAPITAL_LOAN
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
         details:
           - description: The borrower initiates the order for confirmation
             mermaid: |-
@@ -5782,7 +5894,7 @@ x-flows:
         reference: if any
         api: on_init
         example:
-          value: &ref_39
+          value: &ref_42
             context:
               domain: ONDC:FIS12
               location:
@@ -5812,57 +5924,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -6071,6 +6132,72 @@ x-flows:
                         url: >-
                           https://bpp.credit.becknprotocol.org/xinput/form/account_information
                       required: true
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
         details:
           - description: The borrower receives form details for account information
             mermaid: |-
@@ -6131,7 +6258,7 @@ x-flows:
         reference: if any
         api: init
         example:
-          value: &ref_70
+          value: &ref_73
             context:
               domain: ONDC:FIS12
               location:
@@ -6153,31 +6280,31 @@ x-flows:
               order:
                 provider:
                   id: PROVIDER_ID
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
                 items:
                   - id: CHILD_ITEM_ID_WORKING_CAPITAL_LOAN
                     parent_item_id: ITEM_ID_WORKING_CAPITAL_LOAN
@@ -6187,6 +6314,21 @@ x-flows:
                       form_response:
                         status: SUCCESS
                         submission_id: form_submission_id_account_info_F05
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
         details:
           - description: The borrower shares the submission_id of bank account form
             mermaid: |-
@@ -6211,7 +6353,7 @@ x-flows:
         reference: if any
         api: on_init
         example:
-          value: &ref_41
+          value: &ref_44
             context:
               domain: ONDC:FIS12
               location:
@@ -6241,57 +6383,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -6508,6 +6599,72 @@ x-flows:
                     status: NOT-PAID
                     type: PRE-ORDER
                     url: https://payment.fis.test.bpp.io
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
         details:
           - description: >-
               The lender shares the information for e-nach and payment link for
@@ -6557,7 +6714,7 @@ x-flows:
         reference: if any
         api: on_status
         example:
-          value: &ref_46
+          value: &ref_49
             context:
               domain: ONDC:FIS12
               location:
@@ -6587,57 +6744,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -6843,6 +6949,86 @@ x-flows:
                     status: PAID
                     type: PRE-ORDER
                     url: https://payment.fis.test.bpp.io
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: >-
               The lender sends the completion status of e-mandate and payment
@@ -6867,7 +7053,7 @@ x-flows:
         reference: if any
         api: init
         example:
-          value: &ref_68
+          value: &ref_71
             context:
               domain: ONDC:FIS12
               location:
@@ -6923,6 +7109,21 @@ x-flows:
                       form_response:
                         status: SUCCESS
                         submission_id: form_submission_id_enach_F06
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
         details:
           - description: The borrower submits the form for e-mandate
             mermaid: |
@@ -6943,7 +7144,7 @@ x-flows:
         reference: if any
         api: on_init
         example:
-          value: &ref_42
+          value: &ref_45
             context:
               domain: ONDC:FIS12
               location:
@@ -6973,57 +7174,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -7241,6 +7391,72 @@ x-flows:
                     status: PAID
                     type: PRE-ORDER
                     url: https://payment.fis.test.bpp.io
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
         details:
           - description: The lender sends the form input for e signing the loan agreement
             mermaid: |-
@@ -7286,7 +7502,7 @@ x-flows:
         reference: if any
         api: on_status
         example:
-          value: &ref_47
+          value: &ref_50
             context:
               domain: ONDC:FIS12
               location:
@@ -7316,57 +7532,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: PENDING
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -7572,6 +7737,86 @@ x-flows:
                     status: PAID
                     type: PRE-ORDER
                     url: https://payment.fis.test.bpp.io
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: PENDING
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: >-
               The lender sends the completion status of e-sign and payment
@@ -7598,7 +7843,7 @@ x-flows:
         reference: if any
         api: confirm
         example:
-          value: &ref_34
+          value: &ref_37
             context:
               domain: ONDC:FIS12
               location:
@@ -7654,6 +7899,35 @@ x-flows:
                       form_response:
                         status: SUCCESS
                         submission_id: form_submission_id_esign_F07
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
         details:
           - description: >-
               The borrower confirms the working capital line using the
@@ -7678,7 +7952,7 @@ x-flows:
         reference: if any
         api: on_confirm
         example:
-          value: &ref_37
+          value: &ref_40
             context:
               domain: ONDC:FIS12
               location:
@@ -7709,57 +7983,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -7980,6 +8203,86 @@ x-flows:
                         in a formal financial arrangement.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-agreement/O1.pdf
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: The Lender shares the working capital line details with order id.
             mermaid: |-
@@ -8034,7 +8337,7 @@ x-flows:
         reference: if any
         api: init
         example:
-          value: &ref_72
+          value: &ref_75
             context:
               domain: ONDC:FIS12
               location:
@@ -8062,6 +8365,21 @@ x-flows:
                   - params:
                       amount: '20000'
                       currency: INR
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
         details:
           - description: >-
               The borrower initiates loan drawdown request using the reference
@@ -8086,7 +8404,7 @@ x-flows:
         reference: if any
         api: on_init
         example:
-          value: &ref_38
+          value: &ref_41
             context:
               domain: ONDC:FIS12
               location:
@@ -8235,6 +8553,21 @@ x-flows:
                         url: >-
                           https://bpp.credit.becknprotocol.org/xinput/form/invoice_upload
                       required: true
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
         details:
           - description: The lender will share the form details for invoice upload
             mermaid: |-
@@ -8319,7 +8652,7 @@ x-flows:
         reference: if any
         api: init
         example:
-          value: &ref_69
+          value: &ref_72
             context:
               domain: ONDC:FIS12
               location:
@@ -8349,6 +8682,21 @@ x-flows:
                       form_response:
                         status: SUCCESS
                         submission_id: SUBMISSION_ID_FORM_INVOICE_UPLOAD
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
         details:
           - description: The borrower submits the form for Invoice upload
             mermaid: |
@@ -8373,7 +8721,7 @@ x-flows:
         reference: if any
         api: on_init
         example:
-          value: &ref_40
+          value: &ref_43
             context:
               domain: ONDC:FIS12
               location:
@@ -8403,16 +8751,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1335'
-                      customer:
-                        person:
-                          name: John Doe
-                          creds:
-                            - type: OTP
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -8556,6 +8894,31 @@ x-flows:
                               code: INTEREST_AMOUNT
                               name: Interest Amount
                             value: '400'
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1335'
+                    customer:
+                      person:
+                        name: John Doe
+                        creds:
+                          - type: OTP
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
         details:
           - description: >-
               The lender will share the disbursement and repayment details along
@@ -8582,7 +8945,7 @@ x-flows:
         reference: if any
         api: confirm
         example:
-          value: &ref_33
+          value: &ref_36
             context:
               domain: ONDC:FIS12
               location:
@@ -8619,6 +8982,35 @@ x-flows:
                         phone: '7888888888'
                 items:
                   - id: ITEM_ID_WORKING_CAPITAL_LOAN_DISBURSEMENT
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
         details:
           - description: The Borrower will provide the OTP received in the confirm request
             mermaid: |
@@ -8641,7 +9033,7 @@ x-flows:
         reference: if any
         api: on_confirm
         example:
-          value: &ref_36
+          value: &ref_39
             context:
               domain: ONDC:FIS12
               location:
@@ -8672,17 +9064,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1335'
-                      customer:
-                        person:
-                          name: John Doe
-                          creds:
-                            - type: OTP
-                              id: '12345'
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -8826,6 +9207,46 @@ x-flows:
                               code: INTEREST_AMOUNT
                               name: Interest Amount
                             value: '2000'
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1335'
+                    customer:
+                      person:
+                        name: John Doe
+                        creds:
+                          - type: OTP
+                            id: '12345'
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
         details:
           - description: The lender will acknowledge the borrower's consent for disbursal
             mermaid: |
@@ -8852,7 +9273,7 @@ x-flows:
         reference: if any
         api: on_update
         example:
-          value: &ref_49
+          value: &ref_52
             context:
               domain: ONDC:FIS12
               location:
@@ -8882,17 +9303,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1335'
-                      customer:
-                        person:
-                          name: John Doe
-                          creds:
-                            - type: OTP
-                              id: '12345'
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -9039,6 +9449,46 @@ x-flows:
                               code: INTEREST_AMOUNT
                               name: Interest Amount
                             value: '400'
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1335'
+                    customer:
+                      person:
+                        name: John Doe
+                        creds:
+                          - type: OTP
+                            id: '12345'
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
         details:
           - description: >-
               The lender sends the completion of disbursal through unsolicited
@@ -9063,7 +9513,7 @@ x-flows:
         reference: if any
         api: on_update
         example:
-          value: &ref_50
+          value: &ref_53
             context:
               domain: ONDC:FIS12
               location:
@@ -9093,57 +9543,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -9360,6 +9759,86 @@ x-flows:
                         in a formal financial arrangement.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-agreement/O1.pdf
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: >-
               The lender updates base transaction through unsolicited on_update
@@ -9405,7 +9884,7 @@ x-flows:
         reference: if any
         api: update
         example:
-          value: &ref_65
+          value: &ref_68
             context:
               domain: ONDC:FIS12
               location:
@@ -9454,7 +9933,7 @@ x-flows:
         reference: if any
         api: on_update
         example:
-          value: &ref_53
+          value: &ref_56
             context:
               domain: ONDC:FIS12
               location:
@@ -9484,18 +9963,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1335'
-                      customer:
-                        person:
-                          name: John Doe
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      stops:
-                        - authorization:
-                            type: OTP
-                            token: '1222'
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -9674,6 +10141,47 @@ x-flows:
                               code: INTEREST_AMOUNT
                               name: Interest Amount
                             value: '400'
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1335'
+                    customer:
+                      person:
+                        name: John Doe
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    stops:
+                      - authorization:
+                          type: OTP
+                          token: '1222'
         details:
           - description: >-
               The lender(BPP) will provide a payment details for missed emi
@@ -9698,7 +10206,7 @@ x-flows:
         reference: if any
         api: on_update
         example:
-          value: &ref_54
+          value: &ref_57
             context:
               domain: ONDC:FIS12
               location:
@@ -9728,18 +10236,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1335'
-                      customer:
-                        person:
-                          name: John Doe
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      stops:
-                        - authorization:
-                            type: OTP
-                            token: '1222'
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -9918,6 +10414,47 @@ x-flows:
                               code: INTEREST_AMOUNT
                               name: Interest Amount
                             value: '400'
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1335'
+                    customer:
+                      person:
+                        name: John Doe
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    stops:
+                      - authorization:
+                          type: OTP
+                          token: '1222'
         details:
           - description: >-
               The lender will update payment success details to borrower on
@@ -9940,7 +10477,7 @@ x-flows:
         reference: if any
         api: on_update
         example:
-          value: &ref_55
+          value: &ref_58
             context:
               domain: ONDC:FIS12
               location:
@@ -9970,57 +10507,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -10237,6 +10723,86 @@ x-flows:
                         in a formal financial arrangement.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-agreement/O1.pdf
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: The lender will update quotation in the base transaction
             mermaid: |-
@@ -10276,7 +10842,7 @@ x-flows:
         reference: if any
         api: update
         example:
-          value: &ref_66
+          value: &ref_69
             context:
               domain: ONDC:FIS12
               location:
@@ -10328,7 +10894,7 @@ x-flows:
         reference: if any
         api: on_update
         example:
-          value: &ref_56
+          value: &ref_59
             context:
               domain: ONDC:FIS12
               location:
@@ -10358,17 +10924,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1335'
-                      customer:
-                        person:
-                          name: John Doe
-                          creds:
-                            - type: OTP
-                              id: '12345'
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -10554,6 +11109,46 @@ x-flows:
                               code: INTEREST_AMOUNT
                               name: Interest Amount
                             value: '300'
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1335'
+                    customer:
+                      person:
+                        name: John Doe
+                        creds:
+                          - type: OTP
+                            id: '12345'
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
         details:
           - description: >-
               The lender will provide a payment details for prepart payment and
@@ -10578,7 +11173,7 @@ x-flows:
         reference: if any
         api: on_update
         example:
-          value: &ref_58
+          value: &ref_61
             context:
               domain: ONDC:FIS12
               location:
@@ -10608,17 +11203,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1335'
-                      customer:
-                        person:
-                          name: John Doe
-                          creds:
-                            - type: OTP
-                              id: '12345'
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -10806,6 +11390,46 @@ x-flows:
                               code: INTEREST_AMOUNT
                               name: Interest Amount
                             value: '300'
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1335'
+                    customer:
+                      person:
+                        name: John Doe
+                        creds:
+                          - type: OTP
+                            id: '12345'
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
         details:
           - description: >-
               The lender will update payment details for pre-part payment and
@@ -10828,7 +11452,7 @@ x-flows:
         reference: if any
         api: on_update
         example:
-          value: &ref_57
+          value: &ref_60
             context:
               domain: ONDC:FIS12
               location:
@@ -10858,57 +11482,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -11125,6 +11698,86 @@ x-flows:
                         in a formal financial arrangement.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-agreement/O1.pdf
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: The lender will update quotation in the base transaction
             mermaid: |-
@@ -11166,7 +11819,7 @@ x-flows:
         reference: if any
         api: update
         example:
-          value: &ref_64
+          value: &ref_67
             context:
               domain: ONDC:FIS12
               location:
@@ -11213,7 +11866,7 @@ x-flows:
         reference: if any
         api: on_update
         example:
-          value: &ref_51
+          value: &ref_54
             context:
               domain: ONDC:FIS12
               location:
@@ -11243,57 +11896,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -11548,6 +12150,86 @@ x-flows:
                         cancellation.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-cancellation/O1.pdf
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: >-
               The lender will provide a payment details for foreclosure of
@@ -11568,7 +12250,7 @@ x-flows:
         reference: if any
         api: on_update
         example:
-          value: &ref_52
+          value: &ref_55
             context:
               domain: ONDC:FIS12
               location:
@@ -11598,57 +12280,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -11903,6 +12534,86 @@ x-flows:
                         cancellation.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-cancellation/O1.pdf
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: The lender will update quotation in the base transaction
             mermaid: |-
@@ -11938,7 +12649,7 @@ x-flows:
         reference: if any
         api: cancel
         example:
-          value: &ref_32
+          value: &ref_35
             context:
               domain: ONDC:FIS12
               location:
@@ -11984,7 +12695,7 @@ x-flows:
         reference: if any
         api: on_cancel
         example:
-          value: &ref_35
+          value: &ref_38
             context:
               domain: ONDC:FIS12
               location:
@@ -12016,57 +12727,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -12287,6 +12947,86 @@ x-flows:
                         in a formal financial arrangement.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-agreement/O1.pdf
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: >-
               The lender initiates loan cancellation request and shares the
@@ -12308,7 +13048,7 @@ x-flows:
         reference: if any
         api: on_update
         example:
-          value: &ref_48
+          value: &ref_51
             context:
               domain: ONDC:FIS12
               location:
@@ -12340,57 +13080,6 @@ x-flows:
                     long_desc: ICICI Bank Ltd, India.
                     name: ICICI Bank
                     short_desc: ICICI Bank Ltd
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
-                      tags:
-                        - descriptor:
-                            code: CHECKLISTS
-                            name: Applicant Checklists
-                          list:
-                            - descriptor:
-                                code: KYC
-                                name: KYC
-                              value: COMPLETED
-                            - descriptor:
-                                code: E_SIGN
-                                name: E Sign Required
-                              value: COMPLETED
                   tags:
                     - descriptor:
                         code: LSP_INFO
@@ -12611,6 +13300,86 @@ x-flows:
                         in a formal financial arrangement.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-agreement/O1.pdf
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
+                    tags:
+                      - descriptor:
+                          code: CHECKLISTS
+                          name: Applicant Checklists
+                        list:
+                          - descriptor:
+                              code: KYC
+                              name: KYC
+                            value: COMPLETED
+                          - descriptor:
+                              code: E_SIGN
+                              name: E Sign Required
+                            value: COMPLETED
         details:
           - description: The lender confirms the credit line cancellation
             mermaid: |
@@ -12651,7 +13420,7 @@ x-flows:
         reference: if any
         api: on_select
         example:
-          value: *ref_28
+          value: *ref_31
         details:
           - description: The borrower receives form for entity KYC
             mermaid: |-
@@ -12741,7 +13510,7 @@ x-flows:
         reference: if any
         api: init
         example:
-          value: &ref_71
+          value: &ref_74
             context:
               domain: ONDC:FIS12
               location:
@@ -12763,34 +13532,49 @@ x-flows:
               order:
                 provider:
                   id: PROVIDER_ID
-                  fulfillments:
-                    - id: '1333'
-                      customer:
-                        person:
-                          name: John Doe
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252U
-                              type: PAN
-                        contact:
-                          email: john.doe@gmail.com
-                          phone: '7888888888'
-                    - id: '1334'
-                      customer:
-                        person:
-                          name: Co Applicant 1
-                          dob: '1998-09-12'
-                          gender: Male
-                          creds:
-                            - id: BXU87Y252A
-                              type: PAN
-                        contact:
-                          email: applicant.1@gmail.com
-                          phone: '7888888888'
+                fulfillments:
+                  - id: '1333'
+                    customer:
+                      person:
+                        name: John Doe
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252U
+                            type: PAN
+                      contact:
+                        email: john.doe@gmail.com
+                        phone: '7888888888'
+                  - id: '1334'
+                    customer:
+                      person:
+                        name: Co Applicant 1
+                        dob: '1998-09-12'
+                        gender: Male
+                        creds:
+                          - id: BXU87Y252A
+                            type: PAN
+                      contact:
+                        email: applicant.1@gmail.com
+                        phone: '7888888888'
                 items:
                   - id: CHILD_ITEM_ID_WORKING_CAPITAL_LOAN
                     parent_item_id: ITEM_ID_WORKING_CAPITAL_LOAN
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
         details:
           - description: 'The borrower submits the Entity KYC form in the init '
             mermaid: |-
@@ -12835,7 +13619,7 @@ x-flows:
         reference: if any
         api: on_select
         example:
-          value: *ref_29
+          value: *ref_32
         details:
           - description: 'The lender will share form input for individual KYC '
             mermaid: |-
@@ -12885,7 +13669,7 @@ x-flows:
         reference: if any
         api: on_status
         example:
-          value: *ref_30
+          value: *ref_33
         details:
           - description: >-
               The lender sends the completion status of Individual KYC through
@@ -12911,7 +13695,7 @@ x-flows:
         reference: if any
         api: select
         example:
-          value: *ref_31
+          value: *ref_34
         details:
           - description: The borrower submits the form for Individual KYC
             mermaid: |-
@@ -12940,61 +13724,61 @@ x-examples:
         examples:
           - summary: cancel.yaml
             description: cancel.yaml
-            value: *ref_32
+            value: *ref_35
       confirm:
         examples:
           - summary: confirm-drawdown-with-consent.yaml
             description: confirm-drawdown-with-consent.yaml
-            value: *ref_33
+            value: *ref_36
           - summary: confirm_loan_offer.yaml
             description: TBD
-            value: *ref_34
+            value: *ref_37
       on_cancel:
         examples:
           - summary: on_cancel.yaml
             description: on_cancel.yaml
-            value: *ref_35
+            value: *ref_38
       on_confirm:
         examples:
           - summary: on_confirm-with-disbursement-details.yaml
             description: on_confirm-with-disbursement-details.yaml
-            value: *ref_36
+            value: *ref_39
           - summary: on_confirm_loan_offer_details.yaml
             description: TBD
-            value: *ref_37
+            value: *ref_40
       on_init:
         examples:
           - summary: on_init-invoice-upload-form.yaml
             description: on_init-invoice-upload-form.yaml
-            value: *ref_38
+            value: *ref_41
           - summary: on_init_account_information.yaml
             description: TBD
-            value: *ref_39
+            value: *ref_42
           - summary: on_init_consent_request.yaml
             description: on_init_consent_request.yaml
-            value: *ref_40
+            value: *ref_43
           - summary: on_init_e_mandate.yaml
             description: TBD
-            value: *ref_41
+            value: *ref_44
           - summary: on_init_e_sign.yaml
             description: TBD
-            value: *ref_42
+            value: *ref_45
       on_search:
         examples:
           - summary: on_search-business_financials.yaml
             description: TBD
-            value: *ref_43
+            value: *ref_46
           - summary: on_search-loan_offer.yaml
             description: TBD
-            value: *ref_44
+            value: *ref_47
           - summary: on_search_gst_bank_statement.yaml
             description: TBD
-            value: *ref_45
+            value: *ref_48
       on_select:
         examples:
           - summary: on_select_entity_kyc.yaml
             description: TBD
-            value: *ref_28
+            value: *ref_31
           - summary: on_select_entity_kyc_ack.yaml
             description: on_select_entity_kyc_ack.yaml
             value:
@@ -13027,57 +13811,6 @@ x-examples:
                       long_desc: ICICI Bank Ltd, India.
                       name: ICICI Bank
                       short_desc: ICICI Bank Ltd
-                    fulfillments:
-                      - id: '1333'
-                        customer:
-                          person:
-                            name: John Doe
-                            dob: '1998-09-12'
-                            gender: Male
-                            creds:
-                              - id: BXU87Y252U
-                                type: PAN
-                          contact:
-                            email: john.doe@gmail.com
-                            phone: '7888888888'
-                        tags:
-                          - descriptor:
-                              code: CHECKLISTS
-                              name: Applicant Checklists
-                            list:
-                              - descriptor:
-                                  code: KYC
-                                  name: KYC
-                                value: COMPLETED
-                              - descriptor:
-                                  code: E_SIGN
-                                  name: E Sign Required
-                                value: PENDING
-                      - id: '1334'
-                        customer:
-                          person:
-                            name: Co Applicant 1
-                            dob: '1998-09-12'
-                            gender: Male
-                            creds:
-                              - id: BXU87Y252A
-                                type: PAN
-                          contact:
-                            email: applicant.1@gmail.com
-                            phone: '7888888888'
-                        tags:
-                          - descriptor:
-                              code: CHECKLISTS
-                              name: Applicant Checklists
-                            list:
-                              - descriptor:
-                                  code: KYC
-                                  name: KYC
-                                value: COMPLETED
-                              - descriptor:
-                                  code: E_SIGN
-                                  name: E Sign Required
-                                value: PENDING
                     tags:
                       - descriptor:
                           code: LSP_INFO
@@ -13268,20 +14001,71 @@ x-examples:
                                 name: Esign
                               value: PENDING
                           display: true
+                  fulfillments:
+                    - id: '1333'
+                      customer:
+                        person:
+                          name: John Doe
+                          dob: '1998-09-12'
+                          gender: Male
+                          creds:
+                            - id: BXU87Y252U
+                              type: PAN
+                        contact:
+                          email: john.doe@gmail.com
+                          phone: '7888888888'
+                      tags:
+                        - descriptor:
+                            code: CHECKLISTS
+                            name: Applicant Checklists
+                          list:
+                            - descriptor:
+                                code: KYC
+                                name: KYC
+                              value: COMPLETED
+                            - descriptor:
+                                code: E_SIGN
+                                name: E Sign Required
+                              value: PENDING
+                    - id: '1334'
+                      customer:
+                        person:
+                          name: Co Applicant 1
+                          dob: '1998-09-12'
+                          gender: Male
+                          creds:
+                            - id: BXU87Y252A
+                              type: PAN
+                        contact:
+                          email: applicant.1@gmail.com
+                          phone: '7888888888'
+                      tags:
+                        - descriptor:
+                            code: CHECKLISTS
+                            name: Applicant Checklists
+                          list:
+                            - descriptor:
+                                code: KYC
+                                name: KYC
+                              value: COMPLETED
+                            - descriptor:
+                                code: E_SIGN
+                                name: E Sign Required
+                              value: PENDING
           - summary: on_select_individual_kyc
             description: TBD
-            value: *ref_29
+            value: *ref_32
       on_status:
         examples:
           - summary: on_status_e-mandate.yaml
             description: TBD
-            value: *ref_46
+            value: *ref_49
           - summary: on_status_e-sign.yaml
             description: on_status_e-sign.yaml
-            value: *ref_47
+            value: *ref_50
           - summary: on_status_individual_kyc.yaml
             description: TBD
-            value: *ref_30
+            value: *ref_33
           - summary: on_status_individual_kyc_pending.yaml
             description: on_status_individual_kyc_pending.yaml
             value:
@@ -13314,57 +14098,6 @@ x-examples:
                       long_desc: ICICI Bank Ltd, India.
                       name: ICICI Bank
                       short_desc: ICICI Bank Ltd
-                    fulfillments:
-                      - id: '1333'
-                        customer:
-                          person:
-                            name: John Doe
-                            dob: '1998-09-12'
-                            gender: Male
-                            creds:
-                              - id: BXU87Y252U
-                                type: PAN
-                          contact:
-                            email: john.doe@gmail.com
-                            phone: '7888888888'
-                        tags:
-                          - descriptor:
-                              code: CHECKLISTS
-                              name: Applicant Checklists
-                            list:
-                              - descriptor:
-                                  code: KYC
-                                  name: KYC
-                                value: COMPLETED
-                              - descriptor:
-                                  code: E_SIGN
-                                  name: E Sign Required
-                                value: PENDING
-                      - id: '1334'
-                        customer:
-                          person:
-                            name: Co Applicant 1
-                            dob: '1998-09-12'
-                            gender: Male
-                            creds:
-                              - id: BXU87Y252A
-                                type: PAN
-                          contact:
-                            email: applicant.1@gmail.com
-                            phone: '7888888888'
-                        tags:
-                          - descriptor:
-                              code: CHECKLISTS
-                              name: Applicant Checklists
-                            list:
-                              - descriptor:
-                                  code: KYC
-                                  name: KYC
-                                value: COMPLETED
-                              - descriptor:
-                                  code: E_SIGN
-                                  name: E Sign Required
-                                value: PENDING
                     tags:
                       - descriptor:
                           code: LSP_INFO
@@ -13560,94 +14293,145 @@ x-examples:
                           id: form_individual_kyc_F03
                         form_response:
                           status: PENDING
+                  fulfillments:
+                    - id: '1333'
+                      customer:
+                        person:
+                          name: John Doe
+                          dob: '1998-09-12'
+                          gender: Male
+                          creds:
+                            - id: BXU87Y252U
+                              type: PAN
+                        contact:
+                          email: john.doe@gmail.com
+                          phone: '7888888888'
+                      tags:
+                        - descriptor:
+                            code: CHECKLISTS
+                            name: Applicant Checklists
+                          list:
+                            - descriptor:
+                                code: KYC
+                                name: KYC
+                              value: COMPLETED
+                            - descriptor:
+                                code: E_SIGN
+                                name: E Sign Required
+                              value: PENDING
+                    - id: '1334'
+                      customer:
+                        person:
+                          name: Co Applicant 1
+                          dob: '1998-09-12'
+                          gender: Male
+                          creds:
+                            - id: BXU87Y252A
+                              type: PAN
+                        contact:
+                          email: applicant.1@gmail.com
+                          phone: '7888888888'
+                      tags:
+                        - descriptor:
+                            code: CHECKLISTS
+                            name: Applicant Checklists
+                          list:
+                            - descriptor:
+                                code: KYC
+                                name: KYC
+                              value: COMPLETED
+                            - descriptor:
+                                code: E_SIGN
+                                name: E Sign Required
+                              value: PENDING
       on_update:
         examples:
           - summary: on_update_cancellation_update_status.yaml
             description: on_update_cancellation_update_status.yaml
-            value: *ref_48
+            value: *ref_51
           - summary: on_update_disbursement_update.yaml
             description: on_update_request_disbursement_update.yaml
-            value: *ref_49
+            value: *ref_52
           - summary: on_update_disbursement_update_base_transaction.yaml
             description: on_update_disbursement_update_base_transaction.yaml
-            value: *ref_50
+            value: *ref_53
           - summary: on_update_foreclosure_drawdown.yaml
             description: Example for foreclosure of drawdown made from credit line
-            value: *ref_51
+            value: *ref_54
           - summary: on_update_foreclosure_update_base_transaction.yaml
             description: on_update_foreclosure_update_base_transaction.yaml
-            value: *ref_52
+            value: *ref_55
           - summary: on_update_missed_emi_payment
             description: on_update_missed_emi_payment
-            value: *ref_53
+            value: *ref_56
           - summary: on_update_missed_emi_payment_complete
             description: on_update_missed_emi_payment_complete
-            value: *ref_54
+            value: *ref_57
           - summary: on_update_missed_emi_payment_update_base_transaction
             description: on_update_missed_emi_payment_update_base_transaction
-            value: *ref_55
+            value: *ref_58
           - summary: on_update_pre_part_payment.yaml
             description: on_update_pre_part_payment.yaml
-            value: *ref_56
+            value: *ref_59
           - summary: on_update_pre_part_payment_base_transaction.yaml
             description: on_update_pre_part_payment_base_transaction.yaml
-            value: *ref_57
+            value: *ref_60
           - summary: on_update_pre_part_payment_complete.yaml
             description: on_update_pre_part_payment_complete.yaml
-            value: *ref_58
+            value: *ref_61
       search:
         examples:
           - summary: search-request.yaml
             description: TBD
-            value: *ref_59
+            value: *ref_62
           - summary: search-request_business_financials.yaml
             description: TBD
-            value: *ref_60
+            value: *ref_63
           - summary: search-request_gst_bank_statements.yaml
             description: TBD
-            value: *ref_61
+            value: *ref_64
       select:
         examples:
           - summary: select-individual-kyc.yaml
             description: TBD
-            value: *ref_31
+            value: *ref_34
           - summary: select_business_kyc.yaml
             description: select_business_kyc.yaml
-            value: *ref_62
+            value: *ref_65
           - summary: select_loan_offer.yaml
             description: TBD
-            value: *ref_63
+            value: *ref_66
       update:
         examples:
           - summary: update_fore_closure.yaml
             description: update_fore_closure.yaml
-            value: *ref_64
+            value: *ref_67
           - summary: update_missed_emi_payment
             description: update_missed_emi_payment
-            value: *ref_65
+            value: *ref_68
           - summary: update_pre_part_payment.yaml
             description: update_pre_part_payment.yaml
-            value: *ref_66
+            value: *ref_69
       init:
         examples:
           - summary: init_loan_process.yaml
             description: TBD
-            value: *ref_67
+            value: *ref_70
           - summary: init-e-mandate.yaml
             description: TBD
-            value: *ref_68
+            value: *ref_71
           - summary: init-request-submit-invoice-form.yaml
             description: init-request-submit-invoice-form.yaml
-            value: *ref_69
+            value: *ref_72
           - summary: init_bank_account_information.yaml
             description: TBD
-            value: *ref_70
+            value: *ref_73
           - summary: init_entity_kyc.yaml
             description: TBD
-            value: *ref_71
+            value: *ref_74
           - summary: init-request-initate-drawdown.yaml
             description: init-request-initate-drawdown.yaml
-            value: *ref_72
+            value: *ref_75
 x-attributes:
   Working-Capital-Loan:
     attribute_set:
@@ -15129,65 +15913,63 @@ x-attributes:
                 description: >-
                   This describes the complete formulated description of the loan
                   provider whose catalog items have been selected.
-              fulfillments:
-                id:
-                  required: MANDATORY
-                  type: string
-                  owner: BPP
-                  usage: '--'
-                  description: Unique fulfillment ID generated by the BPP for this order.
-                customer:
-                  person:
-                    name:
+            fulfillments:
+              id:
+                required: MANDATORY
+                type: string
+                owner: BPP
+                usage: '--'
+                description: Unique fulfillment ID generated by the BPP for this order.
+              customer:
+                person:
+                  name:
+                    required: OPTIONAL
+                    type: string
+                    owner: BPP
+                    usage: '--'
+                    description: The customer's full name.
+                  dob:
+                    required: OPTIONAL
+                    type: string
+                    owner: BPP
+                    usage: '--'
+                    description: Customer's date of birth in ISO 8601 format (YYYY-MM-DD).
+                  gender:
+                    required: OPTIONAL
+                    type: string
+                    owner: BPP
+                    usage: '--'
+                    description: >-
+                      Customer's gender. Use a controlled vocabulary or codes
+                      for consistency.
+                  creds:
+                    id:
                       required: OPTIONAL
                       type: string
                       owner: BPP
                       usage: '--'
-                      description: The customer's full name.
-                    dob:
+                      description: PAN number of customer
+                    type:
                       required: OPTIONAL
                       type: string
                       owner: BPP
                       usage: '--'
-                      description: >-
-                        Customer's date of birth in ISO 8601 format
-                        (YYYY-MM-DD).
-                    gender:
-                      required: OPTIONAL
-                      type: string
-                      owner: BPP
-                      usage: '--'
-                      description: >-
-                        Customer's gender. Use a controlled vocabulary or codes
-                        for consistency.
-                    creds:
-                      id:
-                        required: OPTIONAL
-                        type: string
-                        owner: BPP
-                        usage: '--'
-                        description: PAN number of customer
-                      type:
-                        required: OPTIONAL
-                        type: string
-                        owner: BPP
-                        usage: '--'
-                        description: Type of identification document (e.g., 'PAN')
-                  contact:
-                    email:
-                      required: OPTIONAL
-                      type: string
-                      owner: BPP
-                      usage: '--'
-                      description: Customer's email address.
-                    phone:
-                      required: OPTIONAL
-                      type: string
-                      owner: BPP
-                      usage: '--'
-                      description: >-
-                        Customer's phone number. Use the E.164 standard format
-                        (e.g., +15551234567).
+                      description: Type of identification document (e.g., 'PAN')
+                contact:
+                  email:
+                    required: OPTIONAL
+                    type: string
+                    owner: BPP
+                    usage: '--'
+                    description: Customer's email address.
+                  phone:
+                    required: OPTIONAL
+                    type: string
+                    owner: BPP
+                    usage: '--'
+                    description: >-
+                      Customer's phone number. Use the E.164 standard format
+                      (e.g., +15551234567).
             items:
               id:
                 required: MANDATORY

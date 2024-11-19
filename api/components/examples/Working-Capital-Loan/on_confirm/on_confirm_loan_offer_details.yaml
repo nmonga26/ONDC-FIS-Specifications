@@ -28,57 +28,6 @@ message:
         long_desc: ICICI Bank Ltd, India.
         name: ICICI Bank
         short_desc: ICICI Bank Ltd
-      fulfillments:
-        - id: '1333'
-          customer:
-            person:
-              name: John Doe
-              dob: '1998-09-12'
-              gender: Male
-              creds:
-                - id: BXU87Y252U
-                  type: PAN
-            contact:
-              email: john.doe@gmail.com
-              phone: '7888888888'
-          tags:
-            - descriptor:
-                code: CHECKLISTS
-                name: Applicant Checklists
-              list:
-                - descriptor:
-                    code: KYC
-                    name: KYC
-                  value: COMPLETED
-                - descriptor:
-                    code: E_SIGN
-                    name: E Sign Required
-                  value: COMPLETED
-        - id: '1334'
-          customer:
-            person:
-              name: Co Applicant 1
-              dob: '1998-09-12'
-              gender: Male
-              creds:
-                - id: BXU87Y252A
-                  type: PAN
-            contact:
-              email: applicant.1@gmail.com
-              phone: '7888888888'
-          tags:
-            - descriptor:
-                code: CHECKLISTS
-                name: Applicant Checklists
-              list:
-                - descriptor:
-                    code: KYC
-                    name: KYC
-                  value: COMPLETED
-                - descriptor:
-                    code: E_SIGN
-                    name: E Sign Required
-                  value: COMPLETED
       tags:
         - descriptor:
             code: LSP_INFO
@@ -297,3 +246,82 @@ message:
             binding a lender and borrower in a formal financial arrangement.
         mime_type: application/pdf
         url: https://lender.com/loan/loan-agreement/O1.pdf
+    tags:
+      - display: false
+        descriptor:
+          name: BAP Terms of Engagement
+          code: BAP_TERMS
+        list:
+          - descriptor:
+              name: Static Terms (Transaction Level)
+              code: STATIC_TERMS
+            value: 'https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1'
+          - descriptor:
+              name: Offline Contract
+              code: OFFLINE_CONTRACT
+            value: 'true'
+      - display: false
+        descriptor:
+          name: BPP Terms of Engagement
+          code: BPP_TERMS
+        list:
+          - descriptor:
+              name: Static Terms (Transaction Level)
+              code: STATIC_TERMS
+            value: 'https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1'
+          - descriptor:
+              name: Offline Contract
+              code: OFFLINE_CONTRACT
+            value: 'true'
+    fulfillments:
+      - id: '1333'
+        customer:
+          person:
+            name: John Doe
+            dob: '1998-09-12'
+            gender: Male
+            creds:
+              - id: BXU87Y252U
+                type: PAN
+          contact:
+            email: john.doe@gmail.com
+            phone: '7888888888'
+        tags:
+          - descriptor:
+              code: CHECKLISTS
+              name: Applicant Checklists
+            list:
+              - descriptor:
+                  code: KYC
+                  name: KYC
+                value: COMPLETED
+              - descriptor:
+                  code: E_SIGN
+                  name: E Sign Required
+                value: COMPLETED
+      - id: '1334'
+        customer:
+          person:
+            name: Co Applicant 1
+            dob: '1998-09-12'
+            gender: Male
+            creds:
+              - id: BXU87Y252A
+                type: PAN
+          contact:
+            email: applicant.1@gmail.com
+            phone: '7888888888'
+        tags:
+          - descriptor:
+              code: CHECKLISTS
+              name: Applicant Checklists
+            list:
+              - descriptor:
+                  code: KYC
+                  name: KYC
+                value: COMPLETED
+              - descriptor:
+                  code: E_SIGN
+                  name: E Sign Required
+                value: COMPLETED
+          

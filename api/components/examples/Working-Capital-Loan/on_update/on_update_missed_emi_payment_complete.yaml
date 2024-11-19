@@ -27,18 +27,6 @@ message:
         long_desc: ICICI Bank Ltd, India.
         name: ICICI Bank
         short_desc: ICICI Bank Ltd
-      fulfillments:
-        - id: '1335'
-          customer:
-            person:
-              name: John Doe
-            contact:
-              email: john.doe@gmail.com
-              phone: '7888888888'
-          stops:
-            - authorization:
-                type: OTP
-                token: '1222'
       tags:
         - descriptor:
             code: LSP_INFO
@@ -216,3 +204,43 @@ message:
                   code: INTEREST_AMOUNT
                   name: Interest Amount
                 value: '400'
+    tags:
+      - display: false
+        descriptor:
+          name: BAP Terms of Engagement
+          code: BAP_TERMS
+        list:
+          - descriptor:
+              name: Static Terms (Transaction Level)
+              code: STATIC_TERMS
+            value: 'https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1'
+          - descriptor:
+              name: Offline Contract
+              code: OFFLINE_CONTRACT
+            value: 'true'
+      - display: false
+        descriptor:
+          name: BPP Terms of Engagement
+          code: BPP_TERMS
+        list:
+          - descriptor:
+              name: Static Terms (Transaction Level)
+              code: STATIC_TERMS
+            value: 'https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1'
+          - descriptor:
+              name: Offline Contract
+              code: OFFLINE_CONTRACT
+            value: 'true'
+    fulfillments:
+        - id: '1335'
+          customer:
+            person:
+              name: John Doe
+            contact:
+              email: john.doe@gmail.com
+              phone: '7888888888'
+          stops:
+            - authorization:
+                type: OTP
+                token: '1222'
+                
