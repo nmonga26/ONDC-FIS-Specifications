@@ -1,3 +1,3 @@
-motor-insurance: 
+metro-card-recharge:
   attribute_set:
-    $ref: './motor-insurance/index.yaml'
+    $ref: './metro-card-recharge/index.yaml'

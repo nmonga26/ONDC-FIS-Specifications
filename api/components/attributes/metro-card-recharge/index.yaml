@@ -609,14 +609,6 @@ select:
           owner: BPP
           usage: b2400168
           description: Describes the ID of the item.
-        quantity:
-          selected:
-            count:
-              required: mandatory
-              type: integer
-              owner: BAP
-              usage: 1
-              description: This represents the quantity selected for purchase of the item
       provider:
         id:
           required: mandatory
@@ -917,13 +909,13 @@ on_select:
               description: ID of the item.
             price:
               currency:
-                required: mandatory
+                required: optional
                 type: string
                 owner: BPP
                 usage: INR
                 description: Describes the currency of breakup item
               value:
-                required: mandatory
+                required: optional
                 type: string
                 owner: BPP
                 usage: 60
@@ -1057,14 +1049,6 @@ init:
           owner: BPP
           usage: b2400168
           description: Describes the ID of the item.
-        quantity:
-          selected:
-            count:
-              required: mandatory
-              type: integer
-              owner: BAP
-              usage: 1
-              description: This represents the quantity selected for purchase of the item
       provider:
         id:
           required: mandatory
@@ -1479,13 +1463,13 @@ on_init:
               description: ID of the item.
             price:
               currency:
-                required: mandatory
+                required: optional
                 type: string
                 owner: BPP
                 usage: INR
                 description: Describes the currency of breakup item
               value:
-                required: mandatory
+                required: optional
                 type: string
                 owner: BPP
                 usage: 60
@@ -1768,14 +1752,6 @@ confirm:
           owner: BPP
           usage: b2400168
           description: Describes the ID of the item.
-        quantity:
-          selected:
-            count:
-              required: mandatory
-              type: integer
-              owner: BAP
-              usage: 1
-              description: This represents the quantity selected for purchase of the item
       provider:
         id:
           required: mandatory
@@ -2290,13 +2266,13 @@ on_confirm:
               description: ID of the item.
             price:
               currency:
-                required: mandatory
+                required: optional
                 type: string
                 owner: BPP
                 usage: INR
                 description: Describes the currency of breakup item
               value:
-                required: mandatory
+                required: optional
                 type: string
                 owner: BPP
                 usage: 60
