@@ -32,7 +32,7 @@ message:
           - C3
         descriptor:
           name: Life Gain Plus Individual
-          short_desc: ABC Individaul Life Insurance Class A with custom addon
+          short_desc: ABC Individual Life Insurance Class A with custom addon
         id: CHILD_ITEM_ID_I1
         parent_item_id: I1
         price:
@@ -60,7 +60,7 @@ message:
                   name: Final revised payment after medical checkup
                 value: Pending
           - descriptor:
-              code: CONSNENT_INFO
+              code: CONSENT_INFO
               name: Consent Information
             list:
               - descriptor:
@@ -74,32 +74,32 @@ message:
               - descriptor:
                   code: COVERAGE_AMOUNT
                   name: coverage amount
-                  short_desc: upto/minimum coverage amount
+                  short_desc: up to/minimum coverage amount
                 value: <var:value>
               - descriptor:
                   code: CLAIM_SETTLEMENT_RATIO
                   name: claim settlement ratio
-                  short_desc: upto/minimum claim settlement ratio
+                  short_desc: up to/minimum claim settlement ratio
                 value: <var:value>
               - descriptor:
                   code: FREE_LOOKUP_PERIOD
                   name: free lookup period
-                  short_desc: upto/minimum free lookup period
+                  short_desc: up to/minimum free lookup period
                 value: <var:value>
               - descriptor:
                   code: COVERAGE_PERIOD
                   name: coverage period
-                  short_desc: upto/minimum coverage period
+                  short_desc: up to/minimum coverage period
                 value: <var:value>
               - descriptor:
                   code: PAYMENT_FREQUENCY
                   name: payment frequency
-                  short_desc: upto/minimum payment frequency
+                  short_desc: up to/minimum payment frequency
                 value: <var:value>
               - descriptor:
                   code: CLAIM_SETTLEMENT_TAT
                   name: claim settlement tat
-                  short_desc: upto/minimum claim settlement tat
+                  short_desc: up to/minimum claim settlement tat
                 value: <var:value>
         time:
           duration: P1Y
@@ -122,7 +122,7 @@ message:
             mime_type: application/html
             url: https://fis.test.bpp.io/form/medical_appt_booking
             resubmit: true
-            multiple_sumbissions: false
+            multiple_submissions: false
           required: true
         add_ons:
           - id: A1
@@ -235,9 +235,17 @@ message:
         url: >-
           https://www.abcinsurance.com/pg-gateway/payment?amount=1100&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
         params:
-          amount: '18000'
+          amount: '2000'
           currency: INR
           transaction_id: 97ca91e3-3bd1-4bbf-a066-4db2a6070b6e
+        status: PAID
+        type: PRE-ORDER
+      - collected_by: BPP
+        url: >-
+          https://www.abcinsurance.com/pg-gateway/payment?amount=1100&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
+        params:
+          amount: '18000'
+          currency: INR
         status: NOT-PAID
         type: PRE-ORDER
         tags:

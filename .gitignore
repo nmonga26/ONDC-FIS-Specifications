@@ -3,3 +3,5 @@ package-lock.json
 app.js
 node_modules
 api/components/node_modules
+.vscode
+extra

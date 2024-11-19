@@ -18,7 +18,7 @@ context:
 message:
   catalog:
     descriptor:
-      name: <var:catalog_descrtiptor_name>
+      name: <var:catalog_descriptor_name>
     providers:
       - id: PROVIDER_ID
         descriptor:
@@ -71,32 +71,32 @@ message:
                   - descriptor:
                       code: COVERAGE_AMOUNT
                       name: coverage amount
-                      short_desc: upto/minimum coverage amount
+                      short_desc: up to/minimum coverage amount
                     value: <var:value>
                   - descriptor:
                       code: CLAIM_SETTLEMENT_RATIO
                       name: claim settlement ratio
-                      short_desc: upto/minimum claim settlement ratio
+                      short_desc: up to/minimum claim settlement ratio
                     value: <var:value>
                   - descriptor:
                       code: FREE_LOOKUP_PERIOD
                       name: free lookup period
-                      short_desc: upto/minimum free lookup period
+                      short_desc: up to/minimum free lookup period
                     value: <var:value>
                   - descriptor:
                       code: COVERAGE_PERIOD
                       name: coverage period
-                      short_desc: upto/minimum coverage period
+                      short_desc: up to/minimum coverage period
                     value: <var:value>
                   - descriptor:
                       code: PAYMENT_FREQUENCY
                       name: payment frequency
-                      short_desc: upto/minimum payment frequency
+                      short_desc: up to/minimum payment frequency
                     value: <var:value>
                   - descriptor:
                       code: CLAIM_SETTLEMENT_TAT
                       name: claim settlement tat
-                      short_desc: upto/minimum claim settlement tat
+                      short_desc: up to/minimum claim settlement tat
                     value: <var:value>
             add_ons:
               - id: A1

@@ -100,18 +100,6 @@ on_status:
       description: TBD
       value:
         $ref: ./on_status/on_status-review-form-processed.yaml
-    - summary: on_status_ekyc
-      description: TBD
-      value:
-        $ref: ./on_status/on_status_ekyc.yaml
-    - summary: on_status_medical_checkup
-      description: TBD
-      value:
-        $ref: ./on_status/on_status_medical_checkup.yaml
-    - summary: on_status_payment_update
-      description: TBD
-      value:
-        $ref: ./on_status/on_status_payment_update.yaml
     - summary: on_status-claim
       description: TBD
       value:
@@ -136,6 +124,24 @@ on_status:
       description: TBD
       value:
         $ref: ./on_status/on_status_renew_completed.yaml
+    - summary: on_status_ekyc
+      description: TBD
+      value:
+        $ref: ./on_status/on_status_ekyc.yaml
+    - summary: on_status_medical_checkup
+      description: TBD
+      value:
+        $ref: ./on_status/on_status_medical_checkup.yaml
+    - summary: on_status_medical_payment_update
+      description: >-
+        Unsolicited on_status to pass on the latest status of medical checkup
+        payment
+      value:
+        $ref: ./on_status/on_status_medical_payment_update.yaml
+    - summary: on_status_payment_update
+      description: TBD
+      value:
+        $ref: ./on_status/on_status_payment_update.yaml
 on_update:
   examples:
     - summary: on_update_claim

@@ -97,14 +97,14 @@ steps: &steps
     reference: if any
     example: &steps_0_example
       value: &steps_0_example_value
-        $ref: ../../examples/life-insurance/search/search_0.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/search/search_0.yaml
   - &steps_1
     summary: Insurer provides a catalog of different insurance products
     reference: if any
     api: on_search
     example: &steps_1_example
       value: &steps_1_example_value
-        $ref: ../../examples/life-insurance/on_search/on_search_0.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/on_search/on_search_0.yaml
     details: &steps_1_details
       - &steps_1_details_0
         description: Insurer sends product catalogue and a basic details form
@@ -154,7 +154,7 @@ steps: &steps
     api: search
     example: &steps_3_example
       value: &steps_3_example_value
-        $ref: ../../examples/life-insurance/search/search_1.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/search/search_1.yaml
     details: &steps_3_details
       - &steps_3_details_0
         description: Buyer app explore life insurance options by searching for insurers.
@@ -182,7 +182,7 @@ steps: &steps
     api: on_search
     example: &steps_4_example
       value: &steps_4_example_value
-        $ref: ../../examples/life-insurance/on_search/on_search_1.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/on_search/on_search_1.yaml
     details: &steps_4_details
       - &steps_4_details_0
         description: Insurer responds with a consent handle.
@@ -262,7 +262,7 @@ steps: &steps
     reference: if any
     example: &steps_7_example
       value: &steps_7_example_value
-        $ref: ../../examples/life-insurance/select/select_0.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/select/select_0.yaml
   - &steps_8
     summary: Insurer returns the response to selected life insurance plan
     api: on_select
@@ -283,7 +283,7 @@ steps: &steps
     reference: if any
     example: &steps_8_example
       value: &steps_8_example_value
-        $ref: ../../examples/life-insurance/on_select/on_select_0.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/on_select/on_select_0.yaml
   - &steps_9
     summary: The buyer app initiates the life insurance request
     api: init
@@ -307,7 +307,7 @@ steps: &steps
     reference: if any
     example: &steps_9_example
       value: &steps_9_example_value
-        $ref: ../../examples/life-insurance/init/init_0.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/init/init_0.yaml
   - &steps_10
     summary: Insurer returns the response to initialized life insurance plan with
       ekyc form
@@ -330,7 +330,7 @@ steps: &steps
     reference: if any
     example: &steps_10_example
       value: &steps_10_example_value
-        $ref: ../../examples/life-insurance/on_init/on_init_0.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/on_init/on_init_0.yaml
   - &steps_11
     summary: Buyer app fetches the EKYC form
     reference: if any
@@ -366,7 +366,7 @@ steps: &steps
     api: on_status
     example: &steps_12_example
       value: &steps_12_example_value
-        $ref: ../../examples/life-insurance/on_status/on_status_ekyc.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/on_status/on_status_ekyc.yaml
     details: &steps_12_details
       - &steps_12_details_0
         description: Seller app responds with the EKYC status
@@ -394,7 +394,7 @@ steps: &steps
     api: init
     example: &steps_13_example
       value: &steps_13_example_value
-        $ref: ../../examples/life-insurance/init/init_1.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/init/init_1.yaml
     details: &steps_13_details
       - &steps_13_details_0
         description: Buyer app initiates purchase of a specific life insurance plan that
@@ -425,7 +425,7 @@ steps: &steps
     api: on_init
     example: &steps_14_example
       value: &steps_14_example_value
-        $ref: ../../examples/life-insurance/on_init/on_init_1.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/on_init/on_init_1.yaml
     details: &steps_14_details
       - &steps_14_details_0
         description: Insurer responds to buyer and ask for additional details
@@ -481,7 +481,7 @@ steps: &steps
     api: init
     example: &steps_16_example
       value: &steps_16_example_value
-        $ref: ../../examples/life-insurance/init/init_2.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/init/init_2.yaml
     details: &steps_16_details
       - &steps_16_details_0
         description: Buyer app initiates the check to determine whether medical
@@ -511,7 +511,7 @@ steps: &steps
     api: on_init
     example: &steps_17_example
       value: &steps_17_example_value
-        $ref: ../../examples/life-insurance/on_init/on_init_2.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/on_init/on_init_2.yaml
     details: &steps_17_details
       - &steps_17_details_0
         description: Insurer returns the response to initialized life insurance plan and
@@ -572,7 +572,7 @@ steps: &steps
     api: on_status
     example: &steps_19_example
       value: &steps_19_example_value
-        $ref: ../../examples/life-insurance/on_status/on_status_medical_checkup.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/on_status/on_status_medical_checkup.yaml
     details: &steps_19_details
       - &steps_19_details_0
         description: If medical payment link was passed in previous init, the BAP
@@ -631,7 +631,7 @@ steps: &steps
     api: init
     example: &steps_21_example
       value: &steps_21_example_value
-        $ref: ../../examples/life-insurance/init/init_3.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/init/init_3.yaml
     details: &steps_21_details
       - &steps_21_details_0
         description: The buyer app requests the final quote if medical underwriting is done.
@@ -662,7 +662,7 @@ steps: &steps
     api: on_init
     example: &steps_22_example
       value: &steps_22_example_value
-        $ref: ../../examples/life-insurance/on_init/on_init_3.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/on_init/on_init_3.yaml
     details: &steps_22_details
       - &steps_22_details_0
         description: Insurer returns the response to initialized life insurance plan
@@ -693,7 +693,7 @@ steps: &steps
     api: on_status
     example: &steps_23_example
       value: &steps_23_example_value
-        $ref: ../../examples/life-insurance/on_status/on_status_payment_update.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/on_status/on_status_payment_update.yaml
     details: &steps_23_details
       - &steps_23_details_0
         description: Seller app responds with the payment status
@@ -712,7 +712,7 @@ steps: &steps
     api: confirm
     example: &steps_24_example
       value: &steps_24_example_value
-        $ref: ../../examples/life-insurance/confirm/confirm.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/confirm/confirm_0.yaml
     details: &steps_24_details
       - &steps_24_details_0
         description: Buyer app confirms the life insurance request and provides all the
@@ -734,7 +734,7 @@ steps: &steps
     api: on_confirm
     example: &steps_25_example
       value: &steps_25_example_value
-        $ref: ../../examples/life-insurance/on_confirm/on_confirm_1.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/on_confirm/on_confirm_1.yaml
     details: &steps_25_details
       - &steps_25_details_0
         description: Insurer confirms the life insurance and provides the confirmation
