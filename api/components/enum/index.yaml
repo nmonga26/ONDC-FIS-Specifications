@@ -52,11 +52,6 @@ on_confirm:
       fulfillments: &fulfillments
         $ref: './fulfillment.yaml'  
       payments: *payment
-      documents: &document
-        $ref: './documents.yaml'
-      cancellation_terms:
-        fulfillment_state:
-          $ref: './cancellation_terms.yaml'
       quote: *quote
       status: &status
         $ref: './status.yaml'        
@@ -69,7 +64,6 @@ on_status:
       items: *items
       fulfillments: *fulfillments
       payments: *payment
-      documents: *document
       quote: *quote
       status: *status
 cancel:
@@ -80,7 +74,6 @@ on_cancel:
     order:
       items: *items
       payments: *payment
-      documents: *document
       quote: *quote
       status: *status
 update:
@@ -95,6 +88,5 @@ on_update:
       items: *items
       fulfillments: *fulfillments
       payments: *payment
-      documents: *document
       quote: *quote
       status: *status 

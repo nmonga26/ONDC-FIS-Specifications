@@ -7,6 +7,4 @@
   - code: CANCELLED
     description: Describes the status of the order.
     reference: <PR/Issue/Discussion Links md format text
-  - code: CANCELLATION_INITIATED
-    description: Describes the status of the order.
-    reference: <PR/Issue/Discussion Links md format text  
+ 

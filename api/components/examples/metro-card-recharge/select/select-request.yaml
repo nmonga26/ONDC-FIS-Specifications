@@ -22,9 +22,11 @@ message:
     items:
       - id: I1
     fulfillments:
-      customer:
-        person:
-          creds:
-            - id: '00129812901'
-              type: CARD_IDENTIFIER 
+      - id: F1
+        type: ONLINE
+        customer:
+          person:
+            creds:
+              - id: '00129812901'
+                type: CARD_IDENTIFIER 
     

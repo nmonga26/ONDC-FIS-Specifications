@@ -49,5 +49,40 @@ message:
             time:
               label: Validity
               duration: P1Y
-                   
+            fulfillment_ids:
+              - F1  
+        fulfillments:
+          - id: F1
+            type: ONLINE
+            stops:
+              - instructions:
+                  name: 'How to use?'
+                  short_desc: 'short description of the Recharge'
+                  long_desc: 'description about how to use?'
+        payments:
+          - collected_by: BAP
+    tags:
+      - descriptor:
+          code: BPP_TERMS
+          name: BPP Terms of Engagement
+        display: false
+        list:
+          - descriptor:
+              code: BUYER_FINDER_FEES_PERCENTAGE
+            value: '1'
+          - descriptor:
+              code: BUYER_FINDER_FEES_TYPE
+            value: percent
+          - descriptor:
+              code: STATIC_TERMS
+            value: 'https://api.example-bap.com/booking/terms'
+          - descriptor:
+              code: MANDATORY_ARBITRATION
+            value: 'true'
+          - descriptor:
+              code: COURT_JURISDICTION
+            value: New Delhi
+          - descriptor:
+              code: DELAY_INTEREST
+            value: 2.5 %
 

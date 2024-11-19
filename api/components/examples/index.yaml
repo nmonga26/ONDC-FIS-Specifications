@@ -1,5 +1,5 @@
-motor-insurance:
-  summary: motor-insurance
-  description: motor-insurance
+metro-card-recharge:
+  summary: metro-card-recharge
+  description: metro-card-recharge
   example_set:
-    $ref: "./motor-insurance/motor-insurance.yaml"
+    $ref: "./metro-card-recharge/index.yaml"
