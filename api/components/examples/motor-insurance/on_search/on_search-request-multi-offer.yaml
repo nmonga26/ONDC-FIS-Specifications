@@ -12,7 +12,7 @@ context:
       code: '*'
   message_id: 80bbe4c1-3740-4b2c-b3a0-def810f38e8f
   timestamp: "2023-07-24T05:40:05.651Z"
-  transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
+  transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
   ttl: P24H
   version: 2.0.0
 message:
@@ -46,18 +46,18 @@ message:
               name: Four Wheeler Own Damage
               code: FOUR_WHEELER_OWN_DAMAGE
             id: C6  
-          - descriptor:
-              name: New Insurance
-              code: NEW_INSURANCE
-            id: C7 
+          # - descriptor:
+          #     name: New Insurance
+          #     code: NEW_INSURANCE
+          #   id: C7 
           - descriptor:
               name: Motor Insurance
               code: MOTOR_INSURANCE
             id: C8
-          - descriptor:
-              name: Transfer Insurance
-              code: TRANSFER_INSURANCE
-            id: C9  
+          # - descriptor:
+          #     name: Transfer Insurance
+          #     code: TRANSFER_INSURANCE
+          #   id: C9  
           - descriptor:
               name: FOUR WHEELER
               code: FOUR_WHEELER_INSURANCE
