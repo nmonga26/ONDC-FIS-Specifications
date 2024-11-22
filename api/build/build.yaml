@@ -5771,6 +5771,10 @@ x-flows:
                         submission_id: 32c8b4ea-037f-4d18-868c-76bbacd02f88
                 payments:
                   - id: PAYMENT_ID_INVOICE_LOAN
+                    params:
+                      bank_code: XXXXXXXX
+                      bank_account_number: xxxxxxxxxxxxxx
+                      virtual_payment_address: 9988199772@okicic
                     type: ON_ORDER
                     collected_by: BPP
                     status: NOT-PAID
@@ -5785,13 +5789,6 @@ x-flows:
                           - descriptor:
                               code: BUYER_FINDER_FEES_PERCENTAGE
                             value: '1'
-                      - descriptor:
-                          code: PAYMENT_COLLECTOR
-                        display: false
-                        list:
-                          - descriptor:
-                              code: BUYER_FINDER_FEES_TYPE
-                            value: BPP
                       - descriptor:
                           code: SETTLEMENT_TERMS
                         display: false
