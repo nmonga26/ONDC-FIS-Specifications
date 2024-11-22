@@ -6,12 +6,6 @@ const BRANCHES = [
     status: "DRAFT",
   },
   {
-    code: "draft-FIS12-2.0.1",
-    name: "Personal Loan",
-    short_desc: "Credit - Personal Loan use case patch to 2.0.0",
-    status: "DRAFT",
-  },
-  {
     code: "draft-FIS12-2.2.0",
     name: "Purchase Finance",
     short_desc: "Credit - Purchase Finance use case",
@@ -54,7 +48,13 @@ const BRANCHES = [
     status: "DRAFT",
   },
   {
-    code: "release-FIS12-2.0.0",
+    code: "release-FIS12-2.0.1",
+    name: "Personal Loan",
+    short_desc: "Credit - Personal Loan use case patch to 2.0.0",
+    status: "RELEASED",
+  },
+  {
+    code: "release-FIS14-2.0.0",
     name: "Mutual Funds",
     short_desc: "Investments - Mutual Funds",
     status: "RELEASED",
