@@ -54,10 +54,10 @@ const BRANCHES = [
     status: "DRAFT",
   },
   {
-    code: "draft-FIS14-enhancements",
+    code: "release-FIS12-2.0.0",
     name: "Mutual Funds",
     short_desc: "Investments - Mutual Funds",
-    status: "DRAFT",
+    status: "RELEASED",
   },
   {
     code: "release-FIS12-2.0.0",
