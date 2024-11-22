@@ -32,10 +32,11 @@ message:
         id: CHILD_ITEM_CI1
         parent_item_id: I1
         category_ids:
+          - C1
+          - C2
           - C3
-          - C4
-          - C5
-          - C6
+          - C8 
+          - C11
         time:
           duration: P1Y
           label: TENURE
@@ -96,7 +97,7 @@ message:
         value: "12505"
       breakup:
         - price:
-            value: "11531"
+            value: "12531"
             currency: INR
           title: BASE_PRICE
         - price:
@@ -117,4 +118,4 @@ message:
           price:
             value: "900"
             currency: INR
-      ttl: PT15D       
+      ttl: P15D       

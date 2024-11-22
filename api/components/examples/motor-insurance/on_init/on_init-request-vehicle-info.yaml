@@ -36,10 +36,11 @@ message:
         id: CHILD_ITEM_CI1
         parent_item_id: I1
         category_ids:
+          - C1
+          - C2
           - C3
-          - C4
-          - C5
-          - C6
+          - C8 
+          - C11
         descriptor:
           name: 2-Wheeler 3rd Party Motor Insurance
           short_desc: 2-Wheeler 3rd Party Motor Insurance by ABC Insurance Provider
@@ -47,7 +48,7 @@ message:
             - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
               size_type: xs
         price:
-          value: "11531"
+          value: "12531"
           currency: INR 
         time:
           duration: P1Y
@@ -134,7 +135,7 @@ message:
                   code: IDV_VALUE
                   name: "IDV value"
                   short_desc: Describes the IDV value
-                value: '300000'   
+                value: '300000'    
           - descriptor:
               code: VAHAN_DETAILS
               name: Vahan Details
@@ -172,6 +173,7 @@ message:
               - descriptor:
                   code: PREVIOUS_POLICY_END_DATE
                 value: "2022-01-02"
+        
     payments:
       - collected_by: BPP
         url: https://www.abcinsurance.com/pg-gateway/payment?amount=12505&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
@@ -241,7 +243,7 @@ message:
         value: "12505"
       breakup:
         - price:
-            value: "11531"
+            value: "12531"
             currency: INR
           title: BASE_PRICE
         - price:
@@ -262,4 +264,4 @@ message:
           price:
             value: "900"
             currency: INR
-      ttl: PT15D 
+      ttl: P15D 

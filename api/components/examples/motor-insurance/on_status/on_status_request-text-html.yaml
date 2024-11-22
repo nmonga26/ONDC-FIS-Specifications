@@ -36,10 +36,11 @@ message:
         id: CHILD_ITEM_CI1
         parent_item_id: I1
         category_ids:
+          - C1
+          - C2
           - C3
-          - C4
-          - C5
-          - C6
+          - C8 
+          - C11
         descriptor:
           name: 2-Wheeler 3rd Party Motor Insurance
           short_desc: 2-Wheeler 3rd Party Motor Insurance by ABC Insurance Provider
@@ -47,7 +48,7 @@ message:
             - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
               size_type: xs
         price:
-          value: "11531"
+          value: "12531"
           currency: INR 
         time:
           duration: P1Y
@@ -229,7 +230,7 @@ message:
         value: "12505"
       breakup:
         - price:
-            value: "11531"
+            value: "12531"
             currency: INR
           title: BASE_PRICE
         - price:
@@ -250,4 +251,4 @@ message:
           price:
             value: "900"
             currency: INR
-      ttl: PT15D 
+      ttl: P15D 

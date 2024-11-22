@@ -13,7 +13,7 @@ context:
   message_id: e24ebcb5-13d8-4503-9ea4-972f594a1e8f  
   timestamp: "2023-07-24T05:44:32.487Z"
   transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
-  ttl: PT24H
+  ttl: P24H
   version: 2.0.0
 message:
   order:
@@ -47,10 +47,11 @@ message:
         id: CHILD_ITEM_CI1
         parent_item_id: I1
         category_ids:
+          - C1
+          - C2
           - C3
-          - C4
-          - C5
-          - C6  
+          - C8  
+          - C11 
         price:
           value: "11531"
           currency: INR
@@ -220,7 +221,7 @@ message:
         value: "12505"
       breakup:
         - price:
-            value: "11531"
+            value: "12531"
             currency: INR
           title: BASE_PRICE
         - price:
@@ -241,7 +242,7 @@ message:
           price:
             value: "900"
             currency: INR
-      ttl: PT15D 
+      ttl: P15D 
     status: CANCELLATION_INITIATED
     documents:
       - descriptor:
