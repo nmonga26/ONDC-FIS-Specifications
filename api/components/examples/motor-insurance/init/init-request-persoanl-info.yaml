@@ -29,12 +29,6 @@ message:
         # id: F1      
     items:
       - id: I1
-        category_ids:
-          - C1
-          - C2
-          - C3
-          - C8 
-          - C11
         add_ons:
           - id: A1
             quantity:

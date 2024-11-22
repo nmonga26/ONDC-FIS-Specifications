@@ -67,14 +67,14 @@ message:
         xinput:
           head:
             descriptor:
-              name: Persoanl Details
+              name: Vehicle & Nominee Details
             index:
               min: 0
               cur: 0
               max: 1
             headings:
               - Vehicle & Nominee Details
-              - Persoanl Info
+              - Personal Info
           form:
             id: FO6
             mime_type: text/html
@@ -229,6 +229,13 @@ message:
     
     provider:
       id: P1
+      descriptor:
+        long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
+          Motor, Marine etc
+        name: ABC Insurance Ltd.
+        short_desc: "ABC Insurance Ltd. India "
+        images:
+          - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
     quote:
       id: Q1
       price:
