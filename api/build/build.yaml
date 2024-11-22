@@ -3224,7 +3224,7 @@ x-flows:
                             - url: https://delhimetrorail.com/logos/logo.ico
                         price:
                           currency: INR
-                          value: '100'
+                          value: '200'
                           minimum_value: '50'
                           maximum_value: '500'
                         time:
@@ -3307,6 +3307,8 @@ x-flows:
                   id: P1
                 items:
                   - id: I1
+                    price:
+                      value: '100'
                 fulfillments:
                   - id: F1
                     type: ONLINE
@@ -3369,8 +3371,6 @@ x-flows:
                     price:
                       currency: INR
                       value: '100'
-                      minimum_value: '50'
-                      maximum_value: '500'
                     time:
                       label: Validity
                       duration: P1Y
@@ -3454,6 +3454,8 @@ x-flows:
                   id: P1
                 items:
                   - id: I1
+                    price:
+                      value: '100'
                 fulfillments:
                   - id: F1
                     customer:
@@ -3552,8 +3554,6 @@ x-flows:
                     price:
                       currency: INR
                       value: '100'
-                      minimum_value: '50'
-                      maximum_value: '500'
                     time:
                       label: Validity
                       duration: P1Y
@@ -3688,6 +3688,8 @@ x-flows:
                   id: P1
                 items:
                   - id: I1
+                    price:
+                      value: '100'
                 fulfillments:
                   - id: F1
                     customer:
@@ -3828,8 +3830,6 @@ x-flows:
                     price:
                       currency: INR
                       value: '100'
-                      minimum_value: '50'
-                      maximum_value: '500'
                     time:
                       label: Validity
                       duration: P1Y
@@ -4775,13 +4775,13 @@ x-attributes:
                   usage: 60
                   description: Describes a numerical value in decimal form
                 minimum_value:
-                  required: mandatory
+                  required: optional
                   type: string
                   owner: BPP
                   usage: 60
                   description: Describes a numerical value in decimal form
                 maximum_value:
-                  required: mandatory
+                  required: optional
                   type: string
                   owner: BPP
                   usage: 60
@@ -5320,13 +5320,13 @@ x-attributes:
                   usage: 60
                   description: Describes a numerical value in decimal form
                 minimum_value:
-                  required: mandatory
+                  required: optional
                   type: string
                   owner: BPP
                   usage: 60
                   description: Describes a numerical value in decimal form
                 maximum_value:
-                  required: mandatory
+                  required: optional
                   type: string
                   owner: BPP
                   usage: 60
@@ -6119,13 +6119,13 @@ x-attributes:
                   usage: 60
                   description: Describes a numerical value in decimal form
                 minimum_value:
-                  required: mandatory
+                  required: optional
                   type: string
                   owner: BPP
                   usage: 60
                   description: Describes a numerical value in decimal form
                 maximum_value:
-                  required: mandatory
+                  required: optional
                   type: string
                   owner: BPP
                   usage: 60
