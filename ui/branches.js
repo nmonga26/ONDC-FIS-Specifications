@@ -1,8 +1,8 @@
 const BRANCHES = [
   {
     code: "draft-FIS11-2.0.0",
-    name: "Metro Card Recharge",
-    short_desc: "Metro Card Recharge: 2.0.0",
+    name: "Recharge",
+    short_desc: "Metro Card Recharge",
     status: "DRAFT",
   },
   {
