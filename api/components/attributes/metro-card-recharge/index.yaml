@@ -769,13 +769,13 @@ on_select:
             usage: 60
             description: Describes a numerical value in decimal form
           minimum_value:
-            required: mandatory
+            required: optional
             type: string
             owner: BPP
             usage: 60
             description: Describes a numerical value in decimal form
           maximum_value:
-            required: mandatory
+            required: optional
             type: string
             owner: BPP
             usage: 60
@@ -1304,13 +1304,13 @@ on_init:
             usage: 60
             description: Describes a numerical value in decimal form
           minimum_value:
-            required: mandatory
+            required: optional
             type: string
             owner: BPP
             usage: 60
             description: Describes a numerical value in decimal form
           maximum_value:
-            required: mandatory
+            required: optional
             type: string
             owner: BPP
             usage: 60
@@ -2093,13 +2093,13 @@ on_confirm:
             usage: 60
             description: Describes a numerical value in decimal form
           minimum_value:
-            required: mandatory
+            required: optional
             type: string
             owner: BPP
             usage: 60
             description: Describes a numerical value in decimal form
           maximum_value:
-            required: mandatory
+            required: optional
             type: string
             owner: BPP
             usage: 60

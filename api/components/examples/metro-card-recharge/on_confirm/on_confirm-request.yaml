@@ -37,8 +37,8 @@ message:
         price:
           currency: INR
           value: '100'
-          minimum_value: '50'
-          maximum_value:  '500'
+          # minimum_value: '50'
+          # maximum_value:  '500'
         time:
           label: Validity
           duration: P1Y
