@@ -1,0 +1,35 @@
+context:
+  action: update
+  bap_id: api.example-bap.com
+  bap_uri: https://api.example-bap.com/ondc/metro
+  bpp_id: api.example-bpp.com
+  bpp_uri: https://api.example-bpp.com/ondc/metro
+  domain: ONDC:FIS11
+  location:
+    country:
+      code: IND
+    city:
+      code: '*'
+  message_id: f0f51bd7-28d6-417b-b88b-22119cb795eb
+  timestamp: "2024-11-23T05:44:10.651Z"
+  transaction_id: 4b991167-e506-44e7-bb4f-dccf1446fcaa
+  ttl: P24H
+  version: 2.0.0
+message:
+  order:
+    id: 'O1'
+    update_target:  fulfillments
+    fulfillments:
+      - id: F1
+        customer:
+          person:
+            creds:
+              - id: '00129812901' # multiple cards
+                type: BALANCE
+        type: ONLINE
+
+        #OR
+      
+      - customer:
+        type: BALANCE  
+
