@@ -275,6 +275,10 @@ paths:
                       $ref: '#/components/schemas/Option/properties/id'
                     descriptor:
                       $ref: '#/components/schemas/Descriptor'
+                    tags:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/TagGroup'
                   required:
                     - order_id
               required:
@@ -1016,6 +1020,10 @@ components:
         ttl:
           description: Duration in seconds after which this catalog will expire
           type: string
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagGroup'
     Category:
       description: A label under which a collection of items can be grouped.
       type: object
@@ -1886,6 +1894,10 @@ components:
             - COMPLETE
             - CANCELLED
             - CANCELLATION_INITIATED
+            - ACCEPTED
+            - REJECTED
+            - CREATED
+            - COMPLETED
         type:
           description: >-
             This is used to indicate the type of order being created to BPPs.
@@ -2030,6 +2042,10 @@ components:
             - $ref: '#/components/schemas/City'
         contact:
           $ref: '#/components/schemas/Contact'
+        creds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Credential'
     Payment:
       description: >-
         Describes the terms of settlement between the BAP and the BPP for a
@@ -2113,6 +2129,7 @@ components:
             - NOT-PAID
             - DELAYED
             - DEFERRED
+            - FAILED
         time:
           $ref: '#/components/schemas/Time'
         tags:
@@ -3635,6 +3652,17 @@ x-flows:
                               name: Gro contact number
                             value: 1860 266 7766
                           - descriptor:
+                              code: GRO_DESIGNATION
+                              name: Gro Designation
+                            value: Nodal Grievance Redressal Officer
+                          - descriptor:
+                              code: GRO_ADDRESS
+                              name: Gro Address
+                            value: >-
+                              One Indiabulls centre, Tower 1, 18th Floor Jupiter
+                              mill compound 841, Senapati Bapat Marg,
+                              Elphinstone Road, Mumbai 400013
+                          - descriptor:
                               code: CUSTOMER_SUPPORT_LINK
                               name: Customer support link
                             value: >-
@@ -4935,6 +4963,10 @@ x-flows:
                         code: INITIATED
                 payments:
                   - id: PAYMENT_ID_PERSONAL_LOAN
+                    params:
+                      bank_code: XXXXXXXX
+                      bank_account_number: xxxxxxxxxxxxxx
+                      virtual_payment_address: 9988199772@okicic
                     type: ON_ORDER
                     status: NOT-PAID
                     collected_by: BPP
@@ -5378,6 +5410,10 @@ x-flows:
                         code: INITIATED
                 payments:
                   - id: PAYMENT_ID_PERSONAL_LOAN
+                    params:
+                      bank_code: XXXXXXXX
+                      bank_account_number: xxxxxxxxxxxxxx
+                      virtual_payment_address: 9988199772@okicic
                     type: ON_ORDER
                     status: NOT-PAID
                     collected_by: BPP
@@ -5823,6 +5859,10 @@ x-flows:
                         code: INITIATED
                 payments:
                   - id: PAYMENT_ID_PERSONAL_LOAN
+                    params:
+                      bank_code: XXXXXXXX
+                      bank_account_number: xxxxxxxxxxxxxx
+                      virtual_payment_address: 9988199772@okicic
                     type: ON_ORDER
                     status: NOT-PAID
                     collected_by: BPP
@@ -6052,6 +6092,18 @@ x-flows:
                           - descriptor:
                               code: OFFLINE_CONTRACT
                             value: 'true'
+                          - descriptor:
+                              code: SETTLEMENT_WINDOW
+                            value: PT60M
+                          - descriptor:
+                              code: SETTLEMENT_BASIS
+                            value: INVOICE_RECEIPT
+                          - descriptor:
+                              code: MANDATORY_ARBITRATION
+                            value: 'TRUE'
+                          - descriptor:
+                              code: COURT_JURISDICTION
+                            value: New Delhi
       - summary: The lender confirms the personal loan order.
         api: on_confirm
         details:
@@ -6305,6 +6357,10 @@ x-flows:
                         code: SANCTIONED
                 payments:
                   - id: PAYMENT_ID_PERSONAL_LOAN
+                    params:
+                      bank_code: XXXXXXXX
+                      bank_account_number: xxxxxxxxxxxxxx
+                      virtual_payment_address: 9988199772@okicic
                     type: ON_ORDER
                     status: NOT-PAID
                     collected_by: BPP
@@ -6345,6 +6401,12 @@ x-flows:
                           - descriptor:
                               code: OFFLINE_CONTRACT
                             value: 'true'
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: neft
+                          - descriptor:
+                              code: DELAY_INTEREST
+                            value: '5'
                   - type: POST_FULFILLMENT
                     id: INSTALLMENT_ID_PERSONAL_LOAN
                     params:
@@ -6685,6 +6747,10 @@ x-flows:
                         code: CONSENT_REQUIRED
                 payments:
                   - id: PAYMENT_ID_PERSONAL_LOAN
+                    params:
+                      bank_code: XXXXXXXX
+                      bank_account_number: xxxxxxxxxxxxxx
+                      virtual_payment_address: 9988199772@okicic
                     type: ON_ORDER
                     status: NOT-PAID
                     collected_by: BPP
@@ -6725,6 +6791,12 @@ x-flows:
                           - descriptor:
                               code: OFFLINE_CONTRACT
                             value: 'true'
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: neft
+                          - descriptor:
+                              code: DELAY_INTEREST
+                            value: '5'
                   - type: POST_FULFILLMENT
                     id: INSTALLMENT_ID_PERSONAL_LOAN
                     params:
@@ -7115,6 +7187,10 @@ x-flows:
                         code: DISBURSED
                 payments:
                   - id: PAYMENT_ID_PERSONAL_LOAN
+                    params:
+                      bank_code: XXXXXXXX
+                      bank_account_number: xxxxxxxxxxxxxx
+                      virtual_payment_address: 9988199772@okicic
                     type: ON_ORDER
                     status: NOT-PAID
                     collected_by: BPP
@@ -7155,6 +7231,12 @@ x-flows:
                           - descriptor:
                               code: OFFLINE_CONTRACT
                             value: 'true'
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: neft
+                          - descriptor:
+                              code: DELAY_INTEREST
+                            value: '5'
                   - type: POST_FULFILLMENT
                     id: INSTALLMENT_ID_PERSONAL_LOAN
                     params:
@@ -7534,6 +7616,10 @@ x-flows:
                         code: DISBURSED
                 payments:
                   - id: PAYMENT_ID_PERSONAL_LOAN
+                    params:
+                      bank_code: XXXXXXXX
+                      bank_account_number: xxxxxxxxxxxxxx
+                      virtual_payment_address: 9988199772@okicic
                     type: ON_ORDER
                     status: PAID
                     collected_by: BPP
@@ -7574,6 +7660,12 @@ x-flows:
                           - descriptor:
                               code: OFFLINE_CONTRACT
                             value: 'true'
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: neft
+                          - descriptor:
+                              code: DELAY_INTEREST
+                            value: '5'
                   - type: POST_FULFILLMENT
                     id: INSTALLMENT_ID_PERSONAL_LOAN
                     params:
@@ -9302,6 +9394,10 @@ x-flows:
                       label: FORECLOSURE
                     type: POST_FULFILLMENT
                   - id: PAYMENT_ID_PERSONAL_LOAN
+                    params:
+                      bank_code: XXXXXXXX
+                      bank_account_number: xxxxxxxxxxxxxx
+                      virtual_payment_address: 9988199772@okicic
                     type: ON_ORDER
                     status: PAID
                     collected_by: BPP
@@ -9342,6 +9438,12 @@ x-flows:
                           - descriptor:
                               code: OFFLINE_CONTRACT
                             value: 'true'
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: neft
+                          - descriptor:
+                              code: DELAY_INTEREST
+                            value: '5'
                   - type: POST_FULFILLMENT
                     id: INSTALLMENT_ID_PERSONAL_LOAN
                     params:
@@ -9703,6 +9805,10 @@ x-flows:
                     time:
                       label: FORECLOSURE
                   - id: PAYMENT_ID_PERSONAL_LOAN
+                    params:
+                      bank_code: XXXXXXXX
+                      bank_account_number: xxxxxxxxxxxxxx
+                      virtual_payment_address: 9988199772@okicic
                     type: ON_ORDER
                     status: PAID
                     collected_by: BPP
@@ -9743,6 +9849,12 @@ x-flows:
                           - descriptor:
                               code: OFFLINE_CONTRACT
                             value: 'true'
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: neft
+                          - descriptor:
+                              code: DELAY_INTEREST
+                            value: '5'
                   - type: POST_FULFILLMENT
                     id: INSTALLMENT_ID_PERSONAL_LOAN
                     params:
@@ -10187,6 +10299,10 @@ x-flows:
                       label: PRE_PART_PAYMENT
                     type: POST_FULFILLMENT
                   - id: PAYMENT_ID_PERSONAL_LOAN
+                    params:
+                      bank_code: XXXXXXXX
+                      bank_account_number: xxxxxxxxxxxxxx
+                      virtual_payment_address: 9988199772@okicic
                     type: ON_ORDER
                     status: PAID
                     collected_by: BPP
@@ -10227,6 +10343,12 @@ x-flows:
                           - descriptor:
                               code: OFFLINE_CONTRACT
                             value: 'true'
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: neft
+                          - descriptor:
+                              code: DELAY_INTEREST
+                            value: '5'
                   - type: POST_FULFILLMENT
                     id: INSTALLMENT_ID_PERSONAL_LOAN
                     params:
@@ -10586,6 +10708,10 @@ x-flows:
                     time:
                       label: PRE_PART_PAYMENT
                   - id: PAYMENT_ID_PERSONAL_LOAN
+                    params:
+                      bank_code: XXXXXXXX
+                      bank_account_number: xxxxxxxxxxxxxx
+                      virtual_payment_address: 9988199772@okicic
                     type: ON_ORDER
                     status: PAID
                     collected_by: BPP
@@ -10626,6 +10752,12 @@ x-flows:
                           - descriptor:
                               code: OFFLINE_CONTRACT
                             value: 'true'
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: neft
+                          - descriptor:
+                              code: DELAY_INTEREST
+                            value: '5'
                   - type: POST_FULFILLMENT
                     id: INSTALLMENT_ID_PERSONAL_LOAN
                     params:
@@ -11063,6 +11195,10 @@ x-flows:
                         end: '2023-08-31T23:59:59.999Z'
                     type: POST_FULFILLMENT
                   - id: PAYMENT_ID_PERSONAL_LOAN
+                    params:
+                      bank_code: XXXXXXXX
+                      bank_account_number: xxxxxxxxxxxxxx
+                      virtual_payment_address: 9988199772@okicic
                     type: ON_ORDER
                     status: PAID
                     collected_by: BPP
@@ -11103,6 +11239,12 @@ x-flows:
                           - descriptor:
                               code: OFFLINE_CONTRACT
                             value: 'true'
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: neft
+                          - descriptor:
+                              code: DELAY_INTEREST
+                            value: '5'
                   - type: POST_FULFILLMENT
                     id: INSTALLMENT_ID_PERSONAL_LOAN
                     params:
@@ -11459,6 +11601,10 @@ x-flows:
                         start: '2023-08-01T00:00:00.000Z'
                         end: '2023-08-31T23:59:59.999Z'
                   - id: PAYMENT_ID_PERSONAL_LOAN
+                    params:
+                      bank_code: XXXXXXXX
+                      bank_account_number: xxxxxxxxxxxxxx
+                      virtual_payment_address: 9988199772@okicic
                     type: ON_ORDER
                     status: PAID
                     collected_by: BPP
@@ -11499,6 +11645,12 @@ x-flows:
                           - descriptor:
                               code: OFFLINE_CONTRACT
                             value: 'true'
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: neft
+                          - descriptor:
+                              code: DELAY_INTEREST
+                            value: '5'
                   - type: POST_FULFILLMENT
                     id: INSTALLMENT_ID_PERSONAL_LOAN
                     params:
@@ -12308,6 +12460,10 @@ x-examples:
                           start: '2023-09-05T00:00:00.000Z'
                           end: '2023-09-05T23:59:59.999Z'
                     - id: PAYMENT_ID_PERSONAL_LOAN
+                      params:
+                        bank_code: XXXXXXXX
+                        bank_account_number: xxxxxxxxxxxxxx
+                        virtual_payment_address: 9988199772@okicic
                       type: ON_ORDER
                       status: PAID
                       collected_by: BPP
@@ -12348,6 +12504,12 @@ x-examples:
                             - descriptor:
                                 code: OFFLINE_CONTRACT
                               value: 'true'
+                            - descriptor:
+                                code: SETTLEMENT_TYPE
+                              value: neft
+                            - descriptor:
+                                code: DELAY_INTEREST
+                              value: '5'
                     - type: POST_FULFILLMENT
                       id: INSTALLMENT_ID_PERSONAL_LOAN
                       params:
@@ -12664,6 +12826,10 @@ x-examples:
                           start: '2023-09-05T00:00:00.000Z'
                           end: '2023-09-05T23:59:59.999Z'
                     - id: PAYMENT_ID_PERSONAL_LOAN
+                      params:
+                        bank_code: XXXXXXXX
+                        bank_account_number: xxxxxxxxxxxxxx
+                        virtual_payment_address: 9988199772@okicic
                       type: ON_ORDER
                       status: PAID
                       collected_by: BPP
@@ -12704,6 +12870,12 @@ x-examples:
                             - descriptor:
                                 code: OFFLINE_CONTRACT
                               value: 'true'
+                            - descriptor:
+                                code: SETTLEMENT_TYPE
+                              value: neft
+                            - descriptor:
+                                code: DELAY_INTEREST
+                              value: '5'
                     - type: POST_FULFILLMENT
                       id: INSTALLMENT_ID_PERSONAL_LOAN
                       params:
@@ -14786,12 +14958,6 @@ x-attributes:
                     request.
                   owner: BPP
                   type: boolean
-                parent_item_id:
-                  required: Optional
-                  usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
-                  description: Unique item id of the parent item
-                  owner: BPP
-                  type: string
                 price:
                   currency:
                     required: Optional
@@ -15442,12 +15608,6 @@ x-attributes:
                   specified order.
                 owner: BAP/BPP
                 type: object
-              parent_item_id:
-                required: Mandatory
-                usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
-                description: Unique item id of the parent item
-                owner: BAP
-                type: string
             _description:
               required: Mandatory
               usage: '--'
@@ -15998,12 +16158,6 @@ x-attributes:
                   description: This attribute specifies the currency for the item.
                   owner: BPP
                   type: string
-              parent_item_id:
-                required: Mandatory
-                usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
-                description: Unique item id of the parent item
-                owner: BAP
-                type: string
               tags:
                 INFO:
                   required: Mandatory
@@ -16448,12 +16602,6 @@ x-attributes:
                   specified order.
                 owner: BAP/BPP
                 type: object
-              parent_item_id:
-                required: Mandatory
-                usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
-                description: Unique item id of the parent item
-                owner: BAP
-                type: string
             _description:
               required: Mandatory
               usage: '--'
@@ -17116,14 +17264,8 @@ x-attributes:
                     the order.
                   owner: BPP
                   type: boolean
-              parent_item_id:
-                required: Mandatory
-                usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
-                description: Unique item id of the parent item
-                owner: BAP
-                type: string
               fulfillment_ids:
-                required: Mandatory
+                required: Optional
                 usage: F1
                 description: Describes the fulfilment-ids associated to an item.
                 owner: BPP
@@ -17407,14 +17549,8 @@ x-attributes:
                     and completion status of the fulfillment process.
                   owner: BPP
                   type: object
-              type:
-                required: Mandatory
-                usage: LOAN
-                description: Describes the fulfilment type
-                owner: BPP
-                type: string
               id:
-                required: Mandatory
+                required: Optional
                 usage: F1
                 description: Describes the fulfilment id
                 owner: BPP
@@ -17948,12 +18084,6 @@ x-attributes:
                   specified order.
                 owner: BAP/BPP
                 type: object
-              parent_item_id:
-                required: Mandatory
-                usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
-                description: Unique item id of the parent item
-                owner: BAP
-                type: string
             _description:
               required: mandatory
               usage: '--'
@@ -18401,14 +18531,8 @@ x-attributes:
                   has been offered to the end customer.
                 owner: BAP/BPP
                 type: object
-              parent_item_id:
-                required: Mandatory
-                usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
-                description: Unique item id of the parent item
-                owner: BAP
-                type: string
               fulfillment_ids:
-                required: Mandatory
+                required: Optional
                 usage: F1
                 description: Describes the fulfilment-ids associated to an item.
                 owner: BPP
@@ -18696,18 +18820,6 @@ x-attributes:
                       It encapsulates the real time information on the progress and completion status of the fulfillment process.
                   owner: BPP
                   type: object
-              type:
-                required: Mandatory
-                usage: LOAN
-                description: Describes the fulfilment type
-                owner: BPP
-                type: string
-              id:
-                required: Mandatory
-                usage: F1
-                description: Describes the fulfilment id
-                owner: BPP
-                type: string
             payments:
               id:
                 required: Mandatory
@@ -19641,12 +19753,6 @@ x-attributes:
                       input form generated from the system.
                     owner: BAP
                     type: object
-              parent_item_id:
-                required: Mandatory
-                usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
-                description: Unique item id of the parent item
-                owner: BAP
-                type: string
               fulfillment_ids:
                 required: Optional
                 usage: F1
@@ -21260,14 +21366,8 @@ x-attributes:
                   has been offered to the end customer.
                 owner: BAP/BPP
                 type: object
-              parent_item_id:
-                required: Mandatory
-                usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
-                description: Unique item id of the parent item
-                owner: BAP
-                type: string
               fulfillment_ids:
-                required: Mandatory
+                required: Optional
                 usage: F1
                 description: Describes the fulfilment-ids associated to an item.
                 owner: BPP
@@ -21555,18 +21655,6 @@ x-attributes:
                       It encapsulates the real time information on the progress and completion status of the fulfillment process.
                   owner: BPP
                   type: object
-              type:
-                required: Mandatory
-                usage: LOAN
-                description: Describes the fulfilment type
-                owner: BPP
-                type: string
-              id:
-                required: Mandatory
-                usage: F1
-                description: Describes the fulfilment id
-                owner: BPP
-                type: string
             payments:
               id:
                 required: Mandatory
@@ -22345,13 +22433,13 @@ x-featureui:
     - credit_pl.md
     - log-verification.md
     - xinput-form-response.md
+x-testcasesui:
+  filenames:
+    - log-verification.md
 x-sandboxui:
   dropdown:
     - environment-name: staging
       link: https://fis-staging.ondc.org
-x-testcasesui:
-  filenames:
-    - log-verification.md
 x-changeLog:
   filenames:
     - FIS12_2.0.0_030724.md

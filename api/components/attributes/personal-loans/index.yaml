@@ -819,12 +819,6 @@ on_search:
             description: It ndicates if this item is recommended in response to a request.
             owner: BPP
             type: boolean
-          parent_item_id:
-            required: Optional
-            usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
-            description: Unique item id of the parent item
-            owner: BPP
-            type: string
           price:
             currency:
               required: Optional
@@ -1454,12 +1448,6 @@ select:
             services selected and obtained within the specified order.
           owner: BAP/BPP
           type: object
-        parent_item_id:
-          required: Mandatory
-          usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
-          description: Unique item id of the parent item
-          owner: BAP
-          type: string
       _description:
         required: Mandatory
         usage: '--'
@@ -1999,12 +1987,6 @@ on_select:
             description: This attribute specifies the currency for the item.
             owner: BPP
             type: string
-        parent_item_id:
-          required: Mandatory
-          usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
-          description: Unique item id of the parent item
-          owner: BAP
-          type: string
         tags:
           INFO:
             required: Mandatory
@@ -2435,12 +2417,6 @@ init:
             services selected and obtained within the specified order.
           owner: BAP/BPP
           type: object
-        parent_item_id:
-          required: Mandatory
-          usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
-          description: Unique item id of the parent item
-          owner: BAP
-          type: string
       _description:
         required: Mandatory
         usage: '--'
@@ -3089,14 +3065,8 @@ on_init:
               it essential for the completion and verification of the order.
             owner: BPP
             type: boolean
-        parent_item_id:
-          required: Mandatory
-          usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
-          description: Unique item id of the parent item
-          owner: BAP
-          type: string
         fulfillment_ids:
-          required: Mandatory
+          required: Optional
           usage: F1
           description: Describes the fulfilment-ids associated to an item.
           owner: BPP
@@ -3370,14 +3340,14 @@ on_init:
               completion status of the fulfillment process.
             owner: BPP
             type: object
-        type:
-          required: Mandatory
-          usage: LOAN
-          description: Describes the fulfilment type
-          owner: BPP
-          type: string
+        # type:
+        #   required: Mandatory
+        #   usage: LOAN
+        #   description: Describes the fulfilment type
+        #   owner: BPP
+        #   type: string
         id:
-          required: Mandatory
+          required: Optional
           usage: F1
           description: Describes the fulfilment id
           owner: BPP
@@ -3897,12 +3867,6 @@ confirm:
             services selected and obtained within the specified order.
           owner: BAP/BPP
           type: object
-        parent_item_id:
-          required: Mandatory
-          usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
-          description: Unique item id of the parent item
-          owner: BAP
-          type: string
       _description:
         required: mandatory
         usage: '--'
@@ -4339,14 +4303,8 @@ on_confirm:
             to the end customer.
           owner: BAP/BPP
           type: object
-        parent_item_id:
-          required: Mandatory
-          usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
-          description: Unique item id of the parent item
-          owner: BAP
-          type: string
         fulfillment_ids:
-          required: Mandatory
+          required: Optional
           usage: F1
           description: Describes the fulfilment-ids associated to an item.
           owner: BPP
@@ -4624,18 +4582,18 @@ on_confirm:
                 It encapsulates the real time information on the progress and completion status of the fulfillment process.
             owner: BPP
             type: object
-        type:
-          required: Mandatory
-          usage: LOAN
-          description: Describes the fulfilment type
-          owner: BPP
-          type: string
-        id:
-          required: Mandatory
-          usage: F1
-          description: Describes the fulfilment id
-          owner: BPP
-          type: string
+        # type:
+        #   required: Mandatory
+        #   usage: LOAN
+        #   description: Describes the fulfilment type
+        #   owner: BPP
+        #   type: string
+        # id:
+        #   required: Mandatory
+        #   usage: F1
+        #   description: Describes the fulfilment id
+        #   owner: BPP
+        #   type: string
       payments:
         id:
           required: Mandatory
@@ -5544,12 +5502,6 @@ on_status:
                 form generated from the system.
               owner: BAP
               type: object
-        parent_item_id:
-          required: Mandatory
-          usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
-          description: Unique item id of the parent item
-          owner: BAP
-          type: string
         fulfillment_ids:
           required: Optional
           usage: F1
@@ -7117,14 +7069,8 @@ on_update:
             to the end customer.
           owner: BAP/BPP
           type: object
-        parent_item_id:
-          required: Mandatory
-          usage: 77b7b9bad166-4a3f-ada6-ca063dc9d321
-          description: Unique item id of the parent item
-          owner: BAP
-          type: string
         fulfillment_ids:
-          required: Mandatory
+          required: Optional
           usage: F1
           description: Describes the fulfilment-ids associated to an item.
           owner: BPP
@@ -7402,18 +7348,18 @@ on_update:
                 It encapsulates the real time information on the progress and completion status of the fulfillment process.
             owner: BPP
             type: object
-        type:
-          required: Mandatory
-          usage: LOAN
-          description: Describes the fulfilment type
-          owner: BPP
-          type: string
-        id:
-          required: Mandatory
-          usage: F1
-          description: Describes the fulfilment id
-          owner: BPP
-          type: string
+        # type:
+        #   required: Mandatory
+        #   usage: LOAN
+        #   description: Describes the fulfilment type
+        #   owner: BPP
+        #   type: string
+        # id:
+        #   required: Mandatory
+        #   usage: F1
+        #   description: Describes the fulfilment id
+        #   owner: BPP
+        #   type: string
       payments:
         id:
           required: Mandatory

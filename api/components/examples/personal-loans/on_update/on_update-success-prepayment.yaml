@@ -217,6 +217,10 @@ message:
             start: "2023-09-05T00:00:00.000Z"
             end: "2023-09-05T23:59:59.999Z"
       - id: PAYMENT_ID_PERSONAL_LOAN
+        params:
+          bank_code: XXXXXXXX
+          bank_account_number: xxxxxxxxxxxxxx
+          virtual_payment_address: 9988199772@okicic
         type: ON_ORDER
         status: PAID
         collected_by: BPP
@@ -256,6 +260,12 @@ message:
               - descriptor: 
                   code: OFFLINE_CONTRACT
                 value: 'true' 
+              - descriptor: 
+                  code: SETTLEMENT_TYPE
+                value: 'neft'
+              - descriptor:
+                  code: DELAY_INTEREST
+                value: '5'
       - type: POST_FULFILLMENT
         id: INSTALLMENT_ID_PERSONAL_LOAN
         params:

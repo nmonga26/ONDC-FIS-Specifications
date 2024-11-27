@@ -66,3 +66,15 @@ message:
               - descriptor: 
                   code: OFFLINE_CONTRACT
                 value: 'true' 
+              - descriptor: 
+                  code: SETTLEMENT_WINDOW
+                value: 'PT60M'
+              - descriptor: 
+                  code: SETTLEMENT_BASIS
+                value: 'INVOICE_RECEIPT'
+              - descriptor: 
+                  code: MANDATORY_ARBITRATION
+                value: 'TRUE'
+              - descriptor: 
+                  code: COURT_JURISDICTION
+                value: 'New Delhi'
