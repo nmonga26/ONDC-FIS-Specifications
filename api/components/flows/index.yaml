@@ -16,3 +16,4 @@
 - $ref: "./mutual-funds/lumpsum-new-folio-with-kyc.yaml"
 - $ref: "./mutual-funds/redemption.yaml"
 - $ref: "./mutual-funds/redemption-failure.yaml"
+- $ref: "./mutual-funds/cart-lumpsum.yaml"
