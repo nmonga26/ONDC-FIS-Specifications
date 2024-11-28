@@ -13,7 +13,7 @@ context:
   bpp_uri: https://fis.test.bpp.io/
   transaction_id: a9aaecca-10b7-4d19-b640-b047a7d62196
   message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
-  ttl: PT30M
+  ttl: PT24H
   timestamp: '2023-05-25T05:23:03.443Z'
 message:
   catalog:
@@ -94,14 +94,6 @@ message:
                       name: claim settlement tat
                       short_desc: up to/minimum claim settlement tat
                     value: <var:value>
-              - descriptor:
-                  code: CONSENT_INFO
-                  name: Consent Information
-                list:
-                  - descriptor:
-                      code: CONSENT_HANDLE
-                      name: Generated Consent Handle
-                    value: <var:consent_handle_value>
             add_ons:
               - id: A1
                 quantity:
@@ -113,3 +105,64 @@ message:
                 price:
                   value: '100'
                   currency: INR
+        tags:
+          - descriptor:
+              code: CONSENT_INFO
+              name: Consent Information
+            list:
+              - descriptor:
+                  code: CONSENT_HANDLE
+                  name: Generated Consent Handle
+                value: <var:consent_handle_value>
+          - descriptor:
+              code: CONTACT_INFO
+              name: Contact Info
+            list:
+              - descriptor:
+                  code: GRO_NAME
+                  name: Gro name
+                value: ICICI
+              - descriptor:
+                  code: GRO_EMAIL
+                  name: Gro email
+                value: lifeline@iciciprulife.com
+              - descriptor:
+                  code: GRO_CONTACT_NUMBER
+                  name: Gro contact number
+                value: 1860 266 7766
+              - descriptor:
+                  code: CUSTOMER_SUPPORT_LINK
+                  name: Customer support link
+                value: >-
+                  https://buy.iciciprulife.com/buy/GrievanceRedStep.htm?execution=e1s1
+              - descriptor:
+                  code: CUSTOMER_SUPPORT_CONTACT_NUMBER
+                  name: Customer support contact number
+                value: 1800 1080
+              - descriptor:
+                  code: CUSTOMER_SUPPORT_EMAIL
+                  name: Customer support email
+                value: customer.care@icicibank.com
+          - descriptor:
+              code: LSP_INFO
+              name: Lsp Info
+            list:
+              - descriptor:
+                  code: LSP_NAME
+                  name: Lsp name
+                value: ICICI_LSP
+              - descriptor:
+                  code: LSP_EMAIL
+                  name: Lsp email
+                value: lsp@iciciprulife.com
+              - descriptor:
+                  code: LSP_CONTACT_NUMBER
+                  name: Lsp contact number
+                value: 1860 266 7766
+              - descriptor:
+                  code: LSP_ADDRESS
+                  name: Lsp Address
+                value: >-
+                  One Indiabulls centre, Tower 1, 18th Floor Jupiter mill
+                  compound 841, Senapati Bapat Marg, Elphinstone Road, Mumbai
+                  400013

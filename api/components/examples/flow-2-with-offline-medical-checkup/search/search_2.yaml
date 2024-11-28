@@ -10,14 +10,19 @@ context:
   action: search
   timestamp: '2023-05-25T05:23:03.443Z'
   version: 2.1.0
-  bap_uri: https://bap.credit.becknprotocol.io/
-  bap_id: bap.credit.becknprotocol.io
-  ttl: PT10M
+  bap_id: fis.test.bap.io
+  bap_uri: https://fis.test.bap.io/
+  bpp_id: fis.test.bpp.io
+  bpp_uri: https://fis.test.bpp.io/
+  ttl: PT24H
 message:
   intent:
     category:
       descriptor:
         code: LIFE_INSURANCE
+    items:
+      - id: CHILD_ITEM_ID_I1
+        parent_item_id: LIFE_INSURANCE_ITEM_ID
     payment:
       - collected_by: BPP
         type: PRE-ORDER

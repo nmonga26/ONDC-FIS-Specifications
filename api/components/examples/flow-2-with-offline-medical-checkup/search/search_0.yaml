@@ -10,9 +10,9 @@ context:
   action: search
   timestamp: '2023-05-25T05:23:03.443Z'
   version: 2.1.0
-  bap_uri: https://bap.credit.becknprotocol.io/
-  bap_id: bap.credit.becknprotocol.io
-  ttl: PT10M
+  bap_id: fis.test.bap.io
+  bap_uri: https://fis.test.bap.io/
+  ttl: PT24H
 message:
   intent:
     category:

@@ -12,7 +12,7 @@ context:
   version: 2.1.0
   bap_uri: fis.test.bap.io
   bap_id: https://fis.test.bap.io/
-  ttl: PT10M
+  ttl: PT24H
 message:
   intent:
     category:

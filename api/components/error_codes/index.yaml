@@ -18,8 +18,12 @@ code:
     Description: Buyer application could not submit the loan application to the Seller/s
     From: BAP
     code: 80101
+  - Event: AA Data required for offer generation
+    Description: Seller could not generate offers as AA Data is required for the product
+    From: BPP
+    code: 80200  
   - Event: AA consent creation failure
-    Description: Seller could not create data fetch consent on account agreegator
+    Description: Seller could not create data fetch consent on account aggregator
     From: BPP
     code: 80201
   - Event: AA data pull failure

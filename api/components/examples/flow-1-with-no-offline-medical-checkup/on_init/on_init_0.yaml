@@ -58,14 +58,6 @@ message:
                   name: Final payment
                 value: Pending
           - descriptor:
-              code: CONSENT_INFO
-              name: Consent Information
-            list:
-              - descriptor:
-                  code: CONSENT_HANDLE
-                  name: Generated Consent Handle
-                value: <var:consent_handle_value>
-          - descriptor:
               code: GENERAL_INFO
               name: General Information
             list:

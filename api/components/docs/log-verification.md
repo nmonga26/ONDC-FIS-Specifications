@@ -1,9 +1,9 @@
-## Log submission Scenarios for Insuarance & Igm
+## Log submission Scenarios for Insurance & Igm
 
 #### Instructions
 
 - Create a fork of the [verification-logs](https://github.com/ONDC-Official/verification-logs) repository.
-- Create a folder with the name of your entity under your domain folder "FIS13" for insuarance.
+- Create a folder with the name of your entity under your domain folder "FIS13" for insurance.
 - Commit your logs in the folder (logs should include request & response payloads for all enabled APIs as per the scenarios below).
 - Create PR with a label denoting the domain name.
 - Once submitted, please refer to the comments on logs submitted and update the PR based on the comments provided.
@@ -30,21 +30,21 @@ These naming conventions ensure clear identification and organization of files b
 
 ### Scenarios
 
-- **Flow 1(Health Insurance Application)**
+- **Flow 1(Life Insurance Application)**
 
-  The buyer initiates a search for "Health Insurance" on the Buyer App, compares the available offerings received from the seller app, and selects the desired option. Upon selection, the buyer can proceed to avail the insurance services by submitting all the relevant details/documents and subsequently receives the issued policy.
+  The buyer initiates a search for "Life Insurance" on the Buyer App, compares the available offerings received from the seller app, and selects the desired option. Upon selection, the buyer can proceed to avail the insurance services by submitting all the relevant details/documents and subsequently receives the issued policy.
 
-- **Flow 2(Claim Health Insurance)**
+- **Flow 2(Claim Life Insurance)**
 
-  The buyer intends to claim a health insurance policy against an existing one. The user journey involves selecting the existing policy for the claim process. Also showcase the changes in the status of the fulfillments once the claim is initiated & processed.
+  The buyer intends to claim a Life insurance policy against an existing one. The user journey involves selecting the existing policy for the claim process. Also showcase the changes in the status of the fulfillments once the claim is initiated & processed.
 
-- **Flow 3(Renew Health Insurance)**
+- **Flow 3(Renew Life Insurance)**
 
-  Buyer wants to renew a health insurance policy against an existing policy. Showcase the journey of the user by selecting an existing policy to renew health insurance.
+  Buyer wants to renew a Life insurance policy against an existing policy. Showcase the journey of the user by selecting an existing policy to renew Life insurance.
 
-- **Flow 4(Cancel Health Insurance)**
+- **Flow 4(Cancel Life Insurance)**
 
-  Buyer wants to cancel a Health insurance policy against an existing policy. Showcase the journey of the user by selecting an existing policy to cancel health insurance.
+  Buyer wants to cancel a Life insurance policy against an existing policy. Showcase the journey of the user by selecting an existing policy to cancel Life insurance.
 
 ### Log Verification
 
@@ -52,20 +52,20 @@ These naming conventions ensure clear identification and organization of files b
 
 Available flows are:
 
-- HEALTH
-- HEALTH_CLAIM
-- HEALTH_RENEW
-- HEALTH_CANCEL
+- LIFE
+- LIFE_CLAIM
+- LIFE_RENEW
+- LIFE_CANCEL
 
 The payload structure for validation is as follows:
 
-Health:
+LIFE:
 
 ```json
 {
   "domain": "ONDC:FIS13",
   "version": "2.0.0",
-  "flow": "HEALTH",
+  "flow": "LIFE",
   "payload": {
     "search_1": {},
     "on_search_1": {},
@@ -89,16 +89,16 @@ Health:
 }
 ```
 
-CLAIM HEALTH:
+CLAIM Life:
 
 ```json
 {
   "domain": "ONDC:FIS13",
   "version": "2.0.0",
-  "flow": "HEALTH_CLAIM",
+  "flow": "LIFE_CLAIM",
   "payload": {
     "on_confirm": {},
-    "on_update_unsolicated": {},
+    "on_update_unsolicited": {},
     "status_1": {},
     "on_status_1": {},
     "status_2": {},
@@ -107,33 +107,33 @@ CLAIM HEALTH:
 }
 ```
 
-RENEW HEALTH:
+RENEW Life:
 
 ```json
 {
   "domain": "ONDC:FIS13",
   "version": "2.0.0",
-  "flow": "HEALTH_RENEW",
+  "flow": "LIFE_RENEW",
   "payload": {
     "on_confirm": {},
-    "on_update_unsolicated_1": {},
-    "on_update_unsolicated_2": {}
+    "on_update_unsolicited_1": {},
+    "on_update_unsolicited_2": {}
   }
 }
 ```
 
-CANCEL HEALTH:
+CANCEL Life:
 
 ```json
 {
   "domain": "ONDC:FIS13",
   "version": "2.0.0",
-  "flow": "HEALTH_CANCEL",
+  "flow": "LIFE_CANCEL",
   "payload": {
     "on_confirm": {},
     "cancel": {},
     "on_cancel": {},
-    "on_cancel_unsolicated": {}
+    "on_cancel_unsolicited": {}
   }
 }
 ```

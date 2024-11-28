@@ -10,9 +10,11 @@ context:
   action: search
   timestamp: '2023-05-25T05:23:04.443Z'
   version: 2.2.0
-  bap_uri: https://bap.credit.becknprotocol.io/
-  bap_id: bap.credit.becknprotocol.io
-  ttl: PT10M
+  bap_id: fis.test.bap.io
+  bap_uri: https://fis.test.bap.io/
+  bpp_id: fis.test.bpp.io
+  bpp_uri: https://fis.test.bpp.io/
+  ttl: PT24H
 message:
   intent:
     category:
@@ -24,7 +26,7 @@ message:
         - id: LIFE_INSURANCE_ITEM_ID
           xinput:
             form:
-              id: <var:basic_details_form>
+              id: <var:basic_details_form_id>
             form_response:
               status: SUCCESS
               submission_id: F01_SUBMISSION_ID

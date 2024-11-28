@@ -13,7 +13,7 @@ context:
   bpp_uri: https://fis.test.bpp.io/
   transaction_id: a9aaecca-10b7-4d19-b640-b047a7d62196
   message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
-  ttl: PT30M
+  ttl: PT24H
   timestamp: '2023-05-25T05:23:03.443Z'
 message:
   catalog:
@@ -77,52 +77,54 @@ message:
                   currency: INR
         tags:
           - descriptor:
-              code: CHECKLIST
-              name: Check List
+              code: CONTACT_INFO
+              name: Contact Info
             list:
               - descriptor:
-                  code: BENEFICIARY_KYC
-                  name: Kyc of the life to be insured
-                value: Pending
+                  code: GRO_NAME
+                  name: Gro name
+                value: ICICI
               - descriptor:
-                  code: PROPOSER_KYC
-                  name: Kyc of the proposer
-                value: Pending
+                  code: GRO_EMAIL
+                  name: Gro email
+                value: lifeline@iciciprulife.com
               - descriptor:
-                  code: FINAL_PAYMENT
-                  name: Final payment
-                value: Pending
+                  code: GRO_CONTACT_NUMBER
+                  name: Gro contact number
+                value: 1860 266 7766
+              - descriptor:
+                  code: CUSTOMER_SUPPORT_LINK
+                  name: Customer support link
+                value: >-
+                  https://buy.iciciprulife.com/buy/GrievanceRedStep.htm?execution=e1s1
+              - descriptor:
+                  code: CUSTOMER_SUPPORT_CONTACT_NUMBER
+                  name: Customer support contact number
+                value: 1800 1080
+              - descriptor:
+                  code: CUSTOMER_SUPPORT_EMAIL
+                  name: Customer support email
+                value: customer.care@icicibank.com
           - descriptor:
-              code: GENERAL_INFO
-              name: General Information
+              code: LSP_INFO
+              name: Lsp Info
             list:
               - descriptor:
-                  code: COVERAGE_AMOUNT
-                  name: coverage amount
-                  short_desc: up to/minimum coverage amount
-                value: <var:value>
+                  code: LSP_NAME
+                  name: Lsp name
+                value: ICICI_LSP
               - descriptor:
-                  code: CLAIM_SETTLEMENT_RATIO
-                  name: claim settlement ratio
-                  short_desc: up to/minimum claim settlement ratio
-                value: <var:value>
+                  code: LSP_EMAIL
+                  name: Lsp email
+                value: lsp@iciciprulife.com
               - descriptor:
-                  code: FREE_LOOKUP_PERIOD
-                  name: free lookup period
-                  short_desc: up to/minimum free lookup period
-                value: <var:value>
+                  code: LSP_CONTACT_NUMBER
+                  name: Lsp contact number
+                value: 1860 266 7766
               - descriptor:
-                  code: COVERAGE_PERIOD
-                  name: coverage period
-                  short_desc: up to/minimum coverage period
-                value: <var:value>
-              - descriptor:
-                  code: PAYMENT_FREQUENCY
-                  name: payment frequency
-                  short_desc: up to/minimum payment frequency
-                value: <var:value>
-              - descriptor:
-                  code: CLAIM_SETTLEMENT_TAT
-                  name: claim settlement tat
-                  short_desc: up to/minimum claim settlement tat
-                value: <var:value>
+                  code: LSP_ADDRESS
+                  name: Lsp Address
+                value: >-
+                  One Indiabulls centre, Tower 1, 18th Floor Jupiter mill
+                  compound 841, Senapati Bapat Marg, Elphinstone Road, Mumbai
+                  400013

@@ -14,7 +14,7 @@ context:
   bap_uri: https://fis.test.bap.io/
   bpp_id: fis.test.bpp.io
   bpp_uri: https://fis.test.bpp.io/
-  ttl: PT10M
+  ttl: PT24H
 message:
   intent:
     category:
