@@ -1,2 +1,2 @@
-- $ref: "./metro-card-recharge/index.yaml"
-
+- $ref: "./metro-card-recharge/recharge.yaml"
+- $ref: "./metro-card-recharge/balance.yaml"

@@ -25,9 +25,17 @@ message:
       - id: P1
         categories:
           - descriptor:
+              name: Wallet Management
+              code: WALLET_MANAGEMENT
+            id: C1
+          - descriptor:
               name: Recharge
               code: RECHARGE
-            id: C1
+            id: C2
+          - descriptor:
+              name: Balance Check
+              code: BALANCE_CHECK
+            id: C3
         descriptor:
           name: Delhi Metro Rail Limited
           images:
@@ -36,6 +44,7 @@ message:
           - id: I1
             category_ids:
               - C1
+              - C2
             descriptor:
               name: Metro Card Recharge
               code: RECHARGE
@@ -51,13 +60,30 @@ message:
               duration: P1Y
             fulfillment_ids:
               - F1  
+          - id: I2
+            category_ids:
+              - C1
+              - C3
+            descriptor:
+              name: Metro Balance Check
+              code: BALANCE_CHECK
+              images: 
+                - url: 'https://delhimetrorail.com/logos/logo.ico'
+            fulfillment_ids:
+              - F1
+            price:
+              currency: INR
+              value: '0'
+              minimum_value: '0'
+              maximum_value:  '0'    
+        
         fulfillments:
           - id: F1
             type: ONLINE
             stops:
               - instructions:
                   name: 'How to use?'
-                  short_desc: 'short description of the Recharge'
+                  short_desc: 'short description about how to use?'
                   long_desc: 'description about how to use?'
         payments:
           - collected_by: BAP

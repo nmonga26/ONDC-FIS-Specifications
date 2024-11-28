@@ -11,6 +11,11 @@ breakup:
       reference: <PR/Issue/Discussion Links md format text
     - code: OFFER
       description: Describes the offer on particlular item
-      reference: <PR/Issue/Discussion Links md format text 
+      reference: <PR/Issue/Discussion Links md format text
+    - code: CURRENT_BALANCE
+      description: Describes the current balance of card.
+      reference: <PR/Issue/Discussion Links md format text  
+
+       
 
        

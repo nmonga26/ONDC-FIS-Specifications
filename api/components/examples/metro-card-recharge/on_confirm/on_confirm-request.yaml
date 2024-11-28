@@ -62,7 +62,7 @@ message:
         stops:
           - instructions:
               name: 'How to use?'
-              short_desc: 'short description of the Recharge'
+              short_desc: 'short description about how to use?'
               long_desc: 'Description about how to use?'           
         type: 'ONLINE'
     quote:

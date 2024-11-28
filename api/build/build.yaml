@@ -2794,8 +2794,14 @@ x-enum:
         category: &ref_1
           descriptor:
             code:
+              - code: WALLET_MANAGEMENT
+                description: Describes the main category type for metro card recharge
+                reference: <PR/Issue/Discussion Links md format text
               - code: RECHARGE
-                description: Describes the category type for metro card recharge
+                description: Describes the sub-category type for metro card recharge
+                reference: <PR/Issue/Discussion Links md format text
+              - code: BALANCE_CHECK
+                description: Describes the sub-category type for metro card balance check
                 reference: <PR/Issue/Discussion Links md format text
   on_search:
     context: *ref_0
@@ -2808,6 +2814,9 @@ x-enum:
               code:
                 - code: RECHARGE
                   description: Describes the item code as RECHARGE
+                  reference: <PR/Issue/Discussion Links md format text
+                - code: BALANCE_CHECK
+                  description: Describes the item code as BALANCE_CHECK
                   reference: <PR/Issue/Discussion Links md format text
   select:
     context: *ref_0
@@ -2835,6 +2844,9 @@ x-enum:
                 reference: <PR/Issue/Discussion Links md format text
               - code: OFFER
                 description: Describes the offer on particlular item
+                reference: <PR/Issue/Discussion Links md format text
+              - code: CURRENT_BALANCE
+                description: Describes the current balance of card.
                 reference: <PR/Issue/Discussion Links md format text
   init:
     context: *ref_0
@@ -3131,7 +3143,7 @@ x-flows:
               intent:
                 category:
                   descriptor:
-                    code: RECHARGE
+                    code: WALLET_MANAGEMENT
                 payment:
                   collected_by: BAP
                 tags:
@@ -3178,7 +3190,7 @@ x-flows:
                 end
         reference: if any
         example:
-          value: &ref_17
+          value: &ref_14
             context:
               action: on_search
               bap_id: api.example-bap.com
@@ -3206,9 +3218,17 @@ x-flows:
                   - id: P1
                     categories:
                       - descriptor:
+                          name: Wallet Management
+                          code: WALLET_MANAGEMENT
+                        id: C1
+                      - descriptor:
                           name: Recharge
                           code: RECHARGE
-                        id: C1
+                        id: C2
+                      - descriptor:
+                          name: Balance Check
+                          code: BALANCE_CHECK
+                        id: C3
                     descriptor:
                       name: Delhi Metro Rail Limited
                       images:
@@ -3217,6 +3237,7 @@ x-flows:
                       - id: I1
                         category_ids:
                           - C1
+                          - C2
                         descriptor:
                           name: Metro Card Recharge
                           code: RECHARGE
@@ -3232,13 +3253,29 @@ x-flows:
                           duration: P1Y
                         fulfillment_ids:
                           - F1
+                      - id: I2
+                        category_ids:
+                          - C1
+                          - C3
+                        descriptor:
+                          name: Metro Balance Check
+                          code: BALANCE_CHECK
+                          images:
+                            - url: https://delhimetrorail.com/logos/logo.ico
+                        fulfillment_ids:
+                          - F1
+                        price:
+                          currency: INR
+                          value: '0'
+                          minimum_value: '0'
+                          maximum_value: '0'
                     fulfillments:
                       - id: F1
                         type: ONLINE
                         stops:
                           - instructions:
                               name: How to use?
-                              short_desc: short description of the Recharge
+                              short_desc: short description about how to use?
                               long_desc: description about how to use?
                     payments:
                       - collected_by: BAP
@@ -3283,7 +3320,7 @@ x-flows:
                 Buyer Platform (BAP)-->>Seller Platforms (BPP): ACK 
         reference: if any
         example:
-          value: &ref_14
+          value: &ref_15
             context:
               action: select
               bap_id: api.example-bap.com
@@ -3386,7 +3423,7 @@ x-flows:
                     stops:
                       - instructions:
                           name: How to use?
-                          short_desc: short description of the Recharge
+                          short_desc: short description about how to use?
                           long_desc: Description about how to use?
                     type: ONLINE
                 quote:
@@ -3430,7 +3467,7 @@ x-flows:
                 Buyer Platform (BAP)-->>Seller Platforms (BPP): ACK 
         reference: if any
         example:
-          value: &ref_15
+          value: &ref_16
             context:
               action: init
               bap_id: api.example-bap.com
@@ -3573,7 +3610,7 @@ x-flows:
                     stops:
                       - instructions:
                           name: How to use?
-                          short_desc: short description of the Recharge
+                          short_desc: short description about how to use?
                           long_desc: Description about how to use?
                     type: ONLINE
                 quote:
@@ -3664,7 +3701,7 @@ x-flows:
                 Buyer Platform (BAP)-->>Seller Platforms (BPP): ACK 
         reference: if any
         example:
-          value: &ref_16
+          value: &ref_17
             context:
               action: confirm
               bap_id: api.example-bap.com
@@ -3853,7 +3890,7 @@ x-flows:
                     stops:
                       - instructions:
                           name: How to use?
-                          short_desc: short description of the Recharge
+                          short_desc: short description about how to use?
                           long_desc: Description about how to use?
                     type: ONLINE
                 quote:
@@ -3951,6 +3988,347 @@ x-flows:
                   phone: +91-9897867564
                 created_at: '2024-11-23T05:42:20.651Z'
                 updated_at: '2024-11-23T05:42:20.651Z'
+  - summary: Metro Card Balance
+    details:
+      - description: >-
+          Discovery of Metro Card Balance (select/on_select & init_on_init calls
+          are optional).
+        mermaid: |-
+          sequenceDiagram
+            title Metro Card Balance Discovery
+            Buyer Platform (BAP)->>Gateway (BG): search
+            Gateway (BG) ->> Buyer Platform (BAP): ACK
+            Gateway (BG)->>Registry: Lookup Seller Platforms (lookup)
+            Registry->>Gateway (BG): List of Seller Platforms (200 OK)
+            Gateway (BG)->>Seller Platforms (BPP): search
+            Seller Platforms (BPP)->>Gateway (BG) : ACK
+            Seller Platforms (BPP)->>Buyer Platform (BAP): Publish Catalog of Seller 1 (on_search)
+            Buyer Platform (BAP)->>Seller Platforms (BPP): ACK    
+      - description: Ordering (Optional)
+        mermaid: |-
+          sequenceDiagram
+            title  Selection
+            participant Buyer Platform (BAP)
+            participant Seller Platforms (BPP)
+            Buyer Platform (BAP)->>Seller Platforms (BPP): select
+            Seller Platforms (BPP)-->>Buyer Platform (BAP):ACK
+            Seller Platforms (BPP)->>Buyer Platform (BAP):on_select
+            Buyer Platform (BAP)-->>Seller Platforms (BPP): ACK  
+      - description: Initializing the order (Optional)
+        mermaid: |-
+          sequenceDiagram
+            title Initializing Order
+            participant Buyer Platform (BAP)
+            participant Seller Platforms (BPP)
+            Buyer Platform (BAP)->>Seller Platforms (BPP): init
+            Seller Platforms (BPP)-->>Buyer Platform (BAP):ACK
+            Seller Platforms (BPP)->>Buyer Platform (BAP):on_init
+            Buyer Platform (BAP)-->>Seller Platforms (BPP): ACK      
+      - description: Order Confirmation
+        mermaid: |-
+          sequenceDiagram
+            title  Order Confirmation
+            participant Buyer Platform (BAP)
+            participant Seller Platforms (BPP)
+            Buyer Platform (BAP)->>Seller Platforms (BPP): confirm
+            Seller Platforms (BPP)-->>Buyer Platform (BAP):ACK
+            Seller Platforms (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Seller Platforms (BPP): ACK 
+      - description: Fulfillment
+        mermaid: |-
+          sequenceDiagram
+            title Order Fulfillment
+            participant Buyer Platform (BAP)
+            participant Seller Platforms (BPP)
+            Buyer Platform (BAP)->>Seller Platforms (BPP): status-Request application status
+            Seller Platforms (BPP)-->>Buyer Platform (BAP):ACK
+            Seller Platforms (BPP)->>Buyer Platform (BAP):on_status - Provide application status
+            Buyer Platform (BAP)-->>Seller Platforms (BPP): ACK            
+    references: if any
+    steps:
+      - summary: Buyer app search for available metro card Balance providers
+        api: search
+        details:
+          - description: >-
+              Buyer app explore metro card Balance options by searching over the
+              network.
+            mermaid: |-
+              sequenceDiagram
+                title metro card Balance Discovery
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Gateway (BG): search
+                Gateway (BG) ->> Buyer Platform (BAP): ACK
+                Gateway (BG)->>Registry: Lookup Seller Platforms (lookup)
+                Registry->>Gateway (BG): List of Seller Platforms (200 OK)
+                Gateway (BG)->>Seller Platforms (BPP): search
+                Seller Platforms (BPP)->>Gateway (BG) : ACK
+                end
+                Seller Platforms (BPP)->>Buyer Platform (BAP): Publish Catalog of Seller 1 (on_search)
+                Buyer Platform (BAP)->>Seller Platforms (BPP): ACK    
+        reference: if any
+        example:
+          value: *ref_13
+      - summary: >-
+          Seller provides a catalog of different products offered by a single
+          provider
+        api: on_search
+        details:
+          - description: >-
+              Seller sends a comprehensive catalog of various  products
+              specifically tailored for metro card Balance.
+            mermaid: |-
+              sequenceDiagram
+                title metro card Balance Discovery
+                Buyer Platform (BAP)->>Gateway (BG): search
+                Gateway (BG) ->> Buyer Platform (BAP): ACK
+                Gateway (BG)->>Registry: Lookup Seller Platforms (lookup)
+                Registry->>Gateway (BG): List of Seller Platforms (200 OK)
+                Gateway (BG)->>Seller Platforms (BPP): search
+                Seller Platforms (BPP)->>Gateway (BG) : ACK
+                rect rgb(191, 223, 255)
+                Seller Platforms (BPP)->>Buyer Platform (BAP): Publish Catalog of Seller 1 (on_search)
+                Buyer Platform (BAP)->>Seller Platforms (BPP): ACK  
+                end
+        reference: if any
+        example:
+          value: *ref_14
+      - summary: Buyer app confirms the metro card Balance request
+        api: confirm
+        details:
+          - description: >-
+              Buyer app confirms the metro card Balance request and provides all
+              the necessary information as per the terms.
+            mermaid: |-
+              sequenceDiagram
+                title  Order Confirmation
+                participant Buyer Platform (BAP)
+                participant Seller Platforms (BPP)
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Seller Platforms (BPP): confirm
+                Seller Platforms (BPP)-->>Buyer Platform (BAP):ACK
+                end
+                Seller Platforms (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Seller Platforms (BPP): ACK 
+        reference: if any
+        example:
+          value:
+            context:
+              action: confirm
+              bap_id: api.example-bap.com
+              bap_uri: https://api.example-bap.com/ondc/metro
+              bpp_id: api.example-bpp.com
+              bpp_uri: https://api.example-bpp.com/ondc/metro
+              domain: ONDC:FIS11
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              message_id: ceab3c87-8728-4e22-9f46-86bd147d9c63
+              timestamp: '2024-11-23T05:42:10.651Z'
+              transaction_id: 4b991167-e506-44e7-bb4f-dccf1446fcaa
+              ttl: P24H
+              version: 2.0.0
+            message:
+              order:
+                provider:
+                  id: P1
+                items:
+                  - id: I2
+                fulfillments:
+                  - id: F1
+                    customer:
+                      contact:
+                        email: joe.adam@abc.org
+                        phone: +91-9999999999
+                      person:
+                        name: Joe Adam
+                        creds:
+                          - id: '00129812901'
+                            type: CARD_IDENTIFIER
+                    type: ONLINE
+                tags:
+                  - descriptor:
+                      code: BAP_TERMS
+                      name: BAP Terms of Engagement
+                    display: false
+                    list:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES_PERCENTAGE
+                        value: '1'
+                      - descriptor:
+                          code: BUYER_FINDER_FEES_TYPE
+                        value: percent
+                      - descriptor:
+                          code: STATIC_TERMS
+                        value: https://api.example-bap.com/booking/terms
+                      - descriptor:
+                          code: SETTLEMENT_BASIS
+                        value: https://api.example-bap.com/booking/terms
+                      - descriptor:
+                          code: SETTLEMENT_WINDOW
+                        value: P30D
+                billing:
+                  name: John Doe
+                  email: john.doe@example.com
+                  phone: +91-9897867564
+      - summary: Seller confirms the metro card Balance order
+        api: on_confirm
+        details:
+          - description: >-
+              Seller confirms the motor insurace and provides the confirmation
+              details.
+            mermaid: |-
+              sequenceDiagram
+                title  Order Confirmation
+                participant Buyer Platform (BAP)
+                participant Seller Platforms (BPP)
+                Buyer Platform (BAP)->>Seller Platforms (BPP): confirm
+                Seller Platforms (BPP)-->>Buyer Platform (BAP):ACK
+                rect rgb(191, 223, 255)
+                Seller Platforms (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Seller Platforms (BPP): ACK 
+                end
+        reference: if any
+        example:
+          value:
+            context:
+              action: on_confirm
+              bap_id: api.example-bap.com
+              bap_uri: https://api.example-bap.com/ondc/metro
+              bpp_id: api.example-bpp.com
+              bpp_uri: https://api.example-bpp.com/ondc/metro
+              domain: ONDC:FIS11
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              message_id: ceab3c87-8728-4e22-9f46-86bd147d9c63
+              timestamp: '2024-11-23T05:42:20.651Z'
+              transaction_id: 4b991167-e506-44e7-bb4f-dccf1446fcaa
+              ttl: P24H
+              version: 2.0.0
+            message:
+              order:
+                id: O1
+                status: COMPLETE
+                provider:
+                  id: P1
+                  descriptor:
+                    name: Delhi Metro Rail Limited
+                    images:
+                      - url: https://delhimetrorail.com/logos/logo.icon
+                items:
+                  - id: I2
+                    category_ids:
+                      - C1
+                      - C3
+                    descriptor:
+                      name: Metro Balance Check
+                      code: BALANCE_CHECK
+                      images:
+                        - url: https://delhimetrorail.com/logos/logo.ico
+                    price:
+                      currency: INR
+                      value: '0'
+                    fulfillment_ids:
+                      - F1
+                fulfillments:
+                  - id: F1
+                    customer:
+                      contact:
+                        email: joe.adam@abc.org
+                        phone: +91-9999999999
+                      person:
+                        name: Joe Adam
+                        creds:
+                          - id: '00129812901'
+                            type: CARD_IDENTIFIER
+                    state:
+                      descriptor:
+                        code: COMPLETED
+                        name: completed
+                    stops:
+                      - instructions:
+                          name: How to use?
+                          short_desc: short description about how to use?
+                          long_desc: Description about how to use?
+                    type: ONLINE
+                quote:
+                  id: Q1
+                  price:
+                    value: '0'
+                    currency: INR
+                  breakup:
+                    - title: CURRENT_BALANCE
+                      item:
+                        id: I2
+                        price:
+                          currency: INR
+                          value: '1000'
+                tags:
+                  - descriptor:
+                      code: BAP_TERMS
+                      name: BAP Terms of Engagement
+                    display: false
+                    list:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES_PERCENTAGE
+                        value: '1'
+                      - descriptor:
+                          code: BUYER_FINDER_FEES_TYPE
+                        value: percent
+                      - descriptor:
+                          code: STATIC_TERMS
+                        value: https://api.example-bap.com/booking/terms
+                      - descriptor:
+                          code: SETTLEMENT_BASIS
+                        value: https://api.example-bap.com/booking/terms
+                      - descriptor:
+                          code: SETTLEMENT_WINDOW
+                        value: P30D
+                  - descriptor:
+                      code: BPP_TERMS
+                      name: BPP Terms of Engagement
+                    display: false
+                    list:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES_PERCENTAGE
+                        value: '1'
+                      - descriptor:
+                          code: BUYER_FINDER_FEES_TYPE
+                        value: percent
+                      - descriptor:
+                          code: STATIC_TERMS
+                        value: https://api.example-bap.com/booking/terms
+                      - descriptor:
+                          code: MANDATORY_ARBITRATION
+                        value: 'true'
+                      - descriptor:
+                          code: COURT_JURISDICTION
+                        value: New Delhi
+                      - descriptor:
+                          code: DELAY_INTEREST
+                        value: 2.5 %
+                      - descriptor:
+                          code: SETTLEMENT_AMOUNT
+                        value: 7 INR
+                      - descriptor:
+                          code: SETTLEMENT_TYPE
+                        value: upi
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                billing:
+                  name: John Doe
+                  email: john.doe@example.com
+                  phone: +91-9897867564
+                created_at: '2024-11-23T05:42:20.651Z'
+                updated_at: '2024-11-23T05:42:20.651Z'
 x-examples:
   metro-card-recharge:
     summary: metro-card-recharge
@@ -3961,16 +4339,16 @@ x-examples:
           - value: *ref_13
       select:
         examples:
-          - value: *ref_14
+          - value: *ref_15
       init:
         examples:
-          - value: *ref_15
+          - value: *ref_16
       confirm:
         examples:
-          - value: *ref_16
+          - value: *ref_17
       on_search:
         examples:
-          - value: *ref_17
+          - value: *ref_14
       on_select:
         examples:
           - value: *ref_18
@@ -4296,13 +4674,13 @@ x-attributes:
                     required: mandatory
                     type: string
                     owner: BPP
-                    usage: Ticket
+                    usage: Recharge
                     description: Describes the category name.
                   code:
                     required: mandatory
                     type: string
                     owner: BPP
-                    usage: TICKET
+                    usage: RECHARGE
                     description: Describes the category code.
               descriptor:
                 name:
@@ -4378,6 +4756,13 @@ x-attributes:
                     owner: BPP
                     usage: Metro Card Recharge
                     description: Describes the name for a particular item.
+                  images:
+                    url:
+                      required: optional
+                      type: string
+                      owner: BPP
+                      usage: https://delhimetrorail.com/logos/logo.ico
+                      description: Describes the descriptor images.
                 price:
                   currency:
                     required: mandatory
@@ -4392,13 +4777,13 @@ x-attributes:
                     usage: 60
                     description: Describes the price of a product or service
                   minimum_value:
-                    required: mandatory
+                    required: optional
                     type: string
                     owner: BPP
                     usage: 60
                     description: Describes the minimum price of a product or service
                   maximum_value:
-                    required: mandatory
+                    required: optional
                     type: string
                     owner: BPP
                     usage: 60
@@ -4610,6 +4995,13 @@ x-attributes:
                 owner: BPP
                 usage: b2400168
                 description: Describes the ID of the item.
+              price:
+                value:
+                  required: mandatory
+                  type: string
+                  owner: BPP
+                  usage: 100
+                  description: Describes the price value of an item.
             provider:
               id:
                 required: mandatory
@@ -4761,6 +5153,13 @@ x-attributes:
                   owner: BPP
                   usage: RECHARGE
                   description: Describes the code for a particular item.
+                images:
+                  url:
+                    required: optional
+                    type: string
+                    owner: BPP
+                    usage: https://delhimetrorail.com/logos/logo.ico
+                    description: Describes the descriptor images.
               price:
                 currency:
                   required: mandatory
@@ -4933,6 +5332,18 @@ x-attributes:
                     owner: BPP
                     usage: 120
                     description: Describes the price of a product or service
+                  currency:
+                    required: optional
+                    type: string
+                    owner: BPP
+                    usage: INR
+                    description: Describes the price of a product or service
+              id:
+                required: mandatory
+                type: string
+                owner: BPP
+                usage: 60
+                description: Describes the quote ID.
       init:
         context:
           location:
@@ -5060,6 +5471,13 @@ x-attributes:
                 owner: BPP
                 usage: b2400168
                 description: Describes the ID of the item.
+              price:
+                value:
+                  required: mandatory
+                  type: string
+                  owner: BPP
+                  usage: 100
+                  description: Describes the price value of an item.
             provider:
               id:
                 required: mandatory
@@ -5103,7 +5521,7 @@ x-attributes:
                     description: Describes the customer name
                 contact:
                   email:
-                    required: mandatory
+                    required: optional
                     type: string
                     owner: BAP
                     usage: joe.adam@abc.org
@@ -5251,7 +5669,7 @@ x-attributes:
             required: mandatory
             type: string
             owner: BAP
-            usage: on_select
+            usage: on_init
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
@@ -5306,6 +5724,13 @@ x-attributes:
                   owner: BPP
                   usage: RECHARGE
                   description: Describes the code for a particular item.
+                images:
+                  url:
+                    required: optional
+                    type: string
+                    owner: BPP
+                    usage: https://delhimetrorail.com/logos/logo.ico
+                    description: Describes the descriptor images.
               price:
                 currency:
                   required: mandatory
@@ -5438,7 +5863,7 @@ x-attributes:
                     description: Describes the customer name
                 contact:
                   email:
-                    required: mandatory
+                    required: optional
                     type: string
                     owner: BAP
                     usage: joe.adam@abc.org
@@ -5450,6 +5875,12 @@ x-attributes:
                     usage: -9999999908
                     description: Describes the customer phone
             quote:
+              id:
+                required: mandatory
+                type: string
+                owner: BPP
+                usage: 60
+                description: Describes the quote ID.
               price:
                 value:
                   required: mandatory
@@ -5492,6 +5923,12 @@ x-attributes:
                       description: Describes the value of breakup item
                 price:
                   value:
+                    required: optional
+                    type: string
+                    owner: BPP
+                    usage: 120
+                    description: Describes the price of a product or service
+                  currency:
                     required: optional
                     type: string
                     owner: BPP
@@ -5590,43 +6027,6 @@ x-attributes:
                     owner: BPP
                     usage: '--'
                     description: Describes the settlement bank account number
-              BAP_TERMS:
-                required: mandatory
-                type: object
-                owner: BAP
-                usage: '--'
-                description: Describes the bap terms
-                list:
-                  BUYER_FINDER_FEES_PERCENTAGE:
-                    required: mandatory
-                    type: string
-                    owner: BAP
-                    usage: '--'
-                    description: Describes the buyer finder fee percentage
-                  BUYER_FINDER_FEES_TYPE:
-                    required: mandatory
-                    type: string
-                    owner: BAP
-                    usage: '--'
-                    description: Describes Buyer finder fee type
-                  STATIC_TERMS:
-                    required: mandatory
-                    type: string
-                    owner: BAP
-                    usage: '--'
-                    description: Describes Buyer static terms
-                  SETTLEMENT_BASIS:
-                    required: mandatory
-                    type: string
-                    owner: BAP
-                    usage: '--'
-                    description: Describes Buyer settlement terms
-                  SETTLEMENT_WINDOW:
-                    required: mandatory
-                    type: string
-                    owner: BAP
-                    usage: '--'
-                    description: Describes Buyer settlement window
             billing:
               name:
                 required: mandatory
@@ -5773,6 +6173,13 @@ x-attributes:
                 owner: BPP
                 usage: b2400168
                 description: Describes the ID of the item.
+              price:
+                value:
+                  required: mandatory
+                  type: string
+                  owner: BPP
+                  usage: 100
+                  description: Describes the price value of an item.
             provider:
               id:
                 required: mandatory
@@ -5816,7 +6223,7 @@ x-attributes:
                     description: Describes the customer name
                 contact:
                   email:
-                    required: mandatory
+                    required: optional
                     type: string
                     owner: BAP
                     usage: joe.adam@abc.org
@@ -5828,6 +6235,12 @@ x-attributes:
                     usage: -9999999908
                     description: Describes the customer phone
             payments:
+              id:
+                required: mandatory
+                type: string
+                owner: BPP
+                usage: PAYMENT_ID
+                description: Describes the payment id
               collected_by:
                 required: mandatory
                 type: string
@@ -6050,7 +6463,7 @@ x-attributes:
             required: mandatory
             type: string
             owner: BAP
-            usage: on_select
+            usage: on_confirm
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
@@ -6105,6 +6518,13 @@ x-attributes:
                   owner: BPP
                   usage: RECHARGE
                   description: Describes the code for a particular item.
+                images:
+                  url:
+                    required: optional
+                    type: string
+                    owner: BPP
+                    usage: https://delhimetrorail.com/logos/logo.ico
+                    description: Describes the descriptor images.
               price:
                 currency:
                   required: mandatory
@@ -6237,7 +6657,7 @@ x-attributes:
                     description: Describes the customer name
                 contact:
                   email:
-                    required: mandatory
+                    required: optional
                     type: string
                     owner: BAP
                     usage: joe.adam@abc.org
@@ -6263,6 +6683,12 @@ x-attributes:
                     usage: COMPLETED
                     description: Describes the fulfillment state name.
             quote:
+              id:
+                required: mandatory
+                type: string
+                owner: BPP
+                usage: 60
+                description: Describes the quote ID.
               price:
                 value:
                   required: mandatory
@@ -6305,6 +6731,12 @@ x-attributes:
                       description: Describes the value of breakup item
                 price:
                   value:
+                    required: optional
+                    type: string
+                    owner: BPP
+                    usage: 120
+                    description: Describes the price of a product or service
+                  currency:
                     required: optional
                     type: string
                     owner: BPP
@@ -6496,164 +6928,3 @@ x-attributes:
               owner: BPP
               usage: '2024-11-23T05:42:20.651Z'
               description: Describes the created_at timestamp
-x-tlc:
-  code:
-    - Term: Buyer App Fee Type
-      Api: search
-      Attribute: BUYER_FINDER_FEE_TYPE
-      Owner: Buyer App
-      Value: '"amount", "percent-annualized"'
-      Description: >-
-        If set to “amount” it means Buyer App’s fee is a flat amount in INR.
-
-        If set to “percent-annualized” it means the Buyer App’s fee is set as a
-        percentage of the Total Premium Amount Paid by the customer.
-    - Term: Buyer App Fee Amount
-      Api: search
-      Attribute: BUYER_FINDER_FEES_AMOUNT
-      Owner: Buyer App
-      Value: Positive Decimal Number
-      Description: >-
-        Quantum of the Buyer App’s Fee. To be interpreted in connection with the
-        “type” field mentioned above.
-
-        For example, let’s assume the value is set at “5”. If the “type” is set
-        to “Amount”, that means the Buyer App Fee is INR 5. If the “type” is set
-        to “percent”, it means the Buyer App Fee is 5% of the Total Order Value.
-    - Term: Buyer App Fee Percentage
-      Api: search
-      Attribute: BUYER_FINDER_FEES_PERCENTAGE
-      Owner: Buyer App
-      Value: Positive Decimal Number
-      Description: >-
-        Percentage of the Buyer App's Fee. To be interpreted in connection with
-        the "type" field mentioned above
-    - Term: Payment Collector
-      Api: search
-      Attribute: search
-      Owner: Both
-      Value: >-
-        If set to "BAP", it means that the Buyer App will collect processing
-        fees if any from the Buyer. If set to "BPP", it means that the Seller
-        App will collect processing fees if any from the Buyer.
-      Description: >-
-        If set to "BAP", it means that the Buyer App will collect processing
-        fees if any from the Buyer. If set to "BPP", it means that the Seller
-        App will collect processing fees if any from the Buyer.
-    - Term: Settlement Window
-      Api: 'search, on_search, init, on_init        '
-      Attribute: SETTLEMENT_WINDOW
-      Owner: Collector (Either BAP or BPP)
-      Value: Time period (ISO8601 format)
-      Description: >-
-        The time period from completion of the transaction within which the
-        Payment Collector will settle with counterparty Network Participant(s).
-        As an illustration, a Settlement Window of 5 days after policy disbursal
-        can be specified as “P5D” (i.e. period 5 days) or “PT120H” (i.e. period
-        120 hours)
-    - Term: Settlement Basis
-      Api: 'search, on_search, init, on_init        '
-      Attribute: SETTLEMENT_BASIS
-      Owner: Collector (Either BAP or BPP)
-      Value: '"Delivery", "return_window_expiry", "invoice_receipt"'
-      Description: >-
-        The event that will trigger settlement from the Payment Collector to
-        counterparty Network Participant(s). Example: Upon confirmation of order
-        delivery, then set this to "delivery". Upon expiry of cancellation/
-        return window, then set this to"return_window_expiry". Upon receipt of
-        an invoice from the counterparty, then this to "invoice_receipt"
-    - Term: Settlement Amount
-      Api: init, on_init
-      Attribute: SETTLEMENT_AMOUNT
-      Owner: Receiver (BAP or BPP)
-      Value: Positive Decimal Number
-      Description: >-
-        The amount that the Payment Collector will remit to the counterparty
-        Network Participant
-    - Term: Settlement Type
-      Api: init, on_init
-      Attribute: SETTLEMENT_TYPE
-      Owner: Receiver (BAP or BPP)
-      Value: '"upi", "neft", "rtgs"'
-      Description: >-
-        The Payment Collector will use the selected method to remit the due
-        payment to the counterparty Network Participant. To illustrate, if the
-        Buyer App collects the payment and the Settlement Type is set to "rtgs",
-        when the settlement is due, the Buyer App will transfer the Seller App's
-        share of the Buyer Price to the Seller App's account via RTGS.
-    - Term: Mandatory Arbitration
-      Api: on_search, on_init
-      Attribute: MANDATORY_ARBITRATION
-      Owner: Seller App
-      Value: true/ false
-      Description: >-
-        If this attribute is set to true, that would mean both parties agree
-        that in case of a dispute, both parties must resolve the dispute through
-        arbitration.
-    - Term: Court Jurisdiction
-      Api: on_search, on_init
-      Attribute: COURT_JURISDICTION
-      Owner: Seller App
-      Value: Pick a city from a given list of cities which have a High Court bench
-      Description: >-
-        The name of the city whose courts will have exclusive jurisdiction over
-        disputes related to this contract. The list of options will only contain
-        cities which have a High Court bench.
-    - Term: Delay Interest
-      Api: search, on_search, on_init
-      Attribute: DELAY_INTEREST
-      Owner: Receiver (BAP or BPP)
-      Value: Positive Decimal Number
-      Description: >-
-        This is the annual rate of interest that the Payment Collector will be
-        charged if they delay a payment to the counterparty Network Participant,
-        calculated pro rata for each calendar day of delay. As an example, if
-        the value is set as "7.3", and the amount of payment due is INR 1000,
-        that will mean the Payment Collector will pay the counterparty Network
-        Participant an interest of 7.3% per annum (i.e. INR 100), calculated pro
-        rata for each day of delay. So if the Payment Collector delay was 50
-        days, the total interest payable would be INR 10 [calculated as
-        1000x(7.3/100)x(50/365)]
-    - Term: Static Terms
-      Api: search on_search init on_init
-      Attribute: STATIC_TERMS
-      Owner: Both
-      Value: URL
-      Description: >-
-        This will be the URL of a web-page where the standard Terms and
-        Conditions of the Network Participant - which are not covered in the API
-        Specification (e.g.: indemnity) - will be hosted. These terms will apply
-        to the transaction, in addition to the terms decided through the ONDC
-        Protocol. If there is a conflict between the terms decided through the
-        Protocol, and the Static Terms, the terms decided through the ONDC
-        Protocol will prevail. Also, if there is a conflict between the Static
-        Terms and the ONDC Network Policy or the Static Terms and the Network
-        Participant Agreement, the terms of the ONDC Network Policy or the
-        Network Participant Agreement (as the case may be) will prevail.
-    - Term: Offline Contract
-      Api: search on_search
-      Attribute: OFFLINE_CONTRACT
-      Owner: Both
-      Value: true/ false
-      Description: >-
-        OFFLINE_CONTRACT is a boolean field denoting the presence or absence of
-        an offline contract between Network Participants (NPs). When set to
-        true, it indicates the existence of a formalized  contract outside of
-        transaction-level agreements. This offline contract holds precedence
-        over transaction-level contracts, governing the relationship between the
-        involved NPs. Conversely,  when set to false, it suggests that
-        contractual arrangements are solely based on transaction-level
-        contracts, without overarching offline agreements.
-
-        Case 1: Buyer NP and Seller NP agrees on the term Buyer NP sets
-        OFFLINE_CONTRACT to "FALSE" in the Search call Seller NP also sets the
-        OFFLINE_CONTRACT to "FALSE" in the On_Search call.   
-
-        Case 2: Buyer NP and Seller NP disagrees on the term Buyer NP sets
-        OFFLINE_CONTRACT to "FALSE" in the Search call Seller NP sets the
-        OFFLINE_CONTRACT to "TRUE" in the On_Search call 
-
-        However, Buyer NP can choose to move ahead in the journey by changing
-        the OFFLINE_CONTRACT to "TRUE" in the subsequent API calls in the same
-        transaction. OR else make start a new transaction with a   Search call
-        with the OFFLINE_CONTRACT set to "TRUE".    
