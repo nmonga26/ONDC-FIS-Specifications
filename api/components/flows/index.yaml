@@ -5,6 +5,7 @@
 - $ref: "./mutual-funds/sip-existing-account.yaml"
 - $ref: "./mutual-funds/sip-rejection.yaml"
 - $ref: "./mutual-funds/sip-skip-payment.yaml"
+- $ref: "./mutual-funds/sip-update-mandate.yaml"
 - $ref: "./mutual-funds/sip-instalment.yaml"
 - $ref: "./mutual-funds/sip-instalment-manual-payment.yaml"
 - $ref: "./mutual-funds/sip-instalment-pfailure.yaml"

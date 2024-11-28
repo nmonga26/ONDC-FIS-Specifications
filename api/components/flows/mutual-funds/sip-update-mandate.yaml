@@ -1,0 +1,20 @@
+summary: SIP - Update Mandate
+
+references: if any
+steps:
+  - summary: Update
+    api: update
+    details:
+      - description: Ask for mandate registration link
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/update/update-sip-mandate.json"
+  - summary: On Update
+    api: on_update
+    details:
+      - description: Receive mandate registration link. Remaining workflow remains the same as other flows
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_update/on_update-sip-mandate.json"
