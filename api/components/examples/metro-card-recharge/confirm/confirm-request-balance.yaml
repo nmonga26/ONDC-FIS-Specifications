@@ -21,6 +21,8 @@ message:
       id: P1
     items:
       - id: I2
+        price:
+          value: '0'
     fulfillments:
       - id:  F1
         customer:

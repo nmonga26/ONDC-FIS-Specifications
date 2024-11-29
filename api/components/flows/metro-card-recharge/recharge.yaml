@@ -197,7 +197,7 @@ steps:
   - summary: Seller confirms the metro card recharge order
     api: on_confirm
     details:
-      - description: Seller confirms the motor insurace and provides the confirmation details.
+      - description: Seller confirms the order and provides the confirmation details.
         mermaid: >-
           sequenceDiagram
             title  Order Confirmation

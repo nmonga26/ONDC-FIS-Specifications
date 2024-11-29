@@ -1,4 +1,4 @@
-summary: Metro Card Balance - Success
+summary: Metro Card Balance - Failure
 details:
   - description: Discovery of Metro Card Balance (select/on_select & init_on_init calls are optional).
     mermaid: >-
@@ -134,5 +134,5 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/metro-card-recharge/on_confirm/on_confirm-request-balance.yaml"  
+        $ref: "../../examples/metro-card-recharge/on_confirm/on_confirm-request-balanace-failure.yaml"  
   

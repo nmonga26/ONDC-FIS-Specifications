@@ -66,27 +66,27 @@ on_status:
       payments: *payment
       quote: *quote
       status: *status
-cancel:
-  context: *context
-on_cancel:
-  context: *context
-  message:
-    order:
-      items: *items
-      payments: *payment
-      quote: *quote
-      status: *status
-update:
-  context: *context
-  message:
-    order:
-      payments: *payment
-on_update:
-  context: *context
-  message: 
-    order:
-      items: *items
-      fulfillments: *fulfillments
-      payments: *payment
-      quote: *quote
-      status: *status 
+# cancel:
+#   context: *context
+# on_cancel:
+#   context: *context
+#   message:
+#     order:
+#       items: *items
+#       payments: *payment
+#       quote: *quote
+#       status: *status
+# update:
+#   context: *context
+#   message:
+#     order:
+#       payments: *payment
+# on_update:
+#   context: *context
+#   message: 
+#     order:
+#       items: *items
+#       fulfillments: *fulfillments
+#       payments: *payment
+#       quote: *quote
+#       status: *status 

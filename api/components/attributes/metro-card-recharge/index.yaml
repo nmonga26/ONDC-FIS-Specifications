@@ -1145,19 +1145,19 @@ init:
               description: Describes the customer phone
       payments:
         collected_by:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: BAP
           description: Describes the payment collector
         type:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: PRE_ORDER
           description: Describes the payment type
         status:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: NOT-PAID
@@ -1542,25 +1542,25 @@ on_init:
               description: Describes the price of a product or service
       payments:
         collected_by:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: BAP
           description: Describes the payment collector
         type:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: PRE_ORDER
           description: Describes the payment type
         status:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: NOT-PAID
           description: Describes the payment status
         id:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: PAYMENT_ID
@@ -1837,44 +1837,44 @@ confirm:
               description: Describes the customer phone
       payments:
         id:
-          required: mandatory
+          required: optional
           type: string
           owner: BPP
           usage: PAYMENT_ID
           description: Describes the payment id
         collected_by:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: BAP
           description: Describes the payment collector
         type:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: PRE_ORDER
           description: Describes the payment type
         status:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: NOT-PAID
           description: Describes the payment status
         params:
           transaction_id:
-            required: mandatory
+            required: optional
             type: string
             owner: BAP
             usage: 61b4be7e
             description: Describes the payment transaction id
           currency:
-            required: mandatory
+            required: optional
             type: string
             owner: BAP
             usage: INR
             description: Describes the payment currency
           amount:
-            required: mandatory
+            required: optional
             type: string
             owner: BAP
             usage: 100
@@ -2340,44 +2340,44 @@ on_confirm:
               description: Describes the price of a product or service
       payments:
         collected_by:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: BAP
           description: Describes the payment collector
         type:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: PRE_ORDER
           description: Describes the payment type
         status:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: NOT-PAID
           description: Describes the payment status
         id:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: PAYMENT_ID
           description: Describes the payment id
         params:
           transaction_id:
-            required: mandatory
+            required: optional
             type: string
             owner: BAP
             usage: 61b4be7e
             description: Describes the payment transaction id
           currency:
-            required: mandatory
+            required: optional
             type: string
             owner: BAP
             usage: INR
             description: Describes the payment currency
           amount:
-            required: mandatory
+            required: optional
             type: string
             owner: BAP
             usage: 100
