@@ -3,5 +3,10 @@ descriptor:
     - code: RECHARGE
       description: Describes the item code as RECHARGE
       reference: <PR/Issue/Discussion Links md format text 
+    - code: BALANCE_CHECK
+      description: Describes the item code as BALANCE_CHECK
+      reference: <PR/Issue/Discussion Links md format text  
+
+      
 
 

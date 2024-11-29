@@ -302,13 +302,13 @@ on_search:
               required: mandatory
               type: string
               owner: BPP
-              usage: Ticket
+              usage: Recharge
               description: Describes the category name.
             code:
               required: mandatory
               type: string
               owner: BPP
-              usage: TICKET
+              usage: RECHARGE
               description: Describes the category code.
         descriptor:
           name:
@@ -383,6 +383,13 @@ on_search:
               owner: BPP
               usage: Metro Card Recharge
               description: Describes the name for a particular item.
+            images:
+              url:
+                required: optional
+                type: string
+                owner: BPP
+                usage: https://delhimetrorail.com/logos/logo.ico
+                description: Describes the descriptor images.
           price:
             currency:
               required: mandatory
@@ -397,13 +404,13 @@ on_search:
               usage: 60
               description: Describes the price of a product or service
             minimum_value:
-              required: mandatory
+              required: optional
               type: string
               owner: BPP
               usage: 60
               description: Describes the minimum price of a product or service
             maximum_value:
-              required: mandatory
+              required: optional
               type: string
               owner: BPP
               usage: 60
@@ -609,6 +616,13 @@ select:
           owner: BPP
           usage: b2400168
           description: Describes the ID of the item.
+        price:
+          value:
+            required: mandatory
+            type: string
+            owner: BPP
+            usage: 100
+            description: Describes the price value of an item.
       provider:
         id:
           required: mandatory
@@ -755,6 +769,13 @@ on_select:
             owner: BPP
             usage: RECHARGE
             description: Describes the code for a particular item.
+          images:
+            url:
+              required: optional
+              type: string
+              owner: BPP
+              usage: https://delhimetrorail.com/logos/logo.ico
+              description: Describes the descriptor images.
         price:
           currency:
             required: mandatory
@@ -927,6 +948,18 @@ on_select:
               owner: BPP
               usage: 120
               description: Describes the price of a product or service
+            currency:
+              required: optional
+              type: string
+              owner: BPP
+              usage: INR
+              description: Describes the price of a product or service
+        id:
+          required: mandatory
+          type: string
+          owner: BPP
+          usage: 60
+          description: Describes the quote ID.
 init:
   context:
     location:
@@ -1049,6 +1082,13 @@ init:
           owner: BPP
           usage: b2400168
           description: Describes the ID of the item.
+        price:
+          value:
+            required: mandatory
+            type: string
+            owner: BPP
+            usage: 100
+            description: Describes the price value of an item.
       provider:
         id:
           required: mandatory
@@ -1092,7 +1132,7 @@ init:
               description: Describes the customer name
           contact:
             email:
-              required: mandatory
+              required: optional
               type: string
               owner: BAP
               usage: joe.adam@abc.org
@@ -1105,19 +1145,19 @@ init:
               description: Describes the customer phone
       payments:
         collected_by:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: BAP
           description: Describes the payment collector
         type:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: PRE_ORDER
           description: Describes the payment type
         status:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: NOT-PAID
@@ -1238,7 +1278,7 @@ on_init:
       required: mandatory
       type: string
       owner: BAP
-      usage: on_select
+      usage: on_init
       description: >-
         Describes the Beckn protocol method being called by the sender and
         executed at the receiver.
@@ -1290,6 +1330,13 @@ on_init:
             owner: BPP
             usage: RECHARGE
             description: Describes the code for a particular item.
+          images:
+            url:
+              required: optional
+              type: string
+              owner: BPP
+              usage: https://delhimetrorail.com/logos/logo.ico
+              description: Describes the descriptor images.
         price:
           currency:
             required: mandatory
@@ -1422,7 +1469,7 @@ on_init:
               description: Describes the customer name
           contact:
             email:
-              required: mandatory
+              required: optional
               type: string
               owner: BAP
               usage: joe.adam@abc.org
@@ -1434,6 +1481,12 @@ on_init:
               usage: -9999999908
               description: Describes the customer phone
       quote:
+        id:
+          required: mandatory
+          type: string
+          owner: BPP
+          usage: 60
+          description: Describes the quote ID.
         price:
           value:
             required: mandatory
@@ -1481,27 +1534,33 @@ on_init:
               owner: BPP
               usage: 120
               description: Describes the price of a product or service
+            currency:
+              required: optional
+              type: string
+              owner: BPP
+              usage: 120
+              description: Describes the price of a product or service
       payments:
         collected_by:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: BAP
           description: Describes the payment collector
         type:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: PRE_ORDER
           description: Describes the payment type
         status:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: NOT-PAID
           description: Describes the payment status
         id:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: PAYMENT_ID
@@ -1574,43 +1633,6 @@ on_init:
               owner: BPP
               usage: '--'
               description: Describes the settlement bank account number
-        BAP_TERMS:
-          required: mandatory
-          type: object
-          owner: BAP
-          usage: '--'
-          description: Describes the bap terms
-          list:
-            BUYER_FINDER_FEES_PERCENTAGE:
-              required: mandatory
-              type: string
-              owner: BAP
-              usage: '--'
-              description: Describes the buyer finder fee percentage
-            BUYER_FINDER_FEES_TYPE:
-              required: mandatory
-              type: string
-              owner: BAP
-              usage: '--'
-              description: Describes Buyer finder fee type
-            STATIC_TERMS:
-              required: mandatory
-              type: string
-              owner: BAP
-              usage: '--'
-              description: Describes Buyer static terms
-            SETTLEMENT_BASIS:
-              required: mandatory
-              type: string
-              owner: BAP
-              usage: '--'
-              description: Describes Buyer settlement terms
-            SETTLEMENT_WINDOW:
-              required: mandatory
-              type: string
-              owner: BAP
-              usage: '--'
-              description: Describes Buyer settlement window
       billing:
         name:
           required: mandatory
@@ -1752,6 +1774,13 @@ confirm:
           owner: BPP
           usage: b2400168
           description: Describes the ID of the item.
+        price:
+          value:
+            required: mandatory
+            type: string
+            owner: BPP
+            usage: 100
+            description: Describes the price value of an item.
       provider:
         id:
           required: mandatory
@@ -1795,7 +1824,7 @@ confirm:
               description: Describes the customer name
           contact:
             email:
-              required: mandatory
+              required: optional
               type: string
               owner: BAP
               usage: joe.adam@abc.org
@@ -1807,39 +1836,45 @@ confirm:
               usage: -9999999908
               description: Describes the customer phone
       payments:
+        id:
+          required: optional
+          type: string
+          owner: BPP
+          usage: PAYMENT_ID
+          description: Describes the payment id
         collected_by:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: BAP
           description: Describes the payment collector
         type:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: PRE_ORDER
           description: Describes the payment type
         status:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: NOT-PAID
           description: Describes the payment status
         params:
           transaction_id:
-            required: mandatory
+            required: optional
             type: string
             owner: BAP
             usage: 61b4be7e
             description: Describes the payment transaction id
           currency:
-            required: mandatory
+            required: optional
             type: string
             owner: BAP
             usage: INR
             description: Describes the payment currency
           amount:
-            required: mandatory
+            required: optional
             type: string
             owner: BAP
             usage: 100
@@ -2027,7 +2062,7 @@ on_confirm:
       required: mandatory
       type: string
       owner: BAP
-      usage: on_select
+      usage: on_confirm
       description: >-
         Describes the Beckn protocol method being called by the sender and
         executed at the receiver.
@@ -2079,6 +2114,13 @@ on_confirm:
             owner: BPP
             usage: RECHARGE
             description: Describes the code for a particular item.
+          images:
+            url:
+              required: optional
+              type: string
+              owner: BPP
+              usage: https://delhimetrorail.com/logos/logo.ico
+              description: Describes the descriptor images.
         price:
           currency:
             required: mandatory
@@ -2211,7 +2253,7 @@ on_confirm:
               description: Describes the customer name
           contact:
             email:
-              required: mandatory
+              required: optional
               type: string
               owner: BAP
               usage: joe.adam@abc.org
@@ -2237,6 +2279,12 @@ on_confirm:
               usage: COMPLETED
               description: Describes the fulfillment state name.
       quote:
+        id:
+          required: mandatory
+          type: string
+          owner: BPP
+          usage: 60
+          description: Describes the quote ID.
         price:
           value:
             required: mandatory
@@ -2284,46 +2332,52 @@ on_confirm:
               owner: BPP
               usage: 120
               description: Describes the price of a product or service
+            currency:
+              required: optional
+              type: string
+              owner: BPP
+              usage: 120
+              description: Describes the price of a product or service
       payments:
         collected_by:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: BAP
           description: Describes the payment collector
         type:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: PRE_ORDER
           description: Describes the payment type
         status:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: NOT-PAID
           description: Describes the payment status
         id:
-          required: mandatory
+          required: optional
           type: string
           owner: BAP
           usage: PAYMENT_ID
           description: Describes the payment id
         params:
           transaction_id:
-            required: mandatory
+            required: optional
             type: string
             owner: BAP
             usage: 61b4be7e
             description: Describes the payment transaction id
           currency:
-            required: mandatory
+            required: optional
             type: string
             owner: BAP
             usage: INR
             description: Describes the payment currency
           amount:
-            required: mandatory
+            required: optional
             type: string
             owner: BAP
             usage: 100

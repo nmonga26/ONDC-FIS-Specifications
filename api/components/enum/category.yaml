@@ -1,6 +1,12 @@
 descriptor:
   code: 
+    - code: WALLET_MANAGEMENT
+      description: Describes the main category type for metro card recharge                                   
+      reference: <PR/Issue/Discussion Links md format text
     - code: RECHARGE
-      description: Describes the category type for metro card recharge                                   
-      reference: <PR/Issue/Discussion Links md format text         
+      description: Describes the sub-category type for metro card recharge                                   
+      reference: <PR/Issue/Discussion Links md format text
+    - code: BALANCE_CHECK
+      description: Describes the sub-category type for metro card balance check                                   
+      reference: <PR/Issue/Discussion Links md format text             
 
