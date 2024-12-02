@@ -546,7 +546,7 @@ on_search:
                   usage: '--'
                   description: Describes the options
                 IDCW_OPTION:
-                  required: Mandatory
+                  required: Optional
                   type: string
                   owner: BPP
                   usage: '--'
