@@ -535,7 +535,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -28422,7 +28421,7 @@ x-attributes:
                         usage: '--'
                         description: Describes the options
                       IDCW_OPTION:
-                        required: Mandatory
+                        required: Optional
                         type: string
                         owner: BPP
                         usage: '--'
