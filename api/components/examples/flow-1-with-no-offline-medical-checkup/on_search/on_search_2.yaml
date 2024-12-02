@@ -169,7 +169,7 @@ message:
                       code: BASE_PRICE
                       name: Base Price
                       short_desc: Base Price
-                    value: '17950'
+                    value: '18300'
                   - descriptor:
                       code: CONVIENCE_FEE
                       name: Convience Fee
@@ -254,3 +254,19 @@ message:
                   One Indiabulls centre, Tower 1, 18th Floor Jupiter mill
                   compound 841, Senapati Bapat Marg, Elphinstone Road, Mumbai
                   400013
+        payments:
+          - collected_by: BPP
+    tags:
+      - display: false
+        descriptor:
+          name: BPP Terms of Engagement
+          code: BPP_TERMS
+        list:
+          - descriptor:
+              name: Static Terms (Transaction Level)
+              code: STATIC_TERMS
+            value: https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+          - descriptor:
+              name: Offline Contract
+              code: OFFLINE_CONTRACT
+            value: 'true'

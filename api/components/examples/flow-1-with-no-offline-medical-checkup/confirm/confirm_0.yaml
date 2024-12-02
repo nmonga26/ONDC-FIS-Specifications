@@ -36,7 +36,7 @@ message:
         parent_item_id: LIFE_INSURANCE_ITEM_ID
         price:
           currency: INR
-          value: '17950'
+          value: '18300'
         tags:
           - descriptor:
               code: CHECKLIST
@@ -105,16 +105,8 @@ message:
     provider:
       id: P1
     payments:
-      - collected_by: BPP
-        url: >-
-          https://www.abcinsurance.com/pg-gateway/payment?amount=18000&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
-        params:
-          amount: '2000'
-          currency: INR
-          transaction_id: 97ca91e3-3bd1-4bbf-a066-4db2a6070b6e
-        status: PAID
-        type: PRE-ORDER
-      - collected_by: BPP
+      - id: <var:payment_id>
+        collected_by: BPP
         url: >-
           https://www.abcinsurance.com/pg-gateway/payment?amount=18000&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
         params:
@@ -123,27 +115,27 @@ message:
           transaction_id: 97ca91e3-3bd1-4bbf-a066-4db2a6070b6e
         status: PAID
         type: PRE-ORDER
-        tags:
+    tags:
+      - descriptor:
+          code: BAP_TERMS
+          name: BAP Terms of Engagement
+        display: false
+        list:
           - descriptor:
-              code: BAP_TERMS
-              name: BAP Terms of Engagement
-            display: false
-            list:
-              - descriptor:
-                  code: BUYER_FINDER_FEES_PERCENTAGE
-                value: '1'
-              - descriptor:
-                  code: BUYER_FINDER_FEES_TYPE
-                value: percent
-              - descriptor:
-                  code: STATIC_TERMS
-                value: https://api.example-bap.com/booking/terms
-              - descriptor:
-                  code: SETTLEMENT_WINDOW
-                value: P30D
-              - descriptor:
-                  code: DELAY_INTEREST
-                value: '2.5'
-              - descriptor:
-                  code: OFFLINE_CONTRACT
-                value: 'true'
+              code: BUYER_FINDER_FEES_PERCENTAGE
+            value: '1'
+          - descriptor:
+              code: BUYER_FINDER_FEES_TYPE
+            value: percent
+          - descriptor:
+              code: STATIC_TERMS
+            value: https://api.example-bap.com/booking/terms
+          - descriptor:
+              code: SETTLEMENT_WINDOW
+            value: P30D
+          - descriptor:
+              code: DELAY_INTEREST
+            value: '2.5'
+          - descriptor:
+              code: OFFLINE_CONTRACT
+            value: 'true'

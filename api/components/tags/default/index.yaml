@@ -1,70 +1,39 @@
 search: &search
   message: &search_message
     intent: &search_message_intent
-      payment: &search_message_intent_payment
-        tags: &search_message_intent_payment_tags
-          - &search_message_intent_payment_tags_0
-            code: BUYER_FINDER_FEES
-            description: Describes the finder fees for buyer
-            reference: <PR/Issue/Discussion Links md format text>
-            list: &search_message_intent_payment_tags_0_list
-              - &search_message_intent_payment_tags_0_list_0
-                code: BUYER_FINDER_FEES_TYPE
-                description: Buyer finder fee type
-                reference: <PR/Issue/Discussion Links md format text>
-              - &search_message_intent_payment_tags_0_list_1
-                code: BUYER_FINDER_FEES_PERCENTAGE
-                description: Buyer finder fee in percentage
-                reference: <PR/Issue/Discussion Links md format text>
-              - &search_message_intent_payment_tags_0_list_2
-                code: BUYER_FINDER_FEES_AMOUNT
-                description: Buyer finder fee in amount
-                reference: <PR/Issue/Discussion Links md format text>
-          - &search_message_intent_payment_tags_1
-            code: SETTLEMENT_TERMS
-            description: Describes the settlement terms
-            reference: <PR/Issue/Discussion Links md format text>
-            list: &search_message_intent_payment_tags_1_list
-              - &search_message_intent_payment_tags_1_list_0
-                code: SETTLEMENT_WINDOW
-                description: Time window to complete settlement
-                reference: <PR/Issue/Discussion Links md format text>
-              - &search_message_intent_payment_tags_1_list_1
-                code: SETTLEMENT_BASIS
-                description: Basis required to complete settlement
-                reference: <PR/Issue/Discussion Links md format text>
-              - &search_message_intent_payment_tags_1_list_2
-                code: SETTLEMENT_TYPE
-                description: Payment method to complete settlement
-                reference: <PR/Issue/Discussion Links md format text>
-              - &search_message_intent_payment_tags_1_list_3
-                code: MANDATORY_ARBITRATION
-                description: Flag to denote if dispute can be resolved through arbitration
-                reference: <PR/Issue/Discussion Links md format text>
-              - &search_message_intent_payment_tags_1_list_4
-                code: COURT_JURISDICTION
-                description: Denotes court that will have jurisdiction for the case
-                reference: <PR/Issue/Discussion Links md format text>
-              - &search_message_intent_payment_tags_1_list_5
-                code: DELAY_INTEREST
-                description: Denotes interest to be paid as a delay charge
-                reference: <PR/Issue/Discussion Links md format text>
-              - &search_message_intent_payment_tags_1_list_6
-                code: STATIC_TERMS
-                description: Terms for settlement
-                reference: <PR/Issue/Discussion Links md format text>
-              - &search_message_intent_payment_tags_1_list_7
-                code: SETTLEMENT_AMOUNT
-                description: Denotes settlement amount
-                reference: <PR/Issue/Discussion Links md format text>
-              - &search_message_intent_payment_tags_1_list_8
-                code: OFFLINE_CONTRACT
-                description: Denotes offline contract
-                reference: <PR/Issue/Discussion Links md format text>
+      tags: &search_message_intent_tags
+        - &search_message_intent_tags_0
+          code: BAP_TERMS
+          description: Describes the settlement terms
+          reference: <PR/Issue/Discussion Links md format text>
+          list: &search_message_intent_tags_0_list
+            - &search_message_intent_tags_0_list_0
+              code: BUYER_FINDER_FEES_TYPE
+              description: Buyer finder fee type
+              reference: <PR/Issue/Discussion Links md format text>
+            - &search_message_intent_tags_0_list_1
+              code: BUYER_FINDER_FEES_PERCENTAGE
+              description: Buyer finder fee in percentage
+              reference: <PR/Issue/Discussion Links md format text>
+            - &search_message_intent_tags_0_list_2
+              code: BUYER_FINDER_FEES_AMOUNT
+              description: Buyer finder fee in amount
+              reference: <PR/Issue/Discussion Links md format text>
+            - &search_message_intent_tags_0_list_3
+              code: STATIC_TERMS
+              description: Terms for settlement
+              reference: <PR/Issue/Discussion Links md format text>
+            - &search_message_intent_tags_0_list_4
+              code: SETTLEMENT_WINDOW
+              description: Time window to complete settlement
+              reference: <PR/Issue/Discussion Links md format text>
+            - &search_message_intent_tags_0_list_5
+              code: SETTLEMENT_BASIS
+              description: Basis required to complete settlement
+              reference: <PR/Issue/Discussion Links md format text>
 init: &init
   message: &init_message
-    order: &init_message_order
-      payments: *search_message_intent_payment
+    order: *search_message_intent
 confirm: &confirm
   message: &confirm_message
     order: &confirm_message_order
@@ -144,7 +113,7 @@ confirm: &confirm
                 code: MEDICAL_CHECKUP
                 description: Requirement for a medical checkup as part of the policy.
                 reference: <PR/Issue/Discussion Links md format text
-      payments: *search_message_intent_payment
+      tags: *search_message_intent_tags
 on_search: &on_search
   message: &on_search_message
     catalog: &on_search_message_catalog
@@ -159,8 +128,85 @@ on_search: &on_search
                 code: CONSENT_HANDLER
                 description: Entity responsible for managing consent-related processes.
                 reference: <PR/Issue/Discussion Links md format text
+          - &on_search_message_catalog_providers_tags_1
+            code: CONTACT_INFO
+            description: Describes the contact info of grievance redressal officer(GRO) &
+              customer support details
+            reference: <PR/Issue/Discussion Links md format text>
+            list: &on_search_message_catalog_providers_tags_1_list
+              - &on_search_message_catalog_providers_tags_1_list_0
+                code: GRO_NAME
+                description: Denotes name of the grievance redressal officer(GRO)
+                reference: <PR/Issue/Discussion Links md format text>
+              - &on_search_message_catalog_providers_tags_1_list_1
+                code: GRO_EMAIL
+                description: Denotes email of the grievance redressal officer(GRO)
+                reference: <PR/Issue/Discussion Links md format text>
+              - &on_search_message_catalog_providers_tags_1_list_2
+                code: GRO_CONTACT_NUMBER
+                description: Denotes contact number of the grievance redressal officer(GRO)
+                reference: <PR/Issue/Discussion Links md format text>
+              - &on_search_message_catalog_providers_tags_1_list_3
+                code: CUSTOMER_SUPPORT_LINK
+                description: Support link for customer in case of any issue
+                reference: <PR/Issue/Discussion Links md format text>
+              - &on_search_message_catalog_providers_tags_1_list_4
+                code: CUSTOMER_SUPPORT_CONTACT_NUMBER
+                description: contact number for customer in case of any issue
+                reference: <PR/Issue/Discussion Links md format text>
+              - &on_search_message_catalog_providers_tags_1_list_5
+                code: CUSTOMER_SUPPORT_EMAIL
+                description: Support email for customer in case of any issue
+                reference: <PR/Issue/Discussion Links md format text>
+              - &on_search_message_catalog_providers_tags_1_list_6
+                code: GRO_DESIGNATION
+                description: Designation of grievance person
+                reference: <PR/Issue/Discussion Links md format text>
+              - &on_search_message_catalog_providers_tags_1_list_7
+                code: GRO_ADDRESS
+                description: Support address for customer in case of any issue
+                reference: <PR/Issue/Discussion Links md format text>
+          - &on_search_message_catalog_providers_tags_2
+            code: LSP_INFO
+            description: Describes lsp details acting as recovert agent authorised to
+              approach borrower
+            reference: <PR/Issue/Discussion Links md format text>
+            list: &on_search_message_catalog_providers_tags_2_list
+              - &on_search_message_catalog_providers_tags_2_list_0
+                code: LSP_NAME
+                description: Name of lsp acting as recovery agent, authorised to approach
+                  borrower
+                reference: <PR/Issue/Discussion Links md format text>
+              - &on_search_message_catalog_providers_tags_2_list_1
+                code: LSP_EMAIL
+                description: Email of lsp acting as recovery agent, authorised to approach
+                  borrower
+                reference: <PR/Issue/Discussion Links md format text>
+              - &on_search_message_catalog_providers_tags_2_list_2
+                code: LSP_CONTACT_NUMBER
+                description: Contact number of lsp acting as recovery agent, authorised to
+                  approach borrower
+                reference: <PR/Issue/Discussion Links md format text>
+              - &on_search_message_catalog_providers_tags_2_list_3
+                code: LSP_ADDRESS
+                description: Address of lsp acting as recovery agent, authorised to approach
+                  borrower
+                reference: <PR/Issue/Discussion Links md format text>
         item: *confirm_message_order_items
-        payments: *search_message_intent_payment
+      tags: &on_search_message_catalog_tags
+        - &on_search_message_catalog_tags_0
+          code: BPP_TERMS
+          description: Describes the finder fees of the loan for buyer
+          reference: <PR/Issue/Discussion Links md format text>
+          list: &on_search_message_catalog_tags_0_list
+            - &on_search_message_catalog_tags_0_list_0
+              code: STATIC_TERMS
+              description: Describes the static terms
+              reference: <PR/Issue/Discussion Links md format text>
+            - &on_search_message_catalog_tags_0_list_1
+              code: OFFLINE_CONTRACT
+              description: Describes the offline contract.
+              reference: <PR/Issue/Discussion Links md format text>
 on_select: &on_select
   message: &on_select_message
     order: &on_select_message_order
@@ -168,13 +214,28 @@ on_select: &on_select
         tags: &on_select_message_order_items_tags
           - *confirm_message_order_items_tags_0
           - *on_search_message_catalog_providers_tags_0
-on_init: *confirm
-on_confirm: *confirm
+      providers: &on_select_message_order_providers
+        tags: &on_select_message_order_providers_tags
+          - *on_search_message_catalog_providers_tags_1
+          - *on_search_message_catalog_providers_tags_2
+on_init: &on_init
+  message: &on_init_message
+    order: &on_init_message_order
+      items: *confirm_message_order_items
+      providers: *on_select_message_order_providers
+      tags: *on_search_message_catalog_tags
+on_confirm: &on_confirm
+  message: &on_confirm_message
+    order: &on_confirm_message_order
+      items: *confirm_message_order_items
+      tags: &on_confirm_message_order_tags
+        - *on_search_message_catalog_tags_0
+        - *search_message_intent_tags_0
+      providers: *on_select_message_order_providers
 on_status: &on_status
   message: &on_status_message
     order: &on_status_message_order
       items: *confirm_message_order_items
-      payments: *search_message_intent_payment
       fulfillments: &on_status_message_order_fulfillments
         tags: &on_status_message_order_fulfillments_tags
           - &on_status_message_order_fulfillments_tags_0
@@ -194,5 +255,11 @@ on_status: &on_status
                 code: REF_ID
                 description: Describes the reference id.
                 reference: <PR/Issue/Discussion Links md format text>
-on_cancel: *on_status
-on_update: *on_status
+      providers: *on_select_message_order_providers
+      tags: *on_confirm_message_order_tags
+on_cancel: &on_cancel
+  message: &on_cancel_message
+    order: &on_cancel_message_order
+      items: *confirm_message_order_items
+      fulfillments: *on_status_message_order_fulfillments
+on_update: *on_cancel

@@ -25,9 +25,5 @@ message:
             quantity:
               selected:
                 count: 1
-            descriptor:
-              name: No Claim Bonus
-              code: NO_CLAIM_BONUS
-            price:
-              value: '100'
-              currency: INR
+    provider:
+      id: P1

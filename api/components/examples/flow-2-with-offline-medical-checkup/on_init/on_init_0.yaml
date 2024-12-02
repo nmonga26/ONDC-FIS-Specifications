@@ -39,7 +39,7 @@ message:
         parent_item_id: LIFE_INSURANCE_ITEM_ID
         price:
           currency: INR
-          value: '17950'
+          value: '18300'
         tags:
           - descriptor:
               code: CHECKLIST
@@ -196,9 +196,13 @@ message:
       id: OFFER_ID/PROPOSAL_ID
       breakup:
         - price:
-            value: '17950'
+            value: '18300'
             currency: INR
           title: BASE_PRICE
+        - price:
+            value: '-500'
+            currency: INR
+          title: OFFER
         - price:
             value: '50'
             currency: INR
@@ -227,27 +231,17 @@ message:
       - collected_by: BPP
         status: NOT-PAID
         type: PRE-ORDER
-        tags:
+    tags:
+      - display: false
+        descriptor:
+          name: BPP Terms of Engagement
+          code: BPP_TERMS
+        list:
           - descriptor:
-              code: BAP_TERMS
-              name: BAP Terms of Engagement
-            display: false
-            list:
-              - descriptor:
-                  code: BUYER_FINDER_FEES_PERCENTAGE
-                value: '1'
-              - descriptor:
-                  code: BUYER_FINDER_FEES_TYPE
-                value: percent
-              - descriptor:
-                  code: STATIC_TERMS
-                value: https://api.example-bap.com/booking/terms
-              - descriptor:
-                  code: SETTLEMENT_WINDOW
-                value: P30D
-              - descriptor:
-                  code: DELAY_INTEREST
-                value: '2.5'
-              - descriptor:
-                  code: OFFLINE_CONTRACT
-                value: 'true'
+              name: Static Terms (Transaction Level)
+              code: STATIC_TERMS
+            value: https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+          - descriptor:
+              name: Offline Contract
+              code: OFFLINE_CONTRACT
+            value: 'true'
