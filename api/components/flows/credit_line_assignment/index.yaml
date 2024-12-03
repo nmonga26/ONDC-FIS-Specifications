@@ -488,7 +488,9 @@ steps:
       Checklists "
     reference: if any
     api: on_select
-    example: *a1
+    example:
+      value:
+        $ref: ../../examples/Working-Capital-Loan/on_select/on_select_entity_kyc_submission.yaml
     details:
       - description: "The lender will acknowledge the borrower's completion of entity
           KYC in Checklists "
