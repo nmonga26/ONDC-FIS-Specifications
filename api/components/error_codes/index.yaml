@@ -87,3 +87,7 @@ code:
     Event: Processing Fee is not paid
     Description: Processing Fee is not paid
     From: BPP
+  - code: 80245
+    Event: File is password protected
+    Description: Password for the file is not provided.
+    From: BPP  
