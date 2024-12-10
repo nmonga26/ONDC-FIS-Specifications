@@ -18,6 +18,7 @@ context:
 message:
   order:
     id: LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID
+    status: ACTIVE
     provider:
       id: PROVIDER_ID
       descriptor:
@@ -110,7 +111,7 @@ message:
           price:
             value: '1100'
             currency: INR
-      ttl: PT5D
+      ttl: P5D
     items:
       - id: CHILD_ITEM_ID_WORKING_CAPITAL_LOAN
         parent_item_id: ITEM_ID_WORKING_CAPITAL_LOAN
@@ -225,7 +226,6 @@ message:
           currency: INR
         status: PAID
         type: PRE-ORDER
-        url: https://payment.fis.test.bpp.io
     cancellation_terms:
       - fulfillment_state:
           descriptor:
@@ -253,11 +253,22 @@ message:
           code: BAP_TERMS
         list:
           - descriptor:
-              name: Static Terms (Transaction Level)
-              code: STATIC_TERMS
-            value: 'https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1'
+              code: BUYER_FINDER_FEES_TYPE
+            value: percent-annualized
           - descriptor:
-              name: Offline Contract
+              code: BUYER_FINDER_FEES_PERCENTAGE
+            value: '1'
+          - descriptor:
+              code: SETTLEMENT_TYPE
+            value: neft
+          - descriptor:
+              code: DELAY_INTEREST
+            value: '5'
+          - descriptor:
+              code: STATIC_TERMS
+            value: >-
+              https://bap.credit.becknprotocol.io/working-capital/loans/working-capital
+          - descriptor:
               code: OFFLINE_CONTRACT
             value: 'true'
       - display: false
@@ -266,13 +277,34 @@ message:
           code: BPP_TERMS
         list:
           - descriptor:
-              name: Static Terms (Transaction Level)
-              code: STATIC_TERMS
-            value: 'https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1'
+              code: BUYER_FINDER_FEES_TYPE
+            value: percent-annualized
           - descriptor:
-              name: Offline Contract
+              code: BUYER_FINDER_FEES_PERCENTAGE
+            value: '1'
+          - descriptor:
+              code: SETTLEMENT_WINDOW
+            value: PT60M
+          - descriptor:
+              code: SETTLEMENT_BASIS
+            value: INVOICE_RECEIPT
+          - descriptor:
+              code: MANDATORY_ARBITRATION
+            value: 'TRUE'
+          - descriptor:
+              code: COURT_JURISDICTION
+            value: New Delhi
+          - descriptor:
+              code: STATIC_TERMS
+            value: >-
+              https://bpp.credit.becknprotocol.org/personal-banking/loans/personal-loan
+          - descriptor:
+              code: SETTLEMENT_AMOUNT
+            value: '1159'
+          - descriptor:
               code: OFFLINE_CONTRACT
-            value: 'true'
+            value: 'true'  
+    
     fulfillments:
       - id: '1333'
         customer:
@@ -324,4 +356,5 @@ message:
                   code: E_SIGN
                   name: E Sign Required
                 value: COMPLETED
-          
+    created_at: '2023-05-25T05:23:03.443Z'
+    updated_at: '2023-05-25T05:23:03.443Z'      

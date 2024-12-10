@@ -488,7 +488,9 @@ steps:
       Checklists "
     reference: if any
     api: on_select
-    example: *a1
+    example:
+      value:
+        $ref: ../../examples/Working-Capital-Loan/on_select/on_select_entity_kyc_submission.yaml
     details:
       - description: "The lender will acknowledge the borrower's completion of entity
           KYC in Checklists "
@@ -714,6 +716,7 @@ steps:
             Lender Platform (BPP)->>Borrower Platform (BAP):on_init
             Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
             end
+  
   - summary: The borrower fetches the form for e-sign agreement
     reference: if any
     api: form
@@ -764,6 +767,50 @@ steps:
             Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
             Lender Platform (BPP)->>Borrower Platform (BAP):on_confirm
             Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+  
+  - summary: The borrower submits the form for e-mandate
+    reference: if any
+    api: init
+    example:
+      value:
+        $ref: ../../examples/Working-Capital-Loan/init/init_request-emandate-submission.yaml
+    details:
+      - description: The borrower submits the form for e-mandate
+        mermaid: >
+          sequenceDiagram
+            title Initializing Order
+            participant Borrower Platform (BAP)
+            participant Lender Platform (BPP)
+            participant Lender Form Service
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_status(e-mandate status)
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+            rect rgb(191, 223, 255) 
+            Borrower Platform (BAP)->>Lender Platform (BPP): init(with submissionID)
+            Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
+            end
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_init
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+  - summary: The lender sends the form input for e signing the loan agreement
+    reference: if any
+    api: on_init
+    example:
+      value:
+        $ref: ../../examples/Working-Capital-Loan/on_init/on_init_esign_submission.yaml
+    details:
+      - description: The lender sends the form input for e signing the loan agreement
+        mermaid: >-
+          sequenceDiagram
+            title Initializing Order
+            participant Borrower Platform (BAP)
+            participant Lender Platform (BPP)
+            participant Lender Form Service
+            Borrower Platform (BAP)->>Lender Platform (BPP): init(with submissionID)
+            Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
+            rect rgb(191, 223, 255) 
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_init
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+            end
+  
   - summary: The borrower confirms the working capital line using the submission id
       from e sign
     reference: if any

@@ -6,12 +6,12 @@ context:
     city:
       code: '*'
   version: 2.3.0
-  action: on_status
+  action: on_select
   bap_id: bizongo-next.becknprotocol.io
   bap_uri: https://bizongo-next.becknprotocol.io/
   bpp_id: bpp.credit.becknprotocol.org
   bpp_uri: https://bpp.credit.becknprotocol.org
-  transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62195
+  transaction_id: a9aaecca-10b7-4d19-b640-b047a7d62196
   message_id: c8e3968c-cd78-4e46-aa34-0d541e46bd73
   timestamp: '2023-05-25T05:23:03.443Z'
   ttl: PT30M
@@ -198,19 +198,19 @@ message:
               - descriptor:
                   code: PERSONAL_DISCUSSION
                   name: Personal Discussion
-                value: COMPLETED
+                value: PENDING
               - descriptor:
                   code: PHYSICAL_VERIFICATION
                   name: Physical Verification
-                value: COMPLETED
+                value: PENDING
               - descriptor:
                   code: ENACH
                   name: Enach
-                value: COMPLETED
+                value: PENDING
               - descriptor:
                   code: PROCESSING_FEE
                   name: Processing Fees
-                value: COMPLETED
+                value: PENDING
               - descriptor:
                   code: ESIGN
                   name: Esign
@@ -218,103 +218,59 @@ message:
             display: true
         xinput:
           form:
-            id: form_esign_F07
+            id: form_business_kyc_F04
           form_response:
             status: SUCCESS
-            submission_id: form_submission_id_esign_F07
-    payments:
-      - id: PAYMENT_ID_PROCESSING_FEES
-        collected_by: BPP
-        params:
-          amount: '1000'
-          currency: INR
-        status: PAID
-        type: PRE-ORDER
-        # url: https://payment.fis.test.bpp.io
-    tags:
-      - display: false
-        descriptor:
-          name: BPP Terms of Engagement
-          code: BPP_TERMS
-        list:
-          - descriptor:
-              code: BUYER_FINDER_FEES_TYPE
-            value: percent-annualized
-          - descriptor:
-              code: BUYER_FINDER_FEES_PERCENTAGE
-            value: '1'
-          - descriptor:
-              code: SETTLEMENT_WINDOW
-            value: PT60M
-          - descriptor:
-              code: SETTLEMENT_BASIS
-            value: INVOICE_RECEIPT
-          - descriptor:
-              code: MANDATORY_ARBITRATION
-            value: 'TRUE'
-          - descriptor:
-              code: COURT_JURISDICTION
-            value: New Delhi
-          - descriptor:
-              code: STATIC_TERMS
-            value: >-
-              https://bpp.credit.becknprotocol.org/personal-banking/loans/personal-loan
-          - descriptor:
-              code: SETTLEMENT_AMOUNT
-            value: '1159'
-          - descriptor:
-              code: OFFLINE_CONTRACT
-            value: 'true'  
-    
+            submission_id: form_submission_id_business_kyc_F04
     fulfillments:
-        - id: '1333'
-          customer:
-            person:
-              name: John Doe
-              dob: '1998-09-12'
-              gender: Male
-              creds:
-                - id: BXU87Y252U
-                  type: PAN
-            contact:
-              email: john.doe@gmail.com
-              phone: '7888888888'
-          tags:
-            - descriptor:
-                code: CHECKLISTS
-                name: Applicant Checklists
-              list:
-                - descriptor:
-                    code: KYC
-                    name: KYC
-                  value: COMPLETED
-                - descriptor:
-                    code: E_SIGN
-                    name: E Sign Required
-                  value: PENDING
-        - id: '1334'
-          customer:
-            person:
-              name: Co Applicant 1
-              dob: '1998-09-12'
-              gender: Male
-              creds:
-                - id: BXU87Y252A
-                  type: PAN
-            contact:
-              email: applicant.1@gmail.com
-              phone: '7888888888'
-          tags:
-            - descriptor:
-                code: CHECKLISTS
-                name: Applicant Checklists
-              list:
-                - descriptor:
-                    code: KYC
-                    name: KYC
-                  value: COMPLETED
-                - descriptor:
-                    code: E_SIGN
-                    name: E Sign Required
-                  value: COMPLETED
-                
+      - id: '1333'
+        customer:
+          person:
+            name: John Doe
+            dob: '1998-09-12'
+            gender: Male
+            creds:
+              - id: BXU87Y252U
+                type: PAN
+          contact:
+            email: john.doe@gmail.com
+            phone: '7888888888'
+        tags:
+          - descriptor:
+              code: CHECKLISTS
+              name: Applicant Checklists
+            list:
+              - descriptor:
+                  code: KYC
+                  name: KYC
+                value: COMPLETED
+              - descriptor:
+                  code: E_SIGN
+                  name: E Sign Required
+                value: PENDING
+      - id: '1334'
+        customer:
+          person:
+            name: Co Applicant 1
+            dob: '1998-09-12'
+            gender: Male
+            creds:
+              - id: BXU87Y252A
+                type: PAN
+          contact:
+            email: applicant.1@gmail.com
+            phone: '7888888888'
+        tags:
+          - descriptor:
+              code: CHECKLISTS
+              name: Applicant Checklists
+            list:
+              - descriptor:
+                  code: KYC
+                  name: KYC
+                value: COMPLETED
+              - descriptor:
+                  code: E_SIGN
+                  name: E Sign Required
+                value: PENDING
+    

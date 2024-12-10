@@ -49,10 +49,18 @@ message:
             code: BAP_TERMS
           list:
             - descriptor:
-                name: Static Terms (Transaction Level)
-                code: STATIC_TERMS
-              value: 'https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1'
+                code: BUYER_FINDER_FEES_TYPE
+              value: percent-annualized
             - descriptor:
-                name: Offline Contract
+                code: BUYER_FINDER_FEES_PERCENTAGE
+              value: '1'
+            - descriptor:
+                code: DELAY_INTEREST
+              value: '2.5'
+            - descriptor:
+                code: STATIC_TERMS
+              value: >-
+                https://bap.credit.becknprotocol.io/working-capital/loans/working-capital
+            - descriptor:
                 code: OFFLINE_CONTRACT
               value: 'true' 

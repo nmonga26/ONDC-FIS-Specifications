@@ -93,7 +93,7 @@ message:
           price:
             value: '400'
             currency: INR
-      ttl: PT5D
+      ttl: P5D
     items:
       - id: ITEM_ID_WORKING_CAPITAL_LOAN_DISBURSEMENT
         parent_item_id: ITEM_ID_WORKING_CAPITAL_LOAN
@@ -151,10 +151,31 @@ message:
           code: BPP_TERMS
         list:
           - descriptor:
-              name: Static Terms (Transaction Level)
-              code: STATIC_TERMS
-            value: 'https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1'
+              code: BUYER_FINDER_FEES_TYPE
+            value: percent-annualized
           - descriptor:
-              name: Offline Contract
+              code: BUYER_FINDER_FEES_PERCENTAGE
+            value: '1'
+          - descriptor:
+              code: SETTLEMENT_WINDOW
+            value: PT60M
+          - descriptor:
+              code: SETTLEMENT_BASIS
+            value: INVOICE_RECEIPT
+          - descriptor:
+              code: MANDATORY_ARBITRATION
+            value: 'TRUE'
+          - descriptor:
+              code: COURT_JURISDICTION
+            value: New Delhi
+          - descriptor:
+              code: STATIC_TERMS
+            value: >-
+              https://bpp.credit.becknprotocol.org/personal-banking/loans/personal-loan
+          - descriptor:
+              code: SETTLEMENT_AMOUNT
+            value: '1159'
+          - descriptor:
               code: OFFLINE_CONTRACT
-            value: 'true'
+            value: 'true'  
+    
