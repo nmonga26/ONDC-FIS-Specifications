@@ -4268,7 +4268,7 @@ x-flows:
 
 
                     <label for="financial_statements">Financial Statements - Last 2 Years</label>
-                    <input required type="file" id="financial_statements" name="financial_statements" accept=".pdf" required><br><br>
+                    <input required type="file" id="financial_statements" name="financial_statements" accept=".pdf"><br><br>
 
                     <label for="provisions">Provisions - Latest FY</label>
                     <input type="file" id="provisions" name="provisions" accept=".pdf"><br><br>
