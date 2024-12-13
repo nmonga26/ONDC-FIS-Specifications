@@ -46,18 +46,18 @@ message:
               name: Four Wheeler Own Damage
               code: FOUR_WHEELER_OWN_DAMAGE
             id: C6  
-          - descriptor:
-              name: New Insurance
-              code: NEW_INSURANCE
-            id: C7 
+          # - descriptor:
+          #     name: New Insurance
+          #     code: NEW_INSURANCE
+          #   id: C7 
           - descriptor:
               name: Motor Insurance
               code: MOTOR_INSURANCE
             id: C8
-          - descriptor:
-              name: Transfer Insurance
-              code: TRANSFER_INSURANCE
-            id: C9      
+          # - descriptor:
+          #     name: Transfer Insurance
+          #     code: TRANSFER_INSURANCE
+          #   id: C9      
 
 
           # - descriptor:
