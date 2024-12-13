@@ -3656,17 +3656,9 @@ x-flows:
                           code: FOUR_WHEELER_OWN_DAMAGE
                         id: C6
                       - descriptor:
-                          name: New Insurance
-                          code: NEW_INSURANCE
-                        id: C7
-                      - descriptor:
                           name: Motor Insurance
                           code: MOTOR_INSURANCE
                         id: C8
-                      - descriptor:
-                          name: Transfer Insurance
-                          code: TRANSFER_INSURANCE
-                        id: C9
                     descriptor:
                       long_desc: Insurance Provider Long Description
                       name: Insurance Provider Name
