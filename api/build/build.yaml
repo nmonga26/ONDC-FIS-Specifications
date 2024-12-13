@@ -3659,6 +3659,14 @@ x-flows:
                           name: Motor Insurance
                           code: MOTOR_INSURANCE
                         id: C8
+                      - descriptor:
+                          name: FOUR WHEELER
+                          code: FOUR_WHEELER_INSURANCE
+                        id: C10
+                      - descriptor:
+                          name: TWO WHEELER
+                          code: TWO_WHEELER_INSURANCE
+                        id: C11
                     descriptor:
                       long_desc: Insurance Provider Long Description
                       name: Insurance Provider Name
