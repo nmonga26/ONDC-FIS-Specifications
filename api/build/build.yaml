@@ -535,7 +535,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -7174,6 +7173,14 @@ x-flows:
                       price:
                         value: '0'
                         currency: INR
+                    - title: OUTSTANDING_PRINCIPAL
+                      price:
+                        value: '200000'
+                        currency: INR
+                    - title: OUTSTANDING_INTEREST
+                      price:
+                        value: '30000'
+                        currency: INR
                   ttl: PT15D
                 fulfillments:
                   - customer:
@@ -7603,6 +7610,14 @@ x-flows:
                     - title: OTHER_CHARGES
                       price:
                         value: '0'
+                        currency: INR
+                    - title: OUTSTANDING_PRINCIPAL
+                      price:
+                        value: '200000'
+                        currency: INR
+                    - title: OUTSTANDING_INTEREST
+                      price:
+                        value: '30000'
                         currency: INR
                 fulfillments:
                   - customer:
@@ -11169,6 +11184,14 @@ x-flows:
                       price:
                         value: '1500'
                         currency: INR
+                    - title: OUTSTANDING_PRINCIPAL
+                      price:
+                        value: '139080'
+                        currency: INR
+                    - title: OUTSTANDING_INTEREST
+                      price:
+                        value: '15000'
+                        currency: INR
                   ttl: PT15D
                 fulfillments:
                   - customer:
@@ -11576,6 +11599,14 @@ x-flows:
                     - title: LATE_FEE_AMOUNT
                       price:
                         value: '1500'
+                        currency: INR
+                    - title: OUTSTANDING_PRINCIPAL
+                      price:
+                        value: '139080'
+                        currency: INR
+                    - title: OUTSTANDING_INTEREST
+                      price:
+                        value: '15000'
                         currency: INR
                   ttl: PT15D
                 fulfillments:
