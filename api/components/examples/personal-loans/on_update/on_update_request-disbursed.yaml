@@ -214,7 +214,15 @@ message:
         - title: OTHER_CHARGES
           price:
             value: "0"
-            currency: INR          
+            currency: INR
+        - title: OUTSTANDING_PRINCIPAL
+          price:
+            value: '200000'
+            currency: INR
+        - title: OUTSTANDING_INTEREST
+          price:
+            value: '30000'
+            currency: INR              
       ttl: PT15D
     fulfillments:
       - customer:

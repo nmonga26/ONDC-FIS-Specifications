@@ -205,7 +205,15 @@ message:
         - title: LATE_FEE_AMOUNT
           price:
             value: "1500"
-            currency: INR       
+            currency: INR
+        - title: OUTSTANDING_PRINCIPAL
+          price:
+            value: '139080'
+            currency: INR
+        - title: OUTSTANDING_INTEREST
+          price:
+            value: '15000'
+            currency: INR           
       ttl: PT15D
     fulfillments:
       - customer:
