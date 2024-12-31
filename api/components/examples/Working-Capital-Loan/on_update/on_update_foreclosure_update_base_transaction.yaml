@@ -17,7 +17,7 @@ context:
   ttl: PT30M
 message:
   order:
-    id: LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID
+    id: ORDER_ID_WORKING_CAPITAL_LOAN
     status: ACTIVE
     provider:
       id: PROVIDER_ID
