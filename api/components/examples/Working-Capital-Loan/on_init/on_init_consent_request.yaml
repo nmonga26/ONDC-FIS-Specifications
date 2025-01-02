@@ -19,6 +19,8 @@ message:
   order:
     provider:
       id: PROVIDER_ID
+      ref_order_ids:
+        - ORDER_ID_WORKING_CAPITAL_LOAN
       descriptor:
         images:
           - size_type: sm

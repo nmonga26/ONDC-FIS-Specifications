@@ -18,6 +18,8 @@ context:
 message:
   order:
     id: LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID
+    ref_order_ids:
+      - ORDER_ID_WORKING_CAPITAL_LOAN
     status: ACTIVE
     provider:
       id: PROVIDER_ID
