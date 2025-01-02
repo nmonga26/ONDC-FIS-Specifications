@@ -275,6 +275,10 @@ paths:
                       $ref: '#/components/schemas/Option/properties/id'
                     descriptor:
                       $ref: '#/components/schemas/Descriptor'
+                    tags:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/TagGroup'
                   required:
                     - order_id
               required:
@@ -531,7 +535,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -1351,6 +1354,7 @@ components:
             - text/html
             - application/html
             - application/xml
+            - text/html-multi
         resubmit:
           type: boolean
         multiple_sumbissions:
@@ -1888,9 +1892,11 @@ components:
             - ACTIVE
             - COMPLETE
             - CANCELLED
-            - CREATED
+            - CANCELLATION_INITIATED
             - ACCEPTED
             - REJECTED
+            - CREATED
+            - COMPLETED
         type:
           description: >-
             This is used to indicate the type of order being created to BPPs.
@@ -1903,8 +1909,6 @@ components:
           enum:
             - DRAFT
             - DEFAULT
-            - PURCHASE
-            - REDEMPTION
         provider:
           description: Details of the provider whose catalog items have been selected.
           allOf:
@@ -1963,6 +1967,13 @@ components:
                   - application/xml
                   - application/pdf
               url:
+                description: >-
+                  The URL from where the form can be fetched. The content
+                  fetched from the url must be processed as per the mime_type
+                  specified in this object.
+                type: string
+                format: uri
+              old_policy_doc:
                 description: >-
                   The URL from where the form can be fetched. The content
                   fetched from the url must be processed as per the mime_type
@@ -2523,8 +2534,10 @@ components:
           type: string
         callback_phone:
           type: string
+          format: phone
         phone:
           type: string
+          format: phone
         email:
           type: string
           format: email
@@ -7222,6 +7235,14 @@ x-flows:
                       price:
                         value: '0'
                         currency: INR
+                    - title: OUTSTANDING_PRINCIPAL
+                      price:
+                        value: '200000'
+                        currency: INR
+                    - title: OUTSTANDING_INTEREST
+                      price:
+                        value: '30000'
+                        currency: INR
                   ttl: PT15D
                 fulfillments:
                   - customer:
@@ -7659,6 +7680,14 @@ x-flows:
                     - title: OTHER_CHARGES
                       price:
                         value: '0'
+                        currency: INR
+                    - title: OUTSTANDING_PRINCIPAL
+                      price:
+                        value: '200000'
+                        currency: INR
+                    - title: OUTSTANDING_INTEREST
+                      price:
+                        value: '30000'
                         currency: INR
                 fulfillments:
                   - customer:
@@ -8637,6 +8666,14 @@ x-flows:
                     - title: OTHER_CHARGES
                       price:
                         value: '0'
+                        currency: INR
+                    - title: OUTSTANDING_PRINCIPAL
+                      price:
+                        value: '200000'
+                        currency: INR
+                    - title: OUTSTANDING_INTEREST
+                      price:
+                        value: '30000'
                         currency: INR
                   ttl: PT15D
                 fulfillments:
@@ -12494,7 +12531,7 @@ x-flows:
                       price:
                         value: '197700'
                         currency: INR
-                    - title: OUTSTANDING_PRINCIPA
+                    - title: OUTSTANDING_PRINCIPAL
                       price:
                         value: '119280'
                         currency: INR
@@ -12988,6 +13025,14 @@ x-flows:
                       price:
                         value: '1500'
                         currency: INR
+                    - title: OUTSTANDING_PRINCIPAL
+                      price:
+                        value: '139080'
+                        currency: INR
+                    - title: OUTSTANDING_INTEREST
+                      price:
+                        value: '15000'
+                        currency: INR
                   ttl: PT15D
                 fulfillments:
                   - customer:
@@ -13395,6 +13440,14 @@ x-flows:
                     - title: LATE_FEE_AMOUNT
                       price:
                         value: '1500'
+                        currency: INR
+                    - title: OUTSTANDING_PRINCIPAL
+                      price:
+                        value: '92720'
+                        currency: INR
+                    - title: OUTSTANDING_INTEREST
+                      price:
+                        value: '10000'
                         currency: INR
                   ttl: PT15D
                 fulfillments:

@@ -206,7 +206,7 @@ message:
           price:
             value: "197700"
             currency: INR     
-        - title: OUTSTANDING_PRINCIPA
+        - title: OUTSTANDING_PRINCIPAL
           price:
             value: "119280"
             currency: INR    
