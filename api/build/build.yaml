@@ -3700,6 +3700,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: P1
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -3913,6 +3914,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -4074,6 +4076,7 @@ x-flows:
                 provider:
                   id: P1
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -4264,6 +4267,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -4442,6 +4446,7 @@ x-flows:
                 provider:
                   id: P1
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -4533,6 +4538,11 @@ x-flows:
                     price:
                       currency: INR
                       value: '900'
+                    category_ids:
+                      - C1
+                    descriptor:
+                      name: ABC Marine Insurance Policy
+                      short_desc: ABC Marine Insurance Class A
                     time:
                       label: Coverage Time
                       range:
@@ -4642,6 +4652,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -4839,6 +4850,11 @@ x-flows:
                     price:
                       currency: INR
                       value: '900'
+                    category_ids:
+                      - C1
+                    descriptor:
+                      name: ABC Marine Insurance Policy
+                      short_desc: ABC Marine Insurance Class A
                     time:
                       label: Coverage Time
                       range:
@@ -4949,6 +4965,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -5102,6 +5119,11 @@ x-flows:
                     price:
                       currency: INR
                       value: '900'
+                    category_ids:
+                      - C1
+                    descriptor:
+                      name: ABC Marine Insurance Policy
+                      short_desc: ABC Marine Insurance Class A
                     time:
                       label: Coverage Time
                       range:
@@ -5212,6 +5234,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -5366,6 +5389,11 @@ x-flows:
                     price:
                       currency: INR
                       value: '900'
+                    category_ids:
+                      - C1
+                    descriptor:
+                      name: ABC Marine Insurance Policy
+                      short_desc: ABC Marine Insurance Class A
                     time:
                       label: Coverage Time
                       range:
@@ -5476,6 +5504,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -5632,6 +5661,11 @@ x-flows:
                     price:
                       currency: INR
                       value: '900'
+                    category_ids:
+                      - C1
+                    descriptor:
+                      name: ABC Marine Insurance Policy
+                      short_desc: ABC Marine Insurance Class A
                     time:
                       label: Coverage Time
                       range:
@@ -5742,6 +5776,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -5954,6 +5989,11 @@ x-flows:
                     type: POLICY
                 items:
                   - id: '1'
+                    category_ids:
+                      - C1
+                    descriptor:
+                      name: ABC Marine Insurance Policy
+                      short_desc: ABC Marine Insurance Class A
                     price:
                       currency: INR
                       value: '900'
@@ -6066,6 +6106,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -6203,6 +6244,11 @@ x-flows:
                     price:
                       currency: INR
                       value: '900'
+                    category_ids:
+                      - C1
+                    descriptor:
+                      name: ABC Marine Insurance Policy
+                      short_desc: ABC Marine Insurance Class A
                     time:
                       label: Coverage Time
                       range:
@@ -6312,6 +6358,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -6525,6 +6572,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -6683,6 +6731,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -6973,6 +7022,7 @@ x-flows:
                           https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                   id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                 quote:
+                  id: Q1
                   breakup:
                     - price:
                         value: '900'
@@ -7122,6 +7172,8 @@ x-examples:
                         short_desc: ABC Marine Insurance Class A
                       fulfillment_ids:
                         - FULFILMENT_ID
+                      category_ids:
+                        - C1
                       id: I1
                       price:
                         currency: INR
@@ -7234,6 +7286,7 @@ x-examples:
                             https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                     id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                   quote:
+                    id: Q1
                     breakup:
                       - price:
                           value: '900'
@@ -7310,6 +7363,8 @@ x-examples:
                     - descriptor:
                         name: ABC Marine Insurance Policy
                         short_desc: ABC Marine Insurance Class A
+                      category_ids:
+                        - C1
                       id: I1
                       price:
                         value: '1000'
@@ -7422,6 +7477,7 @@ x-examples:
                             https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
                     id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
                   quote:
+                    id: Q1
                     price:
                       value: '0'
                       currency: INR
