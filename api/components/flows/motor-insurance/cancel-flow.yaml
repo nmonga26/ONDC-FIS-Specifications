@@ -14,10 +14,10 @@ details:
         Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
 references: if any
 steps:
-  - summary: Insurer confirms the motor insurance order & provides the claim form URL
+  - summary: Insurer confirms the motor insurance order & provides the cancellation URL
     api: on_confirm
     details:
-      - description: Insurer confirms the motor insurace order and provides the confirmation details along with claim form URL.
+      - description: Insurer confirms the motor insurace order and provides the confirmation details along with cancellation URL.
         mermaid: >-
           sequenceDiagram
             title Order Fulfillment
