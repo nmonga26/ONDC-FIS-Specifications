@@ -237,6 +237,10 @@ paths:
                       $ref: '#/components/schemas/Option/properties/id'
                     descriptor:
                       $ref: '#/components/schemas/Descriptor'
+                    tags:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/TagGroup'
                   required:
                     - order_id
               required:
@@ -493,7 +497,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -1820,6 +1823,7 @@ components:
             - ACCEPTED
             - REJECTED
             - CREATED
+            - COMPLETED
         type:
           description: >-
             This is used to indicate the type of order being created to BPPs.
@@ -3736,7 +3740,7 @@ x-flows:
                 Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
         reference: if any
         example:
-          value: "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <title>Descriptor Form</title>\r\n</head>\r\n<body>\r\n    <form action=\"/form/submission/additional-info\">\r\n        <label for=\"INDIVIDUAL_NAME\">Cndividual naompany/Ime</label>\r\n        <input type=\"text\" id=\"INDIVIDUAL_NAME\" name=\"INDIVIDUAL_NAME\"><br>\r\n        <label for=\"POLICY_START_DATE\">Policy start date</label>\r\n        <input type=\"text\" id=\"POLICY_START_DATE\" name=\"POLICY_START_DATE\"><br>\r\n        <label for=\"Coverage from\">Coverage from</label>\r\n        <input type=\"text\" id=\"Coverage from\" name=\"COVERAGE_FROM\"><br>\r\n        <label for=\"COVERAGE_TO\">Coverage to</label>\r\n        <input type=\"text\" id=\"COVERAGE_TO\" name=\"COVERAGE_TO\"><br>\r\n        <label for=\"CARGO DETAILS\">Cargo details</label>\r\n        <input type=\"text\" id=\"CARGO DETAILS\" name=\"CARGO DETAILS\"><br>\r\n        <label for=\"PACKAGING_DETAILS\">Packaging details</label>\r\n        <input type=\"text\" id=\"PACKAGING_DETAILS\" name=\"PACKAGING_DETAILS\"><br>\r\n        <label for=\"INVOICE_NUMBER\">Invoice number</label>\r\n        <input type=\"text\" id=\"INVOICE_NUMBER\" name=\"INVOICE_NUMBER\"><br>\r\n        <label for=\"INVOICE_DATE\">Invoice date</label>\r\n        <input type=\"text\" id=\"INVOICE_DATE\" name=\"INVOICE_DATE\"><br>\r\n        <input type=\"hidden\" id=\"formId\" name=\"formId\" value=\" FO2\">\r\n        <input type=\"submit\" value=\"Submit\">\r\n    </form>\r\n</body>\r\n</html>\r\n"
+          value: "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <title>Descriptor Form</title>\r\n</head>\r\n<body>\r\n    <form action=\"/form/submission/additional-info\">\r\n        <label for=\"INDIVIDUAL_NAME\">Company/Individual name</label>\r\n        <input type=\"text\" id=\"INDIVIDUAL_NAME\" name=\"INDIVIDUAL_NAME\"><br>\r\n        <label for=\"POLICY_START_DATE\">Policy start date</label>\r\n        <input type=\"date\" id=\"POLICY_START_DATE\" name=\"POLICY_START_DATE\"><br>\r\n        <label for=\"Coverage from\">Coverage from</label>\r\n        <input type=\"date\" id=\"Coverage from\" name=\"COVERAGE_FROM\"><br>\r\n        <label for=\"COVERAGE_TO\">Coverage to</label>\r\n        <input type=\"date\" id=\"COVERAGE_TO\" name=\"COVERAGE_TO\"><br>\r\n        <label for=\"CARGO DETAILS\">Cargo details</label>\r\n        <input type=\"text\" id=\"CARGO DETAILS\" name=\"CARGO DETAILS\"><br>\r\n        <label for=\"PACKAGING_DETAILS\">Packaging details</label>\r\n        <input type=\"text\" id=\"PACKAGING_DETAILS\" name=\"PACKAGING_DETAILS\"><br>\r\n        <label for=\"INVOICE_NUMBER\">Invoice number</label>\r\n        <input type=\"text\" id=\"INVOICE_NUMBER\" name=\"INVOICE_NUMBER\"><br>\r\n        <label for=\"INVOICE_DATE\">Invoice date</label>\r\n        <input type=\"date\" id=\"INVOICE_DATE\" name=\"INVOICE_DATE\"><br>\r\n        <input type=\"hidden\" id=\"formId\" name=\"formId\" value=\" FO2\">\r\n        <input type=\"submit\" value=\"Submit\">\r\n    </form>\r\n</body>\r\n</html>\r\n"
       - summary: Buyer app selects a marine insurance for more details
         api: select
         details:
@@ -5816,13 +5820,13 @@ x-flows:
     references: if any
     steps:
       - summary: >-
-          Insurer confirms the marine insurance order & provides the claim form
-          URL
+          Insurer confirms the marine insurance order & provides the
+          cancellation URL
         api: on_confirm
         details:
           - description: >-
               Insurer confirms the marine insurace order and provides the
-              confirmation details along with claim form URL.
+              confirmation details along with cancellation URL.
             mermaid: |-
               sequenceDiagram
                 title Order Fulfillment
@@ -6794,7 +6798,7 @@ x-flows:
                 Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
         reference: if any
         example:
-          value: "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <title>Descriptor Form</title>\r\n</head>\r\n<body>\r\n    <form action=\"/form/submission/additional-info\">\r\n        <label for=\"INDIVIDUAL_NAME\">Cndividual naompany/Ime</label>\r\n        <input type=\"text\" id=\"INDIVIDUAL_NAME\" name=\"INDIVIDUAL_NAME\"><br>\r\n        <label for=\"POLICY_START_DATE\">Policy start date</label>\r\n        <input type=\"text\" id=\"POLICY_START_DATE\" name=\"POLICY_START_DATE\"><br>\r\n        <label for=\"Coverage from\">Coverage from</label>\r\n        <input type=\"text\" id=\"Coverage from\" name=\"COVERAGE_FROM\"><br>\r\n        <label for=\"COVERAGE_TO\">Coverage to</label>\r\n        <input type=\"text\" id=\"COVERAGE_TO\" name=\"COVERAGE_TO\"><br>\r\n        <label for=\"CARGO DETAILS\">Cargo details</label>\r\n        <input type=\"text\" id=\"CARGO DETAILS\" name=\"CARGO DETAILS\"><br>\r\n        <label for=\"PACKAGING_DETAILS\">Packaging details</label>\r\n        <input type=\"text\" id=\"PACKAGING_DETAILS\" name=\"PACKAGING_DETAILS\"><br>\r\n        <label for=\"INVOICE_NUMBER\">Invoice number</label>\r\n        <input type=\"text\" id=\"INVOICE_NUMBER\" name=\"INVOICE_NUMBER\"><br>\r\n        <label for=\"INVOICE_DATE\">Invoice date</label>\r\n        <input type=\"text\" id=\"INVOICE_DATE\" name=\"INVOICE_DATE\"><br>\r\n        <input type=\"hidden\" id=\"formId\" name=\"formId\" value=\" FO2\">\r\n        <input type=\"submit\" value=\"Submit\">\r\n    </form>\r\n</body>\r\n</html>\r\n"
+          value: "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n    <title>Descriptor Form</title>\r\n</head>\r\n<body>\r\n    <form action=\"/form/submission/additional-info\">\r\n        <label for=\"INDIVIDUAL_NAME\">Company/Individual name</label>\r\n        <input type=\"text\" id=\"INDIVIDUAL_NAME\" name=\"INDIVIDUAL_NAME\"><br>\r\n        <label for=\"POLICY_START_DATE\">Policy start date</label>\r\n        <input type=\"date\" id=\"POLICY_START_DATE\" name=\"POLICY_START_DATE\"><br>\r\n        <label for=\"Coverage from\">Coverage from</label>\r\n        <input type=\"date\" id=\"Coverage from\" name=\"COVERAGE_FROM\"><br>\r\n        <label for=\"COVERAGE_TO\">Coverage to</label>\r\n        <input type=\"date\" id=\"COVERAGE_TO\" name=\"COVERAGE_TO\"><br>\r\n        <label for=\"CARGO DETAILS\">Cargo details</label>\r\n        <input type=\"text\" id=\"CARGO DETAILS\" name=\"CARGO DETAILS\"><br>\r\n        <label for=\"PACKAGING_DETAILS\">Packaging details</label>\r\n        <input type=\"text\" id=\"PACKAGING_DETAILS\" name=\"PACKAGING_DETAILS\"><br>\r\n        <label for=\"INVOICE_NUMBER\">Invoice number</label>\r\n        <input type=\"text\" id=\"INVOICE_NUMBER\" name=\"INVOICE_NUMBER\"><br>\r\n        <label for=\"INVOICE_DATE\">Invoice date</label>\r\n        <input type=\"date\" id=\"INVOICE_DATE\" name=\"INVOICE_DATE\"><br>\r\n        <input type=\"hidden\" id=\"formId\" name=\"formId\" value=\" FO2\">\r\n        <input type=\"submit\" value=\"Submit\">\r\n    </form>\r\n</body>\r\n</html>\r\n"
       - summary: Buyer app selects a marine insurance for more details
         api: select
         details:
