@@ -4095,11 +4095,11 @@ x-flows:
                               - descriptor:
                                   code: OFFLINE_CONTRACT
                                 value: 'true'
-      - summary: Buyer app fetches the vehicle details form for new policy
+      - summary: Buyer app fetches the vehicle details form
         api: form
         details:
           - description: >-
-              Buyer app fetches the vehicle details form for new policy from the
+              Buyer app fetches the vehicle details form for policy from the
               insurer using the link provided in the previous step.
             mermaid: |-
               sequenceDiagram
@@ -4119,160 +4119,116 @@ x-flows:
                 Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
         reference: if any
         example:
-          value: |-
+          value: |
             <!DOCTYPE html>
             <html lang="en">
+              <head>
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <title>Vehicle Details New</title>
+              </head>
 
-            <head>
-              <meta charset="UTF-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>Vehicle Details New</title>
-            </head>
+              <body>
+                <form action="/form/submission/vehilce-details">
+                  <label for="firstName">First Name</label>
+                  <input type="text" id="firstName" name="firstName" />
+                  <label for="lastName">Last Name</label>
+                  <input type="text" id="lastName" name="lastName" />
+                  <label for="email">Email</label>
+                  <input type="text" id="email" name="email"/>
+                  <label for="phone">Phone</label>
+                  <input type="text" id="phone" name="phone" />
+                  <label for="gender">Gender</label>
+                  <select name="gender" id="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="transgender">Transgender</option>
+                  </select>
 
-            <body>
-              <form action="/form/submission/vehilce-details">
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" />
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" />
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email" />
-                <label for="phone">Phone</label>
-                <input type="text" id="phone" name="phone" />
-                <label for="gender">Gender</label>
-                <select name="gender" id="gender" required>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="transgender">Transgender</option>
-                </select>
-                <label for="vehicleUniqueCode">Vehicle Unique Code</label>
-                <input type="text" id="vehicleUniqueCode" name="vehicleUniqueCode" />
-                <label for="rtoCode">RTO Code</label>
-                <input type="text" id="rtoCode" name="rtoCode" />
-                <label for="registrationDate">Registration Date</label>
-                <input type="date" id="registrationDate" name="registrationDate" />
-                <label for="idv">IDV</label>
-                <input type="text" id="idv" name="idv" /> 
-                <label for="coverType">Cover Type</label>
-                <select name="coverType" id="coverType">
-                  <option value="thirdParty">Third Party</option>
-                  <option value="ownDamage">Own Damage</option>
-                  <option value="comprehensive">Comprehensive</option>
-                </select>
-                <label for="PersonalAccidentCover">Personal Accident Cover</label>
-                <input type="text" id="PersonalAccidentCover" name="PersonalAccidentCover" />  
-                <label for="ncb">NCB %</label>
-                <input type="text" id="ncb" name="ncb" />
-                <input type="hidden" id="formId" name="formId" value="FO1">
-                <input type="hidden" id="transactionId" name="transactionId" value="c04a04ee-d892-400f-bbe6-479a43b4448a">
-                <input type="submit" value="Submit">
-                
-              </form>
-            </body>
+                  <!-- New -->
+                  <label for="vehicleUniqueCode">Vehicle Unique Code</label>
+                  <input type="text" id="vehicleUniqueCode" name="vehicleUniqueCode" />
 
-            </html>
-      - summary: >-
-          Buyer app fetches the vehicle details form for renewal-transfer of
-          existing policy
-        api: form
-        details:
-          - description: >-
-              Buyer app fetches the vehicle details form for renewal-transfer of
-              existing policy from the insurer using the link provided in the
-              previous step.
-            mermaid: |-
-              sequenceDiagram
-                title  Motor insurance Discovery
-                participant Buyer Platform (BAP)
-                participant Insurer Platform (BPP)
-                participant Insurer Form Service
-                rect rgb(191, 223, 255)
-                Buyer Platform (BAP)->> Insurer Form Service: Get Form
-                Insurer Form Service-->>Buyer Platform (BAP): Form Received
-                Buyer Platform (BAP)->>Insurer Form Service: Form Submission
-                Insurer Form Service-->>Buyer Platform (BAP): Submission ID 
-                end
-                Buyer Platform (BAP)->>Insurer Platform (BPP): search(with submissionID)
-                Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
-                Insurer Platform (BPP)->>Buyer Platform (BAP):on_search
-                Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
-        reference: if any
-        example:
-          value: |-
-            <!DOCTYPE html>
-            <html lang="en">
+                  <label for="rtoCode">RTO Code</label>
+                  <input type="text" id="rtoCode" name="rtoCode" />
 
-            <head>
-              <meta charset="UTF-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>Vehicle Details Renew</title>
-            </head>
+                  <label for="registrationDate">Registration Date</label>
+                  <input type="date" id="registrationDate" name="registrationDate" />
 
-            <body>
-              <form action="/form/submission/renew-vehilce-details">
-                <label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" />
-                <label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" />
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email" />
-                <label for="phone">Phone</label>
-                <input type="text" id="phone" name="phone" />
-                <label for="gender">Gender</label>
-                <select name="gender" id="gender" required>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                  <option value="transgender">Transgender</option>
-                </select>
-                <label for="registrationNumber">Vehicle Registration number</label>
-                <input type="text" id="registrationNumber" name="registrationNumber" />
-                <label for="idv">IDV</label>
-                <input type="text" id="idv" name="idv" />
-                <label for="coverType">Cover Type</label>
-                <select name="coverType" id="coverType">
-                  <option value="thirdParty">Third Party</option>
-                  <option value="ownDamage">Own Damage</option>
-                  <option value="comprehensive">Comprehensive</option>
-                </select>
-                <label for="personalAccidentCover">Personal Accident Cover</label>
-                <input type="text" id="personalAccidentCover" name="personalAccidentCover" />
+                  <label for="idv">IDV</label>
+                  <input type="text" id="idv" name="idv" />
 
-                <!-- newly added fields -->
-                <label for="paTenure">PA Tenure</label>
-                <input type="text" id="paTenure" name="paTenure"/> 
+                  <label for="coverType">Cover Type</label>
+                  <select name="coverType" id="coverType">
+                    <option value="thirdParty">Third Party</option>
+                    <option value="ownDamage">Own Damage</option>
+                    <option value="comprehensive">Comprehensive</option>
+                  </select>
 
-                <label for="policyTenure">Policy Tenure</label>
-                <input type="text" id="policyTenure" name="policyTenure"/> 
+                  <label for="PersonalAccidentCover">Personal Accident Cover</label>
+                  <input
+                    type="text"
+                    id="PersonalAccidentCover"
+                    name="PersonalAccidentCover"
+                  />
 
-                <label for="previousPolicyInsurerName">Previous Policy - Insurer Name</label>
-                <input type="text" id="previousPolicyInsurerName" name="previousPolicyInsurerName"/>
+                  <!-- renew -->
+                  <label for="registrationNumber">Vehicle Registration number</label>
+                  <input type="text" id="registrationNumber" name="registrationNumber" />
 
-                <label for="previousPolicyType">Previous Policy - Policy Type </label>
-                <input type="text" id="previousPolicyType" name="previousPolicyType"/>
+                  <label for="paTenure">PA Tenure</label>
+                  <input type="text" id="paTenure" name="paTenure"/
 
-                <label for="previousPolicyNumber">Previous Policy - Policy Number</label>
-                <input type="text" id="previousPolicyNumber" name="previousPolicyNumber"/>
+                  <label for="policyTenure">Previous Policy - Policy Tenure</label>
+                  <input type="text" id="policyTenure" name="policyTenure" />
 
-                <label for="previousPolicyDate">Previous Policy - Expiry Date</label>
-                <input type="date" id="previousPolicyDate" name="previousPolicyDate"/>
+                  <label for="previousPolicyInsurerName"
+                    >Previous Policy - Insurer Name</label
+                  >
+                  <input
+                    type="text"
+                    id="previousPolicyInsurerName"
+                    name="previousPolicyInsurerName"
+                  />
 
-                <label for="previousPolicyCustomerName">Previous Policy - Customer Name</label>
-                <input type="text" id="previousPolicyCustomerName" name="previousPolicyCustomerName"/>
+                  <label for="previousPolicyType">Previous Policy - Policy Type </label>
+                  <input type="text" id="previousPolicyType" name="previousPolicyType" />
 
-                <!-- end -->
+                  <label for="previousPolicyNumber">Previous Policy - Policy Number</label>
+                  <input
+                    type="text"
+                    id="previousPolicyNumber"
+                    name="previousPolicyNumber"
+                  />
 
-                <label for="claimStatus"> Claim Status</label>
-                <input type="checkbox" id="claimStatus" name="claimStatus" />
-                <label for="ncb">NCB %</label>
-                <input type="text" id="ncb" name="ncb" />
-               
-                <input type="hidden" id="formId" name="formId" value="FO2">
-                <input type="hidden" id="transactionId" name="transactionId" value="c04a04ee-d892-400f-bbe6-479a43b4448a">
-                <input type="submit" value="Submit">
-                
-              </form>
-            </body>
+                  <label for="previousPolicyDate">Previous Policy - Expiry Date</label>
+                  <input type="date" id="previousPolicyDate" name="previousPolicyDate" />
 
+                  <label for="previousPolicyCustomerName"
+                    >Previous Policy - Customer Name</label
+                  >
+                  <input
+                    type="text"
+                    id="previousPolicyCustomerName"
+                    name="previousPolicyCustomerName"
+                  />
+
+                  <label for="claimStatus"> Previous Policy - Claim Status</label>
+                  <input type="checkbox" id="claimStatus" name="claimStatus" />
+
+                  <label for="ncb">NCB %</label>
+                  <input type="text" id="ncb" name="ncb" />
+
+                  <input type="hidden" id="formId" name="formId" value="FO1" />
+                  <input
+                    type="hidden"
+                    id="transactionId"
+                    name="transactionId"
+                    value="c04a04ee-d892-400f-bbe6-479a43b4448a"
+                  />
+                  <input type="submit" value="Submit" />
+                </form>
+              </body>
             </html>
       - summary: Buyer app searches for available offers
         api: search
