@@ -1,0 +1,112 @@
+confirm:
+  examples:
+    - summary: confirm_0
+      description: Confirm the order post payment
+      value:
+        $ref: ./confirm/confirm_0.yaml
+init:
+  examples:
+    - summary: init_0
+      description: Request EKYC redirection url
+      value:
+        $ref: ./init/init_0.yaml
+    - summary: init_1
+      description: Request additional details form
+      value:
+        $ref: ./init/init_1.yaml
+    - summary: init_2
+      description: >-
+        Request medical checkup appointment redirection url & meical checkup
+        payment url
+      value:
+        $ref: ./init/init_2.yaml
+    - summary: init_3
+      description: Request final quote and final payment url
+      value:
+        $ref: ./init/init_3.yaml
+on_confirm:
+  examples:
+    - summary: on_confirm_1
+      description: Return final order and policy documents
+      value:
+        $ref: ./on_confirm/on_confirm_1.yaml
+on_init:
+  examples:
+    - summary: on_init_0
+      description: Return EKYC redirection url
+      value:
+        $ref: ./on_init/on_init_0.yaml
+    - summary: on_init_1
+      description: Return additional details form
+      value:
+        $ref: ./on_init/on_init_1.yaml
+    - summary: on_init_2
+      description: >-
+        Return medical checkup appointment redirection url & meical checkup
+        payment url
+      value:
+        $ref: ./on_init/on_init_2.yaml
+    - summary: on_init_3
+      description: Return final quote and final payment url
+      value:
+        $ref: ./on_init/on_init_3.yaml
+on_search:
+  examples:
+    - summary: on_search_0
+      description: Return Basic Details form and basic product info
+      value:
+        $ref: ./on_search/on_search_0.yaml
+    - summary: on_search_1
+      description: Return consent handle and basic product info
+      value:
+        $ref: ./on_search/on_search_1.yaml
+    - summary: on_search_2
+      description: Return available insurance products
+      value:
+        $ref: ./on_search/on_search_2.yaml
+on_select:
+  examples:
+    - summary: on_select_0
+      description: Lock product selection and return initial quote for selected product
+      value:
+        $ref: ./on_select/on_select_0.yaml
+on_status:
+  examples:
+    - summary: on_status_ekyc
+      description: Unsolicited on_status to pass on the latest status of EKYC
+      value:
+        $ref: ./on_status/on_status_ekyc.yaml
+    - summary: on_status_medical_checkup
+      description: Unsolicited on_status to pass on the latest status of medical checkup
+      value:
+        $ref: ./on_status/on_status_medical_checkup.yaml
+    - summary: on_status_medical_payment_update
+      description: >-
+        Unsolicited on_status to pass on the latest status of medical checkup
+        payment
+      value:
+        $ref: ./on_status/on_status_medical_payment_update.yaml
+    - summary: on_status_payment_update
+      description: Unsolicited on_status to pass on the latest status of final payment
+      value:
+        $ref: ./on_status/on_status_payment_update.yaml
+search:
+  examples:
+    - summary: search_0
+      description: Request Basic details form
+      value:
+        $ref: ./search/search_0.yaml
+    - summary: search_1
+      description: Request consent handle
+      value:
+        $ref: ./search/search_1.yaml
+    - summary: search_2
+      description: Request available products
+      value:
+        $ref: ./search/search_2.yaml
+select:
+  examples:
+    - summary: select_0
+      description: Select a product and request the inital quote breakup
+      value:
+        $ref: ./select/select_0.yaml

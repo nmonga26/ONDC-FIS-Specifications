@@ -102,7 +102,7 @@ search: &search
         descriptor: &search_message_intent_category_descriptor
           code: &search_message_intent_category_descriptor_code
             - &search_message_intent_category_descriptor_code_0
-              code: TERM_LIFE_INSURANCE
+              code: LIFE_INSURANCE
               description: Provides coverage for a specified period with no payout if the
                 policyholder survives the term
               reference: <PR/Issue/Discussion Links md format text
@@ -191,19 +191,24 @@ on_select: &on_select
                 extra.
               reference: <PR/Issue/Discussion Links md format text
             - &on_select_message_order_quote_breakup_title_1
+              code: OFFER
+              description: Describes the offer on particular item. Add the values as negative
+                for discounts.
+              reference: <PR/Issue/Discussion Links md format text
+            - &on_select_message_order_quote_breakup_title_2
               code: CONVIENCE_FEE
               description: Describes a extra charge fee.
               reference: <PR/Issue/Discussion Links md format text
-            - &on_select_message_order_quote_breakup_title_2
+            - &on_select_message_order_quote_breakup_title_3
               code: TAX
               description: Describes the tax amount charge.
               reference: <PR/Issue/Discussion Links md format text
-            - &on_select_message_order_quote_breakup_title_3
+            - &on_select_message_order_quote_breakup_title_4
               code: PROCESSING_FEE
               description: Describes a charge or fee assessed for handling, processing a
                 particular transaction, service, or request.
               reference: <PR/Issue/Discussion Links md format text
-            - &on_select_message_order_quote_breakup_title_4
+            - &on_select_message_order_quote_breakup_title_5
               code: ADD_ONS
               description: Describes a charge for additional services.
               reference: <PR/Issue/Discussion Links md format text

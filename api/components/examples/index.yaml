@@ -1,5 +1,10 @@
-life-insurance:
-  summary: Life Insurance
-  description: 'Life Insurance API examples'
+flow-2-with-offline-medical-checkup:
+  summary: Examples for offline medical checkup
+  description: Examples for offline medical checkup
   example_set:
-    $ref: ./life-insurance/index.yaml
+    $ref: ./flow-2-with-offline-medical-checkup/index.yaml
+flow-1-with-no-offline-medical-checkup:
+  summary: Examples without offline medical checkup
+  description: Examples without offline medical checkup
+  example_set:
+    $ref: ./flow-1-with-no-offline-medical-checkup/index.yaml

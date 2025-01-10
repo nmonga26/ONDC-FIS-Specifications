@@ -1,6 +1,6 @@
 descriptor:
   code: 
-    - code: TERM_INSURANCE
+    - code: LIFE_INSURANCE
       description: Pure protection plan offering a death benefit for a specific term
       reference: <PR/Issue/Discussion Links md format text
     - code: ENDOWMENT_PLAN

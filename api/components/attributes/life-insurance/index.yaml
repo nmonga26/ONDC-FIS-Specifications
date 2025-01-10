@@ -113,7 +113,7 @@ search: &search
             required: MANDATORY
             type: TEXT
             owner: BAP
-            usage: TERM_INSURANCE
+            usage: LIFE_INSURANCE
             description: Type of insurance
           _description: &search_message_intent_category_descriptor__description
             required: MANDATORY
@@ -129,7 +129,7 @@ search: &search
           usage: --
           description: This attribute explains what personal loan or invoice based loans
             are and how they function. It can provide the details into the
-            nature of choosen loan
+            nature of chosen loan
       payment: &search_message_intent_payment
         collected_by: &search_message_intent_payment_collected_by
           required: OPTIONAL
@@ -137,70 +137,6 @@ search: &search
           owner: BPP
           usage: BPP
           description: This field indicates who is the collector of payment.
-        _description: &search_message_intent_payment__description
-          required: OPTIONAL
-          type: object
-          owner: BAP
-          usage: --
-          description: The terms of settlement for this order. It describes that how the
-            customer wants to pay for the order.
-        tags: &search_message_intent_payment_tags
-          BUYER_FINDER_FEES: &search_message_intent_payment_tags_BUYER_FINDER_FEES
-            required: MANDATORY
-            type: TEXT
-            owner: BAP
-            usage: --
-            description: Describes Buyer finder fee
-            list: &search_message_intent_payment_tags_BUYER_FINDER_FEES_list
-              BUYER_FINDER_FEES_TYPE: &search_message_intent_payment_tags_BUYER_FINDER_FEES_list_BUYER_FINDER_FEES_TYPE
-                required: MANDATORY
-                type: TEXT
-                owner: BAP
-                usage: --
-                description: Describes Buyer finder fee type
-              BUYER_FINDER_FEES_PERCENTAGE: &search_message_intent_payment_tags_BUYER_FINDER_FEES_list_BUYER_FINDER_FEES_PERCENTAGE
-                required: MANDATORY
-                type: TEXT
-                owner: BAP
-                usage: --
-                description: Describes Buyer finder fee percentage
-          SETTLEMENT_TERMS: &search_message_intent_payment_tags_SETTLEMENT_TERMS
-            required: MANDATORY
-            type: TEXT
-            owner: BAP
-            usage: --
-            description: Describes settlement terms
-            list: &search_message_intent_payment_tags_SETTLEMENT_TERMS_list
-              SETTLEMENT_WINDOW: &search_message_intent_payment_tags_SETTLEMENT_TERMS_list_SETTLEMENT_WINDOW
-                required: MANDATORY
-                type: TEXT
-                owner: BAP
-                usage: --
-                description: Describes settlement window
-              SETTLEMENT_BASIS: &search_message_intent_payment_tags_SETTLEMENT_TERMS_list_SETTLEMENT_BASIS
-                required: MANDATORY
-                type: TEXT
-                owner: BAP
-                usage: --
-                description: Describes settlement basis
-              DELAY_INTEREST: &search_message_intent_payment_tags_SETTLEMENT_TERMS_list_DELAY_INTEREST
-                required: MANDATORY
-                type: TEXT
-                owner: BAP
-                usage: --
-                description: Describes delay interest
-              STATIC_TERMS: &search_message_intent_payment_tags_SETTLEMENT_TERMS_list_STATIC_TERMS
-                required: MANDATORY
-                type: TEXT
-                owner: BAP
-                usage: --
-                description: Describes static terms
-              OFFLINE_CONTRACT: &search_message_intent_payment_tags_SETTLEMENT_TERMS_list_OFFLINE_CONTRACT
-                required: MANDATORY
-                type: TEXT
-                owner: BAP
-                usage: --
-                description: Describes offline contract
       provider: &search_message_intent_provider
         id: &search_message_intent_provider_id
           required: OPTIONAL
@@ -241,7 +177,7 @@ search: &search
                 type: TEXT
                 owner: BAP
                 usage: cb8d-42fe-900e-dfecdede16fb
-                description: Unique submission id which a buyer got as a reponse after
+                description: Unique submission id which a buyer got as a response after
                   successful submission of form
               _description: &search_message_intent_provider_items_xinput_form_response__description
                 required: OPTIONAL
@@ -270,6 +206,69 @@ search: &search
         owner: BAP
         usage: --
         description: Describe the intent to buy or avail a product or a service.
+    catalog: &search_message_catalog
+      tags: &search_message_catalog_tags
+        BAP_TERMS: &search_message_catalog_tags_BAP_TERMS
+          required: MANDATORY
+          type: object
+          owner: BAP
+          usage: --
+          description: Describes Buyer App Terms
+          list: &search_message_catalog_tags_BAP_TERMS_list
+            BUYER_FINDER_FEES_TYPE: &search_message_catalog_tags_BAP_TERMS_list_BUYER_FINDER_FEES_TYPE
+              required: MANDATORY
+              type: TEXT
+              owner: BAP
+              usage: percentage
+              description: Describes Buyer finder fee type
+            BUYER_FINDER_FEES_PERCENTAGE: &search_message_catalog_tags_BAP_TERMS_list_BUYER_FINDER_FEES_PERCENTAGE
+              required: MANDATORY
+              type: TEXT
+              owner: BAP
+              usage: 1
+              description: Describes Buyer finder fee percentage
+            SETTLEMENT_WINDOW: &search_message_catalog_tags_BAP_TERMS_list_SETTLEMENT_WINDOW
+              required: MANDATORY
+              type: TEXT
+              owner: BAP
+              usage: P30D
+              description: Describes settlement window
+            SETTLEMENT_BASIS: &search_message_catalog_tags_BAP_TERMS_list_SETTLEMENT_BASIS
+              required: MANDATORY
+              type: TEXT
+              owner: BAP
+              usage: --
+              description: Describes settlement basis
+            DELAY_INTEREST: &search_message_catalog_tags_BAP_TERMS_list_DELAY_INTEREST
+              required: MANDATORY
+              type: TEXT
+              owner: BAP
+              usage: 2.5
+              description: Describes delay interest
+            STATIC_TERMS: &search_message_catalog_tags_BAP_TERMS_list_STATIC_TERMS
+              required: MANDATORY
+              type: TEXT
+              owner: BAP
+              usage: https://api.example-bap.com/booking/terms
+              description: Describes static terms
+            OFFLINE_CONTRACT: &search_message_catalog_tags_BAP_TERMS_list_OFFLINE_CONTRACT
+              required: MANDATORY
+              type: TEXT
+              owner: BAP
+              usage: TRUE/FALSE
+              description: Describes offline contract
+            MANDATORY_ARBITRATION: &search_message_catalog_tags_BAP_TERMS_list_MANDATORY_ARBITRATION
+              required: MANDATORY
+              type: TEXT
+              owner: BAP
+              usage: TRUE/FALSE
+              description: Describes mandatory arbitration
+            COURT_JURISDICTION: &search_message_catalog_tags_BAP_TERMS_list_COURT_JURISDICTION
+              required: MANDATORY
+              type: TEXT
+              owner: BAP
+              usage: New Delhi
+              description: Describes court jurisdiction
 on_search: &on_search
   context: &on_search_context
     location: *search_context_location
@@ -439,7 +438,7 @@ on_search: &on_search
                 owner: BPP
                 usage: true
                 description: Whether form has been resubmitted or not
-              multiple_sumbissions: &on_search_message_catalog_providers_items_xinput_form_multiple_sumbissions
+              multiple_submissions: &on_search_message_catalog_providers_items_xinput_form_multiple_submissions
                 required: OPTIONAL
                 type: BOOLEAN
                 owner: BPP
@@ -696,7 +695,7 @@ on_search: &on_search
               required: MANDATORY
               type: TEXT
               owner: BPP
-              usage: TERM_INSURANCE
+              usage: LIFE_INSURANCE
               description: Describes category code of Insurance
             _description: &on_search_message_catalog_providers_categories_descriptor__description
               required: MANDATORY
@@ -704,7 +703,7 @@ on_search: &on_search
               owner: BPP
               usage: --
               description: This refers to a label that can serve as a categorization tag for
-                groupiing together a collection of items for easier
+                grouping together a collection of items for easier
                 identification and management.
           id: &on_search_message_catalog_providers_categories_id
             required: MANDATORY
@@ -717,7 +716,7 @@ on_search: &on_search
             type: object
             owner: BPP
             usage: --
-            description: Describes the list of categoreies provided by the seller app
+            description: Describes the list of categories provided by the seller app
         descriptor: &on_search_message_catalog_providers_descriptor
           long_desc: &on_search_message_catalog_providers_descriptor_long_desc
             required: OPTIONAL
@@ -861,6 +860,81 @@ on_search: &on_search
           description: This attribute describes a more detailed and comprehensive
             information that showcases the diverse range of products or services
             offered by the business.
+        tags: &on_search_message_catalog_providers_tags
+          CONTACT_INFO: &on_search_message_catalog_providers_tags_CONTACT_INFO
+            required: MANDATORY
+            type: object
+            owner: BPP
+            usage: --
+            description: Describes the contact info of GRO.
+            list: &on_search_message_catalog_providers_tags_CONTACT_INFO_list
+              GRO_NAME: &on_search_message_catalog_providers_tags_CONTACT_INFO_list_GRO_NAME
+                required: MANDATORY
+                type: TEXT
+                owner: BPP
+                usage: --
+                description: Describes the gro name
+              GRO_EMAIL: &on_search_message_catalog_providers_tags_CONTACT_INFO_list_GRO_EMAIL
+                required: MANDATORY
+                type: TEXT
+                owner: BPP
+                usage: --
+                description: Describes the gro email
+              GRO_CONTACT_NUMBER: &on_search_message_catalog_providers_tags_CONTACT_INFO_list_GRO_CONTACT_NUMBER
+                required: MANDATORY
+                type: TEXT
+                owner: BPP
+                usage: --
+                description: Describes the gro contact number
+              CUSTOMER_SUPPORT_LINK: &on_search_message_catalog_providers_tags_CONTACT_INFO_list_CUSTOMER_SUPPORT_LINK
+                required: MANDATORY
+                type: TEXT
+                owner: BPP
+                usage: --
+                description: Describes the gro customer support link
+              CUSTOMER_SUPPORT_CONTACT_NUMBER: &on_search_message_catalog_providers_tags_CONTACT_INFO_list_CUSTOMER_SUPPORT_CONTACT_NUMBER
+                required: MANDATORY
+                type: TEXT
+                owner: BPP
+                usage: --
+                description: Describes the customer support contact number
+              CUSTOMER_SUPPORT_EMAIL: &on_search_message_catalog_providers_tags_CONTACT_INFO_list_CUSTOMER_SUPPORT_EMAIL
+                required: MANDATORY
+                type: TEXT
+                owner: BPP
+                usage: --
+                description: Describes the support email
+          LSP_INFO: &on_search_message_catalog_providers_tags_LSP_INFO
+            required: MANDATORY
+            type: object
+            owner: BPP
+            usage: --
+            description: Describes the lsp info
+            list: &on_search_message_catalog_providers_tags_LSP_INFO_list
+              LSP_NAME: &on_search_message_catalog_providers_tags_LSP_INFO_list_LSP_NAME
+                required: MANDATORY
+                type: TEXT
+                owner: BPP
+                usage: --
+                description: Describes the lsp name
+              LSP_EMAIL: &on_search_message_catalog_providers_tags_LSP_INFO_list_LSP_EMAIL
+                required: MANDATORY
+                type: TEXT
+                owner: BPP
+                usage: --
+                description: Describes the lsp email
+              LSP_CONTACT_NUMBER: &on_search_message_catalog_providers_tags_LSP_INFO_list_LSP_CONTACT_NUMBER
+                required: MANDATORY
+                type: TEXT
+                owner: BPP
+                usage: --
+                description: Describes the lsp contact number
+              LSP_ADDRESS: &on_search_message_catalog_providers_tags_LSP_INFO_list_LSP_ADDRESS
+                required: MANDATORY
+                type: TEXT
+                owner: BPP
+                usage: --
+                description: Describes the lsp address
       descriptor: &on_search_message_catalog_descriptor
         name: &on_search_message_catalog_descriptor_name
           required: OPTIONAL
@@ -883,6 +957,26 @@ on_search: &on_search
         usage: --
         description: This attribute describes the products or services that are sent as
           the response to the search done by BAP.
+      tags: &on_search_message_catalog_tags
+        BPP_TERMS: &on_search_message_catalog_tags_BPP_TERMS
+          required: MANDATORY
+          type: object
+          owner: BPP
+          usage: --
+          description: Describes Seller App Terms
+          list: &on_search_message_catalog_tags_BPP_TERMS_list
+            STATIC_TERMS: &on_search_message_catalog_tags_BPP_TERMS_list_STATIC_TERMS
+              required: MANDATORY
+              type: TEXT
+              owner: BPP
+              usage: https://api.example-bap.com/booking/terms
+              description: Describes static terms
+            OFFLINE_CONTRACT: &on_search_message_catalog_tags_BPP_TERMS_list_OFFLINE_CONTRACT
+              required: MANDATORY
+              type: TEXT
+              owner: BPP
+              usage: TRUE/FALSE
+              description: Describes offline contract
 select: &select
   context: &select_context
     location: *search_context_location
@@ -905,63 +999,7 @@ select: &select
     bpp_uri: *search_context_bpp_uri
   message: &select_message
     order: &select_message_order
-      fulfillments: &select_message_order_fulfillments
-        customer: &select_message_order_fulfillments_customer
-          contact: &select_message_order_fulfillments_customer_contact
-            email: &select_message_order_fulfillments_customer_contact_email
-              required: OPTIONAL
-              type: TEXT
-              owner: BPP
-              usage: joe.adam@abc.org
-              description: Email address of the customer
-            phone: &select_message_order_fulfillments_customer_contact_phone
-              required: OPTIONAL
-              type: TEXT
-              owner: BPP
-              usage: 9999999999
-              description: Phone number of the customer
-            _description: &select_message_order_fulfillments_customer_contact__description
-              required: OPTIONAL
-              type: --
-              owner: BAP
-              usage: --
-              description: This refers to the details of the customer contacts
-          person: &select_message_order_fulfillments_customer_person
-            name: &select_message_order_fulfillments_customer_person_name
-              required: OPTIONAL
-              type: TEXT
-              owner: BPP
-              usage: Joe Adam
-              description: Name of the customer
-            _description: &select_message_order_fulfillments_customer_person__description
-              required: OPTIONAL
-              type: --
-              owner: BAP
-              usage: --
-              description: This refers to the description of the associated person as an
-                individual entity.
-          _description: &select_message_order_fulfillments_customer__description
-            required: OPTIONAL
-            type: --
-            owner: BAP
-            usage: --
-            description: This refers to the description of the person that will ulitmately
-              receive the order.
-        _description: &select_message_order_fulfillments__description
-          required: OPTIONAL
-          type: --
-          owner: BAP
-          usage: --
-          description: This refers to the decription as to how that order will
-            rendered/fulfilled to the end-customers.
       items: &select_message_order_items
-        _description: &select_message_order_items__description
-          required: MANDATORY
-          type: object
-          owner: BAP/BPP
-          usage: --
-          description: This decription refers to the comprehensive list of the products or
-            services selected and obtained within the specified order.
         add_ons: &select_message_order_items_add_ons
           quantity: &select_message_order_items_add_ons_quantity
             selected: &select_message_order_items_add_ons_quantity_selected
@@ -971,19 +1009,6 @@ select: &select
                 owner: BAP
                 usage: 1
                 description: Describes the count of selected quantity for add_on item
-              _description: &select_message_order_items_add_ons_quantity_selected__description
-                required: OPTIONAL
-                type: object
-                owner: BAP
-                usage: --
-                description: Describes the selected quantity for add_ons.
-            _description: *on_search_message_catalog_providers_items_add_ons_quantity__description
-          _description: &select_message_order_items_add_ons__description
-            required: OPTIONAL
-            type: object
-            owner: BAP/BPP
-            usage: --
-            description: Describes the additional services.
           id: &select_message_order_items_add_ons_id
             required: OPTIONAL
             type: TEXT
@@ -996,52 +1021,6 @@ select: &select
           owner: BPP
           usage: 1cd4ea25
           description: Unique id of item
-        xinput: &select_message_order_items_xinput
-          form_response: &select_message_order_items_xinput_form_response
-            submission_id: &select_message_order_items_xinput_form_response_submission_id
-              required: OPTIONAL
-              type: string
-              owner: BPP
-              usage: ebff9b95
-              description: >
-                Unique submission id which a buyer got as a reponse after
-                successful submission of form
-            status: &select_message_order_items_xinput_form_response_status
-              required: OPTIONAL
-              type: string
-              owner: BPP
-              usage: ebff9b95
-              description: |
-                Describes the status of form
-            _description: &select_message_order_items_xinput_form_response__description
-              required: OPTIONAL
-              type: object
-              owner: BAP
-              usage: --
-              description: This description outlines the feedback or system's reaction to the
-                information provided following the submission of a form.
-          form: &select_message_order_items_xinput_form
-            id: &select_message_order_items_xinput_form_id
-              required: OPTIONAL
-              type: string
-              owner: BPP
-              usage: sd2344Re
-              description: |
-                Describes the unique form id.
-            _description: &select_message_order_items_xinput_form__description
-              required: OPTIONAL
-              type: object
-              owner: BPP
-              usage: --
-              description: This attribute refers to the information about additional input
-                form generated from the system.
-          _description: &select_message_order_items_xinput__description
-            required: OPTIONAL
-            type: object
-            owner: BAP/BPP
-            usage: --
-            description: This attribute refers to the information about additional input
-              required from the customer to confirm this order.
         parent_item_id: &select_message_order_items_parent_item_id
           required: MANDATORY
           type: TEXT
@@ -1055,20 +1034,6 @@ select: &select
           owner: BPP
           usage: enff9b99
           description: Unique id of provider
-        _description: &select_message_order_provider__description
-          required: MANDATORY
-          type: object
-          owner: BPP
-          usage: --
-          description: This describes the complete formulated description of the loan
-            provider whose catalog items have been selected.
-      _description: &select_message_order__description
-        required: MANDATORY
-        type: object
-        owner: BAP/BPP
-        usage: --
-        description: This refers to the complete description of the legal contract
-          created between the buyer and the seller.
 on_select: &on_select
   context: &on_select_context
     location: *search_context_location
@@ -1155,7 +1120,7 @@ on_select: &on_select
                 required: MANDATORY
                 type: TEXT
                 owner: BPP
-                usage: Addtional Details Form
+                usage: Additional Details Form
                 description: Headings of form
               _description: &on_select_message_order_items_xinput_head_descriptor__description
                 required: MANDATORY
@@ -1167,7 +1132,7 @@ on_select: &on_select
               required: MANDATORY
               type: TEXT
               owner: BPP
-              usage: Addtional Details Form
+              usage: Additional Details Form
               description: Describes the heading of the form.
             _description: &on_select_message_order_items_xinput_head__description
               required: MANDATORY
@@ -1194,19 +1159,19 @@ on_select: &on_select
               type: BOOLEAN
               owner: BPP
               usage: true
-              description: Describes a form can be re-submited again or not.
-            multiple_sumbissions: &on_select_message_order_items_xinput_form_multiple_sumbissions
+              description: Describes a form can be re-submitted again or not.
+            multiple_submissions: &on_select_message_order_items_xinput_form_multiple_submissions
               required: MANDATORY
               type: BOOLEAN
               owner: BPP
               usage: false
-              description: Describes a form supports multiple sumbissions or not.
+              description: Describes a form supports multiple submissions or not.
             id: &on_select_message_order_items_xinput_form_id
               required: MANDATORY
               type: TEXT
               owner: BPP
               usage: a251xd4e
-              description: Describes the uqniue form id.
+              description: Describes the unique form id.
             _description: &on_select_message_order_items_xinput_form__description
               required: MANDATORY
               type: object
@@ -1276,8 +1241,13 @@ on_select: &on_select
               type: object
               owner: BPP
               usage: --
-              description: Describes the info anout descriptor
-          _description: *select_message_order_items_add_ons__description
+              description: Describes the info about descriptor
+          _description: &on_select_message_order_items_add_ons__description
+            required: OPTIONAL
+            type: object
+            owner: BAP/BPP
+            usage: --
+            description: Describes the additional services.
           price: *on_search_message_catalog_providers_items_add_ons_price
         parent_item_id: *select_message_order_items_parent_item_id
         price: &on_select_message_order_items_price
@@ -1299,7 +1269,13 @@ on_select: &on_select
             owner: BPP
             usage: --
             description: Describes the price for item.
-        _description: *select_message_order_items__description
+        _description: &on_select_message_order_items__description
+          required: MANDATORY
+          type: object
+          owner: BAP/BPP
+          usage: --
+          description: This description refers to the comprehensive list of the products
+            or services selected and obtained within the specified order.
         tags: &on_select_message_order_items_tags
           GENERAL_INFO: &on_select_message_order_items_tags_GENERAL_INFO
             required: MANDATORY
@@ -1334,37 +1310,15 @@ on_select: &on_select
                 usage: --
                 description: Describes period till which coverage is active e.g. 60 years age
               PAYMENT_FREQUENCY: *on_search_message_catalog_providers_items_tags_GENERAL_INFO_list_PAYMENT_FREQUENCY
-              BASE_PRICE: &on_select_message_order_items_tags_GENERAL_INFO_list_BASE_PRICE
-                required: MANDATORY
-                type: TEXT
-                owner: BPP
-                usage: -- (This are not present in health insurnace)
-                description: Describes base price
-              CONVIENCE_FEE: &on_select_message_order_items_tags_GENERAL_INFO_list_CONVIENCE_FEE
-                required: MANDATORY
-                type: TEXT
-                owner: BPP
-                usage: -- (This are not present in health insurnace)
-                description: Describes convience fee price
-              PROCESSING_FEE: &on_select_message_order_items_tags_GENERAL_INFO_list_PROCESSING_FEE
-                required: MANDATORY
-                type: TEXT
-                owner: BPP
-                usage: -- (This are not present in health insurnace)
-                description: Describes processing fee
-              TAX: &on_select_message_order_items_tags_GENERAL_INFO_list_TAX
-                required: MANDATORY
-                type: TEXT
-                owner: BPP
-                usage: -- (This are not present in health insurnace)
-                description: Describes tax
               PROPOSAL_ID: &on_select_message_order_items_tags_GENERAL_INFO_list_PROPOSAL_ID
                 required: OPTIONAL
                 type: TEXT
                 owner: BPP
                 usage: PROPOSAL_ID
-                description: In case the PROPOSAL_ID is different from quote id, plesae provide
+                description: In case the PROPOSAL_ID is different from quote id, please provide
                   proposal id.
+          CHECKLIST: *on_search_message_catalog_providers_items_tags_CHECKLIST
+          CHECKLIST_INFO: *on_search_message_catalog_providers_items_tags_CHECKLIST_INFO
       provider: &on_select_message_order_provider
         descriptor: &on_select_message_order_provider_descriptor
           long_desc: &on_select_message_order_provider_descriptor_long_desc
@@ -1407,7 +1361,13 @@ on_select: &on_select
             description: Short description about insurer
           _description: *on_search_message_catalog_providers_descriptor__description
         id: *select_message_order_provider_id
-        _description: *select_message_order_provider__description
+        _description: &on_select_message_order_provider__description
+          required: MANDATORY
+          type: object
+          owner: BPP
+          usage: --
+          description: This describes the complete formulated description of the loan
+            provider whose order items have been selected.
       quote: &on_select_message_order_quote
         id: &on_select_message_order_quote_id
           required: MANDATORY
@@ -1428,7 +1388,7 @@ on_select: &on_select
               type: TEXT
               owner: BPP
               usage: INR
-              description: Curreny type of the selected item.
+              description: Currency type of the selected item.
             _description: &on_select_message_order_quote_breakup_price__description
               required: MANDATORY
               type: object
@@ -1486,7 +1446,7 @@ on_select: &on_select
           type: object
           owner: BPP
           usage: --
-          description: This refers to the complete description of the mutully agreed upon
+          description: This refers to the complete description of the mutually agreed upon
             quotation for this order.
         ttl: &on_select_message_order_quote_ttl
           required: OPTIONAL
@@ -1494,7 +1454,13 @@ on_select: &on_select
           owner: BPP
           usage: PT15D
           description: Describes the ttl of the quote
-      _description: *select_message_order__description
+      _description: &on_select_message_order__description
+        required: MANDATORY
+        type: object
+        owner: BAP/BPP
+        usage: --
+        description: This refers to the complete description of the legal contract
+          created between the buyer and the seller.
       payments: &on_select_message_order_payments
         status: &on_select_message_order_payments_status
           required: MANDATORY
@@ -1502,44 +1468,31 @@ on_select: &on_select
           owner: BPP
           usage: NOT-PAID
           description: Describes payment status
-        url: &on_select_message_order_payments_url
-          required: MANDATORY
-          type: TEXT
-          owner: BPP
-          usage: https://www.abcinsurance.com/pg-gateway/payment?amount=1000&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
-          description: Describes payment url
         type: &on_select_message_order_payments_type
           required: MANDATORY
           type: TEXT
           owner: BPP
           usage: PRE-ORDER
           description: Describe the type of payment
-        params: &on_select_message_order_payments_params
-          amount: &on_select_message_order_payments_params_amount
-            required: MANDATORY
-            type: NUMERIC
-            owner: BPP
-            usage: 1000
-            description: Describes payment amount
-          currency: &on_select_message_order_payments_params_currency
-            required: MANDATORY
+      providers: &on_select_message_order_providers
+        tags: &on_select_message_order_providers_tags
+          CONSENT_INFO: &on_select_message_order_providers_tags_CONSENT_INFO
+            required: OPTIONAL
             type: TEXT
             owner: BPP
-            usage: INR
-            description: Describes currency to be paid in
-    catalog: &on_select_message_catalog
-      providers: &on_select_message_catalog_providers
-        items: &on_select_message_catalog_providers_items
-          tags: &on_select_message_catalog_providers_items_tags
-            CONSENT_INFO: &on_select_message_catalog_providers_items_tags_CONSENT_INFO
-              required: OPTIONAL
-              type: TEXT
-              owner: BPP
-              usage: General
-              description: Describes Consent info
-              list: *on_search_message_catalog_providers_items_tags_CONSENT_INFO_list
-            CHECKLIST: *on_search_message_catalog_providers_items_tags_CHECKLIST
-            CHECKLIST_INFO: *on_search_message_catalog_providers_items_tags_CHECKLIST_INFO
+            usage: General
+            description: Describes Consent info
+            list: &on_select_message_order_providers_tags_CONSENT_INFO_list
+              CONSENT_HANDLER: &on_select_message_order_providers_tags_CONSENT_INFO_list_CONSENT_HANDLER
+                required: OPTIONAL
+                type: TEXT
+                owner: BPP
+                usage: General
+                description: Describes consent handler info
+          CONTACT_INFO: *on_search_message_catalog_providers_tags_CONTACT_INFO
+          LSP_INFO: *on_search_message_catalog_providers_tags_LSP_INFO
+    intent: &on_select_message_intent
+      payment: *search_message_intent_payment
 init: &init
   context: &init_context
     location: *search_context_location
@@ -1568,9 +1521,14 @@ init: &init
           quantity: &init_message_order_items_add_ons_quantity
             selected: &init_message_order_items_add_ons_quantity_selected
               count: *on_select_message_order_items_add_ons_quantity_available_count
-              _description: *select_message_order_items_add_ons_quantity_selected__description
+              _description: &init_message_order_items_add_ons_quantity_selected__description
+                required: OPTIONAL
+                type: object
+                owner: BAP
+                usage: --
+                description: Describes the selected quantity for add_ons.
             _description: *on_search_message_catalog_providers_items_add_ons_quantity__description
-          _description: *select_message_order_items_add_ons__description
+          _description: *on_select_message_order_items_add_ons__description
         xinput: &init_message_order_items_xinput
           form_response: &init_message_order_items_xinput_form_response
             submission_id: &init_message_order_items_xinput_form_response_submission_id
@@ -1584,8 +1542,14 @@ init: &init
               type: TEXT
               owner: BPP
               usage: success
-              description: Describes the form repsonse
-            _description: *select_message_order_items_xinput_form_response__description
+              description: Describes the form response
+            _description: &init_message_order_items_xinput_form_response__description
+              required: OPTIONAL
+              type: object
+              owner: BAP
+              usage: --
+              description: This description outlines the feedback or system's reaction to the
+                information provided following the submission of a form.
           form: &init_message_order_items_xinput_form
             id: &init_message_order_items_xinput_form_id
               required: MANDATORY
@@ -1593,11 +1557,23 @@ init: &init
               owner: BPP
               usage: sd2344Re
               description: Describes the unique form id.
-            _description: *select_message_order_items_xinput_form__description
-          _description: *select_message_order_items_xinput__description
+            _description: &init_message_order_items_xinput_form__description
+              required: OPTIONAL
+              type: object
+              owner: BPP
+              usage: --
+              description: This attribute refers to the information about additional input
+                form generated from the system.
+          _description: &init_message_order_items_xinput__description
+            required: OPTIONAL
+            type: object
+            owner: BAP/BPP
+            usage: --
+            description: This attribute refers to the information about additional input
+              required from the customer to confirm this order.
         id: *select_message_order_items_id
         parent_item_id: *select_message_order_items_parent_item_id
-        _description: *select_message_order_items__description
+        _description: *on_select_message_order_items__description
       fulfillments: &init_message_order_fulfillments
         customer: &init_message_order_fulfillments_customer
           contact: &init_message_order_fulfillments_customer_contact
@@ -1606,13 +1582,13 @@ init: &init
               type: TEXT
               owner: BPP
               usage: joe.adam@abc.org
-              description: Email address of the cusotmer
+              description: Email address of the customer
             phone: &init_message_order_fulfillments_customer_contact_phone
               required: MANDATORY
               type: TEXT
               owner: BPP
               usage: 9999999999
-              description: Phone number of the cusotmer
+              description: Phone number of the customer
             _description: &init_message_order_fulfillments_customer_contact__description
               required: OPTIONAL
               type: object
@@ -1638,16 +1614,24 @@ init: &init
             type: object
             owner: BAP
             usage: --
-            description: This refers to the description of the person that will ulitmately
+            description: This refers to the description of the person that will ultimately
               receive the order.
         _description: &init_message_order_fulfillments__description
           required: OPTIONAL
           type: object
           owner: BAP
           usage: --
-          description: This refers to the decription as to how that order will
+          description: This refers to the description as to how that order will
             rendered/fulfilled to the end-customers.
-      provider: *select_message_order_provider
+      provider: &init_message_order_provider
+        id: *select_message_order_provider_id
+        _description: &init_message_order_provider__description
+          required: MANDATORY
+          type: object
+          owner: BPP
+          usage: --
+          description: This describes the complete formulated description of the loan
+            provider whose catalog items have been selected.
       payments: &init_message_order_payments
         collected_by: *on_search_message_catalog_providers_payments_collected_by
         status: &init_message_order_payments_status
@@ -1686,7 +1670,7 @@ init: &init
             type: TEXT
             owner: BAP
             usage: INR
-            description: Describe the currency assoicated to amount.
+            description: Describe the currency associated to amount.
           _description: &init_message_order_payments_params__description
             required: MANDATORY
             type: object
@@ -1702,33 +1686,8 @@ init: &init
             insinuates to the BPP for a single transaction. These terms includes
             the amount, payment destination, time of settlement and a
             transaction reference ID.
-        tags: &init_message_order_payments_tags
-          BUYER_FINDER_FEES: *on_search_message_catalog_providers_payments_tags_BUYER_FINDER_FEES
-          SETTLEMENT_TERMS: &init_message_order_payments_tags_SETTLEMENT_TERMS
-            required: MANDATORY
-            type: TEXT
-            owner: BAP/BPP
-            usage: --
-            description: Describes settlement terms
-            list: &init_message_order_payments_tags_SETTLEMENT_TERMS_list
-              SETTLEMENT_WINDOW: *on_search_message_catalog_providers_payments_tags_SETTLEMENT_TERMS_list_SETTLEMENT_WINDOW
-              SETTLEMENT_BASIS: *on_search_message_catalog_providers_payments_tags_SETTLEMENT_TERMS_list_SETTLEMENT_BASIS
-              DELAY_INTEREST: *on_search_message_catalog_providers_payments_tags_SETTLEMENT_TERMS_list_DELAY_INTEREST
-              STATIC_TERMS: *on_search_message_catalog_providers_payments_tags_SETTLEMENT_TERMS_list_STATIC_TERMS
-              OFFLINE_CONTRACT: *on_search_message_catalog_providers_payments_tags_SETTLEMENT_TERMS_list_OFFLINE_CONTRACT
-              SETTLEMENT_AMOUNT: &init_message_order_payments_tags_SETTLEMENT_TERMS_list_SETTLEMENT_AMOUNT
-                required: MANDATORY
-                type: TEXT
-                owner: BAP/BPP
-                usage: --
-                description: Describes settlement amount to counter-party
-              SETTLEMENT_TYPE: &init_message_order_payments_tags_SETTLEMENT_TERMS_list_SETTLEMENT_TYPE
-                required: MANDATORY
-                type: TEXT
-                owner: BAP/BPP
-                usage: --
-                description: Describes settlement type
-      _description: *select_message_order__description
+      _description: *on_select_message_order__description
+      tags: *search_message_catalog_tags
 on_init: &on_init
   context: &on_init_context
     location: *search_context_location
@@ -1773,7 +1732,7 @@ on_init: &on_init
               usage: NO_CLAIM_BONUS
               description: Describes the code of the add_on item
             _description: *on_select_message_order_items_add_ons_descriptor__description
-          _description: *select_message_order_items_add_ons__description
+          _description: *on_select_message_order_items_add_ons__description
           price: *on_search_message_catalog_providers_items_add_ons_price
         category_ids: *on_select_message_order_items_category_ids
         descriptor: &on_init_message_order_items_descriptor
@@ -1847,26 +1806,65 @@ on_init: &on_init
               type: BOOLEAN
               owner: BPP
               usage: true
-              description: Describes a form can be re-submited again or not.
-            multiple_sumbissions: &on_init_message_order_items_xinput_form_multiple_sumbissions
+              description: Describes a form can be re-submitted again or not.
+            multiple_submissions: &on_init_message_order_items_xinput_form_multiple_submissions
               required: OPTIONAL
               type: BOOLEAN
               owner: BPP
               usage: false
-              description: Describes a form supports multiple sumbissions or not.
+              description: Describes a form supports multiple submissions or not.
             id: &on_init_message_order_items_xinput_form_id
               required: OPTIONAL
               type: TEXT
               owner: BPP
               usage: a251xd4e
-              description: Describes the uqniue form id.
+              description: Describes the unique form id.
             _description: *on_select_message_order_items_xinput_form__description
           required: *on_search_message_catalog_providers_items_xinput_required
           _description: *on_select_message_order_items_xinput__description
         parent_item_id: *select_message_order_items_parent_item_id
         price: *on_select_message_order_items_price
-        _description: *select_message_order_items__description
-        tags: *on_select_message_order_items_tags
+        _description: *on_select_message_order_items__description
+        tags: &on_init_message_order_items_tags
+          GENERAL_INFO: &on_init_message_order_items_tags_GENERAL_INFO
+            required: MANDATORY
+            type: TEXT
+            owner: BPP
+            usage: --
+            description: Describes general info
+            list: &on_init_message_order_items_tags_GENERAL_INFO_list
+              COVERAGE_AMOUNT: *on_select_message_order_items_tags_GENERAL_INFO_list_COVERAGE_AMOUNT
+              CLAIM_SETTLEMENT_RATIO: *on_select_message_order_items_tags_GENERAL_INFO_list_CLAIM_SETTLEMENT_RATIO
+              FREE_LOOKUP_PERIOD: *on_select_message_order_items_tags_GENERAL_INFO_list_FREE_LOOKUP_PERIOD
+              COVERAGE_PERIOD: *on_select_message_order_items_tags_GENERAL_INFO_list_COVERAGE_PERIOD
+              PAYMENT_FREQUENCY: *on_search_message_catalog_providers_items_tags_GENERAL_INFO_list_PAYMENT_FREQUENCY
+              BASE_PRICE: &on_init_message_order_items_tags_GENERAL_INFO_list_BASE_PRICE
+                required: MANDATORY
+                type: TEXT
+                owner: BPP
+                usage: -- (This are not present in health insurance)
+                description: Describes base price
+              CONVIENCE_FEE: &on_init_message_order_items_tags_GENERAL_INFO_list_CONVIENCE_FEE
+                required: MANDATORY
+                type: TEXT
+                owner: BPP
+                usage: -- (This are not present in health insurance)
+                description: Describes convience fee price
+              PROCESSING_FEE: &on_init_message_order_items_tags_GENERAL_INFO_list_PROCESSING_FEE
+                required: MANDATORY
+                type: TEXT
+                owner: BPP
+                usage: -- (This are not present in health insurance)
+                description: Describes processing fee
+              TAX: &on_init_message_order_items_tags_GENERAL_INFO_list_TAX
+                required: MANDATORY
+                type: TEXT
+                owner: BPP
+                usage: -- (This are not present in health insurance)
+                description: Describes tax
+              PROPOSAL_ID: *on_select_message_order_items_tags_GENERAL_INFO_list_PROPOSAL_ID
+          CHECKLIST: *on_search_message_catalog_providers_items_tags_CHECKLIST
+          CHECKLIST_INFO: *on_search_message_catalog_providers_items_tags_CHECKLIST_INFO
       fulfillments: &on_init_message_order_fulfillments
         customer: &on_init_message_order_fulfillments_customer
           contact: &on_init_message_order_fulfillments_customer_contact
@@ -1883,7 +1881,7 @@ on_init: &on_init
             type: object
             owner: BAP
             usage: --
-            description: This refers to the description of the person that will ulitmately
+            description: This refers to the description of the person that will ultimately
               receive the order.
           person: &on_init_message_order_fulfillments_customer_person
             _description: &on_init_message_order_fulfillments_customer_person__description
@@ -1904,7 +1902,7 @@ on_init: &on_init
           type: object
           owner: BAP/BPP
           usage: --
-          description: This refers to the decription as to how that order will
+          description: This refers to the description as to how that order will
             rendered/fulfilled to the end-customers.
       payments: &on_init_message_order_payments
         collected_by: &on_init_message_order_payments_collected_by
@@ -1932,7 +1930,12 @@ on_init: &on_init
             owner: BPP
             usage: SBIN0001234
             description: Describes bank code
-          currency: *on_select_message_order_payments_params_currency
+          currency: &on_init_message_order_payments_params_currency
+            required: MANDATORY
+            type: TEXT
+            owner: BPP
+            usage: INR
+            description: Describes currency to be paid in
           _description: *init_message_order_payments_params__description
         status: &on_init_message_order_payments_status
           required: MANDATORY
@@ -1944,31 +1947,18 @@ on_init: &on_init
           required: MANDATORY
           type: TEXT
           owner: BPP
-          usage: PRE-FULLFILMENT
+          usage: PRE-FULFILLMENT
           description: Describes payment type
-        url: *on_select_message_order_payments_url
+        url: &on_init_message_order_payments_url
+          required: MANDATORY
+          type: TEXT
+          owner: BPP
+          usage: https://www.abcinsurance.com/pg-gateway/payment?amount=1000&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
+          description: Describes payment url
         _description: *init_message_order_payments__description
-        tags: &on_init_message_order_payments_tags
-          BUYER_FINDER_FEES: *on_search_message_catalog_providers_payments_tags_BUYER_FINDER_FEES
-          SETTLEMENT_TERMS: &on_init_message_order_payments_tags_SETTLEMENT_TERMS
-            required: MANDATORY
-            type: TEXT
-            owner: BAP/BPP
-            usage: --
-            description: Describes settlement terms
-            list: &on_init_message_order_payments_tags_SETTLEMENT_TERMS_list
-              SETTLEMENT_WINDOW: *on_search_message_catalog_providers_payments_tags_SETTLEMENT_TERMS_list_SETTLEMENT_WINDOW
-              SETTLEMENT_BASIS: *on_search_message_catalog_providers_payments_tags_SETTLEMENT_TERMS_list_SETTLEMENT_BASIS
-              DELAY_INTEREST: *on_search_message_catalog_providers_payments_tags_SETTLEMENT_TERMS_list_DELAY_INTEREST
-              STATIC_TERMS: *on_search_message_catalog_providers_payments_tags_SETTLEMENT_TERMS_list_STATIC_TERMS
-              OFFLINE_CONTRACT: *on_search_message_catalog_providers_payments_tags_SETTLEMENT_TERMS_list_OFFLINE_CONTRACT
-              SETTLEMENT_AMOUNT: *init_message_order_payments_tags_SETTLEMENT_TERMS_list_SETTLEMENT_AMOUNT
-              SETTLEMENT_TYPE: *init_message_order_payments_tags_SETTLEMENT_TERMS_list_SETTLEMENT_TYPE
-              MANDATORY_ARBITRATION: *on_search_message_catalog_providers_payments_tags_SETTLEMENT_TERMS_list_MANDATORY_ARBITRATION
-              COURT_JURISDICTION: *on_search_message_catalog_providers_payments_tags_SETTLEMENT_TERMS_list_COURT_JURISDICTION
       provider: *on_select_message_order_provider
       quote: *on_select_message_order_quote
-      _description: *select_message_order__description
+      _description: *on_select_message_order__description
       cancellation_terms: &on_init_message_order_cancellation_terms
         external_ref: &on_init_message_order_cancellation_terms_external_ref
           mimetype: &on_init_message_order_cancellation_terms_external_ref_mimetype
@@ -1983,7 +1973,7 @@ on_init: &on_init
             owner: BPP
             usage: https://fis.test.bpp.io/cancellation-terms
             description: Describes the url of cancellation terms
-    catalog: *on_select_message_catalog
+      tags: *on_search_message_catalog_tags
 confirm: &confirm
   context: &confirm_context
     location: *search_context_location
@@ -2010,9 +2000,9 @@ confirm: &confirm
         add_ons: *init_message_order_items_add_ons
         xinput: &confirm_message_order_items_xinput
           form_response: *init_message_order_items_xinput_form_response
-          _description: *select_message_order_items_xinput__description
+          _description: *init_message_order_items_xinput__description
           form: &confirm_message_order_items_xinput_form
-            _description: *select_message_order_items_xinput_form__description
+            _description: *init_message_order_items_xinput_form__description
             id: *init_message_order_items_xinput_form_id
         id: *on_init_message_order_items_id
         parent_item_id: *select_message_order_items_parent_item_id
@@ -2037,7 +2027,7 @@ confirm: &confirm
               usage: 2023-07-01T07:12:29.429Z
               description: Describes the range for time entity
           _description: *on_select_message_order_items_time__description
-        _description: *select_message_order_items__description
+        _description: *on_select_message_order_items__description
       fulfillments: &confirm_message_order_fulfillments
         customer: &confirm_message_order_fulfillments_customer
           contact: *init_message_order_fulfillments_customer_contact
@@ -2068,7 +2058,7 @@ confirm: &confirm
           type: object
           owner: BAP/BPP
           usage: --
-          description: This refers to the decription as to how that order will
+          description: This refers to the description as to how that order will
             rendered/fulfilled to the end-customers.
       provider: &confirm_message_order_provider
         id: &confirm_message_order_provider_id
@@ -2077,14 +2067,19 @@ confirm: &confirm
           owner: BPP
           usage: enff9b99
           description: Describes the provider id
-        _description: *select_message_order_provider__description
+        _description: *init_message_order_provider__description
       payments: &confirm_message_order_payments
         collected_by: *on_init_message_order_payments_collected_by
         params: &confirm_message_order_payments_params
-          amount: *on_select_message_order_payments_params_amount
+          amount: &confirm_message_order_payments_params_amount
+            required: MANDATORY
+            type: NUMERIC
+            owner: BPP
+            usage: 1000
+            description: Describes payment amount
           bank_account_number: *on_init_message_order_payments_params_bank_account_number
           bank_code: *on_init_message_order_payments_params_bank_code
-          currency: *on_select_message_order_payments_params_currency
+          currency: *on_init_message_order_payments_params_currency
           transaction_id: &confirm_message_order_payments_params_transaction_id
             required: OPTIONAL
             type: TEXT
@@ -2095,7 +2090,6 @@ confirm: &confirm
         status: *on_select_message_order_payments_status
         type: *on_init_message_order_payments_type
         _description: *init_message_order_payments__description
-        tags: *init_message_order_payments_tags
       quote: &confirm_message_order_quote
         id: &confirm_message_order_quote_id
           required: OPTIONAL
@@ -2116,7 +2110,7 @@ confirm: &confirm
               type: TEXT
               owner: BPP
               usage: INR
-              description: Curreny type of the selected item.
+              description: Currency type of the selected item.
             _description: &confirm_message_order_quote_breakup_price__description
               required: OPTIONAL
               type: object
@@ -2174,9 +2168,10 @@ confirm: &confirm
           type: object
           owner: BPP
           usage: --
-          description: This refers to the complete description of the mutully agreed upon
+          description: This refers to the complete description of the mutually agreed upon
             quotation for this order.
-      _description: *select_message_order__description
+      _description: *on_select_message_order__description
+      tags: *search_message_catalog_tags
 on_confirm: &on_confirm
   context: &on_confirm_context
     location: *search_context_location
@@ -2217,7 +2212,7 @@ on_confirm: &on_confirm
               usage: no claim bonus
               description: false
             _description: *on_select_message_order_items_add_ons_descriptor__description
-          _description: *select_message_order_items_add_ons__description
+          _description: *on_select_message_order_items_add_ons__description
           price: *on_search_message_catalog_providers_items_add_ons_price
         id: *on_init_message_order_items_id
         price: *on_select_message_order_items_price
@@ -2227,7 +2222,7 @@ on_confirm: &on_confirm
           type: TEXT
           owner: BPP
           usage: 4eR21iB
-          description: Describes the id of the fulfillments assciated to the item
+          description: Describes the id of the fulfillments associated to the item
         time: *on_select_message_order_items_time
         descriptor: &on_confirm_message_order_items_descriptor
           name: &on_confirm_message_order_items_descriptor_name
@@ -2240,11 +2235,11 @@ on_confirm: &on_confirm
             required: MANDATORY
             type: TEXT
             owner: BPP
-            usage: ABC Individaul Health Insurance Class A with custom addon
+            usage: ABC Individual Health Insurance Class A with custom addon
             description: Short description about the insurance type
           _description: *on_search_message_catalog_providers_items_descriptor__description
-        _description: *select_message_order_items__description
-        tags: *on_select_message_order_items_tags
+        _description: *on_select_message_order_items__description
+        tags: *on_init_message_order_items_tags
       fulfillments: &on_confirm_message_order_fulfillments
         customer: &on_confirm_message_order_fulfillments_customer
           contact: &on_confirm_message_order_fulfillments_customer_contact
@@ -2253,13 +2248,13 @@ on_confirm: &on_confirm
               type: TEXT
               owner: BAP
               usage: joe.adam@abc.org
-              description: Email address of the cusotmer
+              description: Email address of the customer
             phone: &on_confirm_message_order_fulfillments_customer_contact_phone
               required: MANDATORY
               type: TEXT
               owner: BAP
               usage: 9999999999
-              description: Phone number of the cusotmer
+              description: Phone number of the customer
             _description: *on_init_message_order_fulfillments_customer_contact__description
           _description: *on_init_message_order_fulfillments_customer__description
           person: *on_init_message_order_fulfillments_customer_person
@@ -2288,7 +2283,7 @@ on_confirm: &on_confirm
       provider: &on_confirm_message_order_provider
         id: *confirm_message_order_provider_id
         descriptor: *on_select_message_order_provider_descriptor
-        _description: *select_message_order_provider__description
+        _description: *on_select_message_order_provider__description
       payments: &on_confirm_message_order_payments
         collected_by: *on_init_message_order_payments_collected_by
         url: &on_confirm_message_order_payments_url
@@ -2298,10 +2293,10 @@ on_confirm: &on_confirm
           usage: https://www.abcinsurance.com/pg-gateway/payment?amount=1000&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
           description: false
         params: &on_confirm_message_order_payments_params
-          amount: *on_select_message_order_payments_params_amount
+          amount: *confirm_message_order_payments_params_amount
           bank_account_number: *on_init_message_order_payments_params_bank_account_number
           bank_code: *on_init_message_order_payments_params_bank_code
-          currency: *on_select_message_order_payments_params_currency
+          currency: *on_init_message_order_payments_params_currency
           transaction_id: &on_confirm_message_order_payments_params_transaction_id
             required: MANDATORY
             type: TEXT
@@ -2312,7 +2307,6 @@ on_confirm: &on_confirm
         status: *on_select_message_order_payments_status
         type: *on_init_message_order_payments_type
         _description: *init_message_order_payments__description
-        tags: *on_init_message_order_payments_tags
       quote: *on_select_message_order_quote
       id: &on_confirm_message_order_id
         required: MANDATORY
@@ -2375,8 +2369,8 @@ on_confirm: &on_confirm
           type: object
           owner: BPP
           usage: --
-          description: Describes documnents associated to the order
-      _description: *select_message_order__description
+          description: Describes documents associated to the order
+      _description: *on_select_message_order__description
       created_at: &on_confirm_message_order_created_at
         required: MANDATORY
         type: TEXT
@@ -2403,7 +2397,9 @@ on_confirm: &on_confirm
             owner: BPP
             usage: https://fis.test.bpp.io/cancellation-terms
             description: Describes the url of cancellation terms
-    catalog: *on_select_message_catalog
+      tags: &on_confirm_message_order_tags
+        BPP_TERMS: *on_search_message_catalog_tags_BPP_TERMS
+        BAP_TERMS: *search_message_catalog_tags_BAP_TERMS
 cancel: &cancel
   context: &cancel_context
     location: &cancel_context_location
@@ -2565,7 +2561,7 @@ on_cancel: &on_cancel
               type: string
               owner: BPP
               usage: NO_CLAIM_BONUS
-              description: Phsyical description of code
+              description: Physical description of code
             name: &on_cancel_message_order_items_add_ons_descriptor_name
               required: OPTIONAL
               type: string
@@ -2573,7 +2569,7 @@ on_cancel: &on_cancel
               usage: no claim bonus
               description: false
             _description: *on_select_message_order_items_add_ons_descriptor__description
-          _description: *select_message_order_items_add_ons__description
+          _description: *on_select_message_order_items_add_ons__description
           price: &on_cancel_message_order_items_add_ons_price
             value: &on_cancel_message_order_items_add_ons_price_value
               required: OPTIONAL
@@ -2599,8 +2595,7 @@ on_cancel: &on_cancel
           type: string
           owner: BPP
           usage: 1xd4ea25
-          description: |
-            Unique id of item
+          description: "Unique id of item\r\n"
         price: &on_cancel_message_order_items_price
           value: &on_cancel_message_order_items_price_value
             required: MANDATORY
@@ -2640,10 +2635,10 @@ on_cancel: &on_cancel
             required: MANDATORY
             type: string
             owner: BPP
-            usage: ABC Individaul Health Insurance Class A with custom addon
+            usage: ABC Individual Health Insurance Class A with custom addon
             description: Short description about the insurance type
           _description: *on_search_message_catalog_providers_items_descriptor__description
-        _description: *select_message_order_items__description
+        _description: *on_select_message_order_items__description
         tags: &on_cancel_message_order_items_tags
           GENERAL_INFO: &on_cancel_message_order_items_tags_GENERAL_INFO
             required: MANDATORY
@@ -2687,13 +2682,13 @@ on_cancel: &on_cancel
                 type: string
                 owner: BPP
                 usage: --
-                description: Describes pre hospitalizaion coverage days
+                description: Describes pre hospitalization coverage days
               POST_HOSPITALIZATION_COVERAGE_DAYS: &on_cancel_message_order_items_tags_GENERAL_INFO_list_POST_HOSPITALIZATION_COVERAGE_DAYS
                 required: MANDATORY
                 type: string
                 owner: BPP
                 usage: --
-                description: Describes post hospitalizaion coverage days
+                description: Describes post hospitalization coverage days
               MATERNITY_COVERAGE: &on_cancel_message_order_items_tags_GENERAL_INFO_list_MATERNITY_COVERAGE
                 required: MANDATORY
                 type: string
@@ -2718,14 +2713,16 @@ on_cancel: &on_cancel
                 type: string
                 owner: BPP
                 usage: PROPOSAL_ID
-                description: In case the PROPOSAL_ID is different from quote id, plesae provide
+                description: In case the PROPOSAL_ID is different from quote id, please provide
                   proposal id.
+          CHECKLIST: *on_search_message_catalog_providers_items_tags_CHECKLIST
+          CHECKLIST_INFO: *on_search_message_catalog_providers_items_tags_CHECKLIST_INFO
         fulfillment_ids: &on_cancel_message_order_items_fulfillment_ids
           required: MANDATORY
           type: string
           owner: BPP
           usage: 4eR21iB
-          description: Describes the id of the fulfillments assciated to the item
+          description: Describes the id of the fulfillments associated to the item
       fulfillments: &on_cancel_message_order_fulfillments
         customer: &on_cancel_message_order_fulfillments_customer
           contact: &on_cancel_message_order_fulfillments_customer_contact
@@ -2734,13 +2731,13 @@ on_cancel: &on_cancel
               type: string
               owner: BPP
               usage: joe.adam@abc.org
-              description: Email address of the cusotmer
+              description: Email address of the customer
             phone: &on_cancel_message_order_fulfillments_customer_contact_phone
               required: MANDATORY
               type: string
               owner: BPP
               usage: 9999999999
-              description: Phone number of the cusotmer
+              description: Phone number of the customer
             _description: *on_init_message_order_fulfillments_customer_contact__description
           _description: *on_init_message_order_fulfillments_customer__description
           person: *on_init_message_order_fulfillments_customer_person
@@ -2773,10 +2770,9 @@ on_cancel: &on_cancel
             required: MANDATORY
             type: string
             owner: BPP
-            usage: >-
-              ABC Insurance Ltd. Deals in multiple Insurance Services like
-              Health,
-                        Motor, Marine etc
+            usage: "ABC Insurance Ltd. Deals in multiple Insurance Services like Health,\r
+
+              \          Motor, Marine etc"
             description: Long description about insurer
           name: &on_cancel_message_order_provider_descriptor_name
             required: MANDATORY
@@ -2805,7 +2801,7 @@ on_cancel: &on_cancel
             usage: ABC Insurance Ltd. India
             description: Short description about insurer
           _description: *on_search_message_catalog_providers_descriptor__description
-        _description: *select_message_order_provider__description
+        _description: *on_select_message_order_provider__description
       payments: &on_cancel_message_order_payments
         collected_by: &on_cancel_message_order_payments_collected_by
           required: MANDATORY
@@ -2861,90 +2857,9 @@ on_cancel: &on_cancel
           required: MANDATORY
           type: string
           owner: BPP
-          usage: PRE-FULLFILMENT
+          usage: PRE-FULFILLMENT
           description: Describes payment type
         _description: *init_message_order_payments__description
-        tags: &on_cancel_message_order_payments_tags
-          BUYER_FINDER_FEES: &on_cancel_message_order_payments_tags_BUYER_FINDER_FEES
-            required: MANDATORY
-            type: string
-            owner: BAP/BPP
-            usage: --
-            description: Describes Buyer finder fee
-            list: &on_cancel_message_order_payments_tags_BUYER_FINDER_FEES_list
-              BUYER_FINDER_FEES_TYPE: &on_cancel_message_order_payments_tags_BUYER_FINDER_FEES_list_BUYER_FINDER_FEES_TYPE
-                required: MANDATORY
-                type: string
-                owner: BAP/BPP
-                usage: --
-                description: Describes Buyer finder fee type
-              BUYER_FINDER_FEES_PERCENTAGE: &on_cancel_message_order_payments_tags_BUYER_FINDER_FEES_list_BUYER_FINDER_FEES_PERCENTAGE
-                required: MANDATORY
-                type: string
-                owner: BAP/BPP
-                usage: --
-                description: Describes Buyer finder fee percentage
-          SETTLEMENT_TERMS: &on_cancel_message_order_payments_tags_SETTLEMENT_TERMS
-            required: MANDATORY
-            type: string
-            owner: BAP/BPP
-            usage: --
-            description: Describes settlement terms
-            list: &on_cancel_message_order_payments_tags_SETTLEMENT_TERMS_list
-              SETTLEMENT_WINDOW: &on_cancel_message_order_payments_tags_SETTLEMENT_TERMS_list_SETTLEMENT_WINDOW
-                required: MANDATORY
-                type: string
-                owner: BAP/BPP
-                usage: --
-                description: Describes settlement window
-              SETTLEMENT_BASIS: &on_cancel_message_order_payments_tags_SETTLEMENT_TERMS_list_SETTLEMENT_BASIS
-                required: MANDATORY
-                type: string
-                owner: BAP/BPP
-                usage: --
-                description: Describes settlement basis
-              DELAY_INTEREST: &on_cancel_message_order_payments_tags_SETTLEMENT_TERMS_list_DELAY_INTEREST
-                required: MANDATORY
-                type: string
-                owner: BAP/BPP
-                usage: --
-                description: Describes delay interest
-              STATIC_TERMS: &on_cancel_message_order_payments_tags_SETTLEMENT_TERMS_list_STATIC_TERMS
-                required: MANDATORY
-                type: string
-                owner: BAP/BPP
-                usage: --
-                description: Describes static terms
-              OFFLINE_CONTRACT: &on_cancel_message_order_payments_tags_SETTLEMENT_TERMS_list_OFFLINE_CONTRACT
-                required: MANDATORY
-                type: string
-                owner: BAP/BPP
-                usage: --
-                description: Describes offline contract
-              SETTLEMENT_AMOUNT: &on_cancel_message_order_payments_tags_SETTLEMENT_TERMS_list_SETTLEMENT_AMOUNT
-                required: MANDATORY
-                type: string
-                owner: BAP/BPP
-                usage: --
-                description: Describes settlement amount to counter-party
-              SETTLEMENT_TYPE: &on_cancel_message_order_payments_tags_SETTLEMENT_TERMS_list_SETTLEMENT_TYPE
-                required: MANDATORY
-                type: string
-                owner: BAP/BPP
-                usage: --
-                description: Describes settlement type
-              MANDATORY_ARBITRATION: &on_cancel_message_order_payments_tags_SETTLEMENT_TERMS_list_MANDATORY_ARBITRATION
-                required: MANDATORY
-                type: string
-                owner: BAP/BPP
-                usage: --
-                description: Describes mandatory arbitration
-              COURT_JURISDICTION: &on_cancel_message_order_payments_tags_SETTLEMENT_TERMS_list_COURT_JURISDICTION
-                required: MANDATORY
-                type: string
-                owner: BAP/BPP
-                usage: --
-                description: Describes court jurisdiction
       quote: &on_cancel_message_order_quote
         id: &on_cancel_message_order_quote_id
           required: MANDATORY
@@ -2965,7 +2880,7 @@ on_cancel: &on_cancel
               type: string
               owner: BPP
               usage: INR
-              description: Curreny type of the selected item.
+              description: Currency type of the selected item.
             _description: *on_select_message_order_quote_breakup_price__description
           title: &on_cancel_message_order_quote_breakup_title
             required: MANDATORY
@@ -3022,7 +2937,7 @@ on_cancel: &on_cancel
             type: false
             owner: false
             usage: false
-            description: Phsyical description of code
+            description: Physical description of code
           name: &on_cancel_message_order_documents_descriptor_name
             required: MANDATORY
             type: string
@@ -3039,13 +2954,18 @@ on_cancel: &on_cancel
             required: MANDATORY
             type: string
             owner: BPP
-            usage: >-
-              Download you digitally signed policy document here. This document
-              is
-                          password protected. To open this document, please type in your
-                          password in DDMMMYYYYXXXX format where DDMMMYYYY represents your
-                          date of birth, and XXXX represents the first four letters of your
-                          name          Motor, Marine etc
+            usage: "Download you digitally signed policy document here. This document is\r
+
+              \            password protected. To open this document, please
+              type in your\r
+
+              \            password in DDMMMYYYYXXXX format where DDMMMYYYY
+              represents your\r
+
+              \            date of birth, and XXXX represents the first four
+              letters of your\r
+
+              \            name          Motor, Marine etc"
             description: Long description about insurer
           _description: *on_confirm_message_order_documents_descriptor__description
         mime_type: &on_cancel_message_order_documents_mime_type
@@ -3067,7 +2987,7 @@ on_cancel: &on_cancel
         owner: BPP
         usage: vOff9b99
         description: Describes the order id as policy id.
-      _description: *select_message_order__description
+      _description: *on_select_message_order__description
       created_at: &on_cancel_message_order_created_at
         required: MANDATORY
         type: string
@@ -3094,7 +3014,7 @@ on_cancel: &on_cancel
             owner: BPP
             usage: https://fis.test.bpp.io/cancellation-terms
             description: Describes the url of cancellation terms
-    catalog: *on_select_message_catalog
+      tags: *on_confirm_message_order_tags
 status: &status
   context: *cancel_context
   message: &status_message
@@ -3145,7 +3065,7 @@ on_status: &on_status
             selected: *on_init_message_order_items_add_ons_quantity_selected
             _description: *on_search_message_catalog_providers_items_add_ons_quantity__description
           descriptor: *on_select_message_order_items_add_ons_descriptor
-          _description: *select_message_order_items_add_ons__description
+          _description: *on_select_message_order_items_add_ons__description
           price: *on_search_message_catalog_providers_items_add_ons_price
         xinput: &on_status_message_order_items_xinput
           form_response: &on_status_message_order_items_xinput_form_response
@@ -3160,7 +3080,7 @@ on_status: &on_status
               type: TEXT
               owner: BPP
               usage: success
-              description: Describes the form repsonse
+              description: Describes the form response
         parent_item_id: *select_message_order_items_parent_item_id
         price: *on_select_message_order_items_price
         fulfillment_ids: &on_status_message_order_items_fulfillment_ids
@@ -3168,8 +3088,8 @@ on_status: &on_status
           type: TEXT
           owner: BPP
           usage: 4eR21iB
-          description: Describes the id of the fulfillments assciated to the item
-        _description: *select_message_order_items__description
+          description: Describes the id of the fulfillments associated to the item
+        _description: *on_select_message_order_items__description
         tags: &on_status_message_order_items_tags
           GENERAL_INFO: &on_status_message_order_items_tags_GENERAL_INFO
             required: MANDATORY
@@ -3203,13 +3123,13 @@ on_status: &on_status
                 type: TEXT
                 owner: BPP
                 usage: --
-                description: Describes pre hospitalizaion coverage days
+                description: Describes pre hospitalization coverage days
               POST_HOSPITALIZATION_COVERAGE_DAYS: &on_status_message_order_items_tags_GENERAL_INFO_list_POST_HOSPITALIZATION_COVERAGE_DAYS
                 required: MANDATORY
                 type: TEXT
                 owner: BPP
                 usage: --
-                description: Describes post hospitalizaion coverage days
+                description: Describes post hospitalization coverage days
               MATERNITY_COVERAGE: &on_status_message_order_items_tags_GENERAL_INFO_list_MATERNITY_COVERAGE
                 required: MANDATORY
                 type: TEXT
@@ -3230,10 +3150,19 @@ on_status: &on_status
                 description: Describes cashless hospitals
               ROOM_CATEGORY: *on_status_message_order_items_tags_GENERAL_INFO_list_CASHLESS_HOSPITALS
               PROPOSAL_ID: *on_select_message_order_items_tags_GENERAL_INFO_list_PROPOSAL_ID
+          CONSENT_INFO: &on_status_message_order_items_tags_CONSENT_INFO
+            required: OPTIONAL
+            type: TEXT
+            owner: BPP
+            usage: General
+            description: Describes Consent info
+            list: *on_search_message_catalog_providers_items_tags_CONSENT_INFO_list
+          CHECKLIST: *on_search_message_catalog_providers_items_tags_CHECKLIST
+          CHECKLIST_INFO: *on_search_message_catalog_providers_items_tags_CHECKLIST_INFO
       provider: &on_status_message_order_provider
         descriptor: *on_select_message_order_provider_descriptor
         id: *confirm_message_order_provider_id
-        _description: *select_message_order_provider__description
+        _description: *on_select_message_order_provider__description
       quote: &on_status_message_order_quote
         id: *confirm_message_order_quote_id
         breakup: &on_status_message_order_quote_breakup
@@ -3252,13 +3181,13 @@ on_status: &on_status
               type: TEXT
               owner: BAP
               usage: joe.adam@abc.org
-              description: Email address of the cusotmer
+              description: Email address of the customer
             phone: &on_status_message_order_fulfillments_customer_contact_phone
               required: OPTIONAL
               type: TEXT
               owner: BAP
               usage: 9999999999
-              description: Phone number of the cusotmer
+              description: Phone number of the customer
             _description: *init_message_order_fulfillments_customer_contact__description
           _description: *init_message_order_fulfillments_customer__description
           person: &on_status_message_order_fulfillments_customer_person
@@ -3358,7 +3287,7 @@ on_status: &on_status
           required: OPTIONAL
           type: TEXT
           owner: BPP
-          usage: PRE-FULLFILMENT
+          usage: PRE-FULFILLMENT
           description: Describes payment type
         time: &on_status_message_order_payments_time
           label: &on_status_message_order_payments_time_label
@@ -3389,87 +3318,6 @@ on_status: &on_status
             insinuates to the BPP for a single transaction. These terms includes
             the amount, payment destination, time of settlement and a
             transaction reference ID.
-        tags: &on_status_message_order_payments_tags
-          BUYER_FINDER_FEES: &on_status_message_order_payments_tags_BUYER_FINDER_FEES
-            required: OPTIONAL
-            type: TEXT
-            owner: BAP/BPP
-            usage: --
-            description: Describes Buyer finder fee
-            list: &on_status_message_order_payments_tags_BUYER_FINDER_FEES_list
-              BUYER_FINDER_FEES_TYPE: &on_status_message_order_payments_tags_BUYER_FINDER_FEES_list_BUYER_FINDER_FEES_TYPE
-                required: OPTIONAL
-                type: TEXT
-                owner: BAP/BPP
-                usage: --
-                description: Describes Buyer finder fee type
-              BUYER_FINDER_FEES_PERCENTAGE: &on_status_message_order_payments_tags_BUYER_FINDER_FEES_list_BUYER_FINDER_FEES_PERCENTAGE
-                required: OPTIONAL
-                type: TEXT
-                owner: BAP/BPP
-                usage: --
-                description: Describes Buyer finder fee percentage
-          SETTLEMENT_TERMS: &on_status_message_order_payments_tags_SETTLEMENT_TERMS
-            required: OPTIONAL
-            type: TEXT
-            owner: BAP/BPP
-            usage: --
-            description: Describes settlement terms
-            list: &on_status_message_order_payments_tags_SETTLEMENT_TERMS_list
-              SETTLEMENT_WINDOW: &on_status_message_order_payments_tags_SETTLEMENT_TERMS_list_SETTLEMENT_WINDOW
-                required: OPTIONAL
-                type: TEXT
-                owner: BAP/BPP
-                usage: --
-                description: Describes settlement window
-              SETTLEMENT_BASIS: &on_status_message_order_payments_tags_SETTLEMENT_TERMS_list_SETTLEMENT_BASIS
-                required: OPTIONAL
-                type: TEXT
-                owner: BAP/BPP
-                usage: --
-                description: Describes settlement basis
-              DELAY_INTEREST: &on_status_message_order_payments_tags_SETTLEMENT_TERMS_list_DELAY_INTEREST
-                required: OPTIONAL
-                type: TEXT
-                owner: BAP/BPP
-                usage: --
-                description: Describes delay interest
-              STATIC_TERMS: &on_status_message_order_payments_tags_SETTLEMENT_TERMS_list_STATIC_TERMS
-                required: OPTIONAL
-                type: TEXT
-                owner: BAP/BPP
-                usage: --
-                description: Describes static terms
-              OFFLINE_CONTRACT: &on_status_message_order_payments_tags_SETTLEMENT_TERMS_list_OFFLINE_CONTRACT
-                required: OPTIONAL
-                type: TEXT
-                owner: BAP/BPP
-                usage: --
-                description: Describes offline contract
-              SETTLEMENT_AMOUNT: &on_status_message_order_payments_tags_SETTLEMENT_TERMS_list_SETTLEMENT_AMOUNT
-                required: OPTIONAL
-                type: TEXT
-                owner: BAP/BPP
-                usage: --
-                description: Describes settlement amount to counter-party
-              SETTLEMENT_TYPE: &on_status_message_order_payments_tags_SETTLEMENT_TERMS_list_SETTLEMENT_TYPE
-                required: OPTIONAL
-                type: TEXT
-                owner: BAP/BPP
-                usage: --
-                description: Describes settlement type
-              MANDATORY_ARBITRATION: &on_status_message_order_payments_tags_SETTLEMENT_TERMS_list_MANDATORY_ARBITRATION
-                required: OPTIONAL
-                type: TEXT
-                owner: BAP/BPP
-                usage: --
-                description: Describes mandatory arbitration
-              COURT_JURISDICTION: &on_status_message_order_payments_tags_SETTLEMENT_TERMS_list_COURT_JURISDICTION
-                required: OPTIONAL
-                type: TEXT
-                owner: BAP/BPP
-                usage: --
-                description: Describes court jurisdiction
       status: &on_status_message_order_status
         required: OPTIONAL
         type: TEXT
@@ -3525,8 +3373,8 @@ on_status: &on_status
           type: object
           owner: BPP
           usage: --
-          description: Describes documnents associated to the order
-      _description: *select_message_order__description
+          description: Describes documents associated to the order
+      _description: *on_select_message_order__description
       created_at: &on_status_message_order_created_at
         required: OPTIONAL
         type: TEXT
@@ -3540,7 +3388,7 @@ on_status: &on_status
         usage: 2023-07-24T05:41:32.487Z
         description: Describes order updation date
       cancellation_terms: *on_init_message_order_cancellation_terms
-    catalog: *on_select_message_catalog
+      tags: *on_confirm_message_order_tags
 update: &update
   context: &update_context
     location: *cancel_context_location
@@ -3583,7 +3431,7 @@ update: &update
           usage: BPP
           description: Describes who will collect the payment
       id: *on_cancel_message_order_id
-      _description: *select_message_order__description
+      _description: *on_select_message_order__description
     update_target: &update_message_update_target
       required: MANDATORY
       type: string
@@ -3648,16 +3496,24 @@ on_update: &on_update
               usage: NO_CLAIM_BONUS
               description: Describes the code of add_on item.
             _description: *on_select_message_order_items_add_ons_descriptor__description
-          _description: *select_message_order_items_add_ons__description
+          _description: *on_select_message_order_items_add_ons__description
           price: *on_cancel_message_order_items_add_ons_price
         price: *on_cancel_message_order_items_price
         fulfillment_ids: *on_cancel_message_order_items_fulfillment_ids
-        _description: *select_message_order_items__description
-        tags: *on_cancel_message_order_items_tags
+        _description: *on_select_message_order_items__description
+        tags: &on_update_message_order_items_tags
+          GENERAL_INFO: *on_cancel_message_order_items_tags_GENERAL_INFO
+          CONSENT_INFO: *on_status_message_order_items_tags_CONSENT_INFO
+          CHECKLIST: *on_search_message_catalog_providers_items_tags_CHECKLIST
+          CHECKLIST_INFO: &on_update_message_order_items_tags_CHECKLIST_INFO
+            list: &on_update_message_order_items_tags_CHECKLIST_INFO_list
+              MEDICAL_CHECKUP_PAYMENT: *on_search_message_catalog_providers_items_tags_CHECKLIST_INFO_list_MEDICAL_CHECKUP_PAYMENT
+              BENEFICIARY_KYC: *on_search_message_catalog_providers_items_tags_CHECKLIST_INFO_list_BENEFICIARY_KYC
+              PROPOSER_KYC: *on_search_message_catalog_providers_items_tags_CHECKLIST_INFO_list_PROPOSER_KYC
       provider: &on_update_message_order_provider
         descriptor: *on_cancel_message_order_provider_descriptor
         id: *on_cancel_message_order_provider_id
-        _description: *select_message_order_provider__description
+        _description: *init_message_order_provider__description
       quote: &on_update_message_order_quote
         id: &on_update_message_order_quote_id
           required: MANDATORY
@@ -3692,13 +3548,13 @@ on_update: &on_update
               type: string
               owner: BAP
               usage: joe.adam@abc.org
-              description: Email address of the cusotmer
+              description: Email address of the customer
             phone: &on_update_message_order_fulfillments_customer_contact_phone
               required: MANDATORY
               type: string
               owner: BAP
               usage: 9999999999
-              description: Phone number of the cusotmer
+              description: Phone number of the customer
             _description: *on_init_message_order_fulfillments_customer_contact__description
           _description: *on_init_message_order_fulfillments_customer__description
           person: *on_init_message_order_fulfillments_customer_person
@@ -3743,7 +3599,6 @@ on_update: &on_update
         status: *on_cancel_message_order_payments_status
         type: *on_cancel_message_order_payments_type
         _description: *init_message_order_payments__description
-        tags: *on_cancel_message_order_payments_tags
       status: &on_update_message_order_status
         required: MANDATORY
         type: string
@@ -3751,8 +3606,14 @@ on_update: &on_update
         usage: ACTIVE
         description: Describes the order status
       id: *on_cancel_message_order_id
-      _description: *select_message_order__description
+      _description: *on_select_message_order__description
       created_at: *on_cancel_message_order_created_at
       updated_at: *on_cancel_message_order_updated_at
       cancellation_terms: *on_cancel_message_order_cancellation_terms
-    catalog: *on_select_message_catalog
+    catalog: &on_update_message_catalog
+      providers: &on_update_message_catalog_providers
+        items: &on_update_message_catalog_providers_items
+          tags: &on_update_message_catalog_providers_items_tags
+            CHECKLIST_INFO: &on_update_message_catalog_providers_items_tags_CHECKLIST_INFO
+              list: &on_update_message_catalog_providers_items_tags_CHECKLIST_INFO_list
+                MEDICAL_CHECKUP: *on_search_message_catalog_providers_items_tags_CHECKLIST_INFO_list_MEDICAL_CHECKUP

@@ -1,0 +1,46 @@
+context:
+  domain: ONDC:FIS13
+  location:
+    country:
+      code: IND
+    city:
+      code: '*'
+  transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+  message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+  action: search
+  timestamp: '2023-05-25T05:23:03.443Z'
+  version: 2.1.0
+  bap_uri: fis.test.bap.io
+  bap_id: https://fis.test.bap.io/
+  ttl: PT24H
+message:
+  intent:
+    category:
+      descriptor:
+        code: LIFE_INSURANCE
+    payment:
+      - collected_by: BPP
+    tags:
+      - descriptor:
+          code: BAP_TERMS
+          name: BAP Terms of Engagement
+        display: false
+        list:
+          - descriptor:
+              code: BUYER_FINDER_FEES_PERCENTAGE
+            value: '1'
+          - descriptor:
+              code: BUYER_FINDER_FEES_TYPE
+            value: percent
+          - descriptor:
+              code: STATIC_TERMS
+            value: https://api.example-bap.com/booking/terms
+          - descriptor:
+              code: SETTLEMENT_WINDOW
+            value: P30D
+          - descriptor:
+              code: DELAY_INTEREST
+            value: '2.5'
+          - descriptor:
+              code: OFFLINE_CONTRACT
+            value: 'true'

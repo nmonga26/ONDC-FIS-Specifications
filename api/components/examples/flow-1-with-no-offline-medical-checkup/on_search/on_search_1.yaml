@@ -1,0 +1,184 @@
+context:
+  domain: ONDC:FIS13
+  location:
+    country:
+      code: IND
+    city:
+      code: '*'
+  version: 2.0.0
+  action: on_search
+  bap_id: fis.test.bap.io
+  bap_uri: https://fis.test.bap.io/
+  bpp_id: fis.test.bpp.io
+  bpp_uri: https://fis.test.bpp.io/
+  transaction_id: a9aaecca-10b7-4d19-b640-b047a7d62196
+  message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+  ttl: PT24H
+  timestamp: '2023-05-25T05:23:03.443Z'
+message:
+  catalog:
+    descriptor:
+      name: <var:catalog_descriptor_name>
+    providers:
+      - id: PROVIDER_ID
+        descriptor:
+          images:
+            - url: >-
+                https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
+              size_type: sm
+          name: ICICI Bank
+          short_desc: ICICI Bank Ltd
+          long_desc: ICICI Bank Ltd, India.
+        categories:
+          - id: C1
+            descriptor:
+              code: LIFE_INSURANCE
+              name: Life Insurance
+        items:
+          - id: LIFE_INSURANCE_ITEM_ID
+            descriptor:
+              code: LIFE_INSURANCE
+              name: Life  Insurance
+            category_ids:
+              - C1
+            matched: true
+            recommended: true
+            tags:
+              - descriptor:
+                  code: CHECKLIST
+                  name: Check List
+                list:
+                  - descriptor:
+                      code: BENEFICIARY_KYC
+                      name: Kyc of the life to be insured
+                    value: Pending
+                  - descriptor:
+                      code: PROPOSER_KYC
+                      name: Kyc of the proposer
+                    value: Pending
+                  - descriptor:
+                      code: FINAL_PAYMENT
+                      name: Final payment
+                    value: Pending
+              - descriptor:
+                  code: GENERAL_INFO
+                  name: General Information
+                list:
+                  - descriptor:
+                      code: COVERAGE_AMOUNT
+                      name: coverage amount
+                      short_desc: up to/minimum coverage amount
+                    value: <var:value>
+                  - descriptor:
+                      code: CLAIM_SETTLEMENT_RATIO
+                      name: claim settlement ratio
+                      short_desc: up to/minimum claim settlement ratio
+                    value: <var:value>
+                  - descriptor:
+                      code: FREE_LOOKUP_PERIOD
+                      name: free lookup period
+                      short_desc: up to/minimum free lookup period
+                    value: <var:value>
+                  - descriptor:
+                      code: COVERAGE_PERIOD
+                      name: coverage period
+                      short_desc: up to/minimum coverage period
+                    value: <var:value>
+                  - descriptor:
+                      code: PAYMENT_FREQUENCY
+                      name: payment frequency
+                      short_desc: up to/minimum payment frequency
+                    value: <var:value>
+                  - descriptor:
+                      code: CLAIM_SETTLEMENT_TAT
+                      name: claim settlement tat
+                      short_desc: up to/minimum claim settlement tat
+                    value: <var:value>
+            add_ons:
+              - id: A1
+                quantity:
+                  available:
+                    count: 1
+                descriptor:
+                  name: No Claim Bonus
+                  code: NO_CLAIM_BONUS
+                price:
+                  value: '100'
+                  currency: INR
+        tags:
+          - descriptor:
+              code: CONSENT_INFO
+              name: Consent Information
+            list:
+              - descriptor:
+                  code: CONSENT_HANDLE
+                  name: Generated Consent Handle
+                value: <var:consent_handle_value>
+          - descriptor:
+              code: CONTACT_INFO
+              name: Contact Info
+            list:
+              - descriptor:
+                  code: GRO_NAME
+                  name: Gro name
+                value: ICICI
+              - descriptor:
+                  code: GRO_EMAIL
+                  name: Gro email
+                value: lifeline@iciciprulife.com
+              - descriptor:
+                  code: GRO_CONTACT_NUMBER
+                  name: Gro contact number
+                value: 1860 266 7766
+              - descriptor:
+                  code: CUSTOMER_SUPPORT_LINK
+                  name: Customer support link
+                value: >-
+                  https://buy.iciciprulife.com/buy/GrievanceRedStep.htm?execution=e1s1
+              - descriptor:
+                  code: CUSTOMER_SUPPORT_CONTACT_NUMBER
+                  name: Customer support contact number
+                value: 1800 1080
+              - descriptor:
+                  code: CUSTOMER_SUPPORT_EMAIL
+                  name: Customer support email
+                value: customer.care@icicibank.com
+          - descriptor:
+              code: LSP_INFO
+              name: Lsp Info
+            list:
+              - descriptor:
+                  code: LSP_NAME
+                  name: Lsp name
+                value: ICICI_LSP
+              - descriptor:
+                  code: LSP_EMAIL
+                  name: Lsp email
+                value: lsp@iciciprulife.com
+              - descriptor:
+                  code: LSP_CONTACT_NUMBER
+                  name: Lsp contact number
+                value: 1860 266 7766
+              - descriptor:
+                  code: LSP_ADDRESS
+                  name: Lsp Address
+                value: >-
+                  One Indiabulls centre, Tower 1, 18th Floor Jupiter mill
+                  compound 841, Senapati Bapat Marg, Elphinstone Road, Mumbai
+                  400013
+        payments:
+          - collected_by: BPP
+    tags:
+      - display: false
+        descriptor:
+          name: BPP Terms of Engagement
+          code: BPP_TERMS
+        list:
+          - descriptor:
+              name: Static Terms (Transaction Level)
+              code: STATIC_TERMS
+            value: https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+          - descriptor:
+              name: Offline Contract
+              code: OFFLINE_CONTRACT
+            value: 'true'
