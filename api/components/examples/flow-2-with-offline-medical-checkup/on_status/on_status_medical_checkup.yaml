@@ -213,6 +213,13 @@ message:
       ttl: PT15D
     payments:
       - collected_by: BPP
+        params:
+          amount: '2000'
+          currency: INR
+          transaction_id: 97ca91e3-3bd1-4bbf-a066-4db2a6070b6e
+        status: PAID
+        type: PRE-ORDER
+      - collected_by: BPP
         status: NOT-PAID
         type: PRE-ORDER
     tags:

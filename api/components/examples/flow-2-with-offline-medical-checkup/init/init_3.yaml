@@ -47,8 +47,6 @@ message:
       id: P1
     payments:
       - collected_by: BPP
-        url: >-
-          https://www.abcinsurance.com/pg-gateway/payment?amount=18000&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
         params:
           amount: '2000'
           currency: INR

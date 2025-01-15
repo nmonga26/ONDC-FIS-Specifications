@@ -98,7 +98,7 @@ message:
         xinput:
           head:
             descriptor:
-              name: Customer Information
+              name: ADDITIONAL_DETAILS
             index:
               min: 0
               cur: 1

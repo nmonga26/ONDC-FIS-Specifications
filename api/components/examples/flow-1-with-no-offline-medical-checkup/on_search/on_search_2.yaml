@@ -114,6 +114,9 @@ message:
               - C1
             matched: true
             recommended: true
+            price:
+              currency: INR
+              value: '18300'
             tags:
               - descriptor:
                   code: CHECKLIST

@@ -107,8 +107,6 @@ message:
     payments:
       - id: <var:payment_id>
         collected_by: BPP
-        url: >-
-          https://www.abcinsurance.com/pg-gateway/payment?amount=18000&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
         params:
           amount: '18000'
           currency: INR
@@ -137,5 +135,18 @@ message:
               code: DELAY_INTEREST
             value: '2.5'
           - descriptor:
+              code: OFFLINE_CONTRACT
+            value: 'true'
+      - display: false
+        descriptor:
+          name: BPP Terms of Engagement
+          code: BPP_TERMS
+        list:
+          - descriptor:
+              name: Static Terms (Transaction Level)
+              code: STATIC_TERMS
+            value: https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+          - descriptor:
+              name: Offline Contract
               code: OFFLINE_CONTRACT
             value: 'true'

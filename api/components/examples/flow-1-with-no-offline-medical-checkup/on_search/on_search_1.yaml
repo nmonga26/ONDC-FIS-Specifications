@@ -111,7 +111,7 @@ message:
               name: Consent Information
             list:
               - descriptor:
-                  code: CONSENT_HANDLE
+                  code: CONSENT_HANDLER
                   name: Generated Consent Handle
                 value: <var:consent_handle_value>
           - descriptor:

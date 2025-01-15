@@ -9,7 +9,7 @@ context:
   message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
   action: search
   timestamp: '2023-05-25T05:23:03.443Z'
-  version: 2.1.0
+  version: 2.0.0
   bap_id: fis.test.bap.io
   bap_uri: https://fis.test.bap.io/
   bpp_id: fis.test.bpp.io
@@ -21,11 +21,9 @@ message:
       descriptor:
         code: LIFE_INSURANCE
     items:
-      - id: CHILD_ITEM_ID_I1
-        parent_item_id: LIFE_INSURANCE_ITEM_ID
+      - id: LIFE_INSURANCE_ITEM_ID
     payment:
       - collected_by: BPP
-        type: PRE-ORDER
     tags:
       - descriptor:
           code: BAP_TERMS

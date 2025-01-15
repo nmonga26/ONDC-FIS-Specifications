@@ -110,8 +110,6 @@ message:
       id: P1
     payments:
       - collected_by: BPP
-        url: >-
-          https://www.abcinsurance.com/pg-gateway/payment?amount=18000&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
         params:
           amount: '2000'
           currency: INR
@@ -119,12 +117,10 @@ message:
         status: PAID
         type: PRE-ORDER
       - collected_by: BPP
-        url: >-
-          https://www.abcinsurance.com/pg-gateway/payment?amount=18000&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
         params:
           amount: '18000'
           currency: INR
-          transaction_id: 97ca91e3-3bd1-4bbf-a066-4db2a6070b6e
+          transaction_id: 20ca91e3-3bd1-4bbf-a066-4db2a6070b6e
         status: PAID
         type: PRE-ORDER
     tags:
@@ -149,5 +145,18 @@ message:
               code: DELAY_INTEREST
             value: '2.5'
           - descriptor:
+              code: OFFLINE_CONTRACT
+            value: 'true'
+      - display: false
+        descriptor:
+          name: BPP Terms of Engagement
+          code: BPP_TERMS
+        list:
+          - descriptor:
+              name: Static Terms (Transaction Level)
+              code: STATIC_TERMS
+            value: https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+          - descriptor:
+              name: Offline Contract
               code: OFFLINE_CONTRACT
             value: 'true'

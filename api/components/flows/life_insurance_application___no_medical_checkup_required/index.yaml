@@ -154,7 +154,7 @@ steps: &steps
     api: search
     example: &steps_3_example
       value: &steps_3_example_value
-        $ref: ../../examples/flow-1-with-no-offline-medical-checkup/search/search_1.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/search/search_1.yaml
     details: &steps_3_details
       - &steps_3_details_0
         description: User explores life insurance options by searching for insurers.
@@ -262,7 +262,7 @@ steps: &steps
     reference: if any
     example: &steps_7_example
       value: &steps_7_example_value
-        $ref: ../../examples/flow-1-with-no-offline-medical-checkup/select/select_0.yaml
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/select/select_0.yaml
   - &steps_8
     summary: Insurer returns the response to selected life insurance plan
     api: on_select

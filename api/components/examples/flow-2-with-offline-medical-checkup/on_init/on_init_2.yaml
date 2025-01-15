@@ -98,7 +98,7 @@ message:
         xinput:
           head:
             descriptor:
-              name: Medical Checkup Appointment Form
+              name: MEDICAL_CHECKUP_APPOINTMENT_FORM
             index:
               min: 0
               cur: 2
@@ -225,6 +225,14 @@ message:
         value: '18000'
       ttl: PT15D
     payments:
+      - collected_by: BPP
+        url: >-
+          https://www.abcinsurance.com/pg-gateway/payment?amount=18000&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
+        params:
+          amount: '2000'
+          currency: INR
+        status: NOT-PAID
+        type: PRE-ORDER
       - collected_by: BPP
         status: NOT-PAID
         type: PRE-ORDER

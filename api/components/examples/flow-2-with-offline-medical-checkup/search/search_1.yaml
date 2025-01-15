@@ -32,7 +32,6 @@ message:
               submission_id: F01_SUBMISSION_ID
     payment:
       - collected_by: BPP
-        type: PRE-ORDER
     tags:
       - descriptor:
           code: BAP_TERMS

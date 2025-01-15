@@ -9,7 +9,7 @@ context:
   message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
   action: search
   timestamp: '2023-05-25T05:23:03.443Z'
-  version: 2.1.0
+  version: 2.0.0
   bap_id: fis.test.bap.io
   bap_uri: https://fis.test.bap.io/
   ttl: PT24H
@@ -20,7 +20,6 @@ message:
         code: LIFE_INSURANCE
     payment:
       - collected_by: BPP
-        type: PRE-ORDER
     tags:
       - descriptor:
           code: BAP_TERMS
