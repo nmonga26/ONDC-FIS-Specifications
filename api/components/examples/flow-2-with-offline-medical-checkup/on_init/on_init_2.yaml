@@ -112,7 +112,7 @@ message:
             mime_type: application/html
             url: https://fis.test.bpp.io/form/medical_appt_booking
             resubmit: true
-            multiple_submissions: false
+            multiple_sumbissions: false
           required: true
         add_ons:
           - id: A1

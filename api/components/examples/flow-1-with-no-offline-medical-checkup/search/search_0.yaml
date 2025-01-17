@@ -10,8 +10,8 @@ context:
   action: search
   timestamp: '2023-05-25T05:23:03.443Z'
   version: 2.0.0
-  bap_uri: fis.test.bap.io
-  bap_id: https://fis.test.bap.io/
+  bap_uri: https://fis.test.bap.io/
+  bap_id: fis.test.bap.io
   ttl: PT24H
 message:
   intent:
@@ -19,7 +19,7 @@ message:
       descriptor:
         code: LIFE_INSURANCE
     payment:
-      - collected_by: BPP
+      collected_by: BPP
     tags:
       - descriptor:
           code: BAP_TERMS

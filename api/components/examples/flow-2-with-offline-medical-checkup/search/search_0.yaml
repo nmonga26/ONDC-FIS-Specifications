@@ -19,7 +19,7 @@ message:
       descriptor:
         code: LIFE_INSURANCE
     payment:
-      - collected_by: BPP
+      collected_by: BPP
     tags:
       - descriptor:
           code: BAP_TERMS

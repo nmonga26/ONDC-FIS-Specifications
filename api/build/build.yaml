@@ -943,6 +943,10 @@ components:
         ttl:
           description: Duration in seconds after which this catalog will expire
           type: string
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagGroup'
     Category:
       description: A label under which a collection of items can be grouped.
       type: object
@@ -1813,6 +1817,10 @@ components:
             - COMPLETE
             - CANCELLED
             - CANCELLATION_INITIATED
+            - ACCEPTED
+            - REJECTED
+            - CREATED
+            - COMPLETED
         type:
           description: >-
             This is used to indicate the type of order being created to BPPs.
@@ -1957,6 +1965,10 @@ components:
             - $ref: '#/components/schemas/City'
         contact:
           $ref: '#/components/schemas/Contact'
+        creds:
+          type: array
+          items:
+            $ref: '#/components/schemas/Credential'
     Payment:
       description: >-
         Describes the terms of settlement between the BAP and the BPP for a
@@ -2040,6 +2052,7 @@ components:
             - NOT-PAID
             - DELAYED
             - DEFERRED
+            - FAILED
         time:
           $ref: '#/components/schemas/Time'
         tags:
@@ -3211,7 +3224,7 @@ x-tags:
                     Address of lsp acting as recovery agent, authorised to
                     approach borrower
                   reference: <PR/Issue/Discussion Links md format text>
-          item: *ref_15
+          items: *ref_15
         tags: &ref_21
           - &ref_22
             code: BPP_TERMS
@@ -3231,7 +3244,7 @@ x-tags:
           tags:
             - *ref_16
             - *ref_17
-        providers: &ref_20
+        provider: &ref_20
           tags:
             - *ref_18
             - *ref_19
@@ -3239,7 +3252,7 @@ x-tags:
     message:
       order:
         items: *ref_15
-        providers: *ref_20
+        provider: *ref_20
         tags: *ref_21
   on_confirm:
     message:
@@ -3248,7 +3261,7 @@ x-tags:
         tags: &ref_24
           - *ref_22
           - *ref_23
-        providers: *ref_20
+        provider: *ref_20
   on_status:
     message:
       order:
@@ -3268,7 +3281,7 @@ x-tags:
                 - code: REF_ID
                   description: Describes the reference id.
                   reference: <PR/Issue/Discussion Links md format text>
-        providers: *ref_20
+        provider: *ref_20
         tags: *ref_24
   on_cancel: &ref_26
     message:
@@ -3374,7 +3387,7 @@ x-flows:
                   descriptor:
                     code: LIFE_INSURANCE
                 payment:
-                  - collected_by: BPP
+                  collected_by: BPP
                 tags:
                   - descriptor:
                       code: BAP_TERMS
@@ -3485,7 +3498,7 @@ x-flows:
                             mime_type: text/html
                             url: https://fis.test.bpp.io/xinput/form/basic_details
                             resubmit: false
-                            multiple_submissions: false
+                            multiple_sumbissions: false
                           required: true
                         add_ons:
                           - id: A1
@@ -3585,7 +3598,237 @@ x-flows:
         reference: if any
         api: form
         example:
-          value: "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n\r\n<head>\r\n<meta charset=\"UTF-8\">\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n<title>Basic Details</title>\r\n</head>\r\n\r\n<body>\r\n\r\n<h1>Basic Details</h1>\r\n\r\n<form>\r\n<div>\r\n<h2>Beneficiary Information</h2>\r\n<label for=\"beneficiary-dob\">Date of Birth:</label>\r\n<input type=\"date\" id=\"beneficiary-dob\" required>\r\n\r\n<label for=\"beneficiary-gender\">Gender:</label>\r\n<select id=\"beneficiary-gender\" required>\r\n<option value=\"M\">Male</option>\r\n<option value=\"F\">Female</option>\r\n<option value=\"O\">Other</option>\r\n</select>\r\n\r\n<label for=\"beneficiary-phone\">Phone (Numeric):</label>\r\n<input type=\"tel\" id=\"beneficiary-phone\" pattern=\"[0-9]*\" required>\r\n\r\n<label for=\"beneficiary-smoker\">Smoker or Tobacco Consumption:</label>\r\n<select id=\"beneficiary-smoker\" required>\r\n<option value=\"true\">Yes</option>\r\n<option value=\"false\">No</option>\r\n</select>\r\n</div>\r\n\r\n<div>\r\n<h2>Proposer Information</h2>\r\n<label for=\"proposer-dob\">Date of Birth:</label>\r\n<input type=\"date\" id=\"proposer-dob\" required>\r\n\r\n<label for=\"proposer-gender\">Gender:</label>\r\n<select id=\"proposer-gender\" required>\r\n<option value=\"M\">Male</option>\r\n<option value=\"F\">Female</option>\r\n<option value=\"O\">Other</option>\r\n</select>\r\n\r\n<label for=\"proposer-phone\">Phone (Numeric):</label>\r\n<input type=\"tel\" id=\"proposer-phone\" pattern=\"[0-9]*\" required>\r\n\r\n<label for=\"proposer-occupation\">Occupation:</label>\r\n<select id=\"proposer-occupation\" required>\r\n<option value=\"Service Professional\">Service Professional</option>\r\n<option value=\"Business\">Business</option>\r\n<option value=\"Army/Navy/Police\">Army/Navy/Police</option>\r\n<option value=\"Skilled Worker\">Skilled Worker</option>\r\n<option value=\"Retired\">Retired</option>\r\n<option value=\"Housewife\">Housewife</option>\r\n<option value=\"Student\">Student</option>\r\n<option value=\"Agriculture\">Agriculture</option>\r\n<option value=\"Others\">Others</option>\r\n</select>\r\n\r\n<label for=\"proposer-income\">Income (Own/Spouse's/Parent's):</label>\r\n<input type=\"number\" id=\"proposer-income\" required>\r\n\r\n<label for=\"proposer-aaid\">AAID (Optional):</label>\r\n<input type=\"text\" id=\"proposer-aaid\">\r\n</div>\r\n\r\n<div>\r\n<h2>Extra Information</h2>\r\n<label for=\"coverage-amount\">Coverage Amount (Optional):</label>\r\n<input type=\"number\" id=\"coverage-amount\">\r\n\r\n<label for=\"coverage-till\">Coverage Till (Age):</label>\r\n<input type=\"number\" id=\"coverage-till\">\r\n\r\n<label for=\"premium-frequency\">Frequency of Premium Payment (Optional):</label>\r\n<select id=\"premium-frequency\">\r\n<option value=\"Daily\">Daily</option>\r\n<option value=\"Monthly\">Monthly</option>\r\n<option value=\"Quarterly\">Quarterly</option>\r\n<option value=\"Semi Annual\">Semi Annual</option>\r\n<option value=\"Annual\">Annual</option>\r\n</select>\r\n\r\n<label for=\"premium-pay-term\"># of Years for Premium Payment (Pay Term) (Optional):</label>\r\n<input type=\"number\" id=\"premium-pay-term\">\r\n</div>\r\n\r\n<label for=\"agent-id\">Agent Id (Optional):</label>\r\n<input type=\"text\" id=\"agent-id\">\r\n\r\n<label for=\"declaration\">\r\n</br>I hereby declare that the information provided in this application form for life insurance is true, accurate, and complete to the best of my knowledge.\r\n    </br>\r\n</br>I also understand and agree that:\r\n</br>\r\n</br>The insurance company may share my personal and financial data, as necessary, with third-party entities, including but not limited to:\r\n</br>1. Credit Bureaus for conducting bureau checks,\r\n</br>2. Agencies or institutions for compliance with anti-money laundering and terrorist financing regulations,\r\n</br>3. Medical professionals or diagnostic centers for underwriting or claim verification purposes,\r\n</br>4. Government authorities, regulators, or other organizations as required under applicable laws.\r\n</br>Such data sharing will be done solely for the purpose of evaluating my application, underwriting, servicing the policy, and meeting legal or regulatory requirements.\r\n</br>\r\n</br>The insurance company is authorized to contact me or the provided references for additional verifications if necessary.\r\n</br>\r\n</br>I understand that my consent is essential for processing this application and that refusal to provide such consent may result in my application being declined.\r\n</label>\r\n<input type=\"checkbox\" id=\"declaration\">\r\n\r\n\r\n<button type=\"submit\">Submit</button>\r\n</form>\r\n\r\n</body>\r\n\r\n</html>"
+          value: >-
+            <!DOCTYPE html>
+
+            <html lang="en">
+
+
+            <head>
+
+            <meta charset="UTF-8">
+
+            <meta name="viewport" content="width=device-width,
+            initial-scale=1.0">
+
+            <title>Basic Details</title>
+
+            </head>
+
+
+            <body>
+
+
+            <h1>Basic Details</h1>
+
+
+            <form>
+
+            <div>
+
+            <h2>Beneficiary Information</h2>
+
+            <label for="beneficiary-dob">Date of Birth:</label>
+
+            <input type="date" id="beneficiary-dob" required>
+
+
+            <label for="beneficiary-gender">Gender:</label>
+
+            <select id="beneficiary-gender" required>
+
+            <option value="M">Male</option>
+
+            <option value="F">Female</option>
+
+            <option value="O">Other</option>
+
+            </select>
+
+
+            <label for="beneficiary-phone">Phone (Numeric):</label>
+
+            <input type="tel" id="beneficiary-phone" pattern="[0-9]*" required>
+
+
+            <label for="beneficiary-smoker">Smoker or Tobacco
+            Consumption:</label>
+
+            <select id="beneficiary-smoker" required>
+
+            <option value="true">Yes</option>
+
+            <option value="false">No</option>
+
+            </select>
+
+            </div>
+
+
+            <div>
+
+            <h2>Proposer Information</h2>
+
+            <label for="proposer-dob">Date of Birth:</label>
+
+            <input type="date" id="proposer-dob" required>
+
+
+            <label for="proposer-gender">Gender:</label>
+
+            <select id="proposer-gender" required>
+
+            <option value="M">Male</option>
+
+            <option value="F">Female</option>
+
+            <option value="O">Other</option>
+
+            </select>
+
+
+            <label for="proposer-phone">Phone (Numeric):</label>
+
+            <input type="tel" id="proposer-phone" pattern="[0-9]*" required>
+
+
+            <label for="proposer-occupation">Occupation:</label>
+
+            <select id="proposer-occupation" required>
+
+            <option value="Service Professional">Service Professional</option>
+
+            <option value="Business">Business</option>
+
+            <option value="Army/Navy/Police">Army/Navy/Police</option>
+
+            <option value="Skilled Worker">Skilled Worker</option>
+
+            <option value="Retired">Retired</option>
+
+            <option value="Housewife">Housewife</option>
+
+            <option value="Student">Student</option>
+
+            <option value="Agriculture">Agriculture</option>
+
+            <option value="Others">Others</option>
+
+            </select>
+
+
+            <label for="proposer-income">Income (Own/Spouse's/Parent's):</label>
+
+            <input type="number" id="proposer-income" required>
+
+
+            <label for="proposer-aaid">AAID (Optional):</label>
+
+            <input type="text" id="proposer-aaid">
+
+            </div>
+
+
+            <div>
+
+            <h2>Extra Information</h2>
+
+            <label for="coverage-amount">Coverage Amount (Optional):</label>
+
+            <input type="number" id="coverage-amount">
+
+
+            <label for="coverage-till">Coverage Till (Age):</label>
+
+            <input type="number" id="coverage-till">
+
+
+            <label for="premium-frequency">Frequency of Premium Payment
+            (Optional):</label>
+
+            <select id="premium-frequency">
+
+            <option value="Daily">Daily</option>
+
+            <option value="Monthly">Monthly</option>
+
+            <option value="Quarterly">Quarterly</option>
+
+            <option value="Semi Annual">Semi Annual</option>
+
+            <option value="Annual">Annual</option>
+
+            </select>
+
+
+            <label for="premium-pay-term"># of Years for Premium Payment (Pay
+            Term) (Optional):</label>
+
+            <input type="number" id="premium-pay-term">
+
+            </div>
+
+
+            <label for="agent-id">Agent Id (Optional):</label>
+
+            <input type="text" id="agent-id">
+
+
+            <label for="declaration">
+
+            </br>I hereby declare that the information provided in this
+            application form for life insurance is true, accurate, and complete
+            to the best of my knowledge.
+                </br>
+            </br>I also understand and agree that:
+
+            </br>
+
+            </br>The insurance company may share my personal and financial data,
+            as necessary, with third-party entities, including but not limited
+            to:
+
+            </br>1. Credit Bureaus for conducting bureau checks,
+
+            </br>2. Agencies or institutions for compliance with anti-money
+            laundering and terrorist financing regulations,
+
+            </br>3. Medical professionals or diagnostic centers for underwriting
+            or claim verification purposes,
+
+            </br>4. Government authorities, regulators, or other organizations
+            as required under applicable laws.
+
+            </br>Such data sharing will be done solely for the purpose of
+            evaluating my application, underwriting, servicing the policy, and
+            meeting legal or regulatory requirements.
+
+            </br>
+
+            </br>The insurance company is authorized to contact me or the
+            provided references for additional verifications if necessary.
+
+            </br>
+
+            </br>I understand that my consent is essential for processing this
+            application and that refusal to provide such consent may result in
+            my application being declined.
+
+            </label>
+
+            <input type="checkbox" id="declaration">
+
+
+
+            <button type="submit">Submit</button>
+
+            </form>
+
+
+            </body>
+
+
+            </html>
         details:
           - description: >-
               User fills the personal information details form from the insurer
@@ -3644,7 +3887,7 @@ x-flows:
                           status: SUCCESS
                           submission_id: F01_SUBMISSION_ID
                 payment:
-                  - collected_by: BPP
+                  collected_by: BPP
                 tags:
                   - descriptor:
                       code: BAP_TERMS
@@ -3933,10 +4176,12 @@ x-flows:
                 category:
                   descriptor:
                     code: LIFE_INSURANCE
-                items:
-                  - id: LIFE_INSURANCE_ITEM_ID
+                provider:
+                  id: PROVIDER_ID
+                  items:
+                    - id: LIFE_INSURANCE_ITEM_ID
                 payment:
-                  - collected_by: BPP
+                  collected_by: BPP
                 tags:
                   - descriptor:
                       code: BAP_TERMS
@@ -4282,7 +4527,7 @@ x-flows:
         example:
           value: &ref_31
             context:
-              action: on_status
+              action: select
               bap_id: fis.test.bap.io
               bap_uri: https://fis.test.bap.io/
               bpp_id: fis.test.bpp.io
@@ -4563,7 +4808,6 @@ x-flows:
                 country:
                   code: IND
                 city:
-                  status: NOT-PAID
                   code: '*'
               message_id: b4977ec9-ca8a-41c4-90eb-f73f36160c84
               timestamp: '2023-07-24T05:40:48.432Z'
@@ -4758,7 +5002,7 @@ x-flows:
                         mime_type: application/html
                         url: https://fis.test.bpp.io/form/ekyc_dtls
                         resubmit: true
-                        multiple_submissions: false
+                        multiple_sumbissions: false
                       required: true
                     add_ons:
                       - id: A1
@@ -5437,7 +5681,7 @@ x-flows:
                         mime_type: application/html
                         url: https://fis.test.bpp.io/form/medical_appt_booking
                         resubmit: true
-                        multiple_submissions: false
+                        multiple_sumbissions: false
                       required: true
                     add_ons:
                       - id: A1
@@ -7806,8 +8050,8 @@ x-flows:
               action: search
               timestamp: '2023-05-25T05:23:03.443Z'
               version: 2.0.0
-              bap_uri: fis.test.bap.io
-              bap_id: https://fis.test.bap.io/
+              bap_uri: https://fis.test.bap.io/
+              bap_id: fis.test.bap.io
               ttl: PT24H
             message:
               intent:
@@ -7815,7 +8059,7 @@ x-flows:
                   descriptor:
                     code: LIFE_INSURANCE
                 payment:
-                  - collected_by: BPP
+                  collected_by: BPP
                 tags:
                   - descriptor:
                       code: BAP_TERMS
@@ -7909,7 +8153,7 @@ x-flows:
                             mime_type: text/html
                             url: https://fis.test.bpp.io/xinput/form/basic_details
                             resubmit: false
-                            multiple_submissions: false
+                            multiple_sumbissions: false
                           required: true
                         add_ons:
                           - id: A1
@@ -8011,7 +8255,237 @@ x-flows:
         reference: if any
         api: form
         example:
-          value: "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n\r\n<head>\r\n<meta charset=\"UTF-8\">\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n<title>Basic Details</title>\r\n</head>\r\n\r\n<body>\r\n\r\n<h1>Basic Details</h1>\r\n\r\n<form>\r\n<div>\r\n<h2>Beneficiary Information</h2>\r\n<label for=\"beneficiary-dob\">Date of Birth:</label>\r\n<input type=\"date\" id=\"beneficiary-dob\" required>\r\n\r\n<label for=\"beneficiary-gender\">Gender:</label>\r\n<select id=\"beneficiary-gender\" required>\r\n<option value=\"M\">Male</option>\r\n<option value=\"F\">Female</option>\r\n<option value=\"O\">Other</option>\r\n</select>\r\n\r\n<label for=\"beneficiary-phone\">Phone (Numeric):</label>\r\n<input type=\"tel\" id=\"beneficiary-phone\" pattern=\"[0-9]*\" required>\r\n\r\n<label for=\"beneficiary-smoker\">Smoker or Tobacco Consumption:</label>\r\n<select id=\"beneficiary-smoker\" required>\r\n<option value=\"true\">Yes</option>\r\n<option value=\"false\">No</option>\r\n</select>\r\n</div>\r\n\r\n<div>\r\n<h2>Proposer Information</h2>\r\n<label for=\"proposer-dob\">Date of Birth:</label>\r\n<input type=\"date\" id=\"proposer-dob\" required>\r\n\r\n<label for=\"proposer-gender\">Gender:</label>\r\n<select id=\"proposer-gender\" required>\r\n<option value=\"M\">Male</option>\r\n<option value=\"F\">Female</option>\r\n<option value=\"O\">Other</option>\r\n</select>\r\n\r\n<label for=\"proposer-phone\">Phone (Numeric):</label>\r\n<input type=\"tel\" id=\"proposer-phone\" pattern=\"[0-9]*\" required>\r\n\r\n<label for=\"proposer-occupation\">Occupation:</label>\r\n<select id=\"proposer-occupation\" required>\r\n<option value=\"Service Professional\">Service Professional</option>\r\n<option value=\"Business\">Business</option>\r\n<option value=\"Army/Navy/Police\">Army/Navy/Police</option>\r\n<option value=\"Skilled Worker\">Skilled Worker</option>\r\n<option value=\"Retired\">Retired</option>\r\n<option value=\"Housewife\">Housewife</option>\r\n<option value=\"Student\">Student</option>\r\n<option value=\"Agriculture\">Agriculture</option>\r\n<option value=\"Others\">Others</option>\r\n</select>\r\n\r\n<label for=\"proposer-income\">Income (Own/Spouse's/Parent's):</label>\r\n<input type=\"number\" id=\"proposer-income\" required>\r\n\r\n<label for=\"proposer-aaid\">AAID (Optional):</label>\r\n<input type=\"text\" id=\"proposer-aaid\">\r\n</div>\r\n\r\n<div>\r\n<h2>Extra Information</h2>\r\n<label for=\"coverage-amount\">Coverage Amount (Optional):</label>\r\n<input type=\"number\" id=\"coverage-amount\">\r\n\r\n<label for=\"coverage-till\">Coverage Till (Age):</label>\r\n<input type=\"number\" id=\"coverage-till\">\r\n\r\n<label for=\"premium-frequency\">Frequency of Premium Payment (Optional):</label>\r\n<select id=\"premium-frequency\">\r\n<option value=\"Daily\">Daily</option>\r\n<option value=\"Monthly\">Monthly</option>\r\n<option value=\"Quarterly\">Quarterly</option>\r\n<option value=\"Semi Annual\">Semi Annual</option>\r\n<option value=\"Annual\">Annual</option>\r\n</select>\r\n\r\n<label for=\"premium-pay-term\"># of Years for Premium Payment (Pay Term) (Optional):</label>\r\n<input type=\"number\" id=\"premium-pay-term\">\r\n</div>\r\n\r\n<label for=\"agent-id\">Agent Id (Optional):</label>\r\n<input type=\"text\" id=\"agent-id\">\r\n\r\n<label for=\"declaration\">\r\n</br>I hereby declare that the information provided in this application form for life insurance is true, accurate, and complete to the best of my knowledge.\r\n    </br>\r\n</br>I also understand and agree that:\r\n</br>\r\n</br>The insurance company may share my personal and financial data, as necessary, with third-party entities, including but not limited to:\r\n</br>1. Credit Bureaus for conducting bureau checks,\r\n</br>2. Agencies or institutions for compliance with anti-money laundering and terrorist financing regulations,\r\n</br>3. Medical professionals or diagnostic centers for underwriting or claim verification purposes,\r\n</br>4. Government authorities, regulators, or other organizations as required under applicable laws.\r\n</br>Such data sharing will be done solely for the purpose of evaluating my application, underwriting, servicing the policy, and meeting legal or regulatory requirements.\r\n</br>\r\n</br>The insurance company is authorized to contact me or the provided references for additional verifications if necessary.\r\n</br>\r\n</br>I understand that my consent is essential for processing this application and that refusal to provide such consent may result in my application being declined.\r\n</label>\r\n<input type=\"checkbox\" id=\"declaration\">\r\n\r\n\r\n<button type=\"submit\">Submit</button>\r\n</form>\r\n\r\n</body>\r\n\r\n</html>"
+          value: >-
+            <!DOCTYPE html>
+
+            <html lang="en">
+
+
+            <head>
+
+            <meta charset="UTF-8">
+
+            <meta name="viewport" content="width=device-width,
+            initial-scale=1.0">
+
+            <title>Basic Details</title>
+
+            </head>
+
+
+            <body>
+
+
+            <h1>Basic Details</h1>
+
+
+            <form>
+
+            <div>
+
+            <h2>Beneficiary Information</h2>
+
+            <label for="beneficiary-dob">Date of Birth:</label>
+
+            <input type="date" id="beneficiary-dob" required>
+
+
+            <label for="beneficiary-gender">Gender:</label>
+
+            <select id="beneficiary-gender" required>
+
+            <option value="M">Male</option>
+
+            <option value="F">Female</option>
+
+            <option value="O">Other</option>
+
+            </select>
+
+
+            <label for="beneficiary-phone">Phone (Numeric):</label>
+
+            <input type="tel" id="beneficiary-phone" pattern="[0-9]*" required>
+
+
+            <label for="beneficiary-smoker">Smoker or Tobacco
+            Consumption:</label>
+
+            <select id="beneficiary-smoker" required>
+
+            <option value="true">Yes</option>
+
+            <option value="false">No</option>
+
+            </select>
+
+            </div>
+
+
+            <div>
+
+            <h2>Proposer Information</h2>
+
+            <label for="proposer-dob">Date of Birth:</label>
+
+            <input type="date" id="proposer-dob" required>
+
+
+            <label for="proposer-gender">Gender:</label>
+
+            <select id="proposer-gender" required>
+
+            <option value="M">Male</option>
+
+            <option value="F">Female</option>
+
+            <option value="O">Other</option>
+
+            </select>
+
+
+            <label for="proposer-phone">Phone (Numeric):</label>
+
+            <input type="tel" id="proposer-phone" pattern="[0-9]*" required>
+
+
+            <label for="proposer-occupation">Occupation:</label>
+
+            <select id="proposer-occupation" required>
+
+            <option value="Service Professional">Service Professional</option>
+
+            <option value="Business">Business</option>
+
+            <option value="Army/Navy/Police">Army/Navy/Police</option>
+
+            <option value="Skilled Worker">Skilled Worker</option>
+
+            <option value="Retired">Retired</option>
+
+            <option value="Housewife">Housewife</option>
+
+            <option value="Student">Student</option>
+
+            <option value="Agriculture">Agriculture</option>
+
+            <option value="Others">Others</option>
+
+            </select>
+
+
+            <label for="proposer-income">Income (Own/Spouse's/Parent's):</label>
+
+            <input type="number" id="proposer-income" required>
+
+
+            <label for="proposer-aaid">AAID (Optional):</label>
+
+            <input type="text" id="proposer-aaid">
+
+            </div>
+
+
+            <div>
+
+            <h2>Extra Information</h2>
+
+            <label for="coverage-amount">Coverage Amount (Optional):</label>
+
+            <input type="number" id="coverage-amount">
+
+
+            <label for="coverage-till">Coverage Till (Age):</label>
+
+            <input type="number" id="coverage-till">
+
+
+            <label for="premium-frequency">Frequency of Premium Payment
+            (Optional):</label>
+
+            <select id="premium-frequency">
+
+            <option value="Daily">Daily</option>
+
+            <option value="Monthly">Monthly</option>
+
+            <option value="Quarterly">Quarterly</option>
+
+            <option value="Semi Annual">Semi Annual</option>
+
+            <option value="Annual">Annual</option>
+
+            </select>
+
+
+            <label for="premium-pay-term"># of Years for Premium Payment (Pay
+            Term) (Optional):</label>
+
+            <input type="number" id="premium-pay-term">
+
+            </div>
+
+
+            <label for="agent-id">Agent Id (Optional):</label>
+
+            <input type="text" id="agent-id">
+
+
+            <label for="declaration">
+
+            </br>I hereby declare that the information provided in this
+            application form for life insurance is true, accurate, and complete
+            to the best of my knowledge.
+                </br>
+            </br>I also understand and agree that:
+
+            </br>
+
+            </br>The insurance company may share my personal and financial data,
+            as necessary, with third-party entities, including but not limited
+            to:
+
+            </br>1. Credit Bureaus for conducting bureau checks,
+
+            </br>2. Agencies or institutions for compliance with anti-money
+            laundering and terrorist financing regulations,
+
+            </br>3. Medical professionals or diagnostic centers for underwriting
+            or claim verification purposes,
+
+            </br>4. Government authorities, regulators, or other organizations
+            as required under applicable laws.
+
+            </br>Such data sharing will be done solely for the purpose of
+            evaluating my application, underwriting, servicing the policy, and
+            meeting legal or regulatory requirements.
+
+            </br>
+
+            </br>The insurance company is authorized to contact me or the
+            provided references for additional verifications if necessary.
+
+            </br>
+
+            </br>I understand that my consent is essential for processing this
+            application and that refusal to provide such consent may result in
+            my application being declined.
+
+            </label>
+
+            <input type="checkbox" id="declaration">
+
+
+
+            <button type="submit">Submit</button>
+
+            </form>
+
+
+            </body>
+
+
+            </html>
         details:
           - description: >-
               User fills the personal information details form from the insurer
@@ -8567,7 +9041,6 @@ x-flows:
                 country:
                   code: IND
                 city:
-                  status: NOT-PAID
                   code: '*'
               message_id: b4977ec9-ca8a-41c4-90eb-f73f36160c84
               timestamp: '2023-07-24T05:40:48.432Z'
@@ -8752,7 +9225,7 @@ x-flows:
                         mime_type: application/html
                         url: https://fis.test.bpp.io/form/ekyc_dtls
                         resubmit: true
-                        multiple_submissions: false
+                        multiple_sumbissions: false
                       required: true
                     add_ons:
                       - id: A1
@@ -9379,7 +9852,7 @@ x-flows:
                         mime_type: text/html
                         url: https://fis.test.bpp.io/form/addtional_dtls
                         resubmit: true
-                        multiple_submissions: false
+                        multiple_sumbissions: false
                       required: true
                     add_ons:
                       - id: A1
@@ -10997,7 +11470,7 @@ x-examples:
                           mime_type: text/html
                           url: https://fis.test.bpp.io/form/addtional_dtls
                           resubmit: true
-                          multiple_submissions: false
+                          multiple_sumbissions: false
                         required: true
                       add_ons:
                         - id: A1
@@ -11572,7 +12045,7 @@ x-examples:
                             status: SUCCESS
                             submission_id: F01_SUBMISSION_ID
                   payment:
-                    - collected_by: BPP
+                    collected_by: BPP
                   tags:
                     - descriptor:
                         code: BAP_TERMS
@@ -11622,10 +12095,12 @@ x-examples:
                   category:
                     descriptor:
                       code: LIFE_INSURANCE
-                  items:
-                    - id: LIFE_INSURANCE_ITEM_ID
+                  provider:
+                    id: PROVIDER_ID
+                    items:
+                      - id: LIFE_INSURANCE_ITEM_ID
                   payment:
-                    - collected_by: BPP
+                    collected_by: BPP
                   tags:
                     - descriptor:
                         code: BAP_TERMS
@@ -11656,7 +12131,7 @@ x-examples:
             description: Select a product and request the inital quote breakup
             value:
               context:
-                action: on_status
+                action: select
                 bap_id: fis.test.bap.io
                 bap_uri: https://fis.test.bap.io/
                 bpp_id: fis.test.bpp.io
@@ -11697,7 +12172,7 @@ x-attributes:
                 owner: BAP
                 usage: IND
                 description: Describes country code as per ISO 3166-1 and ISO 3166-2 format
-              _description: &ref_154
+              _description: &ref_153
                 required: MANDATORY
                 type: object
                 owner: BAP
@@ -11712,7 +12187,7 @@ x-attributes:
                 owner: BAP
                 usage: '*'
                 description: Describes the city code this location is, or is located within
-              _description: &ref_155
+              _description: &ref_154
                 required: MANDATORY
                 type: object
                 owner: BAP
@@ -11720,7 +12195,7 @@ x-attributes:
                 description: >-
                   This attribute defines the city of location where the
                   transaction is meant to be completed.
-            _description: &ref_156
+            _description: &ref_155
               required: MANDATORY
               type: object
               owner: BAP
@@ -11831,7 +12306,7 @@ x-attributes:
                   This attribute explains what personal loan or invoice based
                   loans are and how they function. It can provide the details
                   into the nature of chosen loan
-            payment: &ref_92
+            payment:
               collected_by:
                 required: OPTIONAL
                 type: TEXT
@@ -11910,9 +12385,8 @@ x-attributes:
               owner: BAP
               usage: '--'
               description: Describe the intent to buy or avail a product or a service.
-          catalog:
-            tags: &ref_99
-              BAP_TERMS: &ref_153
+            tags: &ref_98
+              BAP_TERMS: &ref_152
                 required: MANDATORY
                 type: object
                 owner: BAP
@@ -12087,7 +12561,7 @@ x-attributes:
                         usage: '--'
                         description: Describes the information about the xinput head
                     index:
-                      min: &ref_105
+                      min: &ref_104
                         required: OPTIONAL
                         type: NUMERIC
                         owner: BPP
@@ -12167,7 +12641,7 @@ x-attributes:
                       description: >-
                         It refers to the detailed description of the used form
                         for information of the user.
-                  required: &ref_109
+                  required: &ref_108
                     required: OPTIONAL
                     type: BOOLEAN
                     owner: BPP
@@ -12251,7 +12725,7 @@ x-attributes:
                       owner: BPP
                       usage: INR
                       description: Describes the currency of add_ons
-                    _description: &ref_168
+                    _description: &ref_167
                       required: OPTIONAL
                       type: object
                       owner: BPP
@@ -12362,7 +12836,7 @@ x-attributes:
                     owner: BPP
                     usage: '--'
                     description: Describes consent info
-                    list: &ref_187
+                    list: &ref_186
                       CONSENT_HANDLER:
                         required: OPTIONAL
                         type: TEXT
@@ -12376,8 +12850,13 @@ x-attributes:
                     usage: General
                     description: Describes checklist items
                   CHECKLIST_INFO: &ref_87
+                    required: OPTIONAL
+                    type: TEXT
+                    owner: BPP
+                    usage: '--'
+                    description: Describes consent info
                     list:
-                      MEDICAL_CHECKUP_PAYMENT: &ref_212
+                      MEDICAL_CHECKUP_PAYMENT:
                         required: OPTIONAL
                         type: TEXT
                         owner: BPP
@@ -12385,19 +12864,19 @@ x-attributes:
                         description: >-
                           Describes if medical checkup payment is done or
                           pending
-                      BENEFICIARY_KYC: &ref_213
+                      BENEFICIARY_KYC:
                         required: OPTIONAL
                         type: TEXT
                         owner: BPP
                         usage: Pending, submission_id if done
                         description: Describes if Beneficiary's KYC is done or pending
-                      PROPOSER_KYC: &ref_214
+                      PROPOSER_KYC:
                         required: OPTIONAL
                         type: TEXT
                         owner: BPP
                         usage: Pending, submission_id if done
                         description: Describes if Proposer's KYC payment is done or pending
-                      MEDICAL_CHECKUP: &ref_231
+                      MEDICAL_CHECKUP:
                         required: OPTIONAL
                         type: TEXT
                         owner: BPP
@@ -12494,7 +12973,7 @@ x-attributes:
                 usage: 6xd4ea25
                 description: Describes the provider id.
               payments:
-                collected_by: &ref_97
+                collected_by: &ref_96
                   required: MANDATORY
                   type: TEXT
                   owner: BPP
@@ -12685,8 +13164,8 @@ x-attributes:
               description: >-
                 This attribute describes the products or services that are sent
                 as the response to the search done by BAP.
-            tags: &ref_123
-              BPP_TERMS: &ref_152
+            tags: &ref_122
+              BPP_TERMS: &ref_151
                 required: MANDATORY
                 type: object
                 owner: BPP
@@ -12744,7 +13223,7 @@ x-attributes:
                   owner: BPP
                   usage: 2xd4ea25
                   description: Unique id of the add_ons item
-              id: &ref_95
+              id: &ref_94
                 required: MANDATORY
                 type: TEXT
                 owner: BPP
@@ -12787,7 +13266,7 @@ x-attributes:
         message:
           order:
             items:
-              category_ids: &ref_102
+              category_ids: &ref_101
                 required: MANDATORY
                 type: TEXT
                 owner: BPP
@@ -12802,16 +13281,16 @@ x-attributes:
                   usage: Jeevan Anand
                   description: Short description about the insurance type
                 _description: *ref_78
-              id: &ref_183
+              id: &ref_182
                 required: MANDATORY
                 type: TEXT
                 owner: BPP
                 usage: zbfv9b91
                 description: Describes the item ID
-              time: &ref_103
+              time: &ref_102
                 duration: *ref_79
                 label: *ref_80
-                _description: &ref_130
+                _description: &ref_129
                   required: MANDATORY
                   type: object
                   owner: BPP
@@ -12838,7 +13317,7 @@ x-attributes:
                       owner: BPP
                       usage: 1
                       description: Describes the current index value
-                    _description: &ref_106
+                    _description: &ref_105
                       required: MANDATORY
                       type: object
                       owner: BPP
@@ -12853,7 +13332,7 @@ x-attributes:
                       owner: BPP
                       usage: Additional Details Form
                       description: Headings of form
-                    _description: &ref_104
+                    _description: &ref_103
                       required: MANDATORY
                       type: object
                       owner: BPP
@@ -12865,7 +13344,7 @@ x-attributes:
                     owner: BPP
                     usage: Additional Details Form
                     description: Describes the heading of the form.
-                  _description: &ref_107
+                  _description: &ref_106
                     required: MANDATORY
                     type: object
                     owner: BPP
@@ -12905,7 +13384,7 @@ x-attributes:
                     owner: BPP
                     usage: a251xd4e
                     description: Describes the unique form id.
-                  _description: &ref_108
+                  _description: &ref_107
                     required: MANDATORY
                     type: object
                     owner: BPP
@@ -12921,7 +13400,7 @@ x-attributes:
                   description: >-
                     Indicates whether the form data is mandatorily required by
                     the BPP to confirm the order.
-                _description: &ref_110
+                _description: &ref_109
                   required: MANDATORY
                   type: object
                   owner: BAP/BPP
@@ -12933,7 +13412,7 @@ x-attributes:
                 id: *ref_81
                 quantity:
                   available:
-                    count: &ref_93
+                    count: &ref_92
                       required: OPTIONAL
                       type: NUMERIC
                       owner: BPP
@@ -12952,14 +13431,14 @@ x-attributes:
                       owner: BAP
                       usage: 1
                       description: Describes the selected count of available quantity
-                    _description: &ref_100
+                    _description: &ref_99
                       required: OPTIONAL
                       type: object
                       owner: BAP
                       usage: '--'
                       description: Describes the selected count of available quantity
                   _description: *ref_82
-                descriptor: &ref_185
+                descriptor: &ref_184
                   name:
                     required: OPTIONAL
                     type: TEXT
@@ -12972,13 +13451,13 @@ x-attributes:
                     owner: BPP
                     usage: NO_CLAIM_BONUS
                     description: Describes the code of add_on item.
-                  _description: &ref_101
+                  _description: &ref_100
                     required: OPTIONAL
                     type: object
                     owner: BPP
                     usage: '--'
                     description: Describes the info about descriptor
-                _description: &ref_94
+                _description: &ref_93
                   required: OPTIONAL
                   type: object
                   owner: BAP/BPP
@@ -12986,7 +13465,7 @@ x-attributes:
                   description: Describes the additional services.
                 price: *ref_83
               parent_item_id: *ref_84
-              price: &ref_111
+              price: &ref_110
                 value:
                   required: MANDATORY
                   type: TEXT
@@ -12999,13 +13478,13 @@ x-attributes:
                   owner: BPP
                   usage: INR
                   description: Describes the item's currency
-                _description: &ref_169
+                _description: &ref_168
                   required: MANDATORY
                   type: object
                   owner: BPP
                   usage: '--'
                   description: Describes the price for item.
-              _description: &ref_96
+              _description: &ref_95
                 required: MANDATORY
                 type: object
                 owner: BAP/BPP
@@ -13022,19 +13501,19 @@ x-attributes:
                   usage: '--'
                   description: Describes general info
                   list:
-                    COVERAGE_AMOUNT: &ref_112
+                    COVERAGE_AMOUNT: &ref_111
                       required: MANDATORY
                       type: TEXT
                       owner: BPP
                       usage: '--'
                       description: Describes coverage amount
-                    CLAIM_SETTLEMENT_RATIO: &ref_113
+                    CLAIM_SETTLEMENT_RATIO: &ref_112
                       required: MANDATORY
                       type: TEXT
                       owner: BPP
                       usage: '--'
                       description: Describes claim settlement ratio
-                    FREE_LOOKUP_PERIOD: &ref_114
+                    FREE_LOOKUP_PERIOD: &ref_113
                       required: MANDATORY
                       type: TEXT
                       owner: BPP
@@ -13042,7 +13521,7 @@ x-attributes:
                       description: >-
                         Describe period during which policy can be cancelled
                         without any penalty
-                    COVERAGE_PERIOD: &ref_115
+                    COVERAGE_PERIOD: &ref_114
                       required: MANDATORY
                       type: TEXT
                       owner: BPP
@@ -13051,7 +13530,7 @@ x-attributes:
                         Describes period till which coverage is active e.g. 60
                         years age
                     PAYMENT_FREQUENCY: *ref_85
-                    PROPOSAL_ID: &ref_116
+                    PROPOSAL_ID: &ref_115
                       required: OPTIONAL
                       type: TEXT
                       owner: BPP
@@ -13061,8 +13540,8 @@ x-attributes:
                         please provide proposal id.
                 CHECKLIST: *ref_86
                 CHECKLIST_INFO: *ref_87
-            provider: &ref_121
-              descriptor: &ref_149
+            provider: &ref_120
+              descriptor: &ref_148
                 long_desc:
                   required: MANDATORY
                   type: TEXT
@@ -13091,7 +13570,7 @@ x-attributes:
                     owner: BPP
                     usage: xs
                     description: Size type of the Image.
-                  _description: &ref_173
+                  _description: &ref_172
                     required: MANDATORY
                     type: object
                     owner: BPP
@@ -13107,7 +13586,7 @@ x-attributes:
                   description: Short description about insurer
                 _description: *ref_88
               id: *ref_89
-              _description: &ref_150
+              _description: &ref_149
                 required: MANDATORY
                 type: object
                 owner: BPP
@@ -13115,7 +13594,7 @@ x-attributes:
                 description: >-
                   This describes the complete formulated description of the loan
                   provider whose order items have been selected.
-            quote: &ref_122
+            quote: &ref_121
               id:
                 required: MANDATORY
                 type: TEXT
@@ -13138,7 +13617,7 @@ x-attributes:
                     owner: BPP
                     usage: INR
                     description: Currency type of the selected item.
-                  _description: &ref_174
+                  _description: &ref_173
                     required: MANDATORY
                     type: object
                     owner: BPP
@@ -13152,7 +13631,7 @@ x-attributes:
                   owner: BPP
                   usage: Base Price
                   description: Breakup title of the total quoted price
-                _description: &ref_175
+                _description: &ref_174
                   required: MANDATORY
                   type: object
                   owner: BPP
@@ -13160,7 +13639,7 @@ x-attributes:
                   description: >-
                     This attribute describes the breakup of the total quoted
                     price.
-                item: &ref_192
+                item: &ref_191
                   id:
                     required: OPTIONAL
                     type: TEXT
@@ -13187,13 +13666,13 @@ x-attributes:
                   owner: BPP
                   usage: INR
                   description: Describes the currency of a product or service
-                _description: &ref_176
+                _description: &ref_175
                   required: MANDATORY
                   type: object
                   owner: BPP
                   usage: '--'
                   description: This refers to the value of used currency of quoted price.
-              _description: &ref_177
+              _description: &ref_176
                 required: MANDATORY
                 type: object
                 owner: BPP
@@ -13201,13 +13680,13 @@ x-attributes:
                 description: >-
                   This refers to the complete description of the mutually agreed
                   upon quotation for this order.
-              ttl: &ref_195
+              ttl: &ref_194
                 required: OPTIONAL
                 type: TEXT
                 owner: BPP
                 usage: PT15D
                 description: Describes the ttl of the quote
-            _description: &ref_98
+            _description: &ref_97
               required: MANDATORY
               type: object
               owner: BAP/BPP
@@ -13216,7 +13695,7 @@ x-attributes:
                 This refers to the complete description of the legal contract
                 created between the buyer and the seller.
             payments:
-              status: &ref_140
+              status: &ref_139
                 required: MANDATORY
                 type: TEXT
                 owner: BPP
@@ -13228,7 +13707,6 @@ x-attributes:
                 owner: BPP
                 usage: PRE-ORDER
                 description: Describe the type of payment
-            providers:
               tags:
                 CONSENT_INFO:
                   required: OPTIONAL
@@ -13245,8 +13723,6 @@ x-attributes:
                       description: Describes consent handler info
                 CONTACT_INFO: *ref_90
                 LSP_INFO: *ref_91
-          intent:
-            payment: *ref_92
       init:
         context:
           location: *ref_66
@@ -13271,11 +13747,11 @@ x-attributes:
         message:
           order:
             items:
-              add_ons: &ref_124
+              add_ons: &ref_123
                 id: *ref_81
                 quantity:
                   selected:
-                    count: *ref_93
+                    count: *ref_92
                     _description:
                       required: OPTIONAL
                       type: object
@@ -13283,9 +13759,9 @@ x-attributes:
                       usage: '--'
                       description: Describes the selected quantity for add_ons.
                   _description: *ref_82
-                _description: *ref_94
+                _description: *ref_93
               xinput:
-                form_response: &ref_125
+                form_response: &ref_124
                   submission_id:
                     required: MANDATORY
                     type: TEXT
@@ -13308,13 +13784,13 @@ x-attributes:
                       reaction to the information provided following the
                       submission of a form.
                 form:
-                  id: &ref_128
+                  id: &ref_127
                     required: MANDATORY
                     type: TEXT
                     owner: BPP
                     usage: sd2344Re
                     description: Describes the unique form id.
-                  _description: &ref_127
+                  _description: &ref_126
                     required: OPTIONAL
                     type: object
                     owner: BPP
@@ -13322,7 +13798,7 @@ x-attributes:
                     description: >-
                       This attribute refers to the information about additional
                       input form generated from the system.
-                _description: &ref_126
+                _description: &ref_125
                   required: OPTIONAL
                   type: object
                   owner: BAP/BPP
@@ -13330,25 +13806,25 @@ x-attributes:
                   description: >-
                     This attribute refers to the information about additional
                     input required from the customer to confirm this order.
-              id: *ref_95
+              id: *ref_94
               parent_item_id: *ref_84
-              _description: *ref_96
+              _description: *ref_95
             fulfillments:
               customer:
-                contact: &ref_131
-                  email: &ref_117
+                contact: &ref_130
+                  email: &ref_116
                     required: MANDATORY
                     type: TEXT
                     owner: BPP
                     usage: joe.adam@abc.org
                     description: Email address of the customer
-                  phone: &ref_118
+                  phone: &ref_117
                     required: MANDATORY
                     type: TEXT
                     owner: BPP
                     usage: 9999999999
                     description: Phone number of the customer
-                  _description: &ref_196
+                  _description: &ref_195
                     required: OPTIONAL
                     type: object
                     owner: BAP
@@ -13361,7 +13837,7 @@ x-attributes:
                     owner: BPP
                     usage: Joe Adam
                     description: Name of the customer
-                  _description: &ref_132
+                  _description: &ref_131
                     required: OPTIONAL
                     type: object
                     owner: BAP
@@ -13369,7 +13845,7 @@ x-attributes:
                     description: >-
                       This refers to the description of the associated person as
                       an individual entity.
-                _description: &ref_133
+                _description: &ref_132
                   required: OPTIONAL
                   type: object
                   owner: BAP
@@ -13387,7 +13863,7 @@ x-attributes:
                   rendered/fulfilled to the end-customers.
             provider:
               id: *ref_89
-              _description: &ref_135
+              _description: &ref_134
                 required: MANDATORY
                 type: object
                 owner: BPP
@@ -13396,7 +13872,7 @@ x-attributes:
                   This describes the complete formulated description of the loan
                   provider whose catalog items have been selected.
             payments:
-              collected_by: *ref_97
+              collected_by: *ref_96
               status:
                 required: MANDATORY
                 type: TEXT
@@ -13434,13 +13910,13 @@ x-attributes:
                   owner: BAP
                   usage: INR
                   description: Describe the currency associated to amount.
-                _description: &ref_119
+                _description: &ref_118
                   required: MANDATORY
                   type: object
                   owner: BAP
                   usage: '--'
                   description: This attribute defines the payment params for this order.
-              _description: &ref_120
+              _description: &ref_119
                 required: MANDATORY
                 type: object
                 owner: BAP/BPP
@@ -13450,8 +13926,8 @@ x-attributes:
                   insinuates to the BPP for a single transaction. These terms
                   includes the amount, payment destination, time of settlement
                   and a transaction reference ID.
-            _description: *ref_98
-            tags: *ref_99
+            _description: *ref_97
+            tags: *ref_98
       on_init:
         context:
           location: *ref_66
@@ -13478,10 +13954,10 @@ x-attributes:
             items:
               add_ons:
                 id: *ref_81
-                quantity: &ref_142
-                  selected: &ref_184
-                    count: *ref_93
-                    _description: *ref_100
+                quantity: &ref_141
+                  selected: &ref_183
+                    count: *ref_92
+                    _description: *ref_99
                   _description: *ref_82
                 descriptor:
                   name:
@@ -13496,10 +13972,10 @@ x-attributes:
                     owner: BPP
                     usage: NO_CLAIM_BONUS
                     description: Describes the code of the add_on item
-                  _description: *ref_101
-                _description: *ref_94
+                  _description: *ref_100
+                _description: *ref_93
                 price: *ref_83
-              category_ids: *ref_102
+              category_ids: *ref_101
               descriptor:
                 name:
                   required: MANDATORY
@@ -13514,13 +13990,13 @@ x-attributes:
                   usage: ABC Insurance pvt Ldt
                   description: Short description about the insurance type
                 _description: *ref_78
-              id: &ref_129
+              id: &ref_128
                 required: MANDATORY
                 type: TEXT
                 owner: BPP
                 usage: zbfv9b91
                 description: Unique id of item
-              time: *ref_103
+              time: *ref_102
               xinput:
                 head:
                   descriptor:
@@ -13530,9 +14006,9 @@ x-attributes:
                       owner: BPP
                       usage: KYC link, Medical Review form
                       description: Headings of form
-                    _description: *ref_104
+                    _description: *ref_103
                   index:
-                    min: *ref_105
+                    min: *ref_104
                     max:
                       required: OPTIONAL
                       type: NUMERIC
@@ -13545,14 +14021,14 @@ x-attributes:
                       owner: BPP
                       usage: 1
                       description: Describes the current index value
-                    _description: *ref_106
+                    _description: *ref_105
                   headings:
                     required: OPTIONAL
                     type: TEXT
                     owner: BPP
                     usage: EKYC
                     description: Describes the heading of the form.
-                  _description: *ref_107
+                  _description: *ref_106
                 form:
                   mime_type:
                     required: OPTIONAL
@@ -13584,13 +14060,13 @@ x-attributes:
                     owner: BPP
                     usage: a251xd4e
                     description: Describes the unique form id.
-                  _description: *ref_108
-                required: *ref_109
-                _description: *ref_110
+                  _description: *ref_107
+                required: *ref_108
+                _description: *ref_109
               parent_item_id: *ref_84
-              price: *ref_111
-              _description: *ref_96
-              tags: &ref_143
+              price: *ref_110
+              _description: *ref_95
+              tags: &ref_142
                 GENERAL_INFO:
                   required: MANDATORY
                   type: TEXT
@@ -13598,10 +14074,10 @@ x-attributes:
                   usage: '--'
                   description: Describes general info
                   list:
-                    COVERAGE_AMOUNT: *ref_112
-                    CLAIM_SETTLEMENT_RATIO: *ref_113
-                    FREE_LOOKUP_PERIOD: *ref_114
-                    COVERAGE_PERIOD: *ref_115
+                    COVERAGE_AMOUNT: *ref_111
+                    CLAIM_SETTLEMENT_RATIO: *ref_112
+                    FREE_LOOKUP_PERIOD: *ref_113
+                    COVERAGE_PERIOD: *ref_114
                     PAYMENT_FREQUENCY: *ref_85
                     BASE_PRICE:
                       required: MANDATORY
@@ -13627,21 +14103,21 @@ x-attributes:
                       owner: BPP
                       usage: '-- (This are not present in health insurance)'
                       description: Describes tax
-                    PROPOSAL_ID: *ref_116
+                    PROPOSAL_ID: *ref_115
                 CHECKLIST: *ref_86
                 CHECKLIST_INFO: *ref_87
             fulfillments:
               customer:
                 contact:
-                  email: *ref_117
-                  phone: *ref_118
-                  _description: &ref_144
+                  email: *ref_116
+                  phone: *ref_117
+                  _description: &ref_143
                     required: MANDATORY
                     type: object
                     owner: BAP
                     usage: '--'
                     description: This refers to the details of the customer contacts
-                _description: &ref_145
+                _description: &ref_144
                   required: MANDATORY
                   type: object
                   owner: BAP
@@ -13649,7 +14125,7 @@ x-attributes:
                   description: >-
                     This refers to the description of the person that will
                     ultimately receive the order.
-                person: &ref_146
+                person: &ref_145
                   _description:
                     required: MANDATORY
                     type: object
@@ -13658,13 +14134,13 @@ x-attributes:
                     description: >-
                       This refers to the description of the associated person as
                       an individual entity.
-              id: &ref_134
+              id: &ref_133
                 required: MANDATORY
                 type: TEXT
                 owner: BPP
                 usage: 4eR21iB
                 description: Describes the unique id of the fulfillment
-              _description: &ref_147
+              _description: &ref_146
                 required: MANDATORY
                 type: object
                 owner: BAP/BPP
@@ -13673,45 +14149,45 @@ x-attributes:
                   This refers to the description as to how that order will
                   rendered/fulfilled to the end-customers.
             payments:
-              collected_by: &ref_136
+              collected_by: &ref_135
                 required: MANDATORY
                 type: TEXT
                 owner: BPP
                 usage: BPP
                 description: Describes the collected by of payment
               params:
-                amount: &ref_199
+                amount: &ref_198
                   required: OPTIONAL
                   type: NUMERIC
                   owner: BPP
                   usage: 1000
                   description: Describes payment amount
-                bank_account_number: &ref_137
+                bank_account_number: &ref_136
                   required: MANDATORY
                   type: NUMERIC
                   owner: BPP
                   usage: 180002341
                   description: Describes bank account number
-                bank_code: &ref_138
+                bank_code: &ref_137
                   required: MANDATORY
                   type: TEXT
                   owner: BPP
                   usage: SBIN0001234
                   description: Describes bank code
-                currency: &ref_139
+                currency: &ref_138
                   required: MANDATORY
                   type: TEXT
                   owner: BPP
                   usage: INR
                   description: Describes currency to be paid in
-                _description: *ref_119
+                _description: *ref_118
               status:
                 required: MANDATORY
                 type: TEXT
                 owner: BPP
                 usage: NOT-PAID, PARTIAL-PAYMENT-REQUIRED, PARTIAL-PAYMENT-REFUNDED
                 description: Describes payment status
-              type: &ref_141
+              type: &ref_140
                 required: MANDATORY
                 type: TEXT
                 owner: BPP
@@ -13724,11 +14200,11 @@ x-attributes:
                 usage: >-
                   https://www.abcinsurance.com/pg-gateway/payment?amount=1000&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
                 description: Describes payment url
-              _description: *ref_120
-            provider: *ref_121
-            quote: *ref_122
-            _description: *ref_98
-            cancellation_terms: &ref_200
+              _description: *ref_119
+            provider: *ref_120
+            quote: *ref_121
+            _description: *ref_97
+            cancellation_terms: &ref_199
               external_ref:
                 mimetype:
                   required: OPTIONAL
@@ -13742,7 +14218,7 @@ x-attributes:
                   owner: BPP
                   usage: https://fis.test.bpp.io/cancellation-terms
                   description: Describes the url of cancellation terms
-            tags: *ref_123
+            tags: *ref_122
       confirm:
         context:
           location: *ref_66
@@ -13767,14 +14243,14 @@ x-attributes:
         message:
           order:
             items:
-              add_ons: *ref_124
+              add_ons: *ref_123
               xinput:
-                form_response: *ref_125
-                _description: *ref_126
+                form_response: *ref_124
+                _description: *ref_125
                 form:
-                  _description: *ref_127
-                  id: *ref_128
-              id: *ref_129
+                  _description: *ref_126
+                  id: *ref_127
+              id: *ref_128
               parent_item_id: *ref_84
               time:
                 label:
@@ -13796,11 +14272,11 @@ x-attributes:
                     owner: BAP
                     usage: 2023-07-01T07:12:29.429Z
                     description: Describes the range for time entity
-                _description: *ref_130
-              _description: *ref_96
+                _description: *ref_129
+              _description: *ref_95
             fulfillments:
               customer:
-                contact: *ref_131
+                contact: *ref_130
                 person:
                   dob:
                     required: OPTIONAL
@@ -13820,10 +14296,10 @@ x-attributes:
                     owner: BAP
                     usage: Joe Adam
                     description: Describes name of any individual
-                  _description: *ref_132
-                _description: *ref_133
-              id: *ref_134
-              _description: &ref_197
+                  _description: *ref_131
+                _description: *ref_132
+              id: *ref_133
+              _description: &ref_196
                 required: OPTIONAL
                 type: object
                 owner: BAP/BPP
@@ -13832,37 +14308,37 @@ x-attributes:
                   This refers to the description as to how that order will
                   rendered/fulfilled to the end-customers.
             provider:
-              id: &ref_148
+              id: &ref_147
                 required: MANDATORY
                 type: TEXT
                 owner: BPP
                 usage: enff9b99
                 description: Describes the provider id
-              _description: *ref_135
+              _description: *ref_134
             payments:
-              collected_by: *ref_136
+              collected_by: *ref_135
               params:
-                amount: &ref_151
+                amount: &ref_150
                   required: MANDATORY
                   type: NUMERIC
                   owner: BPP
                   usage: 1000
                   description: Describes payment amount
-                bank_account_number: *ref_137
-                bank_code: *ref_138
-                currency: *ref_139
+                bank_account_number: *ref_136
+                bank_code: *ref_137
+                currency: *ref_138
                 transaction_id:
                   required: OPTIONAL
                   type: TEXT
                   owner: BAP
                   usage: 079c071b-8972-4f0f-b553-12e894617860
                   description: Describes the transaction id of the payment
-                _description: *ref_119
-              status: *ref_140
-              type: *ref_141
-              _description: *ref_120
+                _description: *ref_118
+              status: *ref_139
+              type: *ref_140
+              _description: *ref_119
             quote:
-              id: &ref_188
+              id: &ref_187
                 required: OPTIONAL
                 type: TEXT
                 owner: BPP
@@ -13871,7 +14347,7 @@ x-attributes:
                   In case the offer id is not same as Proposal ID use this as
                   offer ID.
               breakup:
-                price: &ref_189
+                price: &ref_188
                   value:
                     required: OPTIONAL
                     type: TEXT
@@ -13892,13 +14368,13 @@ x-attributes:
                     description: >-
                       This describes the decimal value of the price of a product
                       or service.
-                title: &ref_190
+                title: &ref_189
                   required: OPTIONAL
                   type: TEXT
                   owner: BPP
                   usage: Base Price
                   description: Breakup title of the total quoted price
-                _description: &ref_191
+                _description: &ref_190
                   required: OPTIONAL
                   type: object
                   owner: BPP
@@ -13920,7 +14396,7 @@ x-attributes:
                       owner: BPP
                       usage: A1
                       description: Describes the add_ons id.
-              price: &ref_193
+              price: &ref_192
                 value:
                   required: OPTIONAL
                   type: TEXT
@@ -13939,7 +14415,7 @@ x-attributes:
                   owner: BPP
                   usage: '--'
                   description: This refers to the value of used currency of quoted price.
-              _description: &ref_194
+              _description: &ref_193
                 required: OPTIONAL
                 type: object
                 owner: BPP
@@ -13947,8 +14423,8 @@ x-attributes:
                 description: >-
                   This refers to the complete description of the mutually agreed
                   upon quotation for this order.
-            _description: *ref_98
-            tags: *ref_99
+            _description: *ref_97
+            tags: *ref_98
       on_confirm:
         context:
           location: *ref_66
@@ -13975,7 +14451,7 @@ x-attributes:
             items:
               add_ons:
                 id: *ref_81
-                quantity: *ref_142
+                quantity: *ref_141
                 descriptor:
                   code:
                     required: OPTIONAL
@@ -13989,11 +14465,11 @@ x-attributes:
                     owner: BPP
                     usage: no claim bonus
                     description: false
-                  _description: *ref_101
-                _description: *ref_94
+                  _description: *ref_100
+                _description: *ref_93
                 price: *ref_83
-              id: *ref_129
-              price: *ref_111
+              id: *ref_128
+              price: *ref_110
               parent_item_id: *ref_84
               fulfillment_ids:
                 required: MANDATORY
@@ -14001,8 +14477,8 @@ x-attributes:
                 owner: BPP
                 usage: 4eR21iB
                 description: Describes the id of the fulfillments associated to the item
-              time: *ref_103
-              descriptor: &ref_182
+              time: *ref_102
+              descriptor: &ref_181
                 name:
                   required: MANDATORY
                   type: TEXT
@@ -14016,8 +14492,8 @@ x-attributes:
                   usage: ABC Individual Health Insurance Class A with custom addon
                   description: Short description about the insurance type
                 _description: *ref_78
-              _description: *ref_96
-              tags: *ref_143
+              _description: *ref_95
+              tags: *ref_142
             fulfillments:
               customer:
                 contact:
@@ -14033,9 +14509,9 @@ x-attributes:
                     owner: BAP
                     usage: 9999999999
                     description: Phone number of the customer
-                  _description: *ref_144
-                _description: *ref_145
-                person: *ref_146
+                  _description: *ref_143
+                _description: *ref_144
+                person: *ref_145
               state:
                 descriptor:
                   code:
@@ -14044,27 +14520,27 @@ x-attributes:
                     owner: BPP
                     usage: GRANTED
                     description: Describes the fulfillments state
-                  _description: &ref_172
+                  _description: &ref_171
                     required: MANDATORY
                     type: object
                     owner: BPP
                     usage: '--'
                     description: Describes the fulfillments state's descriptor
-                _description: &ref_171
+                _description: &ref_170
                   required: MANDATORY
                   type: object
                   owner: BAP/BPP
                   usage: '--'
                   description: Describes the fulfillments state
-              id: *ref_134
-              _description: *ref_147
+              id: *ref_133
+              _description: *ref_146
             provider:
-              id: *ref_148
-              descriptor: *ref_149
-              _description: *ref_150
+              id: *ref_147
+              descriptor: *ref_148
+              _description: *ref_149
             payments:
-              collected_by: *ref_136
-              url: &ref_198
+              collected_by: *ref_135
+              url: &ref_197
                 required: OPTIONAL
                 type: false
                 owner: false
@@ -14072,21 +14548,21 @@ x-attributes:
                   https://www.abcinsurance.com/pg-gateway/payment?amount=1000&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
                 description: false
               params:
-                amount: *ref_151
-                bank_account_number: *ref_137
-                bank_code: *ref_138
-                currency: *ref_139
+                amount: *ref_150
+                bank_account_number: *ref_136
+                bank_code: *ref_137
+                currency: *ref_138
                 transaction_id:
                   required: MANDATORY
                   type: TEXT
                   owner: BAP
                   usage: 079c071b-8972-4f0f-b553-12e894617860
                   description: Describes the transaction id of the payment
-                _description: *ref_119
-              status: *ref_140
-              type: *ref_141
-              _description: *ref_120
-            quote: *ref_122
+                _description: *ref_118
+              status: *ref_139
+              type: *ref_140
+              _description: *ref_119
+            quote: *ref_121
             id:
               required: MANDATORY
               type: TEXT
@@ -14125,7 +14601,7 @@ x-attributes:
                   owner: BPP
                   usage: Download you digitally signed policy document here
                   description: Describes the long description of document
-                _description: &ref_178
+                _description: &ref_177
                   required: MANDATORY
                   type: object
                   owner: BPP
@@ -14143,13 +14619,13 @@ x-attributes:
                 owner: BPP
                 usage: https://abcinsurance.com/policies/O1.pdf
                 description: Describes the url of document
-              _description: &ref_179
+              _description: &ref_178
                 required: MANDATORY
                 type: object
                 owner: BPP
                 usage: '--'
                 description: Describes documents associated to the order
-            _description: *ref_98
+            _description: *ref_97
             created_at:
               required: MANDATORY
               type: TEXT
@@ -14176,12 +14652,12 @@ x-attributes:
                   owner: BPP
                   usage: https://fis.test.bpp.io/cancellation-terms
                   description: Describes the url of cancellation terms
-            tags: &ref_180
-              BPP_TERMS: *ref_152
-              BAP_TERMS: *ref_153
+            tags: &ref_179
+              BPP_TERMS: *ref_151
+              BAP_TERMS: *ref_152
       cancel:
-        context: &ref_181
-          location: &ref_157
+        context: &ref_180
+          location: &ref_156
             country:
               code:
                 required: MANDATORY
@@ -14189,7 +14665,7 @@ x-attributes:
                 owner: BAP
                 usage: IND
                 description: Describes country code as per ISO 3166-1 and ISO 3166-2 format
-              _description: *ref_154
+              _description: *ref_153
             city:
               code:
                 required: MANDATORY
@@ -14197,33 +14673,33 @@ x-attributes:
                 owner: BAP
                 usage: '*'
                 description: Describes the city code this location is, or is located within
-              _description: *ref_155
-            _description: *ref_156
-          domain: &ref_158
+              _description: *ref_154
+            _description: *ref_155
+          domain: &ref_157
             required: MANDATORY
             type: string
             owner: BAP
             usage: ONDC:FIS13
             description: Describes domain code that is relevant to this transaction context
-          timestamp: &ref_159
+          timestamp: &ref_158
             required: MANDATORY
             type: string
             owner: BAP
             usage: 2023-03-23T04:41:16.000Z
             description: Describes tme of request generation in RFC3339 format
-          bap_id: &ref_160
+          bap_id: &ref_159
             required: MANDATORY
             type: string
             owner: BAP
             usage: fis.test.bap.io
             description: Describes subscriber ID of the BAP
-          transaction_id: &ref_161
+          transaction_id: &ref_160
             required: MANDATORY
             type: string
             owner: BAP
             usage: 6743e9e2
             description: Describes  a unique value which persists across all API calls
-          message_id: &ref_162
+          message_id: &ref_161
             required: MANDATORY
             type: string
             owner: BAP
@@ -14231,7 +14707,7 @@ x-attributes:
             description: >-
               Describes a unique value which persists during a request /
               callback cycle.
-          version: &ref_163
+          version: &ref_162
             required: MANDATORY
             type: integer
             owner: BAP
@@ -14247,7 +14723,7 @@ x-attributes:
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
-          bap_uri: &ref_164
+          bap_uri: &ref_163
             required: MANDATORY
             type: string
             owner: BAP
@@ -14255,7 +14731,7 @@ x-attributes:
             description: >-
               Describes subscriber URL of the BAP for accepting callbacks from
               BPPs.
-          ttl: &ref_165
+          ttl: &ref_164
             required: MANDATORY
             type: string
             owner: BAP
@@ -14263,13 +14739,13 @@ x-attributes:
             description: >-
               Describes the duration in ISO8601 format after timestamp for which
               this message holds valid
-          bpp_id: &ref_166
+          bpp_id: &ref_165
             required: MANDATORY
             type: string
             owner: BPP
             usage: fis.test.bpp.io
             description: Describes subscriber ID of the BPP
-          bpp_uri: &ref_167
+          bpp_uri: &ref_166
             required: MANDATORY
             type: string
             owner: BPP
@@ -14303,13 +14779,13 @@ x-attributes:
             description: Describes the order id as policy id.
       on_cancel:
         context:
-          location: *ref_157
-          domain: *ref_158
-          timestamp: *ref_159
-          bap_id: *ref_160
-          transaction_id: *ref_161
-          message_id: *ref_162
-          version: *ref_163
+          location: *ref_156
+          domain: *ref_157
+          timestamp: *ref_158
+          bap_id: *ref_159
+          transaction_id: *ref_160
+          message_id: *ref_161
+          version: *ref_162
           action:
             required: MANDATORY
             type: string
@@ -14318,29 +14794,29 @@ x-attributes:
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
-          bap_uri: *ref_164
-          ttl: *ref_165
-          bpp_id: *ref_166
-          bpp_uri: *ref_167
+          bap_uri: *ref_163
+          ttl: *ref_164
+          bpp_id: *ref_165
+          bpp_uri: *ref_166
         message:
           order:
             items:
               add_ons:
-                id: &ref_204
+                id: &ref_203
                   required: OPTIONAL
                   type: string
                   owner: BPP
                   usage: 2xd4ea25
                   description: Unique id of the add_ons item
                 quantity:
-                  selected: &ref_206
-                    count: &ref_205
+                  selected: &ref_205
+                    count: &ref_204
                       required: OPTIONAL
                       type: number
                       owner: BPP
                       usage: 1
                       description: Describes the count of available quantity
-                    _description: *ref_100
+                    _description: *ref_99
                   _description: *ref_82
                 descriptor:
                   code:
@@ -14355,9 +14831,9 @@ x-attributes:
                     owner: BPP
                     usage: no claim bonus
                     description: false
-                  _description: *ref_101
-                _description: *ref_94
-                price: &ref_207
+                  _description: *ref_100
+                _description: *ref_93
+                price: &ref_206
                   value:
                     required: OPTIONAL
                     type: string
@@ -14370,7 +14846,7 @@ x-attributes:
                     owner: BPP
                     usage: INR
                     description: Describes the currency of add_ons
-                  _description: *ref_168
+                  _description: *ref_167
               id:
                 required: MANDATORY
                 type: string
@@ -14383,7 +14859,7 @@ x-attributes:
                 owner: BPP
                 usage: 1xd4ea25
                 description: "Unique id of item\r\n"
-              price: &ref_208
+              price: &ref_207
                 value:
                   required: MANDATORY
                   type: string
@@ -14396,8 +14872,8 @@ x-attributes:
                   owner: BPP
                   usage: INR
                   description: Describes the item's currency
-                _description: *ref_169
-              time: &ref_203
+                _description: *ref_168
+              time: &ref_202
                 duration:
                   required: MANDATORY
                   type: string
@@ -14410,8 +14886,8 @@ x-attributes:
                   owner: BPP
                   usage: TENURE
                   description: Label value of the time
-                _description: *ref_130
-              descriptor: &ref_202
+                _description: *ref_129
+              descriptor: &ref_201
                 name:
                   required: MANDATORY
                   type: string
@@ -14425,9 +14901,9 @@ x-attributes:
                   usage: ABC Individual Health Insurance Class A with custom addon
                   description: Short description about the insurance type
                 _description: *ref_78
-              _description: *ref_96
+              _description: *ref_95
               tags:
-                GENERAL_INFO: &ref_210
+                GENERAL_INFO: &ref_209
                   required: MANDATORY
                   type: string
                   owner: BPP
@@ -14488,13 +14964,13 @@ x-attributes:
                       owner: BPP
                       usage: '--'
                       description: Describes initial waiting period
-                    CASHLESS_HOSPITALS: &ref_170
+                    CASHLESS_HOSPITALS: &ref_169
                       required: MANDATORY
                       type: string
                       owner: BPP
                       usage: '--'
                       description: Describes cashless hospitals
-                    ROOM_CATEGORY: *ref_170
+                    ROOM_CATEGORY: *ref_169
                     PROPOSAL_ID:
                       required: OPTIONAL
                       type: string
@@ -14505,7 +14981,7 @@ x-attributes:
                         please provide proposal id.
                 CHECKLIST: *ref_86
                 CHECKLIST_INFO: *ref_87
-              fulfillment_ids: &ref_209
+              fulfillment_ids: &ref_208
                 required: MANDATORY
                 type: string
                 owner: BPP
@@ -14526,34 +15002,34 @@ x-attributes:
                     owner: BPP
                     usage: 9999999999
                     description: Phone number of the customer
-                  _description: *ref_144
-                _description: *ref_145
-                person: *ref_146
-              _description: *ref_147
+                  _description: *ref_143
+                _description: *ref_144
+                person: *ref_145
+              _description: *ref_146
               state:
-                _description: *ref_171
+                _description: *ref_170
                 descriptor:
-                  _description: *ref_172
-                  code: &ref_221
+                  _description: *ref_171
+                  code: &ref_217
                     required: MANDATORY
                     type: string
                     owner: BPP
                     usage: GRANTED
                     description: Describes the fulfillments state
-              id: &ref_222
+              id: &ref_218
                 required: MANDATORY
                 type: string
                 owner: BPP
                 usage: 4eR21iB
                 description: Describes the unique id of the fulfillment
             provider:
-              id: &ref_216
+              id: &ref_212
                 required: MANDATORY
                 type: string
                 owner: BPP
                 usage: enff9b99
                 description: Describes the  provider id
-              descriptor: &ref_215
+              descriptor: &ref_211
                 long_desc:
                   required: MANDATORY
                   type: string
@@ -14580,7 +15056,7 @@ x-attributes:
                     owner: BPP
                     usage: xs
                     description: Size type of the Image.
-                  _description: *ref_173
+                  _description: *ref_172
                 short_desc:
                   required: MANDATORY
                   type: string
@@ -14588,9 +15064,9 @@ x-attributes:
                   usage: ABC Insurance Ltd. India
                   description: Short description about insurer
                 _description: *ref_88
-              _description: *ref_150
+              _description: *ref_149
             payments:
-              collected_by: &ref_223
+              collected_by: &ref_219
                 required: MANDATORY
                 type: string
                 owner: BPP
@@ -14604,7 +15080,7 @@ x-attributes:
                   https://www.abcinsurance.com/pg-gateway/payment?amount=1000&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
                 description: URL to the image. This can be a data url or an remote url
               params:
-                amount: &ref_224
+                amount: &ref_220
                   required: MANDATORY
                   type: number
                   owner: BPP
@@ -14622,32 +15098,32 @@ x-attributes:
                   owner: BPP
                   usage: SBIN0001234
                   description: Describes bank code
-                currency: &ref_225
+                currency: &ref_221
                   required: MANDATORY
                   type: string
                   owner: BPP
                   usage: INR
                   description: Describes currency to be paid in
-                _description: *ref_119
+                _description: *ref_118
                 transaction_id:
                   required: MANDATORY
                   type: string
                   owner: BAP
                   usage: 079c071b-8972-4f0f-b553-12e894617860
                   description: Describes the transaction id of the payment
-              status: &ref_226
+              status: &ref_222
                 required: MANDATORY
                 type: string
                 owner: BPP
                 usage: NOT-PAID
                 description: Describes payment status
-              type: &ref_227
+              type: &ref_223
                 required: MANDATORY
                 type: string
                 owner: BPP
                 usage: PRE-FULFILLMENT
                 description: Describes payment type
-              _description: *ref_120
+              _description: *ref_119
             quote:
               id:
                 required: MANDATORY
@@ -14657,7 +15133,7 @@ x-attributes:
                 description: >-
                   In case the offer id is not same as Proposal ID use this as
                   offer ID.
-              breakup: &ref_217
+              breakup: &ref_213
                 price:
                   value:
                     required: MANDATORY
@@ -14671,14 +15147,14 @@ x-attributes:
                     owner: BPP
                     usage: INR
                     description: Currency type of the selected item.
-                  _description: *ref_174
+                  _description: *ref_173
                 title:
                   required: MANDATORY
                   type: string
                   owner: BPP
                   usage: Base Price
                   description: Breakup title of the total quoted price
-                _description: *ref_175
+                _description: *ref_174
                 item:
                   id:
                     required: OPTIONAL
@@ -14693,7 +15169,7 @@ x-attributes:
                       owner: BPP
                       usage: sfYtu12
                       description: Describes the add_ons id for breakup
-              price: &ref_218
+              price: &ref_214
                 value:
                   required: MANDATORY
                   type: string
@@ -14706,9 +15182,9 @@ x-attributes:
                   owner: BPP
                   usage: INR
                   description: Describes the currency of a product or service
-                _description: *ref_176
-              _description: *ref_177
-              ttl: &ref_219
+                _description: *ref_175
+              _description: *ref_176
+              ttl: &ref_215
                 required: OPTIONAL
                 type: string
                 owner: BPP
@@ -14721,7 +15197,7 @@ x-attributes:
               usage: CANCELLED
               description: false
             documents:
-              descriptor: &ref_220
+              descriptor: &ref_216
                 code:
                   required: MANDATORY
                   type: false
@@ -14746,7 +15222,7 @@ x-attributes:
                   owner: BPP
                   usage: "Download you digitally signed policy document here. This document is\r\n            password protected. To open this document, please type in your\r\n            password in DDMMMYYYYXXXX format where DDMMMYYYY represents your\r\n            date of birth, and XXXX represents the first four letters of your\r\n            name          Motor, Marine etc"
                   description: Long description about insurer
-                _description: *ref_178
+                _description: *ref_177
               mime_type:
                 required: MANDATORY
                 type: string
@@ -14759,27 +15235,27 @@ x-attributes:
                 owner: BPP
                 usage: https://abcinsurance.com/policies/O1.pdf
                 description: URL to the image. This can be a data url or an remote url
-              _description: *ref_179
-            id: &ref_201
+              _description: *ref_178
+            id: &ref_200
               required: MANDATORY
               type: string
               owner: BPP
               usage: vOff9b99
               description: Describes the order id as policy id.
-            _description: *ref_98
-            created_at: &ref_228
+            _description: *ref_97
+            created_at: &ref_224
               required: MANDATORY
               type: string
               owner: BPP
               usage: 2023-07-24T05:41:32.487Z
               description: Describes order creation date
-            updated_at: &ref_229
+            updated_at: &ref_225
               required: MANDATORY
               type: string
               owner: BPP
               usage: 2023-07-24T05:41:32.487Z
               description: Describes order updation date
-            cancellation_terms: &ref_230
+            cancellation_terms: &ref_226
               external_ref:
                 mimetype:
                   required: MANDATORY
@@ -14793,9 +15269,9 @@ x-attributes:
                   owner: BPP
                   usage: https://fis.test.bpp.io/cancellation-terms
                   description: Describes the url of cancellation terms
-            tags: *ref_180
+            tags: *ref_179
       status:
-        context: *ref_181
+        context: *ref_180
         message:
           ref_id:
             required: OPTIONAL
@@ -14833,19 +15309,19 @@ x-attributes:
         message:
           order:
             items:
-              category_ids: *ref_102
-              descriptor: *ref_182
-              id: *ref_183
-              time: *ref_103
+              category_ids: *ref_101
+              descriptor: *ref_181
+              id: *ref_182
+              time: *ref_102
               add_ons:
                 id: *ref_81
                 quantity:
                   available:
-                    count: *ref_93
-                  selected: *ref_184
+                    count: *ref_92
+                  selected: *ref_183
                   _description: *ref_82
-                descriptor: *ref_185
-                _description: *ref_94
+                descriptor: *ref_184
+                _description: *ref_93
                 price: *ref_83
               xinput:
                 form_response:
@@ -14862,14 +15338,14 @@ x-attributes:
                     usage: success
                     description: Describes the form response
               parent_item_id: *ref_84
-              price: *ref_111
+              price: *ref_110
               fulfillment_ids:
                 required: OPTIONAL
                 type: TEXT
                 owner: BPP
                 usage: 4eR21iB
                 description: Describes the id of the fulfillments associated to the item
-              _description: *ref_96
+              _description: *ref_95
               tags:
                 GENERAL_INFO:
                   required: MANDATORY
@@ -14878,7 +15354,7 @@ x-attributes:
                   usage: '--'
                   description: Describes general info
                   list:
-                    COVERAGE_AMOUNT: *ref_112
+                    COVERAGE_AMOUNT: *ref_111
                     CO_PAYMENT:
                       required: MANDATORY
                       type: TEXT
@@ -14897,7 +15373,7 @@ x-attributes:
                       owner: BPP
                       usage: '--'
                       description: Describes restoration benefits
-                    CLAIM_SETTLEMENT_RATIO: *ref_113
+                    CLAIM_SETTLEMENT_RATIO: *ref_112
                     PRE_HOSPITALIZATION_COVERAGE_DAYS:
                       required: MANDATORY
                       type: TEXT
@@ -14922,37 +15398,37 @@ x-attributes:
                       owner: BPP
                       usage: '--'
                       description: Describes initial waiting period
-                    CASHLESS_HOSPITALS: &ref_186
+                    CASHLESS_HOSPITALS: &ref_185
                       required: MANDATORY
                       type: TEXT
                       owner: BPP
                       usage: '--'
                       description: Describes cashless hospitals
-                    ROOM_CATEGORY: *ref_186
-                    PROPOSAL_ID: *ref_116
-                CONSENT_INFO: &ref_211
+                    ROOM_CATEGORY: *ref_185
+                    PROPOSAL_ID: *ref_115
+                CONSENT_INFO: &ref_210
                   required: OPTIONAL
                   type: TEXT
                   owner: BPP
                   usage: General
                   description: Describes Consent info
-                  list: *ref_187
+                  list: *ref_186
                 CHECKLIST: *ref_86
                 CHECKLIST_INFO: *ref_87
             provider:
-              descriptor: *ref_149
-              id: *ref_148
-              _description: *ref_150
+              descriptor: *ref_148
+              id: *ref_147
+              _description: *ref_149
             quote:
-              id: *ref_188
+              id: *ref_187
               breakup:
-                price: *ref_189
-                title: *ref_190
-                _description: *ref_191
-                item: *ref_192
-              price: *ref_193
-              _description: *ref_194
-              ttl: *ref_195
+                price: *ref_188
+                title: *ref_189
+                _description: *ref_190
+                item: *ref_191
+              price: *ref_192
+              _description: *ref_193
+              ttl: *ref_194
             fulfillments:
               customer:
                 contact:
@@ -14968,10 +15444,10 @@ x-attributes:
                     owner: BAP
                     usage: 9999999999
                     description: Phone number of the customer
-                  _description: *ref_196
-                _description: *ref_133
+                  _description: *ref_195
+                _description: *ref_132
                 person:
-                  _description: *ref_132
+                  _description: *ref_131
               state:
                 descriptor:
                   code:
@@ -15010,7 +15486,7 @@ x-attributes:
                 owner: BPP
                 usage: 4eR21iB
                 description: Describes the unique id of the fulfillment
-              _description: *ref_197
+              _description: *ref_196
             id:
               required: OPTIONAL
               type: TEXT
@@ -15024,9 +15500,9 @@ x-attributes:
                 owner: BPP
                 usage: BPP
                 description: Describes the collected by of payment
-              url: *ref_198
+              url: *ref_197
               params:
-                amount: *ref_199
+                amount: *ref_198
                 bank_account_number:
                   required: OPTIONAL
                   type: NUMERIC
@@ -15155,7 +15631,7 @@ x-attributes:
                 owner: BPP
                 usage: '--'
                 description: Describes documents associated to the order
-            _description: *ref_98
+            _description: *ref_97
             created_at:
               required: OPTIONAL
               type: TEXT
@@ -15168,17 +15644,17 @@ x-attributes:
               owner: BPP
               usage: 2023-07-24T05:41:32.487Z
               description: Describes order updation date
-            cancellation_terms: *ref_200
-            tags: *ref_180
+            cancellation_terms: *ref_199
+            tags: *ref_179
       update:
         context:
-          location: *ref_157
-          domain: *ref_158
-          timestamp: *ref_159
-          bap_id: *ref_160
-          transaction_id: *ref_161
-          message_id: *ref_162
-          version: *ref_163
+          location: *ref_156
+          domain: *ref_157
+          timestamp: *ref_158
+          bap_id: *ref_159
+          transaction_id: *ref_160
+          message_id: *ref_161
+          version: *ref_162
           action:
             required: MANDATORY
             type: string
@@ -15187,10 +15663,10 @@ x-attributes:
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
-          bap_uri: *ref_164
-          ttl: *ref_165
-          bpp_id: *ref_166
-          bpp_uri: *ref_167
+          bap_uri: *ref_163
+          ttl: *ref_164
+          bpp_id: *ref_165
+          bpp_uri: *ref_166
         message:
           order:
             fulfillments:
@@ -15202,9 +15678,9 @@ x-attributes:
                     owner: BPP
                     usage: 91-9667788867
                     description: Phone number of the customer
-                  _description: *ref_196
-                _description: *ref_133
-              _description: *ref_197
+                  _description: *ref_195
+                _description: *ref_132
+              _description: *ref_196
             payments:
               collected_by:
                 required: OPTIONAL
@@ -15212,8 +15688,8 @@ x-attributes:
                 owner: BPP
                 usage: BPP
                 description: Describes who will collect the payment
-            id: *ref_201
-            _description: *ref_98
+            id: *ref_200
+            _description: *ref_97
           update_target:
             required: MANDATORY
             type: string
@@ -15222,13 +15698,13 @@ x-attributes:
             description: Describes the update target
       on_update:
         context:
-          location: *ref_157
-          domain: *ref_158
-          timestamp: *ref_159
-          bap_id: *ref_160
-          transaction_id: *ref_161
-          message_id: *ref_162
-          version: *ref_163
+          location: *ref_156
+          domain: *ref_157
+          timestamp: *ref_158
+          bap_id: *ref_159
+          transaction_id: *ref_160
+          message_id: *ref_161
+          version: *ref_162
           action:
             required: MANDATORY
             type: string
@@ -15237,10 +15713,10 @@ x-attributes:
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
-          bap_uri: *ref_164
-          ttl: *ref_165
-          bpp_id: *ref_166
-          bpp_uri: *ref_167
+          bap_uri: *ref_163
+          ttl: *ref_164
+          bpp_id: *ref_165
+          bpp_uri: *ref_166
         message:
           order:
             items:
@@ -15250,20 +15726,20 @@ x-attributes:
                 owner: BPP
                 usage: ebff9b95
                 description: Unique id of category
-              descriptor: *ref_202
+              descriptor: *ref_201
               id:
                 required: MANDATORY
                 type: string
                 owner: BPP
                 usage: zbfv9b91
                 description: Describes the item ID
-              time: *ref_203
+              time: *ref_202
               add_ons:
-                id: *ref_204
+                id: *ref_203
                 quantity:
                   available:
-                    count: *ref_205
-                  selected: *ref_206
+                    count: *ref_204
+                  selected: *ref_205
                   _description: *ref_82
                 descriptor:
                   name:
@@ -15278,25 +15754,21 @@ x-attributes:
                     owner: BPP
                     usage: NO_CLAIM_BONUS
                     description: Describes the code of add_on item.
-                  _description: *ref_101
-                _description: *ref_94
-                price: *ref_207
-              price: *ref_208
-              fulfillment_ids: *ref_209
-              _description: *ref_96
+                  _description: *ref_100
+                _description: *ref_93
+                price: *ref_206
+              price: *ref_207
+              fulfillment_ids: *ref_208
+              _description: *ref_95
               tags:
-                GENERAL_INFO: *ref_210
-                CONSENT_INFO: *ref_211
+                GENERAL_INFO: *ref_209
+                CONSENT_INFO: *ref_210
                 CHECKLIST: *ref_86
-                CHECKLIST_INFO:
-                  list:
-                    MEDICAL_CHECKUP_PAYMENT: *ref_212
-                    BENEFICIARY_KYC: *ref_213
-                    PROPOSER_KYC: *ref_214
+                CHECKLIST_INFO: *ref_87
             provider:
-              descriptor: *ref_215
-              id: *ref_216
-              _description: *ref_135
+              descriptor: *ref_211
+              id: *ref_212
+              _description: *ref_134
             quote:
               id:
                 required: MANDATORY
@@ -15304,12 +15776,12 @@ x-attributes:
                 owner: BPP
                 usage: b469bb12-9f67-4898-8f39-ea7816f54289
                 description: Describes the quote id as proposal id.
-              breakup: *ref_217
-              price: *ref_218
-              _description: *ref_177
-              ttl: *ref_219
+              breakup: *ref_213
+              price: *ref_214
+              _description: *ref_176
+              ttl: *ref_215
             documents:
-              descriptor: *ref_220
+              descriptor: *ref_216
               mime_type:
                 required: MANDATORY
                 type: string
@@ -15324,7 +15796,7 @@ x-attributes:
                 description: >-
                   URL to download the document. This can be a data url or a
                   remote url
-              _description: *ref_179
+              _description: *ref_178
             fulfillments:
               customer:
                 contact:
@@ -15340,27 +15812,27 @@ x-attributes:
                     owner: BAP
                     usage: 9999999999
                     description: Phone number of the customer
-                  _description: *ref_144
-                _description: *ref_145
-                person: *ref_146
+                  _description: *ref_143
+                _description: *ref_144
+                person: *ref_145
               state:
                 descriptor:
-                  code: *ref_221
-                  _description: *ref_172
-                _description: *ref_171
-              id: *ref_222
+                  code: *ref_217
+                  _description: *ref_171
+                _description: *ref_170
+              id: *ref_218
               type:
                 required: OPTIONAL
                 type: string
                 owner: BPP
                 usage: CLAIM
                 description: Describes the fulfillment type
-              _description: *ref_147
+              _description: *ref_146
             payments:
-              collected_by: *ref_223
-              url: *ref_198
+              collected_by: *ref_219
+              url: *ref_197
               params:
-                amount: *ref_224
+                amount: *ref_220
                 bank_account_number:
                   required: OPTIONAL
                   type: number
@@ -15373,35 +15845,28 @@ x-attributes:
                   owner: BPP
                   usage: SBIN0001234
                   description: Describes bank code
-                currency: *ref_225
+                currency: *ref_221
                 transaction_id:
                   required: OPTIONAL
                   type: string
                   owner: BAP
                   usage: 079c071b-8972-4f0f-b553-12e894617860
                   description: Describes the transaction id of the payment
-                _description: *ref_119
-              status: *ref_226
-              type: *ref_227
-              _description: *ref_120
+                _description: *ref_118
+              status: *ref_222
+              type: *ref_223
+              _description: *ref_119
             status:
               required: MANDATORY
               type: string
               owner: BPP
               usage: ACTIVE
               description: Describes the order status
-            id: *ref_201
-            _description: *ref_98
-            created_at: *ref_228
-            updated_at: *ref_229
-            cancellation_terms: *ref_230
-          catalog:
-            providers:
-              items:
-                tags:
-                  CHECKLIST_INFO:
-                    list:
-                      MEDICAL_CHECKUP: *ref_231
+            id: *ref_200
+            _description: *ref_97
+            created_at: *ref_224
+            updated_at: *ref_225
+            cancellation_terms: *ref_226
 x-errorcodes:
   code:
     - Event: 'General Error: An unspecified error occurred.'
@@ -15634,9 +16099,9 @@ x-featureui:
   filenames:
     - Health_Insuarance.md
     - Life_Insurance.md
-    - log-verification.md
     - Marine_Insuarance.md
     - Motor_Insuarance.md
+    - log-verification.md
     - xinput-form-response.md
 x-testcasesui:
   filenames:

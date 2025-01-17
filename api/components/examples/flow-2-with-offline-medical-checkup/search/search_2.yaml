@@ -20,10 +20,12 @@ message:
     category:
       descriptor:
         code: LIFE_INSURANCE
-    items:
-      - id: LIFE_INSURANCE_ITEM_ID
+    provider:
+      id: PROVIDER_ID    
+      items:
+        - id: LIFE_INSURANCE_ITEM_ID
     payment:
-      - collected_by: BPP
+      collected_by: BPP
     tags:
       - descriptor:
           code: BAP_TERMS

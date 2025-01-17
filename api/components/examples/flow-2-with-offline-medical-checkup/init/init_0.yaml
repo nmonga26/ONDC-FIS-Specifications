@@ -9,7 +9,6 @@ context:
     country:
       code: IND
     city:
-      status: NOT-PAID
       code: '*'
   message_id: b4977ec9-ca8a-41c4-90eb-f73f36160c84
   timestamp: '2023-07-24T05:40:48.432Z'
