@@ -284,6 +284,35 @@ search:
           description: >-
             The provider from which the customer wants to place to the order
             from
+      fulfillment:
+        agent:
+          person:
+            id:
+              required: optional
+              type: string
+              owner: BAP
+              usage: HEALTH_INSURANCE
+              description: Type of insurance (health, marine, motor)
+            _description:
+              required: optional
+              type: '--'
+              owner: BAP
+              usage: '--'
+              description: This refers to the details of the person
+          _description:
+            required: optional
+            type: '--'
+            owner: BAP
+            usage: '--'
+            description: This refers to the details of the agent      
+        _description:
+          required: optional
+          type: '--'
+          owner: BAP
+          usage: '--'
+          description: This refers to the details of the fulfillment 
+
+
       _description:
         required: Mandatory
         type: object

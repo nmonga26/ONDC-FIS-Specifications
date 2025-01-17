@@ -497,7 +497,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -3350,6 +3349,10 @@ x-flows:
                 category:
                   descriptor:
                     code: HEALTH_INSURANCE
+                fulfillment:
+                  agent:
+                    person:
+                      id: AGENT_ID
                 payment:
                   collected_by: BPP
                   tags:
@@ -11977,6 +11980,33 @@ x-attributes:
                 description: >-
                   The provider from which the customer wants to place to the
                   order from
+            fulfillment:
+              agent:
+                person:
+                  id:
+                    required: optional
+                    type: string
+                    owner: BAP
+                    usage: HEALTH_INSURANCE
+                    description: Type of insurance (health, marine, motor)
+                  _description:
+                    required: optional
+                    type: '--'
+                    owner: BAP
+                    usage: '--'
+                    description: This refers to the details of the person
+                _description:
+                  required: optional
+                  type: '--'
+                  owner: BAP
+                  usage: '--'
+                  description: This refers to the details of the agent
+              _description:
+                required: optional
+                type: '--'
+                owner: BAP
+                usage: '--'
+                description: This refers to the details of the fulfillment
             _description:
               required: Mandatory
               type: object
