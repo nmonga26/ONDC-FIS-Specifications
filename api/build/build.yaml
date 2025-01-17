@@ -11987,8 +11987,8 @@ x-attributes:
                     required: optional
                     type: string
                     owner: BAP
-                    usage: HEALTH_INSURANCE
-                    description: Type of insurance (health, marine, motor)
+                    usage: 0120TRVK
+                    description: Describes the agent Id.
                   _description:
                     required: optional
                     type: '--'
