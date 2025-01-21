@@ -18,7 +18,7 @@ context:
 message:
   catalog:
     descriptor:
-      name: <var:catalog_descriptor_name>
+      name: ABC Insurance Ltd
     providers:
       - id: PROVIDER_ID
         descriptor:
@@ -58,7 +58,7 @@ message:
                 headings:
                   - BASIC_DETAILS
               form:
-                id: <var:basic_details_form>
+                id: BASIC_DETAILS_FORM_ID
                 mime_type: text/html
                 url: https://fis.test.bpp.io/xinput/form/basic_details
                 resubmit: false
