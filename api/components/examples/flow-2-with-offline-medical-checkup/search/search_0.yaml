@@ -18,6 +18,10 @@ message:
     category:
       descriptor:
         code: LIFE_INSURANCE
+    fulfillment:
+      agent:
+        person:
+          id: 0120TRVK
     payment:
       - collected_by: BPP
     tags:
