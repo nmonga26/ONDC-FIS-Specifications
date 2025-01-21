@@ -13,10 +13,14 @@
 
 <form>
 <div>
+</br></br>
 <h2>Beneficiary Information</h2>
+
+</br>
 <label for="beneficiary-dob">Date of Birth:</label>
 <input type="date" id="beneficiary-dob" required>
 
+</br>
 <label for="beneficiary-gender">Gender:</label>
 <select id="beneficiary-gender" required>
 <option value="M">Male</option>
@@ -24,9 +28,11 @@
 <option value="O">Other</option>
 </select>
 
+</br>
 <label for="beneficiary-phone">Phone (Numeric):</label>
 <input type="tel" id="beneficiary-phone" pattern="[0-9]*" required>
 
+</br>
 <label for="beneficiary-smoker">Smoker or Tobacco Consumption:</label>
 <select id="beneficiary-smoker" required>
 <option value="true">Yes</option>
@@ -34,11 +40,15 @@
 </select>
 </div>
 
+</br></br>
 <div>
 <h2>Proposer Information</h2>
+
+</br>
 <label for="proposer-dob">Date of Birth:</label>
 <input type="date" id="proposer-dob" required>
 
+</br>
 <label for="proposer-gender">Gender:</label>
 <select id="proposer-gender" required>
 <option value="M">Male</option>
@@ -46,9 +56,11 @@
 <option value="O">Other</option>
 </select>
 
+</br>
 <label for="proposer-phone">Phone (Numeric):</label>
 <input type="tel" id="proposer-phone" pattern="[0-9]*" required>
 
+</br>
 <label for="proposer-occupation">Occupation:</label>
 <select id="proposer-occupation" required>
 <option value="Service Professional">Service Professional</option>
@@ -62,37 +74,57 @@
 <option value="Others">Others</option>
 </select>
 
+</br>
 <label for="proposer-income">Income (Own/Spouse's/Parent's):</label>
 <input type="number" id="proposer-income" required>
 
+</br>
 <label for="proposer-aaid">AAID (Optional):</label>
 <input type="text" id="proposer-aaid">
 </div>
 
+</br></br>
 <div>
 <h2>Extra Information</h2>
+
+</br>
 <label for="coverage-amount">Coverage Amount (Optional):</label>
 <input type="number" id="coverage-amount">
 
+</br>
 <label for="coverage-till">Coverage Till (Age):</label>
 <input type="number" id="coverage-till">
 
+</br>
 <label for="premium-frequency">Frequency of Premium Payment (Optional):</label>
 <select id="premium-frequency">
-<option value="Daily">Daily</option>
+<option value="OneTime">One Time</option>
 <option value="Monthly">Monthly</option>
 <option value="Quarterly">Quarterly</option>
-<option value="Semi Annual">Semi Annual</option>
+<option value="SemiAnnual">Semi Annual</option>
 <option value="Annual">Annual</option>
 </select>
 
+</br>
 <label for="premium-pay-term"># of Years for Premium Payment (Pay Term) (Optional):</label>
 <input type="number" id="premium-pay-term">
+
+</br>
+<label for="death-benefit-lumpsum-amount">Lumpsum amount to be received as Death Benefit  (Optional):</label>
+<input type="number" id="death-benefit-lumpsum-amount">
+
+</br>
+<label for="death-benefit-payout-frequency">Frequency of Death Benefit Payout (Optional):</label>
+<select id="death-benefit-payout-frequency">
+<option value="OneTime">One Time</option>
+<option value="Monthly">Monthly</option>
+<option value="Quarterly">Quarterly</option>
+<option value="SemiAnnual">Semi Annual</option>
+<option value="Annual">Annual</option>
+</select>
 </div>
 
-<label for="agent-id">Agent Id (Optional):</label>
-<input type="text" id="agent-id">
-
+</br>
 <label for="declaration">
 </br>I hereby declare that the information provided in this application form for life insurance is true, accurate, and complete to the best of my knowledge.
     </br>
@@ -111,7 +143,7 @@
 </label>
 <input type="checkbox" id="declaration">
 
-
+</br></br>
 <button type="submit">Submit</button>
 </form>
 
