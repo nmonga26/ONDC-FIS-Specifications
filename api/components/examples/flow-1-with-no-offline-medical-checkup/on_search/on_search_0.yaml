@@ -18,7 +18,7 @@ context:
 message:
   catalog:
     descriptor:
-      name: <var:catalog_descriptor_name>
+      name: ABC Insurance Ltd
     providers:
       - id: PROVIDER_ID
         descriptor:
@@ -50,7 +50,7 @@ message:
             xinput:
               head:
                 descriptor:
-                  name: Basic Details
+                  name: BASIC_DETAILS
                 index:
                   min: 0
                   cur: 0
@@ -60,7 +60,7 @@ message:
               form:
                 id: <var:basic_details_form>
                 mime_type: text/html
-                url: https://fis.test.bpp.io/xinput/form/form_gst_bank_statement
+                url: https://fis.test.bpp.io/xinput/form/basic_details
                 resubmit: false
                 multiple_submissions: false
               required: true

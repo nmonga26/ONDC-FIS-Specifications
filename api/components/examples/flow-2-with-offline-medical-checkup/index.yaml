@@ -16,7 +16,7 @@ init:
         $ref: ./init/init_1.yaml
     - summary: init_2
       description: >-
-        Request medical checkup appointment redirection url & meical checkup
+        Request medical checkup appointment redirection url & medical checkup
         payment url
       value:
         $ref: ./init/init_2.yaml
@@ -42,7 +42,7 @@ on_init:
         $ref: ./on_init/on_init_1.yaml
     - summary: on_init_2
       description: >-
-        Return medical checkup appointment redirection url & meical checkup
+        Return medical checkup appointment redirection url & medical checkup
         payment url
       value:
         $ref: ./on_init/on_init_2.yaml
@@ -107,6 +107,6 @@ search:
 select:
   examples:
     - summary: select_0
-      description: Select a product and request the inital quote breakup
+      description: Select a product and request the initial quote breakup
       value:
         $ref: ./select/select_0.yaml

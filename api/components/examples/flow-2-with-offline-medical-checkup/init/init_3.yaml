@@ -42,13 +42,11 @@ message:
             id: MEDICAL_CHECKUP_APPOINTMENT_FORM_ID
           form_response:
             status: SUCCESS
-            submission_id: 4830c4f9-b4d3-4e58-bef5-dee80eb08478
+            submission_id: 05888843-bbe4-47c1-92d5-8e146e8f01e4
     provider:
       id: P1
     payments:
       - collected_by: BPP
-        url: >-
-          https://www.abcinsurance.com/pg-gateway/payment?amount=18000&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
         params:
           amount: '2000'
           currency: INR

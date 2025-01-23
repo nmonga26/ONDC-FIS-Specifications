@@ -514,9 +514,7 @@ steps: &steps
       link
     reference: if any
     api: on_init
-    example: &steps_17_example
-      value: &steps_17_example_value
-        $ref: ../../examples/flow-2-with-offline-medical-checkup/confirm/confirm_0.yaml
+    example: *steps_14_example
     details: &steps_17_details
       - &steps_17_details_0
         description: Insurer returns the response to initialized life insurance plan and
@@ -717,7 +715,9 @@ steps: &steps
     summary: User confirms the life insurance request
     reference: if any
     api: confirm
-    example: *steps_17_example
+    example: &steps_24_example
+      value: &steps_24_example_value
+        $ref: ../../examples/flow-2-with-offline-medical-checkup/confirm/confirm_0.yaml
     details: &steps_24_details
       - &steps_24_details_0
         description: User confirms the life insurance request and provides all the

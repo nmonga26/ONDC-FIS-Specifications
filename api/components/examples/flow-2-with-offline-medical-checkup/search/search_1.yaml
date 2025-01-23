@@ -26,13 +26,12 @@ message:
         - id: LIFE_INSURANCE_ITEM_ID
           xinput:
             form:
-              id: <var:basic_details_form_id>
+              id: BASIC_DETAILS_FORM_ID
             form_response:
               status: SUCCESS
               submission_id: F01_SUBMISSION_ID
     payment:
       - collected_by: BPP
-        type: PRE-ORDER
     tags:
       - descriptor:
           code: BAP_TERMS

@@ -19,7 +19,10 @@ context:
 message:
   order:
     fulfillments:
-      - customer:
+      - state:
+          descriptor:
+            code: INITIATED
+        customer:
           contact:
             email: joe.adam@abc.org
             phone: +91-9999999999
