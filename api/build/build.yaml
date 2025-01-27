@@ -6566,7 +6566,7 @@ x-flows:
                 <label for="nomineeName">Nominee Name</label>
                 <input type="text" id="nomineeName" name="nomineeName" />
                 <label for="nomineeDOB">Nominee DOB</label>
-                <input type="text" id="nomineeDOB" name="nomineeDOB" />
+                <input type="date" id="nomineeDOB" name="nomineeDOB" />
                 <label for="relationshipNominee">Relationship with nominee</label>
                 <input type="text" id="relationshipNominee" name="relationshipNominee" />
                 <label for="apointeeName">Apointee name</label>
@@ -7053,7 +7053,7 @@ x-flows:
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" /> 
                 <label for="phone"> Phone</label>
-                <input type="checkbox" id="phone" name="phone" />
+                <input type="text" id="phone" name="phone" /> 
                 <!-- <label for="gstin">GSTIN</label>
                 <input type="text" id="gstin" name="gstin" /> -->
                
@@ -7931,7 +7931,7 @@ x-flows:
                 <label for="nomineeName">Nominee Name</label>
                 <input type="text" id="nomineeName" name="nomineeName" />
                 <label for="nomineeDOB">Nominee DOB</label>
-                <input type="text" id="nomineeDOB" name="nomineeDOB" />
+                <input type="date" id="nomineeDOB" name="nomineeDOB" />
                 <label for="relationshipNominee">Relationship with nominee</label>
                 <input type="text" id="relationshipNominee" name="relationshipNominee" />
                 <label for="apointeeName">Apointee name</label>
@@ -8050,7 +8050,7 @@ x-flows:
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" /> 
                 <label for="phone"> Phone</label>
-                <input type="checkbox" id="phone" name="phone" />
+                <input type="text" id="phone" name="phone" /> 
                 <!-- <label for="gstin">GSTIN</label>
                 <input type="text" id="gstin" name="gstin" /> -->
                
