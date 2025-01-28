@@ -49,7 +49,18 @@ The differentiation in MIME types and additional settings, such as resubmit and 
 
  ### mime_type: 
  Describes the type of MIME.It can be one of the thee possible values: application/html or text/html or text/html-multi. 
-  - **text/html**: If the value of mime_type is text/html, then the buyer app renders a form presented in HTML format. The rendered HTML-based form structure looks like this:
+  - **text/html**: If the mime_type field is set to text/html, it indicates that the Seller App expects the Buyer App to retrieve and render an HTML document. To handle this scenario, the Buyer App should perform the following steps:
+
+- Initiate a Fetch Request:
+The Buyer App must send an HTTP fetch request to the URL provided by the Seller App. This URL is included in the xinput object as part of on_action calls.
+
+- Process the Response:
+When the Seller App receives this request, it will respond with the complete HTML document.
+
+- Render the HTML Document:
+Once the complete HTML document is retrieved, the Buyer App must render it on the user interface as intended. This could involve displaying it within a web view or a similar component in the app, ensuring that the user has a seamless and interactive experience.
+The rendered HTML-based form structure looks like this:
+[![Image](https://github.com/ONDC-Official/ONDC-FIS-Specifications/raw/branchName/api/components/docs/images/xinput.png)](https://github.com/ONDC-Official/ONDC-FIS-Specifications/raw/branchName/api/components/docs/images/xinput.png)
 
 ````html
 <form action="/form/submission-path">
