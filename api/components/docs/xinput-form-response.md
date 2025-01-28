@@ -60,9 +60,9 @@ The differentiation in MIME types and additional settings, such as resubmit and 
 
   - Render the HTML Document:
   Once the complete HTML document is retrieved, the Buyer App must render it on the user interface as intended. This could involve displaying it within a web view or a similar component in the app, ensuring that the user has a seamless and interactive experience.
-  The rendered HTML-based form structure looks like this:
   [![Image](https://github.com/ONDC-Official/ONDC-FIS-Specifications/raw/branchName/api/components/docs/images/xinput.png)](https://github.com/ONDC-Official/ONDC-FIS-Specifications/raw/branchName/api/components/docs/images/xinput.png)
 
+The rendered HTML-based form structure looks like this:
 ````html
 <form action="/form/submission-path">
   <label for="dob">Date of Birth</label>
