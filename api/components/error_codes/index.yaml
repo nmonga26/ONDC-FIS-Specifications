@@ -136,5 +136,9 @@ code:
     Description: Bureau Report not parsed.
     From: BPP
     code: 80229
+  - Event: Account agreegator ID is required.
+    Description: Lender could not process as Account agreegator ID is rquired.
+    From: BPP
+    code: 80230  
 
 
