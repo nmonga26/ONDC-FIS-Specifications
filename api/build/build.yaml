@@ -535,7 +535,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -8365,17 +8364,6 @@ x-flows:
                         in a formal financial arrangement.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-agreement/O1.pdf
-                  - descriptor:
-                      code: LOAN_CANCELLATION
-                      name: Loan Cancellation Document
-                      short_desc: Download your Loan Cancellation document here
-                      long_desc: >-
-                        A Loan Cancellation Document is a formal agreement used
-                        to terminate an existing loan, releasing the borrower
-                        from repayment obligations and confirming the loan's
-                        cancellation.
-                    mime_type: application/pdf
-                    url: https://lender.com/loan/loan-cancellation/O1.pdf
       - summary: The borrower seeks the most recent loan status update.
         api: status
         details:
@@ -8817,17 +8805,6 @@ x-flows:
                         in a formal financial arrangement.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-agreement/O1.pdf
-                  - descriptor:
-                      code: LOAN_CANCELLATION
-                      name: Loan Cancellation Document
-                      short_desc: Download your Loan Cancellation document here
-                      long_desc: >-
-                        A Loan Cancellation Document is a formal agreement used
-                        to terminate an existing loan, releasing the borrower
-                        from repayment obligations and confirming the loan's
-                        cancellation.
-                    mime_type: application/pdf
-                    url: https://lender.com/loan/loan-cancellation/O1.pdf
       - summary: >-
           Lender provides the borrower with real-time updates on their invoice
           based loan after each EMI payment.
@@ -9228,17 +9205,6 @@ x-flows:
                         in a formal financial arrangement.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-agreement/O1.pdf
-                  - descriptor:
-                      code: LOAN_CANCELLATION
-                      name: Loan Cancellation Document
-                      short_desc: Download your Loan Cancellation document here
-                      long_desc: >-
-                        A Loan Cancellation Document is a formal agreement used
-                        to terminate an existing loan, releasing the borrower
-                        from repayment obligations and confirming the loan's
-                        cancellation.
-                    mime_type: application/pdf
-                    url: https://lender.com/loan/loan-cancellation/O1.pdf
       - summary: >-
           Lender provides the borrower with real-time updates on their invoice
           based loan after full EMI payment.
@@ -9653,17 +9619,6 @@ x-flows:
                         in a formal financial arrangement.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-agreement/O1.pdf
-                  - descriptor:
-                      code: LOAN_CANCELLATION
-                      name: Loan Cancellation Document
-                      short_desc: Download your Loan Cancellation document here
-                      long_desc: >-
-                        A Loan Cancellation Document is a formal agreement used
-                        to terminate an existing loan, releasing the borrower
-                        from repayment obligations and confirming the loan's
-                        cancellation.
-                    mime_type: application/pdf
-                    url: https://lender.com/loan/loan-cancellation/O1.pdf
   - summary: Invoice Based Loans without Account Aggregator & monitoring consent
     details:
       - description: Discovery of Funds
@@ -11152,17 +11107,6 @@ x-flows:
                         in a formal financial arrangement.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-agreement/O1.pdf
-                  - descriptor:
-                      code: LOAN_CANCELLATION
-                      name: Loan Cancellation Document
-                      short_desc: Download your Loan Cancellation document here
-                      long_desc: >-
-                        A Loan Cancellation Document is a formal agreement used
-                        to terminate an existing loan, releasing the borrower
-                        from repayment obligations and confirming the loan's
-                        cancellation.
-                    mime_type: application/pdf
-                    url: https://lender.com/loan/loan-cancellation/O1.pdf
       - summary: The borrower seeks the most recent loan status update.
         api: status
         details:
@@ -12934,17 +12878,6 @@ x-flows:
                         in a formal financial arrangement.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-agreement/O1.pdf
-                  - descriptor:
-                      code: LOAN_CANCELLATION
-                      name: Loan Cancellation Document
-                      short_desc: Download your Loan Cancellation document here
-                      long_desc: >-
-                        A Loan Cancellation Document is a formal agreement used
-                        to terminate an existing loan, releasing the borrower
-                        from repayment obligations and confirming the loan's
-                        cancellation.
-                    mime_type: application/pdf
-                    url: https://lender.com/loan/loan-cancellation/O1.pdf
       - summary: >-
           The provider platform updates the consumer with loan forclosure
           success.
@@ -13365,17 +13298,6 @@ x-flows:
                         in a formal financial arrangement.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-agreement/O1.pdf
-                  - descriptor:
-                      code: LOAN_CANCELLATION
-                      name: Loan Cancellation Document
-                      short_desc: Download your Loan Cancellation document here
-                      long_desc: >-
-                        A Loan Cancellation Document is a formal agreement used
-                        to terminate an existing loan, releasing the borrower
-                        from repayment obligations and confirming the loan's
-                        cancellation.
-                    mime_type: application/pdf
-                    url: https://lender.com/loan/loan-cancellation/O1.pdf
   - summary: Missed-EMI Payment
     details:
       - description: Detailed process for Missed-EMI Payment
@@ -13872,17 +13794,6 @@ x-flows:
                         in a formal financial arrangement.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-agreement/O1.pdf
-                  - descriptor:
-                      code: LOAN_CANCELLATION
-                      name: Loan Cancellation Document
-                      short_desc: Download your Loan Cancellation document here
-                      long_desc: >-
-                        A Loan Cancellation Document is a formal agreement used
-                        to terminate an existing loan, releasing the borrower
-                        from repayment obligations and confirming the loan's
-                        cancellation.
-                    mime_type: application/pdf
-                    url: https://lender.com/loan/loan-cancellation/O1.pdf
       - summary: >-
           The provider platform updates the consumer with loan forclosure
           success.
@@ -14298,17 +14209,6 @@ x-flows:
                         in a formal financial arrangement.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-agreement/O1.pdf
-                  - descriptor:
-                      code: LOAN_CANCELLATION
-                      name: Loan Cancellation Document
-                      short_desc: Download your Loan Cancellation document here
-                      long_desc: >-
-                        A Loan Cancellation Document is a formal agreement used
-                        to terminate an existing loan, releasing the borrower
-                        from repayment obligations and confirming the loan's
-                        cancellation.
-                    mime_type: application/pdf
-                    url: https://lender.com/loan/loan-cancellation/O1.pdf
   - summary: Pre-Part Payment
     details:
       - description: Detailed process for pre-part payment
@@ -14812,17 +14712,6 @@ x-flows:
                         in a formal financial arrangement.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-agreement/O1.pdf
-                  - descriptor:
-                      code: LOAN_CANCELLATION
-                      name: Loan Cancellation Document
-                      short_desc: Download your Loan Cancellation document here
-                      long_desc: >-
-                        A Loan Cancellation Document is a formal agreement used
-                        to terminate an existing loan, releasing the borrower
-                        from repayment obligations and confirming the loan's
-                        cancellation.
-                    mime_type: application/pdf
-                    url: https://lender.com/loan/loan-cancellation/O1.pdf
       - summary: The provider platform updates the consumer with pre-part success.
         api: on_update
         details:
@@ -15241,17 +15130,6 @@ x-flows:
                         in a formal financial arrangement.
                     mime_type: application/pdf
                     url: https://lender.com/loan/loan-agreement/O1.pdf
-                  - descriptor:
-                      code: LOAN_CANCELLATION
-                      name: Loan Cancellation Document
-                      short_desc: Download your Loan Cancellation document here
-                      long_desc: >-
-                        A Loan Cancellation Document is a formal agreement used
-                        to terminate an existing loan, releasing the borrower
-                        from repayment obligations and confirming the loan's
-                        cancellation.
-                    mime_type: application/pdf
-                    url: https://lender.com/loan/loan-cancellation/O1.pdf
 x-examples:
   invoice-based-loans:
     summary: invoice-based-loans
@@ -16069,17 +15947,6 @@ x-examples:
                           and borrower in a formal financial arrangement.
                       mime_type: application/pdf
                       url: https://lender.com/loan/loan-agreement/O1.pdf
-                    - descriptor:
-                        code: LOAN_CANCELLATION
-                        name: Loan Cancellation Document
-                        short_desc: Download your Loan Cancellation document here
-                        long_desc: >-
-                          A Loan Cancellation Document is a formal agreement
-                          used to terminate an existing loan, releasing the
-                          borrower from repayment obligations and confirming the
-                          loan's cancellation.
-                      mime_type: application/pdf
-                      url: https://lender.com/loan/loan-cancellation/O1.pdf
           - summary: on_update-request-prepayment
             description: TBD
             value:
@@ -17064,17 +16931,6 @@ x-examples:
                           and borrower in a formal financial arrangement.
                       mime_type: application/pdf
                       url: https://lender.com/loan/loan-agreement/O1.pdf
-                    - descriptor:
-                        code: LOAN_CANCELLATION
-                        name: Loan Cancellation Document
-                        short_desc: Download your Loan Cancellation document here
-                        long_desc: >-
-                          A Loan Cancellation Document is a formal agreement
-                          used to terminate an existing loan, releasing the
-                          borrower from repayment obligations and confirming the
-                          loan's cancellation.
-                      mime_type: application/pdf
-                      url: https://lender.com/loan/loan-cancellation/O1.pdf
           - summary: on_status-request-form
             description: TBD
             value: *ref_41
