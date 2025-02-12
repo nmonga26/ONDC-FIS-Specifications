@@ -1,0 +1,34 @@
+context:
+  action: on_search
+  bap_id: fis.test.bap.io
+  bap_uri: https://fis.test.bap.io/
+  bpp_id: fis.test.bpp.io
+  bpp_uri: https://fis.test.bpp.io/
+  domain: ONDC:FIS13
+  location:
+    country:
+      code: IND
+    city:
+      code: '*'
+  message_id: 446b99bb-7df0-44a7-84ac-f24699333f75
+  timestamp: "2023-07-24T05:39:40.104Z"
+  transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
+  ttl: P24H
+  version: 1.0.0
+message:
+  catalog:
+    descriptor:
+      name: CAB Insurance Pvt Ltd
+    providers:
+      - id: P3
+        tags:
+          - descriptor:
+              code: INSURANCE_PROVIDERS
+            list:
+              - descriptor:
+                  code: INSURANCE_TOKEN_ID_3
+                value: "dj03b4a6-10f8-42c7-b888-dbf0e2edd321"
+error:
+  type: DOMAIN-ERROR
+  code: 40002
+  message: "User not eligible for insurance"

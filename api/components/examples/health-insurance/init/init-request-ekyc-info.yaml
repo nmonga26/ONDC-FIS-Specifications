@@ -19,11 +19,12 @@ message:
   order:
     fulfillments:
       - customer:
-          contact:
-            email: joe.adam@abc.org
-            phone: +91-9999999999
           person:
-            name: Joe Adam
+            name: John Doe
+            gender: MALE
+            dob: '1990-01-01'
+            contact:
+              phone: "+91-9876543210"
     items:
       - add_ons:
           - id: A1
@@ -40,6 +41,13 @@ message:
             submission_id: 4830c4f9-b4d3-4e58-bef5-dee80eb08478
     provider:
       id: P1
+      tags:
+        - descriptor:
+            code: INSURANCE_PROVIDERS
+          list:
+            - descriptor:
+                code: INSURANCE_TOKEN_ID_1
+              value: "e103b4a5-10f8-42c7-b888-dbf0e2edd696"
     payments:
       - collected_by: BPP
         status: NOT-PAID

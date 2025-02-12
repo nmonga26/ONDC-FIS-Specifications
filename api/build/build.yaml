@@ -2828,7 +2828,7 @@ x-enum:
                       Describes treatments requiring hospitalization but only
                       below 24-hours due to medical advancements
                     reference: <PR/Issue/Discussion Links md format text
-                  - code: DAILY_CASH_ALLOWANCE
+                  - code: DAILY_ALLOWANCE
                     description: >-
                       Describes a huge lump of a fixed amount that can be
                       availed to pay for the additional inadmissible expenses
@@ -3550,7 +3550,7 @@ x-flows:
                                 count: 1
                             descriptor:
                               name: Daily Cash Allowance
-                              code: DAILY_CASH_ALLOWANCE
+                              code: DAILY_ALLOWANCE
                             price:
                               value: '1000'
                               currency: INR
@@ -3646,7 +3646,7 @@ x-flows:
                                 count: 1
                             descriptor:
                               name: Daily Cash Allowance
-                              code: DAILY_CASH_ALLOWANCE
+                              code: DAILY_ALLOWANCE
                             price:
                               value: '1000'
                               currency: INR
@@ -4148,7 +4148,7 @@ x-flows:
                                 count: 1
                             descriptor:
                               name: Daily Cash Allowance
-                              code: DAILY_CASH_ALLOWANCE
+                              code: DAILY_ALLOWANCE
                             price:
                               value: '1000'
                               currency: INR
@@ -4278,7 +4278,7 @@ x-flows:
                                 count: 1
                             descriptor:
                               name: Daily Cash Allowance
-                              code: DAILY_CASH_ALLOWANCE
+                              code: DAILY_ALLOWANCE
                             price:
                               value: '1000'
                               currency: INR
@@ -4408,7 +4408,7 @@ x-flows:
                                 count: 1
                             descriptor:
                               name: Daily Cash Allowance
-                              code: DAILY_CASH_ALLOWANCE
+                              code: DAILY_ALLOWANCE
                             price:
                               value: '1000'
                               currency: INR
@@ -11019,7 +11019,7 @@ x-examples:
                               count: 1
                           descriptor:
                             name: Daily Cash Allowance
-                            code: DAILY_CASH_ALLOWANCE
+                            code: DAILY_ALLOWANCE
                         - id: A4
                           quantity:
                             available:

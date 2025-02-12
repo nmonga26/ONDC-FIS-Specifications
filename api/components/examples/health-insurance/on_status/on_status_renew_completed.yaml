@@ -101,7 +101,7 @@ message:
                 count: 1
             descriptor:
               name: Daily Cash Allowance
-              code: DAILY_CASH_ALLOWANCE
+              code: DAILY_ALLOWANCE
           - id: A4
             quantity:
               available:

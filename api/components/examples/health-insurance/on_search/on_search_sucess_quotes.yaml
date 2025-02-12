@@ -14,7 +14,7 @@ context:
   timestamp: "2023-07-24T05:39:40.104Z"
   transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
   ttl: P24H
-  version: 2.0.0
+  version: 1.0.0
 message:
   catalog:
     descriptor:
@@ -22,16 +22,16 @@ message:
     providers:
       - categories:
           - descriptor:
-              name: Individual Insurance
-              code: INDIVIDUAL_INSURANCE
+              name: Micro Individual Insurance
+              code: MICRO_INDIVIDUAL_INSURANCE
             id: C1
           - descriptor:
-              name: Family Insurance
-              code: FAMILY_INSURANCE
+              name: Micro Family Insurance
+              code: MICRO_FAMILY_INSURANCE
             id: C2
           - descriptor:
-              name: Health Insurance
-              code: HEALTH_INSURANCE
+              name: Micro Health Insurance
+              code: MICRO_HEALTH_INSURANCE
             id:  C3
         descriptor:
           long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
@@ -42,6 +42,13 @@ message:
             - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
               size_type: xs
         id: P1
+        tags:
+          - descriptor:
+              code: INSURANCE_PROVIDERS
+            list:
+              - descriptor:
+                  code: INSURANCE_TOKEN_ID_1
+                value: "e103b4a5-10f8-42c7-b888-dbf0e2edd696"
         items:
           - id: I1
             category_ids:
@@ -119,7 +126,7 @@ message:
                     count: 1
                 descriptor:
                   name: Daily Cash Allowance
-                  code: DAILY_CASH_ALLOWANCE
+                  code: DAILY_ALLOWANCE
                 price: 
                   value: "1000"
                   currency: "INR"   
@@ -248,7 +255,7 @@ message:
                     count: 1
                 descriptor:
                   name: Daily Cash Allowance
-                  code: DAILY_CASH_ALLOWANCE
+                  code: DAILY_ALLOWANCE
                 price: 
                   value: "1000"
                   currency: "INR"   
@@ -273,23 +280,7 @@ message:
                   value: "100"
                   currency: "INR"
             
-            # xinput:
-            #   head:
-            #     descriptor:
-            #       name: Customer Information
-            #     index:
-            #       min: 0
-            #       cur: 0
-            #       max: 0
-            #     headings:
-            #       - PED, PAN & DOB Details
-            #   form:
-            #     id: "FO3"
-            #     mime_type: text/html
-            #     url: https://fis.test.bpp.io/form/ped_dtls?formid=FO3
-            #     resubmit: true
-            #     multiple_sumbissions: false
-            #   required: true  
+
           - id: CHILD_ITEM_ID_I2
             parent_item_id: I1
             category_ids:
@@ -394,7 +385,7 @@ message:
                     count: 1
                 descriptor:
                   name: Daily Cash Allowance
-                  code: DAILY_CASH_ALLOWANCE
+                  code: DAILY_ALLOWANCE
                 price: 
                   value: "1000"
                   currency: "INR"   
@@ -419,23 +410,7 @@ message:
                   value: "100"
                   currency: "INR"   
           
-            # xinput:
-            #   head:
-            #     descriptor:
-            #       name: Customer Information
-            #     index:
-            #       min: 0
-            #       cur: 0
-            #       max: 0
-            #     headings:
-            #       - PED, PAN & DOB Details
-            #   form:
-            #     id: "FO3"
-            #     mime_type: text/html
-            #     url: https://fis.test.bpp.io/form/ped_dtls?formid=FO3
-            #     resubmit: true
-            #     multiple_sumbissions: false
-            #   required: true
+
         payments:
           - collected_by: BPP
             tags: 
