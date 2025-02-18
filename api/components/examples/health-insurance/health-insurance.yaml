@@ -10,14 +10,18 @@ search:
         $ref: "./search/search-request_1.yaml"    
 on_search:
   examples:
-    - summary: on_search 0
+    - summary: on_search for success
       description: TBD
       value:
-        $ref: "./on_search/on_search-request.yaml"
-    - summary: on_search 1
+        $ref: "./on_search/on_search_success_quotes.yaml"
+    - summary: on_search for ineligible user
       description: TBD
       value:
-        $ref: "./on_search/on_search-request_1.yaml"    
+        $ref: "./on_search/on_search_ineligible_user.yaml"
+    - summary: on_search for CD Low
+      description: TBD
+      value:
+        $ref: "./on_search/on_search_cd_low.yaml"    
 select:
   examples:
     # - summary: select-request-personal-info
@@ -27,7 +31,7 @@ select:
     - summary: select-request-pan-dob-info
       description: TBD
       value:
-        $ref: "./select/select-request-pan-dob-info.yaml"        
+        $ref: "./select/select.yaml"        
     # - summary: select-request-ped-info
     #   description: TBD
     #   value:
@@ -37,7 +41,7 @@ on_select:
     - summary: on_select-request-pan-dob-info-details-form
       description: TBD
       value:
-        $ref: "./on_select/on_select-request-pan-dob-info.yaml"
+        $ref: "./on_select/on_select_pan_dob_info.yaml"
     # - summary: on_select-request-ped-info-form
     #   description: TBD
     #   value:

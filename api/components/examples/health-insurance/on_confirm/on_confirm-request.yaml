@@ -145,6 +145,13 @@ message:
           - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
             size_type: xs
       id: P1
+      tags:
+        - descriptor:
+            code: INSURANCE_PROVIDERS
+          list:
+            - descriptor:
+                code: INSURANCE_TOKEN_ID_1
+              value: "e103b4a5-10f8-42c7-b888-dbf0e2edd696"
     quote:
       id: OFFER_ID/PROPOSAL_ID
       breakup:
