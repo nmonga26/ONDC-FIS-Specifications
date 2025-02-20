@@ -535,7 +535,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -15857,6 +15856,9 @@ x-flows:
 
               <label for="productPrice">Price</label>
               <input type="text" id="productPrice" name="productPrice" optional />
+
+              <label for="productReturnPeriod">Return Window</label>
+              <input type="text" id="productReturnPeriod" name="productReturnPeriod" optional />
              
               <input type="hidden" id="formId" name="formId" value="FO1">
               <input type="submit" value="Submit">
@@ -23583,6 +23585,9 @@ x-flows:
 
               <label for="productPrice">Price</label>
               <input type="text" id="productPrice" name="productPrice" optional />
+
+              <label for="productReturnPeriod">Return Window</label>
+              <input type="text" id="productReturnPeriod" name="productReturnPeriod" optional />
              
               <input type="hidden" id="formId" name="formId" value="FO1">
               <input type="submit" value="Submit">
