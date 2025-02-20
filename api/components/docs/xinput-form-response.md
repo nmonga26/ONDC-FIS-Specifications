@@ -48,31 +48,31 @@ The differentiation in MIME types and additional settings, such as resubmit and 
   - `multiple_sumbissions`: Indicates whether multiple submissions are allowed.
 
  ### mime_type: 
- Describes the type of MIME.It can take one of two possible values: application/html or text/html. 
-  - **text/html**: If the value of mime_type is text/html, then the buyer app renders a form presented in HTML format. The rendered HTML-based form structure looks like this:
+ Describes the type of MIME.It can be one of the thee possible values: application/html or text/html or text/html-multi. 
+- **text/html**: 
+  - If the mime_type field is set to text/html, it indicates that the Seller App expects the Buyer App to retrieve and render an HTML document. To handle this scenario, the Buyer App should perform the following steps:
 
+  - Initiate a Fetch Request:
+  The Buyer App must send an HTTP fetch request to the URL provided by the Seller App. This URL is included in the xinput object as part of on_action calls.
+
+  - Process the Response:
+  When the Seller App receives this request, it will respond with the complete HTML document.
+
+  - Render the HTML Document:
+  Once the complete HTML document is retrieved, the Buyer App must render it on the user interface as intended. This could involve displaying it within a web view or a similar component in the app, ensuring that the user has a seamless and interactive experience.
+  [![Image](https://github.com/ONDC-Official/ONDC-FIS-Specifications/raw/branchName/api/components/docs/images/xinput.png)](https://github.com/ONDC-Official/ONDC-FIS-Specifications/raw/branchName/api/components/docs/images/xinput.png)
+
+The rendered HTML-based form structure looks like this:
 ````html
 <form action="/form/submission-path">
   <label for="dob">Date of Birth</label>
   <input type="date" id="dob" name="dob" />
-  <label for="pan_value">PAN Number</label>
-  <input type="text" id="pan_value" name="pan_value" />
-  <input type="hidden" id="form_id" name="form_id" value="<Form_ID>" />
+  <label for="panValue">PAN Number</label>
+  <input type="text" id="panValue" name="panValue" />
+  <input type="hidden" id="formId" name="formId" value="<Form_ID>" />
   <input type="submit" value="Submit" />
 </form>
 ````
-
-If the type of the input field is readonly, then the buyer app must render it as it is; the field should not be editable.
-
-````html
-<form action="/action_page.php">
-  <label for="country">Country:</label>
-  <input type="text" id="country" name="country" value="Norway" readonly><br><br>
-  <input type="submit" value="Submit">
-</form>
-````
-
-The name field will be used for generating payload of text/html form(name fields will be used as keys, this is default behaviour of html)
 
 The form gets submitted at the specified path in action. On submission, if successful, the buyer is provided with a submission_id.
 
@@ -103,6 +103,29 @@ Note: While submitting text/html form, API headers will contain [Content-Type:"m
   - **application/html**:
 
 On the other hand, if the mime_type is set to application/html, the seller provides a link to an external HTML page where the buyer can submit the required information.
+
+  - **text/html-multi**:
+If the form type is text/html-multi, the buyer app can include multiple form fields similar to the original form, allowing for the addition of extra details.
+````html
+<form action="/form/submission-path" method="POST" >
+  <label for="dob">Date of Birth</label>
+  <input type="date" id="dob" name="dob" />
+  <label for="panValue">PAN Number</label>
+  <input type="text" id="panValue" name="panValue" />
+  <input type="hidden" id="formId" name="formId" value="<Form_ID>" />
+  <input type="submit" value="Submit" />
+</form>
+
+Buyer app needs to follow the below construct while submitting the form by capturing the multiple instances of the same form.
+```
+  {
+      "dob": ["17/11/2021", "19/12/2003"],
+      "panValue": ["RKPUS3413T", "SKPUS3413L"]
+  }
+  
+```
+
+   
 
 ## Form response
 
