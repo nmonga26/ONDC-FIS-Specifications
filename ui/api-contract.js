@@ -118,6 +118,10 @@ function upadteContract() {
 
   const url = new URL(window.location);
   url.searchParams.set('branch', selectedOption);
+  gtag("event", "protocol", {
+    use_case: selectedOption,
+    page_location: window.location.href
+  });
   window.history.pushState({}, '', url);
 
   init()
