@@ -15858,7 +15858,7 @@ x-flows:
               <input type="text" id="productPrice" name="productPrice" optional />
 
               <label for="productReturnPeriod">Return Window</label>
-              <input type="text" id="productPrice" name="productPrice" optional />
+              <input type="text" id="productReturnPeriod" name="productReturnPeriod" optional />
              
               <input type="hidden" id="formId" name="formId" value="FO1">
               <input type="submit" value="Submit">
@@ -23587,7 +23587,7 @@ x-flows:
               <input type="text" id="productPrice" name="productPrice" optional />
 
               <label for="productReturnPeriod">Return Window</label>
-              <input type="text" id="productPrice" name="productPrice" optional />
+              <input type="text" id="productReturnPeriod" name="productReturnPeriod" optional />
              
               <input type="hidden" id="formId" name="formId" value="FO1">
               <input type="submit" value="Submit">
