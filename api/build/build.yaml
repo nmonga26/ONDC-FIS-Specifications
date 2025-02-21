@@ -3114,6 +3114,16 @@ x-tags:
                     The frequency of premium payments (e.g., monthly,
                     quarterly).
                   reference: <PR/Issue/Discussion Links md format text
+                - code: PAYMENT_OPTION
+                  description: >-
+                    Denotes whether payment is going to be one time, limited
+                    number of years or recurring
+                  reference: <PR/Issue/Discussion Links md format text
+                - code: PAYMENT_PERIOD
+                  description: >-
+                    No of years of premium payment. Use this value if
+                    PAYMENT_OPTION is LIMITED_PREMIUM to denote the 
+                  reference: <PR/Issue/Discussion Links md format text
                 - code: MONTHLY_PREMIUM
                   description: The amount payable each month for the policy.
                   reference: <PR/Issue/Discussion Links md format text
@@ -3200,28 +3210,28 @@ x-tags:
             - &ref_19
               code: LSP_INFO
               description: >-
-                Describes lsp details acting as recovert agent authorised to
+                Describes lsp details acting as recovery agent authorized to
                 approach borrower
               reference: <PR/Issue/Discussion Links md format text>
               list:
                 - code: LSP_NAME
                   description: >-
-                    Name of lsp acting as recovery agent, authorised to approach
+                    Name of lsp acting as recovery agent, authorized to approach
                     borrower
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: LSP_EMAIL
                   description: >-
-                    Email of lsp acting as recovery agent, authorised to
+                    Email of lsp acting as recovery agent, authorized to
                     approach borrower
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: LSP_CONTACT_NUMBER
                   description: >-
-                    Contact number of lsp acting as recovery agent, authorised
+                    Contact number of lsp acting as recovery agent, authorized
                     to approach borrower
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: LSP_ADDRESS
                   description: >-
-                    Address of lsp acting as recovery agent, authorised to
+                    Address of lsp acting as recovery agent, authorized to
                     approach borrower
                   reference: <PR/Issue/Discussion Links md format text>
           items: *ref_15
@@ -3273,10 +3283,10 @@ x-tags:
               reference: <PR/Issue/Discussion Links md format text>
               list:
                 - code: REQUESTED_CLAIM_AMOUNT
-                  description: Describes the requested cliam amount.
+                  description: Describes the requested claim amount.
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: APPROVED_CLAIM_AMOUNT
-                  description: Describes the approved cliam amount.
+                  description: Describes the approved claim amount.
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: REF_ID
                   description: Describes the reference id.
@@ -3386,6 +3396,10 @@ x-flows:
                 category:
                   descriptor:
                     code: LIFE_INSURANCE
+                fulfillment:
+                  agent:
+                    person:
+                      id: 0120TRVK
                 payment:
                   collected_by: BPP
                 tags:
@@ -3454,7 +3468,7 @@ x-flows:
             message:
               catalog:
                 descriptor:
-                  name: <var:catalog_descriptor_name>
+                  name: ABC Insurance Ltd
                 providers:
                   - id: PROVIDER_ID
                     descriptor:
@@ -3494,7 +3508,7 @@ x-flows:
                             headings:
                               - BASIC_DETAILS
                           form:
-                            id: <var:basic_details_form>
+                            id: BASIC_DETAILS_FORM_ID
                             mime_type: text/html
                             url: https://fis.test.bpp.io/xinput/form/basic_details
                             resubmit: false
@@ -3626,12 +3640,19 @@ x-flows:
 
             <div>
 
+            </br></br>
+
             <h2>Beneficiary Information</h2>
+
+
+            </br>
 
             <label for="beneficiary-dob">Date of Birth:</label>
 
             <input type="date" id="beneficiary-dob" required>
 
+
+            </br>
 
             <label for="beneficiary-gender">Gender:</label>
 
@@ -3646,10 +3667,14 @@ x-flows:
             </select>
 
 
+            </br>
+
             <label for="beneficiary-phone">Phone (Numeric):</label>
 
             <input type="tel" id="beneficiary-phone" pattern="[0-9]*" required>
 
+
+            </br>
 
             <label for="beneficiary-smoker">Smoker or Tobacco
             Consumption:</label>
@@ -3665,14 +3690,21 @@ x-flows:
             </div>
 
 
+            </br></br>
+
             <div>
 
             <h2>Proposer Information</h2>
+
+
+            </br>
 
             <label for="proposer-dob">Date of Birth:</label>
 
             <input type="date" id="proposer-dob" required>
 
+
+            </br>
 
             <label for="proposer-gender">Gender:</label>
 
@@ -3687,10 +3719,14 @@ x-flows:
             </select>
 
 
+            </br>
+
             <label for="proposer-phone">Phone (Numeric):</label>
 
             <input type="tel" id="proposer-phone" pattern="[0-9]*" required>
 
+
+            </br>
 
             <label for="proposer-occupation">Occupation:</label>
 
@@ -3717,10 +3753,14 @@ x-flows:
             </select>
 
 
+            </br>
+
             <label for="proposer-income">Income (Own/Spouse's/Parent's):</label>
 
             <input type="number" id="proposer-income" required>
 
+
+            </br>
 
             <label for="proposer-aaid">AAID (Optional):</label>
 
@@ -3729,50 +3769,86 @@ x-flows:
             </div>
 
 
+            </br></br>
+
             <div>
 
             <h2>Extra Information</h2>
+
+
+            </br>
 
             <label for="coverage-amount">Coverage Amount (Optional):</label>
 
             <input type="number" id="coverage-amount">
 
 
+            </br>
+
             <label for="coverage-till">Coverage Till (Age):</label>
 
             <input type="number" id="coverage-till">
 
+
+            </br>
 
             <label for="premium-frequency">Frequency of Premium Payment
             (Optional):</label>
 
             <select id="premium-frequency">
 
-            <option value="Daily">Daily</option>
+            <option value="OneTime">One Time</option>
 
             <option value="Monthly">Monthly</option>
 
             <option value="Quarterly">Quarterly</option>
 
-            <option value="Semi Annual">Semi Annual</option>
+            <option value="SemiAnnual">Semi Annual</option>
 
             <option value="Annual">Annual</option>
 
             </select>
 
 
+            </br>
+
             <label for="premium-pay-term"># of Years for Premium Payment (Pay
             Term) (Optional):</label>
 
             <input type="number" id="premium-pay-term">
 
+
+            </br>
+
+            <label for="death-benefit-lumpsum-amount">Lumpsum amount to be
+            received as Death Benefit  (Optional):</label>
+
+            <input type="number" id="death-benefit-lumpsum-amount">
+
+
+            </br>
+
+            <label for="death-benefit-payout-frequency">Frequency of Death
+            Benefit Payout (Optional):</label>
+
+            <select id="death-benefit-payout-frequency">
+
+            <option value="OneTime">One Time</option>
+
+            <option value="Monthly">Monthly</option>
+
+            <option value="Quarterly">Quarterly</option>
+
+            <option value="SemiAnnual">Semi Annual</option>
+
+            <option value="Annual">Annual</option>
+
+            </select>
+
             </div>
 
 
-            <label for="agent-id">Agent Id (Optional):</label>
-
-            <input type="text" id="agent-id">
-
+            </br>
 
             <label for="declaration">
 
@@ -3819,6 +3895,7 @@ x-flows:
             <input type="checkbox" id="declaration">
 
 
+            </br></br>
 
             <button type="submit">Submit</button>
 
@@ -3882,7 +3959,7 @@ x-flows:
                     - id: LIFE_INSURANCE_ITEM_ID
                       xinput:
                         form:
-                          id: <var:basic_details_form_id>
+                          id: BASIC_DETAILS_FORM_ID
                         form_response:
                           status: SUCCESS
                           submission_id: F01_SUBMISSION_ID
@@ -3958,7 +4035,7 @@ x-flows:
             message:
               catalog:
                 descriptor:
-                  name: <var:catalog_descriptor_name>
+                  name: ABC Insurance Ltd
                 providers:
                   - id: PROVIDER_ID
                     descriptor:
@@ -3997,19 +4074,19 @@ x-flows:
                               - descriptor:
                                   code: BENEFICIARY_KYC
                                   name: Kyc of the life to be insured
-                                value: Pending
+                                value: PENDING
                               - descriptor:
                                   code: PROPOSER_KYC
                                   name: Kyc of the proposer
-                                value: Pending
+                                value: PENDING
                               - descriptor:
                                   code: MEDICAL_CHECKUP
                                   name: Offline Medical checkup
-                                value: Pending
+                                value: PENDING
                               - descriptor:
                                   code: FINAL_PAYMENT
                                   name: Final revised payment after medical checkup
-                                value: Pending
+                                value: PENDING
                           - descriptor:
                               code: GENERAL_INFO
                               name: General Information
@@ -4018,32 +4095,45 @@ x-flows:
                                   code: COVERAGE_AMOUNT
                                   name: coverage amount
                                   short_desc: up to/minimum coverage amount
-                                value: <var:value>
+                                value: '5000000'
                               - descriptor:
                                   code: CLAIM_SETTLEMENT_RATIO
                                   name: claim settlement ratio
                                   short_desc: up to/minimum claim settlement ratio
-                                value: <var:value>
+                                value: 88%
                               - descriptor:
                                   code: FREE_LOOKUP_PERIOD
                                   name: free lookup period
                                   short_desc: up to/minimum free lookup period
-                                value: <var:value>
+                                value: P30D
                               - descriptor:
                                   code: COVERAGE_PERIOD
                                   name: coverage period
-                                  short_desc: up to/minimum coverage period
-                                value: <var:value>
+                                  short_desc: age up to which policy is covered
+                                value: '70'
                               - descriptor:
                                   code: PAYMENT_FREQUENCY
                                   name: payment frequency
                                   short_desc: up to/minimum payment frequency
-                                value: <var:value>
+                                value: MONTHLY
+                              - descriptor:
+                                  code: PAYMENT_OPTION
+                                  name: Payment Option
+                                  short_desc: payment type
+                                value: LIMITED_PREMIUM
+                              - descriptor:
+                                  code: PAYMENT_PERIOD
+                                  name: Premium Payment Period
+                                  short_desc: No of years of premium payment
+                                  long_desc: >-
+                                    Use this value if PAYMENT_OPTION is
+                                    LIMITED_PREMIUM
+                                value: '7'
                               - descriptor:
                                   code: CLAIM_SETTLEMENT_TAT
                                   name: claim settlement tat
                                   short_desc: up to/minimum claim settlement tat
-                                value: <var:value>
+                                value: P45D
                         add_ons:
                           - id: A1
                             quantity:
@@ -4063,7 +4153,7 @@ x-flows:
                           - descriptor:
                               code: CONSENT_HANDLER
                               name: Generated Consent Handle
-                            value: <var:consent_handle_value>
+                            value: AA_20250121_9876543210
                       - descriptor:
                           code: CONTACT_INFO
                           name: Contact Info
@@ -4246,7 +4336,7 @@ x-flows:
             message:
               catalog:
                 descriptor:
-                  name: <var:catalog_descriptor_name>
+                  name: ABC Insurance Ltd
                 providers:
                   - id: PROVIDER_ID
                     descriptor:
@@ -4279,19 +4369,19 @@ x-flows:
                               - descriptor:
                                   code: BENEFICIARY_KYC
                                   name: Kyc of the life to be insured
-                                value: Pending
+                                value: PENDING
                               - descriptor:
                                   code: PROPOSER_KYC
                                   name: Kyc of the proposer
-                                value: Pending
+                                value: PENDING
                               - descriptor:
                                   code: MEDICAL_CHECKUP
                                   name: Offline Medical checkup
-                                value: Pending
+                                value: PENDING
                               - descriptor:
                                   code: FINAL_PAYMENT
                                   name: Final revised payment after medical checkup
-                                value: Pending
+                                value: PENDING
                           - descriptor:
                               code: GENERAL_INFO
                               name: General Information
@@ -4300,32 +4390,45 @@ x-flows:
                                   code: COVERAGE_AMOUNT
                                   name: coverage amount
                                   short_desc: up to/minimum coverage amount
-                                value: <var:value>
+                                value: '5000000'
                               - descriptor:
                                   code: CLAIM_SETTLEMENT_RATIO
                                   name: claim settlement ratio
                                   short_desc: up to/minimum claim settlement ratio
-                                value: <var:value>
+                                value: 88%
                               - descriptor:
                                   code: FREE_LOOKUP_PERIOD
                                   name: free lookup period
                                   short_desc: up to/minimum free lookup period
-                                value: <var:value>
+                                value: P30D
                               - descriptor:
                                   code: COVERAGE_PERIOD
                                   name: coverage period
-                                  short_desc: up to/minimum coverage period
-                                value: <var:value>
+                                  short_desc: age up to which policy is covered
+                                value: '70'
                               - descriptor:
                                   code: PAYMENT_FREQUENCY
                                   name: payment frequency
                                   short_desc: up to/minimum payment frequency
-                                value: <var:value>
+                                value: MONTHLY
+                              - descriptor:
+                                  code: PAYMENT_OPTION
+                                  name: Payment Option
+                                  short_desc: payment type
+                                value: LIMITED_PREMIUM
+                              - descriptor:
+                                  code: PAYMENT_PERIOD
+                                  name: Premium Payment Period
+                                  short_desc: No of years of premium payment
+                                  long_desc: >-
+                                    Use this value if PAYMENT_OPTION is
+                                    LIMITED_PREMIUM
+                                value: '7'
                               - descriptor:
                                   code: CLAIM_SETTLEMENT_TAT
                                   name: claim settlement tat
                                   short_desc: up to/minimum claim settlement tat
-                                value: <var:value>
+                                value: P45D
                         add_ons:
                           - id: A1
                             quantity:
@@ -4357,19 +4460,19 @@ x-flows:
                               - descriptor:
                                   code: BENEFICIARY_KYC
                                   name: Kyc of the life to be insured
-                                value: Pending
+                                value: PENDING
                               - descriptor:
                                   code: PROPOSER_KYC
                                   name: Kyc of the proposer
-                                value: Pending
+                                value: PENDING
                               - descriptor:
                                   code: MEDICAL_CHECKUP
                                   name: Offline Medical checkup
-                                value: Pending
+                                value: PENDING
                               - descriptor:
                                   code: FINAL_PAYMENT
                                   name: Final revised payment after medical checkup
-                                value: Pending
+                                value: PENDING
                           - descriptor:
                               code: GENERAL_INFO
                               name: General Information
@@ -4378,32 +4481,45 @@ x-flows:
                                   code: COVERAGE_AMOUNT
                                   name: coverage amount
                                   short_desc: up to/minimum coverage amount
-                                value: <var:value>
+                                value: '5000000'
                               - descriptor:
                                   code: CLAIM_SETTLEMENT_RATIO
                                   name: claim settlement ratio
                                   short_desc: up to/minimum claim settlement ratio
-                                value: <var:value>
+                                value: 88%
                               - descriptor:
                                   code: FREE_LOOKUP_PERIOD
                                   name: free lookup period
                                   short_desc: up to/minimum free lookup period
-                                value: <var:value>
+                                value: P30D
                               - descriptor:
                                   code: COVERAGE_PERIOD
                                   name: coverage period
-                                  short_desc: up to/minimum coverage period
-                                value: <var:value>
+                                  short_desc: age up to which policy is covered
+                                value: '70'
                               - descriptor:
                                   code: PAYMENT_FREQUENCY
                                   name: payment frequency
                                   short_desc: up to/minimum payment frequency
-                                value: <var:value>
+                                value: MONTHLY
+                              - descriptor:
+                                  code: PAYMENT_OPTION
+                                  name: Payment Option
+                                  short_desc: payment type
+                                value: LIMITED_PREMIUM
+                              - descriptor:
+                                  code: PAYMENT_PERIOD
+                                  name: Premium Payment Period
+                                  short_desc: No of years of premium payment
+                                  long_desc: >-
+                                    Use this value if PAYMENT_OPTION is
+                                    LIMITED_PREMIUM
+                                value: '7'
                               - descriptor:
                                   code: CLAIM_SETTLEMENT_TAT
                                   name: claim settlement tat
                                   short_desc: up to/minimum claim settlement tat
-                                value: <var:value>
+                                value: P45D
                               - descriptor:
                                   code: BASE_PRICE
                                   name: Base Price
@@ -4614,19 +4730,19 @@ x-flows:
                           - descriptor:
                               code: BENEFICIARY_KYC
                               name: Kyc of the life to be insured
-                            value: Pending
+                            value: PENDING
                           - descriptor:
                               code: PROPOSER_KYC
                               name: Kyc of the proposer
-                            value: Pending
+                            value: PENDING
                           - descriptor:
                               code: MEDICAL_CHECKUP
                               name: Offline Medical checkup
-                            value: Pending
+                            value: PENDING
                           - descriptor:
                               code: FINAL_PAYMENT
                               name: Final revised payment after medical checkup
-                            value: Pending
+                            value: PENDING
                       - descriptor:
                           code: GENERAL_INFO
                           name: General Information
@@ -4635,32 +4751,45 @@ x-flows:
                               code: COVERAGE_AMOUNT
                               name: coverage amount
                               short_desc: up to/minimum coverage amount
-                            value: <var:value>
+                            value: '5000000'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_RATIO
                               name: claim settlement ratio
                               short_desc: up to/minimum claim settlement ratio
-                            value: <var:value>
+                            value: 88%
                           - descriptor:
                               code: FREE_LOOKUP_PERIOD
                               name: free lookup period
                               short_desc: up to/minimum free lookup period
-                            value: <var:value>
+                            value: P30D
                           - descriptor:
                               code: COVERAGE_PERIOD
                               name: coverage period
-                              short_desc: up to/minimum coverage period
-                            value: <var:value>
+                              short_desc: age up to which policy is covered
+                            value: '70'
                           - descriptor:
                               code: PAYMENT_FREQUENCY
                               name: payment frequency
                               short_desc: up to/minimum payment frequency
-                            value: <var:value>
+                            value: MONTHLY
+                          - descriptor:
+                              code: PAYMENT_OPTION
+                              name: Payment Option
+                              short_desc: payment type
+                            value: LIMITED_PREMIUM
+                          - descriptor:
+                              code: PAYMENT_PERIOD
+                              name: Premium Payment Period
+                              short_desc: No of years of premium payment
+                              long_desc: >-
+                                Use this value if PAYMENT_OPTION is
+                                LIMITED_PREMIUM
+                            value: '7'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_TAT
                               name: claim settlement tat
                               short_desc: up to/minimum claim settlement tat
-                            value: <var:value>
+                            value: P45D
                     time:
                       duration: P1Y
                       label: TENURE
@@ -4817,7 +4946,10 @@ x-flows:
             message:
               order:
                 fulfillments:
-                  - customer:
+                  - state:
+                      descriptor:
+                        code: INITIATED
+                    customer:
                       contact:
                         email: joe.adam@abc.org
                         phone: +91-9999999999
@@ -4935,19 +5067,19 @@ x-flows:
                           - descriptor:
                               code: BENEFICIARY_KYC
                               name: Kyc of the life to be insured
-                            value: Pending
+                            value: PENDING
                           - descriptor:
                               code: PROPOSER_KYC
                               name: Kyc of the proposer
-                            value: Pending
+                            value: PENDING
                           - descriptor:
                               code: MEDICAL_CHECKUP
                               name: Offline Medical checkup
-                            value: Pending
+                            value: PENDING
                           - descriptor:
                               code: FINAL_PAYMENT
                               name: Final revised payment after medical checkup
-                            value: Pending
+                            value: PENDING
                       - descriptor:
                           code: GENERAL_INFO
                           name: General Information
@@ -4956,32 +5088,45 @@ x-flows:
                               code: COVERAGE_AMOUNT
                               name: coverage amount
                               short_desc: up to/minimum coverage amount
-                            value: <var:value>
+                            value: '5000000'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_RATIO
                               name: claim settlement ratio
                               short_desc: up to/minimum claim settlement ratio
-                            value: <var:value>
+                            value: 88%
                           - descriptor:
                               code: FREE_LOOKUP_PERIOD
                               name: free lookup period
                               short_desc: up to/minimum free lookup period
-                            value: <var:value>
+                            value: P30D
                           - descriptor:
                               code: COVERAGE_PERIOD
                               name: coverage period
-                              short_desc: up to/minimum coverage period
-                            value: <var:value>
+                              short_desc: age up to which policy is covered
+                            value: '70'
                           - descriptor:
                               code: PAYMENT_FREQUENCY
                               name: payment frequency
                               short_desc: up to/minimum payment frequency
-                            value: <var:value>
+                            value: MONTHLY
+                          - descriptor:
+                              code: PAYMENT_OPTION
+                              name: Payment Option
+                              short_desc: payment type
+                            value: LIMITED_PREMIUM
+                          - descriptor:
+                              code: PAYMENT_PERIOD
+                              name: Premium Payment Period
+                              short_desc: No of years of premium payment
+                              long_desc: >-
+                                Use this value if PAYMENT_OPTION is
+                                LIMITED_PREMIUM
+                            value: '7'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_TAT
                               name: claim settlement tat
                               short_desc: up to/minimum claim settlement tat
-                            value: <var:value>
+                            value: P45D
                     time:
                       duration: P1Y
                       label: TENURE
@@ -5200,7 +5345,10 @@ x-flows:
             message:
               order:
                 fulfillments:
-                  - customer:
+                  - state:
+                      descriptor:
+                        code: INITIATED
+                    customer:
                       contact:
                         email: joe.adam@abc.org
                         phone: +91-9999999999
@@ -5227,19 +5375,19 @@ x-flows:
                           - descriptor:
                               code: BENEFICIARY_KYC
                               name: Kyc of the life to be insured
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: PROPOSER_KYC
                               name: Kyc of the proposer
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: MEDICAL_CHECKUP
                               name: Offline Medical checkup
-                            value: Pending
+                            value: PENDING
                           - descriptor:
                               code: FINAL_PAYMENT
                               name: Final revised payment after medical checkup
-                            value: Pending
+                            value: PENDING
                       - descriptor:
                           code: GENERAL_INFO
                           name: General Information
@@ -5248,32 +5396,45 @@ x-flows:
                               code: COVERAGE_AMOUNT
                               name: coverage amount
                               short_desc: up to/minimum coverage amount
-                            value: <var:value>
+                            value: '5000000'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_RATIO
                               name: claim settlement ratio
                               short_desc: up to/minimum claim settlement ratio
-                            value: <var:value>
+                            value: 88%
                           - descriptor:
                               code: FREE_LOOKUP_PERIOD
                               name: free lookup period
                               short_desc: up to/minimum free lookup period
-                            value: <var:value>
+                            value: P30D
                           - descriptor:
                               code: COVERAGE_PERIOD
                               name: coverage period
-                              short_desc: up to/minimum coverage period
-                            value: <var:value>
+                              short_desc: age up to which policy is covered
+                            value: '70'
                           - descriptor:
                               code: PAYMENT_FREQUENCY
                               name: payment frequency
                               short_desc: up to/minimum payment frequency
-                            value: <var:value>
+                            value: MONTHLY
+                          - descriptor:
+                              code: PAYMENT_OPTION
+                              name: Payment Option
+                              short_desc: payment type
+                            value: LIMITED_PREMIUM
+                          - descriptor:
+                              code: PAYMENT_PERIOD
+                              name: Premium Payment Period
+                              short_desc: No of years of premium payment
+                              long_desc: >-
+                                Use this value if PAYMENT_OPTION is
+                                LIMITED_PREMIUM
+                            value: '7'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_TAT
                               name: claim settlement tat
                               short_desc: up to/minimum claim settlement tat
-                            value: <var:value>
+                            value: P45D
                     time:
                       duration: P1Y
                       label: TENURE
@@ -5506,7 +5667,7 @@ x-flows:
                         id: EKYC_FORM_ID
                       form_response:
                         status: SUCCESS
-                        submission_id: 4830c4f9-b4d3-4e58-bef5-dee80eb08478
+                        submission_id: 79850933-4e41-4c76-bbe6-c5a392481226
                 provider:
                   id: P1
                 payments:
@@ -5587,7 +5748,10 @@ x-flows:
             message:
               order:
                 fulfillments:
-                  - customer:
+                  - state:
+                      descriptor:
+                        code: INITIATED
+                    customer:
                       contact:
                         email: joe.adam@abc.org
                         phone: +91-9999999999
@@ -5614,19 +5778,19 @@ x-flows:
                           - descriptor:
                               code: BENEFICIARY_KYC
                               name: Kyc of the life to be insured
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: PROPOSER_KYC
                               name: Kyc of the proposer
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: MEDICAL_CHECKUP
                               name: Offline Medical checkup
-                            value: Pending
+                            value: PENDING
                           - descriptor:
                               code: FINAL_PAYMENT
                               name: Final revised payment after medical checkup
-                            value: Pending
+                            value: PENDING
                       - descriptor:
                           code: GENERAL_INFO
                           name: General Information
@@ -5635,32 +5799,45 @@ x-flows:
                               code: COVERAGE_AMOUNT
                               name: coverage amount
                               short_desc: up to/minimum coverage amount
-                            value: <var:value>
+                            value: '5000000'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_RATIO
                               name: claim settlement ratio
                               short_desc: up to/minimum claim settlement ratio
-                            value: <var:value>
+                            value: 88%
                           - descriptor:
                               code: FREE_LOOKUP_PERIOD
                               name: free lookup period
                               short_desc: up to/minimum free lookup period
-                            value: <var:value>
+                            value: P30D
                           - descriptor:
                               code: COVERAGE_PERIOD
                               name: coverage period
-                              short_desc: up to/minimum coverage period
-                            value: <var:value>
+                              short_desc: age up to which policy is covered
+                            value: '70'
                           - descriptor:
                               code: PAYMENT_FREQUENCY
                               name: payment frequency
                               short_desc: up to/minimum payment frequency
-                            value: <var:value>
+                            value: MONTHLY
+                          - descriptor:
+                              code: PAYMENT_OPTION
+                              name: Payment Option
+                              short_desc: payment type
+                            value: LIMITED_PREMIUM
+                          - descriptor:
+                              code: PAYMENT_PERIOD
+                              name: Premium Payment Period
+                              short_desc: No of years of premium payment
+                              long_desc: >-
+                                Use this value if PAYMENT_OPTION is
+                                LIMITED_PREMIUM
+                            value: '7'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_TAT
                               name: claim settlement tat
                               short_desc: up to/minimum claim settlement tat
-                            value: <var:value>
+                            value: P45D
                     time:
                       duration: P1Y
                       label: TENURE
@@ -6239,7 +6416,10 @@ x-flows:
             message:
               order:
                 fulfillments:
-                  - customer:
+                  - state:
+                      descriptor:
+                        code: INITIATED
+                    customer:
                       contact:
                         email: joe.adam@abc.org
                         phone: +91-9999999999
@@ -6266,19 +6446,19 @@ x-flows:
                           - descriptor:
                               code: BENEFICIARY_KYC
                               name: Kyc of the life to be insured
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: PROPOSER_KYC
                               name: Kyc of the proposer
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: MEDICAL_CHECKUP
                               name: Offline Medical checkup
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: FINAL_PAYMENT
                               name: Final revised payment after medical checkup
-                            value: Pending
+                            value: PENDING
                       - descriptor:
                           code: GENERAL_INFO
                           name: General Information
@@ -6287,32 +6467,45 @@ x-flows:
                               code: COVERAGE_AMOUNT
                               name: coverage amount
                               short_desc: up to/minimum coverage amount
-                            value: <var:value>
+                            value: '5000000'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_RATIO
                               name: claim settlement ratio
                               short_desc: up to/minimum claim settlement ratio
-                            value: <var:value>
+                            value: 88%
                           - descriptor:
                               code: FREE_LOOKUP_PERIOD
                               name: free lookup period
                               short_desc: up to/minimum free lookup period
-                            value: <var:value>
+                            value: P30D
                           - descriptor:
                               code: COVERAGE_PERIOD
                               name: coverage period
-                              short_desc: up to/minimum coverage period
-                            value: <var:value>
+                              short_desc: age up to which policy is covered
+                            value: '70'
                           - descriptor:
                               code: PAYMENT_FREQUENCY
                               name: payment frequency
                               short_desc: up to/minimum payment frequency
-                            value: <var:value>
+                            value: MONTHLY
+                          - descriptor:
+                              code: PAYMENT_OPTION
+                              name: Payment Option
+                              short_desc: payment type
+                            value: LIMITED_PREMIUM
+                          - descriptor:
+                              code: PAYMENT_PERIOD
+                              name: Premium Payment Period
+                              short_desc: No of years of premium payment
+                              long_desc: >-
+                                Use this value if PAYMENT_OPTION is
+                                LIMITED_PREMIUM
+                            value: '7'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_TAT
                               name: claim settlement tat
                               short_desc: up to/minimum claim settlement tat
-                            value: <var:value>
+                            value: P45D
                     time:
                       duration: P1Y
                       label: TENURE
@@ -6526,7 +6719,10 @@ x-flows:
             message:
               order:
                 fulfillments:
-                  - customer:
+                  - state:
+                      descriptor:
+                        code: INITIATED
+                    customer:
                       contact:
                         email: joe.adam@abc.org
                         phone: +91-9999999999
@@ -6553,19 +6749,19 @@ x-flows:
                           - descriptor:
                               code: BENEFICIARY_KYC
                               name: Kyc of the life to be insured
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: PROPOSER_KYC
                               name: Kyc of the proposer
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: MEDICAL_CHECKUP
                               name: Offline Medical checkup
-                            value: Pending
+                            value: PENDING
                           - descriptor:
                               code: FINAL_PAYMENT
                               name: Final revised payment after medical checkup
-                            value: Pending
+                            value: PENDING
                       - descriptor:
                           code: GENERAL_INFO
                           name: General Information
@@ -6574,32 +6770,45 @@ x-flows:
                               code: COVERAGE_AMOUNT
                               name: coverage amount
                               short_desc: up to/minimum coverage amount
-                            value: <var:value>
+                            value: '5000000'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_RATIO
                               name: claim settlement ratio
                               short_desc: up to/minimum claim settlement ratio
-                            value: <var:value>
+                            value: 88%
                           - descriptor:
                               code: FREE_LOOKUP_PERIOD
                               name: free lookup period
                               short_desc: up to/minimum free lookup period
-                            value: <var:value>
+                            value: P30D
                           - descriptor:
                               code: COVERAGE_PERIOD
                               name: coverage period
-                              short_desc: up to/minimum coverage period
-                            value: <var:value>
+                              short_desc: age up to which policy is covered
+                            value: '70'
                           - descriptor:
                               code: PAYMENT_FREQUENCY
                               name: payment frequency
                               short_desc: up to/minimum payment frequency
-                            value: <var:value>
+                            value: MONTHLY
+                          - descriptor:
+                              code: PAYMENT_OPTION
+                              name: Payment Option
+                              short_desc: payment type
+                            value: LIMITED_PREMIUM
+                          - descriptor:
+                              code: PAYMENT_PERIOD
+                              name: Premium Payment Period
+                              short_desc: No of years of premium payment
+                              long_desc: >-
+                                Use this value if PAYMENT_OPTION is
+                                LIMITED_PREMIUM
+                            value: '7'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_TAT
                               name: claim settlement tat
                               short_desc: up to/minimum claim settlement tat
-                            value: <var:value>
+                            value: P45D
                     time:
                       duration: P1Y
                       label: TENURE
@@ -6608,7 +6817,7 @@ x-flows:
                         id: MEDICAL_CHECKUP_APPOINTMENT_FORM_ID
                       form_response:
                         status: SUCCESS
-                        submission_id: 79850933-4e41-4c76-bbe6-c5a392481226
+                        submission_id: 05888843-bbe4-47c1-92d5-8e146e8f01e4
                     add_ons:
                       - id: A1
                         quantity:
@@ -6842,7 +7051,7 @@ x-flows:
                         id: MEDICAL_CHECKUP_APPOINTMENT_FORM_ID
                       form_response:
                         status: SUCCESS
-                        submission_id: 4830c4f9-b4d3-4e58-bef5-dee80eb08478
+                        submission_id: 05888843-bbe4-47c1-92d5-8e146e8f01e4
                 provider:
                   id: P1
                 payments:
@@ -6929,7 +7138,10 @@ x-flows:
             message:
               order:
                 fulfillments:
-                  - customer:
+                  - state:
+                      descriptor:
+                        code: INITIATED
+                    customer:
                       contact:
                         email: joe.adam@abc.org
                         phone: +91-9999999999
@@ -6956,19 +7168,19 @@ x-flows:
                           - descriptor:
                               code: BENEFICIARY_KYC
                               name: Kyc of the life to be insured
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: PROPOSER_KYC
                               name: Kyc of the proposer
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: MEDICAL_CHECKUP
                               name: Offline Medical checkup
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: FINAL_PAYMENT
                               name: Final revised payment after medical checkup
-                            value: Pending
+                            value: PENDING
                       - descriptor:
                           code: GENERAL_INFO
                           name: General Information
@@ -6977,32 +7189,45 @@ x-flows:
                               code: COVERAGE_AMOUNT
                               name: coverage amount
                               short_desc: up to/minimum coverage amount
-                            value: <var:value>
+                            value: '5000000'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_RATIO
                               name: claim settlement ratio
                               short_desc: up to/minimum claim settlement ratio
-                            value: <var:value>
+                            value: 88%
                           - descriptor:
                               code: FREE_LOOKUP_PERIOD
                               name: free lookup period
                               short_desc: up to/minimum free lookup period
-                            value: <var:value>
+                            value: P30D
                           - descriptor:
                               code: COVERAGE_PERIOD
                               name: coverage period
-                              short_desc: up to/minimum coverage period
-                            value: <var:value>
+                              short_desc: age up to which policy is covered
+                            value: '70'
                           - descriptor:
                               code: PAYMENT_FREQUENCY
                               name: payment frequency
                               short_desc: up to/minimum payment frequency
-                            value: <var:value>
+                            value: MONTHLY
+                          - descriptor:
+                              code: PAYMENT_OPTION
+                              name: Payment Option
+                              short_desc: payment type
+                            value: LIMITED_PREMIUM
+                          - descriptor:
+                              code: PAYMENT_PERIOD
+                              name: Premium Payment Period
+                              short_desc: No of years of premium payment
+                              long_desc: >-
+                                Use this value if PAYMENT_OPTION is
+                                LIMITED_PREMIUM
+                            value: '7'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_TAT
                               name: claim settlement tat
                               short_desc: up to/minimum claim settlement tat
-                            value: <var:value>
+                            value: P45D
                     time:
                       duration: P1Y
                       label: TENURE
@@ -7197,7 +7422,10 @@ x-flows:
             message:
               order:
                 fulfillments:
-                  - customer:
+                  - state:
+                      descriptor:
+                        code: INITIATED
+                    customer:
                       contact:
                         email: joe.adam@abc.org
                         phone: +91-9999999999
@@ -7224,19 +7452,19 @@ x-flows:
                           - descriptor:
                               code: BENEFICIARY_KYC
                               name: Kyc of the life to be insured
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: PROPOSER_KYC
                               name: Kyc of the proposer
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: MEDICAL_CHECKUP
                               name: Offline Medical checkup
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: FINAL_PAYMENT
                               name: Final revised payment after medical checkup
-                            value: Pending
+                            value: PENDING
                       - descriptor:
                           code: GENERAL_INFO
                           name: General Information
@@ -7245,32 +7473,45 @@ x-flows:
                               code: COVERAGE_AMOUNT
                               name: coverage amount
                               short_desc: up to/minimum coverage amount
-                            value: <var:value>
+                            value: '5000000'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_RATIO
                               name: claim settlement ratio
                               short_desc: up to/minimum claim settlement ratio
-                            value: <var:value>
+                            value: 88%
                           - descriptor:
                               code: FREE_LOOKUP_PERIOD
                               name: free lookup period
                               short_desc: up to/minimum free lookup period
-                            value: <var:value>
+                            value: P30D
                           - descriptor:
                               code: COVERAGE_PERIOD
                               name: coverage period
-                              short_desc: up to/minimum coverage period
-                            value: <var:value>
+                              short_desc: age up to which policy is covered
+                            value: '70'
                           - descriptor:
                               code: PAYMENT_FREQUENCY
                               name: payment frequency
                               short_desc: up to/minimum payment frequency
-                            value: <var:value>
+                            value: MONTHLY
+                          - descriptor:
+                              code: PAYMENT_OPTION
+                              name: Payment Option
+                              short_desc: payment type
+                            value: LIMITED_PREMIUM
+                          - descriptor:
+                              code: PAYMENT_PERIOD
+                              name: Premium Payment Period
+                              short_desc: No of years of premium payment
+                              long_desc: >-
+                                Use this value if PAYMENT_OPTION is
+                                LIMITED_PREMIUM
+                            value: '7'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_TAT
                               name: claim settlement tat
                               short_desc: up to/minimum claim settlement tat
-                            value: <var:value>
+                            value: P45D
                     time:
                       duration: P1Y
                       label: TENURE
@@ -7474,7 +7715,10 @@ x-flows:
             message:
               order:
                 fulfillments:
-                  - customer:
+                  - state:
+                      descriptor:
+                        code: INITIATED
+                    customer:
                       contact:
                         email: joe.adam@abc.org
                         phone: +91-9999999999
@@ -7501,19 +7745,19 @@ x-flows:
                           - descriptor:
                               code: BENEFICIARY_KYC
                               name: Kyc of the life to be insured
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: PROPOSER_KYC
                               name: Kyc of the proposer
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: MEDICAL_CHECKUP
                               name: Offline Medical checkup
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: FINAL_PAYMENT
                               name: Final revised payment after medical checkup
-                            value: Done
+                            value: DONE
                       - descriptor:
                           code: GENERAL_INFO
                           name: General Information
@@ -7522,32 +7766,45 @@ x-flows:
                               code: COVERAGE_AMOUNT
                               name: coverage amount
                               short_desc: up to/minimum coverage amount
-                            value: <var:value>
+                            value: '5000000'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_RATIO
                               name: claim settlement ratio
                               short_desc: up to/minimum claim settlement ratio
-                            value: <var:value>
+                            value: 88%
                           - descriptor:
                               code: FREE_LOOKUP_PERIOD
                               name: free lookup period
                               short_desc: up to/minimum free lookup period
-                            value: <var:value>
+                            value: P30D
                           - descriptor:
                               code: COVERAGE_PERIOD
                               name: coverage period
-                              short_desc: up to/minimum coverage period
-                            value: <var:value>
+                              short_desc: age up to which policy is covered
+                            value: '70'
                           - descriptor:
                               code: PAYMENT_FREQUENCY
                               name: payment frequency
                               short_desc: up to/minimum payment frequency
-                            value: <var:value>
+                            value: MONTHLY
+                          - descriptor:
+                              code: PAYMENT_OPTION
+                              name: Payment Option
+                              short_desc: payment type
+                            value: LIMITED_PREMIUM
+                          - descriptor:
+                              code: PAYMENT_PERIOD
+                              name: Premium Payment Period
+                              short_desc: No of years of premium payment
+                              long_desc: >-
+                                Use this value if PAYMENT_OPTION is
+                                LIMITED_PREMIUM
+                            value: '7'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_TAT
                               name: claim settlement tat
                               short_desc: up to/minimum claim settlement tat
-                            value: <var:value>
+                            value: P45D
                     time:
                       duration: P1Y
                       label: TENURE
@@ -8058,6 +8315,10 @@ x-flows:
                 category:
                   descriptor:
                     code: LIFE_INSURANCE
+                fulfillment:
+                  agent:
+                    person:
+                      id: 0120TRVK
                 payment:
                   collected_by: BPP
                 tags:
@@ -8109,7 +8370,7 @@ x-flows:
             message:
               catalog:
                 descriptor:
-                  name: <var:catalog_descriptor_name>
+                  name: ABC Insurance Ltd
                 providers:
                   - id: PROVIDER_ID
                     descriptor:
@@ -8283,12 +8544,19 @@ x-flows:
 
             <div>
 
+            </br></br>
+
             <h2>Beneficiary Information</h2>
+
+
+            </br>
 
             <label for="beneficiary-dob">Date of Birth:</label>
 
             <input type="date" id="beneficiary-dob" required>
 
+
+            </br>
 
             <label for="beneficiary-gender">Gender:</label>
 
@@ -8303,10 +8571,14 @@ x-flows:
             </select>
 
 
+            </br>
+
             <label for="beneficiary-phone">Phone (Numeric):</label>
 
             <input type="tel" id="beneficiary-phone" pattern="[0-9]*" required>
 
+
+            </br>
 
             <label for="beneficiary-smoker">Smoker or Tobacco
             Consumption:</label>
@@ -8322,14 +8594,21 @@ x-flows:
             </div>
 
 
+            </br></br>
+
             <div>
 
             <h2>Proposer Information</h2>
+
+
+            </br>
 
             <label for="proposer-dob">Date of Birth:</label>
 
             <input type="date" id="proposer-dob" required>
 
+
+            </br>
 
             <label for="proposer-gender">Gender:</label>
 
@@ -8344,10 +8623,14 @@ x-flows:
             </select>
 
 
+            </br>
+
             <label for="proposer-phone">Phone (Numeric):</label>
 
             <input type="tel" id="proposer-phone" pattern="[0-9]*" required>
 
+
+            </br>
 
             <label for="proposer-occupation">Occupation:</label>
 
@@ -8374,10 +8657,14 @@ x-flows:
             </select>
 
 
+            </br>
+
             <label for="proposer-income">Income (Own/Spouse's/Parent's):</label>
 
             <input type="number" id="proposer-income" required>
 
+
+            </br>
 
             <label for="proposer-aaid">AAID (Optional):</label>
 
@@ -8386,50 +8673,86 @@ x-flows:
             </div>
 
 
+            </br></br>
+
             <div>
 
             <h2>Extra Information</h2>
+
+
+            </br>
 
             <label for="coverage-amount">Coverage Amount (Optional):</label>
 
             <input type="number" id="coverage-amount">
 
 
+            </br>
+
             <label for="coverage-till">Coverage Till (Age):</label>
 
             <input type="number" id="coverage-till">
 
+
+            </br>
 
             <label for="premium-frequency">Frequency of Premium Payment
             (Optional):</label>
 
             <select id="premium-frequency">
 
-            <option value="Daily">Daily</option>
+            <option value="OneTime">One Time</option>
 
             <option value="Monthly">Monthly</option>
 
             <option value="Quarterly">Quarterly</option>
 
-            <option value="Semi Annual">Semi Annual</option>
+            <option value="SemiAnnual">Semi Annual</option>
 
             <option value="Annual">Annual</option>
 
             </select>
 
 
+            </br>
+
             <label for="premium-pay-term"># of Years for Premium Payment (Pay
             Term) (Optional):</label>
 
             <input type="number" id="premium-pay-term">
 
+
+            </br>
+
+            <label for="death-benefit-lumpsum-amount">Lumpsum amount to be
+            received as Death Benefit  (Optional):</label>
+
+            <input type="number" id="death-benefit-lumpsum-amount">
+
+
+            </br>
+
+            <label for="death-benefit-payout-frequency">Frequency of Death
+            Benefit Payout (Optional):</label>
+
+            <select id="death-benefit-payout-frequency">
+
+            <option value="OneTime">One Time</option>
+
+            <option value="Monthly">Monthly</option>
+
+            <option value="Quarterly">Quarterly</option>
+
+            <option value="SemiAnnual">Semi Annual</option>
+
+            <option value="Annual">Annual</option>
+
+            </select>
+
             </div>
 
 
-            <label for="agent-id">Agent Id (Optional):</label>
-
-            <input type="text" id="agent-id">
-
+            </br>
 
             <label for="declaration">
 
@@ -8476,6 +8799,7 @@ x-flows:
             <input type="checkbox" id="declaration">
 
 
+            </br></br>
 
             <button type="submit">Submit</button>
 
@@ -8557,7 +8881,7 @@ x-flows:
             message:
               catalog:
                 descriptor:
-                  name: <var:catalog_descriptor_name>
+                  name: ABC Insurance Ltd
                 providers:
                   - id: PROVIDER_ID
                     descriptor:
@@ -8590,15 +8914,15 @@ x-flows:
                               - descriptor:
                                   code: BENEFICIARY_KYC
                                   name: Kyc of the life to be insured
-                                value: Pending
+                                value: PENDING
                               - descriptor:
                                   code: PROPOSER_KYC
                                   name: Kyc of the proposer
-                                value: Pending
+                                value: PENDING
                               - descriptor:
                                   code: FINAL_PAYMENT
                                   name: Final payment
-                                value: Pending
+                                value: PENDING
                           - descriptor:
                               code: GENERAL_INFO
                               name: General Information
@@ -8607,32 +8931,37 @@ x-flows:
                                   code: COVERAGE_AMOUNT
                                   name: coverage amount
                                   short_desc: up to/minimum coverage amount
-                                value: <var:value>
+                                value: '5000000'
                               - descriptor:
                                   code: CLAIM_SETTLEMENT_RATIO
                                   name: claim settlement ratio
                                   short_desc: up to/minimum claim settlement ratio
-                                value: <var:value>
+                                value: '88'
                               - descriptor:
                                   code: FREE_LOOKUP_PERIOD
                                   name: free lookup period
                                   short_desc: up to/minimum free lookup period
-                                value: <var:value>
+                                value: P30D
                               - descriptor:
                                   code: COVERAGE_PERIOD
                                   name: coverage period
-                                  short_desc: up to/minimum coverage period
-                                value: <var:value>
+                                  short_desc: age up to which policy is covered
+                                value: '70'
                               - descriptor:
                                   code: PAYMENT_FREQUENCY
                                   name: payment frequency
                                   short_desc: up to/minimum payment frequency
-                                value: <var:value>
+                                value: MONTHLY
+                              - descriptor:
+                                  code: PAYMENT_OPTION
+                                  name: Payment Option
+                                  short_desc: payment type
+                                value: REGULAR_PREMIUM
                               - descriptor:
                                   code: CLAIM_SETTLEMENT_TAT
                                   name: claim settlement tat
                                   short_desc: up to/minimum claim settlement tat
-                                value: <var:value>
+                                value: P45D
                         add_ons:
                           - id: A1
                             quantity:
@@ -8652,7 +8981,7 @@ x-flows:
                           - descriptor:
                               code: CONSENT_HANDLER
                               name: Generated Consent Handle
-                            value: <var:consent_handle_value>
+                            value: AA_20250121_9876543210
                       - descriptor:
                           code: CONTACT_INFO
                           name: Contact Info
@@ -8851,15 +9180,15 @@ x-flows:
                           - descriptor:
                               code: BENEFICIARY_KYC
                               name: Kyc of the life to be insured
-                            value: Pending
+                            value: PENDING
                           - descriptor:
                               code: PROPOSER_KYC
                               name: Kyc of the proposer
-                            value: Pending
+                            value: PENDING
                           - descriptor:
                               code: FINAL_PAYMENT
                               name: Final payment
-                            value: Pending
+                            value: PENDING
                       - descriptor:
                           code: GENERAL_INFO
                           name: General Information
@@ -8868,32 +9197,37 @@ x-flows:
                               code: COVERAGE_AMOUNT
                               name: coverage amount
                               short_desc: up to/minimum coverage amount
-                            value: <var:value>
+                            value: '5000000'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_RATIO
                               name: claim settlement ratio
                               short_desc: up to/minimum claim settlement ratio
-                            value: <var:value>
+                            value: '88'
                           - descriptor:
                               code: FREE_LOOKUP_PERIOD
                               name: free lookup period
                               short_desc: up to/minimum free lookup period
-                            value: <var:value>
+                            value: P30D
                           - descriptor:
                               code: COVERAGE_PERIOD
                               name: coverage period
-                              short_desc: up to/minimum coverage period
-                            value: <var:value>
+                              short_desc: age up to which policy is covered
+                            value: '70'
                           - descriptor:
                               code: PAYMENT_FREQUENCY
                               name: payment frequency
                               short_desc: up to/minimum payment frequency
-                            value: <var:value>
+                            value: MONTHLY
+                          - descriptor:
+                              code: PAYMENT_OPTION
+                              name: Payment Option
+                              short_desc: payment type
+                            value: REGULAR_PREMIUM
                           - descriptor:
                               code: CLAIM_SETTLEMENT_TAT
                               name: claim settlement tat
                               short_desc: up to/minimum claim settlement tat
-                            value: <var:value>
+                            value: P45D
                     time:
                       duration: P1Y
                       label: TENURE
@@ -9050,7 +9384,10 @@ x-flows:
             message:
               order:
                 fulfillments:
-                  - customer:
+                  - state:
+                      descriptor:
+                        code: INITIATED
+                    customer:
                       contact:
                         email: joe.adam@abc.org
                         phone: +91-9999999999
@@ -9163,15 +9500,15 @@ x-flows:
                           - descriptor:
                               code: BENEFICIARY_KYC
                               name: Kyc of the life to be insured
-                            value: Pending
+                            value: PENDING
                           - descriptor:
                               code: PROPOSER_KYC
                               name: Kyc of the proposer
-                            value: Pending
+                            value: PENDING
                           - descriptor:
                               code: FINAL_PAYMENT
                               name: Final payment
-                            value: Pending
+                            value: PENDING
                       - descriptor:
                           code: GENERAL_INFO
                           name: General Information
@@ -9180,32 +9517,37 @@ x-flows:
                               code: COVERAGE_AMOUNT
                               name: coverage amount
                               short_desc: up to/minimum coverage amount
-                            value: <var:value>
+                            value: '5000000'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_RATIO
                               name: claim settlement ratio
                               short_desc: up to/minimum claim settlement ratio
-                            value: <var:value>
+                            value: '88'
                           - descriptor:
                               code: FREE_LOOKUP_PERIOD
                               name: free lookup period
                               short_desc: up to/minimum free lookup period
-                            value: <var:value>
+                            value: P30D
                           - descriptor:
                               code: COVERAGE_PERIOD
                               name: coverage period
-                              short_desc: up to/minimum coverage period
-                            value: <var:value>
+                              short_desc: age up to which policy is covered
+                            value: '70'
                           - descriptor:
                               code: PAYMENT_FREQUENCY
                               name: payment frequency
                               short_desc: up to/minimum payment frequency
-                            value: <var:value>
+                            value: MONTHLY
+                          - descriptor:
+                              code: PAYMENT_OPTION
+                              name: Payment Option
+                              short_desc: payment type
+                            value: REGULAR_PREMIUM
                           - descriptor:
                               code: CLAIM_SETTLEMENT_TAT
                               name: claim settlement tat
                               short_desc: up to/minimum claim settlement tat
-                            value: <var:value>
+                            value: P45D
                     time:
                       duration: P1Y
                       label: TENURE
@@ -9407,7 +9749,10 @@ x-flows:
             message:
               order:
                 fulfillments:
-                  - customer:
+                  - state:
+                      descriptor:
+                        code: INITIATED
+                    customer:
                       contact:
                         email: joe.adam@abc.org
                         phone: +91-9999999999
@@ -9434,15 +9779,15 @@ x-flows:
                           - descriptor:
                               code: BENEFICIARY_KYC
                               name: Kyc of the life to be insured
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: PROPOSER_KYC
                               name: Kyc of the proposer
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: FINAL_PAYMENT
                               name: Final payment
-                            value: Pending
+                            value: PENDING
                       - descriptor:
                           code: GENERAL_INFO
                           name: General Information
@@ -9451,32 +9796,37 @@ x-flows:
                               code: COVERAGE_AMOUNT
                               name: coverage amount
                               short_desc: up to/minimum coverage amount
-                            value: <var:value>
+                            value: '5000000'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_RATIO
                               name: claim settlement ratio
                               short_desc: up to/minimum claim settlement ratio
-                            value: <var:value>
+                            value: '88'
                           - descriptor:
                               code: FREE_LOOKUP_PERIOD
                               name: free lookup period
                               short_desc: up to/minimum free lookup period
-                            value: <var:value>
+                            value: P30D
                           - descriptor:
                               code: COVERAGE_PERIOD
                               name: coverage period
-                              short_desc: up to/minimum coverage period
-                            value: <var:value>
+                              short_desc: age up to which policy is covered
+                            value: '70'
                           - descriptor:
                               code: PAYMENT_FREQUENCY
                               name: payment frequency
                               short_desc: up to/minimum payment frequency
-                            value: <var:value>
+                            value: MONTHLY
+                          - descriptor:
+                              code: PAYMENT_OPTION
+                              name: Payment Option
+                              short_desc: payment type
+                            value: REGULAR_PREMIUM
                           - descriptor:
                               code: CLAIM_SETTLEMENT_TAT
                               name: claim settlement tat
                               short_desc: up to/minimum claim settlement tat
-                            value: <var:value>
+                            value: P45D
                     time:
                       duration: P1Y
                       label: TENURE
@@ -9684,7 +10034,7 @@ x-flows:
                         id: EKYC_FORM_ID
                       form_response:
                         status: SUCCESS
-                        submission_id: 4830c4f9-b4d3-4e58-bef5-dee80eb08478
+                        submission_id: 79850933-4e41-4c76-bbe6-c5a392481226
                 provider:
                   id: P1
                 payments:
@@ -9763,7 +10113,10 @@ x-flows:
             message:
               order:
                 fulfillments:
-                  - customer:
+                  - state:
+                      descriptor:
+                        code: INITIATED
+                    customer:
                       contact:
                         email: joe.adam@abc.org
                         phone: +91-9999999999
@@ -9790,15 +10143,15 @@ x-flows:
                           - descriptor:
                               code: BENEFICIARY_KYC
                               name: Kyc of the life to be insured
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: PROPOSER_KYC
                               name: Kyc of the proposer
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: FINAL_PAYMENT
                               name: Final payment
-                            value: Pending
+                            value: PENDING
                       - descriptor:
                           code: GENERAL_INFO
                           name: General Information
@@ -9807,32 +10160,37 @@ x-flows:
                               code: COVERAGE_AMOUNT
                               name: coverage amount
                               short_desc: up to/minimum coverage amount
-                            value: <var:value>
+                            value: '5000000'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_RATIO
                               name: claim settlement ratio
                               short_desc: up to/minimum claim settlement ratio
-                            value: <var:value>
+                            value: '88'
                           - descriptor:
                               code: FREE_LOOKUP_PERIOD
                               name: free lookup period
                               short_desc: up to/minimum free lookup period
-                            value: <var:value>
+                            value: P30D
                           - descriptor:
                               code: COVERAGE_PERIOD
                               name: coverage period
-                              short_desc: up to/minimum coverage period
-                            value: <var:value>
+                              short_desc: age up to which policy is covered
+                            value: '70'
                           - descriptor:
                               code: PAYMENT_FREQUENCY
                               name: payment frequency
                               short_desc: up to/minimum payment frequency
-                            value: <var:value>
+                            value: MONTHLY
+                          - descriptor:
+                              code: PAYMENT_OPTION
+                              name: Payment Option
+                              short_desc: payment type
+                            value: REGULAR_PREMIUM
                           - descriptor:
                               code: CLAIM_SETTLEMENT_TAT
                               name: claim settlement tat
                               short_desc: up to/minimum claim settlement tat
-                            value: <var:value>
+                            value: P45D
                     time:
                       duration: P1Y
                       label: TENURE
@@ -10340,7 +10698,10 @@ x-flows:
             message:
               order:
                 fulfillments:
-                  - customer:
+                  - state:
+                      descriptor:
+                        code: INITIATED
+                    customer:
                       contact:
                         email: joe.adam@abc.org
                         phone: +91-9999999999
@@ -10367,15 +10728,15 @@ x-flows:
                           - descriptor:
                               code: BENEFICIARY_KYC
                               name: Kyc of the life to be insured
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: PROPOSER_KYC
                               name: Kyc of the proposer
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: FINAL_PAYMENT
                               name: Final payment
-                            value: Pending
+                            value: PENDING
                       - descriptor:
                           code: GENERAL_INFO
                           name: General Information
@@ -10384,32 +10745,37 @@ x-flows:
                               code: COVERAGE_AMOUNT
                               name: coverage amount
                               short_desc: up to/minimum coverage amount
-                            value: <var:value>
+                            value: '5000000'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_RATIO
                               name: claim settlement ratio
                               short_desc: up to/minimum claim settlement ratio
-                            value: <var:value>
+                            value: '88'
                           - descriptor:
                               code: FREE_LOOKUP_PERIOD
                               name: free lookup period
                               short_desc: up to/minimum free lookup period
-                            value: <var:value>
+                            value: P30D
                           - descriptor:
                               code: COVERAGE_PERIOD
                               name: coverage period
-                              short_desc: up to/minimum coverage period
-                            value: <var:value>
+                              short_desc: age up to which policy is covered
+                            value: '70'
                           - descriptor:
                               code: PAYMENT_FREQUENCY
                               name: payment frequency
                               short_desc: up to/minimum payment frequency
-                            value: <var:value>
+                            value: MONTHLY
+                          - descriptor:
+                              code: PAYMENT_OPTION
+                              name: Payment Option
+                              short_desc: payment type
+                            value: REGULAR_PREMIUM
                           - descriptor:
                               code: CLAIM_SETTLEMENT_TAT
                               name: claim settlement tat
                               short_desc: up to/minimum claim settlement tat
-                            value: <var:value>
+                            value: P45D
                     time:
                       duration: P1Y
                       label: TENURE
@@ -10593,7 +10959,10 @@ x-flows:
             message:
               order:
                 fulfillments:
-                  - customer:
+                  - state:
+                      descriptor:
+                        code: INITIATED
+                    customer:
                       contact:
                         email: joe.adam@abc.org
                         phone: +91-9999999999
@@ -10620,15 +10989,15 @@ x-flows:
                           - descriptor:
                               code: BENEFICIARY_KYC
                               name: Kyc of the life to be insured
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: PROPOSER_KYC
                               name: Kyc of the proposer
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: FINAL_PAYMENT
                               name: Final payment
-                            value: Pending
+                            value: PENDING
                       - descriptor:
                           code: GENERAL_INFO
                           name: General Information
@@ -10637,32 +11006,37 @@ x-flows:
                               code: COVERAGE_AMOUNT
                               name: coverage amount
                               short_desc: up to/minimum coverage amount
-                            value: <var:value>
+                            value: '5000000'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_RATIO
                               name: claim settlement ratio
                               short_desc: up to/minimum claim settlement ratio
-                            value: <var:value>
+                            value: '88'
                           - descriptor:
                               code: FREE_LOOKUP_PERIOD
                               name: free lookup period
                               short_desc: up to/minimum free lookup period
-                            value: <var:value>
+                            value: P30D
                           - descriptor:
                               code: COVERAGE_PERIOD
                               name: coverage period
-                              short_desc: up to/minimum coverage period
-                            value: <var:value>
+                              short_desc: age up to which policy is covered
+                            value: '70'
                           - descriptor:
                               code: PAYMENT_FREQUENCY
                               name: payment frequency
                               short_desc: up to/minimum payment frequency
-                            value: <var:value>
+                            value: MONTHLY
+                          - descriptor:
+                              code: PAYMENT_OPTION
+                              name: Payment Option
+                              short_desc: payment type
+                            value: REGULAR_PREMIUM
                           - descriptor:
                               code: CLAIM_SETTLEMENT_TAT
                               name: claim settlement tat
                               short_desc: up to/minimum claim settlement tat
-                            value: <var:value>
+                            value: P45D
                     time:
                       duration: P1Y
                       label: TENURE
@@ -10860,7 +11234,10 @@ x-flows:
             message:
               order:
                 fulfillments:
-                  - customer:
+                  - state:
+                      descriptor:
+                        code: INITIATED
+                    customer:
                       contact:
                         email: joe.adam@abc.org
                         phone: +91-9999999999
@@ -10887,15 +11264,15 @@ x-flows:
                           - descriptor:
                               code: BENEFICIARY_KYC
                               name: Kyc of the life to be insured
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: PROPOSER_KYC
                               name: Kyc of the proposer
-                            value: Done
+                            value: DONE
                           - descriptor:
                               code: FINAL_PAYMENT
                               name: Final payment
-                            value: Done
+                            value: DONE
                       - descriptor:
                           code: GENERAL_INFO
                           name: General Information
@@ -10904,32 +11281,37 @@ x-flows:
                               code: COVERAGE_AMOUNT
                               name: coverage amount
                               short_desc: up to/minimum coverage amount
-                            value: <var:value>
+                            value: '5000000'
                           - descriptor:
                               code: CLAIM_SETTLEMENT_RATIO
                               name: claim settlement ratio
                               short_desc: up to/minimum claim settlement ratio
-                            value: <var:value>
+                            value: '88'
                           - descriptor:
                               code: FREE_LOOKUP_PERIOD
                               name: free lookup period
                               short_desc: up to/minimum free lookup period
-                            value: <var:value>
+                            value: P30D
                           - descriptor:
                               code: COVERAGE_PERIOD
                               name: coverage period
-                              short_desc: up to/minimum coverage period
-                            value: <var:value>
+                              short_desc: age up to which policy is covered
+                            value: '70'
                           - descriptor:
                               code: PAYMENT_FREQUENCY
                               name: payment frequency
                               short_desc: up to/minimum payment frequency
-                            value: <var:value>
+                            value: MONTHLY
+                          - descriptor:
+                              code: PAYMENT_OPTION
+                              name: Payment Option
+                              short_desc: payment type
+                            value: REGULAR_PREMIUM
                           - descriptor:
                               code: CLAIM_SETTLEMENT_TAT
                               name: claim settlement tat
                               short_desc: up to/minimum claim settlement tat
-                            value: <var:value>
+                            value: P45D
                     time:
                       duration: P1Y
                       label: TENURE
@@ -11335,7 +11717,7 @@ x-examples:
             value: *ref_34
           - summary: init_2
             description: >-
-              Request medical checkup appointment redirection url & meical
+              Request medical checkup appointment redirection url & medical
               checkup payment url
             value: *ref_35
           - summary: init_3
@@ -11374,7 +11756,10 @@ x-examples:
               message:
                 order:
                   fulfillments:
-                    - customer:
+                    - state:
+                        descriptor:
+                          code: INITIATED
+                      customer:
                         contact:
                           email: joe.adam@abc.org
                           phone: +91-9999999999
@@ -11403,19 +11788,19 @@ x-examples:
                             - descriptor:
                                 code: BENEFICIARY_KYC
                                 name: Kyc of the life to be insured
-                              value: Done
+                              value: DONE
                             - descriptor:
                                 code: PROPOSER_KYC
                                 name: Kyc of the proposer
-                              value: Done
+                              value: DONE
                             - descriptor:
                                 code: MEDICAL_CHECKUP
                                 name: Offline Medical checkup
-                              value: Pending
+                              value: PENDING
                             - descriptor:
                                 code: FINAL_PAYMENT
                                 name: Final revised payment after medical checkup
-                              value: Pending
+                              value: PENDING
                         - descriptor:
                             code: GENERAL_INFO
                             name: General Information
@@ -11424,32 +11809,45 @@ x-examples:
                                 code: COVERAGE_AMOUNT
                                 name: coverage amount
                                 short_desc: up to/minimum coverage amount
-                              value: <var:value>
+                              value: '5000000'
                             - descriptor:
                                 code: CLAIM_SETTLEMENT_RATIO
                                 name: claim settlement ratio
                                 short_desc: up to/minimum claim settlement ratio
-                              value: <var:value>
+                              value: 88%
                             - descriptor:
                                 code: FREE_LOOKUP_PERIOD
                                 name: free lookup period
                                 short_desc: up to/minimum free lookup period
-                              value: <var:value>
+                              value: P30D
                             - descriptor:
                                 code: COVERAGE_PERIOD
                                 name: coverage period
-                                short_desc: up to/minimum coverage period
-                              value: <var:value>
+                                short_desc: age up to which policy is covered
+                              value: '70'
                             - descriptor:
                                 code: PAYMENT_FREQUENCY
                                 name: payment frequency
                                 short_desc: up to/minimum payment frequency
-                              value: <var:value>
+                              value: MONTHLY
+                            - descriptor:
+                                code: PAYMENT_OPTION
+                                name: Payment Option
+                                short_desc: payment type
+                              value: LIMITED_PREMIUM
+                            - descriptor:
+                                code: PAYMENT_PERIOD
+                                name: Premium Payment Period
+                                short_desc: No of years of premium payment
+                                long_desc: >-
+                                  Use this value if PAYMENT_OPTION is
+                                  LIMITED_PREMIUM
+                              value: '7'
                             - descriptor:
                                 code: CLAIM_SETTLEMENT_TAT
                                 name: claim settlement tat
                                 short_desc: up to/minimum claim settlement tat
-                              value: <var:value>
+                              value: P45D
                       time:
                         duration: P1Y
                         label: TENURE
@@ -11604,7 +12002,7 @@ x-examples:
                           value: 'true'
           - summary: on_init_2
             description: >-
-              Return medical checkup appointment redirection url & meical
+              Return medical checkup appointment redirection url & medical
               checkup payment url
             value: *ref_39
           - summary: on_init_3
@@ -11662,7 +12060,7 @@ x-examples:
       select:
         examples:
           - summary: select_0
-            description: Select a product and request the inital quote breakup
+            description: Select a product and request the initial quote breakup
             value: *ref_31
   flow-1-with-no-offline-medical-checkup:
     summary: Examples without offline medical checkup
@@ -11731,7 +12129,7 @@ x-examples:
               message:
                 catalog:
                   descriptor:
-                    name: <var:catalog_descriptor_name>
+                    name: ABC Insurance Ltd
                   providers:
                     - id: PROVIDER_ID
                       descriptor:
@@ -11764,15 +12162,15 @@ x-examples:
                                 - descriptor:
                                     code: BENEFICIARY_KYC
                                     name: Kyc of the life to be insured
-                                  value: Pending
+                                  value: PENDING
                                 - descriptor:
                                     code: PROPOSER_KYC
                                     name: Kyc of the proposer
-                                  value: Pending
+                                  value: PENDING
                                 - descriptor:
                                     code: FINAL_PAYMENT
                                     name: Final payment
-                                  value: Pending
+                                  value: PENDING
                             - descriptor:
                                 code: GENERAL_INFO
                                 name: General Information
@@ -11781,32 +12179,37 @@ x-examples:
                                     code: COVERAGE_AMOUNT
                                     name: coverage amount
                                     short_desc: up to/minimum coverage amount
-                                  value: <var:value>
+                                  value: '5000000'
                                 - descriptor:
                                     code: CLAIM_SETTLEMENT_RATIO
                                     name: claim settlement ratio
                                     short_desc: up to/minimum claim settlement ratio
-                                  value: <var:value>
+                                  value: '88'
                                 - descriptor:
                                     code: FREE_LOOKUP_PERIOD
                                     name: free lookup period
                                     short_desc: up to/minimum free lookup period
-                                  value: <var:value>
+                                  value: P30D
                                 - descriptor:
                                     code: COVERAGE_PERIOD
                                     name: coverage period
-                                    short_desc: up to/minimum coverage period
-                                  value: <var:value>
+                                    short_desc: age up to which policy is covered
+                                  value: '70'
                                 - descriptor:
                                     code: PAYMENT_FREQUENCY
                                     name: payment frequency
                                     short_desc: up to/minimum payment frequency
-                                  value: <var:value>
+                                  value: MONTHLY
+                                - descriptor:
+                                    code: PAYMENT_OPTION
+                                    name: Payment Option
+                                    short_desc: payment type
+                                  value: REGULAR_PREMIUM
                                 - descriptor:
                                     code: CLAIM_SETTLEMENT_TAT
                                     name: claim settlement tat
                                     short_desc: up to/minimum claim settlement tat
-                                  value: <var:value>
+                                  value: P45D
                           add_ons:
                             - id: A1
                               quantity:
@@ -11838,15 +12241,15 @@ x-examples:
                                 - descriptor:
                                     code: BENEFICIARY_KYC
                                     name: Kyc of the life to be insured
-                                  value: Pending
+                                  value: PENDING
                                 - descriptor:
                                     code: PROPOSER_KYC
                                     name: Kyc of the proposer
-                                  value: Pending
+                                  value: PENDING
                                 - descriptor:
                                     code: FINAL_PAYMENT
                                     name: Final payment
-                                  value: Pending
+                                  value: PENDING
                             - descriptor:
                                 code: GENERAL_INFO
                                 name: General Information
@@ -11855,32 +12258,37 @@ x-examples:
                                     code: COVERAGE_AMOUNT
                                     name: coverage amount
                                     short_desc: up to/minimum coverage amount
-                                  value: <var:value>
+                                  value: '5000000'
                                 - descriptor:
                                     code: CLAIM_SETTLEMENT_RATIO
                                     name: claim settlement ratio
                                     short_desc: up to/minimum claim settlement ratio
-                                  value: <var:value>
+                                  value: '88'
                                 - descriptor:
                                     code: FREE_LOOKUP_PERIOD
                                     name: free lookup period
                                     short_desc: up to/minimum free lookup period
-                                  value: <var:value>
+                                  value: P30D
                                 - descriptor:
                                     code: COVERAGE_PERIOD
                                     name: coverage period
-                                    short_desc: up to/minimum coverage period
-                                  value: <var:value>
+                                    short_desc: age up to which policy is covered
+                                  value: '70'
                                 - descriptor:
                                     code: PAYMENT_FREQUENCY
                                     name: payment frequency
                                     short_desc: up to/minimum payment frequency
-                                  value: <var:value>
+                                  value: MONTHLY
+                                - descriptor:
+                                    code: PAYMENT_OPTION
+                                    name: Payment Option
+                                    short_desc: payment type
+                                  value: REGULAR_PREMIUM
                                 - descriptor:
                                     code: CLAIM_SETTLEMENT_TAT
                                     name: claim settlement tat
                                     short_desc: up to/minimum claim settlement tat
-                                  value: <var:value>
+                                  value: P45D
                                 - descriptor:
                                     code: BASE_PRICE
                                     name: Base Price
@@ -12128,7 +12536,7 @@ x-examples:
       select:
         examples:
           - summary: select_0
-            description: Select a product and request the inital quote breakup
+            description: Select a product and request the initial quote breakup
             value:
               context:
                 action: select

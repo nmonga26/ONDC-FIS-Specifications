@@ -69,26 +69,36 @@ confirm: &confirm
                 description: The frequency of premium payments (e.g., monthly, quarterly).
                 reference: <PR/Issue/Discussion Links md format text
               - &confirm_message_order_items_tags_0_list_6
+                code: PAYMENT_OPTION
+                description: Denotes whether payment is going to be one time, limited number of
+                  years or recurring
+                reference: <PR/Issue/Discussion Links md format text
+              - &confirm_message_order_items_tags_0_list_7
+                code: PAYMENT_PERIOD
+                description: "No of years of premium payment. Use this value if PAYMENT_OPTION
+                  is LIMITED_PREMIUM to denote the "
+                reference: <PR/Issue/Discussion Links md format text
+              - &confirm_message_order_items_tags_0_list_8
                 code: MONTHLY_PREMIUM
                 description: The amount payable each month for the policy.
                 reference: <PR/Issue/Discussion Links md format text
-              - &confirm_message_order_items_tags_0_list_7
+              - &confirm_message_order_items_tags_0_list_9
                 code: ANNUAL_PREMIUM
                 description: The total amount payable annually for the policy.
                 reference: <PR/Issue/Discussion Links md format text
-              - &confirm_message_order_items_tags_0_list_8
+              - &confirm_message_order_items_tags_0_list_10
                 code: BASE_PRICE
                 description: The initial price of the insurance policy before any adjustments.
                 reference: <PR/Issue/Discussion Links md format text
-              - &confirm_message_order_items_tags_0_list_9
+              - &confirm_message_order_items_tags_0_list_11
                 code: CONVIENCE_FEE
                 description: Any additional fee for convenience in processing.
                 reference: <PR/Issue/Discussion Links md format text
-              - &confirm_message_order_items_tags_0_list_10
+              - &confirm_message_order_items_tags_0_list_12
                 code: PROCESSING_FEE
                 description: Fee charged for processing the insurance application.
                 reference: <PR/Issue/Discussion Links md format text
-              - &confirm_message_order_items_tags_0_list_11
+              - &confirm_message_order_items_tags_0_list_13
                 code: TAX
                 description: Applicable taxes on the insurance premium.
                 reference: <PR/Issue/Discussion Links md format text
@@ -168,28 +178,28 @@ on_search: &on_search
                 reference: <PR/Issue/Discussion Links md format text>
           - &on_search_message_catalog_providers_tags_2
             code: LSP_INFO
-            description: Describes lsp details acting as recovert agent authorised to
+            description: Describes lsp details acting as recovery agent authorized to
               approach borrower
             reference: <PR/Issue/Discussion Links md format text>
             list: &on_search_message_catalog_providers_tags_2_list
               - &on_search_message_catalog_providers_tags_2_list_0
                 code: LSP_NAME
-                description: Name of lsp acting as recovery agent, authorised to approach
+                description: Name of lsp acting as recovery agent, authorized to approach
                   borrower
                 reference: <PR/Issue/Discussion Links md format text>
               - &on_search_message_catalog_providers_tags_2_list_1
                 code: LSP_EMAIL
-                description: Email of lsp acting as recovery agent, authorised to approach
+                description: Email of lsp acting as recovery agent, authorized to approach
                   borrower
                 reference: <PR/Issue/Discussion Links md format text>
               - &on_search_message_catalog_providers_tags_2_list_2
                 code: LSP_CONTACT_NUMBER
-                description: Contact number of lsp acting as recovery agent, authorised to
+                description: Contact number of lsp acting as recovery agent, authorized to
                   approach borrower
                 reference: <PR/Issue/Discussion Links md format text>
               - &on_search_message_catalog_providers_tags_2_list_3
                 code: LSP_ADDRESS
-                description: Address of lsp acting as recovery agent, authorised to approach
+                description: Address of lsp acting as recovery agent, authorized to approach
                   borrower
                 reference: <PR/Issue/Discussion Links md format text>
         items: *confirm_message_order_items
@@ -245,11 +255,11 @@ on_status: &on_status
             list: &on_status_message_order_fulfillments_tags_0_list
               - &on_status_message_order_fulfillments_tags_0_list_0
                 code: REQUESTED_CLAIM_AMOUNT
-                description: Describes the requested cliam amount.
+                description: Describes the requested claim amount.
                 reference: <PR/Issue/Discussion Links md format text>
               - &on_status_message_order_fulfillments_tags_0_list_1
                 code: APPROVED_CLAIM_AMOUNT
-                description: Describes the approved cliam amount.
+                description: Describes the approved claim amount.
                 reference: <PR/Issue/Discussion Links md format text>
               - &on_status_message_order_fulfillments_tags_0_list_2
                 code: REF_ID

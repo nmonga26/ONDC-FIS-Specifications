@@ -18,7 +18,7 @@ context:
 message:
   catalog:
     descriptor:
-      name: <var:catalog_descriptor_name>
+      name: ABC Insurance Ltd
     providers:
       - id: PROVIDER_ID
         descriptor:

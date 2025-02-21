@@ -42,7 +42,7 @@ message:
             id: MEDICAL_CHECKUP_APPOINTMENT_FORM_ID
           form_response:
             status: SUCCESS
-            submission_id: 4830c4f9-b4d3-4e58-bef5-dee80eb08478
+            submission_id: 05888843-bbe4-47c1-92d5-8e146e8f01e4
     provider:
       id: P1
     payments:

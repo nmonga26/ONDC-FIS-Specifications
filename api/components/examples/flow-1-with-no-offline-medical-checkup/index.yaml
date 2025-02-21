@@ -85,6 +85,6 @@ search:
 select:
   examples:
     - summary: select_0
-      description: Select a product and request the inital quote breakup
+      description: Select a product and request the initial quote breakup
       value:
         $ref: ./select/select_0.yaml
