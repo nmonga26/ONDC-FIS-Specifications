@@ -1,5 +1,5 @@
 context:
-  action: on_status
+  action: select
   bap_id: fis.test.bap.io
   bap_uri: https://fis.test.bap.io/
   bpp_id: fis.test.bpp.io

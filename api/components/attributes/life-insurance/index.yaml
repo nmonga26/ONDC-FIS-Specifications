@@ -206,7 +206,7 @@ search: &search
         owner: BAP
         usage: --
         description: Describe the intent to buy or avail a product or a service.
-    catalog: &search_message_catalog
+    # catalog: &search_message_catalog
       tags: &search_message_catalog_tags
         BAP_TERMS: &search_message_catalog_tags_BAP_TERMS
           required: MANDATORY
@@ -269,6 +269,7 @@ search: &search
               owner: BAP
               usage: New Delhi
               description: Describes court jurisdiction
+
 on_search: &on_search
   context: &on_search_context
     location: *search_context_location
@@ -658,6 +659,11 @@ on_search: &on_search
               usage: General
               description: Describes checklist items
             CHECKLIST_INFO: &on_search_message_catalog_providers_items_tags_CHECKLIST_INFO
+              required: OPTIONAL
+              type: TEXT
+              owner: BPP
+              usage: --
+              description: Describes consent info
               list: &on_search_message_catalog_providers_items_tags_CHECKLIST_INFO_list
                 MEDICAL_CHECKUP_PAYMENT: &on_search_message_catalog_providers_items_tags_CHECKLIST_INFO_list_MEDICAL_CHECKUP_PAYMENT
                   required: OPTIONAL
@@ -1474,7 +1480,7 @@ on_select: &on_select
           owner: BPP
           usage: PRE-ORDER
           description: Describe the type of payment
-      providers: &on_select_message_order_providers
+      # providers: &on_select_message_order_providers
         tags: &on_select_message_order_providers_tags
           CONSENT_INFO: &on_select_message_order_providers_tags_CONSENT_INFO
             required: OPTIONAL
@@ -1491,8 +1497,8 @@ on_select: &on_select
                 description: Describes consent handler info
           CONTACT_INFO: *on_search_message_catalog_providers_tags_CONTACT_INFO
           LSP_INFO: *on_search_message_catalog_providers_tags_LSP_INFO
-    intent: &on_select_message_intent
-      payment: *search_message_intent_payment
+    # intent: &on_select_message_intent
+    #   payment: *search_message_intent_payment
 init: &init
   context: &init_context
     location: *search_context_location
@@ -3505,11 +3511,7 @@ on_update: &on_update
           GENERAL_INFO: *on_cancel_message_order_items_tags_GENERAL_INFO
           CONSENT_INFO: *on_status_message_order_items_tags_CONSENT_INFO
           CHECKLIST: *on_search_message_catalog_providers_items_tags_CHECKLIST
-          CHECKLIST_INFO: &on_update_message_order_items_tags_CHECKLIST_INFO
-            list: &on_update_message_order_items_tags_CHECKLIST_INFO_list
-              MEDICAL_CHECKUP_PAYMENT: *on_search_message_catalog_providers_items_tags_CHECKLIST_INFO_list_MEDICAL_CHECKUP_PAYMENT
-              BENEFICIARY_KYC: *on_search_message_catalog_providers_items_tags_CHECKLIST_INFO_list_BENEFICIARY_KYC
-              PROPOSER_KYC: *on_search_message_catalog_providers_items_tags_CHECKLIST_INFO_list_PROPOSER_KYC
+          CHECKLIST_INFO: *on_search_message_catalog_providers_items_tags_CHECKLIST_INFO
       provider: &on_update_message_order_provider
         descriptor: *on_cancel_message_order_provider_descriptor
         id: *on_cancel_message_order_provider_id
@@ -3610,10 +3612,3 @@ on_update: &on_update
       created_at: *on_cancel_message_order_created_at
       updated_at: *on_cancel_message_order_updated_at
       cancellation_terms: *on_cancel_message_order_cancellation_terms
-    catalog: &on_update_message_catalog
-      providers: &on_update_message_catalog_providers
-        items: &on_update_message_catalog_providers_items
-          tags: &on_update_message_catalog_providers_items_tags
-            CHECKLIST_INFO: &on_update_message_catalog_providers_items_tags_CHECKLIST_INFO
-              list: &on_update_message_catalog_providers_items_tags_CHECKLIST_INFO_list
-                MEDICAL_CHECKUP: *on_search_message_catalog_providers_items_tags_CHECKLIST_INFO_list_MEDICAL_CHECKUP

@@ -31,7 +31,7 @@ message:
               status: SUCCESS
               submission_id: F01_SUBMISSION_ID
     payment:
-      - collected_by: BPP
+      collected_by: BPP
     tags:
       - descriptor:
           code: BAP_TERMS

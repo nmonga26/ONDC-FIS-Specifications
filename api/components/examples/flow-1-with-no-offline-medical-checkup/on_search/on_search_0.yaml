@@ -62,7 +62,7 @@ message:
                 mime_type: text/html
                 url: https://fis.test.bpp.io/xinput/form/basic_details
                 resubmit: false
-                multiple_submissions: false
+                multiple_sumbissions: false
               required: true
             add_ons:
               - id: A1
