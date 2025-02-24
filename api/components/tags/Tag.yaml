@@ -40,7 +40,24 @@ health-info:
   - code: ROOM_CATEGORY
     description: Describes the room category.
     reference: <PR/Issue/Discussion Links md format text>  
-    
+
+travel-insurance:
+  - code: ACCIDENTAL_DEATH
+    description: Denotes the sum insured in case accidental death is covered under the policy
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: PERMANENT_TOTAL_DISABLEMENT
+    description: Denotes the sum insured in case permanent total disablement occurs during the policy period
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: PERMANENT_PARTIAL_DISABLEMENT
+    description: Denotes the upper cap of sum insured in case permanent partial disablement occurs during the policy period
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: HOSPITALIZATION_EXPENSES
+    description: Denotes the upper cap of the sum insured for hospitalization expenses during the policy period
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: TRANSPORTATION_OF_MORTAL_REMAINS
+    description: Denotes the upper cap of the sum insured for transportation of mortal remains
+    reference: <PR/Issue/Discussion Links md format text>
+
 policy-details:
  - code: COMMODITY_TYPE
    description: Type of commodity

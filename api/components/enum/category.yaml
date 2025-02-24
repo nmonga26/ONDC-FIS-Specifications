@@ -3,6 +3,8 @@ descriptor:
     - code: MICRO_LIFE_INSURANCE
       description: Pure protection plan offering a death benefit for a specific term
       reference: <PR/Issue/Discussion Links md format text
+    - code: MICRO_TRAVEL_INSURANCE
+      description: Provides Insurance for a specific trip in case of Accidental Damage, Loss of Baggage, Medical Expenses, etc.
     - code: MICRO_HEALTH_INSURANCE
       description: Describes a type of insurance that covers medical expenses that arise due to an illness
       reference: <PR/Issue/Discussion Links md format text> 
