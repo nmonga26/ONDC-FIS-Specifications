@@ -1,0 +1,36 @@
+summary: Cart - SIP Instalment
+
+references: if any
+steps:
+  - summary: On Update
+    api: on_update
+    details:
+      - description: Send parent order fulfillment ongoing status
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_update/cart/on_update-cart-sip-ongoing.json"
+  - summary: On Confirm
+    api: on_confirm
+    details:
+      - description: Send instalment order generation notification. Multiple fulfilments together.
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_confirm/cart/on_confirm-cart-sip-instalment.json"
+  - summary: On Status (successful instalment payment)
+    api: on_status
+    details:
+      - description: Successful sip instalment payment notification. Payments for multiple fulfilments are collected together.
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_status/cart/on_status-cart-sip-instalment-psuccess.json"
+  - summary: On Update (successful instalment)
+    api: on_update
+    details:
+      - description: Successful sip instalment notification. Both fulfillments are successful. In case of partial success or incremental success it will work similar to lumpsum purchase scenarios.
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_update/cart/on_update-cart-sip-instalment-fsuccess.json"
