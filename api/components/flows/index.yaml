@@ -17,3 +17,4 @@
 - $ref: "./mutual-funds/redemption.yaml"
 - $ref: "./mutual-funds/redemption-failure.yaml"
 - $ref: "./mutual-funds/cart-lumpsum.yaml"
+- $ref: "./mutual-funds/cart-lumpsum-part-failure.yaml"

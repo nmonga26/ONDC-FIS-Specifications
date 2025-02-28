@@ -3841,7 +3841,7 @@ x-flows:
           - description: Search for all mutual fund schemes
         reference: if any
         example:
-          value: &ref_52
+          value: &ref_53
             context:
               location:
                 country:
@@ -4198,7 +4198,7 @@ x-flows:
               incremental updates
         reference: if any
         example:
-          value: &ref_53
+          value: &ref_54
             context:
               location:
                 country:
@@ -7134,7 +7134,7 @@ x-flows:
           - description: Send payment success
         reference: if any
         example:
-          value: &ref_62
+          value: &ref_63
             context:
               location:
                 country:
@@ -9961,7 +9961,7 @@ x-flows:
           - description: Send folio information as form submission
         reference: if any
         example:
-          value: &ref_54
+          value: &ref_55
             context:
               location:
                 country:
@@ -10424,7 +10424,7 @@ x-flows:
           - description: Send digilocker fetch as form submission
         reference: if any
         example:
-          value: &ref_55
+          value: &ref_56
             context:
               location:
                 country:
@@ -10500,7 +10500,7 @@ x-flows:
           - description: Ask for esign
         reference: if any
         example:
-          value: &ref_58
+          value: &ref_59
             context:
               location:
                 country:
@@ -10887,7 +10887,7 @@ x-flows:
           - description: Send esign fetch as form submission
         reference: if any
         example:
-          value: &ref_56
+          value: &ref_57
             context:
               location:
                 country:
@@ -12195,7 +12195,7 @@ x-flows:
           - description: Send back the list of existing folios and payment options
         reference: if any
         example:
-          value: &ref_57
+          value: &ref_58
             context:
               location:
                 country:
@@ -12478,7 +12478,7 @@ x-flows:
           - description: Send order details and folio details
         reference: if any
         example:
-          value: &ref_59
+          value: &ref_60
             context:
               location:
                 country:
@@ -12573,7 +12573,7 @@ x-flows:
           - description: Draft order is sent back with payment url
         reference: if any
         example:
-          value: &ref_60
+          value: &ref_61
             context:
               location:
                 country:
@@ -15171,7 +15171,7 @@ x-flows:
           - description: Send payment failure
         reference: if any
         example:
-          value: &ref_68
+          value: &ref_69
             context:
               location:
                 country:
@@ -16045,7 +16045,7 @@ x-flows:
           - description: Successful sip instalment notification
         reference: if any
         example:
-          value: &ref_72
+          value: &ref_73
             context:
               location:
                 country:
@@ -16291,7 +16291,7 @@ x-flows:
           - description: Failed sip instalment payment notification
         reference: if any
         example:
-          value: &ref_71
+          value: &ref_72
             context:
               location:
                 country:
@@ -16523,7 +16523,7 @@ x-flows:
           - description: Failed sip instalment notification
         reference: if any
         example:
-          value: &ref_73
+          value: &ref_74
             context:
               location:
                 country:
@@ -16739,7 +16739,7 @@ x-flows:
           - description: Send parent order fulfillment cancellation status
         reference: if any
         example:
-          value: &ref_75
+          value: &ref_76
             context:
               location:
                 country:
@@ -16987,7 +16987,7 @@ x-flows:
           - description: Send cancel request along with cancellation reason
         reference: if any
         example:
-          value: &ref_63
+          value: &ref_64
             context:
               location:
                 country:
@@ -17024,7 +17024,7 @@ x-flows:
           - description: Send parent order fulfillment cancellation status
         reference: if any
         example:
-          value: &ref_64
+          value: &ref_65
             context:
               location:
                 country:
@@ -17283,7 +17283,7 @@ x-flows:
           - description: Send parent order fulfillment completion status
         reference: if any
         example:
-          value: &ref_74
+          value: &ref_75
             context:
               location:
                 country:
@@ -18523,7 +18523,7 @@ x-flows:
           - description: Send payment success notification
         reference: if any
         example:
-          value: &ref_61
+          value: &ref_62
             context:
               location:
                 country:
@@ -19059,7 +19059,7 @@ x-flows:
           - description: Send payment failure notification
         reference: if any
         example:
-          value: &ref_67
+          value: &ref_68
             context:
               location:
                 country:
@@ -19307,7 +19307,7 @@ x-flows:
           - description: Ask for new payment
         reference: if any
         example:
-          value: &ref_65
+          value: &ref_66
             context:
               location:
                 country:
@@ -19352,7 +19352,7 @@ x-flows:
           - description: Receive new payment
         reference: if any
         example:
-          value: &ref_66
+          value: &ref_67
             context:
               location:
                 country:
@@ -26920,7 +26920,7 @@ x-flows:
           - description: Send redemption successful
         reference: if any
         example:
-          value: &ref_69
+          value: &ref_70
             context:
               location:
                 country:
@@ -27183,7 +27183,7 @@ x-flows:
           - description: Send redemption failed
         reference: if any
         example:
-          value: &ref_70
+          value: &ref_71
             context:
               location:
                 country:
@@ -29416,7 +29416,7 @@ x-flows:
           - description: Send fulfillment 1 success notification
         reference: if any
         example:
-          value:
+          value: &ref_52
             context:
               location:
                 country:
@@ -30291,6 +30291,410 @@ x-flows:
                         value: '5000'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
+  - summary: Lumpsum Investment (Cart) - Part Failure
+    references: if any
+    steps:
+      - summary: On Update
+        api: on_update
+        details:
+          - description: >-
+              All the other steps remain the same as a regular cart purchase.
+              Send fulfillment 1 success notification
+        reference: if any
+        example:
+          value: *ref_52
+      - summary: On Update
+        api: on_update
+        details:
+          - description: >-
+              All the other steps remain the same as a regular cart purchase.
+              Send fulfillment 1 success, 2 failure notification
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: on_update
+            message:
+              order:
+                id: mfp_213adf123af
+                status: COMPLETED
+                items:
+                  - id: '12391'
+                    parent_item_id: '138'
+                    descriptor:
+                      name: ABC Mid Cap Fund - Regular - Growth
+                      code: SCHEME_PLAN
+                    fulfillment_ids:
+                      - ff_123
+                    payment_ids:
+                      - pmt_123
+                    quantity:
+                      selected:
+                        measure:
+                          value: '3000'
+                          unit: INR
+                      allocated:
+                        measure:
+                          value: '150.0000'
+                          unit: MF_UNITS
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: Plan Information
+                          code: PLAN_INFORMATION
+                        list:
+                          - descriptor:
+                              name: Consumer Terms & Conditions
+                              code: CONSUMER_TNC
+                            value: >-
+                              https://sellerapp.com/legal/ondc:fis14/consumer_tnc.html
+                      - display: true
+                        descriptor:
+                          name: Plan Identifiers
+                          code: PLAN_IDENTIFIERS
+                        list:
+                          - descriptor:
+                              name: ISIN
+                              code: ISIN
+                            value: IN123214324
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: 02BZ
+                          - descriptor:
+                              name: AMFI Identifier
+                              code: AMFI_IDENTIFIER
+                            value: '125487'
+                      - display: true
+                        descriptor:
+                          name: Plan Options
+                          code: PLAN_OPTIONS
+                        list:
+                          - descriptor:
+                              name: Plan
+                              code: PLAN
+                            value: REGULAR
+                          - descriptor:
+                              name: Option
+                              code: OPTION
+                            value: IDCW
+                          - descriptor:
+                              name: IDCW Option
+                              code: IDCW_OPTION
+                            value: PAYOUT
+                    price:
+                      currency: INR
+                      value: '20.0000'
+                      listed_value: '20.0000'
+                    time:
+                      label: NAV Date
+                      timestamp: '2024-07-23T00:00:00+05:30'
+                  - id: '15031'
+                    parent_item_id: '9773'
+                    descriptor:
+                      name: XYZ Liquid Fund - Regular - Growth
+                      code: SCHEME_PLAN
+                    fulfillment_ids:
+                      - ff_124
+                    payment_ids:
+                      - pmt_123
+                    quantity:
+                      selected:
+                        measure:
+                          value: '5000'
+                          unit: INR
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: Plan Information
+                          code: PLAN_INFORMATION
+                        list:
+                          - descriptor:
+                              name: Consumer Terms & Conditions
+                              code: CONSUMER_TNC
+                            value: >-
+                              https://sellerapp.com/legal/ondc:fis14/consumer_tnc.html
+                      - display: true
+                        descriptor:
+                          name: Plan Identifiers
+                          code: PLAN_IDENTIFIERS
+                        list:
+                          - descriptor:
+                              name: ISIN
+                              code: ISIN
+                            value: IN912757345
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: 14BZ
+                          - descriptor:
+                              name: AMFI Identifier
+                              code: AMFI_IDENTIFIER
+                            value: '975342'
+                      - display: true
+                        descriptor:
+                          name: Plan Options
+                          code: PLAN_OPTIONS
+                        list:
+                          - descriptor:
+                              name: Plan
+                              code: PLAN
+                            value: REGULAR
+                          - descriptor:
+                              name: Option
+                              code: OPTION
+                            value: GROWTH
+                fulfillments:
+                  - id: ff_123
+                    type: LUMPSUM
+                    state:
+                      descriptor:
+                        name: Successful
+                        code: SUCCESSFUL
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 1232132132/32
+                            type: FOLIO
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599345'
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: Folio
+                          code: FOLIO_INFORMATION
+                        list:
+                          - descriptor:
+                              name: Folio Number
+                              code: FOLIO_NUMBER
+                            value: 1232132132/32
+                          - descriptor:
+                              name: Holding Pattern
+                              code: HOLDING_PATTERN
+                            value: SINGLE
+                          - descriptor:
+                              name: Holder Name
+                              code: HOLDER_NAME
+                            value: Satish K Perala
+                          - descriptor:
+                              name: Created On
+                              code: CREATED_ON
+                            value: 25/11/2019
+                          - descriptor:
+                              name: Email Address for 2FA
+                              code: 2FA_EMAIL_ADDRESS_MASKED
+                            value: '****sha@gmail.com'
+                          - descriptor:
+                              name: Mobile Number for 2FA
+                              code: 2FA_MOBILE_NUMBER_MASKED
+                            value: '***9345'
+                      - display: true
+                        descriptor:
+                          name: Thresholds
+                          code: THRESHOLDS
+                        list:
+                          - descriptor:
+                              name: Amount Minimum
+                              code: AMOUNT_MIN
+                            value: '1000'
+                          - descriptor:
+                              name: Amount Maximum
+                              code: AMOUNT_MAX
+                            value: '10000'
+                          - descriptor:
+                              name: Amount Multiples
+                              code: AMOUNT_MULTIPLES
+                            value: '1'
+                  - id: ff_124
+                    type: LUMPSUM
+                    state:
+                      descriptor:
+                        name: Failed
+                        code: FAILED
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 98945436/98
+                            type: FOLIO
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599345'
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: Folio
+                          code: FOLIO_INFORMATION
+                        list:
+                          - descriptor:
+                              name: Folio Number
+                              code: FOLIO_NUMBER
+                            value: 98945436/98
+                          - descriptor:
+                              name: Holding Pattern
+                              code: HOLDING_PATTERN
+                            value: SINGLE
+                          - descriptor:
+                              name: Holder Name
+                              code: HOLDER_NAME
+                            value: Satish K Perala
+                          - descriptor:
+                              name: Created On
+                              code: CREATED_ON
+                            value: 25/11/2024
+                          - descriptor:
+                              name: Email Address for 2FA
+                              code: 2FA_EMAIL_ADDRESS_MASKED
+                            value: '****sha@gmail.com'
+                          - descriptor:
+                              name: Mobile Number for 2FA
+                              code: 2FA_MOBILE_NUMBER_MASKED
+                            value: '***9345'
+                      - display: true
+                        descriptor:
+                          name: Thresholds
+                          code: THRESHOLDS
+                        list:
+                          - descriptor:
+                              name: Amount Minimum
+                              code: AMOUNT_MIN
+                            value: '1000'
+                          - descriptor:
+                              name: Amount Maximum
+                              code: AMOUNT_MAX
+                            value: '10000'
+                          - descriptor:
+                              name: Amount Multiples
+                              code: AMOUNT_MULTIPLES
+                            value: '1'
+                      - display: true
+                        descriptor:
+                          name: Information
+                          code: ERROR_INFORMATION
+                        list:
+                          - descriptor:
+                              name: Reason Code
+                              code: REASON_CODE
+                            value: investor_blacklisted
+                          - descriptor:
+                              name: Reason Message
+                              code: REASON_MESSAGE
+                            value: Investor is blacklisted for investments
+                payments:
+                  - id: pmt_123
+                    collected_by: BPP
+                    status: PAID
+                    params:
+                      amount: '8000'
+                      currency: INR
+                      source_bank_code: icic0000047
+                      source_bank_account_number: '004701563111'
+                      source_bank_account_name: harish gupta
+                      transaction_id: '243423324'
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NETBANKING
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                cancellation_terms:
+                  - reason_required: true
+                    external_ref:
+                      url: https://api.sellerapp.com/cterms?id=214werw3w4
+                      mimetype: text/html
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '8000'
+                  breakup:
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_123
+                      title: Investment
+                      price:
+                        currency: INR
+                        value: '3000'
+                    - item:
+                        id: '15031'
+                        fulfillment_ids:
+                          - ff_124
+                      title: Investment
+                      price:
+                        currency: INR
+                        value: '5000'
+                created_at: '2023-05-25T05:23:03.443Z'
+                updated_at: '2023-05-25T05:23:03.443Z'
 x-examples:
   mutual-funds:
     summary: mutual-funds
@@ -30300,7 +30704,7 @@ x-examples:
         examples:
           - summary: search for mutual funds Full Pull
             description: TBD
-            value: *ref_52
+            value: *ref_53
           - summary: search for mutual funds incremental from given time
             description: TBD
             value:
@@ -30356,7 +30760,7 @@ x-examples:
                           value: 'true'
           - summary: search for mutual funds register for incremental pull
             description: TBD
-            value: *ref_53
+            value: *ref_54
       on_search:
         examples:
           - summary: mutual funds catalog
@@ -30378,18 +30782,18 @@ x-examples:
             value: *ref_25
           - summary: submit kyc form (step 1)
             description: submit kyc form
-            value: *ref_54
+            value: *ref_55
           - summary: submit kyc form (step 2)
             description: submit kyc form
-            value: *ref_55
+            value: *ref_56
           - summary: submit kyc form (step 3)
             description: submit kyc form
-            value: *ref_56
+            value: *ref_57
       on_select:
         examples:
           - summary: send existing folios
             description: send existing folios
-            value: *ref_57
+            value: *ref_58
           - summary: send new folio xinput form
             description: send new folio xinput form
             value: *ref_24
@@ -30398,7 +30802,7 @@ x-examples:
             value: *ref_26
           - summary: send new kyc xinput form (redirection step)
             description: send new kyc xinput form (redirection step)
-            value: *ref_58
+            value: *ref_59
           - summary: send payout bank details for redemption
             description: send payout bank details for redemption
             value: *ref_47
@@ -30497,7 +30901,7 @@ x-examples:
                           value: 'true'
           - summary: init sip existing folio
             description: init sip existing folio
-            value: *ref_59
+            value: *ref_60
           - summary: init sip new folio
             description: init sip new folio
             value: *ref_22
@@ -30720,7 +31124,7 @@ x-examples:
                   updated_at: '2023-05-25T05:23:03.443Z'
           - summary: send payment url & tnc
             description: send payment url & tnc
-            value: *ref_60
+            value: *ref_61
           - summary: send order in created state
             description: send order in created state
             value: *ref_49
@@ -30768,17 +31172,17 @@ x-examples:
         examples:
           - summary: lumpsum payment success
             description: lumpsum payment success
-            value: *ref_61
+            value: *ref_62
           - summary: sip payment success
             description: sip payment success
-            value: *ref_62
+            value: *ref_63
       cancel:
         examples:
           - summary: cancel an sip ordes
             description: >-
               bap can cancel an ongoing sip order by giving a cancellation
               reason
-            value: *ref_63
+            value: *ref_64
           - summary: cancel an sip order w/ custom reason
             description: >-
               bap can cancel an ongoing sip order by giving a custom
@@ -30810,44 +31214,44 @@ x-examples:
         examples:
           - summary: cancelled sip order
             description: cancelled sip order
-            value: *ref_64
+            value: *ref_65
       update:
         examples:
           - summary: update an order with a new payment
             description: bap asks for a new payment link in case of payment failure
-            value: *ref_65
+            value: *ref_66
       on_update:
         examples:
           - summary: send a new payment link
             description: bpp sends a new payment link
-            value: *ref_66
+            value: *ref_67
           - summary: lumpsum payment failure
             description: lumpsum payment failure
-            value: *ref_67
+            value: *ref_68
           - summary: sip payment failure
             description: sip payment failure
-            value: *ref_68
+            value: *ref_69
           - summary: redemption fulfillment success
             description: redemption fulfillment success
-            value: *ref_69
+            value: *ref_70
           - summary: redemption fulfillment failure
             description: redemption fulfillment failure
-            value: *ref_70
+            value: *ref_71
           - summary: sip instalment payment failed
             description: sip instalment payment failed
-            value: *ref_71
+            value: *ref_72
           - summary: sip instalment fulfillment success
             description: sip instalment fulfillment success
-            value: *ref_72
+            value: *ref_73
           - summary: sip instalment fulfillment failure
             description: sip instalment fulfillment failure
-            value: *ref_73
+            value: *ref_74
           - summary: sip order completed
             description: sip order completed
-            value: *ref_74
+            value: *ref_75
           - summary: sip order cancelled
             description: sip order cancelled
-            value: *ref_75
+            value: *ref_76
 x-attributes:
   mutual-funds:
     attribute_set:
@@ -30985,7 +31389,7 @@ x-attributes:
               usage: '--'
               description: Describe the intent to buy or avail a product or a service.
             tags:
-              BAP_TERMS: &ref_76
+              BAP_TERMS: &ref_77
                 required: Mandatory
                 type: string
                 owner: BPP
@@ -31260,7 +31664,7 @@ x-attributes:
                   usage: 234dsfs
                   description: ID of the scheme that this plan belongs to
                 tags:
-                  PLAN_INFORMATION: &ref_82
+                  PLAN_INFORMATION: &ref_83
                     required: Mandatory
                     type: object
                     owner: BPP
@@ -31273,7 +31677,7 @@ x-attributes:
                         owner: BPP
                         usage: '--'
                         description: Describes the consumer tnc
-                  PLAN_IDENTIFIERS: &ref_83
+                  PLAN_IDENTIFIERS: &ref_84
                     required: Mandatory
                     type: object
                     owner: BPP
@@ -31298,7 +31702,7 @@ x-attributes:
                         owner: BPP
                         usage: '--'
                         description: Describes the RTA Identifier
-                  PLAN_OPTIONS: &ref_84
+                  PLAN_OPTIONS: &ref_85
                     required: Mandatory
                     type: object
                     owner: BPP
@@ -31406,7 +31810,7 @@ x-attributes:
                   usage: SIP
                   description: Type of the fulfillment
                 tags:
-                  THRESHOLDS: &ref_91
+                  THRESHOLDS: &ref_92
                     required: Mandatory
                     type: object
                     owner: BPP
@@ -31506,7 +31910,7 @@ x-attributes:
                     This refers to the decription as to how that order will
                     rendered/fulfilled to the end-customers.
             tags:
-              BPP_TERMS: &ref_92
+              BPP_TERMS: &ref_93
                 required: Mandatory
                 type: string
                 owner: BPP
@@ -31650,7 +32054,7 @@ x-attributes:
               description: >-
                 This refers to the complete description of the legal contract
                 created between the buyer and the seller.
-            provider: &ref_77
+            provider: &ref_78
               id:
                 required: mandatory
                 type: string
@@ -31665,26 +32069,26 @@ x-attributes:
                 owner: BPP
                 usage: '--'
                 description: MF provider details
-            items: &ref_93
-              _description: &ref_78
+            items: &ref_94
+              _description: &ref_79
                 required: mandatory
                 type: object
                 owner: BAP/BPP
                 usage: '--'
                 description: List of mf schemes in an order
-              id: &ref_79
+              id: &ref_80
                 required: mandatory
                 type: string
                 owner: BPP
                 usage: 98dgwr41
                 description: ID of the item that is chosen, as received in the catalog
-              fulfillment_ids: &ref_80
+              fulfillment_ids: &ref_81
                 required: optional
                 type: string
                 owner: BPP
                 usage: 3bd4ea25
                 description: Unique reference ID to the fulfillment of an order
-              quantity: &ref_81
+              quantity: &ref_82
                 _description:
                   required: mandatory
                   type: object
@@ -31718,26 +32122,26 @@ x-attributes:
                       usage: amount
                       description: Type of the value of order
             fulfillments:
-              _description: &ref_85
+              _description: &ref_86
                 required: mandatory
                 type: object
                 owner: BAP
                 usage: '--'
                 description: Fulfillment details
-              type: &ref_86
+              type: &ref_87
                 required: mandatory
                 type: string
                 owner: BPP
                 usage: SIP
                 description: Type of the fulfillment chosen
-              id: &ref_87
+              id: &ref_88
                 required: mandatory
                 type: string
                 owner: BPP
                 usage: 45af324fs
                 description: ID of the fulfillment chosen
-              customer: &ref_88
-                _description: &ref_94
+              customer: &ref_89
+                _description: &ref_95
                   required: mandatory
                   type: object
                   owner: BAP
@@ -31745,7 +32149,7 @@ x-attributes:
                   description: >-
                     This refers to the description of the person that will
                     ulitmately receive the order.
-                person: &ref_95
+                person: &ref_96
                   id:
                     required: mandatory
                     type: string
@@ -31760,7 +32164,7 @@ x-attributes:
                     description: >-
                       This refers to the description of the associated person as
                       an individual entity.
-              agent: &ref_89
+              agent: &ref_90
                 _description:
                   required: mandatory
                   type: object
@@ -31808,7 +32212,7 @@ x-attributes:
                       owner: BAP
                       usage: ARN
                       description: Distributor license type
-              stops: &ref_90
+              stops: &ref_91
                 _description:
                   required: optional
                   type: array
@@ -31835,7 +32239,7 @@ x-attributes:
                       owner: BAP
                       usage: '--'
                       description: Frequency of the recurring orders in ISO8601 format
-            xinput: &ref_96
+            xinput: &ref_97
               _description:
                 required: optional
                 type: object
@@ -31873,7 +32277,7 @@ x-attributes:
                   usage: d097c2f5
                   description: Submission id of the form submission
             tags:
-              BAP_TERMS: *ref_76
+              BAP_TERMS: *ref_77
       on_select:
         context:
           location:
@@ -31999,25 +32403,25 @@ x-attributes:
               description: >-
                 This refers to the complete description of the legal contract
                 created between the buyer and the seller.
-            provider: *ref_77
-            items: &ref_102
-              _description: *ref_78
-              id: *ref_79
-              fulfillment_ids: *ref_80
-              quantity: *ref_81
+            provider: *ref_78
+            items: &ref_103
+              _description: *ref_79
+              id: *ref_80
+              fulfillment_ids: *ref_81
+              quantity: *ref_82
               tags:
-                PLAN_INFORMATION: *ref_82
-                PLAN_IDENTIFIERS: *ref_83
-                PLAN_OPTIONS: *ref_84
+                PLAN_INFORMATION: *ref_83
+                PLAN_IDENTIFIERS: *ref_84
+                PLAN_OPTIONS: *ref_85
             fulfillments:
-              _description: *ref_85
-              type: *ref_86
-              id: *ref_87
-              customer: *ref_88
-              agent: *ref_89
-              stops: *ref_90
+              _description: *ref_86
+              type: *ref_87
+              id: *ref_88
+              customer: *ref_89
+              agent: *ref_90
+              stops: *ref_91
               tags:
-                THRESHOLDS: *ref_91
+                THRESHOLDS: *ref_92
             xinput:
               _description:
                 required: optional
@@ -32126,31 +32530,31 @@ x-attributes:
                   Indicates whether the form data is mandatorily required by the
                   BPP to confirm the order.
             payments:
-              _description: &ref_97
+              _description: &ref_98
                 required: optional
                 type: list
                 owner: BPP
                 usage: '--'
                 description: List of payment options for this order
-              id: &ref_98
+              id: &ref_99
                 required: optional
                 type: string
                 owner: BPP
                 usage: pmt_1
                 description: Conditionally mandatory and optional
-              collected_by: &ref_99
+              collected_by: &ref_100
                 required: optional
                 type: string
                 owner: BPP
                 usage: BPP
                 description: Who is collecting the payment
-              type: &ref_100
+              type: &ref_101
                 required: optional
                 type: string
                 owner: BPP
                 usage: PRE_FULFILLMENT
                 description: When is the payment to be collected
-              tags: &ref_101
+              tags: &ref_102
                 _description:
                   required: optional
                   type: array
@@ -32215,7 +32619,7 @@ x-attributes:
                     usage: MANDATE_REGISTRATION
                     description: Value of the tag
             tags:
-              BPP_TERMS: *ref_92
+              BPP_TERMS: *ref_93
       init:
         context:
           location:
@@ -32341,15 +32745,15 @@ x-attributes:
               description: >-
                 This refers to the complete description of the legal contract
                 created between the buyer and the seller.
-            provider: *ref_77
-            items: *ref_93
-            fulfillments: &ref_105
-              _description: *ref_85
-              type: *ref_86
-              id: *ref_87
-              customer: &ref_103
-                _description: *ref_94
-                person: *ref_95
+            provider: *ref_78
+            items: *ref_94
+            fulfillments: &ref_106
+              _description: *ref_86
+              type: *ref_87
+              id: *ref_88
+              customer: &ref_104
+                _description: *ref_95
+                person: *ref_96
                 contact:
                   _description:
                     required: mandatory
@@ -32363,16 +32767,16 @@ x-attributes:
                     owner: BAP
                     usage: '9916587487'
                     description: Phone number of the customer on which 2fa is done
-              agent: *ref_89
-              stops: *ref_90
-            xinput: *ref_96
+              agent: *ref_90
+              stops: *ref_91
+            xinput: *ref_97
             payments:
-              _description: *ref_97
-              id: *ref_98
-              collected_by: *ref_99
-              type: *ref_100
-              tags: *ref_101
-              params: &ref_104
+              _description: *ref_98
+              id: *ref_99
+              collected_by: *ref_100
+              type: *ref_101
+              tags: *ref_102
+              params: &ref_105
                 _description:
                   required: optional
                   type: object
@@ -32416,7 +32820,7 @@ x-attributes:
                     Name on the bank a/c of the investor from which he wants to
                     make the payment
             tags:
-              BAP_TERMS: *ref_76
+              BAP_TERMS: *ref_77
       on_init:
         context:
           location:
@@ -32554,25 +32958,25 @@ x-attributes:
               owner: BAP
               usage: CREATED
               description: Status of the order at seller app end
-            provider: *ref_77
-            items: *ref_102
-            fulfillments: &ref_107
-              _description: *ref_85
-              type: *ref_86
-              id: *ref_87
-              customer: *ref_103
-              agent: *ref_89
-              stops: *ref_90
+            provider: *ref_78
+            items: *ref_103
+            fulfillments: &ref_108
+              _description: *ref_86
+              type: *ref_87
+              id: *ref_88
+              customer: *ref_104
+              agent: *ref_90
+              stops: *ref_91
               tags:
-                THRESHOLDS: *ref_91
-            xinput: *ref_96
-            payments: &ref_106
-              _description: *ref_97
-              id: *ref_98
-              collected_by: *ref_99
-              type: *ref_100
-              tags: *ref_101
-              params: *ref_104
+                THRESHOLDS: *ref_92
+            xinput: *ref_97
+            payments: &ref_107
+              _description: *ref_98
+              id: *ref_99
+              collected_by: *ref_100
+              type: *ref_101
+              tags: *ref_102
+              params: *ref_105
               url:
                 required: optional
                 type: string
@@ -32586,7 +32990,7 @@ x-attributes:
                 usage: NOT-PAID
                 description: status of the payment
             tags:
-              BPP_TERMS: *ref_92
+              BPP_TERMS: *ref_93
       confirm:
         context:
           location:
@@ -32718,14 +33122,14 @@ x-attributes:
               owner: BPP
               usage: 54adfadsf6144
               description: ID of the order at the seller app end
-            provider: *ref_77
-            items: *ref_93
-            fulfillments: *ref_105
-            xinput: *ref_96
-            payments: *ref_106
+            provider: *ref_78
+            items: *ref_94
+            fulfillments: *ref_106
+            xinput: *ref_97
+            payments: *ref_107
             tags:
-              BAP_TERMS: *ref_76
-              BPP_TERMS: *ref_92
+              BAP_TERMS: *ref_77
+              BPP_TERMS: *ref_93
       on_confirm:
         context:
           location:
@@ -32863,14 +33267,14 @@ x-attributes:
               owner: BAP
               usage: ACCEPTED
               description: Status of the order at seller app end
-            provider: *ref_77
-            items: *ref_102
-            fulfillments: *ref_107
-            xinput: *ref_96
-            payments: *ref_106
+            provider: *ref_78
+            items: *ref_103
+            fulfillments: *ref_108
+            xinput: *ref_97
+            payments: *ref_107
             tags:
-              BAP_TERMS: *ref_76
-              BPP_TERMS: *ref_92
+              BAP_TERMS: *ref_77
+              BPP_TERMS: *ref_93
       status:
         context:
           location:
@@ -33130,14 +33534,14 @@ x-attributes:
               owner: BAP
               usage: ACCEPTED
               description: Status of the order at seller app end
-            provider: *ref_77
-            items: *ref_102
-            fulfillments: *ref_107
-            xinput: *ref_96
-            payments: *ref_106
+            provider: *ref_78
+            items: *ref_103
+            fulfillments: *ref_108
+            xinput: *ref_97
+            payments: *ref_107
             tags:
-              BAP_TERMS: *ref_76
-              BPP_TERMS: *ref_92
+              BAP_TERMS: *ref_77
+              BPP_TERMS: *ref_93
       cancel:
         context:
           location:
@@ -33403,14 +33807,14 @@ x-attributes:
               owner: BAP
               usage: ACCEPTED
               description: Status of the order at seller app end
-            provider: *ref_77
-            items: *ref_102
-            fulfillments: *ref_107
-            xinput: *ref_96
-            payments: *ref_106
+            provider: *ref_78
+            items: *ref_103
+            fulfillments: *ref_108
+            xinput: *ref_97
+            payments: *ref_107
             tags:
-              BAP_TERMS: *ref_76
-              BPP_TERMS: *ref_92
+              BAP_TERMS: *ref_77
+              BPP_TERMS: *ref_93
       update:
         context:
           location:
@@ -33485,11 +33889,11 @@ x-attributes:
               usage: 54adfadsf6144
               description: ID of the order at the seller app end
             payments:
-              _description: *ref_97
-              id: *ref_98
-              collected_by: *ref_99
-              type: *ref_100
-              tags: *ref_101
+              _description: *ref_98
+              id: *ref_99
+              collected_by: *ref_100
+              type: *ref_101
+              tags: *ref_102
               params:
                 _description:
                   required: optional
@@ -33670,14 +34074,14 @@ x-attributes:
               owner: BAP
               usage: ACCEPTED
               description: Status of the order at seller app end
-            provider: *ref_77
-            items: *ref_102
-            fulfillments: *ref_107
-            xinput: *ref_96
-            payments: *ref_106
+            provider: *ref_78
+            items: *ref_103
+            fulfillments: *ref_108
+            xinput: *ref_97
+            payments: *ref_107
             tags:
-              BAP_TERMS: *ref_76
-              BPP_TERMS: *ref_92
+              BAP_TERMS: *ref_77
+              BPP_TERMS: *ref_93
 x-errorcodes:
   code:
     - Event: Distributor not empanelled

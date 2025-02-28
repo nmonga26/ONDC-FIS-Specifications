@@ -1,0 +1,21 @@
+summary: Lumpsum Investment (Cart) - Part Failure
+
+references: if any
+steps:
+
+  - summary: On Update
+    api: on_update
+    details:
+      - description: All the other steps remain the same as a regular cart purchase. Send fulfillment 1 success notification
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_update/cart/on_update-cart-lumpsum-psuccess-fsuccess-partial.json"
+  - summary: On Update
+    api: on_update
+    details:
+      - description: All the other steps remain the same as a regular cart purchase. Send fulfillment 1 success, 2 failure notification
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_update/cart/on_update-cart-lumpsum-psuccess-ffailure-partial.json"
