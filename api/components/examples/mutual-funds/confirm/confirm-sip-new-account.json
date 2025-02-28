@@ -89,7 +89,7 @@
                 {
                     "id": "pmt_123",
                     "collected_by": "BPP",
-                    "status": "PAID",
+                    "status": "NOT-PAID",
                     "params": {
                         "amount": "3000",
                         "currency": "INR",
