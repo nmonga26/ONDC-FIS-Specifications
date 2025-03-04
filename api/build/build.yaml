@@ -4112,6 +4112,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -4121,6 +4122,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -4185,7 +4187,7 @@ x-flows:
                     xinput:
                       head:
                         descriptor:
-                          name: Customer Information
+                          name: Set Loan Amount
                         index:
                           min: 0
                           cur: 0
@@ -4466,6 +4468,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -4475,6 +4478,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -4534,7 +4538,7 @@ x-flows:
                     xinput:
                       head:
                         descriptor:
-                          name: Customer Information
+                          name: Know your Customer
                         index:
                           min: 0
                           cur: 1
@@ -4861,6 +4865,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -4870,6 +4875,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -5318,6 +5324,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -5327,6 +5334,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -5391,7 +5399,7 @@ x-flows:
                     xinput:
                       head:
                         descriptor:
-                          name: Account Information
+                          name: Emandate
                         index:
                           min: 0
                           cur: 1
@@ -5777,6 +5785,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -5786,6 +5795,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -5850,7 +5860,7 @@ x-flows:
                     xinput:
                       head:
                         descriptor:
-                          name: Account Information
+                          name: Loan Agreement
                         index:
                           min: 0
                           cur: 2
@@ -6293,6 +6303,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -6302,6 +6313,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -6678,6 +6690,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -6687,6 +6700,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -7122,6 +7136,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -7131,6 +7146,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -7573,6 +7589,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -7582,6 +7599,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -8563,6 +8581,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -8572,6 +8591,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -9910,6 +9930,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -9919,6 +9940,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -9983,7 +10005,7 @@ x-flows:
                     xinput:
                       head:
                         descriptor:
-                          name: Customer Information
+                          name: Know your Customer
                         index:
                           min: 0
                           cur: 1
@@ -10207,6 +10229,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -10216,6 +10239,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -10483,6 +10507,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -10492,6 +10517,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -10760,6 +10786,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -10769,6 +10796,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -11115,6 +11143,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -11124,6 +11153,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -11528,6 +11558,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -12020,6 +12051,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -12029,6 +12061,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -12431,6 +12464,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -12440,6 +12474,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -12921,6 +12956,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -12930,6 +12966,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -13337,6 +13374,7 @@ x-flows:
                           - descriptor:
                               code: APPLICATION_FEE
                               name: Application Fees
+                              short_desc: Application Fees
                             value: 1000 INR
                           - descriptor:
                               code: FORECLOSURE_FEE
@@ -13346,6 +13384,7 @@ x-flows:
                           - descriptor:
                               code: INTEREST_RATE_CONVERSION_CHARGE
                               name: interest rate conversion charges
+                              short_desc: Interest rate conversion charges
                             value: 1000 INR
                           - descriptor:
                               code: DELAY_PENALTY_FEE
@@ -13871,6 +13910,7 @@ x-examples:
                             - descriptor:
                                 code: APPLICATION_FEE
                                 name: Application Fees
+                                short_desc: Application Fees
                               value: 1000 INR
                             - descriptor:
                                 code: FORECLOSURE_FEE
@@ -13880,6 +13920,7 @@ x-examples:
                             - descriptor:
                                 code: INTEREST_RATE_CONVERSION_CHARGE
                                 name: interest rate conversion charges
+                                short_desc: Interest rate conversion charges
                               value: 1000 INR
                             - descriptor:
                                 code: DELAY_PENALTY_FEE
@@ -14229,6 +14270,7 @@ x-examples:
                             - descriptor:
                                 code: APPLICATION_FEE
                                 name: Application Fees
+                                short_desc: Application Fees
                               value: 1000 INR
                             - descriptor:
                                 code: FORECLOSURE_FEE
@@ -14238,6 +14280,7 @@ x-examples:
                             - descriptor:
                                 code: INTEREST_RATE_CONVERSION_CHARGE
                                 name: interest rate conversion charges
+                                short_desc: Interest rate conversion charges
                               value: 1000 INR
                             - descriptor:
                                 code: DELAY_PENALTY_FEE
@@ -14599,6 +14642,7 @@ x-examples:
                             - descriptor:
                                 code: APPLICATION_FEE
                                 name: Application Fees
+                                short_desc: Application Fees
                               value: 1000 INR
                             - descriptor:
                                 code: FORECLOSURE_FEE
@@ -14608,6 +14652,7 @@ x-examples:
                             - descriptor:
                                 code: INTEREST_RATE_CONVERSION_CHARGE
                                 name: interest rate conversion charges
+                                short_desc: Interest rate conversion charges
                               value: 1000 INR
                             - descriptor:
                                 code: DELAY_PENALTY_FEE
@@ -14979,6 +15024,7 @@ x-examples:
                             - descriptor:
                                 code: APPLICATION_FEE
                                 name: Application Fees
+                                short_desc: Application Fees
                               value: 1000 INR
                             - descriptor:
                                 code: FORECLOSURE_FEE
@@ -14988,6 +15034,7 @@ x-examples:
                             - descriptor:
                                 code: INTEREST_RATE_CONVERSION_CHARGE
                                 name: interest rate conversion charges
+                                short_desc: Interest rate conversion charges
                               value: 1000 INR
                             - descriptor:
                                 code: DELAY_PENALTY_FEE
@@ -15360,6 +15407,7 @@ x-examples:
                             - descriptor:
                                 code: APPLICATION_FEE
                                 name: Application Fees
+                                short_desc: Application Fees
                               value: 1000 INR
                             - descriptor:
                                 code: FORECLOSURE_FEE
@@ -15369,6 +15417,7 @@ x-examples:
                             - descriptor:
                                 code: INTEREST_RATE_CONVERSION_CHARGE
                                 name: interest rate conversion charges
+                                short_desc: Interest rate conversion charges
                               value: 1000 INR
                             - descriptor:
                                 code: DELAY_PENALTY_FEE
@@ -15730,6 +15779,7 @@ x-examples:
                             - descriptor:
                                 code: APPLICATION_FEE
                                 name: Application Fees
+                                short_desc: Application Fees
                               value: 1000 INR
                             - descriptor:
                                 code: FORECLOSURE_FEE
@@ -15739,6 +15789,7 @@ x-examples:
                             - descriptor:
                                 code: INTEREST_RATE_CONVERSION_CHARGE
                                 name: interest rate conversion charges
+                                short_desc: Interest rate conversion charges
                               value: 1000 INR
                             - descriptor:
                                 code: DELAY_PENALTY_FEE
