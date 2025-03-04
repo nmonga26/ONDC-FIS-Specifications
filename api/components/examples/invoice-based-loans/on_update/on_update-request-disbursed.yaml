@@ -118,6 +118,7 @@ message:
               - descriptor:
                   code: INTEREST_RATE_CONVERSION_CHARGE
                   name: interest rate conversion charges
+                  short_desc: Interest rate conversion charges
                 value: "1000 INR"
               - descriptor:
                   code: DELAY_PENALTY_FEE

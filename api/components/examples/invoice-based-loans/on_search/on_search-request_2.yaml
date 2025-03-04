@@ -122,6 +122,7 @@ message:
                   - descriptor:
                       code: APPLICATION_FEE
                       name: Application Fees
+                      short_desc: Application Fees
                     value: "1000 INR"
                   - descriptor:
                       code: FORECLOSURE_FEE
@@ -131,6 +132,7 @@ message:
                   - descriptor:
                       code: INTEREST_RATE_CONVERSION_CHARGE
                       name: interest rate conversion charges
+                      short_desc: Interest rate conversion charges
                     value: NA
                   - descriptor:
                       code: DELAY_PENALTY_FEE
@@ -268,6 +270,7 @@ message:
                   - descriptor:
                       code: APPLICATION_FEE
                       name: Application Fees
+                      short_desc: Application Fees
                     value: "1000 INR"
                   - descriptor:
                       code: FORECLOSURE_FEE
@@ -277,6 +280,7 @@ message:
                   - descriptor:
                       code: INTEREST_RATE_CONVERSION_CHARGE
                       name: interest rate conversion charges
+                      short_desc: Interest rate conversion charges
                     value: NA
                   - descriptor:
                       code: DELAY_PENALTY_FEE
