@@ -437,7 +437,7 @@ on_search:
       providers:
         items:
           category_ids:
-            required: mandatory
+            required: optional
             type: string
             owner: BPP
             usage: 9bd4Ka25
