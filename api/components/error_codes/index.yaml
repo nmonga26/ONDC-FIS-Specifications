@@ -112,3 +112,7 @@ code:
     Description: The rate limit for an external API has been exceeded.
     From: BPP
     code: 80223
+  - Event: Account agreegator ID is required.
+    Description: Lender could not process as Account agreegator ID is rquired.
+    From: BPP
+    code: 80224  
