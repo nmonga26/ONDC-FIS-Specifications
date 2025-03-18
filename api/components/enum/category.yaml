@@ -1,35 +1,15 @@
 descriptor:
   code: 
-    - code: MOTOR_INSURANCE
-      description: Describes a type of insurance that provides coverage for various motor vehicles                                      
+    - code: CARD
+      description: Describes the category type                                     
       reference: <PR/Issue/Discussion Links md format text         
-    - code: TWO_WHEELER_COMPRIHENSIVE_INSURANCE
-      description: Describes a type of motor insurance plan that covers the insured person against both - own damages and any third party liabilities
+    - code: PROMO
+      description: Describes the category type
       reference: <PR/Issue/Discussion Links md format text>
-    - code: TWO_WHEELER_THIRD_PARTY_INSURANCE
-      description: Describes a type of motor insurance plan that covers the insured person against both - own damages and any third party liabilities
+    - code: E_PAY
+      description: Describes the category type
       reference: <PR/Issue/Discussion Links md format text>
-    - code: TWO_WHEELER_OWN_DAMAGE
-      description: Describes a type of motor insurance plan that covers the insured person against both - own damages and any third party liabilities
+    - code: E_RUPI
+      description: Describes the category type
       reference: <PR/Issue/Discussion Links md format text>    
-    - code: FOUR_WHEELER_COMPRIHENSIVE_INSURANCE
-      description: Describes a type of motor insurance plan that covers the insured person against both - own damages and any third party liabilities
-      reference: <PR/Issue/Discussion Links md format text>
-    - code: FOUR_WHEELER_THIRD_PARTY_INSURANCE
-      description: Describes a type of motor insurance plan that covers the insured person against both - own damages and any third party liabilities
-      reference: <PR/Issue/Discussion Links md format text>
-    - code: FOUR_WHEELER_OWN_DAMAGE
-      description: Describes a type of motor insurance plan that covers the insured person against both - own damages and any third party liabilities
-      reference: <PR/Issue/Discussion Links md format text> 
-    # - code: NEW_INSURANCE
-    #   description: Describes the new insurance type
-    #   reference: <PR/Issue/Discussion Links md format text>
-    # - code: TRANSFER_INSURANCE
-    #   description: Describes the transfer type insurance
-    #   reference: <PR/Issue/Discussion Links md format text>
-    - code: FOUR_WHEELER_INSURANCE
-      description: Describes the transfer type insurance
-      reference: <PR/Issue/Discussion Links md format text>  
-    - code: TWO_WHEELER_INSURANCE
-      description: Describes the transfer type insurance
-      reference: <PR/Issue/Discussion Links md format text>
+    

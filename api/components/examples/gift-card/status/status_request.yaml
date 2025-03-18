@@ -1,0 +1,19 @@
+context:
+  domain: ONDC:FIS10
+  location:
+    city:
+      code: std:080
+    country:
+      code: IND
+  action: status
+  version: 2.0.0
+  bap_id: buyerapp.com
+  bap_uri: https://buyerapp.com/ondc
+  bpp_id: sellerapp.com
+  bpp_uri: https://sellerapp.com/ondc
+  transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+  message_id: 712067b6-c9c7-40cf-896a-6c242afbbb96
+  timestamp: '2023-03-10T10:00:00.408Z'
+  ttl: PT30S
+message:
+  order_id: O1

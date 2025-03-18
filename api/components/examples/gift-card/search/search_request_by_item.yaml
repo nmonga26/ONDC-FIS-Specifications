@@ -1,0 +1,31 @@
+context:
+  domain: ONDC:FIS10
+  location:
+    city:
+      code: std:080
+    country:
+      code: IND
+  action: search
+  version: 2.0.0
+  bap_id: buyerapp.com
+  bap_uri: https://buyerapp.com/ondc
+  transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+  message_id: 8d3c37e7-adc0-4f97-aa1e-3ef5fcd86450
+  timestamp: '2023-03-10T10:00:00.400Z'
+  ttl: PT30S
+message:
+  intent:
+    item:
+      descriptor:
+        name: free text to search item
+    payment:
+      tags:
+        - descriptor:
+            code: BUYER_FINDER_FEES
+          list:
+            - descriptor:
+                code: BUYER_FINDER_FEES_PERCENTAGE
+              value: "3"
+            - descriptor:
+                code: BUYER_FINDER_FEES_VALUE
+              value: "100"

@@ -1,0 +1,88 @@
+search:
+  examples:
+    - summary: search_request_by_category
+      description: search_request_by_category
+      value:
+        $ref: "./search/search_request_by_category.yaml"
+    - summary: search_request_by_item
+      description: search_request_by_item
+      value:
+        $ref: "./search/search_request_by_item.yaml"
+on_search:
+  examples:
+    - summary: on_search
+      description: TBD
+      value:
+        $ref: "./on_search/on_search_request.yaml"
+select:
+  examples:
+    - summary: select-request
+      description: select-request
+      value:
+        $ref: "./select/select_request.yaml" 
+on_select:
+  examples:
+    - summary: on_select_request
+      description: on_select_request
+      value:
+        $ref: "./on_select/on_select_request.yaml"      
+init:
+  examples:
+    - summary: init_request
+      description: TBD
+      value:
+        $ref: "./init/init_request.yaml"
+on_init:
+  examples:
+    - summary: on_init_request_buyer_collecting
+      description: on_init_request_buyer_collecting
+      value:
+        $ref: "./on_init/on_init_request_buyer_collecting.yaml"
+    - summary: on_init_request_seller_collecting
+      description: TBD
+      value:
+        $ref: "./on_init/on_init_request_seller_collecting.yaml"        
+confirm:
+  examples:
+    - summary: confirm
+      description: TBD
+      value:
+        $ref: "./confirm/confirm_request_buyer_collecting.yaml"
+    - summary: confirm_request_seller_collecting
+      description: TBD
+      value:
+        $ref: "./confirm/confirm_request_seller_collecting.yaml"    
+on_confirm:
+  examples:
+    - summary: on_confirm
+      description: TBD
+      value:
+        $ref: "./on_confirm/on_confirm_request.yaml"      
+on_update:
+  examples:
+    - summary: on_update_request_cancellation_fulfillment
+      description: TBD
+      value:
+        $ref: "./on_update/on_update_request_cancellation_fulfillment.yaml"
+    - summary: on_update_resultant_through_igm
+      description: TBD
+      value:
+        $ref: "./on_update/on_update_resultant_through_igm.yaml"    
+status:
+  examples:
+    - summary: status
+      description: TBD
+      value:
+        $ref: "./status/status_request.yaml"        
+on_status:
+  examples:
+    - summary: on_status_request
+      description: TBD
+      value:
+        $ref: "./on_status/on_status_request.yaml"
+on_cancel:
+  examples:
+    - summary: on_cancel_request
+      description: TBD
+      value:
+        $ref: "./on_cancel/on_cancel_request.yaml"                             

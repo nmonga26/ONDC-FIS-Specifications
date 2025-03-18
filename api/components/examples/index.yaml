@@ -1,5 +1,5 @@
-motor-insurance:
-  summary: motor-insurance
-  description: motor-insurance
+gift-card:
+  summary: gift-card
+  description: gift-card
   example_set:
-    $ref: "./motor-insurance/motor-insurance.yaml"
+    $ref: "./gift-card/index.yaml"

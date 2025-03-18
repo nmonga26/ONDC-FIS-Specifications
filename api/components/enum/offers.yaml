@@ -1,0 +1,8 @@
+descriptor:
+  code: 
+    - code: DISCOUNT
+      description: Describes the offer type                         
+      reference: <PR/Issue/Discussion Links md format text
+    - code: FREEBIE
+      description: Describes the offer type                         
+      reference: <PR/Issue/Discussion Links md format text   

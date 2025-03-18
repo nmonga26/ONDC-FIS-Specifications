@@ -10,7 +10,7 @@ location:
         description: Represent the city code that identifies the cities. In case of '*' it will fetch all the cities where service is being provided.
         reference: <PR/Issue/Discussion Links md format text>      
 domain:
-  - code: ONDC:FIS13
+  - code: ONDC:FIS10
     description: Updated domain namespace
     reference: <PR/Issue/Discussion Links md format text>
 action:
@@ -62,9 +62,4 @@ action:
   - code: on_status
     description: Return order with status , Driver pickup - driver drop
     reference: <PR/Issue/Discussion Links md format text>
-  - code: support
-    description: Fetch support information related to a particular order
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: on_support
-    description: Return support information related to order
-    reference: <PR/Issue/Discussion Links md format text
+

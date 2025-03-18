@@ -1,15 +1,42 @@
 items:
   tags:
-    - code: GENERAL_INFO
-      description: Describes the general info of the insurance
+    - code: BRAND_DETAILS
+      description: Describes the brand details
       reference: <PR/Issue/Discussion Links md format text>
       list:
-        $ref: "./tag.yaml#/general-info"
-    - code: VAHAN_DETAILS
-      description: Describes the details of a vehicle
+        $ref: "./tag.yaml#/brand-details"
+    - code: VARIANT_FIELDS
+      description: Describes the variant fields
       reference: <PR/Issue/Discussion Links md format text>
       list:
-        $ref: "./tag.yaml#/vahan-details"
+        $ref: "./tag.yaml#/variant-fields"
+    - code: ITEM_DETAILS
+      description: Describes the item details
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/item-details" 
+    - code: CUSTOMIZATION
+      description: Describes the item details
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/customization"    
+offers:
+  tgas:
+    - code: QUALIFIER
+      description: Describes the qualifier
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/qualifier"
+    - code: BENEFIT
+      description: Describes the benefit
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/benefit" 
+    - code: META
+      description: Describes the meta
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/meta"              
 payment:
   tags:
     - code: BUYER_FINDER_FEES
@@ -17,15 +44,15 @@ payment:
       reference: <PR/Issue/Discussion Links md format text>
       list:
         $ref: "./tag.yaml#/buyer-finder-fees"
-    - code: SETTLEMENT_TERMS
-      description: Describes the settlement terms
+    - code: SETTLEMENT_DETAILS
+      description: Describes the settlement details
       reference: <PR/Issue/Discussion Links md format text>
       list:
-        $ref: "./tag.yaml#/settlement-terms"
+        $ref: "./tag.yaml#/settlement-details"
 fulfillments:
   tags:
-    - code: INFO
+    - code: CANCELLATION
       description: Describes the additional info
       reference: <PR/Issue/Discussion Links md format text>
       list:
-        $ref: "./tag.yaml#/info"        
+        $ref: "./tag.yaml#/cancellation"        

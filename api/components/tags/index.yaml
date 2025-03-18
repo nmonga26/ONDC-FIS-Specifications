@@ -17,7 +17,7 @@ on_select:
 init: 
   message:
     order:
-      payments: *payment
+      items: *items
 on_init:
   message:
     order:
@@ -29,7 +29,12 @@ confirm: &ref1
       items: *items
       payments: *payment  
 on_confirm: *ref1
-on_status: &ref0
+on_status: 
+  message:
+    order:
+      items: *items
+      payments: *payment
+on_update: &ref0
   message:
     order:
       items: *items
@@ -37,4 +42,4 @@ on_status: &ref0
       fulfillments: 
         $ref: "./tag-group.yaml#/fulfillments"
 on_cancel: *ref0
-on_update: *ref0
+
