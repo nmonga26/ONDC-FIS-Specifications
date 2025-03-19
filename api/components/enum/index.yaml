@@ -16,9 +16,6 @@ on_search:
   message:
     catalog:
       providers:
-        descriptor:
-          code:
-            $ref: "./provider.yaml#/provider_codes"
         categories:
           descriptor:
             code:
