@@ -48,6 +48,12 @@ const BRANCHES = [
     status: "DRAFT",
   },
   {
+    code: "draft-FIS10-2.0.0",
+    name: "Gift Card",
+    short_desc: "Gift - Card",
+    status: "DRAFT",
+  },
+  {
     code: "release-FIS12-2.0.1",
     name: "Personal Loan",
     short_desc: "Credit - Personal Loan use case patch to 2.0.0",
