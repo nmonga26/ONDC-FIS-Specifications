@@ -3912,9 +3912,9 @@ x-flows:
                 descriptor:
                   name: BPP Name
                 providers:
-                  - id: amc_1
+                  - id: sellerapp_id
                     descriptor:
-                      name: ABC Mutual Fund
+                      name: Seller App Name
                     categories:
                       - id: '0'
                         descriptor:
@@ -3942,6 +3942,9 @@ x-flows:
                           code: SCHEME
                         category_ids:
                           - '1101'
+                        creator:
+                          descriptor:
+                            name: ABC Mutual Fund
                         matched: true
                         tags:
                           - display: true
@@ -4287,7 +4290,7 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -4356,9 +4359,9 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -6184,7 +6187,7 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -6260,9 +6263,9 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -6486,7 +6489,7 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -6581,9 +6584,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: CREATED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -6795,7 +6798,7 @@ x-flows:
               order:
                 id: mfpp_213adf123af
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -6909,9 +6912,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: ACCEPTED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -7157,9 +7160,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: ACCEPTED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -7395,9 +7398,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: ACCEPTED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -7669,9 +7672,9 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -9982,7 +9985,7 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -10058,9 +10061,9 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -10261,9 +10264,9 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -10445,7 +10448,7 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -10521,9 +10524,9 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -10724,9 +10727,9 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -10908,7 +10911,7 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -10984,9 +10987,9 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -11202,9 +11205,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: CREATED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -11432,9 +11435,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: ACCEPTED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -11688,9 +11691,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: ACCEPTED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -11934,9 +11937,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: ACCEPTED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -12216,9 +12219,9 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -12499,7 +12502,7 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -12596,9 +12599,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: CREATED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -12832,7 +12835,7 @@ x-flows:
               order:
                 id: mfpp_213adf123af
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -12948,9 +12951,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: ACCEPTED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -13218,9 +13221,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: ACCEPTED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -15194,9 +15197,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: ACCEPTED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -15440,9 +15443,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: ACCEPTED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -15722,9 +15725,9 @@ x-flows:
                   - mfpp_213adf123af
                 status: ACCEPTED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -15911,9 +15914,9 @@ x-flows:
                   - mfpp_213adf123af
                 status: COMPLETED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -16070,9 +16073,9 @@ x-flows:
                   - mfpp_213adf123af
                 status: COMPLETED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -16316,9 +16319,9 @@ x-flows:
                   - mfpp_213adf123af
                 status: CANCELLED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -16548,9 +16551,9 @@ x-flows:
                   - mfpp_213adf123af
                 status: CANCELLED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -16762,9 +16765,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: CANCELLED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -17047,9 +17050,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: CANCELLED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -17306,9 +17309,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: COMPLETED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -17556,7 +17559,7 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -17623,9 +17626,9 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -17886,7 +17889,7 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -17979,9 +17982,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: CREATED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -18190,7 +18193,7 @@ x-flows:
               order:
                 id: mfpp_213adf123af
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -18301,9 +18304,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: ACCEPTED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -18546,9 +18549,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: ACCEPTED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -18781,9 +18784,9 @@ x-flows:
                 id: mfp_3454dfadssf435345
                 status: COMPLETED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -19082,9 +19085,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: ACCEPTED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -19375,9 +19378,9 @@ x-flows:
                 id: mfp_213adf123af
                 status: ACCEPTED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -19645,7 +19648,7 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -19712,9 +19715,9 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -21516,7 +21519,7 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -21588,9 +21591,9 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -21784,7 +21787,7 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -21875,9 +21878,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: CREATED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -22064,7 +22067,7 @@ x-flows:
               order:
                 id: mfpp_213adf123af
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -22173,9 +22176,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: ACCEPTED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -22386,9 +22389,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: ACCEPTED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -22599,9 +22602,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: COMPLETED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -22856,7 +22859,7 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -22923,9 +22926,9 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -25211,7 +25214,7 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -25283,9 +25286,9 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -25461,9 +25464,9 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -25620,7 +25623,7 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -25692,9 +25695,9 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -25870,9 +25873,9 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -26090,7 +26093,7 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -26160,9 +26163,9 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -26383,7 +26386,7 @@ x-flows:
             message:
               order:
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -26468,9 +26471,9 @@ x-flows:
                 id: mfpp_213adf123af
                 status: CREATED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -26649,7 +26652,7 @@ x-flows:
               order:
                 id: mfr_213adf123af
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -26748,9 +26751,9 @@ x-flows:
                 id: mfr_213adf123af
                 status: ACCEPTED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -26943,9 +26946,9 @@ x-flows:
                 id: mfr_3454dfadssf435345
                 status: COMPLETED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -27206,9 +27209,9 @@ x-flows:
                 id: mfr_3454dfadssf435345
                 status: CANCELLED
                 provider:
-                  id: amc_1
+                  id: sellerapp_id
                   descriptor:
-                    name: ABC Mutual Fund
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -27426,6 +27429,8 @@ x-flows:
               action: select
             message:
               order:
+                provider:
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -27515,6 +27520,10 @@ x-flows:
               action: on_select
             message:
               order:
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -27925,6 +27934,8 @@ x-flows:
               action: init
             message:
               order:
+                provider:
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -28045,6 +28056,10 @@ x-flows:
               order:
                 id: mfpp_213adf123af
                 status: CREATED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -28440,6 +28455,8 @@ x-flows:
               action: confirm
             message:
               order:
+                provider:
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -28580,6 +28597,10 @@ x-flows:
               order:
                 id: mfp_213adf123af
                 status: ACCEPTED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -29014,6 +29035,10 @@ x-flows:
               order:
                 id: mfp_213adf123af
                 status: ACCEPTED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -29438,6 +29463,10 @@ x-flows:
               order:
                 id: mfp_213adf123af
                 status: ACCEPTED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -29873,6 +29902,10 @@ x-flows:
               order:
                 id: mfp_213adf123af
                 status: COMPLETED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -30333,6 +30366,10 @@ x-flows:
               order:
                 id: mfp_213adf123af
                 status: COMPLETED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -30724,6 +30761,8 @@ x-flows:
               action: select
             message:
               order:
+                provider:
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -30819,6 +30858,10 @@ x-flows:
               action: on_select
             message:
               order:
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -31274,6 +31317,8 @@ x-flows:
               action: init
             message:
               order:
+                provider:
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -31402,6 +31447,10 @@ x-flows:
               order:
                 id: mfpp_213adf123af
                 status: CREATED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -31789,6 +31838,8 @@ x-flows:
               action: confirm
             message:
               order:
+                provider:
+                  id: sellerapp_id
                 items:
                   - id: '12391'
                     quantity:
@@ -31937,6 +31988,10 @@ x-flows:
               order:
                 id: mfpp_213adf123af
                 status: ACCEPTED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -32363,6 +32418,10 @@ x-flows:
               order:
                 id: mfp_213adf123af
                 status: ACCEPTED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -32782,6 +32841,10 @@ x-flows:
               order:
                 id: mfp_213adf123af
                 status: ACCEPTED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -33228,6 +33291,10 @@ x-flows:
                 ref_order_ids:
                   - mfpp_213adf123af
                 status: ACCEPTED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -33599,6 +33666,10 @@ x-flows:
                 ref_order_ids:
                   - mfpp_213adf123af
                 status: ACCEPTED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -33972,6 +34043,10 @@ x-flows:
                 ref_order_ids:
                   - mfpp_213adf123af
                 status: COMPLETED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
                 items:
                   - id: '12391'
                     parent_item_id: '138'
@@ -34473,7 +34548,7 @@ x-examples:
               message:
                 order:
                   provider:
-                    id: amc_1
+                    id: sellerapp_id
                   items:
                     - id: '12391'
                       quantity:
@@ -34577,9 +34652,9 @@ x-examples:
                   id: mfpp_213adf123af
                   status: CREATED
                   provider:
-                    id: amc_1
+                    id: sellerapp_id
                     descriptor:
-                      name: ABC Mutual Fund
+                      name: Seller App Name
                   items:
                     - id: '12391'
                       parent_item_id: '138'

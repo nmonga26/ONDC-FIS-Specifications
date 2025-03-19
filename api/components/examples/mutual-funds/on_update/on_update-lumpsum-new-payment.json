@@ -25,8 +25,8 @@
             "id": "mfp_213adf123af",
             "status": "ACCEPTED",
             "provider": {
-                "id": "amc_1",
-                "descriptor": {"name": "ABC Mutual Fund"}
+                "id": "sellerapp_id",
+                "descriptor": {"name": "Seller App Name"}
             },
             "items": [
                 {

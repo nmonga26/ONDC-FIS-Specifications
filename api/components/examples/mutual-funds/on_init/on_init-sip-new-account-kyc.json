@@ -25,8 +25,8 @@
           "id": "mfpp_213adf123af",
           "status": "CREATED",
           "provider": {
-              "id": "amc_1",
-              "descriptor": {"name": "ABC Mutual Fund"}
+              "id": "sellerapp_id",
+              "descriptor": {"name": "Seller App Name"}
           },
           "items": [
               {

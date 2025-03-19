@@ -22,6 +22,10 @@
     },
     "message": {
         "order": {
+            "provider": {
+                "id": "sellerapp_id",
+                "descriptor": {"name": "Seller App Name"}
+            },
             "items": [
                 {
                     "id": "12391",

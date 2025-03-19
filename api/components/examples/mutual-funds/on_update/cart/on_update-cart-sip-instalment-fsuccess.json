@@ -25,6 +25,10 @@
             "id": "mfp_213adf123af",
             "ref_order_ids": ["mfpp_213adf123af"],
             "status": "COMPLETED",
+            "provider": {
+                "id": "sellerapp_id",
+                "descriptor": {"name": "Seller App Name"}
+            },
             "items": [
                 {
                     "id": "12391",

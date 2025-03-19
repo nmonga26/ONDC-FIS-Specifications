@@ -23,7 +23,7 @@
   "message": {
     "order": {
       "id": "mfpp_213adf123af",
-      "provider": { "id": "amc_1" },
+      "provider": { "id": "sellerapp_id" },
       "items": [
         {
           "id": "12391",
