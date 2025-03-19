@@ -1,12 +1,13 @@
 summary: Cart - Lumpsum Investment - Part Failure
-
+details:
+  - description: All steps until confirm are the same as a regular cart puchase. Hence those calls are not shown here.
 references: if any
-steps:
 
+steps:
   - summary: On Update
     api: on_update
     details:
-      - description: All the other steps remain the same as a regular cart purchase. Send fulfillment 1 success notification
+      - description: Send fulfillment 1 success notification
     reference: if any
     example:
       value:
@@ -14,7 +15,7 @@ steps:
   - summary: On Update
     api: on_update
     details:
-      - description: All the other steps remain the same as a regular cart purchase. Send fulfillment 1 success, 2 failure notification
+      - description: Send fulfillment 1 success, 2 failure notification
     reference: if any
     example:
       value:

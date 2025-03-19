@@ -164,5 +164,11 @@ sequenceDiagram
 
 ---
 
-##### Multiple Items in an order
-Only one item in an order is supported
+##### Multiple items in an order (cart functionality)
+Buyer app can send orders with multiple items in it. Each item will have an associated fulfillment. Payment for all fulfillments are taken together in one selected payment method. Only the following combinations are supported for multi item orders
+1. Lumpsum + Lumpsum (one payment for all)
+2. SIP + SIP (one payment for all)
+
+Lumpsum + SIP, Redemption + Redemption, Lumpsum + Redemption - these combinations aren't supported. Buyer app has to create separate orders for these.
+
+Order will be in `ACCEPTED` state until all the fulfillments reach end state.
