@@ -162,6 +162,7 @@ message:
           price:
             value: "0"
             currency: INR    
+      ttl: PT15D
     fulfillments:
       - customer:
           organization:

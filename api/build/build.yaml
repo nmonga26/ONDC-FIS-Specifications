@@ -118,6 +118,7 @@ paths:
               schema:
                 type: object
                 properties:
+                  context: null
                   message:
                     type: object
                     properties:
@@ -5626,6 +5627,7 @@ x-flows:
                       price:
                         value: '0'
                         currency: INR
+                  ttl: PT15D
                 fulfillments:
                   - customer:
                       organization:
@@ -6041,6 +6043,7 @@ x-flows:
                       price:
                         value: '0'
                         currency: INR
+                  ttl: PT15D
                 fulfillments:
                   - customer:
                       organization:
@@ -6865,6 +6868,7 @@ x-flows:
                       price:
                         value: '0'
                         currency: INR
+                  ttl: PT15D
                 fulfillments:
                   - customer:
                       organization:
@@ -8688,6 +8692,7 @@ x-flows:
                       price:
                         value: '0'
                         currency: INR
+                  ttl: PT15D
                 fulfillments:
                   - customer:
                       organization:
@@ -9087,6 +9092,7 @@ x-flows:
                       price:
                         value: '0'
                         currency: INR
+                  ttl: PT15D
                 fulfillments:
                   - customer:
                       organization:
@@ -15846,6 +15852,7 @@ x-examples:
                         price:
                           value: '0'
                           currency: INR
+                    ttl: PT15D
                   fulfillments:
                     - customer:
                         organization:
@@ -16558,6 +16565,7 @@ x-examples:
                         price:
                           value: '0'
                           currency: INR
+                    ttl: PT15D
                   fulfillments:
                     - customer:
                         organization:
@@ -16848,6 +16856,7 @@ x-examples:
                         price:
                           value: '0'
                           currency: INR
+                    ttl: PT15D
                   fulfillments:
                     - customer:
                         organization:
@@ -22698,6 +22707,10 @@ x-errorcodes:
       Description: The rate limit for an external API has been exceeded.
       From: BPP
       code: 80223
+    - Event: Account agreegator ID is required.
+      Description: Lender could not process as Account agreegator ID is rquired.
+      From: BPP
+      code: 80224
 x-tlc:
   code:
     - Term: Buyer App Fee Type
