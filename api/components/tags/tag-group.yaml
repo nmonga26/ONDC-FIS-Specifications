@@ -153,6 +153,13 @@ order:
           - code: BANK_CODE
             description : Describes the finder fees for buyer
             reference: <PR/Issue/Discussion Links md format text>
+      - code: REF_ORDER_IDS
+        description : Details of child order ids in case of recurring orders
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: <EMPTY>
+            description : Value is the child order id
+            reference: <PR/Issue/Discussion Links md format text>
   payments:
     tags:
       - code: PAYMENT_METHOD

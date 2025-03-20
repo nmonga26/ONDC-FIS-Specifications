@@ -247,6 +247,15 @@
                                     "value": "5"
                                 }
                             ]
+                        },
+                        {
+                            "display": false,
+                            "descriptor": { "name": "Installment Order Ids", "code": "REF_ORDER_IDS" },
+                            "list": [
+                                {
+                                    "value": "mfp_7657EFDFHF2342"
+                                }
+                            ]
                         }
                     ]
                 }
