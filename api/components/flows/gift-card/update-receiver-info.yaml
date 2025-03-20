@@ -1,0 +1,119 @@
+summary: Update Receiver Info
+details:           
+references: if any
+steps:
+  - summary: Provider confirms the order
+    api: on_confirm
+    details:
+      - description: Provider confirms the order
+        mermaid: >-
+          sequenceDiagram
+            title  Order Confirmation
+            participant Buyer Platform (BAP)
+            participant Provider Platform (BPP)
+            rect rgb(191, 223, 255)
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+            end
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_status
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/gift-card/on_confirm/on_confirm_request.yaml"
+  - summary: Request for correct receiver information
+    api: on_status
+    details:
+      - description: In the on_status with "ON_HOLD" state where the seller app is asking for updated receiver info, the tags to be shared are in fulfillments object. In this, the seller app will provide either phone or email or both requirement depending on whichever has failed
+        mermaid: >-
+          sequenceDiagram
+            title  Order Confirmation
+            participant Buyer Platform (BAP)
+            participant Provider Platform (BPP)
+            rect rgb(191, 223, 255)
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+            end
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_status
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/gift-card/on_status/on_status_request_receiver_update_1.yaml"      
+  - summary: Buyer app provides the details for update
+    api: update
+    details:
+      - description: Buyer app provides the details for update
+        mermaid: >-
+          sequenceDiagram
+            title Order Fulfillment
+            participant Buyer Platform (BAP)
+            participant Provider Platform (BPP)
+            rect rgb(191, 223, 255)
+            Buyer Platform (BAP)->>Provider Platform (BPP): update
+            Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+            end
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_update - Provider
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/gift-card/update/update_request_receiver.yaml" 
+  - summary: Provider shares the latest order status
+    api: on_update
+    details:
+      - description:  Provider shares the latest order status
+        mermaid: >-
+          sequenceDiagram
+            title Order Fulfillment
+            participant Buyer Platform (BAP)
+            participant Provider Platform (BPP)
+            Buyer Platform (BAP)->>Provider Platform (BPP): update
+            Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+            rect rgb(191, 223, 255)
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_update - Provider
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
+            end
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/gift-card/on_update/on_update_request_update_receiver_info.yaml"
+  - summary: Buyer app seeks the most recent status update
+    api: status
+    details:
+      - description: Buyer app seeks the most recent status update
+        mermaid: >-
+          sequenceDiagram
+            title Order Fulfillment
+            participant Buyer Platform (BAP)
+            participant Provider Platform (BPP)
+            rect rgb(191, 223, 255)
+            Buyer Platform (BAP)->>Provider Platform (BPP): status-Request
+            Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+            end
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_status - Provider
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/gift-card/status/status_request.yaml" 
+  - summary: Provider shares the latest order status
+    api: on_status
+    details:
+      - description:  Provider shares the latest order status
+        mermaid: >-
+          sequenceDiagram
+            title Order Fulfillment
+            participant Buyer Platform (BAP)
+            participant Provider Platform (BPP)
+            Buyer Platform (BAP)->>Provider Platform (BPP): status-Request
+            Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+            rect rgb(191, 223, 255)
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_status - Provider
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
+            end
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/gift-card/on_status/on_status_request_receiver_update_2.yaml"
+        

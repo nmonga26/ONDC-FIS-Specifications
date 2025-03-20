@@ -5,23 +5,29 @@ context:
       code: std:080
     country:
       code: IND
-  action: on_cancel
+  action: on_update
   version: 2.0.0
   bap_id: buyerapp.com
   bap_uri: https://buyerapp.com/ondc
   bpp_id: sellerapp.com
   bpp_uri: https://sellerapp.com/ondc
   transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
-  message_id: 774f73ca-76a6-4d13-9d3b-4f3a45726c56
-  timestamp: '2023-03-10T10:00:00.410Z'
+  message_id: cddd3205-9acf-49de-a34d-6742a2743815
+  timestamp: '2023-03-10T10:00:00.407Z'
 message:
   order:
     id: O1
-    status: CANCELLED
-    cancellation:
-      cancelled_by: PROVIDER
-      reason:
-        id: "001"
+    status: IN_PROGRESS
+    tags:
+      - descriptor:
+          code: UPDATE_RECEIVER_INFO
+        list:
+          - descriptor:
+              code: EMAIL
+            value: testing@test.com
+          - descriptor:
+              code: PHONE
+            value: "9865432190"
     provider:
       id: P1
     items:
@@ -42,7 +48,7 @@ message:
               code: CUSTOMIZATION
             list:
               - descriptor:
-                  code: Enabled
+                  code: ENABLED
                 value: "TRUE"
               - descriptor:
                   code: RECEIVER_NAME
@@ -57,21 +63,32 @@ message:
       - id: F1
         state:
           descriptor:
-            code: CANCELLED
+            code: COMPLETED
         type: BPP_ONLINE_EMAIL_SMS
         stops:
           - contact:
-              phone: "9999888867"
-              email: receiver1@test.com
+              phone: "9865432190"
+              email: updated_rec@test.com
             person:
               name: Receiver Name 1
             authorization:
               type: CODE
               token: "12383235623423467"
+        tags:
+          - descriptor:
+              code: UPDATE_RECEIVER_INFO
+            list:
+              - descriptor:
+                  code: EMAIL
+                value: updated_rec@test.com
+              - descriptor:
+                  code: PHONE
+                value: "9865432190"  
+              
       - id: F2
         state:
           descriptor:
-            code: CANCELLED
+            code: COMPLETED
         type: BPP_ONLINE_EMAIL_SMS
         stops:
           - contact:
@@ -85,7 +102,7 @@ message:
       - id: F3
         state:
           descriptor:
-            code: CANCELLED
+            code: PENDING
         type: BPP_ONLINE_EMAIL_SMS
         stops:
           - contact:
@@ -93,9 +110,6 @@ message:
               email: receiver3@test.com
             person:
               name: Receiver Name 3
-            authorization:
-              type: CODE
-              token: "12383235623423467"
     billing:
       name: "House #"
       address: B005 Aspire Heights
@@ -127,13 +141,13 @@ message:
     quote:
       price:
         currency: INR
-        value: "0"
+        value: "4200"
       breakup:
         - item:
             id: GC1
             quantity:
               selected:
-                count: 0
+                count: 3
             price:
               currency: INR
               value: "1500"
@@ -141,7 +155,7 @@ message:
           title: ITEM
           price:
             currency: INR
-            value: "0"
+            value: "4500"
         - item:
             id: GC1
           title: TAX
@@ -159,13 +173,17 @@ message:
           title: OFFER
           price:
             currency: INR
-            value: "0"
+            value: "-300"
       ttl: P1D
     payments:
       - type: ON-ORDER
         collected_by: BPP
         url: https://sellerpaymentgateway.com/123456
         id: PMTTXN1
+        params:
+          currency: INR
+          transaction_id: "1234567"
+          amount: "4200"
         status: PAID
         tags:
           - descriptor:

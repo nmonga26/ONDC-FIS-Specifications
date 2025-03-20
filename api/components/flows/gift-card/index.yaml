@@ -147,6 +147,7 @@ steps:
             title  Order Confirmation
             participant Buyer Platform (BAP)
             participant Provider Platform (BPP)
+            Buyer Platform (BAP)->>Provider Platform (BPP): confirm
             Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
             rect rgb(191, 223, 255)
             Provider Platform (BPP)->>Buyer Platform (BAP):on_confirm
