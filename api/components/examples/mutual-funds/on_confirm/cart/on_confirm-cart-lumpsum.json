@@ -471,12 +471,22 @@
                     {
                         "item": { "id": "12391", "fulfillment_ids": ["ff_123"] },
                         "title": "Investment",
-                        "price": { "currency": "INR", "value": "3000" }
+                        "price": { "currency": "INR", "value": "2999.85" }
+                    },
+                    {
+                        "item": { "id": "12391", "fulfillment_ids": ["ff_123"] },
+                        "title": "STAMP_DUTY",
+                        "price": { "currency": "INR", "value": "0.15" }
                     },
                     {
                         "item": { "id": "15031", "fulfillment_ids": ["ff_124"] },
                         "title": "Investment",
-                        "price": { "currency": "INR", "value": "5000" }
+                        "price": { "currency": "INR", "value": "4999.75" }
+                    },
+                    {
+                        "item": { "id": "15031", "fulfillment_ids": ["ff_124"] },
+                        "title": "STAMP_DUTY",
+                        "price": { "currency": "INR", "value": "0.25" }
                     }
                 ]
             },

@@ -29093,7 +29093,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_123
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                     - item:
                         id: '15031'
                         fulfillment_ids:
@@ -29101,7 +29109,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '5000'
+                        value: '4999.75'
+                    - item:
+                        id: '15031'
+                        fulfillment_ids:
+                          - ff_124
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.25'
       - summary: Initialize the Lumpsum order
         api: init
         details:
@@ -29612,7 +29628,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_123
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                     - item:
                         id: '15031'
                         fulfillment_ids:
@@ -29620,7 +29644,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '5000'
+                        value: '4999.75'
+                    - item:
+                        id: '15031'
+                        fulfillment_ids:
+                          - ff_124
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.25'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: Confirm
@@ -30180,7 +30212,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_123
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                     - item:
                         id: '15031'
                         fulfillment_ids:
@@ -30188,7 +30228,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '5000'
+                        value: '4999.75'
+                    - item:
+                        id: '15031'
+                        fulfillment_ids:
+                          - ff_124
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.25'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: Payment
@@ -30618,7 +30666,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_123
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                     - item:
                         id: '15031'
                         fulfillment_ids:
@@ -30626,7 +30682,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '5000'
+                        value: '4999.75'
+                    - item:
+                        id: '15031'
+                        fulfillment_ids:
+                          - ff_124
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.25'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: On Update
@@ -31057,7 +31121,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_123
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                     - item:
                         id: '15031'
                         fulfillment_ids:
@@ -31065,7 +31137,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '5000'
+                        value: '4999.75'
+                    - item:
+                        id: '15031'
+                        fulfillment_ids:
+                          - ff_124
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.25'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: On Update
@@ -31507,7 +31587,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_123
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                     - item:
                         id: '15031'
                         fulfillment_ids:
@@ -31515,7 +31603,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '5000'
+                        value: '4999.75'
+                    - item:
+                        id: '15031'
+                        fulfillment_ids:
+                          - ff_124
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.25'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: Cart - Lumpsum Investment - Part Failure
@@ -31915,7 +32011,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_123
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                     - item:
                         id: '15031'
                         fulfillment_ids:
@@ -31923,7 +32027,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '5000'
+                        value: '4999.75'
+                    - item:
+                        id: '15031'
+                        fulfillment_ids:
+                          - ff_124
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.25'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: Cart - SIP Creation
@@ -34817,7 +34929,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_123
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                     - item:
                         id: '15031'
                         fulfillment_ids:
@@ -34825,7 +34945,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '5000'
+                        value: '4999.75'
+                    - item:
+                        id: '15031'
+                        fulfillment_ids:
+                          - ff_124
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.25'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: On Status (successful instalment payment)
@@ -35193,7 +35321,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_123
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                     - item:
                         id: '15031'
                         fulfillment_ids:
@@ -35201,7 +35337,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '5000'
+                        value: '4999.75'
+                    - item:
+                        id: '15031'
+                        fulfillment_ids:
+                          - ff_124
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.25'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: On Update (successful instalment)
@@ -35592,7 +35736,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_123
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                     - item:
                         id: '15031'
                         fulfillment_ids:
@@ -35600,7 +35752,15 @@ x-flows:
                       title: Investment
                       price:
                         currency: INR
-                        value: '5000'
+                        value: '4999.75'
+                    - item:
+                        id: '15031'
+                        fulfillment_ids:
+                          - ff_124
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.25'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
 x-examples:
