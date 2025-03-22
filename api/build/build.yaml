@@ -15950,7 +15950,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_009
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '3000'
@@ -16104,7 +16104,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_009
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -16312,7 +16312,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_008
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -16543,7 +16543,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_009
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -16788,7 +16788,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_009
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -18205,7 +18205,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_123
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -18514,7 +18514,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_789
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -18867,7 +18867,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_789
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -19086,7 +19086,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_789
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -19340,7 +19340,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_008
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -19651,7 +19651,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_789
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -20002,7 +20002,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_789
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -22159,7 +22159,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_123
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -22444,7 +22444,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_123
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -22768,7 +22768,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_123
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -22989,7 +22989,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_123
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -23253,7 +23253,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_123
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -26798,7 +26798,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_789
-                      title: Redemption
+                      title: REDEMPTION
                       price:
                         currency: INR
                         value: '3000'
@@ -27069,7 +27069,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_789
-                      title: Redemption
+                      title: REDEMPTION
                       price:
                         currency: INR
                         value: '3000'
@@ -27370,7 +27370,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_789
-                      title: Redemption
+                      title: REDEMPTION
                       price:
                         currency: INR
                         value: '3000'
@@ -27560,7 +27560,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_008
-                      title: Redemption
+                      title: REDEMPTION
                       price:
                         currency: INR
                         value: '3000'
@@ -27906,7 +27906,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_789
-                      title: Redemption
+                      title: REDEMPTION
                       price:
                         currency: INR
                         value: '0'
@@ -28088,7 +28088,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_008
-                      title: Redemption
+                      title: REDEMPTION
                       price:
                         currency: INR
                         value: '600'
@@ -28429,7 +28429,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_789
-                      title: Redemption
+                      title: REDEMPTION
                       price:
                         currency: INR
                         value: '0'
@@ -28611,7 +28611,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_008
-                      title: Redemption
+                      title: REDEMPTION
                       price:
                         currency: INR
                         value: '1000'
@@ -28879,7 +28879,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_008
-                      title: Redemption
+                      title: REDEMPTION
                       price:
                         currency: INR
                         value: '3000'
@@ -29417,7 +29417,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_123
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -29433,7 +29433,7 @@ x-flows:
                         id: '15031'
                         fulfillment_ids:
                           - ff_124
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '4999.75'
@@ -29952,7 +29952,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_123
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -29968,7 +29968,7 @@ x-flows:
                         id: '15031'
                         fulfillment_ids:
                           - ff_124
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '4999.75'
@@ -30536,7 +30536,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_123
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -30552,7 +30552,7 @@ x-flows:
                         id: '15031'
                         fulfillment_ids:
                           - ff_124
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '4999.75'
@@ -30990,7 +30990,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_123
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -31006,7 +31006,7 @@ x-flows:
                         id: '15031'
                         fulfillment_ids:
                           - ff_124
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '4999.75'
@@ -31445,7 +31445,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_123
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -31461,7 +31461,7 @@ x-flows:
                         id: '15031'
                         fulfillment_ids:
                           - ff_124
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '4999.75'
@@ -31911,7 +31911,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_123
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -31927,7 +31927,7 @@ x-flows:
                         id: '15031'
                         fulfillment_ids:
                           - ff_124
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '4999.75'
@@ -32335,7 +32335,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_123
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -32351,7 +32351,7 @@ x-flows:
                         id: '15031'
                         fulfillment_ids:
                           - ff_124
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '4999.75'
@@ -35253,7 +35253,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_123
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -35269,7 +35269,7 @@ x-flows:
                         id: '15031'
                         fulfillment_ids:
                           - ff_124
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '4999.75'
@@ -35645,7 +35645,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_123
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -35661,7 +35661,7 @@ x-flows:
                         id: '15031'
                         fulfillment_ids:
                           - ff_124
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '4999.75'
@@ -36060,7 +36060,7 @@ x-flows:
                         id: '12391'
                         fulfillment_ids:
                           - ff_123
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '2999.85'
@@ -36076,7 +36076,7 @@ x-flows:
                         id: '15031'
                         fulfillment_ids:
                           - ff_124
-                      title: Investment
+                      title: INVESTMENT
                       price:
                         currency: INR
                         value: '4999.75'
@@ -36511,7 +36511,7 @@ x-examples:
                           id: '12391'
                           fulfillment_ids:
                             - ff_789
-                        title: Investment
+                        title: INVESTMENT
                         price:
                           currency: INR
                           value: '2999.85'
