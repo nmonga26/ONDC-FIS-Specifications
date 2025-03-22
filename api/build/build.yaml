@@ -16406,7 +16406,7 @@ x-flows:
                 id: mfp_7657EFDFHF2342
                 ref_order_ids:
                   - mfpp_213adf123af
-                status: CANCELLED
+                status: ACCEPTED
                 provider:
                   id: sellerapp_id
                   descriptor:
@@ -16485,8 +16485,8 @@ x-flows:
                     type: SIP_INSTALMENT
                     state:
                       descriptor:
-                        name: Failed
-                        code: FAILED
+                        name: Pending
+                        code: PENDING
                     customer:
                       person:
                         id: pan:arrpp7771n

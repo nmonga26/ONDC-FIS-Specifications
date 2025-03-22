@@ -24,7 +24,7 @@
         "order": {
             "id": "mfp_7657EFDFHF2342",
             "ref_order_ids": ["mfpp_213adf123af"],
-            "status": "CANCELLED",
+            "status": "ACCEPTED",
             "provider": {
                 "id": "sellerapp_id",
                 "descriptor": {"name": "Seller App Name"}
@@ -109,7 +109,7 @@
                     "id": "ff_009",
                     "type": "SIP_INSTALMENT",
                     "state": {
-                        "descriptor": {"name": "Failed", "code": "FAILED"}
+                        "descriptor": {"name": "Pending", "code": "PENDING"}
                     },
                     "customer": {
                         "person": {
