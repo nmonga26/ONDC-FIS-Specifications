@@ -432,7 +432,7 @@
                 "breakup": [
                     {
                         "item": { "id": "12391", "fulfillment_ids": ["ff_123"] },
-                        "title": "Investment",
+                        "title": "INVESTMENT",
                         "price": { "currency": "INR", "value": "2999.85" }
                     },
                     {
@@ -442,7 +442,7 @@
                     },
                     {
                         "item": { "id": "15031", "fulfillment_ids": ["ff_124"] },
-                        "title": "Investment",
+                        "title": "INVESTMENT",
                         "price": { "currency": "INR", "value": "4999.75" }
                     },
                     {
