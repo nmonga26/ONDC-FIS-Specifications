@@ -10198,4 +10198,3 @@ x-examples:
           - summary: on_cancel_request
             description: TBD
             value: *ref_23
-x-attributes: null
