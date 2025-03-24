@@ -1,0 +1,43 @@
+summary: Buyer app fulfilling with code in on_update
+details:           
+references: if any
+steps:
+  - summary: Provider confirms the order
+    api: on_confirm
+    details:
+      - description: Provider confirms the order
+        mermaid: >-
+          sequenceDiagram
+            title  Order Confirmation
+            participant Buyer Platform (BAP)
+            participant Provider Platform (BPP)
+            rect rgb(191, 223, 255)
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+            end
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_update
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/gift-card/on_confirm/on_confirm_request_buyer_without_code.yaml"
+  - summary: Provider confirms the order
+    api: on_update
+    details:
+      - description: Provider confirms the order
+        mermaid: >-
+          sequenceDiagram
+            title  Order Confirmation
+            participant Buyer Platform (BAP)
+            participant Provider Platform (BPP)
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+            rect rgb(191, 223, 255)
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_update
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
+            end 
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/gift-card/on_update/on_update_request_buyer_code_confirm.yaml"        
+     

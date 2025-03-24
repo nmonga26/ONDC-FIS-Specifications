@@ -3172,7 +3172,7 @@ x-tags:
                   reference: <PR/Issue/Discussion Links md format text>
   on_cancel: *ref_12
 x-flows:
-  - summary: Gift Card
+  - summary: Seller App fulfilling
     details: null
     references: if any
     steps:
@@ -3197,7 +3197,7 @@ x-flows:
                 Buyer Platform (BAP)->>Provider Platform (BPP): ACK    
         reference: if any
         example:
-          value: &ref_15
+          value: &ref_13
             context:
               domain: ONDC:FIS10
               location:
@@ -3252,7 +3252,7 @@ x-flows:
                 end
         reference: if any
         example:
-          value: &ref_16
+          value: &ref_14
             context:
               domain: ONDC:FIS10
               location:
@@ -4226,7 +4226,8 @@ x-flows:
                   ttl: P1D
                 payments:
                   - type: ON-ORDER
-                    collected_by: BAP
+                    collected_by: BPP
+                    url: https://sellerpaymentgateway.com/123456
                     status: NOT-PAID
                     tags:
                       - descriptor:
@@ -4235,33 +4236,6 @@ x-flows:
                           - descriptor:
                               code: BUYER_FINDER_FEES_PERCENTAGE
                             value: '3'
-                      - descriptor:
-                          code: SETTLEMENT_DETAILS
-                        list:
-                          - descriptor:
-                              code: SETTLEMENT_COUNTERPARTY
-                            value: BPP
-                          - descriptor:
-                              code: SETTLEMENT_TYPE
-                            value: UPI
-                          - descriptor:
-                              code: VIRTUAL_ADDRESS
-                            value: test@oksbi
-                          - descriptor:
-                              code: ACCOUNT_NO
-                            value: xxxxxxxxx
-                          - descriptor:
-                              code: BENEFICIARY_NAME
-                            value: Buyer’s Name
-                          - descriptor:
-                              code: BANK_NAME
-                            value: ICICI Bank
-                          - descriptor:
-                              code: BRANCH_CODE
-                            value: ICIC0001234
-                          - descriptor:
-                              code: BRANCH_NAME
-                            value: ICICI Indiranagar
       - summary: Buyer app confirms the request
         api: confirm
         details:
@@ -4321,7 +4295,7 @@ x-flows:
                           code: CUSTOMIZATION
                         list:
                           - descriptor:
-                              code: Enabled
+                              code: ENABLED
                             value: 'TRUE'
                           - descriptor:
                               code: RECEIVER_NAME
@@ -4424,14 +4398,9 @@ x-flows:
                   ttl: P1D
                 payments:
                   - type: ON-ORDER
-                    collected_by: BAP
-                    url: https://buyerapppaymentgateway.com/23131
-                    params:
-                      currency: INR
-                      transaction_id: '1234567'
-                      amount: '4200'
-                    id: PMTTXN1
-                    status: PAID
+                    collected_by: BPP
+                    url: https://sellerpaymentgateway.com/123456
+                    status: NOT-PAID
                     tags:
                       - descriptor:
                           code: BUYER_FINDER_FEES
@@ -4444,7 +4413,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: SETTLEMENT_COUNTERPARTY
-                            value: BPP
+                            value: BAP
                           - descriptor:
                               code: SETTLEMENT_TYPE
                             value: UPI
@@ -4485,7 +4454,7 @@ x-flows:
                 end
         reference: if any
         example:
-          value: &ref_13
+          value: &ref_16
             context:
               domain: ONDC:FIS10
               location:
@@ -4549,9 +4518,6 @@ x-flows:
                           email: receiver1@test.com
                         person:
                           name: Receiver Name 1
-                        authorization:
-                          type: CODE
-                          token: '12383235623423467'
                   - id: F2
                     state:
                       descriptor:
@@ -4563,9 +4529,6 @@ x-flows:
                           email: receiver2@test.com
                         person:
                           name: Receiver Name 2
-                        authorization:
-                          type: CODE_PIN
-                          token: CODE:12383235623423467;PIN:9999
                   - id: F3
                     state:
                       descriptor:
@@ -4705,7 +4668,7 @@ x-flows:
                 Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
         reference: if any
         example:
-          value: &ref_14
+          value: &ref_15
             context:
               domain: ONDC:FIS10
               location:
@@ -4806,6 +4769,1165 @@ x-flows:
                           email: receiver1@test.com
                         person:
                           name: Receiver Name 1
+                  - id: F2
+                    state:
+                      descriptor:
+                        code: COMPLETED
+                    type: BPP_ONLINE_EMAIL_SMS
+                    stops:
+                      - contact:
+                          phone: '9999888868'
+                          email: receiver2@test.com
+                        person:
+                          name: Receiver Name 2
+                  - id: F3
+                    state:
+                      descriptor:
+                        code: COMPLETED
+                    type: BPP_ONLINE_EMAIL_SMS
+                    stops:
+                      - contact:
+                          phone: '9999888869'
+                          email: receiver3@test.com
+                        person:
+                          name: Receiver Name 3
+                billing:
+                  name: 'House #'
+                  address: B005 Aspire Heights
+                  city:
+                    name: Bangalore
+                    code: BAN
+                  state:
+                    name: Karnataka
+                    code: KA
+                  email: test@test.com
+                  phone: '9999888877'
+                offers:
+                  - id: DISCA300
+                    item_ids:
+                      - GC1
+                  - id: FREEBIE123
+                    item_ids:
+                      - GC2
+                    tags:
+                      - descriptor:
+                          code: BENEFIT
+                        list:
+                          - descriptor:
+                              code: ITEM_ID
+                            value: SAMPLE_GC
+                          - descriptor:
+                              code: ITEM_COUNT
+                            value: '1'
+                quote:
+                  price:
+                    currency: INR
+                    value: '4200'
+                  breakup:
+                    - item:
+                        id: GC1
+                        quantity:
+                          selected:
+                            count: 3
+                        price:
+                          currency: INR
+                          value: '1500'
+                          offered_value: '1500'
+                      title: ITEM
+                      price:
+                        currency: INR
+                        value: '4500'
+                    - item:
+                        id: GC1
+                      title: TAX
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: GC1
+                      title: CONVENIENCE_FEE
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: DISCA100
+                      title: OFFER
+                      price:
+                        currency: INR
+                        value: '-300'
+                  ttl: P1D
+                payments:
+                  - type: ON-ORDER
+                    collected_by: BPP
+                    url: https://sellerpaymentgateway.com/123456
+                    id: PMTTXN1
+                    params:
+                      currency: INR
+                      transaction_id: '1234567'
+                      amount: '4200'
+                    status: PAID
+                    tags:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES
+                        list:
+                          - descriptor:
+                              code: BUYER_FINDER_FEES_PERCENTAGE
+                            value: '3'
+                      - descriptor:
+                          code: SETTLEMENT_DETAILS
+                        list:
+                          - descriptor:
+                              code: SETTLEMENT_COUNTERPARTY
+                            value: BAP
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: UPI
+                          - descriptor:
+                              code: VIRTUAL_ADDRESS
+                            value: test@oksbi
+                          - descriptor:
+                              code: ACCOUNT_NO
+                            value: xxxxxxxxx
+                          - descriptor:
+                              code: BENEFICIARY_NAME
+                            value: Buyer’s Name
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
+                          - descriptor:
+                              code: BRANCH_CODE
+                            value: ICIC0001234
+                          - descriptor:
+                              code: BRANCH_NAME
+                            value: ICICI Indiranagar
+                created_at: '2023-01-15T10:00:00.469Z'
+                updated_at: '2023-01-15T10:00:00.469Z'
+  - summary: Buyer app fulfilling with code in on_confirm
+    details: null
+    references: if any
+    steps:
+      - summary: Buyer app search for available gift card providers
+        api: search
+        details:
+          - description: >-
+              Buyer app explore gift card options by searching for Providers
+              over the network.
+            mermaid: |-
+              sequenceDiagram
+                title gift card Discovery
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Gateway (BG): search
+                Gateway (BG) ->> Buyer Platform (BAP): ACK
+                Gateway (BG)->>Registry: Lookup Provider Platforms (lookup)
+                Registry->>Gateway (BG): List of Provider Platforms (200 OK)
+                Gateway (BG)->>Provider Platform (BPP): search
+                Provider Platform (BPP)->>Gateway (BG) : ACK
+                end
+                Provider Platform (BPP)->>Buyer Platform (BAP): Publish Catalog of Provider 1 (on_search)
+                Buyer Platform (BAP)->>Provider Platform (BPP): ACK    
+        reference: if any
+        example:
+          value: *ref_13
+      - summary: >-
+          Provider app provides a catalog of different gift card products
+          offered by a single provider
+        api: on_search
+        details:
+          - description: >-
+              Provider sends a comprehensive catalog of various gift card
+              products
+            mermaid: |-
+              sequenceDiagram
+                title Gift card Discovery
+                Buyer Platform (BAP)->>Gateway (BG): search
+                Gateway (BG) ->> Buyer Platform (BAP): ACK
+                Gateway (BG)->>Registry: Lookup Provider Platforms (lookup)
+                Registry->>Gateway (BG): List of Provider Platforms (200 OK)
+                Gateway (BG)->>Provider Platform (BPP): search
+                Provider Platform (BPP)->>Gateway (BG) : ACK
+                rect rgb(191, 223, 255)
+                Provider Platform (BPP)->>Buyer Platform (BAP): Publish Catalog of Provider 1 (on_search)
+                Buyer Platform (BAP)->>Provider Platform (BPP): ACK  
+                end
+        reference: if any
+        example:
+          value: *ref_14
+      - summary: Buyer app selects an item
+        api: select
+        details:
+          - description: Buyer app selects a specific item.
+            mermaid: |-
+              sequenceDiagram
+                title  Selection
+                participant Buyer Platform (BAP)
+                participant Provider Platform (BPP)
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Provider Platform (BPP): select
+                Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+                end
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_select
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:FIS10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: select
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+              message_id: 9a97657d-0c4e-48a1-b57f-cf5805d194e8
+              timestamp: '2023-03-10T10:00:00.402Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                fulfillments:
+                  - type: BAP
+                items:
+                  - id: GC1
+                    quantity:
+                      selected:
+                        count: 3
+                  - id: GC2
+                    quantity:
+                      selected:
+                        count: 1
+                  - id: GC5
+                    quantity:
+                      selected:
+                        count: 1
+                    price:
+                      currency: INR
+                      offered_value: '1500'
+                offers:
+                  - id: DISCA100
+                    item_ids:
+                      - GC1
+                  - id: FREEBIE123
+                    item_ids:
+                      - GC2
+      - summary: Provider returns the response to selected item
+        api: on_select
+        details:
+          - description: Provider responds to the buyer app requests by sending the quote.
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Provider Platform (BPP)
+                Buyer Platform (BAP)->>Provider Platform (BPP): select
+                Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+                rect rgb(191, 223, 255)
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_select
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
+                end 
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:FIS10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_select
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+              message_id: 9a97657d-0c4e-48a1-b57f-cf5805d194e8
+              timestamp: '2023-03-10T10:00:00.403Z'
+            message:
+              order:
+                provider:
+                  id: P1
+                fulfillments:
+                  - id: F1
+                    type: BAP
+                  - id: F2
+                    type: BAP
+                  - id: F3
+                    type: BAP
+                items:
+                  - id: GC1
+                    price:
+                      currency: INR
+                      value: '1500'
+                      offered_value: '1500'
+                    quantity:
+                      selected:
+                        count: 3
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    time:
+                      label: VALIDITY
+                      duration: P1M
+                      timestamp: '2024-05-31T10:00:00.000Z'
+                    tags:
+                      - descriptor:
+                          code: ITEM_DETAILS
+                        list:
+                          - descriptor:
+                              code: OCCASION
+                            value: BIRTHDAY
+                          - descriptor:
+                              code: USABILITY
+                            value: ONLINE
+                          - descriptor:
+                              code: EXPIRY_PERIOD
+                            value: P1Y
+                          - descriptor:
+                              code: TERMS_CONDITION
+                            value: https://giftcard.com/giftcards/tncs
+                          - descriptor:
+                              code: REDEMPTION_INSTRUCTION
+                            value: Instructions on how gift card can be redeemed
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: ENABLED
+                            value: 'TRUE'
+                          - descriptor:
+                              code: RECEIVER_NAME
+                          - descriptor:
+                              code: MESSAGE
+                          - descriptor:
+                              code: PREVIEW_IMAGE
+                      - descriptor:
+                          code: BRAND_DETAILS
+                        list:
+                          - descriptor:
+                              code: BRAND_NAME
+                            value: name of brand free text
+                          - descriptor:
+                              code: BRAND_PHONE
+                            value: '9900112299'
+                          - descriptor:
+                              code: BRAND_EMAIL
+                            value: contact@giftcard.com
+                  - id: GC2
+                    price:
+                      currency: INR
+                      value: '2000'
+                      offered_value: '2000'
+                    quantity:
+                      selected:
+                        count: 1
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    time:
+                      label: VALIDITY
+                      duration: P1M
+                      timestamp: '2024-05-31T10:00:00.000Z'
+                    tags:
+                      - descriptor:
+                          code: ITEM_DETAILS
+                        list:
+                          - descriptor:
+                              code: USABILITY
+                            value: ONLINE
+                          - descriptor:
+                              code: EXPIRY_PERIOD
+                            value: P1Y
+                          - descriptor:
+                              code: TERMS_CONDITION
+                            value: https://giftcard.com/giftcards/tncs
+                          - descriptor:
+                              code: REDEMPTION_INSTRUCTION
+                            value: Instructions on how gift card can be redeemed
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: ENABLED
+                            value: 'TRUE'
+                          - descriptor:
+                              code: RECEIVER_NAME
+                          - descriptor:
+                              code: MESSAGE
+                          - descriptor:
+                              code: PREVIEW_IMAGE
+                      - descriptor:
+                          code: BRAND_DETAILS
+                        list:
+                          - descriptor:
+                              code: BRAND_NAME
+                            value: name of brand free text
+                          - descriptor:
+                              code: BRAND_PHONE
+                            value: '9900112299'
+                          - descriptor:
+                              code: BRAND_EMAIL
+                            value: contact@giftcard.com
+                  - id: GC5
+                    price:
+                      currency: INR
+                      value: '1400'
+                      offered_value: '1500'
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    time:
+                      label: VALIDITY
+                      duration: P1M
+                      timestamp: '2024-05-31T10:00:00.000Z'
+                    tags:
+                      - descriptor:
+                          code: ITEM_DETAILS
+                        list:
+                          - descriptor:
+                              code: OCCASION
+                            value: DIWALI
+                          - descriptor:
+                              code: USABILITY
+                            value: ONLINE
+                          - descriptor:
+                              code: EXPIRY_PERIOD
+                            value: P1Y
+                          - descriptor:
+                              code: TERMS_CONDITION
+                            value: https://giftcard.com/giftcards/tncs
+                          - descriptor:
+                              code: REDEMPTION_INSTRUCTION
+                            value: Instructions on how gift card can be redeemed
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: ENABLED
+                            value: 'FALSE'
+                      - descriptor:
+                          code: BRAND_DETAILS
+                        list:
+                          - descriptor:
+                              code: BRAND_NAME
+                            value: name of brand free text
+                  - id: SAMPLE_GC
+                    price:
+                      currency: INR
+                      value: '200'
+                      offered_value: '200'
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    time:
+                      label: VALIDITY
+                      duration: P1M
+                      timestamp: '2024-05-31T10:00:00.000Z'
+                    tags:
+                      - descriptor:
+                          code: ITEM_DETAILS
+                        list:
+                          - descriptor:
+                              code: USABILITY
+                            value: ONLINE
+                          - descriptor:
+                              code: EXPIRY_PERIOD
+                            value: P1Y
+                          - descriptor:
+                              code: TERMS_CONDITION
+                            value: https://giftcard.com/giftcards/tncs
+                          - descriptor:
+                              code: REDEMPTION_INSTRUCTION
+                            value: Instructions on how gift card can be redeemed
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: ENABLED
+                            value: 'FALSE'
+                      - descriptor:
+                          code: BRAND_DETAILS
+                        list:
+                          - descriptor:
+                              code: BRAND_NAME
+                            value: name of brand free text
+                          - descriptor:
+                              code: BRAND_PHONE
+                            value: '9900112299'
+                          - descriptor:
+                              code: BRAND_EMAIL
+                            value: contact@giftcard.com
+                offers:
+                  - id: DISCA300
+                    item_ids:
+                      - GC1
+                  - id: FREEBIE123
+                    item_ids:
+                      - GC2
+                    tags:
+                      - descriptor:
+                          code: BENEFIT
+                        list:
+                          - descriptor:
+                              code: ITEM_ID
+                            value: SAMPLE_GC
+                          - descriptor:
+                              code: ITEM_COUNT
+                            value: '1'
+                quote:
+                  price:
+                    currency: INR
+                    value: '5600'
+                  breakup:
+                    - item:
+                        id: GC1
+                        quantity:
+                          selected:
+                            count: 3
+                        price:
+                          currency: INR
+                          value: '1500'
+                          offered_value: '1500'
+                      title: ITEM
+                      price:
+                        currency: INR
+                        value: '4500'
+                    - item:
+                        id: GC1
+                      title: TAX
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: GC1
+                      title: CONVENIENCE_FEE
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: GC1
+                      title: OFFER
+                      price:
+                        currency: INR
+                        value: '-300'
+                    - item:
+                        id: GC2
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '2000'
+                          offered_value: '2000'
+                      title: ITEM
+                      price:
+                        currency: INR
+                        value: '2000'
+                    - item:
+                        id: GC2
+                      title: TAX
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: GC2
+                      title: CONVENIENCE_FEE
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: SAMPLE_GC
+                      title: ITEM
+                      price:
+                        currency: INR
+                        value: '200'
+                    - item:
+                        id: SAMPLE_GC
+                      title: OFFER
+                      price:
+                        currency: INR
+                        value: '-200'
+                    - item:
+                        id: GC5
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '1400'
+                          offered_value: '1500'
+                      title: ITEM
+                      price:
+                        currency: INR
+                        value: '1400'
+                    - item:
+                        id: GC5
+                      title: TAX
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: GC5
+                      title: CONVENIENCE_FEE
+                      price:
+                        currency: INR
+                        value: '0'
+                  ttl: P1D
+      - summary: The buyer app initiates request
+        api: init
+        details:
+          - description: The buyer app initiates request
+            mermaid: |-
+              sequenceDiagram
+                title Initializing Order
+                participant Buyer Platform (BAP)
+                participant Provider Platform (BPP)
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Provider Platform (BPP): init
+                Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+                end
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_init
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:FIS10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: init
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+              message_id: e75c4edb-eafb-4fb6-b76d-fc6b48b518fe
+              timestamp: '2023-03-10T10:00:00.404Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                fulfillments:
+                  - id: F1
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888867'
+                          email: receiver1@test.com
+                        person:
+                          name: Receiver Name 1
+                  - id: F2
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888868'
+                          email: receiver2@test.com
+                        person:
+                          name: Receiver Name 2
+                  - id: F3
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888869'
+                          email: receiver3@test.com
+                        person:
+                          name: Receiver Name 3
+                items:
+                  - id: GC1
+                    quantity:
+                      selected:
+                        count: 3
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    tags:
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: RECEIVER_NAME
+                            value: Test Name
+                          - descriptor:
+                              code: MESSAGE
+                            value: Happy Birthday to you!!
+                billing:
+                  name: 'House #'
+                  address: B005 Aspire Heights
+                  city:
+                    name: Bangalore
+                    code: BAN
+                  state:
+                    name: Karnataka
+                    code: KA
+                  email: test@test.com
+                  phone: '9999888877'
+      - summary: Provider returns the response.
+        api: on_init
+        details:
+          - description: Provider returns the response.
+            mermaid: |-
+              sequenceDiagram
+                title Initializing Order
+                participant Buyer Platform (BAP)
+                participant Provider Platform (BPP)
+                Buyer Platform (BAP)->>Provider Platform (BPP): init
+                Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+                rect rgb(191, 223, 255)
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_init
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
+                end
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:FIS10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_init
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+              message_id: e75c4edb-eafb-4fb6-b76d-fc6b48b518fe
+              timestamp: '2023-03-10T10:00:00.405Z'
+            message:
+              order:
+                provider:
+                  id: P1
+                fulfillments:
+                  - id: F1
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888867'
+                          email: receiver1@test.com
+                        person:
+                          name: Receiver Name 1
+                  - id: F2
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888868'
+                          email: receiver2@test.com
+                        person:
+                          name: Receiver Name 2
+                  - id: F3
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888869'
+                          email: receiver3@test.com
+                        person:
+                          name: Receiver Name 3
+                items:
+                  - id: GC1
+                    price:
+                      currency: INR
+                      value: '1500'
+                      offered_value: '1500'
+                    quantity:
+                      selected:
+                        count: 3
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    tags:
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: ENABLED
+                            value: 'TRUE'
+                          - descriptor:
+                              code: RECEIVER_NAME
+                            value: Test name
+                          - descriptor:
+                              code: MESSAGE
+                            value: Happy Birthday to you!!
+                          - descriptor:
+                              code: PREVIEW_IMAGE
+                            value: https://giftcard.com/images/prev-image
+                billing:
+                  name: 'House #'
+                  address: B005 Aspire Heights
+                  city:
+                    name: Bangalore
+                    code: BAN
+                  state:
+                    name: Karnataka
+                    code: KA
+                  email: test@test.com
+                  phone: '9999888877'
+                offers:
+                  - id: DISCA300
+                    item_ids:
+                      - GC1
+                  - id: FREEBIE123
+                    item_ids:
+                      - GC2
+                    tags:
+                      - descriptor:
+                          code: BENEFIT
+                        list:
+                          - descriptor:
+                              code: ITEM_ID
+                            value: SAMPLE_GC
+                          - descriptor:
+                              code: ITEM_COUNT
+                            value: '1'
+                quote:
+                  price:
+                    currency: INR
+                    value: '4200'
+                  breakup:
+                    - item:
+                        id: GC1
+                        quantity:
+                          selected:
+                            count: 3
+                        price:
+                          currency: INR
+                          value: '1500'
+                          offered_value: '1500'
+                      title: ITEM
+                      price:
+                        currency: INR
+                        value: '4500'
+                    - item:
+                        id: GC1
+                      title: TAX
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: GC1
+                      title: CONVENIENCE_FEE
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: DISCA100
+                      title: OFFER
+                      price:
+                        currency: INR
+                        value: '-300'
+                  ttl: P1D
+                payments:
+                  - type: ON-ORDER
+                    collected_by: BPP
+                    url: https://sellerpaymentgateway.com/123456
+                    status: NOT-PAID
+                    tags:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES
+                        list:
+                          - descriptor:
+                              code: BUYER_FINDER_FEES_PERCENTAGE
+                            value: '3'
+      - summary: Buyer app confirms the request
+        api: confirm
+        details:
+          - description: Buyer app confirms the request
+            mermaid: |-
+              sequenceDiagram
+                title  Order Confirmation
+                participant Buyer Platform (BAP)
+                participant Provider Platform (BPP)
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Provider Platform (BPP): confirm
+                Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+                end
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:FIS10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: confirm
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+              message_id: 9e797e76-ee05-4965-8a7c-3e81724a5cd5
+              timestamp: '2023-03-10T10:00:00.406Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                status: CREATED
+                provider:
+                  id: P1
+                items:
+                  - id: GC1
+                    price:
+                      currency: INR
+                      value: '1500'
+                      offered_value: '1500'
+                    quantity:
+                      selected:
+                        count: 3
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    tags:
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: ENABLED
+                            value: 'TRUE'
+                          - descriptor:
+                              code: RECEIVER_NAME
+                            value: Test name
+                          - descriptor:
+                              code: MESSAGE
+                            value: Happy Birthday to you!!
+                          - descriptor:
+                              code: PREVIEW_IMAGE
+                            value: https://giftcard.com/images/prev-image
+                fulfillments:
+                  - id: F1
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888867'
+                          email: receiver1@test.com
+                        person:
+                          name: Receiver Name 1
+                  - id: F2
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888868'
+                          email: receiver2@test.com
+                        person:
+                          name: Receiver Name 2
+                  - id: F3
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888869'
+                          email: receiver3@test.com
+                        person:
+                          name: Receiver Name 3
+                billing:
+                  name: 'House #'
+                  address: B005 Aspire Heights
+                  city:
+                    name: Bangalore
+                    code: BAN
+                  state:
+                    name: Karnataka
+                    code: KA
+                  email: test@test.com
+                  phone: '9999888877'
+                offers:
+                  - id: DISCA300
+                    item_ids:
+                      - GC1
+                  - id: FREEBIE123
+                    item_ids:
+                      - GC2
+                    tags:
+                      - descriptor:
+                          code: BENEFIT
+                        list:
+                          - descriptor:
+                              code: ITEM_ID
+                            value: SAMPLE_GC
+                          - descriptor:
+                              code: ITEM_COUNT
+                            value: '1'
+                quote:
+                  price:
+                    currency: INR
+                    value: '4200'
+                  breakup:
+                    - item:
+                        id: GC1
+                        quantity:
+                          selected:
+                            count: 3
+                        price:
+                          currency: INR
+                          value: '1500'
+                          offered_value: '1500'
+                      title: ITEM
+                      price:
+                        currency: INR
+                        value: '4500'
+                    - item:
+                        id: GC1
+                      title: TAX
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: GC1
+                      title: CONVENIENCE_FEE
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: DISCA100
+                      title: OFFER
+                      price:
+                        currency: INR
+                        value: '-300'
+                  ttl: P1D
+                payments:
+                  - type: ON-ORDER
+                    collected_by: BPP
+                    url: https://sellerpaymentgateway.com/123456
+                    status: NOT-PAID
+                    tags:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES
+                        list:
+                          - descriptor:
+                              code: BUYER_FINDER_FEES_PERCENTAGE
+                            value: '3'
+                      - descriptor:
+                          code: SETTLEMENT_DETAILS
+                        list:
+                          - descriptor:
+                              code: SETTLEMENT_COUNTERPARTY
+                            value: BAP
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: UPI
+                          - descriptor:
+                              code: VIRTUAL_ADDRESS
+                            value: test@oksbi
+                          - descriptor:
+                              code: ACCOUNT_NO
+                            value: xxxxxxxxx
+                          - descriptor:
+                              code: BENEFICIARY_NAME
+                            value: Buyer’s Name
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
+                          - descriptor:
+                              code: BRANCH_CODE
+                            value: ICIC0001234
+                          - descriptor:
+                              code: BRANCH_NAME
+                            value: ICICI Indiranagar
+                created_at: '2023-01-15T10:00:00.469Z'
+                updated_at: '2023-01-15T10:00:00.469Z'
+      - summary: Provider confirms the order
+        api: on_confirm
+        details:
+          - description: Provider confirms the order
+            mermaid: |-
+              sequenceDiagram
+                title  Order Confirmation
+                participant Buyer Platform (BAP)
+                participant Provider Platform (BPP)
+                Buyer Platform (BAP)->>Provider Platform (BPP): confirm
+                Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+                rect rgb(191, 223, 255)
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+                end
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:FIS10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_confirm
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+              message_id: 9e797e76-ee05-4965-8a7c-3e81724a5cd5
+              timestamp: '2023-03-10T10:00:00.407Z'
+            message:
+              order:
+                id: O1
+                status: ACCEPTED
+                provider:
+                  id: P1
+                items:
+                  - id: GC1
+                    price:
+                      currency: INR
+                      value: '1500'
+                      offered_value: '1500'
+                    quantity:
+                      selected:
+                        count: 3
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    tags:
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: ENABLED
+                            value: 'TRUE'
+                          - descriptor:
+                              code: RECEIVER_NAME
+                            value: Test name
+                          - descriptor:
+                              code: MESSAGE
+                            value: Happy Birthday to you!!
+                          - descriptor:
+                              code: PREVIEW_IMAGE
+                            value: https://giftcard.com/images/prev-image
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: COMPLETED
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888867'
+                          email: receiver1@test.com
+                        person:
+                          name: Receiver Name 1
                         authorization:
                           type: CODE
                           token: '12383235623423467'
@@ -4813,7 +5935,245 @@ x-flows:
                     state:
                       descriptor:
                         code: COMPLETED
-                    type: BPP_ONLINE_EMAIL_SMS
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888868'
+                          email: receiver2@test.com
+                        person:
+                          name: Receiver Name 2
+                        authorization:
+                          type: CODE_PIN
+                          token: CODE:12383235623423467;PIN:9999
+                  - id: F3
+                    state:
+                      descriptor:
+                        code: PENDING
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888869'
+                          email: receiver3@test.com
+                        person:
+                          name: Receiver Name 3
+                billing:
+                  name: 'House #'
+                  address: B005 Aspire Heights
+                  city:
+                    name: Bangalore
+                    code: BAN
+                  state:
+                    name: Karnataka
+                    code: KA
+                  email: test@test.com
+                  phone: '9999888877'
+                offers:
+                  - id: DISCA300
+                    item_ids:
+                      - GC1
+                  - id: FREEBIE123
+                    item_ids:
+                      - GC2
+                    tags:
+                      - descriptor:
+                          code: BENEFIT
+                        list:
+                          - descriptor:
+                              code: ITEM_ID
+                            value: SAMPLE_GC
+                          - descriptor:
+                              code: ITEM_COUNT
+                            value: '1'
+                quote:
+                  price:
+                    currency: INR
+                    value: '4200'
+                  breakup:
+                    - item:
+                        id: GC1
+                        quantity:
+                          selected:
+                            count: 3
+                        price:
+                          currency: INR
+                          value: '1500'
+                          offered_value: '1500'
+                      title: ITEM
+                      price:
+                        currency: INR
+                        value: '4500'
+                    - item:
+                        id: GC1
+                      title: TAX
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: GC1
+                      title: CONVENIENCE_FEE
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: DISCA100
+                      title: OFFER
+                      price:
+                        currency: INR
+                        value: '-300'
+                  ttl: P1D
+                payments:
+                  - type: ON-ORDER
+                    collected_by: BPP
+                    url: https://sellerpaymentgateway.com/123456
+                    id: PMTTXN1
+                    params:
+                      currency: INR
+                      transaction_id: '1234567'
+                      amount: '4200'
+                    status: PAID
+                    tags:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES
+                        list:
+                          - descriptor:
+                              code: BUYER_FINDER_FEES_PERCENTAGE
+                            value: '3'
+                      - descriptor:
+                          code: SETTLEMENT_DETAILS
+                        list:
+                          - descriptor:
+                              code: SETTLEMENT_COUNTERPARTY
+                            value: BAP
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: UPI
+                          - descriptor:
+                              code: VIRTUAL_ADDRESS
+                            value: test@oksbi
+                          - descriptor:
+                              code: ACCOUNT_NO
+                            value: xxxxxxxxx
+                          - descriptor:
+                              code: BENEFICIARY_NAME
+                            value: Buyer’s Name
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
+                          - descriptor:
+                              code: BRANCH_CODE
+                            value: ICIC0001234
+                          - descriptor:
+                              code: BRANCH_NAME
+                            value: ICICI Indiranagar
+                created_at: '2023-01-15T10:00:00.469Z'
+                updated_at: '2023-01-15T10:00:00.469Z'
+      - summary: Buyer app seeks the most recent status update
+        api: status
+        details:
+          - description: Buyer app seeks the most recent status update
+            mermaid: |-
+              sequenceDiagram
+                title Order Fulfillment
+                participant Buyer Platform (BAP)
+                participant Provider Platform (BPP)
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Provider Platform (BPP): status-Request
+                Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+                end
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_status - Provider
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
+        reference: if any
+        example:
+          value: *ref_15
+      - summary: Provider shares the latest order status
+        api: on_status
+        details:
+          - description: Provider shares the latest order status
+            mermaid: |-
+              sequenceDiagram
+                title Order Fulfillment
+                participant Buyer Platform (BAP)
+                participant Provider Platform (BPP)
+                Buyer Platform (BAP)->>Provider Platform (BPP): status-Request
+                Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+                rect rgb(191, 223, 255)
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_status - Provider
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
+                end
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:FIS10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_status
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+              message_id: ceae3838-e496-40b2-acae-c185bbbbf9ec
+              timestamp: '2023-03-10T10:00:00.409Z'
+            message:
+              order:
+                id: O1
+                status: COMPLETED
+                provider:
+                  id: P1
+                items:
+                  - id: GC1
+                    price:
+                      currency: INR
+                      value: '1500'
+                      offered_value: '1500'
+                    quantity:
+                      selected:
+                        count: 3
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    tags:
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: Enabled
+                            value: 'TRUE'
+                          - descriptor:
+                              code: RECEIVER_NAME
+                            value: Test name
+                          - descriptor:
+                              code: MESSAGE
+                            value: Happy Birthday to you!!
+                          - descriptor:
+                              code: PREVIEW_IMAGE
+                            value: https://giftcard.com/images/prev-image
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: COMPLETED
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888867'
+                          email: receiver1@test.com
+                        person:
+                          name: Receiver Name 1
+                        authorization:
+                          type: CODE
+                          token: '12383235623423467'
+                  - id: F2
+                    state:
+                      descriptor:
+                        code: COMPLETED
+                    type: BAP
                     stops:
                       - contact:
                           phone: '9999888868'
@@ -4827,7 +6187,1928 @@ x-flows:
                     state:
                       descriptor:
                         code: COMPLETED
-                    type: BPP_ONLINE_EMAIL_SMS
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888869'
+                          email: receiver3@test.com
+                        person:
+                          name: Receiver Name 3
+                        authorization:
+                          type: CODE
+                          token: '12383235623423467'
+                billing:
+                  name: 'House #'
+                  address: B005 Aspire Heights
+                  city:
+                    name: Bangalore
+                    code: BAN
+                  state:
+                    name: Karnataka
+                    code: KA
+                  email: test@test.com
+                  phone: '9999888877'
+                offers:
+                  - id: DISCA300
+                    item_ids:
+                      - GC1
+                  - id: FREEBIE123
+                    item_ids:
+                      - GC2
+                    tags:
+                      - descriptor:
+                          code: BENEFIT
+                        list:
+                          - descriptor:
+                              code: ITEM_ID
+                            value: SAMPLE_GC
+                          - descriptor:
+                              code: ITEM_COUNT
+                            value: '1'
+                quote:
+                  price:
+                    currency: INR
+                    value: '4200'
+                  breakup:
+                    - item:
+                        id: GC1
+                        quantity:
+                          selected:
+                            count: 3
+                        price:
+                          currency: INR
+                          value: '1500'
+                          offered_value: '1500'
+                      title: ITEM
+                      price:
+                        currency: INR
+                        value: '4500'
+                    - item:
+                        id: GC1
+                      title: TAX
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: GC1
+                      title: CONVENIENCE_FEE
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: DISCA100
+                      title: OFFER
+                      price:
+                        currency: INR
+                        value: '-300'
+                  ttl: P1D
+                payments:
+                  - type: ON-ORDER
+                    collected_by: BPP
+                    url: https://sellerpaymentgateway.com/123456
+                    id: PMTTXN1
+                    params:
+                      currency: INR
+                      transaction_id: '1234567'
+                      amount: '4200'
+                    status: PAID
+                    tags:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES
+                        list:
+                          - descriptor:
+                              code: BUYER_FINDER_FEES_PERCENTAGE
+                            value: '3'
+                      - descriptor:
+                          code: SETTLEMENT_DETAILS
+                        list:
+                          - descriptor:
+                              code: SETTLEMENT_COUNTERPARTY
+                            value: BAP
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: UPI
+                          - descriptor:
+                              code: VIRTUAL_ADDRESS
+                            value: test@oksbi
+                          - descriptor:
+                              code: ACCOUNT_NO
+                            value: xxxxxxxxx
+                          - descriptor:
+                              code: BENEFICIARY_NAME
+                            value: Buyer’s Name
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
+                          - descriptor:
+                              code: BRANCH_CODE
+                            value: ICIC0001234
+                          - descriptor:
+                              code: BRANCH_NAME
+                            value: ICICI Indiranagar
+                created_at: '2023-01-15T10:00:00.469Z'
+                updated_at: '2023-01-15T10:00:00.469Z'
+  - summary: Buyer app fulfilling with code in on_update
+    details: null
+    references: if any
+    steps:
+      - summary: Provider confirms the order
+        api: on_confirm
+        details:
+          - description: Provider confirms the order
+            mermaid: |-
+              sequenceDiagram
+                title  Order Confirmation
+                participant Buyer Platform (BAP)
+                participant Provider Platform (BPP)
+                rect rgb(191, 223, 255)
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+                end
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_update
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:FIS10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_confirm
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+              message_id: 9e797e76-ee05-4965-8a7c-3e81724a5cd5
+              timestamp: '2023-03-10T10:00:00.407Z'
+            message:
+              order:
+                id: O1
+                status: ACCEPTED
+                provider:
+                  id: P1
+                items:
+                  - id: GC1
+                    price:
+                      currency: INR
+                      value: '1500'
+                      offered_value: '1500'
+                    quantity:
+                      selected:
+                        count: 3
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    tags:
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: ENABLED
+                            value: 'TRUE'
+                          - descriptor:
+                              code: RECEIVER_NAME
+                            value: Test name
+                          - descriptor:
+                              code: MESSAGE
+                            value: Happy Birthday to you!!
+                          - descriptor:
+                              code: PREVIEW_IMAGE
+                            value: https://giftcard.com/images/prev-image
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: COMPLETED
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888867'
+                          email: receiver1@test.com
+                        person:
+                          name: Receiver Name 1
+                  - id: F2
+                    state:
+                      descriptor:
+                        code: COMPLETED
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888868'
+                          email: receiver2@test.com
+                        person:
+                          name: Receiver Name 2
+                  - id: F3
+                    state:
+                      descriptor:
+                        code: PENDING
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888869'
+                          email: receiver3@test.com
+                        person:
+                          name: Receiver Name 3
+                billing:
+                  name: 'House #'
+                  address: B005 Aspire Heights
+                  city:
+                    name: Bangalore
+                    code: BAN
+                  state:
+                    name: Karnataka
+                    code: KA
+                  email: test@test.com
+                  phone: '9999888877'
+                offers:
+                  - id: DISCA300
+                    item_ids:
+                      - GC1
+                  - id: FREEBIE123
+                    item_ids:
+                      - GC2
+                    tags:
+                      - descriptor:
+                          code: BENEFIT
+                        list:
+                          - descriptor:
+                              code: ITEM_ID
+                            value: SAMPLE_GC
+                          - descriptor:
+                              code: ITEM_COUNT
+                            value: '1'
+                quote:
+                  price:
+                    currency: INR
+                    value: '4200'
+                  breakup:
+                    - item:
+                        id: GC1
+                        quantity:
+                          selected:
+                            count: 3
+                        price:
+                          currency: INR
+                          value: '1500'
+                          offered_value: '1500'
+                      title: ITEM
+                      price:
+                        currency: INR
+                        value: '4500'
+                    - item:
+                        id: GC1
+                      title: TAX
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: GC1
+                      title: CONVENIENCE_FEE
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: DISCA100
+                      title: OFFER
+                      price:
+                        currency: INR
+                        value: '-300'
+                  ttl: P1D
+                payments:
+                  - type: ON-ORDER
+                    collected_by: BPP
+                    url: https://sellerpaymentgateway.com/123456
+                    id: PMTTXN1
+                    params:
+                      currency: INR
+                      transaction_id: '1234567'
+                      amount: '4200'
+                    status: PAID
+                    tags:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES
+                        list:
+                          - descriptor:
+                              code: BUYER_FINDER_FEES_PERCENTAGE
+                            value: '3'
+                      - descriptor:
+                          code: SETTLEMENT_DETAILS
+                        list:
+                          - descriptor:
+                              code: SETTLEMENT_COUNTERPARTY
+                            value: BAP
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: UPI
+                          - descriptor:
+                              code: VIRTUAL_ADDRESS
+                            value: test@oksbi
+                          - descriptor:
+                              code: ACCOUNT_NO
+                            value: xxxxxxxxx
+                          - descriptor:
+                              code: BENEFICIARY_NAME
+                            value: Buyer’s Name
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
+                          - descriptor:
+                              code: BRANCH_CODE
+                            value: ICIC0001234
+                          - descriptor:
+                              code: BRANCH_NAME
+                            value: ICICI Indiranagar
+                created_at: '2023-01-15T10:00:00.469Z'
+                updated_at: '2023-01-15T10:00:00.469Z'
+      - summary: Provider confirms the order
+        api: on_update
+        details:
+          - description: Provider confirms the order
+            mermaid: |-
+              sequenceDiagram
+                title  Order Confirmation
+                participant Buyer Platform (BAP)
+                participant Provider Platform (BPP)
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+                rect rgb(191, 223, 255)
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_update
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
+                end 
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:FIS10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_update
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+              message_id: 9e797e76-ee05-4965-8a7c-3e81724a5cd5
+              timestamp: '2023-03-10T10:00:00.407Z'
+            message:
+              order:
+                id: O1
+                status: COMPLETED
+                provider:
+                  id: P1
+                items:
+                  - id: GC1
+                    price:
+                      currency: INR
+                      value: '1500'
+                      offered_value: '1500'
+                    quantity:
+                      selected:
+                        count: 3
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    tags:
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: ENABLED
+                            value: 'TRUE'
+                          - descriptor:
+                              code: RECEIVER_NAME
+                            value: Test name
+                          - descriptor:
+                              code: MESSAGE
+                            value: Happy Birthday to you!!
+                          - descriptor:
+                              code: PREVIEW_IMAGE
+                            value: https://giftcard.com/images/prev-image
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: COMPLETED
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888867'
+                          email: receiver1@test.com
+                        person:
+                          name: Receiver Name 1
+                        authorization:
+                          type: CODE
+                          token: '12383235623423467'
+                  - id: F2
+                    state:
+                      descriptor:
+                        code: COMPLETED
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888868'
+                          email: receiver2@test.com
+                        person:
+                          name: Receiver Name 2
+                        authorization:
+                          type: CODE_PIN
+                          token: CODE:12383235623423467;PIN:9999
+                  - id: F3
+                    state:
+                      descriptor:
+                        code: COMPLETED
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888869'
+                          email: receiver3@test.com
+                        person:
+                          name: Receiver Name 3
+                        authorization:
+                          type: CODE
+                          token: '12383235623423467'
+                billing:
+                  name: 'House #'
+                  address: B005 Aspire Heights
+                  city:
+                    name: Bangalore
+                    code: BAN
+                  state:
+                    name: Karnataka
+                    code: KA
+                  email: test@test.com
+                  phone: '9999888877'
+                offers:
+                  - id: DISCA300
+                    item_ids:
+                      - GC1
+                  - id: FREEBIE123
+                    item_ids:
+                      - GC2
+                    tags:
+                      - descriptor:
+                          code: BENEFIT
+                        list:
+                          - descriptor:
+                              code: ITEM_ID
+                            value: SAMPLE_GC
+                          - descriptor:
+                              code: ITEM_COUNT
+                            value: '1'
+                quote:
+                  price:
+                    currency: INR
+                    value: '4200'
+                  breakup:
+                    - item:
+                        id: GC1
+                        quantity:
+                          selected:
+                            count: 3
+                        price:
+                          currency: INR
+                          value: '1500'
+                          offered_value: '1500'
+                      title: ITEM
+                      price:
+                        currency: INR
+                        value: '4500'
+                    - item:
+                        id: GC1
+                      title: TAX
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: GC1
+                      title: CONVENIENCE_FEE
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: DISCA100
+                      title: OFFER
+                      price:
+                        currency: INR
+                        value: '-300'
+                  ttl: P1D
+                payments:
+                  - type: ON-ORDER
+                    collected_by: BPP
+                    url: https://sellerpaymentgateway.com/123456
+                    id: PMTTXN1
+                    params:
+                      currency: INR
+                      transaction_id: '1234567'
+                      amount: '4200'
+                    status: PAID
+                    tags:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES
+                        list:
+                          - descriptor:
+                              code: BUYER_FINDER_FEES_PERCENTAGE
+                            value: '3'
+                      - descriptor:
+                          code: SETTLEMENT_DETAILS
+                        list:
+                          - descriptor:
+                              code: SETTLEMENT_COUNTERPARTY
+                            value: BAP
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: UPI
+                          - descriptor:
+                              code: VIRTUAL_ADDRESS
+                            value: test@oksbi
+                          - descriptor:
+                              code: ACCOUNT_NO
+                            value: xxxxxxxxx
+                          - descriptor:
+                              code: BENEFICIARY_NAME
+                            value: Buyer’s Name
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
+                          - descriptor:
+                              code: BRANCH_CODE
+                            value: ICIC0001234
+                          - descriptor:
+                              code: BRANCH_NAME
+                            value: ICICI Indiranagar
+                created_at: '2023-01-15T10:00:00.469Z'
+                updated_at: '2023-01-15T10:00:00.469Z'
+  - summary: Physical store based gift cards
+    details: null
+    references: if any
+    steps:
+      - summary: Buyer app search for available gift card providers
+        api: search
+        details:
+          - description: >-
+              Buyer app explore gift card options by searching for Providers
+              over the network.
+            mermaid: |-
+              sequenceDiagram
+                title gift card Discovery
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Gateway (BG): search
+                Gateway (BG) ->> Buyer Platform (BAP): ACK
+                Gateway (BG)->>Registry: Lookup Provider Platforms (lookup)
+                Registry->>Gateway (BG): List of Provider Platforms (200 OK)
+                Gateway (BG)->>Provider Platform (BPP): search
+                Provider Platform (BPP)->>Gateway (BG) : ACK
+                end
+                Provider Platform (BPP)->>Buyer Platform (BAP): Publish Catalog of Provider 1 (on_search)
+                Buyer Platform (BAP)->>Provider Platform (BPP): ACK    
+        reference: if any
+        example:
+          value: *ref_13
+      - summary: >-
+          Provider app provides a catalog of different gift card products
+          offered by a single provider
+        api: on_search
+        details:
+          - description: >-
+              Provider sends a comprehensive catalog of various gift card
+              products
+            mermaid: |-
+              sequenceDiagram
+                title Gift card Discovery
+                Buyer Platform (BAP)->>Gateway (BG): search
+                Gateway (BG) ->> Buyer Platform (BAP): ACK
+                Gateway (BG)->>Registry: Lookup Provider Platforms (lookup)
+                Registry->>Gateway (BG): List of Provider Platforms (200 OK)
+                Gateway (BG)->>Provider Platform (BPP): search
+                Provider Platform (BPP)->>Gateway (BG) : ACK
+                rect rgb(191, 223, 255)
+                Provider Platform (BPP)->>Buyer Platform (BAP): Publish Catalog of Provider 1 (on_search)
+                Buyer Platform (BAP)->>Provider Platform (BPP): ACK  
+                end
+        reference: if any
+        example:
+          value: *ref_14
+      - summary: Buyer app selects an item
+        api: select
+        details:
+          - description: Buyer app selects a specific item.
+            mermaid: |-
+              sequenceDiagram
+                title  Selection
+                participant Buyer Platform (BAP)
+                participant Provider Platform (BPP)
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Provider Platform (BPP): select
+                Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+                end
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_select
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:FIS10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: select
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+              message_id: 9a97657d-0c4e-48a1-b57f-cf5805d194e8
+              timestamp: '2023-03-10T10:00:00.402Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                fulfillments:
+                  - type: BAP
+                    stops:
+                      - location:
+                          gps: 28.524596, 77.185577
+                items:
+                  - id: GC1
+                    quantity:
+                      selected:
+                        count: 3
+                  - id: GC2
+                    quantity:
+                      selected:
+                        count: 1
+                  - id: GC5
+                    quantity:
+                      selected:
+                        count: 1
+                    price:
+                      currency: INR
+                      offered_value: '1500'
+                offers:
+                  - id: DISCA100
+                    item_ids:
+                      - GC1
+                  - id: FREEBIE123
+                    item_ids:
+                      - GC2
+      - summary: Provider returns the response to selected item
+        api: on_select
+        details:
+          - description: Provider responds to the buyer app requests by sending the quote.
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Provider Platform (BPP)
+                Buyer Platform (BAP)->>Provider Platform (BPP): select
+                Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+                rect rgb(191, 223, 255)
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_select
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
+                end 
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:FIS10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_select
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+              message_id: 9a97657d-0c4e-48a1-b57f-cf5805d194e8
+              timestamp: '2023-03-10T10:00:00.403Z'
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                      gps: 28.524596, 77.185577
+                      descriptor:
+                        name: Croma E-Gift
+                        short_desc: Croma E-Gift Cards (Instant Vouchers)
+                        images:
+                          - url: https://sellerapp.com/ondc/images/location.png
+                            size_type: md
+                      address: >-
+                        Croma - Odeon CP, Ground Floor, Odeon Cine
+                        Complex,Cannaught Place
+                    - id: L2
+                      descriptor:
+                        name: Croma E-Gift
+                        short_desc: Croma E-Gift Cards (Instant Vouchers)
+                        images:
+                          - url: https://sellerapp.com/ondc/images/location.png
+                            size_type: md
+                      circle:
+                        gps: 28.524596, 77.185577
+                        radius:
+                          type: CONSTANT
+                          value: '10'
+                          unit: KM
+                fulfillments:
+                  - id: F1
+                    type: BAP
+                  - id: F2
+                    type: BAP
+                  - id: F3
+                    type: BAP
+                items:
+                  - id: GC1
+                    price:
+                      currency: INR
+                      value: '1500'
+                      offered_value: '1500'
+                    quantity:
+                      selected:
+                        count: 3
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    time:
+                      label: VALIDITY
+                      duration: P1M
+                      timestamp: '2024-05-31T10:00:00.000Z'
+                    tags:
+                      - descriptor:
+                          code: ITEM_DETAILS
+                        list:
+                          - descriptor:
+                              code: OCCASION
+                            value: BIRTHDAY
+                          - descriptor:
+                              code: USABILITY
+                            value: ONLINE
+                          - descriptor:
+                              code: EXPIRY_PERIOD
+                            value: P1Y
+                          - descriptor:
+                              code: TERMS_CONDITION
+                            value: https://giftcard.com/giftcards/tncs
+                          - descriptor:
+                              code: REDEMPTION_INSTRUCTION
+                            value: Instructions on how gift card can be redeemed
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: ENABLED
+                            value: 'TRUE'
+                          - descriptor:
+                              code: RECEIVER_NAME
+                          - descriptor:
+                              code: MESSAGE
+                          - descriptor:
+                              code: PREVIEW_IMAGE
+                      - descriptor:
+                          code: BRAND_DETAILS
+                        list:
+                          - descriptor:
+                              code: BRAND_NAME
+                            value: name of brand free text
+                          - descriptor:
+                              code: BRAND_PHONE
+                            value: '9900112299'
+                          - descriptor:
+                              code: BRAND_EMAIL
+                            value: contact@giftcard.com
+                  - id: GC2
+                    price:
+                      currency: INR
+                      value: '2000'
+                      offered_value: '2000'
+                    location_ids:
+                      - L2
+                    quantity:
+                      selected:
+                        count: 1
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    time:
+                      label: VALIDITY
+                      duration: P1M
+                      timestamp: '2024-05-31T10:00:00.000Z'
+                    tags:
+                      - descriptor:
+                          code: ITEM_DETAILS
+                        list:
+                          - descriptor:
+                              code: USABILITY
+                            value: ONLINE
+                          - descriptor:
+                              code: EXPIRY_PERIOD
+                            value: P1Y
+                          - descriptor:
+                              code: TERMS_CONDITION
+                            value: https://giftcard.com/giftcards/tncs
+                          - descriptor:
+                              code: REDEMPTION_INSTRUCTION
+                            value: Instructions on how gift card can be redeemed
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: ENABLED
+                            value: 'TRUE'
+                          - descriptor:
+                              code: RECEIVER_NAME
+                          - descriptor:
+                              code: MESSAGE
+                          - descriptor:
+                              code: PREVIEW_IMAGE
+                      - descriptor:
+                          code: BRAND_DETAILS
+                        list:
+                          - descriptor:
+                              code: BRAND_NAME
+                            value: name of brand free text
+                          - descriptor:
+                              code: BRAND_PHONE
+                            value: '9900112299'
+                          - descriptor:
+                              code: BRAND_EMAIL
+                            value: contact@giftcard.com
+                  - id: GC5
+                    price:
+                      currency: INR
+                      value: '1400'
+                      offered_value: '1500'
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    time:
+                      label: VALIDITY
+                      duration: P1M
+                      timestamp: '2024-05-31T10:00:00.000Z'
+                    tags:
+                      - descriptor:
+                          code: ITEM_DETAILS
+                        list:
+                          - descriptor:
+                              code: OCCASION
+                            value: DIWALI
+                          - descriptor:
+                              code: USABILITY
+                            value: ONLINE
+                          - descriptor:
+                              code: EXPIRY_PERIOD
+                            value: P1Y
+                          - descriptor:
+                              code: TERMS_CONDITION
+                            value: https://giftcard.com/giftcards/tncs
+                          - descriptor:
+                              code: REDEMPTION_INSTRUCTION
+                            value: Instructions on how gift card can be redeemed
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: ENABLED
+                            value: 'FALSE'
+                      - descriptor:
+                          code: BRAND_DETAILS
+                        list:
+                          - descriptor:
+                              code: BRAND_NAME
+                            value: name of brand free text
+                  - id: SAMPLE_GC
+                    price:
+                      currency: INR
+                      value: '200'
+                      offered_value: '200'
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    time:
+                      label: VALIDITY
+                      duration: P1M
+                      timestamp: '2024-05-31T10:00:00.000Z'
+                    tags:
+                      - descriptor:
+                          code: ITEM_DETAILS
+                        list:
+                          - descriptor:
+                              code: USABILITY
+                            value: ONLINE
+                          - descriptor:
+                              code: EXPIRY_PERIOD
+                            value: P1Y
+                          - descriptor:
+                              code: TERMS_CONDITION
+                            value: https://giftcard.com/giftcards/tncs
+                          - descriptor:
+                              code: REDEMPTION_INSTRUCTION
+                            value: Instructions on how gift card can be redeemed
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: ENABLED
+                            value: 'FALSE'
+                      - descriptor:
+                          code: BRAND_DETAILS
+                        list:
+                          - descriptor:
+                              code: BRAND_NAME
+                            value: name of brand free text
+                          - descriptor:
+                              code: BRAND_PHONE
+                            value: '9900112299'
+                          - descriptor:
+                              code: BRAND_EMAIL
+                            value: contact@giftcard.com
+                offers:
+                  - id: DISCA300
+                    item_ids:
+                      - GC1
+                  - id: FREEBIE123
+                    item_ids:
+                      - GC2
+                    tags:
+                      - descriptor:
+                          code: BENEFIT
+                        list:
+                          - descriptor:
+                              code: ITEM_ID
+                            value: SAMPLE_GC
+                          - descriptor:
+                              code: ITEM_COUNT
+                            value: '1'
+                quote:
+                  price:
+                    currency: INR
+                    value: '5600'
+                  breakup:
+                    - item:
+                        id: GC1
+                        quantity:
+                          selected:
+                            count: 3
+                        price:
+                          currency: INR
+                          value: '1500'
+                          offered_value: '1500'
+                      title: ITEM
+                      price:
+                        currency: INR
+                        value: '4500'
+                    - item:
+                        id: GC1
+                      title: TAX
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: GC1
+                      title: CONVENIENCE_FEE
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: GC1
+                      title: OFFER
+                      price:
+                        currency: INR
+                        value: '-300'
+                    - item:
+                        id: GC2
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '2000'
+                          offered_value: '2000'
+                      title: ITEM
+                      price:
+                        currency: INR
+                        value: '2000'
+                    - item:
+                        id: GC2
+                      title: TAX
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: GC2
+                      title: CONVENIENCE_FEE
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: SAMPLE_GC
+                      title: ITEM
+                      price:
+                        currency: INR
+                        value: '200'
+                    - item:
+                        id: SAMPLE_GC
+                      title: OFFER
+                      price:
+                        currency: INR
+                        value: '-200'
+                    - item:
+                        id: GC5
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          currency: INR
+                          value: '1400'
+                          offered_value: '1500'
+                      title: ITEM
+                      price:
+                        currency: INR
+                        value: '1400'
+                    - item:
+                        id: GC5
+                      title: TAX
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: GC5
+                      title: CONVENIENCE_FEE
+                      price:
+                        currency: INR
+                        value: '0'
+                  ttl: P1D
+      - summary: The buyer app initiates request
+        api: init
+        details:
+          - description: The buyer app initiates request
+            mermaid: |-
+              sequenceDiagram
+                title Initializing Order
+                participant Buyer Platform (BAP)
+                participant Provider Platform (BPP)
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Provider Platform (BPP): init
+                Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+                end
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_init
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:FIS10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: init
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+              message_id: e75c4edb-eafb-4fb6-b76d-fc6b48b518fe
+              timestamp: '2023-03-10T10:00:00.404Z'
+              ttl: PT30S
+            message:
+              order:
+                provider:
+                  id: P1
+                fulfillments:
+                  - id: F1
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888867'
+                          email: receiver1@test.com
+                        person:
+                          name: Receiver Name 1
+                  - id: F2
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888868'
+                          email: receiver2@test.com
+                        person:
+                          name: Receiver Name 2
+                  - id: F3
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888869'
+                          email: receiver3@test.com
+                        person:
+                          name: Receiver Name 3
+                items:
+                  - id: GC1
+                    quantity:
+                      selected:
+                        count: 3
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    tags:
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: RECEIVER_NAME
+                            value: Test Name
+                          - descriptor:
+                              code: MESSAGE
+                            value: Happy Birthday to you!!
+                billing:
+                  name: 'House #'
+                  address: B005 Aspire Heights
+                  city:
+                    name: Bangalore
+                    code: BAN
+                  state:
+                    name: Karnataka
+                    code: KA
+                  email: test@test.com
+                  phone: '9999888877'
+      - summary: Provider returns the response.
+        api: on_init
+        details:
+          - description: Provider returns the response.
+            mermaid: |-
+              sequenceDiagram
+                title Initializing Order
+                participant Buyer Platform (BAP)
+                participant Provider Platform (BPP)
+                Buyer Platform (BAP)->>Provider Platform (BPP): init
+                Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+                rect rgb(191, 223, 255)
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_init
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
+                end
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:FIS10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_init
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+              message_id: e75c4edb-eafb-4fb6-b76d-fc6b48b518fe
+              timestamp: '2023-03-10T10:00:00.405Z'
+            message:
+              order:
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                      gps: 28.524596, 77.185577
+                      descriptor:
+                        name: Croma E-Gift
+                        short_desc: Croma E-Gift Cards (Instant Vouchers)
+                        images:
+                          - url: https://sellerapp.com/ondc/images/location.png
+                            size_type: md
+                      address: >-
+                        Croma - Odeon CP, Ground Floor, Odeon Cine
+                        Complex,Cannaught Place
+                fulfillments:
+                  - id: F1
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888867'
+                          email: receiver1@test.com
+                        person:
+                          name: Receiver Name 1
+                  - id: F2
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888868'
+                          email: receiver2@test.com
+                        person:
+                          name: Receiver Name 2
+                  - id: F3
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888869'
+                          email: receiver3@test.com
+                        person:
+                          name: Receiver Name 3
+                items:
+                  - id: GC1
+                    price:
+                      currency: INR
+                      value: '1500'
+                      offered_value: '1500'
+                    location_ids:
+                      - L1
+                    quantity:
+                      selected:
+                        count: 3
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    tags:
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: ENABLED
+                            value: 'TRUE'
+                          - descriptor:
+                              code: RECEIVER_NAME
+                            value: Test name
+                          - descriptor:
+                              code: MESSAGE
+                            value: Happy Birthday to you!!
+                          - descriptor:
+                              code: PREVIEW_IMAGE
+                            value: https://giftcard.com/images/prev-image
+                billing:
+                  name: 'House #'
+                  address: B005 Aspire Heights
+                  city:
+                    name: Bangalore
+                    code: BAN
+                  state:
+                    name: Karnataka
+                    code: KA
+                  email: test@test.com
+                  phone: '9999888877'
+                offers:
+                  - id: DISCA300
+                    item_ids:
+                      - GC1
+                  - id: FREEBIE123
+                    item_ids:
+                      - GC2
+                    tags:
+                      - descriptor:
+                          code: BENEFIT
+                        list:
+                          - descriptor:
+                              code: ITEM_ID
+                            value: SAMPLE_GC
+                          - descriptor:
+                              code: ITEM_COUNT
+                            value: '1'
+                quote:
+                  price:
+                    currency: INR
+                    value: '4200'
+                  breakup:
+                    - item:
+                        id: GC1
+                        quantity:
+                          selected:
+                            count: 3
+                        price:
+                          currency: INR
+                          value: '1500'
+                          offered_value: '1500'
+                      title: ITEM
+                      price:
+                        currency: INR
+                        value: '4500'
+                    - item:
+                        id: GC1
+                      title: TAX
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: GC1
+                      title: CONVENIENCE_FEE
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: DISCA100
+                      title: OFFER
+                      price:
+                        currency: INR
+                        value: '-300'
+                  ttl: P1D
+                payments:
+                  - type: ON-ORDER
+                    collected_by: BPP
+                    url: https://sellerpaymentgateway.com/123456
+                    status: NOT-PAID
+                    tags:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES
+                        list:
+                          - descriptor:
+                              code: BUYER_FINDER_FEES_PERCENTAGE
+                            value: '3'
+      - summary: Buyer app confirms the request
+        api: confirm
+        details:
+          - description: Buyer app confirms the request
+            mermaid: |-
+              sequenceDiagram
+                title  Order Confirmation
+                participant Buyer Platform (BAP)
+                participant Provider Platform (BPP)
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Provider Platform (BPP): confirm
+                Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+                end
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:FIS10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: confirm
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+              message_id: 9e797e76-ee05-4965-8a7c-3e81724a5cd5
+              timestamp: '2023-03-10T10:00:00.406Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                status: CREATED
+                provider:
+                  id: P1
+                items:
+                  - id: GC1
+                    price:
+                      currency: INR
+                      value: '1500'
+                      offered_value: '1500'
+                    quantity:
+                      selected:
+                        count: 3
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    tags:
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: ENABLED
+                            value: 'TRUE'
+                          - descriptor:
+                              code: RECEIVER_NAME
+                            value: Test name
+                          - descriptor:
+                              code: MESSAGE
+                            value: Happy Birthday to you!!
+                          - descriptor:
+                              code: PREVIEW_IMAGE
+                            value: https://giftcard.com/images/prev-image
+                fulfillments:
+                  - id: F1
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888867'
+                          email: receiver1@test.com
+                        person:
+                          name: Receiver Name 1
+                  - id: F2
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888868'
+                          email: receiver2@test.com
+                        person:
+                          name: Receiver Name 2
+                  - id: F3
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888869'
+                          email: receiver3@test.com
+                        person:
+                          name: Receiver Name 3
+                billing:
+                  name: 'House #'
+                  address: B005 Aspire Heights
+                  city:
+                    name: Bangalore
+                    code: BAN
+                  state:
+                    name: Karnataka
+                    code: KA
+                  email: test@test.com
+                  phone: '9999888877'
+                offers:
+                  - id: DISCA300
+                    item_ids:
+                      - GC1
+                  - id: FREEBIE123
+                    item_ids:
+                      - GC2
+                    tags:
+                      - descriptor:
+                          code: BENEFIT
+                        list:
+                          - descriptor:
+                              code: ITEM_ID
+                            value: SAMPLE_GC
+                          - descriptor:
+                              code: ITEM_COUNT
+                            value: '1'
+                quote:
+                  price:
+                    currency: INR
+                    value: '4200'
+                  breakup:
+                    - item:
+                        id: GC1
+                        quantity:
+                          selected:
+                            count: 3
+                        price:
+                          currency: INR
+                          value: '1500'
+                          offered_value: '1500'
+                      title: ITEM
+                      price:
+                        currency: INR
+                        value: '4500'
+                    - item:
+                        id: GC1
+                      title: TAX
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: GC1
+                      title: CONVENIENCE_FEE
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: DISCA100
+                      title: OFFER
+                      price:
+                        currency: INR
+                        value: '-300'
+                  ttl: P1D
+                payments:
+                  - type: ON-ORDER
+                    collected_by: BPP
+                    url: https://sellerpaymentgateway.com/123456
+                    status: NOT-PAID
+                    tags:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES
+                        list:
+                          - descriptor:
+                              code: BUYER_FINDER_FEES_PERCENTAGE
+                            value: '3'
+                      - descriptor:
+                          code: SETTLEMENT_DETAILS
+                        list:
+                          - descriptor:
+                              code: SETTLEMENT_COUNTERPARTY
+                            value: BAP
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: UPI
+                          - descriptor:
+                              code: VIRTUAL_ADDRESS
+                            value: test@oksbi
+                          - descriptor:
+                              code: ACCOUNT_NO
+                            value: xxxxxxxxx
+                          - descriptor:
+                              code: BENEFICIARY_NAME
+                            value: Buyer’s Name
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
+                          - descriptor:
+                              code: BRANCH_CODE
+                            value: ICIC0001234
+                          - descriptor:
+                              code: BRANCH_NAME
+                            value: ICICI Indiranagar
+                created_at: '2023-01-15T10:00:00.469Z'
+                updated_at: '2023-01-15T10:00:00.469Z'
+      - summary: Provider confirms the order
+        api: on_confirm
+        details:
+          - description: Provider confirms the order
+            mermaid: |-
+              sequenceDiagram
+                title  Order Confirmation
+                participant Buyer Platform (BAP)
+                participant Provider Platform (BPP)
+                Buyer Platform (BAP)->>Provider Platform (BPP): confirm
+                Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+                rect rgb(191, 223, 255)
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+                end
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:FIS10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_confirm
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+              message_id: 9e797e76-ee05-4965-8a7c-3e81724a5cd5
+              timestamp: '2023-03-10T10:00:00.407Z'
+            message:
+              order:
+                id: O1
+                status: ACCEPTED
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                      gps: 28.524596, 77.185577
+                      descriptor:
+                        name: Croma E-Gift
+                        short_desc: Croma E-Gift Cards (Instant Vouchers)
+                        images:
+                          - url: https://sellerapp.com/ondc/images/location.png
+                            size_type: md
+                      address: >-
+                        Croma - Odeon CP, Ground Floor, Odeon Cine
+                        Complex,Cannaught Place
+                items:
+                  - id: GC1
+                    price:
+                      currency: INR
+                      value: '1500'
+                      offered_value: '1500'
+                    location_ids:
+                      - L1
+                    quantity:
+                      selected:
+                        count: 3
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    tags:
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: ENABLED
+                            value: 'TRUE'
+                          - descriptor:
+                              code: RECEIVER_NAME
+                            value: Test name
+                          - descriptor:
+                              code: MESSAGE
+                            value: Happy Birthday to you!!
+                          - descriptor:
+                              code: PREVIEW_IMAGE
+                            value: https://giftcard.com/images/prev-image
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: COMPLETED
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888867'
+                          email: receiver1@test.com
+                        person:
+                          name: Receiver Name 1
+                        authorization:
+                          type: CODE
+                          token: '12383235623423467'
+                  - id: F2
+                    state:
+                      descriptor:
+                        code: COMPLETED
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888868'
+                          email: receiver2@test.com
+                        person:
+                          name: Receiver Name 2
+                        authorization:
+                          type: CODE_PIN
+                          token: CODE:12383235623423467;PIN:9999
+                  - id: F3
+                    state:
+                      descriptor:
+                        code: PENDING
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888869'
+                          email: receiver3@test.com
+                        person:
+                          name: Receiver Name 3
+                billing:
+                  name: 'House #'
+                  address: B005 Aspire Heights
+                  city:
+                    name: Bangalore
+                    code: BAN
+                  state:
+                    name: Karnataka
+                    code: KA
+                  email: test@test.com
+                  phone: '9999888877'
+                offers:
+                  - id: DISCA300
+                    item_ids:
+                      - GC1
+                  - id: FREEBIE123
+                    item_ids:
+                      - GC2
+                    tags:
+                      - descriptor:
+                          code: BENEFIT
+                        list:
+                          - descriptor:
+                              code: ITEM_ID
+                            value: SAMPLE_GC
+                          - descriptor:
+                              code: ITEM_COUNT
+                            value: '1'
+                quote:
+                  price:
+                    currency: INR
+                    value: '4200'
+                  breakup:
+                    - item:
+                        id: GC1
+                        quantity:
+                          selected:
+                            count: 3
+                        price:
+                          currency: INR
+                          value: '1500'
+                          offered_value: '1500'
+                      title: ITEM
+                      price:
+                        currency: INR
+                        value: '4500'
+                    - item:
+                        id: GC1
+                      title: TAX
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: GC1
+                      title: CONVENIENCE_FEE
+                      price:
+                        currency: INR
+                        value: '0'
+                    - item:
+                        id: DISCA100
+                      title: OFFER
+                      price:
+                        currency: INR
+                        value: '-300'
+                  ttl: P1D
+                payments:
+                  - type: ON-ORDER
+                    collected_by: BPP
+                    url: https://sellerpaymentgateway.com/123456
+                    id: PMTTXN1
+                    params:
+                      currency: INR
+                      transaction_id: '1234567'
+                      amount: '4200'
+                    status: PAID
+                    tags:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES
+                        list:
+                          - descriptor:
+                              code: BUYER_FINDER_FEES_PERCENTAGE
+                            value: '3'
+                      - descriptor:
+                          code: SETTLEMENT_DETAILS
+                        list:
+                          - descriptor:
+                              code: SETTLEMENT_COUNTERPARTY
+                            value: BAP
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: UPI
+                          - descriptor:
+                              code: VIRTUAL_ADDRESS
+                            value: test@oksbi
+                          - descriptor:
+                              code: ACCOUNT_NO
+                            value: xxxxxxxxx
+                          - descriptor:
+                              code: BENEFICIARY_NAME
+                            value: Buyer’s Name
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
+                          - descriptor:
+                              code: BRANCH_CODE
+                            value: ICIC0001234
+                          - descriptor:
+                              code: BRANCH_NAME
+                            value: ICICI Indiranagar
+                created_at: '2023-01-15T10:00:00.469Z'
+                updated_at: '2023-01-15T10:00:00.469Z'
+      - summary: Buyer app seeks the most recent status update
+        api: status
+        details:
+          - description: Buyer app seeks the most recent status update
+            mermaid: |-
+              sequenceDiagram
+                title Order Fulfillment
+                participant Buyer Platform (BAP)
+                participant Provider Platform (BPP)
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Provider Platform (BPP): status-Request
+                Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+                end
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_status - Provider
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
+        reference: if any
+        example:
+          value: *ref_15
+      - summary: Provider shares the latest order status
+        api: on_status
+        details:
+          - description: Provider shares the latest order status
+            mermaid: |-
+              sequenceDiagram
+                title Order Fulfillment
+                participant Buyer Platform (BAP)
+                participant Provider Platform (BPP)
+                Buyer Platform (BAP)->>Provider Platform (BPP): status-Request
+                Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+                rect rgb(191, 223, 255)
+                Provider Platform (BPP)->>Buyer Platform (BAP):on_status - Provider
+                Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
+                end
+        reference: if any
+        example:
+          value:
+            context:
+              domain: ONDC:FIS10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_status
+              version: 2.0.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+              message_id: ceae3838-e496-40b2-acae-c185bbbbf9ec
+              timestamp: '2023-03-10T10:00:00.409Z'
+            message:
+              order:
+                id: O1
+                status: COMPLETED
+                provider:
+                  id: P1
+                  locations:
+                    - id: L1
+                      gps: 28.524596, 77.185577
+                      descriptor:
+                        name: Croma E-Gift
+                        short_desc: Croma E-Gift Cards (Instant Vouchers)
+                        images:
+                          - url: https://sellerapp.com/ondc/images/location.png
+                            size_type: md
+                      address: >-
+                        Croma - Odeon CP, Ground Floor, Odeon Cine
+                        Complex,Cannaught Place
+                items:
+                  - id: GC1
+                    price:
+                      currency: INR
+                      value: '1500'
+                      offered_value: '1500'
+                    quantity:
+                      selected:
+                        count: 3
+                    location_ids:
+                      - L1
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                      - F3
+                    tags:
+                      - descriptor:
+                          code: CUSTOMIZATION
+                        list:
+                          - descriptor:
+                              code: Enabled
+                            value: 'TRUE'
+                          - descriptor:
+                              code: RECEIVER_NAME
+                            value: Test name
+                          - descriptor:
+                              code: MESSAGE
+                            value: Happy Birthday to you!!
+                          - descriptor:
+                              code: PREVIEW_IMAGE
+                            value: https://giftcard.com/images/prev-image
+                fulfillments:
+                  - id: F1
+                    state:
+                      descriptor:
+                        code: COMPLETED
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888867'
+                          email: receiver1@test.com
+                        person:
+                          name: Receiver Name 1
+                        authorization:
+                          type: CODE
+                          token: '12383235623423467'
+                  - id: F2
+                    state:
+                      descriptor:
+                        code: COMPLETED
+                    type: BAP
+                    stops:
+                      - contact:
+                          phone: '9999888868'
+                          email: receiver2@test.com
+                        person:
+                          name: Receiver Name 2
+                        authorization:
+                          type: CODE_PIN
+                          token: CODE:12383235623423467;PIN:9999
+                  - id: F3
+                    state:
+                      descriptor:
+                        code: COMPLETED
+                    type: BAP
                     stops:
                       - contact:
                           phone: '9999888869'
@@ -4969,7 +8250,7 @@ x-flows:
                 Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
         reference: if any
         example:
-          value: *ref_13
+          value: *ref_16
       - summary: Seller app not able to deliver the gift card
         api: on_cancel
         details:
@@ -5218,7 +8499,7 @@ x-flows:
                 Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
         reference: if any
         example:
-          value: *ref_13
+          value: *ref_16
       - summary: Request for correct receiver information
         api: on_status
         details:
@@ -5765,7 +9046,7 @@ x-flows:
                 Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
         reference: if any
         example:
-          value: *ref_14
+          value: *ref_15
       - summary: Provider shares the latest order status
         api: on_status
         details:
@@ -6005,7 +9286,7 @@ x-examples:
         examples:
           - summary: search_request_by_category
             description: search_request_by_category
-            value: *ref_15
+            value: *ref_13
           - summary: search_request_by_item
             description: search_request_by_item
             value:
@@ -6044,7 +9325,7 @@ x-examples:
         examples:
           - summary: on_search
             description: TBD
-            value: *ref_16
+            value: *ref_14
       select:
         examples:
           - summary: select-request
@@ -6064,9 +9345,6 @@ x-examples:
         examples:
           - summary: on_init_request_buyer_collecting
             description: on_init_request_buyer_collecting
-            value: *ref_20
-          - summary: on_init_request_seller_collecting
-            description: TBD
             value:
               context:
                 domain: ONDC:FIS10
@@ -6209,8 +9487,7 @@ x-examples:
                     ttl: P1D
                   payments:
                     - type: ON-ORDER
-                      collected_by: BPP
-                      url: https://sellerpaymentgateway.com/123456
+                      collected_by: BAP
                       status: NOT-PAID
                       tags:
                         - descriptor:
@@ -6219,12 +9496,39 @@ x-examples:
                             - descriptor:
                                 code: BUYER_FINDER_FEES_PERCENTAGE
                               value: '3'
+                        - descriptor:
+                            code: SETTLEMENT_DETAILS
+                          list:
+                            - descriptor:
+                                code: SETTLEMENT_COUNTERPARTY
+                              value: BPP
+                            - descriptor:
+                                code: SETTLEMENT_TYPE
+                              value: UPI
+                            - descriptor:
+                                code: VIRTUAL_ADDRESS
+                              value: test@oksbi
+                            - descriptor:
+                                code: ACCOUNT_NO
+                              value: xxxxxxxxx
+                            - descriptor:
+                                code: BENEFICIARY_NAME
+                              value: Buyer’s Name
+                            - descriptor:
+                                code: BANK_NAME
+                              value: ICICI Bank
+                            - descriptor:
+                                code: BRANCH_CODE
+                              value: ICIC0001234
+                            - descriptor:
+                                code: BRANCH_NAME
+                              value: ICICI Indiranagar
+          - summary: on_init_request_seller_collecting
+            description: TBD
+            value: *ref_20
       confirm:
         examples:
           - summary: confirm
-            description: TBD
-            value: *ref_21
-          - summary: confirm_request_seller_collecting
             description: TBD
             value:
               context:
@@ -6268,7 +9572,7 @@ x-examples:
                             code: CUSTOMIZATION
                           list:
                             - descriptor:
-                                code: ENABLED
+                                code: Enabled
                               value: 'TRUE'
                             - descriptor:
                                 code: RECEIVER_NAME
@@ -6371,9 +9675,14 @@ x-examples:
                     ttl: P1D
                   payments:
                     - type: ON-ORDER
-                      collected_by: BPP
-                      url: https://sellerpaymentgateway.com/123456
-                      status: NOT-PAID
+                      collected_by: BAP
+                      url: https://buyerapppaymentgateway.com/23131
+                      params:
+                        currency: INR
+                        transaction_id: '1234567'
+                        amount: '4200'
+                      id: PMTTXN1
+                      status: PAID
                       tags:
                         - descriptor:
                             code: BUYER_FINDER_FEES
@@ -6386,7 +9695,7 @@ x-examples:
                           list:
                             - descriptor:
                                 code: SETTLEMENT_COUNTERPARTY
-                              value: BAP
+                              value: BPP
                             - descriptor:
                                 code: SETTLEMENT_TYPE
                               value: UPI
@@ -6410,11 +9719,14 @@ x-examples:
                               value: ICICI Indiranagar
                   created_at: '2023-01-15T10:00:00.469Z'
                   updated_at: '2023-01-15T10:00:00.469Z'
+          - summary: confirm_request_seller_collecting
+            description: TBD
+            value: *ref_21
       on_confirm:
         examples:
           - summary: on_confirm
             description: TBD
-            value: *ref_13
+            value: *ref_16
       on_update:
         examples:
           - summary: on_update_request_cancellation_fulfillment
@@ -6875,7 +10187,7 @@ x-examples:
         examples:
           - summary: status
             description: TBD
-            value: *ref_14
+            value: *ref_15
       on_status:
         examples:
           - summary: on_status_request

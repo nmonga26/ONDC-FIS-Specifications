@@ -20,6 +20,19 @@ message:
     status: COMPLETED
     provider:
       id: P1
+      locations:
+        - id: L1
+          #for specific location
+          gps: 28.524596, 77.185577
+          descriptor:
+            name: Croma E-Gift
+            short_desc: >-
+              Croma E-Gift Cards (Instant Vouchers)
+            images:
+              - url: https://sellerapp.com/ondc/images/location.png
+                size_type: md
+          address:  Croma - Odeon CP, Ground Floor, Odeon Cine Complex,Cannaught Place  
+      
     items:
       - id: GC1
         price:
@@ -29,6 +42,8 @@ message:
         quantity:
           selected:
             count: 3
+        location_ids:
+          - L1     
         fulfillment_ids:
           - F1
           - F2
@@ -49,49 +64,50 @@ message:
               - descriptor:
                   code: PREVIEW_IMAGE
                 value: https://giftcard.com/images/prev-image
+    
     fulfillments:
       - id: F1
         state:
           descriptor:
             code: COMPLETED
-        type: BPP_ONLINE_EMAIL_SMS
+        type: BAP
         stops:
           - contact:
               phone: "9999888867"
               email: receiver1@test.com
             person:
               name: Receiver Name 1
-            # authorization:
-            #   type: CODE
-            #   token: "12383235623423467"
+            authorization:
+              type: CODE
+              token: "12383235623423467"
       - id: F2
         state:
           descriptor:
             code: COMPLETED
-        type: BPP_ONLINE_EMAIL_SMS
+        type: BAP
         stops:
           - contact:
               phone: "9999888868"
               email: receiver2@test.com
             person:
               name: Receiver Name 2
-            # authorization:
-            #   type: CODE_PIN
-            #   token: CODE:12383235623423467;PIN:9999
+            authorization:
+              type: CODE_PIN
+              token: CODE:12383235623423467;PIN:9999
       - id: F3
         state:
           descriptor:
             code: COMPLETED
-        type: BPP_ONLINE_EMAIL_SMS
+        type: BAP
         stops:
           - contact:
               phone: "9999888869"
               email: receiver3@test.com
             person:
               name: Receiver Name 3
-            # authorization:
-            #   type: CODE
-            #   token: "12383235623423467"
+            authorization:
+              type: CODE
+              token: "12383235623423467"
     billing:
       name: "House #"
       address: B005 Aspire Heights

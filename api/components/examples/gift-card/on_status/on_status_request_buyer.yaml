@@ -54,44 +54,44 @@ message:
         state:
           descriptor:
             code: COMPLETED
-        type: BPP_ONLINE_EMAIL_SMS
+        type: BAP
         stops:
           - contact:
               phone: "9999888867"
               email: receiver1@test.com
             person:
               name: Receiver Name 1
-            # authorization:
-            #   type: CODE
-            #   token: "12383235623423467"
+            authorization:
+              type: CODE
+              token: "12383235623423467"
       - id: F2
         state:
           descriptor:
             code: COMPLETED
-        type: BPP_ONLINE_EMAIL_SMS
+        type: BAP
         stops:
           - contact:
               phone: "9999888868"
               email: receiver2@test.com
             person:
               name: Receiver Name 2
-            # authorization:
-            #   type: CODE_PIN
-            #   token: CODE:12383235623423467;PIN:9999
+            authorization:
+              type: CODE_PIN
+              token: CODE:12383235623423467;PIN:9999
       - id: F3
         state:
           descriptor:
             code: COMPLETED
-        type: BPP_ONLINE_EMAIL_SMS
+        type: BAP
         stops:
           - contact:
               phone: "9999888869"
               email: receiver3@test.com
             person:
               name: Receiver Name 3
-            # authorization:
-            #   type: CODE
-            #   token: "12383235623423467"
+            authorization:
+              type: CODE
+              token: "12383235623423467"
     billing:
       name: "House #"
       address: B005 Aspire Heights

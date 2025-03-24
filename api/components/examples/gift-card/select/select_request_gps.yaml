@@ -1,0 +1,50 @@
+context:
+  domain: ONDC:FIS10
+  location:
+    city:
+      code: std:080
+    country:
+      code: IND
+  action: select
+  version: 2.0.0
+  bap_id: buyerapp.com
+  bap_uri: https://buyerapp.com/ondc
+  bpp_id: sellerapp.com
+  bpp_uri: https://sellerapp.com/ondc
+  transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+  message_id: 9a97657d-0c4e-48a1-b57f-cf5805d194e8
+  timestamp: '2023-03-10T10:00:00.402Z'
+  ttl: PT30S
+message:
+  order:
+    provider:
+      id: P1
+    fulfillments:
+      - type: BAP
+        stops:
+          - location:
+              gps: 28.524596, 77.185577
+
+    items:
+      - id: GC1
+        quantity:
+          selected:
+            count: 3
+      - id: GC2
+        quantity:
+          selected:
+            count: 1
+      - id: GC5
+        quantity:
+          selected:
+            count: 1
+        price:
+          currency: INR
+          offered_value: "1500"
+    offers:
+      - id: DISCA100
+        item_ids:
+          - GC1
+      - id: FREEBIE123
+        item_ids:
+          - GC2

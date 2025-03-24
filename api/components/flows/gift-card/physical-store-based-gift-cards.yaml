@@ -1,0 +1,198 @@
+summary:  Physical store based gift cards
+details:           
+references: if any
+steps:
+  - summary: Buyer app search for available gift card providers
+    api: search
+    details:
+      - description: Buyer app explore gift card options by searching for Providers over the network.
+        mermaid: >-
+          sequenceDiagram
+            title gift card Discovery
+            rect rgb(191, 223, 255)
+            Buyer Platform (BAP)->>Gateway (BG): search
+            Gateway (BG) ->> Buyer Platform (BAP): ACK
+            Gateway (BG)->>Registry: Lookup Provider Platforms (lookup)
+            Registry->>Gateway (BG): List of Provider Platforms (200 OK)
+            Gateway (BG)->>Provider Platform (BPP): search
+            Provider Platform (BPP)->>Gateway (BG) : ACK
+            end
+            Provider Platform (BPP)->>Buyer Platform (BAP): Publish Catalog of Provider 1 (on_search)
+            Buyer Platform (BAP)->>Provider Platform (BPP): ACK    
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/gift-card/search/search_request_by_category.yaml"
+  - summary: Provider app provides a catalog of different gift card products offered by a single provider
+    api: on_search
+    details:
+      - description: Provider sends a comprehensive catalog of various gift card products
+        mermaid: >-
+          sequenceDiagram
+            title Gift card Discovery
+            Buyer Platform (BAP)->>Gateway (BG): search
+            Gateway (BG) ->> Buyer Platform (BAP): ACK
+            Gateway (BG)->>Registry: Lookup Provider Platforms (lookup)
+            Registry->>Gateway (BG): List of Provider Platforms (200 OK)
+            Gateway (BG)->>Provider Platform (BPP): search
+            Provider Platform (BPP)->>Gateway (BG) : ACK
+            rect rgb(191, 223, 255)
+            Provider Platform (BPP)->>Buyer Platform (BAP): Publish Catalog of Provider 1 (on_search)
+            Buyer Platform (BAP)->>Provider Platform (BPP): ACK  
+            end
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/gift-card/on_search/on_search_request.yaml"
+  - summary: Buyer app selects an item
+    api: select
+    details:
+      - description: Buyer app selects a specific item.
+        mermaid: >-
+          sequenceDiagram
+            title  Selection
+            participant Buyer Platform (BAP)
+            participant Provider Platform (BPP)
+            rect rgb(191, 223, 255)
+            Buyer Platform (BAP)->>Provider Platform (BPP): select
+            Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+            end
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_select
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/gift-card/select/select_request_gps.yaml"
+  - summary: Provider returns the response to selected item
+    api: on_select
+    details:
+      - description: Provider responds to the buyer app requests by sending the quote.
+        mermaid: >-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Provider Platform (BPP)
+            Buyer Platform (BAP)->>Provider Platform (BPP): select
+            Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+            rect rgb(191, 223, 255)
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_select
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
+            end 
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/gift-card/on_select/on_select_request_buyer_gps.yaml"
+  - summary: The buyer app initiates request
+    api: init
+    details:
+      - description: The buyer app initiates request
+        mermaid: >-
+          sequenceDiagram
+            title Initializing Order
+            participant Buyer Platform (BAP)
+            participant Provider Platform (BPP)
+            rect rgb(191, 223, 255)
+            Buyer Platform (BAP)->>Provider Platform (BPP): init
+            Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+            end
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_init
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+    reference: if any
+    example: 
+      value:
+        $ref: "../../examples/gift-card/init/init_request_buyer_gps.yaml"
+  - summary: Provider returns the response.
+    api: on_init
+    details:
+      - description: Provider returns the response.
+        mermaid: >-
+          sequenceDiagram
+            title Initializing Order
+            participant Buyer Platform (BAP)
+            participant Provider Platform (BPP)
+            Buyer Platform (BAP)->>Provider Platform (BPP): init
+            Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+            rect rgb(191, 223, 255)
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_init
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
+            end
+    reference: if any
+    example: 
+      value:
+        $ref: "../../examples/gift-card/on_init/on_init_request_buyer_gps.yaml"      
+  - summary: Buyer app confirms the request
+    api: confirm
+    details:
+      - description: Buyer app confirms the request
+        mermaid: >-
+          sequenceDiagram
+            title  Order Confirmation
+            participant Buyer Platform (BAP)
+            participant Provider Platform (BPP)
+            rect rgb(191, 223, 255)
+            Buyer Platform (BAP)->>Provider Platform (BPP): confirm
+            Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+            end
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/gift-card/confirm/confirm_request_buyer_gps.yaml"         
+  - summary: Provider confirms the order
+    api: on_confirm
+    details:
+      - description: Provider confirms the order
+        mermaid: >-
+          sequenceDiagram
+            title  Order Confirmation
+            participant Buyer Platform (BAP)
+            participant Provider Platform (BPP)
+            Buyer Platform (BAP)->>Provider Platform (BPP): confirm
+            Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+            rect rgb(191, 223, 255)
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK 
+            end
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/gift-card/on_confirm/on_confirm_request_buyer_app_gps.yaml"  
+  - summary: Buyer app seeks the most recent status update
+    api: status
+    details:
+      - description: Buyer app seeks the most recent status update
+        mermaid: >-
+          sequenceDiagram
+            title Order Fulfillment
+            participant Buyer Platform (BAP)
+            participant Provider Platform (BPP)
+            rect rgb(191, 223, 255)
+            Buyer Platform (BAP)->>Provider Platform (BPP): status-Request
+            Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+            end
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_status - Provider
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/gift-card/status/status_request.yaml" 
+  - summary: Provider shares the latest order status
+    api: on_status
+    details:
+      - description:  Provider shares the latest order status
+        mermaid: >-
+          sequenceDiagram
+            title Order Fulfillment
+            participant Buyer Platform (BAP)
+            participant Provider Platform (BPP)
+            Buyer Platform (BAP)->>Provider Platform (BPP): status-Request
+            Provider Platform (BPP)-->>Buyer Platform (BAP):ACK
+            rect rgb(191, 223, 255)
+            Provider Platform (BPP)->>Buyer Platform (BAP):on_status - Provider
+            Buyer Platform (BAP)-->>Provider Platform (BPP): ACK
+            end
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/gift-card/on_status/on_status_request_buyer_gps.yaml"
+      

@@ -61,9 +61,9 @@ message:
               email: receiver1@test.com
             person:
               name: Receiver Name 1
-            authorization:
-              type: CODE
-              token: "12383235623423467"
+            # authorization:
+            #   type: CODE
+            #   token: "12383235623423467"
       - id: F2
         state:
           descriptor:
@@ -75,9 +75,9 @@ message:
               email: receiver2@test.com
             person:
               name: Receiver Name 2
-            authorization:
-              type: CODE_PIN
-              token: CODE:12383235623423467;PIN:9999
+            # authorization:
+            #   type: CODE_PIN
+            #   token: CODE:12383235623423467;PIN:9999
       - id: F3
         state:
           descriptor:

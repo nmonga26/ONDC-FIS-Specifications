@@ -5,27 +5,42 @@ context:
       code: std:080
     country:
       code: IND
-  action: on_status
+  action: on_confirm
   version: 2.0.0
   bap_id: buyerapp.com
   bap_uri: https://buyerapp.com/ondc
   bpp_id: sellerapp.com
   bpp_uri: https://sellerapp.com/ondc
   transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
-  message_id: ceae3838-e496-40b2-acae-c185bbbbf9ec
-  timestamp: '2023-03-10T10:00:00.409Z'
+  message_id: 9e797e76-ee05-4965-8a7c-3e81724a5cd5
+  timestamp: '2023-03-10T10:00:00.407Z'
 message:
   order:
     id: O1
-    status: COMPLETED
+    status: ACCEPTED
     provider:
       id: P1
+      locations:
+        - id: L1
+          #for specific location
+          gps: 28.524596, 77.185577
+          descriptor:
+            name: Croma E-Gift
+            short_desc: >-
+              Croma E-Gift Cards (Instant Vouchers)
+            images:
+              - url: https://sellerapp.com/ondc/images/location.png
+                size_type: md
+          address:  Croma - Odeon CP, Ground Floor, Odeon Cine Complex,Cannaught Place 
+        
     items:
       - id: GC1
         price:
           currency: INR
           value: "1500"
           offered_value: "1500"
+        location_ids:
+          - L1  
         quantity:
           selected:
             count: 3
@@ -38,7 +53,7 @@ message:
               code: CUSTOMIZATION
             list:
               - descriptor:
-                  code: Enabled
+                  code: ENABLED
                 value: "TRUE"
               - descriptor:
                   code: RECEIVER_NAME
@@ -54,44 +69,41 @@ message:
         state:
           descriptor:
             code: COMPLETED
-        type: BPP_ONLINE_EMAIL_SMS
+        type: BAP
         stops:
           - contact:
               phone: "9999888867"
               email: receiver1@test.com
             person:
               name: Receiver Name 1
-            # authorization:
-            #   type: CODE
-            #   token: "12383235623423467"
+            authorization:
+              type: CODE
+              token: "12383235623423467"
       - id: F2
         state:
           descriptor:
             code: COMPLETED
-        type: BPP_ONLINE_EMAIL_SMS
+        type: BAP
         stops:
           - contact:
               phone: "9999888868"
               email: receiver2@test.com
             person:
               name: Receiver Name 2
-            # authorization:
-            #   type: CODE_PIN
-            #   token: CODE:12383235623423467;PIN:9999
+            authorization:
+              type: CODE_PIN
+              token: CODE:12383235623423467;PIN:9999
       - id: F3
         state:
           descriptor:
-            code: COMPLETED
-        type: BPP_ONLINE_EMAIL_SMS
+            code: PENDING
+        type: BAP
         stops:
           - contact:
               phone: "9999888869"
               email: receiver3@test.com
             person:
               name: Receiver Name 3
-            # authorization:
-            #   type: CODE
-            #   token: "12383235623423467"
     billing:
       name: "House #"
       address: B005 Aspire Heights

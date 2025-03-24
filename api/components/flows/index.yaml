@@ -1,7 +1,7 @@
-- $ref: "./gift-card/index.yaml"
+# - $ref: "./gift-card/index.yaml"
+- $ref: "./gift-card/seller-app-fulfilling.yaml"
+- $ref: "./gift-card/buyer-app-fulfilling.yaml"
+- $ref: "./gift-card/buyer-app-fulfilling-with-code.yaml"
+- $ref: "./gift-card/physical-store-based-gift-cards.yaml"
 - $ref: "./gift-card/seller-cancellation.yaml"
 - $ref: "./gift-card/update-receiver-info.yaml"
-
-
-
-
