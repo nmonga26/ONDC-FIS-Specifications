@@ -1,5 +1,11 @@
 const BRANCHES = [
   {
+    code: "draft-FIS14-2.1.0",
+    name: "Mutual Funds",
+    short_desc: "Investments - Mutual Funds",
+    status: "DRAFT",
+  },
+  {
     code: "draft-FIS11-2.0.0",
     name: "Recharge",
     short_desc: "Metro Card Recharge",
@@ -69,6 +75,6 @@ const BRANCHES = [
     code: "release-FIS12-2.0.0",
     name: "Personal Loan",
     short_desc: "Credit - Personal Loan use case",
-    status: "RELEASED",
+    status: "To Be Deprecated",
   },
 ];
