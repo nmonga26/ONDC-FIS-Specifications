@@ -118,6 +118,7 @@ paths:
               schema:
                 type: object
                 properties:
+                  context: null
                   message:
                     type: object
                     properties:
@@ -535,7 +536,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -39631,10 +39631,13 @@ x-featureui:
     - stage-discovery.md
     - stage-fulfillment.md
     - stage-order.md
+x-testcasesui:
+  filenames:
+    - log-verification.md
 x-sandboxui:
   dropdown:
     - environment-name: staging
       link: https://fis-staging.ondc.org
-x-testcasesui:
+x-changeLog:
   filenames:
-    - log-verification.md
+    - FIS14_2.0.0_260924.md
