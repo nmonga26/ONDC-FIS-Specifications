@@ -144,6 +144,7 @@ async function checkObjectKeys(currentExamplePos, currentSchemaPos, logObject) {
   for (const currentAttrib of Object.keys(currentExamplePos)) {
     const currentExample = currentExamplePos[currentAttrib];
     const currentSchema = currentSchemaPos[currentAttrib];
+    console.log('currentAttrib', currentAttrib)
     if (currentSchema) {
       if (Array.isArray(currentExample)) {
         await matchKeyType(
@@ -242,8 +243,10 @@ async function validateTags(tags, schema,isAttribute) {
 
 async function traverseAttributes(currentAttributeValue, schemaForTraversal, logObject) {
   for (const currentAttributeKey of Object.keys(currentAttributeValue)) {
+    //console.log('currentAttributeKey', currentAttributeKey, currentAttributeValue, logObject)
     const currentAttr = currentAttributeValue[currentAttributeKey];
     const schemaType = schemaForTraversal[currentAttributeKey];
+      
 
         //&& 'type' in currentAttr && 'owner' in currentAttr && 'usage' in currentAttr && 'description' in currentAttr
     if ('required' in currentAttr ) {
@@ -307,25 +310,25 @@ async function getSwaggerYaml(example_set, outputPath) {
       hasTrueResult = await validateExamples(exampleSets, schemaMap);
     }
 
-    // //move to separate files
-    // if (!process.argv.includes(SKIP_VALIDATION.enums) && !hasTrueResult) {
-    //   hasTrueResult = await validateEnumsTags(enums, schemaMap);
-    // }
-    // if (!process.argv.includes(SKIP_VALIDATION.tags) && !hasTrueResult) {
-    //   hasTrueResult = await validateTags(tags, schemaMap);
-    // }
+    //move to separate files
+    if (!process.argv.includes(SKIP_VALIDATION.enums) && !hasTrueResult) {
+      hasTrueResult = await validateEnumsTags(enums, schemaMap);
+    }
+    if (!process.argv.includes(SKIP_VALIDATION.tags) && !hasTrueResult) {
+      hasTrueResult = await validateTags(tags, schemaMap);
+    }
 
-    // if (!process.argv.includes(SKIP_VALIDATION.attributes) && !hasTrueResult) {
-    //   hasTrueResult = await validateAttributes(attributes, schemaMap);
-    // }
+    if (!process.argv.includes(SKIP_VALIDATION.attributes) && !hasTrueResult) {
+      hasTrueResult = await validateAttributes(attributes, schemaMap);
+    }
 
-    // if (!process.argv.includes(SKIP_VALIDATION.exampleAttributes) && !hasTrueResult) {
-    //   await validateExamplesAttributes(exampleSets, attributes)
-    // }
+    if (!process.argv.includes(SKIP_VALIDATION.exampleAttributes) && !hasTrueResult) {
+      await validateExamplesAttributes(exampleSets, attributes)
+    }
 
-    // if (process.argv.includes(BUILD.checkAttributes) && !hasTrueResult) {
-    //     await checkAttributes(exampleSets, attributes)
-    // }
+    if (process.argv.includes(BUILD.checkAttributes) && !hasTrueResult) {
+        await checkAttributes(exampleSets, attributes)
+    }
     if (hasTrueResult) return;
 
     if (!hasTrueResult) {

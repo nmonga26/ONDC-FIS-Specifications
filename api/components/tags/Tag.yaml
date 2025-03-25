@@ -33,7 +33,44 @@ item-details:
     reference: <PR/Issue/Discussion Links md format text>
   - code: REDEMPTION_INSTRUCTION
     description: Describes the redemption insturction
-    reference: <PR/Issue/Discussion Links md format text> 
+    reference: <PR/Issue/Discussion Links md format text>
+
+
+  - code: USABILITY
+    description: Describes the usability
+    reference: <PR/Issue/Discussion Links md format text>
+    list:
+      - code: ONLINE
+        description: Describes the usability
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: OFFLINE
+        description: Describes the usability
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: BOTH
+        description: Describes the usability
+        reference: <PR/Issue/Discussion Links md format text>    
+  - code: REDEMPTION_INSTRUCTION
+    description: Describes the redemption insturction
+    reference: <PR/Issue/Discussion Links md format text>
+    list:
+      - code: ALLOWED
+        description: Describes the redemption insturction
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: NOT_ALLOWED
+        description: Describes the redemption insturction
+        reference: <PR/Issue/Discussion Links md format text>
+   
+  - code: CLUBBING_OF_GIFT_CARDS
+    description: Describes the clubbing of gift cards insturction
+    reference: <PR/Issue/Discussion Links md format text>
+    list:
+      - code: ALLOWED
+        description: Describes the clubbing of gift cards insturction
+        reference: <PR/Issue/Discussion Links md format text>
+      - code: NOT_ALLOWED
+        description: Describes the clubbing of gift cards insturction
+        reference: <PR/Issue/Discussion Links md format text>    
+
 customization:
   - code: ENABLED
     description: Describes the enabled

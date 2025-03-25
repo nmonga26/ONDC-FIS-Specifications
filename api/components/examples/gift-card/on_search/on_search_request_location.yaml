@@ -6,7 +6,7 @@ context:
     country:
       code: IND
   action: on_search
-  version: 2.0.0
+  version: 2.1.0
   bap_id: buyerapp.com
   bap_uri: https://buyerapp.com/ondc
   bpp_id: sellerapp.com
@@ -122,6 +122,15 @@ message:
                   - descriptor:
                       code: CATEGORY
                     value: FASHION
+                  - descriptor:
+                      code: USABILITY
+                    value: ONLINE
+                  - descriptor:
+                      code: PARTIAL_REDEMPTION
+                    value: NOT_ALLOWED
+                  - descriptor:
+                      code: CLUBBING_OF_GIFT_CARDS
+                    value: NOT_ALLOWED      
             category_ids:
               - C1
             fulfillment_ids:

@@ -30,7 +30,7 @@ type:
     reference: <PR/Issue/Discussion Links md format text
 stops:
   authorization:
-    code:
+    type:
       - code: CODE
         description: Describes the authorization type.
         reference: <PR/Issue/Discussion Links md format text
