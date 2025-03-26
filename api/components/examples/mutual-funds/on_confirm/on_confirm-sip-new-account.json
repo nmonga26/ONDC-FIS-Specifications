@@ -203,10 +203,19 @@
                         "currency": "INR",
                         "source_bank_code": "icic0000047",
                         "source_bank_account_number": "004701563111",
-                        "source_bank_account_name": "harish gupta",
+                        "source_bank_account_name": "harish gupta"
                     },
                     "type": "PRE_FULFILLMENT",
                     "tags": [
+                        {
+                            "descriptor": { "name": "Source bank account", "code": "SOURCE_BANK_ACCOUNT" },
+                            "list": [
+                                {
+                                    "descriptor": { "name": "Account Type", "code": "ACCOUNT_TYPE" },
+                                    "value": "SAVINGS"
+                                }
+                            ]
+                        },
                         {
                             "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
                             "list": [
