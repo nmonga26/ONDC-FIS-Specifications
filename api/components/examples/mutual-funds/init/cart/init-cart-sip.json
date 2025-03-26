@@ -160,6 +160,15 @@
                     "type": "PRE_FULFILLMENT",
                     "tags": [
                         {
+                            "descriptor": { "name": "Source bank account", "code": "SOURCE_BANK_ACCOUNT" },
+                            "list": [
+                                {
+                                    "descriptor": { "name": "Account Type", "code": "ACCOUNT_TYPE" },
+                                    "value": "SAVINGS"
+                                }
+                            ]
+                        },
+                        {
                             "descriptor": {
                                 "name": "Payment Method",
                                 "code": "PAYMENT_METHOD"

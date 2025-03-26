@@ -215,6 +215,22 @@ order:
             reference: <PR/Issue/Discussion Links md format text>
   payments:
     tags:
+      - code: SOURCE_BANK_ACCOUNT
+        description: Details about the source bank account from which the payment is made
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: ACCOUNT_TYPE
+            description: The type of the source bank a/c
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: SAVINGS
+                description: A regular savings a/c
+              # - code: CURRENT
+              #   description: A regular current/checking a/c
+              # - code: NRE_SAVINGS
+              #   description: A non-resident-external savings a/c
+              # - code: NRO_SAVINGS
+              #   description: A non-resident-ordinary savings a/c
       - code: PAYMENT_METHOD
         description : Payment method details
         reference: <PR/Issue/Discussion Links md format text>

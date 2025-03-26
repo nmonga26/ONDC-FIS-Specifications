@@ -3652,6 +3652,60 @@ x-tags:
         payments:
           tags:
             - &ref_12
+              code: SOURCE_BANK_ACCOUNT
+              description: >-
+                Details about the source bank account from which the payment is
+                made
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: ACCOUNT_TYPE
+                  description: The type of the source bank a/c
+                  reference: <PR/Issue/Discussion Links md format text>
+                  list:
+                    - code: SAVINGS
+                      description: A regular savings a/c
+        tags: *ref_8
+  init:
+    message:
+      order:
+        tags: *ref_9
+  on_init:
+    message:
+      order:
+        items: *ref_7
+        fulfillments:
+          tags:
+            - *ref_10
+            - *ref_11
+        payments:
+          tags:
+            - *ref_12
+        tags: *ref_8
+  confirm:
+    message:
+      order:
+        tags: &ref_15
+          - *ref_13
+          - *ref_14
+  on_confirm:
+    message:
+      order:
+        items: *ref_7
+        fulfillments:
+          tags:
+            - *ref_10
+            - *ref_11
+        payments:
+          tags:
+            - *ref_12
+        tags: *ref_15
+  on_status:
+    message:
+      order:
+        items: *ref_7
+        payments:
+          tags:
+            - &ref_16
               code: PAYMENT_METHOD
               description: Payment method details
               reference: <PR/Issue/Discussion Links md format text>
@@ -3699,58 +3753,6 @@ x-tags:
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: BANK_NAME
                   description: Bank name for existing mandates
-                  reference: <PR/Issue/Discussion Links md format text>
-        tags: *ref_8
-  init:
-    message:
-      order:
-        tags: *ref_9
-  on_init:
-    message:
-      order:
-        items: *ref_7
-        fulfillments:
-          tags:
-            - *ref_10
-            - *ref_11
-        payments:
-          tags:
-            - *ref_12
-        tags: *ref_8
-  confirm:
-    message:
-      order:
-        tags: &ref_15
-          - *ref_13
-          - *ref_14
-  on_confirm:
-    message:
-      order:
-        items: *ref_7
-        fulfillments:
-          tags:
-            - *ref_10
-            - *ref_11
-        payments:
-          tags:
-            - *ref_12
-        tags: *ref_15
-  on_status:
-    message:
-      order:
-        items: *ref_7
-        payments:
-          tags:
-            - &ref_16
-              code: ERROR_INFORMATION
-              description: Describes the finder fees for buyer
-              reference: <PR/Issue/Discussion Links md format text>
-              list:
-                - code: REASON_CODE
-                  description: Describes the finder fees for buyer
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: REASON_MESSAGE
-                  description: Describes the finder fees for buyer
                   reference: <PR/Issue/Discussion Links md format text>
         fulfillments:
           tags:
@@ -6607,6 +6609,14 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
@@ -6805,6 +6815,14 @@ x-flows:
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
@@ -11435,6 +11453,14 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
@@ -12622,6 +12648,14 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
@@ -12842,6 +12876,14 @@ x-flows:
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
@@ -18287,6 +18329,14 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
@@ -18482,6 +18532,14 @@ x-flows:
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
@@ -22239,6 +22297,14 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
@@ -22426,6 +22492,14 @@ x-flows:
                       source_bank_account_number: '004701563111'
                       source_bank_account_name: harish gupta
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - display: true
                         descriptor:
                           name: Payment Method
@@ -29544,6 +29618,14 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
@@ -29920,6 +30002,14 @@ x-flows:
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
@@ -33031,6 +33121,14 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
@@ -33399,6 +33497,14 @@ x-flows:
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
@@ -36273,6 +36379,14 @@ x-examples:
                       type: PRE_FULFILLMENT
                       tags:
                         - descriptor:
+                            name: Source bank account
+                            code: SOURCE_BANK_ACCOUNT
+                          list:
+                            - descriptor:
+                                name: Account Type
+                                code: ACCOUNT_TYPE
+                              value: SAVINGS
+                        - descriptor:
                             name: Payment Method
                             code: PAYMENT_METHOD
                           list:
@@ -36479,6 +36593,14 @@ x-examples:
                         source_bank_account_name: harish gupta
                       type: PRE_FULFILLMENT
                       tags:
+                        - descriptor:
+                            name: Source bank account
+                            code: SOURCE_BANK_ACCOUNT
+                          list:
+                            - descriptor:
+                                name: Account Type
+                                code: ACCOUNT_TYPE
+                              value: SAVINGS
                         - descriptor:
                             name: Payment Method
                             code: PAYMENT_METHOD
