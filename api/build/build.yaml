@@ -118,7 +118,6 @@ paths:
               schema:
                 type: object
                 properties:
-                  context: null
                   message:
                     type: object
                     properties:
@@ -536,6 +535,7 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
+                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -39641,3 +39641,4 @@ x-sandboxui:
 x-changeLog:
   filenames:
     - FIS14_2.0.0_260924.md
+    - FIS14_2.1.0_220325.md
