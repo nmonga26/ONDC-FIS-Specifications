@@ -12850,3 +12850,7 @@ x-attributes:
               description: Describes the order created_at
               owner: BPP
               type: string
+x-sandboxui:
+  dropdown:
+    - environment-name: staging
+      link: https://fis-staging.ondc.org
