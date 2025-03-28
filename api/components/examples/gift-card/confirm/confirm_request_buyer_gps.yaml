@@ -27,6 +27,8 @@ message:
           currency: INR
           value: "1500"
           offered_value: "1500"
+        location_ids:
+          - L1  
         quantity:
           selected:
             count: 3
@@ -59,6 +61,8 @@ message:
               email: receiver1@test.com
             person:
               name: Receiver Name 1
+            location:
+              gps: 28.524596, 77.185577     
       - id: F2
         type: BAP
         stops:
@@ -67,6 +71,8 @@ message:
               email: receiver2@test.com
             person:
               name: Receiver Name 2
+            location:
+              gps: 28.524596, 77.185577   
       - id: F3
         type: BAP
         stops:
@@ -75,6 +81,8 @@ message:
               email: receiver3@test.com
             person:
               name: Receiver Name 3
+            location:
+              gps: 28.524596, 77.185577   
     billing:
       name: "House #"
       address: B005 Aspire Heights

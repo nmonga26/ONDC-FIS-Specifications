@@ -80,6 +80,8 @@ message:
             authorization:
               type: CODE
               token: "12383235623423467"
+            location:
+              gps: 28.524596, 77.185577   
       - id: F2
         state:
           descriptor:
@@ -94,6 +96,8 @@ message:
             authorization:
               type: CODE_PIN
               token: CODE:12383235623423467;PIN:9999
+            location:
+              gps: 28.524596, 77.185577   
       - id: F3
         state:
           descriptor:
@@ -108,6 +112,8 @@ message:
             authorization:
               type: CODE
               token: "12383235623423467"
+            location:
+              gps: 28.524596, 77.185577   
     billing:
       name: "House #"
       address: B005 Aspire Heights

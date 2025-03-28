@@ -6933,10 +6933,19 @@ x-flows:
                 fulfillments:
                   - id: F1
                     type: BAP
+                    stops:
+                      - location:
+                          gps: 28.524596, 77.185577
                   - id: F2
                     type: BAP
+                    stops:
+                      - location:
+                          gps: 28.524596, 77.185577
                   - id: F3
                     type: BAP
+                    stops:
+                      - location:
+                          gps: 28.524596, 77.185577
                 items:
                   - id: GC1
                     price:
@@ -7312,6 +7321,8 @@ x-flows:
                           email: receiver1@test.com
                         person:
                           name: Receiver Name 1
+                        location:
+                          gps: 28.524596, 77.185577
                   - id: F2
                     type: BAP
                     stops:
@@ -7320,6 +7331,8 @@ x-flows:
                           email: receiver2@test.com
                         person:
                           name: Receiver Name 2
+                        location:
+                          gps: 28.524596, 77.185577
                   - id: F3
                     type: BAP
                     stops:
@@ -7328,11 +7341,15 @@ x-flows:
                           email: receiver3@test.com
                         person:
                           name: Receiver Name 3
+                        location:
+                          gps: 28.524596, 77.185577
                 items:
                   - id: GC1
                     quantity:
                       selected:
                         count: 3
+                    location_ids:
+                      - L1
                     fulfillment_ids:
                       - F1
                       - F2
@@ -7415,6 +7432,8 @@ x-flows:
                       - contact:
                           phone: '9999888867'
                           email: receiver1@test.com
+                        location:
+                          gps: 28.524596, 77.185577
                         person:
                           name: Receiver Name 1
                   - id: F2
@@ -7425,6 +7444,8 @@ x-flows:
                           email: receiver2@test.com
                         person:
                           name: Receiver Name 2
+                        location:
+                          gps: 28.524596, 77.185577
                   - id: F3
                     type: BAP
                     stops:
@@ -7433,6 +7454,8 @@ x-flows:
                           email: receiver3@test.com
                         person:
                           name: Receiver Name 3
+                        location:
+                          gps: 28.524596, 77.185577
                 items:
                   - id: GC1
                     price:
@@ -7588,6 +7611,8 @@ x-flows:
                       currency: INR
                       value: '1500'
                       offered_value: '1500'
+                    location_ids:
+                      - L1
                     quantity:
                       selected:
                         count: 3
@@ -7620,6 +7645,8 @@ x-flows:
                           email: receiver1@test.com
                         person:
                           name: Receiver Name 1
+                        location:
+                          gps: 28.524596, 77.185577
                   - id: F2
                     type: BAP
                     stops:
@@ -7628,6 +7655,8 @@ x-flows:
                           email: receiver2@test.com
                         person:
                           name: Receiver Name 2
+                        location:
+                          gps: 28.524596, 77.185577
                   - id: F3
                     type: BAP
                     stops:
@@ -7636,6 +7665,8 @@ x-flows:
                           email: receiver3@test.com
                         person:
                           name: Receiver Name 3
+                        location:
+                          gps: 28.524596, 77.185577
                 billing:
                   name: 'House #'
                   address: B005 Aspire Heights
@@ -7840,6 +7871,8 @@ x-flows:
                         authorization:
                           type: CODE
                           token: '12383235623423467'
+                        location:
+                          gps: 28.524596, 77.185577
                   - id: F2
                     state:
                       descriptor:
@@ -7854,6 +7887,8 @@ x-flows:
                         authorization:
                           type: CODE_PIN
                           token: CODE:12383235623423467;PIN:9999
+                        location:
+                          gps: 28.524596, 77.185577
                   - id: F3
                     state:
                       descriptor:
@@ -7865,6 +7900,8 @@ x-flows:
                           email: receiver3@test.com
                         person:
                           name: Receiver Name 3
+                        location:
+                          gps: 28.524596, 77.185577
                 billing:
                   name: 'House #'
                   address: B005 Aspire Heights
@@ -8092,6 +8129,8 @@ x-flows:
                         authorization:
                           type: CODE
                           token: '12383235623423467'
+                        location:
+                          gps: 28.524596, 77.185577
                   - id: F2
                     state:
                       descriptor:
@@ -8106,6 +8145,8 @@ x-flows:
                         authorization:
                           type: CODE_PIN
                           token: CODE:12383235623423467;PIN:9999
+                        location:
+                          gps: 28.524596, 77.185577
                   - id: F3
                     state:
                       descriptor:
@@ -8120,6 +8161,8 @@ x-flows:
                         authorization:
                           type: CODE
                           token: '12383235623423467'
+                        location:
+                          gps: 28.524596, 77.185577
                 billing:
                   name: 'House #'
                   address: B005 Aspire Heights

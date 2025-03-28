@@ -49,10 +49,19 @@ message:
     fulfillments:
       - id: F1
         type: BAP
+        stops:
+          - location:
+              gps: 28.524596, 77.185577
       - id: F2
         type: BAP
+        stops:
+          - location:
+              gps: 28.524596, 77.185577
       - id: F3
         type: BAP
+        stops:
+          - location:
+              gps: 28.524596, 77.185577
     
     items:
       - id: GC1

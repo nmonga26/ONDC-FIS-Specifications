@@ -144,7 +144,6 @@ async function checkObjectKeys(currentExamplePos, currentSchemaPos, logObject) {
   for (const currentAttrib of Object.keys(currentExamplePos)) {
     const currentExample = currentExamplePos[currentAttrib];
     const currentSchema = currentSchemaPos[currentAttrib];
-    console.log('currentAttrib', currentAttrib)
     if (currentSchema) {
       if (Array.isArray(currentExample)) {
         await matchKeyType(
