@@ -285,6 +285,16 @@
                                     "value": "5"
                                 }
                             ]
+                        },
+                        {
+                            "display": false,
+                            "descriptor": { "name": "Installment Order Ids", "code": "REF_ORDER_IDS" },
+                            "list": [
+                                {
+                                    "descriptor": { "name": "Child Order Id", "code": "CHILD_ORDER_ID" },
+                                    "value": "mfp_213adf123af"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -418,6 +428,16 @@
                                 {
                                     "descriptor": {"name": "Remaining Instalments", "code": "REMAINING_INSTALMENTS"},
                                     "value": "5"
+                                }
+                            ]
+                        },
+                        {
+                            "display": false,
+                            "descriptor": { "name": "Installment Order Ids", "code": "REF_ORDER_IDS" },
+                            "list": [
+                                {
+                                    "descriptor": { "name": "Child Order Id", "code": "CHILD_ORDER_ID" },
+                                    "value": "mfp_213adf123af"
                                 }
                             ]
                         }
