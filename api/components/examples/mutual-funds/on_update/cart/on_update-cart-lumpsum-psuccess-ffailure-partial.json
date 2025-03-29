@@ -112,6 +112,12 @@
                                 "value": "5000",
                                 "unit": "INR"
                             }
+                        },
+                        "allocated": {
+                            "measure": {
+                                "value": "0",
+                                "unit": "MF_UNITS"
+                            }
                         }
                     },
                     "tags": [

@@ -39,6 +39,12 @@
                                 "value": "3000",
                                 "unit": "INR"
                             }
+                        },
+                        "allocated": {
+                            "measure": {
+                                "value": "0",
+                                "unit": "MF_UNITS"
+                            }
                         }
                     },
                     "fulfillment_ids": ["ff_008"],
