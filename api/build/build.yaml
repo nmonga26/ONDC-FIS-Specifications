@@ -3738,9 +3738,6 @@ x-tags:
                     - code: URI
                       description: UPI uri. Applicable for upi and upi autopay modes
                       reference: <PR/Issue/Discussion Links md format text>
-                    - code: URI
-                      description: UPI uri. Applicable for upi and upi autopay modes
-                      reference: <PR/Issue/Discussion Links md format text>
                     - code: NETBANKING
                       description: >-
                         Authorize via netbanking credentials. Applicable for

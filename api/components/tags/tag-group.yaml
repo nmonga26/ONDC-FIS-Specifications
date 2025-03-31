@@ -268,15 +268,15 @@ order:
               # - code: IMPS
               #   description: Pay via imps bank transfer
               #   reference: <PR/Issue/Discussion Links md format text>
+              # - code: CHEQUE
+              #   description: Pay via cheque
+              #   reference: <PR/Issue/Discussion Links md format text>
           - code: AUTH
             description : Authorization type/mechanism
             reference: <PR/Issue/Discussion Links md format text>
             list:
               - code: COLLECT
                 description: Collect request. Applicable for upi and upi autopay modes
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: URI
-                description: UPI uri. Applicable for upi and upi autopay modes
                 reference: <PR/Issue/Discussion Links md format text>
               - code: URI
                 description: UPI uri. Applicable for upi and upi autopay modes
