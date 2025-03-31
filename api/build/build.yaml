@@ -3897,6 +3897,13 @@ x-tags:
                     If it is cancelled by the consumer, the ip address of the
                     consumer from where the request is received
                   reference: <PR/Issue/Discussion Links md format text>
+            - code: REF_ORDER_IDS
+              description: Details of child order ids in case of recurring orders
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: CHILD_ORDER_ID
+                  description: Value is the child order id
+                  reference: <PR/Issue/Discussion Links md format text>
         tags: *ref_15
   cancel:
     message:
@@ -16179,6 +16186,19 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                      - display: false
+                        descriptor:
+                          name: Installment Order Ids
+                          code: REF_ORDER_IDS
+                        list:
+                          - descriptor:
+                              name: Child Order Id
+                              code: CHILD_ORDER_ID
+                            value: mfp_213adf123af
+                          - descriptor:
+                              name: Child Order Id
+                              code: CHILD_ORDER_ID
+                            value: mfp_4234adfdsf4
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -17654,6 +17674,19 @@ x-flows:
                               name: Cancelled time
                               code: CANCELLED_TIME
                             value: '2024-07-01T05:23:03.443Z'
+                      - display: false
+                        descriptor:
+                          name: Installment Order Ids
+                          code: REF_ORDER_IDS
+                        list:
+                          - descriptor:
+                              name: Child Order Id
+                              code: CHILD_ORDER_ID
+                            value: mfp_213adf123af
+                          - descriptor:
+                              name: Child Order Id
+                              code: CHILD_ORDER_ID
+                            value: mfp_4234adfdsf4
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -18474,6 +18507,19 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '0'
+                      - display: false
+                        descriptor:
+                          name: Installment Order Ids
+                          code: REF_ORDER_IDS
+                        list:
+                          - descriptor:
+                              name: Child Order Id
+                              code: CHILD_ORDER_ID
+                            value: mfp_213adf123af
+                          - descriptor:
+                              name: Child Order Id
+                              code: CHILD_ORDER_ID
+                            value: mfp_4234adfdsf4
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -28442,11 +28488,6 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
-                cancellation_terms:
-                  - reason_required: true
-                    external_ref:
-                      url: https://api.sellerapp.com/cterms?id=214werw3w4
-                      mimetype: text/html
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: Redemption - by units
@@ -29724,11 +29765,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '3000'
-                cancellation_terms:
-                  - reason_required: true
-                    external_ref:
-                      url: https://api.sellerapp.com/cterms?id=214werw3w4
-                      mimetype: text/html
                 tags:
                   - display: false
                     descriptor:
@@ -35756,6 +35792,15 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                      - display: false
+                        descriptor:
+                          name: Installment Order Ids
+                          code: REF_ORDER_IDS
+                        list:
+                          - descriptor:
+                              name: Child Order Id
+                              code: CHILD_ORDER_ID
+                            value: mfp_213adf123af
                   - id: ff_124
                     type: SIP
                     state:
@@ -35866,6 +35911,15 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                      - display: false
+                        descriptor:
+                          name: Installment Order Ids
+                          code: REF_ORDER_IDS
+                        list:
+                          - descriptor:
+                              name: Child Order Id
+                              code: CHILD_ORDER_ID
+                            value: mfp_213adf123af
                 payments:
                   - id: pmt_123
                     collected_by: BPP

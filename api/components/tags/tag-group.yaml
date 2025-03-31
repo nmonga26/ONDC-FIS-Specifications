@@ -213,6 +213,14 @@ order:
           - code: CONSUMER_IP_ADDRESS
             description : If it is cancelled by the consumer, the ip address of the consumer from where the request is received
             reference: <PR/Issue/Discussion Links md format text>
+      - code: REF_ORDER_IDS
+        description : Details of child order ids in case of recurring orders
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: CHILD_ORDER_ID
+            description : Value is the child order id
+            reference: <PR/Issue/Discussion Links md format text>
+
   payments:
     tags:
       - code: SOURCE_BANK_ACCOUNT
