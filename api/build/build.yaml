@@ -7550,6 +7550,18 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -7825,6 +7837,18 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -12190,6 +12214,18 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -12473,6 +12509,18 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -13882,6 +13930,18 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -16150,6 +16210,18 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -17613,6 +17685,18 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 cancellation_terms:
                   - reason_required: true
                     external_ref:
@@ -18138,6 +18222,18 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 tags:
                   - display: false
                     descriptor:
@@ -18409,6 +18505,18 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -35317,6 +35425,18 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 tags:
                   - display: false
                     descriptor:
@@ -35777,6 +35897,18 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 tags:
                   - display: false
                     descriptor:

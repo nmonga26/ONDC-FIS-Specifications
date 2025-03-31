@@ -226,6 +226,22 @@
                                 {
                                     "descriptor": { "code": "AUTH" },
                                     "value": "NETBANKING"
+                                },
+                                {
+                                    "descriptor": { "code": "MANDATE_IDENTIFIER" },
+                                    "value": "125487"
+                                },
+                                {
+                                    "descriptor": { "code": "MASKED_BANK_ACCOUNT_NUMBER" },
+                                    "value": "********3111"
+                                },
+                                {
+                                    "descriptor": { "code": "BANK_ACCOUNT_NAME" },
+                                    "value": "Harish Gupta"
+                                },
+                                {
+                                    "descriptor": { "code": "BANK_NAME" },
+                                    "value": "ICICI Bank"
                                 }
                             ]
                         }
