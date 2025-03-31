@@ -50,7 +50,11 @@
                             "list": [
                                 {
                                     "descriptor": { "code": "MODE" },
-                                    "value": "UPI_URI"
+                                    "value": "UPI"
+                                },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "URI"
                                 }
                             ]
                         }

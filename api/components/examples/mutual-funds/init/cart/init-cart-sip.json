@@ -175,10 +175,12 @@
                             },
                             "list": [
                                 {
-                                    "descriptor": {
-                                        "code": "MODE"
-                                    },
-                                    "value": "MANDATE_REGISTRATION"
+                                    "descriptor": { "code": "MODE" },
+                                    "value": "NACH"
+                                },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "NETBANKING"
                                 }
                             ]
                         }

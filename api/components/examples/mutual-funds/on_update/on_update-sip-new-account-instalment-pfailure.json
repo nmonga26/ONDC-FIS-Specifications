@@ -168,12 +168,37 @@
                             ]
                         },
                         {
-                            "descriptor": {"name": "Information", "code": "ERROR_INFORMATION"},
+                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
                             "list": [
                                 {
                                     "descriptor": { "code": "MODE" },
-                                    "value": "MANDATE_DEBIT"
+                                    "value": "NACH"
                                 },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "EXISTING_MANDATE"
+                                },
+                                {
+                                    "descriptor": { "code": "MANDATE_IDENTIFIER" },
+                                    "value": "125487"
+                                },
+                                {
+                                    "descriptor": { "code": "MASKED_BANK_ACCOUNT_NUMBER" },
+                                    "value": "********3111"
+                                },
+                                {
+                                    "descriptor": { "code": "BANK_ACCOUNT_NAME" },
+                                    "value": "Harish Gupta"
+                                },
+                                {
+                                    "descriptor": { "code": "BANK_NAME" },
+                                    "value": "ICICI Bank"
+                                }
+                            ]
+                        },
+                        {
+                            "descriptor": {"name": "Information", "code": "ERROR_INFORMATION"},
+                            "list": [
                                 {
                                     "descriptor": {"name": "Reason Code", "code": "REASON_CODE"},
                                     "value": "insufficient_balance"

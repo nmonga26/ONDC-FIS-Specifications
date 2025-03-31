@@ -213,12 +213,21 @@
                             ]
                         },
                         {
-                            "descriptor": {"name": "Information", "code": "ERROR_INFORMATION"},
+                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
                             "list": [
                                 {
                                     "descriptor": { "code": "MODE" },
-                                    "value": "MANDATE_REGISTRATION"
+                                    "value": "NACH"
                                 },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "NETBANKING"
+                                }
+                            ]
+                        },
+                        {
+                            "descriptor": {"name": "Information", "code": "ERROR_INFORMATION"},
+                            "list": [
                                 {
                                     "descriptor": {"name": "Reason Code", "code": "REASON_CODE"},
                                     "value": "auth_in_progress"

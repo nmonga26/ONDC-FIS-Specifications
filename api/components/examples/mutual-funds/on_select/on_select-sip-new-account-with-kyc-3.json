@@ -197,6 +197,10 @@
             "payments": [
                 {
                     "collected_by": "BPP",
+                    "type": "PRE_FULFILLMENT"
+                },
+                {
+                    "collected_by": "BPP",
                     "type": "PRE_FULFILLMENT",
                     "tags": [
                         {
@@ -204,7 +208,87 @@
                             "list": [
                                 {
                                     "descriptor": { "code": "MODE" },
-                                    "value": "MANDATE_REGISTRATION"
+                                    "value": "UPI_AUTOPAY"
+                                },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "COLLECT"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "collected_by": "BPP",
+                    "type": "PRE_FULFILLMENT",
+                    "tags": [
+                        {
+                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
+                            "list": [
+                                {
+                                    "descriptor": { "code": "MODE" },
+                                    "value": "UPI_AUTOPAY"
+                                },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "URI"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "collected_by": "BPP",
+                    "type": "PRE_FULFILLMENT",
+                    "tags": [
+                        {
+                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
+                            "list": [
+                                {
+                                    "descriptor": { "code": "MODE" },
+                                    "value": "NACH"
+                                },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "NETBANKING"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "collected_by": "BPP",
+                    "type": "PRE_FULFILLMENT",
+                    "tags": [
+                        {
+                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
+                            "list": [
+                                {
+                                    "descriptor": { "code": "MODE" },
+                                    "value": "NACH"
+                                },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "DEBIT_CARD"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "collected_by": "BPP",
+                    "type": "PRE_FULFILLMENT",
+                    "tags": [
+                        {
+                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
+                            "list": [
+                                {
+                                    "descriptor": { "code": "MODE" },
+                                    "value": "NACH"
+                                },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "AADHAAR"
                                 }
                             ]
                         }

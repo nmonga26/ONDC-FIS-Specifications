@@ -3714,37 +3714,56 @@ x-tags:
                   description: Mode of payment
                   reference: <PR/Issue/Discussion Links md format text>
                   list:
-                    - code: MANDATE_REGISTRATION
-                      description: New mandate registration
-                      reference: <PR/Issue/Discussion Links md format text>
-                    - code: MANDATE_EXISTING
-                      description: Pay using existing mandate
-                      reference: <PR/Issue/Discussion Links md format text>
                     - code: NETBANKING
                       description: Pay via netbanking
                       reference: <PR/Issue/Discussion Links md format text>
-                    - code: UPI_COLLECT
-                      description: Pay via upi collect request
+                    - code: UPI
+                      description: Pay via upi
                       reference: <PR/Issue/Discussion Links md format text>
-                    - code: UPI_URI
-                      description: Pay via upi intent/qr through a upi uri
+                    - code: UPI_AUTOPAY
+                      description: Pay via upi autopay
                       reference: <PR/Issue/Discussion Links md format text>
-                    - code: UPI_PG
-                      description: Pay via upi through a pg link
+                    - code: NACH
+                      description: Pay via nach network
                       reference: <PR/Issue/Discussion Links md format text>
-                    - code: MANDATE_IDENTIFIER
-                      description: Describes the mandate Identifier
-                      reference: <PR/Issue/Discussion Links md format text>
-                - code: TYPE
-                  description: Type of mandate if existing mandate
+                - code: AUTH
+                  description: Authorization type/mechanism
                   reference: <PR/Issue/Discussion Links md format text>
                   list:
-                    - code: ENACH_MANDATE
-                      description: eNACH mandate
+                    - code: COLLECT
+                      description: >-
+                        Collect request. Applicable for upi and upi autopay
+                        modes
                       reference: <PR/Issue/Discussion Links md format text>
-                    - code: UPI_AUTOPAY_MANDATE
-                      description: UPI Autopay mandate
+                    - code: URI
+                      description: UPI uri. Applicable for upi and upi autopay modes
                       reference: <PR/Issue/Discussion Links md format text>
+                    - code: URI
+                      description: UPI uri. Applicable for upi and upi autopay modes
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: NETBANKING
+                      description: >-
+                        Authorize via netbanking credentials. Applicable for
+                        nach mandate registration
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: DEBIT_CARD
+                      description: >-
+                        Authorize via debit card details. Applicable for nach
+                        mandate registration
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: AADHAAR
+                      description: >-
+                        Authorize via aadhaar number. Applicable for nach
+                        mandate registration
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: EXISTING_MANDATE
+                      description: >-
+                        Authorize or pay via existing mandate. Applicable for
+                        both upi autopay and nach mandates
+                      reference: <PR/Issue/Discussion Links md format text>
+                - code: MANDATE_IDENTIFIER
+                  description: Identifier for existing mandates
+                  reference: <PR/Issue/Discussion Links md format text>
                 - code: MASKED_BANK_ACCOUNT_NUMBER
                   description: Masked bank a/c number for existing mandates
                   reference: <PR/Issue/Discussion Links md format text>
@@ -6475,14 +6494,6 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
-                    tags:
-                      - descriptor:
-                          name: Payment Method
-                          code: PAYMENT_METHOD
-                        list:
-                          - descriptor:
-                              code: MODE
-                            value: MANDATE_REGISTRATION
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -6492,13 +6503,103 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_EXISTING
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: COLLECT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: URI
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: DEBIT_CARD
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: AADHAAR
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
                           - descriptor:
                               code: MANDATE_IDENTIFIER
                             value: '125487'
                           - descriptor:
-                              code: TYPE
-                            value: ENACH_MANDATE
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '886985'
                           - descriptor:
                               code: MASKED_BANK_ACCOUNT_NUMBER
                             value: '********3111'
@@ -6622,7 +6723,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -6829,7 +6933,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -6952,7 +7059,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -7177,7 +7287,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -7433,7 +7546,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 quote:
                   id: q1
                   price:
@@ -7705,7 +7821,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 quote:
                   id: q1
                   price:
@@ -11255,6 +11374,8 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
                           name: Payment Method
@@ -11262,7 +11383,62 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: COLLECT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: URI
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: DEBIT_CARD
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: AADHAAR
                 tags:
                   - display: false
                     descriptor:
@@ -11498,7 +11674,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -11740,7 +11919,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -12004,7 +12186,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 quote:
                   id: q1
                   price:
@@ -12284,7 +12469,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 quote:
                   id: q1
                   price:
@@ -12568,14 +12756,6 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
-                    tags:
-                      - descriptor:
-                          name: Payment Method
-                          code: PAYMENT_METHOD
-                        list:
-                          - descriptor:
-                              code: MODE
-                            value: MANDATE_REGISTRATION
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -12585,13 +12765,103 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_EXISTING
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: COLLECT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: URI
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: DEBIT_CARD
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: AADHAAR
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
                           - descriptor:
                               code: MANDATE_IDENTIFIER
                             value: '125487'
                           - descriptor:
-                              code: TYPE
-                            value: ENACH_MANDATE
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '886985'
                           - descriptor:
                               code: MASKED_BANK_ACCOUNT_NUMBER
                             value: '********3111'
@@ -12717,7 +12987,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -12946,7 +13219,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -13071,7 +13347,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -13318,7 +13597,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -13596,7 +13878,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 quote:
                   id: q1
                   price:
@@ -15548,12 +15833,19 @@ x-flows:
                               code: ACCOUNT_TYPE
                             value: SAVINGS
                       - descriptor:
-                          name: Information
-                          code: ERROR_INFORMATION
+                          name: Payment Method
+                          code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                      - descriptor:
+                          name: Information
+                          code: ERROR_INFORMATION
+                        list:
                           - descriptor:
                               name: Reason Code
                               code: REASON_CODE
@@ -15854,7 +16146,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 quote:
                   id: q1
                   price:
@@ -16049,7 +16344,22 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_DEBIT
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 tags:
                   - display: false
                     descriptor:
@@ -16247,7 +16557,22 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_DEBIT
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -16463,7 +16788,22 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_DEBIT
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -16687,12 +17027,31 @@ x-flows:
                               code: ACCOUNT_TYPE
                             value: SAVINGS
                       - descriptor:
-                          name: Information
-                          code: ERROR_INFORMATION
+                          name: Payment Method
+                          code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_DEBIT
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
+                      - descriptor:
+                          name: Information
+                          code: ERROR_INFORMATION
+                        list:
                           - descriptor:
                               name: Reason Code
                               code: REASON_CODE
@@ -16955,7 +17314,22 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_DEBIT
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -17235,7 +17609,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 cancellation_terms:
                   - reason_required: true
                     external_ref:
@@ -17757,7 +18134,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -18025,7 +18405,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 quote:
                   id: q1
                   price:
@@ -18344,6 +18727,8 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
                           name: Payment Method
@@ -18361,7 +18746,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: UPI_COLLECT
+                            value: UPI
+                          - descriptor:
+                              code: AUTH
+                            value: COLLECT
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -18371,17 +18759,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: UPI_URI
-                  - collected_by: BPP
-                    type: PRE_FULFILLMENT
-                    tags:
-                      - descriptor:
-                          name: Payment Method
-                          code: PAYMENT_METHOD
-                        list:
+                            value: UPI
                           - descriptor:
-                              code: MODE
-                            value: UPI_PG
+                              code: AUTH
+                            value: URI
                 tags:
                   - display: false
                     descriptor:
@@ -20009,7 +20390,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: UPI_URI
+                            value: UPI
+                          - descriptor:
+                              code: AUTH
+                            value: URI
       - summary: On Update
         api: on_update
         details:
@@ -20244,7 +20628,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: UPI_URI
+                            value: UPI
+                          - descriptor:
+                              code: AUTH
+                            value: URI
                 tags:
                   - display: false
                     descriptor:
@@ -22411,9 +22798,10 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
                     tags:
-                      - display: true
-                        descriptor:
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
@@ -22423,14 +22811,29 @@ x-flows:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
-                      - display: true
-                        descriptor:
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
                             value: UPI
+                          - descriptor:
+                              code: AUTH
+                            value: COLLECT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI
+                          - descriptor:
+                              code: AUTH
+                            value: URI
                 quote:
                   id: q1
                   price:
@@ -29684,6 +30087,8 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
                           name: Payment Method
@@ -29701,7 +30106,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: UPI_COLLECT
+                            value: UPI
+                          - descriptor:
+                              code: AUTH
+                            value: COLLECT
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -29711,17 +30119,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: UPI_URI
-                  - collected_by: BPP
-                    type: PRE_FULFILLMENT
-                    tags:
-                      - descriptor:
-                          name: Payment Method
-                          code: PAYMENT_METHOD
-                        list:
+                            value: UPI
                           - descriptor:
-                              code: MODE
-                            value: UPI_PG
+                              code: AUTH
+                            value: URI
                 tags:
                   - display: false
                     descriptor:
@@ -33248,14 +33649,6 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
-                    tags:
-                      - descriptor:
-                          name: Payment Method
-                          code: PAYMENT_METHOD
-                        list:
-                          - descriptor:
-                              code: MODE
-                            value: MANDATE_REGISTRATION
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -33265,13 +33658,103 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_EXISTING
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: COLLECT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: URI
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: DEBIT_CARD
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: AADHAAR
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
                           - descriptor:
                               code: MANDATE_IDENTIFIER
                             value: '125487'
                           - descriptor:
-                              code: TYPE
-                            value: ENACH_MANDATE
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '886985'
                           - descriptor:
                               code: MASKED_BANK_ACCOUNT_NUMBER
                             value: '********3111'
@@ -33438,7 +33921,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -33815,7 +34301,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -33981,7 +34470,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -34380,7 +34872,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -34818,7 +35313,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -35275,7 +35773,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -35656,7 +36157,22 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_DEBIT
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 tags:
                   - display: false
                     descriptor:
@@ -36056,7 +36572,22 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_DEBIT
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 tags:
                   - display: false
                     descriptor:
@@ -36479,7 +37010,22 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_DEBIT
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 tags:
                   - display: false
                     descriptor:
@@ -36752,7 +37298,10 @@ x-examples:
                           list:
                             - descriptor:
                                 code: MODE
-                              value: UPI_COLLECT
+                              value: UPI
+                            - descriptor:
+                                code: AUTH
+                              value: COLLECT
                   tags:
                     - display: false
                       descriptor:
@@ -36967,7 +37516,10 @@ x-examples:
                           list:
                             - descriptor:
                                 code: MODE
-                              value: UPI_URI
+                              value: UPI
+                            - descriptor:
+                                code: AUTH
+                              value: URI
                   tags:
                     - display: false
                       descriptor:

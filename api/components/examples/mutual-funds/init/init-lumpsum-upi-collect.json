@@ -105,7 +105,11 @@
                             "list": [
                                 {
                                     "descriptor": { "code": "MODE" },
-                                    "value": "UPI_COLLECT"
+                                    "value": "UPI"
+                                },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "COLLECT"
                                 }
                             ]
                         }
