@@ -35,6 +35,8 @@ steps:
             Borrower Platform (BAP)->>Lender Platform (BPP): update (foreclosure)
             Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
             end
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_update - Update request
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
             Lender Platform (BPP)->>Borrower Platform (BAP):on_update - Update success
             Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
             Lender Platform (BPP)->>Borrower Platform (BAP):on_update - Base Transaction
@@ -56,11 +58,36 @@ steps:
             Borrower Platform (BAP)->>Lender Platform (BPP): update (Foreclosure-payment)
             Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
             rect rgb(191, 223, 255)
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_update - Update request
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+            end
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_update - Update success
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_update - Base Transaction
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+  - summary: The lender will update  payment details for foreclosure of drawdown
+    reference: if any
+    api: on_update
+    example:
+      value:
+        $ref: ../../examples/Working-Capital-Loan/on_update/on_update_foreclosure_drawdown_2.yaml
+    details:
+      - description: The lender will update  payment details for foreclosure of drawdown
+        mermaid: >-
+          sequenceDiagram
+            participant Borrower Platform (BAP)
+            participant Lender Platform (BPP)
+            Borrower Platform (BAP)->>Lender Platform (BPP): update (Foreclosure-payment)
+            Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_update - Update request
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+            rect rgb(191, 223, 255)
             Lender Platform (BPP)->>Borrower Platform (BAP):on_update - Update success
             Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
             end
             Lender Platform (BPP)->>Borrower Platform (BAP):on_update - Base Transaction
             Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+  
   - summary: The lender will update quotation in the base transaction
     reference: if any
     api: on_update
@@ -76,6 +103,8 @@ steps:
             Borrower Platform (BAP)->>Lender Platform (BPP): update (Pre-part-payment)
             Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
             Lender Platform (BPP)->>Borrower Platform (BAP):on_update - Update request
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_update - Update success
             Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
             rect rgb(191, 223, 255)
             Lender Platform (BPP)->>Borrower Platform (BAP):on_update - Base Transaction

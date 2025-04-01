@@ -192,6 +192,7 @@ message:
           source_bank_code: AXIN0001234
         status: DEFERRED
         time:
+          label: INSTALLMENT
           range:
             start: '2024-06-01T00:00:00.000Z'
             end: '2024-07-30T23:00:00.000Z'
@@ -208,6 +209,7 @@ message:
                   code: INTEREST_AMOUNT
                   name: Interest Amount
                 value: '400'
+    
     tags:
       - display: false
         descriptor:
