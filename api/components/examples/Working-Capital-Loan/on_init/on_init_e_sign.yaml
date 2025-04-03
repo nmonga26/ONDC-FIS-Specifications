@@ -230,7 +230,7 @@ message:
               - ESIGN
           form:
             id: form_esign_F07
-            mime_type: text/html
+            mime_type: application/html
             url: https://bpp.credit.becknprotocol.org/xinput/link/link_esign
           required: true
     payments:
