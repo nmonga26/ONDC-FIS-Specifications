@@ -43,7 +43,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/gift-card/on_search/on_search_request.yaml"
+        $ref: "../../examples/gift-card/on_search/on_search_request_location.yaml"
   - summary: Buyer app selects an item
     api: select
     details:
