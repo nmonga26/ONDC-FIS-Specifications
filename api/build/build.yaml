@@ -118,6 +118,7 @@ paths:
               schema:
                 type: object
                 properties:
+                  context: null
                   message:
                     type: object
                     properties:
@@ -15646,6 +15647,16 @@ x-flows:
                         descriptor:
                           code: PURCHASE_FINANCE
                           name: Purchase Finance
+                      - id: '101124'
+                        parent_category_id: '101123'
+                        descriptor:
+                          code: AGRI_PURCHASE_FINANCE
+                          name: Agri Purchase Finance
+                      - id: '101125'
+                        parent_category_id: '101123'
+                        descriptor:
+                          code: ELECTRONICS_PURCHASE_FINANCE
+                          name: Electronics Purchase Finance
                     items:
                       - id: ITEM_ID_AGRI
                         descriptor:
@@ -15653,6 +15664,7 @@ x-flows:
                           name: Loan
                         category_ids:
                           - '101123'
+                          - '101124'
                         xinput:
                           head:
                             descriptor:
@@ -15678,6 +15690,7 @@ x-flows:
                           name: Loan
                         category_ids:
                           - '101123'
+                          - '101125'
                         xinput:
                           head:
                             descriptor:
@@ -16010,6 +16023,11 @@ x-flows:
                         descriptor:
                           code: PURCHASE_FINANCE
                           name: Purchase Finance
+                      - id: '101125'
+                        parent_category_id: '101123'
+                        descriptor:
+                          code: ELECTRONICS_PURCHASE_FINANCE
+                          name: Electronics Purchase Finance
                     items:
                       - id: ITEM_ID_ELECTRONICS
                         descriptor:
@@ -16017,6 +16035,7 @@ x-flows:
                           name: Loan
                         category_ids:
                           - '101123'
+                          - '101125'
                         xinput:
                           head:
                             descriptor:
@@ -16365,6 +16384,11 @@ x-flows:
                         descriptor:
                           code: PURCHASE_FINANCE
                           name: Purchase Finance
+                      - id: '101125'
+                        parent_category_id: '101123'
+                        descriptor:
+                          code: ELECTRONICS_PURCHASE_FINANCE
+                          name: Electronics Purchase Finance
                     items:
                       - id: ITEM_ID_ELECTRONICS
                         descriptor:
@@ -16372,6 +16396,7 @@ x-flows:
                           name: Loan
                         category_ids:
                           - '101123'
+                          - '101125'
                         tags:
                           - descriptor:
                               code: CONSENT_INFO
@@ -16600,6 +16625,11 @@ x-flows:
                         descriptor:
                           code: PURCHASE_FINANCE
                           name: Purchase Finance
+                      - id: '101125'
+                        parent_category_id: '101123'
+                        descriptor:
+                          code: ELECTRONICS_PURCHASE_FINANCE
+                          name: Electronics Purchase Finance
                     items:
                       - id: ITEM_ID_ELECTRONICS
                         descriptor:
@@ -16607,6 +16637,7 @@ x-flows:
                           name: Loan
                         category_ids:
                           - '101123'
+                          - '101125'
                         price:
                           currency: INR
                           value: '70000'
@@ -16986,6 +17017,7 @@ x-flows:
                       name: Loan
                     category_ids:
                       - '101123'
+                      - '101125'
                     price:
                       currency: INR
                       value: '70000'
@@ -17357,6 +17389,7 @@ x-flows:
                       name: Loan
                     category_ids:
                       - '101123'
+                      - '101125'
                     price:
                       currency: INR
                       value: '70000'
@@ -17707,6 +17740,7 @@ x-flows:
                       name: Loan
                     category_ids:
                       - '101123'
+                      - '101125'
                     price:
                       currency: INR
                       value: '70000'
@@ -18060,6 +18094,7 @@ x-flows:
                       name: Loan
                     category_ids:
                       - '101123'
+                      - '101125'
                     price:
                       currency: INR
                       value: '70000'
@@ -18527,6 +18562,7 @@ x-flows:
                       name: Loan
                     category_ids:
                       - '101123'
+                      - '101125'
                     price:
                       currency: INR
                       value: '70000'
@@ -19151,6 +19187,7 @@ x-flows:
                       name: Loan
                     category_ids:
                       - '101123'
+                      - '101125'
                     price:
                       currency: INR
                       value: '70000'
@@ -19763,6 +19800,7 @@ x-flows:
                       name: Loan
                     category_ids:
                       - '101123'
+                      - '101125'
                     price:
                       currency: INR
                       value: '70000'
@@ -20351,6 +20389,7 @@ x-flows:
                       name: Loan
                     category_ids:
                       - '101123'
+                      - '101125'
                     price:
                       currency: INR
                       value: '70000'
@@ -20897,6 +20936,7 @@ x-flows:
                       name: Loan
                     category_ids:
                       - '101123'
+                      - '101125'
                     price:
                       currency: INR
                       value: '70000'
@@ -24501,6 +24541,7 @@ x-flows:
                       name: Loan
                     category_ids:
                       - '101123'
+                      - '101125'
                     price:
                       currency: INR
                       value: '70000'
@@ -25103,6 +25144,7 @@ x-flows:
                       name: Loan
                     category_ids:
                       - '101123'
+                      - '101125'
                     price:
                       currency: INR
                       value: '70000'
@@ -25773,6 +25815,7 @@ x-flows:
                       name: Loan
                     category_ids:
                       - '101123'
+                      - '101125'
                     price:
                       currency: INR
                       value: '70000'
@@ -26383,6 +26426,7 @@ x-flows:
                       name: Loan
                     category_ids:
                       - '101123'
+                      - '101125'
                     price:
                       currency: INR
                       value: '70000'
@@ -27073,6 +27117,7 @@ x-flows:
                       name: Loan
                     category_ids:
                       - '101123'
+                      - '101125'
                     price:
                       currency: INR
                       value: '70000'
@@ -27678,6 +27723,7 @@ x-flows:
                       name: Loan
                     category_ids:
                       - '101123'
+                      - '101125'
                     price:
                       currency: INR
                       value: '70000'

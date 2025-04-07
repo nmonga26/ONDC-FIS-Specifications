@@ -6,3 +6,9 @@ descriptor:
     - code: PURCHASE_FINANCE
       description: Describes a digital journey where customers can discover the best "loan offers" on the buyer apps to buy the products on credit.
       reference: <PR/Issue/Discussion Links md format text
+    - code: ELECTRONICS_PURCHASE_FINANCE
+      description: Describes the category as electronics
+      reference: <PR/Issue/Discussion Links md format text
+    - code: AGRI_PURCHASE_FINANCE
+      description: Describes the category as agri
+      reference: <PR/Issue/Discussion Links md format text    
