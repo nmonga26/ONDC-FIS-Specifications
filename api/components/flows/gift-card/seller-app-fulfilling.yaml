@@ -1,5 +1,6 @@
 summary: Seller App fulfilling
-details:           
+details:     
+  - description: Seller app fulfilling - This flows showcases the purchase of a gift card which is fulfilled by the seller app meaning the gift card details are shared by the seller app directly to the receiver on the contact info shared. The options for fulfillment possibilities is provided by the seller app. Based on the choices provided, the buyer app selects a particular fulfillment type, in this case seller app sharing the gift cards details through both email and sms.     
 references: if any
 steps:
   - summary: Buyer app search for available gift card providers

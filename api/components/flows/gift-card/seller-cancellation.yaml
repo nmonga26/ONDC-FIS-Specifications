@@ -1,5 +1,7 @@
 summary: Seller Cancellation
-details:           
+details:    
+  - description: >-
+      Seller cancellation - In case the seller app is not able to deliver the gift card to the details (phone or email or both) provided by the buyer, the seller may either initiate order cancellation or may ask the buyer to provide the correct details. This flow illustrates the cancellation process.       
 references: if any
 steps:
   - summary: Provider confirms the order
