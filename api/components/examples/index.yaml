@@ -1,0 +1,11 @@
+health-insurance:
+  summary: health-insurance
+  description: health-insurance
+  example_set:
+    $ref: "./health-insurance/health-insurance.yaml"
+    
+# travel-insurance:
+#   summary: travel-insurance
+#   description: travel-insurance
+#   example_set:
+#     $ref: "./travel-insurance/travel-insurance.yaml"

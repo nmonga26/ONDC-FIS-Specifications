@@ -1,0 +1,3 @@
+health-insurance: 
+  attribute_set:
+    $ref: './health-insurance/index.yaml'

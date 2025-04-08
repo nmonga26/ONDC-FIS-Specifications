@@ -1,0 +1,180 @@
+person-additional-details:
+  - code: POLITICALLY_EXPOSED_PERSON
+    description: A "Politically Exposed Person" (PEP) refers to an individual who holds, or has held, a prominent public position or political office, both domestically and internationally
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: GSTIN
+    description: GSTIN stands for Goods and Services Tax Identification Number. It is a unique 15-digit alphanumeric code assigned to businesses and individuals registered under the Goods and Services Tax (GST) system in India
+    reference: <PR/Issue/Discussion Links md format text>
+health-info:
+  - &co_payment
+    code: CO_PAYMENT
+    description: A fixed out-of-pocket amount paid by an insured for covered services
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: COVERAGE_AMOUNT
+    description: Maximum amount cover under the policy
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: ROOM_RENT_CAP
+    description: Maximum amount of room that can be claimed
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: RESTORATION_BENEFIT
+    description: Is there any restoration benefits or not
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: CLAIM_SETTLEMENT_RATIO
+    description: Ratio of the claim that can be settled under the policy
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: PRE_HOSPITALIZATION_COVERAGE_DAYS
+    description: Number of days covered before hospitalization
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: POST_HOSPITALIZATION_COVERAGE_DAYS
+    description: Number of days covered after hospitalization
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MATERNITY_COVERAGE
+    description: If there is a coverage of maternity benefits or not
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: INITIAL_WAITING_PERIOD
+    description: Denotes if there is any waiting period after which insurance policy will start
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: CASHLESS_HOSPITALS
+    description: Denotes the number of hospitals come under cashless for the policy
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: ROOM_CATEGORY
+    description: Describes the room category.
+    reference: <PR/Issue/Discussion Links md format text>  
+
+travel-insurance:
+  - code: ACCIDENTAL_DEATH
+    description: Denotes the sum insured in case accidental death is covered under the policy
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: PERMANENT_TOTAL_DISABLEMENT
+    description: Denotes the sum insured in case permanent total disablement occurs during the policy period
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: PERMANENT_PARTIAL_DISABLEMENT
+    description: Denotes the upper cap of sum insured in case permanent partial disablement occurs during the policy period
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: HOSPITALIZATION_EXPENSES
+    description: Denotes the upper cap of the sum insured for hospitalization expenses during the policy period
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: TRANSPORTATION_OF_MORTAL_REMAINS
+    description: Denotes the upper cap of the sum insured for transportation of mortal remains
+    reference: <PR/Issue/Discussion Links md format text>
+
+policy-details:
+ - code: COMMODITY_TYPE
+   description: Type of commodity
+   reference: <PR/Issue/Discussion Links md format text>
+ - code: SUM_INSURED
+   description: Amount which has been insured 
+   reference: <PR/Issue/Discussion Links md format text>
+ - code: MODE_OF_CONVEYANCE
+   description: Mode of conveyance
+   reference: <PR/Issue/Discussion Links md format text>
+ - code: BASIS_OF_VALUATION
+   description: Criteria used to determine the value of an asset
+   reference: <PR/Issue/Discussion Links md format text>
+ - code: POLICY_START_DATE
+   description: Start date of a policy
+   reference: <PR/Issue/Discussion Links md format text>
+ - code: INVOICE_NUMBER
+   description: Unique randomly generated number of the invoice 
+   reference: <PR/Issue/Discussion Links md format text>
+ - code: INVOICE_DATE
+   description: Date when invoice has been generated
+   reference: <PR/Issue/Discussion Links md format text>
+buyer-finder-fees:
+  - code: BUYER_FINDER_FEES_TYPE
+    description: Buyer finder fee type
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: BUYER_FINDER_FEES_PERCENTAGE
+    description: Buyer finder fee in percentage
+    reference: <PR/Issue/Discussion Links md format text>    
+  - code: BUYER_FINDER_FEES_AMOUNT
+    description: Buyer finder fee in amount
+    reference: <PR/Issue/Discussion Links md format text> 
+settlement-terms:
+  - code: SETTLEMENT_WINDOW
+    description: Time window to complete settlement
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SETTLEMENT_BASIS
+    description: Basis required to complete settlement
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SETTLEMENT_TYPE
+    description: Payment method to complete settlement
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MANDATORY_ARBITRATION
+    description: Flag to denote if dispute can be resolved through arbitration
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: COURT_JURISDICTION
+    description: Denotes court that will have jurisdiction for the case
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: DELAY_INTEREST
+    description: Denotes interest to be paid as a delay charge
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: STATIC_TERMS
+    description: Terms for settlement
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: SETTLEMENT_AMOUNT
+    description: Denotes settlement amount
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: OFFLINE_CONTRACT
+    description: Denotes offline contract
+    reference: <PR/Issue/Discussion Links md format text>
+general-info:
+  - &co_payment
+    code: CO_PAYMENT
+    description: A fixed out-of-pocket amount paid by an insured for covered services
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: COVERAGE_AMOUNT
+    description: Maximum amount cover under the policy
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: ROOM_RENT_CAP
+    description: Maximum amount of room that can be claimed
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: RESTORATION_BENEFIT
+    description: Is there any restoration benefits or not
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: CLAIM_SETTLEMENT_RATIO
+    description: Ratio of the claim that can be settled under the policy
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: PRE_HOSPITALIZATION_COVERAGE_DAYS
+    description: Number of days covered before hospitalization
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: POST_HOSPITALIZATION_COVERAGE_DAYS
+    description: Number of days covered after hospitalization
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: MATERNITY_COVERAGE
+    description: If there is a coverage of maternity benefits or not
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: INITIAL_WAITING_PERIOD
+    description: Denotes if there is any waiting period after which insurance policy will start
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: CASHLESS_HOSPITALS
+    description: Denotes the number of hospitals come under cashless for the policy
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: BASE_PRICE
+    description: Describes the base price of insurance policy
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: CONVIENCE_FEE
+    description: Describes the convience fee for insurance policy
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: PROCESSING_FEE
+    description: Describes the processing fee for insurance policy
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: OFFER_VALIDITY
+    description: Describes the fffer validity for insurance policy
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: ROOM_CATEGORY
+    description: Describes the room category.
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: PROPOSAL_ID
+    description: In case the PROPOSAL_ID is different from quote id, plesae provide proposal id.
+    reference: <PR/Issue/Discussion Links md format text>
+info:
+  - code: REQUESTED_CLAIM_AMOUNT
+    description: Describes the requested cliam amount.
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: APPROVED_CLAIM_AMOUNT
+    description: Describes the approved cliam amount.
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: REF_ID
+    description: Describes the reference id.
+    reference: <PR/Issue/Discussion Links md format text>    

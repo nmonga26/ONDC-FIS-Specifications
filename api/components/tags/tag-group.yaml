@@ -1,0 +1,31 @@
+items:
+  tags:
+    - code: GENERAL_INFO
+      description: Describes the general info of the insurance
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/general-info"
+    # - code: POLICY_DETAILS
+    #   description: Describes the details of a policy
+    #   reference: <PR/Issue/Discussion Links md format text>
+    #   list:
+    #     $ref: "./tag.yaml#/policy-details"
+payment:
+  tags:
+    - code: BUYER_FINDER_FEES
+      description: Describes the finder fees for buyer
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/buyer-finder-fees"
+    - code: SETTLEMENT_TERMS
+      description: Describes the settlement terms
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/settlement-terms"
+fulfillments:
+  tags:
+    - code: INFO
+      description: Describes the additional info
+      reference: <PR/Issue/Discussion Links md format text>
+      list:
+        $ref: "./tag.yaml#/info"
