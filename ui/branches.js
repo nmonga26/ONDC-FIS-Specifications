@@ -1,4 +1,11 @@
 const BRANCHES = [
+  
+  {
+    code: "draft-FIS13-sachet",
+    name: "Sachet Insurance",
+    short_desc: "Insurance Sachet",
+    status: "DRAFT",
+  },
   {
     code: "draft-FIS14-2.1.0",
     name: "Mutual Funds",
