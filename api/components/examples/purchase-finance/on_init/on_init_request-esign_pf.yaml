@@ -86,6 +86,7 @@ message:
           name: Loan
         category_ids:
           - '101123'
+          - '101125'
         price:
           currency: INR
           value: '70000'

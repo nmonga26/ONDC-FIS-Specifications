@@ -34,6 +34,16 @@ message:
             descriptor:
               code: PURCHASE_FINANCE
               name: Purchase Finance
+          - id: '101124'
+            parent_category_id: '101123'
+            descriptor:
+              code: AGRI_PURCHASE_FINANCE
+              name: Agri Purchase Finance
+          - id: '101125'
+            parent_category_id: '101123'
+            descriptor:
+              code: ELECTRONICS_PURCHASE_FINANCE
+              name: Electronics Purchase Finance        
         items:
           - id: ITEM_ID_AGRI
             descriptor:
@@ -41,6 +51,7 @@ message:
               name: Loan
             category_ids:
               - '101123'
+              - '101124'
             xinput:
               head:
                 descriptor:
@@ -66,6 +77,7 @@ message:
               name: Loan
             category_ids:
               - '101123'
+              - '101125'
             xinput:
               head:
                 descriptor:

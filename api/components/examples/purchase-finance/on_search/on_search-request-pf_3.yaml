@@ -34,6 +34,12 @@ message:
             descriptor:
               code: PURCHASE_FINANCE
               name: Purchase Finance
+          - id: '101125'
+            parent_category_id: '101123'
+            descriptor:
+              code: ELECTRONICS_PURCHASE_FINANCE
+              name: Electronics Purchase Finance    
+              
         items:
           - id: ITEM_ID_ELECTRONICS
             descriptor:
@@ -41,6 +47,7 @@ message:
               name: Loan
             category_ids:
               - '101123'
+              - '101125'
             tags:
               - descriptor:
                   code: CONSENT_INFO
