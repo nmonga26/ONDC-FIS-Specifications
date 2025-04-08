@@ -239,14 +239,14 @@ message:
           currency: INR
         status: PAID
         type: PRE-ORDER
-      - id: PAYMENT_ID_PRE_PART_PAYMENT
-        params:
-          amount: '20200'
-          currency: INR
-        status: PAID
-        time:
-          label: FORECLOSURE
-        type: POST_FULFILLMENT
+      # - id: PAYMENT_ID_PRE_PART_PAYMENT
+      #   params:
+      #     amount: '20200'
+      #     currency: INR
+      #   status: PAID
+      #   time:
+      #     label: FORECLOSURE
+      #   type: POST_FULFILLMENT
     cancellation_terms:
       - fulfillment_state:
           descriptor:

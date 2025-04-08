@@ -13568,14 +13568,6 @@ x-flows:
                     collected_by: MERCHANT
                     type: ON-ORDER
                     status: PAID
-                  - id: PAYMENT_ID_PROCESSING_FEES
-                    collected_by: BPP
-                    params:
-                      amount: '1000'
-                      currency: INR
-                    status: PAID
-                    type: PRE-ORDER
-                    url: https://payment.fis.test.bpp.io
                   - id: PAYMENT_ID_FORECLOSURE
                     url: >-
                       https://pg.icici.com/?amount=148616&ref_id=b5487595-42c3-4e20-bd43-ae21400f60f0
@@ -14030,14 +14022,6 @@ x-flows:
                     collected_by: MERCHANT
                     type: ON-ORDER
                     status: PAID
-                  - id: PAYMENT_ID_PROCESSING_FEES
-                    collected_by: BPP
-                    params:
-                      amount: '1000'
-                      currency: INR
-                    status: PAID
-                    type: PRE-ORDER
-                    url: https://payment.fis.test.bpp.io
                   - id: PAYMENT_ID_FORECLOSURE
                     params:
                       amount: '20200'
@@ -14484,14 +14468,6 @@ x-flows:
                       currency: INR
                     status: PAID
                     type: PRE-ORDER
-                  - id: PAYMENT_ID_PRE_PART_PAYMENT
-                    params:
-                      amount: '20200'
-                      currency: INR
-                    status: PAID
-                    time:
-                      label: FORECLOSURE
-                    type: POST_FULFILLMENT
                 cancellation_terms:
                   - fulfillment_state:
                       descriptor:
