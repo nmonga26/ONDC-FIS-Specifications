@@ -36,15 +36,15 @@ function loadAttributes(data) {
 
   console.log("done loading.........");
 
-  const veriosnDropdown = document.getElementById("version-dropdown")
-  const content = document.getElementById("content")
-  const home = document.getElementById("home")
-  const loader = document.getElementById("loader")
+  // const veriosnDropdown = document.getElementById("version-dropdown")
+  // const content = document.getElementById("content")
+  // const home = document.getElementById("home")
+  // const loader = document.getElementById("loader")
 
-  veriosnDropdown.style.display = "block"
-  content.style.display = "block"
-  home.style.display = "none"
-  loader.style.display = "none"
+  // veriosnDropdown.style.display = "block"
+  // content.style.display = "block"
+  // home.style.display = "none"
+  // loader.style.display = "none"
 
   const urlParams = new URLSearchParams(window.location.search);
   const tabId = urlParams.get('tabId');

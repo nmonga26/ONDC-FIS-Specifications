@@ -138,6 +138,19 @@ function updateFlow() {
 async function loadFlow(flowName) {
   const flowSummary = document.getElementById("flow-summary");
   const flowDescription = document.getElementById("flow-description");
+
+  const veriosnDropdown = document.getElementById("version-dropdown")
+  const content = document.getElementById("content")
+  const home = document.getElementById("home")
+  const loader = document.getElementById("loader")
+
+  veriosnDropdown.style.display = "block"
+  content.style.display = "block"
+  home.style.display = "none"
+  loader.style.display = "none"
+
+
+
   flowSummary.innerHTML = "";
   flowDescription.innerHTML = "";
   let selectedFlow = flows.find((obj) => {
