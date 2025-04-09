@@ -3,12 +3,10 @@
 
 function onFirstLoad(build_spec) {
       let data = build_spec;
-      console.log('build_spec', build_spec)
       const xProperties = ["x-enum", "x-tags", "x-examples", "x-flows", "x-attributes", "x-errorcodes", "x-tlc","x-featureui","x-sandboxui", "x-testcasesui", "x-changeLog"];
       const dropdown =  document.getElementById("contract-dropdown");
       const branch_name = dropdown.options[dropdown.selectedIndex].text;
       xProperties.forEach((xProperty) => {
-        console.log('xProperty', xProperty)
         if (data[xProperty]) {
           switch (xProperty) {
             case "x-enum":

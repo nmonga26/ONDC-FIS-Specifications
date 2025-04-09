@@ -1,6 +1,6 @@
 const BRANCHES = [
   {
-    code: "fix/buildError",
+    code: "draft-FIS14-2.1.0",
     name: "Mutual Funds",
     short_desc: "Investments - Mutual Funds",
     status: "DRAFT",
