@@ -22,6 +22,7 @@ function onFirstLoad(build_spec) {
               loadFlows(data[xProperty]);
               break;
             case "x-attributes":
+              shouldDisplay(data[xProperty],"attributeui-navbar")
               loadAttributes(data[xProperty]);
               break;
             case "x-errorcodes":
@@ -53,6 +54,9 @@ function onFirstLoad(build_spec) {
         } else {            
             //remove from dom if not found
             switch(`${xProperty}`){
+              case "x-attributes":
+                shouldDisplay([],"attributeui-navbar")
+                break;
               case "x-featureui":
                 shouldDisplay([],"feature-ui-nav")
                 break;
@@ -82,7 +86,9 @@ function onFirstLoad(build_spec) {
     }
 
 function shouldDisplay (data,id){
-if(isNaN(data?.length) || data?.length <1){
+  //!Object.keys(data).length
+  //isNaN(data?.length) || data?.length <1
+if(!Object.keys(data).length){
   const element = document.getElementById(id)
   if(element) element.classList.add("d-none")
   return false

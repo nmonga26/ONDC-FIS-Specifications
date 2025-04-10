@@ -230,6 +230,7 @@ function init() {
     home.style.display = "none"
     loader.style.display = "flex"
 
+
   if(!branchName) {
     toggleHomePage()
   } else {
