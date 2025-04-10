@@ -1,6 +1,6 @@
-health-insurance:
-  summary: health-insurance
-  description: health-insurance
+sachet-insurance:
+  summary: sachet-insurance
+  description: sachet-insurance
   example_set:
     $ref: "./health-insurance/health-insurance.yaml"
     
