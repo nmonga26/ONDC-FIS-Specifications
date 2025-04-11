@@ -13409,37 +13409,13 @@ x-flows:
                   id: LOAN_LEAD_ID_OR_SIMILAR
                   price:
                     currency: INR
-                    value: '14300'
+                    value: '20200'
                   breakup:
-                    - title: WOKRKING_CAPITAL_LIMIT
-                      price:
-                        value: '1100000'
-                        currency: INR
-                    - title: CURRENT_UTLIZATION
+                    - title: PRINCIPAL_AMOUNT
                       price:
                         value: '20000'
                         currency: INR
-                    - title: PROCESSING_FEE
-                      price:
-                        value: '1100'
-                        currency: INR
-                    - title: INSURANCE_CHARGES
-                      price:
-                        value: '1100'
-                        currency: INR
-                    - title: OTHER_UPFRONT_CHARGES
-                      price:
-                        value: '11000'
-                        currency: INR
-                    - title: OTHER_CHARGES
-                      price:
-                        value: '1100'
-                        currency: INR
-                    - title: FORCLOSUER_CHARGES
-                      price:
-                        value: '9536'
-                        currency: INR
-                    - title: OUTSTANDING_INTEREST
+                    - title: INTEREST_AMOUNT
                       price:
                         value: '200'
                         currency: INR
@@ -13863,37 +13839,13 @@ x-flows:
                   id: LOAN_LEAD_ID_OR_SIMILAR
                   price:
                     currency: INR
-                    value: '14300'
+                    value: '20200'
                   breakup:
-                    - title: WOKRKING_CAPITAL_LIMIT
-                      price:
-                        value: '1100000'
-                        currency: INR
-                    - title: CURRENT_UTLIZATION
+                    - title: PRINCIPAL_AMOUNT
                       price:
                         value: '20000'
                         currency: INR
-                    - title: PROCESSING_FEE
-                      price:
-                        value: '1100'
-                        currency: INR
-                    - title: INSURANCE_CHARGES
-                      price:
-                        value: '1100'
-                        currency: INR
-                    - title: OTHER_UPFRONT_CHARGES
-                      price:
-                        value: '11000'
-                        currency: INR
-                    - title: OTHER_CHARGES
-                      price:
-                        value: '1100'
-                        currency: INR
-                    - title: FORCLOSUER_CHARGES
-                      price:
-                        value: '9536'
-                        currency: INR
-                    - title: OUTSTANDING_INTEREST
+                    - title: INTEREST_AMOUNT
                       price:
                         value: '200'
                         currency: INR
