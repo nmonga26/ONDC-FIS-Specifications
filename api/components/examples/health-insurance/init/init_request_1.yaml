@@ -25,6 +25,8 @@ message:
             dob: '1990-01-01'
           contact:
             phone: "+91-9876543210"
+        id: F1
+        type: POLICY
     items:
       - add_ons:
           - id: A1
@@ -33,21 +35,8 @@ message:
                 count: 1
         id: CHILD_ITEM_ID_I1
         parent_item_id: I1
-        xinput:
-          form:
-            id: FO4
-          form_response:
-            status: SUCCESS
-            submission_id: 4830c4f9-b4d3-4e58-bef5-dee80eb08478
     provider:
       id: P1
-      tags:
-        - descriptor:
-            code: MASTER_POLICY
-          list:
-            - descriptor:
-                code: POLICY_ID
-              value: "e103b4a5-10f8-42c7-b888-dbf0e2edd696"
     payments:
       - collected_by: BPP
         status: NOT-PAID

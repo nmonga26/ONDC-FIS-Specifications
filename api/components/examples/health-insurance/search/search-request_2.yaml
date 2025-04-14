@@ -2,14 +2,16 @@ context:
   action: search
   bap_id: fis.test.bap.io
   bap_uri: https://fis.test.bap.io/
+  bpp_id: fis.test.bpp.io
+  bpp_uri: https://fis.test.bpp.io/
   domain: ONDC:FIS13
   location:
     country:
       code: IND
     city:
-      code: "*"
-  message_id: 446b99bb-7df0-44a7-84ac-f24699333f75
-  timestamp: '2023-07-24T05:39:31.700Z'
+      code: '*'
+  message_id: 385e3fb7-61e6-49a7-acbc-8ac05f934d4d
+  timestamp: "2023-07-24T05:39:31.700Z"
   transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
   ttl: PT24H
   version: 2.0.0
@@ -19,36 +21,25 @@ message:
       descriptor:
         code: MICRO_HEALTH_INSURANCE
     provider:
+      id: P1
       tags:
         - descriptor:
             code: MASTER_POLICY
           list:
             - descriptor:
                 code: POLICY_ID
-              value: "e103b4a5-10f8-42c7-b888-dbf0e2edd696"
-            - descriptor:
-                code: INSURANCE_TOKEN_ID_2
               value: "f703b4a5-10f8-42c7-b888-dbf0e2edd123"
-            - descriptor:
-                code: INSURANCE_TOKEN_ID_3
-              value: "dj03b4a6-10f8-42c7-b888-dbf0e2edd321"
-      items: 
-        - id: I1
-          xinput:
-            form: 
-              id: FO1 
-            form_response:
-              status: SUCCESS
-              submission_id: e9a3b4a5-10f8-42c7-b888-dbf0e2edd684
-    fulfillment:
-      customer:
-        person:
-          name: John Doe
-          gender: MALE
-          dob: '1990-01-01'
-        contact:
-          phone: "+91-9876543210"
-
+    # fulfillment:
+    #   customer:
+    #       person:
+    #         name: John Doe
+    #         gender: MALE
+    #         dob: '1990-01-01'
+    #       contact:
+    #         phone: "+91-9876543210"
+    #   agent:
+    #     person:
+    #       id: '0120TRVK'    
     payment:
       collected_by: BPP
     tags:
@@ -71,11 +62,8 @@ message:
             value: 'Delivery'
           - descriptor:
               code: SETTLEMENT_WINDOW
-            value: P30D 
-          - descriptor:
-              code: DELAY_INTEREST
-            value: 2.5 %    
+            value: P30D  
           - descriptor: 
               code: OFFLINE_CONTRACT
-            value: 'true'
-             
+            value: 'true' 
+       

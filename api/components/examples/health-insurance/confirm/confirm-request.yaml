@@ -35,67 +35,16 @@ message:
                 count: 1
         id: CHILD_ITEM_ID_I1
         parent_item_id: I1
-        xinput:
-          form: 
-            id: FO7 
-          form_response:
-            status: SUCCESS
-            submission_id: 6ae80f7d-1fe2-4bb2-8ead-8c3c2ded9358
     payments:
       - collected_by: BPP
         params:
           amount: "1100"
-          bank_account_number: "1800002341"
-          bank_code: SBIN0001234
           currency: INR
         status: NOT-PAID
         type: PRE-ORDER
-        tags:
-          - descriptor:
-              code: BUYER_FINDER_FEES
-            display: false
-            list:
-              - descriptor: 
-                  code: BUYER_FINDER_FEES_TYPE
-                value: "percent-annualized"
-              - descriptor: 
-                  code: BUYER_FINDER_FEES_PERCENTAGE
-                value: "1"
-          - descriptor:
-              code: SETTLEMENT_TERMS
-            display: false
-            list:
-              - descriptor: 
-                  code: SETTLEMENT_WINDOW
-                value: 'PT60M'
-              - descriptor: 
-                  code: SETTLEMENT_BASIS
-                value: 'Delivery'
-              - descriptor: 
-                  code: SETTLEMENT_TYPE
-                value: 'upi'
-              - descriptor: 
-                  code: DELAY_INTEREST
-                value: '2.5'
-              - descriptor: 
-                  code: STATIC_TERMS
-                value: 'https://www.icicibank.com/personal-banking/loans/personal-loan'
-              - descriptor: 
-                  code: SETTLEMENT_AMOUNT
-                value: '400'
-              - descriptor: 
-                  code: OFFLINE_CONTRACT
-                value: 'true'
-
+     
     provider:
       id: P1
-      tags:
-        - descriptor:
-            code: INSURANCE_PROVIDERS
-          list:
-            - descriptor:
-                code: INSURANCE_TOKEN_ID_1
-              value: "e103b4a5-10f8-42c7-b888-dbf0e2edd696"
     quote:
       id: OFFER_ID/PROPOSAL_ID
       breakup:
@@ -127,3 +76,80 @@ message:
         currency: INR
         value: "1100"
       ttl: P15D  
+    tags:
+      - descriptor:
+          code: BAP_TERMS
+          name: BAP Terms of Engagement
+        display: false
+        list:
+          - descriptor:
+              code: BUYER_FINDER_FEES_PERCENTAGE
+            value: '1'
+          - descriptor:
+              code: BUYER_FINDER_FEES_TYPE
+            value: percent-annualized
+          - descriptor:
+              code: STATIC_TERMS
+            value: 'https://api.example-bap.com/booking/terms'
+          - descriptor:
+              code: SETTLEMENT_BASIS
+            value: 'Delivery'
+          - descriptor:
+              code: SETTLEMENT_TYPE
+            value: 'upi'  
+          - descriptor:
+              code: SETTLEMENT_WINDOW
+            value: P30D 
+          - descriptor:
+              code: DELAY_INTEREST
+            value: 2.5 %    
+          - descriptor: 
+              code: OFFLINE_CONTRACT
+            value: 'true'
+          - descriptor: 
+              code: SETTLEMENT_AMOUNT
+            value: '400'
+          - descriptor:
+              code: SETTLEMENT_BANK_CODE
+            value: XXXXXXXX
+          - descriptor:
+              code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+            value: xxxxxxxxxxxxxx 
+      - descriptor:
+          code: BPP_TERMS
+          name: BPP Terms of Engagement
+        display: false
+        list:
+          - descriptor:
+              code: BUYER_FINDER_FEES_PERCENTAGE
+            value: '1'
+          - descriptor:
+              code: BUYER_FINDER_FEES_TYPE
+            value: percent-annualized
+          - descriptor:
+              code: STATIC_TERMS
+            value: 'https://api.example-bap.com/booking/terms'
+          - descriptor:
+              code: MANDATORY_ARBITRATION
+            value: 'true'
+          - descriptor:
+              code: COURT_JURISDICTION
+            value: std:011
+          - descriptor:
+              code: SETTLEMENT_BASIS
+            value: 'Delivery'
+          - descriptor:
+              code: SETTLEMENT_WINDOW
+            value: P30D    
+          - descriptor:
+              code: DELAY_INTEREST
+            value: 2.5 % 
+          - descriptor:
+              code: SETTLEMENT_TYPE
+            value: 'upi'
+          - descriptor: 
+              code: SETTLEMENT_AMOUNT
+            value: '400'   
+          - descriptor: 
+              code: OFFLINE_CONTRACT
+            value: 'true'    

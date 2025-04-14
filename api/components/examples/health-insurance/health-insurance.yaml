@@ -17,11 +17,7 @@ on_search:
     - summary: on_search for ineligible user
       description: TBD
       value:
-        $ref: "./on_search/on_search_ineligible_user.yaml"
-    - summary: on_search for CD Low
-      description: TBD
-      value:
-        $ref: "./on_search/on_search_cd_low.yaml"    
+        $ref: "./on_search/on_search_ineligible_user.yaml"    
 select:
   examples:
     # - summary: select-request-personal-info

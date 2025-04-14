@@ -18,54 +18,35 @@ message:
     category:
       descriptor:
         code: MICRO_HEALTH_INSURANCE
-    provider:
-      tags:
-        - descriptor:
-            code: INSURANCE_PROVIDERS
-          list:
-            - descriptor:
-                code: INSURANCE_TOKEN_ID_1
-              value: "f703b4a5-10f8-42c7-b888-dbf0e2edd123"
     fulfillment:
-      customer:
-          person:
-            name: John Doe
-            gender: MALE
-            dob: '1990-01-01'
-          contact:
-            phone: "+91-9876543210"
       agent:
         person:
           id: '0120TRVK'    
+    
     payment:
       collected_by: BPP
-      tags:
-        - descriptor:
-            code: BUYER_FINDER_FEES
-          display: false
-          list:
-            - descriptor: 
-                code: BUYER_FINDER_FEES_TYPE
-              value: "percent-annualized"
-            - descriptor: 
-                code: BUYER_FINDER_FEES_PERCENTAGE
-              value: "1"
-        - descriptor:
-            code: SETTLEMENT_TERMS
-          display: false
-          list:
-            - descriptor: 
-                code: SETTLEMENT_WINDOW
-              value: 'PT60M'
-            - descriptor: 
-                code: SETTLEMENT_BASIS
-              value: 'Delivery'
-            - descriptor: 
-                code: DELAY_INTEREST
-              value: '2.5'
-            - descriptor: 
-                code: STATIC_TERMS
-              value: 'https://bap.credit.becknprotocol.io/personal-banking/loans/personal-loan'
-            - descriptor: 
-                code: OFFLINE_CONTRACT
-              value: 'true'
+    tags:
+      - descriptor:
+          code: BAP_TERMS
+          name: BAP Terms of Engagement
+        display: false
+        list:
+          - descriptor:
+              code: BUYER_FINDER_FEES_PERCENTAGE
+            value: '1'
+          - descriptor:
+              code: BUYER_FINDER_FEES_TYPE
+            value: percent-annualized
+          - descriptor:
+              code: STATIC_TERMS
+            value: 'https://api.example-bap.com/booking/terms'
+          - descriptor:
+              code: SETTLEMENT_BASIS
+            value: 'Delivery'
+          - descriptor:
+              code: SETTLEMENT_WINDOW
+            value: P30D  
+          - descriptor: 
+              code: OFFLINE_CONTRACT
+            value: 'true' 
+       

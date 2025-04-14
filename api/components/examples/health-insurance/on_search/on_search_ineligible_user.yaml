@@ -23,7 +23,7 @@ message:
       - id: P3
         tags:
           - descriptor:
-              code: INSURANCE_PROVIDERS
+              code: MASTER_POLICY
             list:
               - descriptor:
                   code: INSURANCE_TOKEN_ID_3

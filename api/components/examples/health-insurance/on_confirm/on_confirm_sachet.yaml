@@ -10,31 +10,36 @@ context:
       code: IND
     city:
       code: '*'
-  message_id: 0a73dfe8-84c7-4f01-99ea-5137f3a7ea3d
-  timestamp: "2023-07-24T05:41:01.775Z"
+  message_id: 4e0dfc15-4f11-49b8-8581-ca85ae7a8ba1
+  timestamp: "2023-07-24T05:40:26.618Z"
   transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
   ttl: PT24H
   version: 2.0.0
 message:
   order:
+    id: POLICY_ID
     fulfillments:
-      - customer:
-          person:
-            name: John Doe
-            gender: MALE
-            dob: '1990-01-01'
+      - state:
+          descriptor:
+            code: GRANTED
+        customer:
           contact:
-            phone: "+91-9876543210"
-        id: F1
-        type: POLICY
+            email: joe.adam@abc.org
+            phone: +91-9999999999
+        id: 'F1'
+        type: POLICY 
     items:
-      - category_ids:
+      - id: CHILD_ITEM_ID_I1
+        parent_item_id: I1
+        category_ids:
           - C1
           - C3
         descriptor:
           name: Health Gain Plus Individual
-          short_desc: ABC Individaul Health Insurance Class A with custom addon
-        id: I1
+          short_desc: ABC Individual Health Insurance Class A with custom addon
+        price: 
+          currency: INR
+          value: '900'
         tags:
           - descriptor:
               name: General Information
@@ -72,34 +77,27 @@ message:
                 value: "50"
               - descriptor:
                   code: ROOM_CATEGORY
-                value: "Deluxe"
+                value: "Deluxe"       
+          - descriptor:
+              name: Inclusions
+              code: INCLUSIONS
+            list:
               - descriptor:
-                  code: PROPOSAL_ID
-                value: "PROPOSAL_ID"    
+                  name: Hospitalization
+              - descriptor:
+                  name: Medications
+              - descriptor:
+                  name: Surgery
+          - descriptor:
+              name: Exclusions
+              code: EXCLUSIONS
+            list:
+              - descriptor:
+                  name: Physiotherapy
         time:
           duration: P1Y
-          label: TENURE
-        xinput:
-          head:
-            descriptor:
-              name: Customer Information
-            index:
-              min: 0
-              cur: 1
-              max: 4
-            headings:
-              - Buyer Details
-              - Insured Details
-              - Medical Details
-              - Manual Review
-              - Nominee Details
-          form:
-            id: FO6
-            mime_type: text/html
-            url: https://fis.test.bpp.io/form/medical_dtls?formid=FO6
-            resubmit: true
-            multiple_sumbissions: false
-          required: true
+          label: TENURE  
+         
         add_ons:
           - id: A1
             quantity:
@@ -111,11 +109,6 @@ message:
             price: 
               value: "100"
               currency: "INR"  
-    payments:
-      - collected_by: BPP
-        url: https://www.abcinsurance.com/pg-gateway/payment?amount=1100&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
-        status: NOT-PAID
-        type: PRE-ORDER
     provider:
       descriptor:
         long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
@@ -126,6 +119,21 @@ message:
           - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
             size_type: xs
       id: P1
+      tags:
+        - descriptor:
+            code: MASTER_POLICY
+          list:
+            - descriptor:
+                code: POLICY_ID
+              value: "e103b4a5-10f8-42c7-b888-dbf0e2edd696"
+    payments:
+      - collected_by: BPP
+        params:
+          amount: "1100"
+          currency: INR
+          transaction_id: 85742a36-6636-4dcf-ae56-c47d3387d1d0
+        status: PAID
+        type: PRE-ORDER          
     quote:
       id: OFFER_ID/PROPOSAL_ID
       breakup:
@@ -136,7 +144,7 @@ message:
         - price:
             value: "50"
             currency: INR
-          title: CONVIENCE_FEE  
+          title: CONVIENCE_FEE    
         - price:
             value: "40"
             currency: INR
@@ -152,7 +160,7 @@ message:
               - id: "A1"
           price:
             value: "100"
-            currency: INR  
+            currency: INR
       price:
         currency: INR
         value: "1100"
@@ -199,4 +207,26 @@ message:
           - descriptor: 
               code: OFFLINE_CONTRACT
             value: 'true'    
-      
+    status: ACTIVE
+    documents:
+      - descriptor:
+          code: POLICY_DOC
+          name: Insurance Policy Document
+          short_desc: Download your digitally signed policy document here
+          long_desc: Download you digitally signed policy document here. This document is
+            password protected. To open this document, please type in your
+            password in DDMMMYYYYXXXX format where DDMMMYYYY represents your
+            date of birth, and XXXX represents the first four letters of your
+            name
+        mime_type: application/pdf
+        url: https://abcinsurance.com/policies/O1.pdf
+      - descriptor:
+          code: RENEW_DOC
+          name: Renew Insurance Policy
+          short_desc: Buyer can renew their insurance by visiting the below url
+          long_desc: Buyer can easily renew their insurance policies by visiting the following URL
+        mime_type: application/html
+        url: https://abcinsurance.com/renew-policy/
+    created_at: '2023-07-24T05:41:32.487Z'
+    updated_at: '2023-07-24T05:41:32.487Z'
+ 
