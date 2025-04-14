@@ -3175,7 +3175,15 @@ x-tags:
   on_cancel: *ref_10
 x-flows:
   - summary: Seller App fulfilling
-    details: null
+    details:
+      - description: >-
+          Seller app fulfilling - This flows showcases the purchase of a gift
+          card which is fulfilled by the seller app meaning the gift card
+          details are shared by the seller app directly to the receiver on the
+          contact info shared. The options for fulfillment possibilities is
+          provided by the seller app. Based on the choices provided, the buyer
+          app selects a particular fulfillment type, in this case seller app
+          sharing the gift cards details through both email and sms.
     references: if any
     steps:
       - summary: Buyer app search for available gift card providers
@@ -4905,7 +4913,22 @@ x-flows:
                 created_at: '2023-01-15T10:00:00.469Z'
                 updated_at: '2023-01-15T10:00:00.469Z'
   - summary: Buyer app fulfilling with code in on_confirm
-    details: null
+    details:
+      - description: >-
+          Buyer app fulfilling with code in on_confirm - This flows showcases
+          the purchase of a gift card which is fulfilled by the buyer app
+          meaning the gift card details are shared by the buyer app to the
+          receiver. The options for fulfillment possibilities is provided by the
+          seller app. Based on the choices provided, the buyer app selects a
+          particular fulfillment type, in this case buyer app themselves sharing
+          the gift cards details. For this therefore the gift card details are
+          passed over the protocol in the authorization object. If the seller
+          app is able to generate within the on_confirm API, the details are
+          provided in the on_confirm API itself, or shared in the on_update API.
+          Given that the flow requires gift card details to be shared over the
+          protocol, an encryption flow has been documented that can be leveraged
+          for security purposes. The seller apps can leverage the same should
+          they want to.  
     references: if any
     steps:
       - summary: Buyer app search for available gift card providers
@@ -6311,7 +6334,22 @@ x-flows:
                 created_at: '2023-01-15T10:00:00.469Z'
                 updated_at: '2023-01-15T10:00:00.469Z'
   - summary: Buyer app fulfilling with code in on_update
-    details: null
+    details:
+      - description: >-
+          Buyer app fulfilling with code in on_update - This flows showcases the
+          purchase of a gift card which is fulfilled by the buyer app meaning
+          the gift card details are shared by the buyer app to the receiver. 
+          The options for fulfillment possibilities is provided by the seller
+          app. Based on the choices provided, the buyer app selects a particular
+          fulfillment type, in this case buyer app themselves sharing the gift
+          cards details.  For this therefore the gift card details are passed
+          over the protocol in the authorization object. If the seller app is
+          able to generate within the on_confirm API, the details are provided
+          in the on_confirm API itself, or shared in the on_update API. Given
+          that the flow requires gift card details to be shared over the
+          protocol, an encryption flow has been documented that can be leveraged
+          for security purposes. The seller apps can leverage the same should
+          they want to.          
     references: if any
     steps:
       - summary: Provider confirms the order
@@ -6752,7 +6790,18 @@ x-flows:
                 created_at: '2023-01-15T10:00:00.469Z'
                 updated_at: '2023-01-15T10:00:00.469Z'
   - summary: Physical store based gift cards
-    details: null
+    details:
+      - description: >-
+          Physical store based gift cards - This flow showcases the purchase of
+          a gift card that is relevant to a specific location/ store/ outlet and
+          can only be redeemed in the provided location. The sellers provide
+          gift cards tagged to specific locations with a radius of
+          serviceability. The buyer app is expected to show items based on the
+          location of the buyer. Once a gift card is selected, the buyer's GPS
+          is shared with the seller app over the select API and the seller app
+          can respond with a quote in case the location is within their allowed
+          area or can provide an error that it is outside their service
+          area.         
     references: if any
     steps:
       - summary: Buyer app search for available gift card providers
@@ -6800,7 +6849,334 @@ x-flows:
                 end
         reference: if any
         example:
-          value: *ref_12
+          value:
+            context:
+              domain: ONDC:FIS10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              action: on_search
+              version: 2.1.0
+              bap_id: buyerapp.com
+              bap_uri: https://buyerapp.com/ondc
+              bpp_id: sellerapp.com
+              bpp_uri: https://sellerapp.com/ondc
+              transaction_id: e10f5ab4-241c-4702-8cb8-4ccc3bd98dbd
+              message_id: 8d3c37e7-adc0-4f97-aa1e-3ef5fcd86450
+              timestamp: '2023-03-10T10:00:00.401Z'
+            message:
+              catalog:
+                fulfillments:
+                  - id: TYPE1
+                    type: BPP_ONLINE_EMAIL_SMS
+                  - id: TYPE2
+                    type: BPP_ONLINE_EMAIL
+                  - id: TYPE3
+                    type: BPP_ONLINE_SMS
+                  - id: TYPE4
+                    type: BPP_OFFLINE
+                  - id: TYPE5
+                    type: BAP
+                descriptor:
+                  name: Gift card store
+                  symbol: https://giftcard.com/images/1-image
+                  short_desc: Online Gift Card Store
+                  long_desc: Online Gift Card Store
+                  images:
+                    - url: https://giftcard.com/images/store-image
+                providers:
+                  - id: P1
+                    ttl: P1D
+                    time:
+                      label: ENABLE
+                      timestamp: '2023-03-10T10:00:00.402Z'
+                    locations:
+                      - id: L1
+                        gps: 28.524596, 77.185577
+                        descriptor:
+                          name: Croma E-Gift
+                          short_desc: Croma E-Gift Cards (Instant Vouchers)
+                          images:
+                            - url: https://sellerapp.com/ondc/images/location.png
+                              size_type: md
+                        address: >-
+                          Croma - Odeon CP, Ground Floor, Odeon Cine
+                          Complex,Cannaught Place
+                      - id: L2
+                        descriptor:
+                          name: Croma E-Gift
+                          short_desc: Croma E-Gift Cards (Instant Vouchers)
+                          images:
+                            - url: https://sellerapp.com/ondc/images/location.png
+                              size_type: md
+                        circle:
+                          gps: 28.524596, 77.185577
+                          radius:
+                            type: CONSTANT
+                            value: '10'
+                            unit: KM
+                    descriptor:
+                      name: Gift card store
+                      symbol: https://giftcard.com/images/1-image
+                      short_desc: Online Gift Card Store
+                      long_desc: Online Gift Card Store
+                      images:
+                        - url: https://giftcard.com/images/store-image
+                    categories:
+                      - id: C1
+                        descriptor:
+                          code: CARD
+                      - id: C2
+                        descriptor:
+                          code: PROMO
+                      - id: C3
+                        descriptor:
+                          code: E_PAY
+                      - id: C4
+                        descriptor:
+                          code: E_RUPI
+                    items:
+                      - id: BaseCard1
+                        descriptor:
+                          name: Gift Card
+                          code: PARENT
+                          symbol: https://giftcard.com/images/01.png
+                          short_desc: Birthday Gift Card
+                          long_desc: Birthday Gift Card
+                          images:
+                            - url: https://giftcard.com/images/02.png
+                        tags:
+                          - descriptor:
+                              code: BRAND_DETAILS
+                            list:
+                              - descriptor:
+                                  code: BRAND_NAME
+                                value: name of brand free text
+                          - descriptor:
+                              code: VARIANT_FIELDS
+                            list:
+                              - descriptor:
+                                  code: items.tags.ITEM_DETAILS.OCCASION
+                              - descriptor:
+                                  code: items.price.value
+                          - descriptor:
+                              code: ITEM_DETAILS
+                            list:
+                              - descriptor:
+                                  code: TERMS_CONDITION
+                                value: https://giftcard.com/giftcards/tncs
+                              - descriptor:
+                                  code: CATEGORY
+                                value: FASHION
+                              - descriptor:
+                                  code: USABILITY
+                                value: ONLINE
+                              - descriptor:
+                                  code: PARTIAL_REDEMPTION
+                                value: NOT_ALLOWED
+                              - descriptor:
+                                  code: CLUBBING_OF_GIFT_CARDS
+                                value: NOT_ALLOWED
+                        category_ids:
+                          - C1
+                        fulfillment_ids:
+                          - TYPE1
+                        cancellation_terms:
+                          - cancel_eligible: false
+                        return_terms:
+                          - return_eligible: false
+                      - id: Detail1
+                        parent_item_id: BaseCard1
+                        descriptor:
+                          code: PARENT
+                        tags:
+                          - descriptor:
+                              code: ITEM_DETAILS
+                            list:
+                              - descriptor:
+                                  code: OCCASION
+                                value: DIWALI
+                      - id: Detail2
+                        parent_item_id: BaseCard1
+                        descriptor:
+                          code: PARENT
+                        tags:
+                          - descriptor:
+                              code: ITEM_DETAILS
+                            list:
+                              - descriptor:
+                                  code: OCCASION
+                                value: BIRTHDAY
+                      - id: GC1
+                        parent_item_id: Detail1
+                        descriptor:
+                          code: ITEM
+                        price:
+                          currency: INR
+                          value: '1500'
+                          offered_value: '2000'
+                        location_ids:
+                          - L1
+                      - id: GC2
+                        parent_item_id: Detail2
+                        descriptor:
+                          code: ITEM
+                        price:
+                          currency: INR
+                          value: '2000'
+                          offered_value: '2000'
+                        location_ids:
+                          - L2
+                      - id: GC3
+                        parent_item_id: Detail1
+                        descriptor:
+                          code: ITEM
+                        price:
+                          currency: INR
+                          value: '2000'
+                          offered_value: '2000'
+                      - id: GC4
+                        parent_item_id: Detail2
+                        descriptor:
+                          code: ITEM
+                        price:
+                          currency: INR
+                          value: '1500'
+                          offered_value: '1500'
+                      - id: GC5
+                        descriptor:
+                          name: Birthday Gift Card
+                          code: ITEM
+                          symbol: https://giftcard.com/images/01.png
+                          short_desc: Birthday Gift Card
+                          long_desc: Birthday Gift Card
+                          images:
+                            - url: https://giftcard.com/images/02.png
+                        price:
+                          currency: INR
+                          minimum_value: '1000'
+                          maximum_value: '10000'
+                        tags:
+                          - descriptor:
+                              code: BRAND_DETAILS
+                            list:
+                              - descriptor:
+                                  code: BRAND_NAME
+                                value: name of brand free text
+                        category_ids:
+                          - C1
+                        fulfillment_ids:
+                          - TYPE1
+                        cancellation_terms:
+                          - cancel_eligible: false
+                        return_terms:
+                          - return_eligible: false
+                      - id: SAMPLE_GC
+                        descriptor:
+                          name: TRAVEL Gift Card
+                          code: ITEM
+                          symbol: https://giftcard.com/images/01.png
+                          short_desc: BOOK CAB AND GET 100 OFF
+                          long_desc: BOOK CAB AND GET 100 OFF
+                          images:
+                            - url: https://giftcard.com/images/02.png
+                        price:
+                          currency: INR
+                          value: '100'
+                          offered_value: '100'
+                        tags:
+                          - descriptor:
+                              code: BRAND_DETAILS
+                            list:
+                              - descriptor:
+                                  code: BRAND_NAME
+                                value: name of brand free text
+                        category_ids:
+                          - C1
+                        fulfillment_ids:
+                          - TYPE1
+                        cancellation_terms:
+                          - cancel_eligible: false
+                        return_terms:
+                          - return_eligible: false
+                    offers:
+                      - id: DISCA100
+                        descriptor:
+                          code: DISCOUNT
+                          short_desc: Get 20% discount
+                          images:
+                            - url: https://sellerapp.com/images/offerbanner.png
+                        item_ids:
+                          - GC1
+                        time:
+                          range:
+                            start: '2023-06-01T16:00:00.000Z'
+                            end: '2023-06-01T23:00:00.000Z'
+                        tags:
+                          - descriptor:
+                              code: QUALIFIER
+                            list:
+                              - descriptor:
+                                  code: MIN_VALUE
+                                value: '1000'
+                          - descriptor:
+                              code: BENEFIT
+                            list:
+                              - descriptor:
+                                  code: VALUE_TYPE
+                                value: AMOUNT
+                              - descriptor:
+                                  code: VALUE
+                                value: '100'
+                          - descriptor:
+                              code: META
+                            list:
+                              - descriptor:
+                                  code: ADDITIVE
+                                value: 'TRUE'
+                              - descriptor:
+                                  code: AUTO
+                                value: 'FALSE'
+                      - id: FREEBIE123
+                        descriptor:
+                          code: FREEBIE
+                          short_desc: Get 20% discount
+                          images:
+                            - url: https://sellerNP.com/images/offerbanner2.png
+                        item_ids:
+                          - GC2
+                        time:
+                          label: VALID
+                          range:
+                            start: '2024-03-06T05:32:08.028Z'
+                            end: '2024-03-06T05:32:08.028Z'
+                        tags:
+                          - descriptor:
+                              code: QUALIFIER
+                            list:
+                              - descriptor:
+                                  code: ITEM_COUNT
+                                value: '1'
+                          - descriptor:
+                              code: BENEFIT
+                            list:
+                              - descriptor:
+                                  code: ITEM_ID
+                                value: SAMPLE_GC
+                              - descriptor:
+                                  code: ITEM_COUNT
+                                value: '1'
+                          - descriptor:
+                              code: META
+                            list:
+                              - descriptor:
+                                  code: ADDITIVE
+                                value: 'FALSE'
+                              - descriptor:
+                                  code: AUTO
+                                value: 'TRUE'
       - summary: Buyer app selects an item
         api: select
         details:
@@ -8275,7 +8651,13 @@ x-flows:
                 created_at: '2023-01-15T10:00:00.469Z'
                 updated_at: '2023-01-15T10:00:00.469Z'
   - summary: Seller Cancellation
-    details: null
+    details:
+      - description: >-
+          Seller cancellation - In case the seller app is not able to deliver
+          the gift card to the details (phone or email or both) provided by the
+          buyer, the seller may either initiate order cancellation or may ask
+          the buyer to provide the correct details. This flow illustrates the
+          cancellation process.       
     references: if any
     steps:
       - summary: Provider confirms the order
@@ -8524,7 +8906,16 @@ x-flows:
                 created_at: '2023-01-15T10:00:00.469Z'
                 updated_at: '2023-01-15T10:00:00.469Z'
   - summary: Update Receiver Info
-    details: null
+    details:
+      - description: >-
+          Update receiver info - In case the seller app is not able to deliver
+          the gift card to the details (phone or email or both) provided by the
+          buyer, the seller may either initiate order cancellation or may ask
+          the buyer to provide the correct details. This flow illustrates the
+          seller app requesting for an update on the contact info shared. The
+          buyer app provides the same and is updated on the order object. The
+          gift card details are then shared on the new information
+          shared          
     references: if any
     steps:
       - summary: Provider confirms the order
@@ -9325,7 +9716,11 @@ x-flows:
 x-examples:
   gift-card:
     summary: gift-card
-    description: gift-card
+    description: >-
+      Gift Card Implementation - heading This developer guide elaborates the
+      process flows for buying gift cards on the network across the order
+      processing flow of discovery of gift cards available on the network, order
+      placement, fulfilment of the order and post fulfilment requirements.
     example_set:
       search:
         examples:
@@ -12893,7 +13288,8 @@ x-attributes:
               description: Describes the order created_at
               owner: BPP
               type: string
-x-sandboxui:
-  dropdown:
-    - environment-name: staging
-      link: https://fis-staging.ondc.org
+x-featureui:
+  filenames:
+    - Technical_Salient_Features.md
+    - field_level_encryption.md
+    - log-verification.md

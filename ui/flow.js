@@ -91,6 +91,7 @@ async function loadFlow(flowName) {
   flowSummary.textContent = selectedFlow["summary"];
   // flowDescription.textContent = selectedFlow["details"]
   var mermaidDiv = document.createElement("description-div");
+  console.log('selectedFlow', selectedFlow?.["details"])
   if (selectedFlow?.["details"]) {
     for (const [index, detail] of selectedFlow["details"].entries()) {
       var mermaidPane = document.createElement("description-summary");

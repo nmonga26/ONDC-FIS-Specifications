@@ -1,5 +1,7 @@
 summary:  Physical store based gift cards
-details:           
+details:  
+  - description: >-
+      Physical store based gift cards - This flow showcases the purchase of a gift card that is relevant to a specific location/ store/ outlet and can only be redeemed in the provided location. The sellers provide gift cards tagged to specific locations with a radius of serviceability. The buyer app is expected to show items based on the location of the buyer. Once a gift card is selected, the buyer's GPS is shared with the seller app over the select API and the seller app can respond with a quote in case the location is within their allowed area or can provide an error that it is outside their service area.         
 references: if any
 steps:
   - summary: Buyer app search for available gift card providers
@@ -43,7 +45,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/gift-card/on_search/on_search_request.yaml"
+        $ref: "../../examples/gift-card/on_search/on_search_request_location.yaml"
   - summary: Buyer app selects an item
     api: select
     details:

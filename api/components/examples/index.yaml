@@ -1,5 +1,7 @@
 gift-card:
   summary: gift-card
-  description: gift-card
+  description: >-
+    Gift Card Implementation - heading
+    This developer guide elaborates the process flows for buying gift cards on the network across the order processing flow of discovery of gift cards available on the network, order placement, fulfilment of the order and post fulfilment requirements.
   example_set:
     $ref: "./gift-card/index.yaml"

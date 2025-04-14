@@ -1,5 +1,10 @@
 summary: Buyer app fulfilling with code in on_update
-details:           
+details: 
+  - description: >-
+      Buyer app fulfilling with code in on_update - This flows showcases the purchase of a gift card which is fulfilled by the buyer app meaning the gift card details are shared by the buyer app to the receiver. 
+      The options for fulfillment possibilities is provided by the seller app. Based on the choices provided, the buyer app selects a particular fulfillment type, in this case buyer app themselves sharing the gift cards details. 
+      For this therefore the gift card details are passed over the protocol in the authorization object. If the seller app is able to generate within the on_confirm API, the details are provided in the on_confirm API itself, or shared in the on_update API.
+      Given that the flow requires gift card details to be shared over the protocol, an encryption flow has been documented that can be leveraged for security purposes. The seller apps can leverage the same should they want to.          
 references: if any
 steps:
   - summary: Provider confirms the order
