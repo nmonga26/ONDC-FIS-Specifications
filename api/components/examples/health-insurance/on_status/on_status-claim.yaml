@@ -224,13 +224,13 @@ message:
             name
         mime_type: application/pdf
         url: https://abcinsurance.com/policies/O1.pdf
-      - descriptor:
-          code: CLAIM_DOC
-          name: Claim Insurance Policy
-          short_desc: Buyer can claim their insurance by visiting the below url
-          long_desc: Buyer can claim their insurance by visiting the below url
-        mime_type: application/html
-        url: https://abcinsurance.com/claim-policy/
+      # - descriptor:
+      #     code: CLAIM_DOC
+      #     name: Claim Insurance Policy
+      #     short_desc: Buyer can claim their insurance by visiting the below url
+      #     long_desc: Buyer can claim their insurance by visiting the below url
+      #   mime_type: application/html
+      #   url: https://abcinsurance.com/claim-policy/
       - descriptor:
           code: RENEW_DOC
           name: Renew Insurance Policy

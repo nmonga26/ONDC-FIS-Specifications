@@ -1,5 +1,5 @@
 context:
-  action: on_status
+  action: on_select
   bap_id: fis.test.bap.io
   bap_uri: https://fis.test.bap.io/
   bpp_id: fis.test.bpp.io
@@ -10,8 +10,8 @@ context:
       code: IND
     city:
       code: '*'
-  message_id: a214954f-fa49-4e10-baf4-c51b3dd22fd7
-  timestamp: "2023-07-24T05:41:01.775Z"
+  message_id: 4e0dfc15-4f11-49b8-8581-ca85ae7a8ba1
+  timestamp: "2023-07-24T05:40:26.618Z"
   transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
   ttl: PT24H
   version: 2.0.0
@@ -19,20 +19,23 @@ message:
   order:
     fulfillments:
       - customer:
+          person:
+            name: John Doe
+            gender: MALE
+            dob: '1990-01-01'
           contact:
-            email: joe.adam@abc.org
-            phone: +91-9999999999
+            phone: "+91-9876543210"
         id: F1
         type: POLICY
     items:
-      - category_ids:
+      - id: CHILD_ITEM_ID_I1
+        parent_item_id: I1
+        category_ids:
           - C1
           - C3
         descriptor:
           name: Health Gain Plus Individual
-          short_desc: ABC Individaul Health Insurance Class A with custom addon
-        id: CHILD_ITEM_ID_I1
-        parent_item_id: I1
+          short_desc: ABC Individual Health Insurance Class A with custom addon
         price: 
           currency: INR
           value: '900'
@@ -70,20 +73,62 @@ message:
                 value: "No"
               - descriptor:
                   code: CASHLESS_HOSPITALS
-                value: "50" 
+                value: "50"
               - descriptor:
                   code: ROOM_CATEGORY
-                value: "Deluxe"
+                value: "Deluxe"  
               - descriptor:
-                  code: PROPOSAL_ID
-                value: "PROPOSAL_ID"    
+                  code: BASE_PRICE
+                  name: Base Price
+                  short_desc: Base Price
+                value: '900'
+              - descriptor:
+                  code: CONVIENCE_FEE
+                  name: Convience Fee
+                  short_desc: Convience Fee
+                value: '50'
+              - descriptor:
+                  code: PROCESSING_FEE
+                  name: Processing Fee
+                  short_desc: Processing Fee
+                value: '10'
+              - descriptor:
+                  code: TAX
+                  name: Tax
+                  short_desc: Tax
+                value: '40'
+              - descriptor:
+                  code: OFFER_VALIDITY
+                  name: Offer validity
+                  short_desc: Describes the offer validity
+                value: 'P15D'     
+          - descriptor:
+              name: Inclusions
+              code: INCLUSIONS
+            list:
+              - descriptor:
+                  name: Hospitalization
+              - descriptor:
+                  name: Medications
+              - descriptor:
+                  name: Surgery
+          - descriptor:
+              name: Exclusions
+              code: EXCLUSIONS
+            list:
+              - descriptor:
+                  name: Physiotherapy 
+            
         time:
           duration: P1Y
-          label: TENURE
+          label: TENURE  
         xinput:
+          form:
+            id: FO3
           form_response:
-              status: APPROVED
-              submission_id: "f7df084a-483c-42e2-9aeb-9d6e6f95a5e8"
+            status: SUCCESS
+            submission_id: 34550199-d2b5-412f-bddd-fd2ddb271c7a
+         
         add_ons:
           - id: A1
             quantity:
@@ -95,58 +140,6 @@ message:
             price: 
               value: "100"
               currency: "INR"  
-    payments:
-      - collected_by: BPP
-        url: https://www.abcinsurance.com/pg-gateway/payment?amount=1100&txn_id=c04a04ee-d892-400f-bbe6-479a43b4448a
-        status: NOT-PAID
-        type: PRE-ORDER
-        params:
-          # amount: "1100"
-          bank_account_number: "1800002341"
-          bank_code: SBIN0001234
-          currency: INR 
-        tags:
-          - descriptor:
-              code: BUYER_FINDER_FEES
-            display: false
-            list:
-              - descriptor: 
-                  code: BUYER_FINDER_FEES_TYPE
-                value: "percent-annualized"
-              - descriptor: 
-                  code: BUYER_FINDER_FEES_PERCENTAGE
-                value: "1"
-          - descriptor:
-              code: SETTLEMENT_TERMS
-            display: false
-            list:
-              - descriptor: 
-                  code: SETTLEMENT_WINDOW
-                value: 'PT60M'
-              - descriptor: 
-                  code: SETTLEMENT_BASIS
-                value: 'Delivery'
-              - descriptor: 
-                  code: SETTLEMENT_TYPE
-                value: 'upi'
-              - descriptor: 
-                  code: MANDATORY_ARBITRATION
-                value: 'true'
-              - descriptor: 
-                  code: COURT_JURISDICTION
-                value: 'std:011'
-              - descriptor: 
-                  code: DELAY_INTEREST
-                value: '2.5'
-              - descriptor: 
-                  code: STATIC_TERMS
-                value: 'https://www.icicibank.com/personal-banking/loans/personal-loan'
-              - descriptor: 
-                  code: SETTLEMENT_AMOUNT
-                value: '1000'
-              - descriptor: 
-                  code: OFFLINE_CONTRACT
-                value: 'true'
     provider:
       descriptor:
         long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
@@ -157,6 +150,13 @@ message:
           - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
             size_type: xs
       id: P1
+      tags:
+        - descriptor:
+            code: MASTER_POLICY
+          list:
+            - descriptor:
+                code: POLICY_ID
+              value: "e103b4a5-10f8-42c7-b888-dbf0e2edd696"
     quote:
       id: OFFER_ID/PROPOSAL_ID
       breakup:
@@ -167,7 +167,7 @@ message:
         - price:
             value: "50"
             currency: INR
-          title: CONVIENCE_FEE  
+          title: CONVIENCE_FEE    
         - price:
             value: "40"
             currency: INR
@@ -183,12 +183,7 @@ message:
               - id: "A1"
           price:
             value: "100"
-            currency: INR  
+            currency: INR
       price:
         currency: INR
         value: "1100"
-      ttl: P15D  
-    cancellation_terms:
-      - external_ref: 
-          mimetype: text/html,
-          url: "https://fis.test.bpp.io/cancellation-terms"

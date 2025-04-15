@@ -113,10 +113,10 @@ message:
       id: P1
       tags:
         - descriptor:
-            code: INSURANCE_PROVIDERS
+            code: MASTER_POLICY
           list:
             - descriptor:
-                code: INSURANCE_TOKEN_ID_1
+                code: POLICY_ID
               value: "e103b4a5-10f8-42c7-b888-dbf0e2edd696"
     quote:
       id: OFFER_ID/PROPOSAL_ID

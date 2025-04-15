@@ -25,5 +25,11 @@ message:
             quantity:
               selected:
                 count: 1
+        xinput:
+            form:
+              id: FO3
+            form_response:
+              status: SUCCESS
+              submission_id: 34550199-d2b5-412f-bddd-fd2ddb271c7a      
     provider:
       id: P1
