@@ -118,6 +118,7 @@ paths:
               schema:
                 type: object
                 properties:
+                  context: null
                   message:
                     type: object
                     properties:
