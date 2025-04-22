@@ -1,10 +1,10 @@
 summary: Buying Sachet Health Insurance
 description: BAP buys sachet health insurance cover to allocate from already purchased sachet with BPP.
 details:
-  - description: Discovery of health insurance .
+  - description: Discovery of Sachet health insurance .
     mermaid: >-
       sequenceDiagram
-        title Health insurance Discovery
+        title Sachet Health insurance Discovery
         Buyer Platform (BAP)->>Gateway (BG): search
         Gateway (BG) ->> Buyer Platform (BAP): ACK
         Gateway (BG)->>Registry: Lookup Insurer Platforms (lookup)
@@ -66,13 +66,13 @@ details:
         Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
 references: if any
 steps:
-  - summary: Buyer app search for available health insurance providers
+  - summary: Buyer app search for available Sachet health insurance providers
     api: search
     details:
-      - description: Buyer app explore health insurance options by searching for insurers over the network.
+      - description: Buyer app explore Sachet health insurance options by searching for insurers over the network.
         mermaid: >-
           sequenceDiagram
-            title Health insurance Discovery
+            title Sachet Health insurance Discovery
             rect rgb(191, 223, 255)
             Buyer Platform (BAP)->>Gateway (BG): search
             Gateway (BG) ->> Buyer Platform (BAP): ACK
@@ -87,13 +87,13 @@ steps:
     example:
       value:
         $ref: "../../examples/health-insurance/search/search-request.yaml"
-  - summary: Insurer provides a catalog of different insurance products
+  - summary: Insurer provides a catalog of insurance products
     api: on_search
     details:
-      - description: Insurer sends a comprehensive catalog of various insurance products specifically tailored for health insurance, all of which are offered by the insurer with personal and family info form.
+      - description: Insurer sends a comprehensive catalog of various insurance products specifically tailored for Sachet health insurance.
         mermaid: >-
           sequenceDiagram
-            title Health insurance Discovery
+            title Sachet Health insurance Discovery
             Buyer Platform (BAP)->>Gateway (BG): search
             Gateway (BG) ->> Buyer Platform (BAP): ACK
             Gateway (BG)->>Registry: Lookup Insurer Platforms (lookup)
@@ -134,17 +134,17 @@ steps:
     example:
       value:
         $ref: "../../examples/health-insurance/search/search-request_2.yaml"
-  - summary: Insurer provides a catalog of different insurance products
+  - summary: Insurer provides a catalog for a specific master policy
     api: on_search
     details:
-      - description: Insurer sends a comprehensive catalog of various insurance products specifically tailored for health insurance, all of which are offered by the insurer with personal and family info form.
+      - description: Insurer provides a catalog for a specific master policy and share the personal details form
         mermaid: >-
           sequenceDiagram
             title  Selection
             participant Buyer Platform (BAP)
             participant Insurer Platform (BPP)
             participant Insurer Form Service
-            
+
             Buyer Platform (BAP)->>Insurer Platform (BPP): search
             Insurer Platform (BPP)->>Buyer Platform (BAP): ACK
             rect rgb(191, 223, 255)
@@ -211,10 +211,10 @@ steps:
     example:
       value:
         $ref: "../../examples/health-insurance/search/search-request_3.yaml"
-  - summary: Insurer provides a catalog of different insurance products
+  - summary: Insurer provides the dervied data form
     api: on_search
     details:
-      - description: Insurer sends a comprehensive catalog of various insurance products specifically tailored for health insurance, all of which are offered by the insurer with personal and family info form.
+      - description: Insurer provides the dervied data form
         mermaid: >-
           sequenceDiagram
             title  Selection
@@ -263,10 +263,10 @@ steps:
       value:
         $ref: "../../examples/health-insurance/forms/derived-data.html"
 
-  - summary: Buyer app search for available health insurance providers
+  - summary: Buyer app shares the form submission id of Derived data form
     api: search
     details:
-      - description: Buyer app explore health insurance options by searching for insurers over the network.
+      - description: Buyer app shares the form submission id of Derived data form to insurer
         mermaid: >-
           sequenceDiagram
             title  Order Confirmation
@@ -282,10 +282,10 @@ steps:
     example:
       value:
         $ref: "../../examples/health-insurance/search/search-request_4.yaml"
-  - summary: Insurer provides a catalog of different insurance products
+  - summary: Insurer provides the form response and share the offer
     api: on_search
     details:
-      - description: Insurer sends a comprehensive catalog of various insurance products specifically tailored for health insurance, all of which are offered by the insurer with personal and family info form.
+      - description: Insurer provides the form response and share the offer with some details
         mermaid: >-
           sequenceDiagram
             title  Order Confirmation
@@ -303,10 +303,10 @@ steps:
         $ref: "../../examples/health-insurance/on_search/on_search_request_4.yaml"
 
 
-  - summary: Buyer app selects a health insurance for more details
+  - summary: Buyer app selects a insurance for more details
     api: select
     details:
-      - description: Buyer app selects a specific health insurance plan that suits their needs
+      - description: Buyer app selects a specific insurance plan that suits their needs
         mermaid: >-
           sequenceDiagram
             title  Selection
@@ -327,10 +327,10 @@ steps:
     example:
       value:
         $ref: "../../examples/health-insurance/select/select.yaml"
-  - summary: Insurer returns the response to selected health insurance plan
+  - summary: Insurer returns the response to selected Sachet health insurance plan
     api: on_select
     details:
-      - description: Insurer responds to the buyer app requests by sending the details of the selected health insurance plan, including the KYC/consent form link.
+      - description: Insurer responds to the buyer app requests by sending the details of the selected Sachet health insurance plan, including the EKYC form link.
         mermaid: >-
           sequenceDiagram
             title  Selection
@@ -378,10 +378,10 @@ steps:
       value:
         $ref: "../../examples/health-insurance/forms/ekyc-type-application.html"
 
-  - summary: Buyer app selects a health insurance for more details
+  - summary: Buyer app shares the form submission id of EKYC form
     api: select
     details:
-      - description: Buyer app selects a specific health insurance plan that suits their needs
+      - description: Buyer app selects a specific Sachet health insurance plan that suits their needs
         mermaid: >-
           sequenceDiagram
             title  Selection
@@ -397,10 +397,10 @@ steps:
     example:
       value:
         $ref: "../../examples/health-insurance/select/select_ekyc_submission.yaml"
-  - summary: Insurer returns the response to selected health insurance plan
+  - summary: Insurer returns the form response for EKYC form.
     api: on_select
     details:
-      - description: Insurer responds to the buyer app requests by sending the details of the selected health insurance plan, including the KYC/consent form link.
+      - description: Insurer returns the form response for EKYC form.
         mermaid: >-
           sequenceDiagram
             title  Selection
@@ -419,10 +419,10 @@ steps:
   
 
 
-  - summary: The buyer app initiates the health insurance request
+  - summary: The buyer app initiates the Sachet health insurance request
     api: init
     details:
-      - description: Buyer app initiates purchase of a specific health insurance plan that suits their needs and links the EKYC submission details with it.
+      - description: The buyer app initiates the Sachet health insurance request.
         mermaid: >-
 
 
@@ -449,10 +449,10 @@ steps:
     example:
       value:
         $ref: "../../examples/health-insurance/init/init_request_1.yaml"
-  - summary: Insurer returns the response to initialized health insurance plan
+  - summary: Insurer returns the response to initialized Sachet health insurance plan
     api: on_init
     details:
-      - description: Insurer returns the response to initialized health insurance plan.
+      - description: Insurer returns the response to initialized Sachet health insurance plan & share the Good Health form.
         mermaid: >-
           sequenceDiagram
             title Initializing Order
@@ -476,10 +476,10 @@ steps:
     example:
       value:
         $ref: "../../examples/health-insurance/on_init/on_init_good_health.yaml"
-  - summary: Buyer app fetches the good health declaration form
+  - summary: Buyer app fetches the good Sachet health declaration form
     api: form
     details:
-      - description: Buyer app fetches the good health declaration form from the insurer using the link provided in the previous step.
+      - description: Buyer app fetches the good Sachet health declaration form from the insurer using the link provided in the previous step.
         mermaid: >-
           sequenceDiagram
             title Initializing Order
@@ -524,10 +524,10 @@ steps:
     example:
       value:
         $ref: "../../examples/health-insurance/init/init_request_1.yaml"
-  - summary: Insurer returns the response to initialized health insurance plan
+  - summary: Insurer returns the form response
     api: on_init
     details:
-      - description: Insurer returns the response to initialized health insurance plan.
+      - description: Insurer returns the form response to Sachet health insurance plan.
         mermaid: >-
           sequenceDiagram
             title  Selection
@@ -548,10 +548,10 @@ steps:
   
   
   
-  - summary: Buyer app confirms the health insurance request
+  - summary: Buyer app confirms the Sachet health insurance request
     api: confirm
     details:
-      - description: Buyer app confirms the health insurance request and provides all the necessary information as per the terms.
+      - description: Buyer app confirms the Sachet health insurance request and provides all the necessary information as per the terms.
         mermaid: >-
           sequenceDiagram
             title  Selection
@@ -567,10 +567,10 @@ steps:
     example:
       value:
         $ref: "../../examples/health-insurance/confirm/confirm-request.yaml"
-  - summary: Insurer confirms the health insurance order
+  - summary: Insurer confirms the Sachet health insurance order
     api: on_confirm
     details:
-      - description: Insurer confirms the health insurance and provides the confirmation details.
+      - description: Insurer confirms the Sachet health insurance and provides the confirmation details.
         mermaid: >-
           sequenceDiagram
             title  Order Confirmation
