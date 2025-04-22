@@ -8,6 +8,7 @@
 - Create PR and label it with your domain name.
 - Once submitted, please refer to the comments on logs submitted and update the PR based on the comments provided.
 - Once the reviews are done, the PR will be merged and the logs shall be considered as approved on pr merge
+- Both IGM and transactional logs need to be submitted in a single PR
 - For IGM logs, create a folder with name igm under your entity named folder.
 
 ### File Naming conventions:
