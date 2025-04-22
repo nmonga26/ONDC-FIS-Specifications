@@ -1,8 +1,8 @@
-personal-loans:
-  summary: personal-loans
-  description: personal-loans
-  example_set:
-    $ref: ./personal-loans/index.yaml
+# personal-loans:
+#   summary: personal-loans
+#   description: personal-loans
+#   example_set:
+#     $ref: ./personal-loans/index.yaml
 purchase-finance:
   summary: purchase-finance
   description: purchase-finance
