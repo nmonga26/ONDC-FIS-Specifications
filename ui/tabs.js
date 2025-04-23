@@ -4,8 +4,13 @@
 function onFirstLoad(build_spec) {
       let data = build_spec;
       const xProperties = ["x-enum", "x-tags", "x-examples", "x-flows", "x-attributes", "x-errorcodes", "x-tlc","x-featureui","x-sandboxui", "x-testcasesui", "x-changeLog"];
-      const dropdown =  document.getElementById("contract-dropdown");
-      const branch_name = dropdown.options[dropdown.selectedIndex].text;
+      //const dropdown =  document.getElementById("contract-dropdown");
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const branchName = urlParams.get('branch');
+      
+      // const branch_name = dropdown.options[dropdown.selectedIndex].text;
+      const branch_name = branchName
       xProperties.forEach((xProperty) => {
         if (data[xProperty]) {
           switch (xProperty) {
