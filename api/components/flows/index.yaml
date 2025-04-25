@@ -23,3 +23,5 @@
 - $ref: "./mutual-funds/cart-sip.yaml"
 - $ref: "./mutual-funds/cart-sip-instalment.yaml"
 - $ref: "./mutual-funds/switch-by-amount.yaml"
+- $ref: "./mutual-funds/swp-by-amount.yaml"
+- $ref: "./mutual-funds/swp-instalment.yaml"
