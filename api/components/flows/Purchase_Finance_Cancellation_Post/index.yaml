@@ -1,0 +1,151 @@
+summary: Purchase Finance - Cancellation (Post Disbursal)
+details:
+  - description: Detailed process for Cancellation
+    mermaid: |-
+      sequenceDiagram
+        participant Borrower Platform (BAP)
+        participant Lender Platform (BPP)
+        Lender Platform (BPP)->>Borrower Platform (BAP):on_confirm
+        Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+        Borrower Platform (BAP)->>Lender Platform (BPP): update-Request
+        Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
+        Lender Platform (BPP)->>Borrower Platform (BAP):on_update - Update request
+        Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+        Lender Platform (BPP)->>Borrower Platform (BAP):on_update - Update success
+        Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+references: if any
+steps:
+  - summary: The provider platform provides the unsolicited on_update call
+    api: on_update
+    details:
+      - description: The provider platform provides the unsolicited on_update call.
+        mermaid: |-
+          sequenceDiagram
+            title Order Fulfillment
+            participant Borrower Platform (BAP)
+            participant Lender Platform (BPP)
+            rect rgb(191, 223, 255)
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_update
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+            end
+            Borrower Platform (BAP)->>Lender Platform (BPP): cancel-Request
+            Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_cancel
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+    reference: if any
+    example:
+      value:
+        $ref: >-
+          ../../examples/purchase-finance/on_update/on_update_unsolicited_utr-pf.yaml
+  - summary: Buyer app requests for cancellation with soft_cancel status
+    api: cancel
+    details:
+      - description: Buyer app requests for cancellation
+        mermaid: |-
+          sequenceDiagram
+            title Order Fulfillment
+            participant Borrower Platform (BAP)
+            participant Lender Platform (BPP)
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_update
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+            rect rgb(191, 223, 255)
+            Borrower Platform (BAP)->>Lender Platform (BPP): cancel-Request
+            Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
+            end
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_cancel
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+    reference: if any
+    example:
+      value:
+        $ref: >-
+          ../../examples/purchase-finance/cancel/soft_cancel.yaml
+  - summary: The provider platform provides the on_cancel call with soft_cancel status
+    api: on_cancel
+    details:
+      - description: The provider platform provides the on_cancel call with soft_cancel status
+        mermaid: |-
+          sequenceDiagram
+            title Order Fulfillment
+            participant Borrower Platform (BAP)
+            participant Lender Platform (BPP)
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_update
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+            Borrower Platform (BAP)->>Lender Platform (BPP): cancel-Request
+            Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
+            rect rgb(191, 223, 255)
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_cancel
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+            end
+    reference: if any
+    example:
+      value:
+        $ref: >- 
+          ../../examples/purchase-finance/on_cancel/on_cancel_confirm.yaml
+  
+  - summary: Buyer app requests for cancellation with confirm_cancel status
+    api: cancel
+    details:
+      - description: Buyer app requests for cancellation with confirm_cancel status
+        mermaid: |-
+          sequenceDiagram
+            title Order Fulfillment
+            participant Borrower Platform (BAP)
+            participant Lender Platform (BPP)
+            rect rgb(191, 223, 255)
+            Borrower Platform (BAP)->>Lender Platform (BPP): cancel-Request
+            Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
+            end
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_cancel
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_update
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+    reference: if any
+    example:
+      value:
+        $ref: >-
+          ../../examples/purchase-finance/cancel/confirm_cancel.yaml
+  - summary: The provider platform provides the on_cancel call with cancelled status
+    api: on_cancel
+    details:
+      - description: The provider platform provides the on_cancel call with cancelled status
+        mermaid: |-
+          sequenceDiagram
+            title Order Fulfillment
+            participant Borrower Platform (BAP)
+            participant Lender Platform (BPP)
+            Borrower Platform (BAP)->>Lender Platform (BPP): cancel-Request
+            Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
+            rect rgb(191, 223, 255)
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_cancel
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+            end
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_update
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+    reference: if any
+    example:
+      value:
+        $ref: >-
+          ../../examples/purchase-finance/on_cancel/on_cancel_confirm.yaml
+  - summary: The provider platform provides the unsolicited on_update call with updated payment status
+    api: on_update
+    details:
+      - description: The provider platform provides the unsolicited on_update call with updated payment status
+        mermaid: |-
+          sequenceDiagram
+            title Order Fulfillment
+            participant Borrower Platform (BAP)
+            participant Lender Platform (BPP)
+            Borrower Platform (BAP)->>Lender Platform (BPP): cancel-Request
+            Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_cancel
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+            rect rgb(191, 223, 255)
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_update
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+            end
+    reference: if any
+    example:
+      value:
+        $ref: >-
+          ../../examples/purchase-finance/on_update/on_update_request-cancel.yaml        
+  
