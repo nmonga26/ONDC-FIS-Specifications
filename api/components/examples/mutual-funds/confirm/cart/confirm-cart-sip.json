@@ -173,22 +173,23 @@
                             ]
                         },
                         {
-                          "descriptor": {
-                            "name": "Payment Method",
-                            "code": "PAYMENT_METHOD"
-                          },
-                          "list": [
-                            {
-                                "descriptor": { "code": "MODE" },
-                                "value": "NACH"
-                            },
-                            {
-                                "descriptor": { "code": "AUTH" },
-                                "value": "NETBANKING"
-                            }
-                          ]
+                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
+                            "list": [
+                                {
+                                    "descriptor": { "code": "MODE" },
+                                    "value": "NACH"
+                                },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "NETBANKING"
+                                },
+                                {
+                                    "descriptor": { "code": "MANDATE_LIMIT" },
+                                    "value": "50000"
+                                }
+                            ]
                         }
-                      ]
+                    ]
                 }
             ],
             "tags": [

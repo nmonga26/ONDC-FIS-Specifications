@@ -3761,6 +3761,12 @@ x-tags:
                 - code: MANDATE_IDENTIFIER
                   description: Identifier for existing mandates
                   reference: <PR/Issue/Discussion Links md format text>
+                - code: MANDATE_LIMIT
+                  description: >-
+                    Per debit max limit on the mandate. Buyer app can provide
+                    this if it wants to set a limit or not provide it. Final say
+                    is with the seller app. Value mentioned as integer.
+                  reference: <PR/Issue/Discussion Links md format text>
                 - code: MASKED_BANK_ACCOUNT_NUMBER
                   description: Masked bank a/c number for existing mandates
                   reference: <PR/Issue/Discussion Links md format text>
@@ -6731,6 +6737,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -6941,6 +6950,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -7067,6 +7079,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -7295,6 +7310,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -7554,6 +7572,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                           - descriptor:
                               code: MANDATE_IDENTIFIER
                             value: '125487'
@@ -7841,6 +7862,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                           - descriptor:
                               code: MANDATE_IDENTIFIER
                             value: '125487'
@@ -11706,6 +11730,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -11951,6 +11978,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -12218,6 +12248,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                           - descriptor:
                               code: MANDATE_IDENTIFIER
                             value: '125487'
@@ -12513,6 +12546,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                           - descriptor:
                               code: MANDATE_IDENTIFIER
                             value: '125487'
@@ -13043,6 +13079,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -13275,6 +13314,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -13403,6 +13445,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -13653,6 +13698,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -13934,6 +13982,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                           - descriptor:
                               code: MANDATE_IDENTIFIER
                             value: '125487'
@@ -15906,6 +15957,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                       - descriptor:
                           name: Information
                           code: ERROR_INFORMATION
@@ -16227,6 +16281,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                           - descriptor:
                               code: MANDATE_IDENTIFIER
                             value: '125487'
@@ -17716,6 +17773,9 @@ x-flows:
                               code: AUTH
                             value: NETBANKING
                           - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                          - descriptor:
                               code: MANDATE_IDENTIFIER
                             value: '125487'
                           - descriptor:
@@ -18253,6 +18313,9 @@ x-flows:
                               code: AUTH
                             value: NETBANKING
                           - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                          - descriptor:
                               code: MANDATE_IDENTIFIER
                             value: '125487'
                           - descriptor:
@@ -18548,6 +18611,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                           - descriptor:
                               code: MANDATE_IDENTIFIER
                             value: '125487'
@@ -34066,6 +34132,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -34446,6 +34515,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -34615,6 +34687,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -35017,6 +35092,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -35458,6 +35536,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                           - descriptor:
                               code: MANDATE_IDENTIFIER
                             value: '125487'
@@ -35948,6 +36029,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                           - descriptor:
                               code: MANDATE_IDENTIFIER
                             value: '125487'

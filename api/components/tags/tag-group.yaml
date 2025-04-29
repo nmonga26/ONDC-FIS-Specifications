@@ -296,6 +296,9 @@ order:
           - code: MANDATE_IDENTIFIER
             description : Identifier for existing mandates
             reference: <PR/Issue/Discussion Links md format text>
+          - code: MANDATE_LIMIT
+            description : Per debit max limit on the mandate. Buyer app can provide this if it wants to set a limit or not provide it. Final say is with the seller app. Value mentioned as integer.
+            reference: <PR/Issue/Discussion Links md format text>
           - code: MASKED_BANK_ACCOUNT_NUMBER
             description : Masked bank a/c number for existing mandates
             reference: <PR/Issue/Discussion Links md format text>

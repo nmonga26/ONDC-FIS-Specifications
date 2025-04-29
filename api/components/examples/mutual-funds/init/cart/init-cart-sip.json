@@ -181,6 +181,10 @@
                                 {
                                     "descriptor": { "code": "AUTH" },
                                     "value": "NETBANKING"
+                                },
+                                {
+                                    "descriptor": { "code": "MANDATE_LIMIT" },
+                                    "value": "50000"
                                 }
                             ]
                         }

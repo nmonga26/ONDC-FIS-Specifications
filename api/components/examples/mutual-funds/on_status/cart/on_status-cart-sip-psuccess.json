@@ -432,6 +432,10 @@
                                     "value": "NETBANKING"
                                 },
                                 {
+                                    "descriptor": { "code": "MANDATE_LIMIT" },
+                                    "value": "50000"
+                                },
+                                {
                                     "descriptor": { "code": "MANDATE_IDENTIFIER" },
                                     "value": "125487"
                                 },
