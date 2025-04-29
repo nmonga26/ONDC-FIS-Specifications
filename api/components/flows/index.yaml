@@ -3,6 +3,8 @@
 # - $ref: ./Personal_Loan-Missed-EMI_Payment/index.yaml
 # - $ref: ./Personal_Loan-Pre-Part_Payment/index.yaml
 - $ref: ./Purchase_Finance/index.yaml
+- $ref: ./Purchase_Finance_Multi_Offer/index.yaml
+- $ref: ./Purchase_Finance_Cancellation_Post/index.yaml
 # - $ref: ./Personal_Loan-_Without_Account_Aggregator/index.yaml
 # - $ref: ./Personal_Loan-_Without_Account_Monitoring/index.yaml
 - $ref: ./Purchase_Finance-_Without_Account_Aggregator/index.yaml
@@ -11,3 +13,5 @@
 - $ref: ./Purchase_Finance-Pre-Part_Payment/index.yaml
 - $ref: ./Form_Status_for_application/index.yaml
 - $ref: ./Form_Status_for_text/index.yaml
+
+
