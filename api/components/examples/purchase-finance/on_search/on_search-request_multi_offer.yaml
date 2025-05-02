@@ -47,9 +47,9 @@ message:
             category_ids:
               - '101123'
               - '101125'
-            price:
-              currency: INR
-              value: '70000'
+            # price:
+            #   currency: INR
+            #   value: '70000'
             # tags:
             #   - descriptor:
             #       code: INFO
@@ -344,7 +344,7 @@ message:
               - '101125'
             price:
               currency: INR
-              value: '70000'
+              value: '65000'
             tags:
               - descriptor:
                   code: INFO
@@ -429,7 +429,7 @@ message:
                       code: PRINCIPAL_AMOUNT
                       name: Principal
                       short_desc: Loan Principal
-                    value: 65000 INR
+                    value: 60000 INR
                   - descriptor:
                       code: INTEREST_AMOUNT
                       name: Interest
@@ -454,7 +454,7 @@ message:
                       code: NET_DISBURSED_AMOUNT
                       name: net disbursed amount
                       short_desc: net disbursed amount
-                    value: 64000 INR
+                    value: 60000 INR
                   - descriptor:
                       code: OTHER_CHARGES
                       name: other charges

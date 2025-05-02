@@ -10125,9 +10125,6 @@ x-flows:
                         category_ids:
                           - '101123'
                           - '101125'
-                        price:
-                          currency: INR
-                          value: '70000'
                         xinput:
                           form:
                             id: F02
@@ -10289,7 +10286,7 @@ x-flows:
                           - '101125'
                         price:
                           currency: INR
-                          value: '70000'
+                          value: '65000'
                         tags:
                           - descriptor:
                               code: INFO
@@ -10375,7 +10372,7 @@ x-flows:
                                   code: PRINCIPAL_AMOUNT
                                   name: Principal
                                   short_desc: Loan Principal
-                                value: 65000 INR
+                                value: 60000 INR
                               - descriptor:
                                   code: INTEREST_AMOUNT
                                   name: Interest
@@ -10400,7 +10397,7 @@ x-flows:
                                   code: NET_DISBURSED_AMOUNT
                                   name: net disbursed amount
                                   short_desc: net disbursed amount
-                                value: 64000 INR
+                                value: 60000 INR
                               - descriptor:
                                   code: OTHER_CHARGES
                                   name: other charges
