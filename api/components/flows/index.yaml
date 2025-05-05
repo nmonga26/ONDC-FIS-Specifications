@@ -26,3 +26,4 @@
 - $ref: "./mutual-funds/sip-update-mandate.yaml"
 - $ref: "./mutual-funds/sip-instalment-manual-payment.yaml"
 - $ref: "./mutual-funds/sip-instalment-pay-and-set-mandate.yaml"
+- $ref: "./mutual-funds/sip-trigger-instalment.yaml"
