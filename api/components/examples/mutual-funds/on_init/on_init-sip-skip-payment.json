@@ -18,10 +18,12 @@
         "ttl": "PT10M",
         "bpp_id": "api.sellerapp.com",
         "bpp_uri": "https://api.sellerapp.com/ondc",
-        "action": "on_select"
+        "action": "on_init"
     },
     "message": {
         "order": {
+            "id": "mfpp_213adf123af",
+            "status": "CREATED",
             "provider": {
                 "id": "sellerapp_id",
                 "descriptor": {"name": "Seller App Name"}
@@ -31,7 +33,6 @@
                     "id": "12391",
                     "parent_item_id": "138",
                     "descriptor": {"name": "ABC Mid Cap Fund - Regular - Growth", "code": "SCHEME_PLAN"},
-                    "fulfillment_ids": ["ff_123"],
                     "quantity": {
                         "selected": {
                             "measure": {
@@ -40,6 +41,8 @@
                             }
                         }
                     },
+                    "fulfillment_ids": ["ff_123"],
+                    "payment_ids": ["pmt_123"],
                     "tags": [
                         {
                             "display": true,
@@ -94,14 +97,6 @@
                                 {
                                     "descriptor": {"name": "Application Form", "code": "APPLICATION_FORM"},
                                     "value": "6547-7456-7235-4386"
-                                },
-                                {
-                                    "descriptor": {"name": "KYC", "code": "KYC"},
-                                    "value": "1978-5697-3478-6547"
-                                },
-                                {
-                                    "descriptor": {"name": "ESIGN", "code": "ESIGN"},
-                                    "value": "8745-1247-6587-8647"
                                 }
                             ]
                         }
@@ -114,7 +109,16 @@
                     "type": "SIP",
                     "customer": {
                         "person": {
-                            "id": "pan:arrpp7771n"
+                            "id": "pan:arrpp7771n",
+                            "creds": [
+                                {
+                                    "id": "115.245.207.90",
+                                    "type": "IP_ADDRESS"
+                                }
+                            ]
+                        },
+                        "contact": {
+                            "phone": "9916599123"
                         }
                     },
                     "agent": {
@@ -185,23 +189,11 @@
                     ]
                 }
             ],
-            "xinput": {
-                "form": {
-                    "id": "form_3"
-                },
-                "form_response": {
-                    "status": "SUCCESS",
-                    "submission_id": "8745-1247-6587-8647"
-                }
-            },
             "payments": [
                 {
                     "collected_by": "BPP",
-                    "type": "PRE_FULFILLMENT"
-                },
-                {
-                    "collected_by": "BPP",
                     "type": "PRE_FULFILLMENT",
+                    "status": "DEFERRED",
                     "tags": [
                         {
                             "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
@@ -209,101 +201,6 @@
                                 {
                                     "descriptor": { "code": "MODE" },
                                     "value": "SKIP_PAYMENT"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "collected_by": "BPP",
-                    "type": "PRE_FULFILLMENT",
-                    "tags": [
-                        {
-                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
-                            "list": [
-                                {
-                                    "descriptor": { "code": "MODE" },
-                                    "value": "UPI_AUTOPAY"
-                                },
-                                {
-                                    "descriptor": { "code": "AUTH" },
-                                    "value": "COLLECT"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "collected_by": "BPP",
-                    "type": "PRE_FULFILLMENT",
-                    "tags": [
-                        {
-                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
-                            "list": [
-                                {
-                                    "descriptor": { "code": "MODE" },
-                                    "value": "UPI_AUTOPAY"
-                                },
-                                {
-                                    "descriptor": { "code": "AUTH" },
-                                    "value": "URI"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "collected_by": "BPP",
-                    "type": "PRE_FULFILLMENT",
-                    "tags": [
-                        {
-                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
-                            "list": [
-                                {
-                                    "descriptor": { "code": "MODE" },
-                                    "value": "NACH"
-                                },
-                                {
-                                    "descriptor": { "code": "AUTH" },
-                                    "value": "NETBANKING"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "collected_by": "BPP",
-                    "type": "PRE_FULFILLMENT",
-                    "tags": [
-                        {
-                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
-                            "list": [
-                                {
-                                    "descriptor": { "code": "MODE" },
-                                    "value": "NACH"
-                                },
-                                {
-                                    "descriptor": { "code": "AUTH" },
-                                    "value": "DEBIT_CARD"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "collected_by": "BPP",
-                    "type": "PRE_FULFILLMENT",
-                    "tags": [
-                        {
-                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
-                            "list": [
-                                {
-                                    "descriptor": { "code": "MODE" },
-                                    "value": "NACH"
-                                },
-                                {
-                                    "descriptor": { "code": "AUTH" },
-                                    "value": "AADHAAR"
                                 }
                             ]
                         }
@@ -336,7 +233,9 @@
                         "price": { "currency": "INR", "value": "0" }
                     }
                 ]
-            }
+            },
+            "created_at": "2023-05-25T05:23:03.443Z",
+            "updated_at": "2023-05-25T05:23:03.443Z"
         }
     }
 }

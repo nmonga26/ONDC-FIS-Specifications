@@ -18,10 +18,12 @@
         "ttl": "PT10M",
         "bpp_id": "api.sellerapp.com",
         "bpp_uri": "https://api.sellerapp.com/ondc",
-        "action": "on_select"
+        "action": "on_confirm"
     },
     "message": {
         "order": {
+            "id": "mfpp_213adf123af",
+            "status": "ACCEPTED",
             "provider": {
                 "id": "sellerapp_id",
                 "descriptor": {"name": "Seller App Name"}
@@ -31,7 +33,6 @@
                     "id": "12391",
                     "parent_item_id": "138",
                     "descriptor": {"name": "ABC Mid Cap Fund - Regular - Growth", "code": "SCHEME_PLAN"},
-                    "fulfillment_ids": ["ff_123"],
                     "quantity": {
                         "selected": {
                             "measure": {
@@ -40,6 +41,8 @@
                             }
                         }
                     },
+                    "fulfillment_ids": ["ff_123"],
+                    "payment_ids": ["pmt_123"],
                     "tags": [
                         {
                             "display": true,
@@ -94,14 +97,6 @@
                                 {
                                     "descriptor": {"name": "Application Form", "code": "APPLICATION_FORM"},
                                     "value": "6547-7456-7235-4386"
-                                },
-                                {
-                                    "descriptor": {"name": "KYC", "code": "KYC"},
-                                    "value": "1978-5697-3478-6547"
-                                },
-                                {
-                                    "descriptor": {"name": "ESIGN", "code": "ESIGN"},
-                                    "value": "8745-1247-6587-8647"
                                 }
                             ]
                         }
@@ -112,9 +107,21 @@
                 {
                     "id": "ff_123",
                     "type": "SIP",
+                    "state": {
+                        "descriptor": {"name": "Ongoing", "code": "ONGOING"}
+                    },
                     "customer": {
                         "person": {
-                            "id": "pan:arrpp7771n"
+                            "id": "pan:arrpp7771n",
+                            "creds": [
+                                {
+                                    "id": "115.245.207.90",
+                                    "type": "IP_ADDRESS"
+                                }
+                            ]
+                        },
+                        "contact": {
+                            "phone": "9916599123"
                         }
                     },
                     "agent": {
@@ -181,27 +188,29 @@
                                     "value": "30000"
                                 }
                             ]
+                        },
+                        {
+                            "display": true,
+                            "descriptor": {"name": "Information", "code": "INFORMATION"},
+                            "list": [
+                                {
+                                    "descriptor": {"name": "Next Instalment Date", "code": "NEXT_INSTALMENT_DATE"},
+                                    "value": "15/05/2024"
+                                },
+                                {
+                                    "descriptor": {"name": "Remaining Instalments", "code": "REMAINING_INSTALMENTS"},
+                                    "value": "5"
+                                }
+                            ]
                         }
                     ]
                 }
             ],
-            "xinput": {
-                "form": {
-                    "id": "form_3"
-                },
-                "form_response": {
-                    "status": "SUCCESS",
-                    "submission_id": "8745-1247-6587-8647"
-                }
-            },
             "payments": [
                 {
                     "collected_by": "BPP",
-                    "type": "PRE_FULFILLMENT"
-                },
-                {
-                    "collected_by": "BPP",
                     "type": "PRE_FULFILLMENT",
+                    "status": "DEFERRED",
                     "tags": [
                         {
                             "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
@@ -213,104 +222,23 @@
                             ]
                         }
                     ]
-                },
-                {
-                    "collected_by": "BPP",
-                    "type": "PRE_FULFILLMENT",
-                    "tags": [
-                        {
-                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
-                            "list": [
-                                {
-                                    "descriptor": { "code": "MODE" },
-                                    "value": "UPI_AUTOPAY"
-                                },
-                                {
-                                    "descriptor": { "code": "AUTH" },
-                                    "value": "COLLECT"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "collected_by": "BPP",
-                    "type": "PRE_FULFILLMENT",
-                    "tags": [
-                        {
-                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
-                            "list": [
-                                {
-                                    "descriptor": { "code": "MODE" },
-                                    "value": "UPI_AUTOPAY"
-                                },
-                                {
-                                    "descriptor": { "code": "AUTH" },
-                                    "value": "URI"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "collected_by": "BPP",
-                    "type": "PRE_FULFILLMENT",
-                    "tags": [
-                        {
-                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
-                            "list": [
-                                {
-                                    "descriptor": { "code": "MODE" },
-                                    "value": "NACH"
-                                },
-                                {
-                                    "descriptor": { "code": "AUTH" },
-                                    "value": "NETBANKING"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "collected_by": "BPP",
-                    "type": "PRE_FULFILLMENT",
-                    "tags": [
-                        {
-                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
-                            "list": [
-                                {
-                                    "descriptor": { "code": "MODE" },
-                                    "value": "NACH"
-                                },
-                                {
-                                    "descriptor": { "code": "AUTH" },
-                                    "value": "DEBIT_CARD"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "collected_by": "BPP",
-                    "type": "PRE_FULFILLMENT",
-                    "tags": [
-                        {
-                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
-                            "list": [
-                                {
-                                    "descriptor": { "code": "MODE" },
-                                    "value": "NACH"
-                                },
-                                {
-                                    "descriptor": { "code": "AUTH" },
-                                    "value": "AADHAAR"
-                                }
-                            ]
-                        }
-                    ]
                 }
             ],
             "tags": [
+                {
+                    "display": false,
+                    "descriptor": {"name": "BAP Terms of Engagement", "code": "BAP_TERMS"},
+                    "list": [
+                        {
+                            "descriptor": {"name": "Static Terms (Transaction Level)", "code": "STATIC_TERMS"},
+                            "value": "https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1"
+                        },
+                        {
+                            "descriptor": {"name": "Offline Contract", "code": "OFFLINE_CONTRACT"},
+                            "value": "true"
+                        }
+                    ]
+                },
                 {
                     "display": false,
                     "descriptor": {"name": "BPP Terms of Engagement", "code": "BPP_TERMS"},
@@ -326,6 +254,15 @@
                     ]
                 }
             ],
+            "cancellation_terms": [
+                {
+                    "reason_required": true,
+                    "external_ref": {
+                        "url": "https://api.sellerapp.com/cterms?id=214werw3w4",
+                        "mimetype": "text/html"
+                    }
+                }
+            ],
             "quote": {
                 "id": "q1",
                 "price": { "currency": "INR", "value": "0" },
@@ -336,7 +273,9 @@
                         "price": { "currency": "INR", "value": "0" }
                     }
                 ]
-            }
+            },
+            "created_at": "2023-05-25T05:23:03.443Z",
+            "updated_at": "2023-05-25T05:23:03.443Z"
         }
     }
 }
