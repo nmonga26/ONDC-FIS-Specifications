@@ -1,4 +1,4 @@
-## Log submission Scenarios for Personal Loan
+## Log submission Scenarios for Purchase Finance Loan
 
 #### Instructions
 
@@ -33,7 +33,7 @@ These naming conventions ensure clear identification and organization of files b
 
 - **Flow 1**
 
-  Borrower searches for a "Personal Loan" on a Buyer App compares and selects from the available loan offerings received from the seller app (aka lender). Borrowe is able to avail the loan by submitting all the relevant details/documents and gets the loan disbursed into their given bank accounts.
+  Borrower searches for a "Purchase Finance" on a Buyer App compares and selects from the available loan offerings received from the seller app (aka lender). Borrowe is able to avail the loan by submitting all the relevant details/documents and gets the loan disbursed into their given bank accounts.
 
   Unsolicited /On_status call from seller app to buyer app for every redirection form ("mime_type": "application/html").
 
@@ -61,7 +61,7 @@ These naming conventions ensure clear identification and organization of files b
 
   Borrower wants to check for the status of the EMI payment/foreclosed/pre-part payment/missed EMI payment against an existing loan.
 
-### Log Verification
+<!-- ### Log Verification
 
 To verify your logs, you can use the POST api exposed at [https://log-validation.ondc.org/api/validate/fis/fis12](https://log-validation.ondc.org/api/validate/fis/fis12) within the [Log Validation Utility](https://github.com/ONDC-Official/log-validation-utility).
 
@@ -102,7 +102,7 @@ The payload structure for validation is as follows:
     "on_update": {}
   }
 }
-```
+``` -->
 
 #### For Igm logs, use POST api exposed at [https://log-validation.ondc.org/api/validate/igm](https://log-validation.ondc.org/api/validate/igm)
 
