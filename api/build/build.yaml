@@ -39687,7 +39687,12 @@ x-flows:
       - summary: Initialize the sip instalment order
         api: init
         details:
-          - description: Send instalment order details with the parent sip order id
+          - description: >-
+              Send instalment order details with the parent sip order id. As
+              there is no fulfilment id available, buyer app doesn't send the
+              fulfilment id, just one fulfilment with type and customer consent
+              details. In case of cart orders, send two items and one fulfilment
+              - and receive the actual fulfilments in the on response.
         reference: if any
         example:
           value:
@@ -39721,11 +39726,8 @@ x-flows:
                         measure:
                           value: '3000'
                           unit: INR
-                    fulfillment_ids:
-                      - ff_789
                 fulfillments:
-                  - id: ff_789
-                    type: SIP_INSTALMENT
+                  - type: SIP_INSTALMENT
                     customer:
                       person:
                         id: pan:arrpp7771n
@@ -39789,7 +39791,7 @@ x-flows:
       - summary: On Init
         api: on_init
         details:
-          - description: Draft order is sent back with payment url
+          - description: Draft order is sent back with payment url.
         reference: if any
         example:
           value:

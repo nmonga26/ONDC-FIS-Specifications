@@ -5,7 +5,7 @@ steps:
   - summary: Initialize the sip instalment order
     api: init
     details:
-      - description: Send instalment order details with the parent sip order id
+      - description: Send instalment order details with the parent sip order id. As there is no fulfilment id available, buyer app doesn't send the fulfilment id, just one fulfilment with type and customer consent details. In case of cart orders, send two items and one fulfilment - and receive the actual fulfilments in the on response.
     reference: if any
     example:
       value:

@@ -34,13 +34,11 @@
                                 "unit": "INR"
                             }
                         }
-                    },
-                    "fulfillment_ids": ["ff_789"]
+                    }
                 }
             ],
             "fulfillments": [
                 {
-                    "id": "ff_789",
                     "type": "SIP_INSTALMENT",
                     "customer": {
                         "person": {
