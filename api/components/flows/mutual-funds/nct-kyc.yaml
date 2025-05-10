@@ -17,7 +17,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_confirm/on_confirm-kyc.json"
+        $ref: "../../examples/mutual-funds/on_confirm/other_services/on_confirm-kyc.json"
 
   - summary: On Update
     api: on_update
@@ -26,5 +26,5 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_update/on_update-kyc-success.json"
+        $ref: "../../examples/mutual-funds/on_update/other_services/on_update-kyc-success.json"
 

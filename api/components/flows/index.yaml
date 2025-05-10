@@ -24,3 +24,4 @@
 - $ref: "./mutual-funds/cart-sip-instalment.yaml"
 - $ref: "./mutual-funds/nct-zero-balance-folio.yaml"
 - $ref: "./mutual-funds/nct-kyc.yaml"
+- $ref: "./mutual-funds/os-payment-mandate.yaml"
