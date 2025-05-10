@@ -1,0 +1,44 @@
+summary: External Folio - Lumpsum
+
+references: if any
+steps:
+  - summary: Select
+    api: select
+    details:
+      - description: Scheme selection plus provide the external folio number
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/select/external_folios/select-lumpsum-external-folio.json"
+  - summary: On Select
+    api: on_select
+    details:
+      - description: Receive the additional information required as xinput
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_select/external_folios/on_select-lumpsum-external-folio.json"
+  - summary: Get Form
+    api: form
+    details:
+      - description: Get the form for providing additional input for external folio
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/forms/external-folio-additional-info.html"
+  - summary: Select
+    api: select
+    details:
+      - description: Send the xinput form submission id for further processing
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/select/external_folios/select-lumpsum-external-folio-provide-xinput.json"
+  - summary: On Select
+    api: on_select
+    details:
+      - description: Receive xinput acceptance and payment options available. All the other flows from init remain the same
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_select/external_folios/on_select-lumpsum-external-folio-accept-xinput.json"

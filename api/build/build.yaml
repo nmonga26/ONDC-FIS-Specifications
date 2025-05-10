@@ -37369,6 +37369,557 @@ x-flows:
                         value: '0.25'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
+  - summary: External Folio - Lumpsum
+    references: if any
+    steps:
+      - summary: Select
+        api: select
+        details:
+          - description: Scheme selection plus provide the external folio number
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: select
+            message:
+              order:
+                provider:
+                  id: sellerapp_id
+                items:
+                  - id: '12391'
+                    quantity:
+                      selected:
+                        measure:
+                          value: '3000'
+                          unit: INR
+                    fulfillment_ids:
+                      - ff_123
+                fulfillments:
+                  - id: ff_123
+                    type: LUMPSUM
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 78953432/32
+                            type: FOLIO
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+      - summary: On Select
+        api: on_select
+        details:
+          - description: Receive the additional information required as xinput
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: 89118579-e8be-4588-ad3f-a90b59447b1c
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: on_select
+            message:
+              order:
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
+                items:
+                  - id: '12391'
+                    parent_item_id: '138'
+                    descriptor:
+                      name: ABC Mid Cap Fund - Regular - Growth
+                      code: SCHEME_PLAN
+                    fulfillment_ids:
+                      - ff_123
+                    quantity:
+                      selected:
+                        measure:
+                          value: '3000'
+                          unit: INR
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: Plan Information
+                          code: PLAN_INFORMATION
+                        list:
+                          - descriptor:
+                              name: Consumer Terms & Conditions
+                              code: CONSUMER_TNC
+                            value: >-
+                              https://sellerapp.com/legal/ondc:fis14/consumer_tnc.html
+                      - display: true
+                        descriptor:
+                          name: Plan Identifiers
+                          code: PLAN_IDENTIFIERS
+                        list:
+                          - descriptor:
+                              name: ISIN
+                              code: ISIN
+                            value: IN123214324
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: 02BZ
+                          - descriptor:
+                              name: AMFI Identifier
+                              code: AMFI_IDENTIFIER
+                            value: '125487'
+                      - display: true
+                        descriptor:
+                          name: Plan Options
+                          code: PLAN_OPTIONS
+                        list:
+                          - descriptor:
+                              name: Plan
+                              code: PLAN
+                            value: REGULAR
+                          - descriptor:
+                              name: Option
+                              code: OPTION
+                            value: IDCW
+                          - descriptor:
+                              name: IDCW Option
+                              code: IDCW_OPTION
+                            value: PAYOUT
+                      - display: true
+                        descriptor:
+                          name: Checklists
+                          code: CHECKLISTS
+                        list:
+                          - descriptor:
+                              name: External Folio Additional Information
+                              code: EXTERNAL_FOLIO_ADDITIONAL_INFO
+                            value: PENDING
+                xinput:
+                  required: true
+                  head:
+                    index:
+                      min: 0
+                      cur: 0
+                      max: 0
+                    headings:
+                      - EXTERNAL_FOLIO_ADDITIONAL_INFO
+                  form:
+                    id: form_1
+                    url: >-
+                      https://forms.sellerapp.com/external-folio-addl-info/data?k=234sadf234
+                    mime_type: text/html
+                fulfillments:
+                  - id: ff_123
+                    type: LUMPSUM
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 78953432/32
+                            type: FOLIO
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: Thresholds
+                          code: THRESHOLDS
+                        list:
+                          - descriptor:
+                              name: Amount Minimum
+                              code: AMOUNT_MIN
+                            value: '1000'
+                          - descriptor:
+                              name: Amount Maximum
+                              code: AMOUNT_MAX
+                            value: '10000'
+                          - descriptor:
+                              name: Amount Multiples
+                              code: AMOUNT_MULTIPLES
+                            value: '1'
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+      - summary: Get Form
+        api: form
+        details:
+          - description: Get the form for providing additional input for external folio
+        reference: if any
+        example:
+          value: |-
+            <html>
+                <body>
+                    <form action="https://forms.sellerapp.com/form_submission?id=234234234" method="post">
+                        <label for="investor_name">Investor Name</label>
+                        <input id="investor_name" type="text" name="name" />
+                        
+                        <br />
+                        <label for="investor_dob">Investor Date of Birth</label>
+                        <input id="investor_dob" type="text" name="dob" />
+                        
+                        <br />
+                        <input type="hidden" id="transactionId" name="transactionId" value="c04a04ee-d892-400f-bbe6-479a43b4448a">
+
+                        <input type="submit" />
+                    </form>
+                </body>
+            </html>
+      - summary: Select
+        api: select
+        details:
+          - description: Send the xinput form submission id for further processing
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: select
+            message:
+              order:
+                provider:
+                  id: sellerapp_id
+                items:
+                  - id: '12391'
+                    quantity:
+                      selected:
+                        measure:
+                          value: '3000'
+                          unit: INR
+                    fulfillment_ids:
+                      - ff_123
+                fulfillments:
+                  - id: ff_123
+                    type: LUMPSUM
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 78953432/32
+                            type: FOLIO
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    submission_id: 6547-7456-7235-4386
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+      - summary: On Select
+        api: on_select
+        details:
+          - description: >-
+              Receive xinput acceptance and payment options available. All the
+              other flows from init remain the same
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: 89118579-e8be-4588-ad3f-a90b59447b1c
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: on_select
+            message:
+              order:
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
+                items:
+                  - id: '12391'
+                    parent_item_id: '138'
+                    descriptor:
+                      name: ABC Mid Cap Fund - Regular - Growth
+                      code: SCHEME_PLAN
+                    fulfillment_ids:
+                      - ff_123
+                    quantity:
+                      selected:
+                        measure:
+                          value: '3000'
+                          unit: INR
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: Plan Information
+                          code: PLAN_INFORMATION
+                        list:
+                          - descriptor:
+                              name: Consumer Terms & Conditions
+                              code: CONSUMER_TNC
+                            value: >-
+                              https://sellerapp.com/legal/ondc:fis14/consumer_tnc.html
+                      - display: true
+                        descriptor:
+                          name: Plan Identifiers
+                          code: PLAN_IDENTIFIERS
+                        list:
+                          - descriptor:
+                              name: ISIN
+                              code: ISIN
+                            value: IN123214324
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: 02BZ
+                          - descriptor:
+                              name: AMFI Identifier
+                              code: AMFI_IDENTIFIER
+                            value: '125487'
+                      - display: true
+                        descriptor:
+                          name: Plan Options
+                          code: PLAN_OPTIONS
+                        list:
+                          - descriptor:
+                              name: Plan
+                              code: PLAN
+                            value: REGULAR
+                          - descriptor:
+                              name: Option
+                              code: OPTION
+                            value: IDCW
+                          - descriptor:
+                              name: IDCW Option
+                              code: IDCW_OPTION
+                            value: PAYOUT
+                      - display: true
+                        descriptor:
+                          name: Checklists
+                          code: CHECKLISTS
+                        list:
+                          - descriptor:
+                              name: External Folio Additional Information
+                              code: EXTERNAL_FOLIO_ADDITIONAL_INFO
+                            value: PENDING
+                fulfillments:
+                  - id: ff_123
+                    type: LUMPSUM
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 78953432/32
+                            type: FOLIO
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: Thresholds
+                          code: THRESHOLDS
+                        list:
+                          - descriptor:
+                              name: Amount Minimum
+                              code: AMOUNT_MIN
+                            value: '1000'
+                          - descriptor:
+                              name: Amount Maximum
+                              code: AMOUNT_MAX
+                            value: '10000'
+                          - descriptor:
+                              name: Amount Multiples
+                              code: AMOUNT_MULTIPLES
+                            value: '1'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
+                payments:
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NETBANKING
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI
+                          - descriptor:
+                              code: AUTH
+                            value: COLLECT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI
+                          - descriptor:
+                              code: AUTH
+                            value: URI
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '3000'
+                  breakup:
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_123
+                      title: INVESTMENT
+                      price:
+                        currency: INR
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_123
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
 x-examples:
   mutual-funds:
     summary: mutual-funds
