@@ -6722,7 +6722,7 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -6935,7 +6935,7 @@ x-flows:
                     url: https://api.sellerapp.com/payment?k=abdafaf
                     status: NOT-PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -7063,7 +7063,7 @@ x-flows:
                     collected_by: BPP
                     status: NOT-PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -7295,7 +7295,7 @@ x-flows:
                     status: NOT-PAID
                     url: https://api.sellerapp.com/payment?k=abdafaf
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -7556,7 +7556,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -7846,7 +7846,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -11725,7 +11725,7 @@ x-flows:
                     url: https://api.sellerapp.com/payment?k=abdafaf
                     status: NOT-PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -11973,7 +11973,7 @@ x-flows:
                     status: NOT-PAID
                     url: https://api.sellerapp.com/payment?k=abdafaf
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -12242,7 +12242,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -12540,7 +12540,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -13084,7 +13084,7 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -13319,7 +13319,7 @@ x-flows:
                     url: https://api.sellerapp.com/payment?k=abdafaf
                     status: NOT-PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -13449,7 +13449,7 @@ x-flows:
                     collected_by: BPP
                     status: NOT-PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -13703,7 +13703,7 @@ x-flows:
                     status: NOT-PAID
                     url: https://api.sellerapp.com/payment?k=abdafaf
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -13986,7 +13986,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -15962,7 +15962,7 @@ x-flows:
                     collected_by: BPP
                     status: FAILED
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -16285,7 +16285,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -17776,7 +17776,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -18316,7 +18316,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '8000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -18615,7 +18615,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -34147,7 +34147,7 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     params:
-                      amount: '8000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -34530,7 +34530,7 @@ x-flows:
                     url: https://api.sellerapp.com/payment?k=abdafaf
                     status: NOT-PAID
                     params:
-                      amount: '8000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -34702,7 +34702,7 @@ x-flows:
                     collected_by: BPP
                     status: NOT-PAID
                     params:
-                      amount: '8000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -35107,7 +35107,7 @@ x-flows:
                     url: https://api.sellerapp.com/payment?k=abdafaf
                     status: NOT-PAID
                     params:
-                      amount: '8000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -35550,7 +35550,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '8000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -36043,7 +36043,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '8000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -38106,7 +38106,7 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -38335,7 +38335,7 @@ x-flows:
                     status: NOT-PAID
                     url: https://api.sellerapp.com/payment?k=abdafaf
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -39364,7 +39364,7 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -39591,7 +39591,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -39791,7 +39791,7 @@ x-flows:
       - summary: On Init
         api: on_init
         details:
-          - description: Draft order is sent back with payment url.
+          - description: Draft order is sent back with payment url
         reference: if any
         example:
           value:
