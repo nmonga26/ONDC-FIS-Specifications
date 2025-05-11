@@ -36488,7 +36488,7 @@ x-flows:
                       title: SWITCH_OUT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '-3000'
                     - item:
                         id: '12391'
                         fulfillment_ids:
@@ -36496,7 +36496,7 @@ x-flows:
                       title: SECURITIES_TRANSACTION_TAX
                       price:
                         currency: INR
-                        value: '-0.75'
+                        value: '0.75'
                     - item:
                         id: '15031'
                         fulfillment_ids:
@@ -36868,7 +36868,7 @@ x-flows:
                       title: SWITCH_OUT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '-3000'
                     - item:
                         id: '12391'
                         fulfillment_ids:
@@ -36876,7 +36876,7 @@ x-flows:
                       title: SECURITIES_TRANSACTION_TAX
                       price:
                         currency: INR
-                        value: '-0.75'
+                        value: '0.75'
                     - item:
                         id: '15031'
                         fulfillment_ids:
@@ -37248,7 +37248,7 @@ x-flows:
                       title: SWITCH_OUT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '-3000'
                     - item:
                         id: '12391'
                         fulfillment_ids:
@@ -37256,7 +37256,7 @@ x-flows:
                       title: SECURITIES_TRANSACTION_TAX
                       price:
                         currency: INR
-                        value: '-0.75'
+                        value: '0.75'
                     - item:
                         id: '15031'
                         fulfillment_ids:
@@ -37561,7 +37561,7 @@ x-flows:
                       title: SWITCH_OUT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '-3000'
                     - item:
                         id: '12391'
                         fulfillment_ids:
@@ -37569,7 +37569,7 @@ x-flows:
                       title: SECURITIES_TRANSACTION_TAX
                       price:
                         currency: INR
-                        value: '-0.75'
+                        value: '0.75'
                     - item:
                         id: '15031'
                         fulfillment_ids:

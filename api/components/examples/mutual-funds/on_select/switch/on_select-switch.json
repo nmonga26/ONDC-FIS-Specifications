@@ -281,12 +281,12 @@
                     {
                         "item": { "id": "12391", "fulfillment_ids": ["ff_789"] },
                         "title": "SWITCH_OUT",
-                        "price": { "currency": "INR", "value": "3000" }
+                        "price": { "currency": "INR", "value": "-3000" }
                     },
                     {
                         "item": { "id": "12391", "fulfillment_ids": ["ff_789"] },
                         "title": "SECURITIES_TRANSACTION_TAX",
-                        "price": { "currency": "INR", "value": "-0.75" }
+                        "price": { "currency": "INR", "value": "0.75" }
                     },
                     {
                         "item": { "id": "15031", "fulfillment_ids": ["ff_124"] },
