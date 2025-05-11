@@ -1,0 +1,67 @@
+{
+    "context": {
+        "location": {
+            "country": {
+                "code": "IND"
+            },
+            "city": {
+                "code": "*"
+            }
+        },
+        "domain": "ONDC:FIS14",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "bap_id": "api.buyerapp.com",
+        "bap_uri": "https://api.buyerapp.com/ondc",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "version": "2.0.0",
+        "ttl": "PT10M",
+        "bpp_id": "api.sellerapp.com",
+        "bpp_uri": "https://api.sellerapp.com/ondc",
+        "action": "update"
+    },
+    "message": {
+        "update_target": "order.payments",
+        "order": {
+            "id": "mfpp_213adf123af",
+            "payments": [
+                {
+                    "collected_by": "BAP",
+                    "status": "PAID",
+                    "params": {
+                        "amount": "3000",
+                        "currency": "INR",
+                        "source_bank_code": "icic0000047",
+                        "source_bank_account_number": "004701563111",
+                        "source_bank_account_name": "harish gupta",
+                        "bank_code": "hdfc0000012",
+                        "bank_account_number": "1235890234325",
+                        "bank_account_name": "ABC MF Collection Account",
+                        "transaction_id": "24234324324"
+                    },
+                    "type": "PRE_FULFILLMENT",
+                    "tags": [
+                        {
+                            "descriptor": { "name": "Source bank account", "code": "SOURCE_BANK_ACCOUNT" },
+                            "list": [
+                                {
+                                    "descriptor": { "name": "Account Type", "code": "ACCOUNT_TYPE" },
+                                    "value": "SAVINGS"
+                                }
+                            ]
+                        },
+                        {
+                            "descriptor": { "name": "Payment Settlement Method", "code": "PAYMENT_SETTLEMENT_METHOD" },
+                            "list": [
+                                {
+                                    "descriptor": { "code": "MODE" },
+                                    "value": "NEFT"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -22,3 +22,4 @@
 - $ref: "./mutual-funds/cart-lumpsum-part-failure.yaml"
 - $ref: "./mutual-funds/cart-sip.yaml"
 - $ref: "./mutual-funds/cart-sip-instalment.yaml"
+- $ref: "./mutual-funds/lumpsum-bap-payment.yaml"
