@@ -66,9 +66,7 @@ message:
         category_ids:
           - C1
           - C2
-          - C3
-          - C8 
-          - C11  
+          - C3  
         price:
           value: "11531"
           currency: INR

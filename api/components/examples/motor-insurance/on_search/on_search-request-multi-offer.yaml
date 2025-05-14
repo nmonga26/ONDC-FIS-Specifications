@@ -25,26 +25,32 @@ message:
           - descriptor:
               name: Two Wheeler Comprehensive
               code: TWO_WHEELER_COMPRIHENSIVE_INSURANCE
+            parent_category_id: C11  
             id: C1
           - descriptor:
               name: Two Wheeler Third Party
               code: TWO_WHEELER_THIRD_PARTY_INSURANCE
+            parent_category_id: C11  
             id: C2
           - descriptor:
               name: Two Wheeler Own Damage
               code: TWO_WHEELER_OWN_DAMAGE
+            parent_category_id: C11  
             id: C3 
           - descriptor:
               name: Four Wheeler Comprehensive
               code: FOUR_WHEELER_COMPRIHENSIVE_INSURANCE
+            parent_category_id: C10  
             id: C4
           - descriptor:
               name: Four Wheeler Third Party
               code: FOUR_WHEELER_THIRD_PARTY_INSURANCE
+            parent_category_id: C10  
             id: C5
           - descriptor:
               name: Four Wheeler Own Damage
               code: FOUR_WHEELER_OWN_DAMAGE
+            parent_category_id: C10  
             id: C6  
           # - descriptor:
           #     name: New Insurance
@@ -61,12 +67,14 @@ message:
           - descriptor:
               name: FOUR WHEELER
               code: FOUR_WHEELER_INSURANCE
+            parent_category_id: C8  
             id: C10 
           - descriptor:
               name: TWO WHEELER
               code: TWO_WHEELER_INSURANCE
-            id: C11
-      
+            parent_category_id: C8  
+            id: C11     
+        
         descriptor:
           long_desc: Insurance Provider Long Description
           name: Insurance Provider Name
@@ -80,8 +88,6 @@ message:
               - C1
               - C2
               - C3
-              - C8
-              - C11
             descriptor:
               name: 2-Wheeler 3rd Party Motor Insurance
               short_desc: 2-Wheeler 3rd Party Motor Insurance by ABC Insurance Provider
@@ -254,8 +260,6 @@ message:
               - C1
               - C2
               - C3
-              - C8
-              - C11 
             descriptor:
               name: 2-Wheeler 3rd Party Motor Insurance
               short_desc: 2-Wheeler 3rd Party Motor Insurance by ABC Insurance Provider
