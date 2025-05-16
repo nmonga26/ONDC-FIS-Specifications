@@ -217,6 +217,10 @@
             "payments": [
                 {
                     "collected_by": "BPP",
+                    "type": "PRE_FULFILLMENT"
+                },
+                {
+                    "collected_by": "BPP",
                     "type": "PRE_FULFILLMENT",
                     "tags": [
                         {
@@ -239,7 +243,11 @@
                             "list": [
                                 {
                                     "descriptor": { "code": "MODE" },
-                                    "value": "UPI_COLLECT"
+                                    "value": "UPI"
+                                },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "COLLECT"
                                 }
                             ]
                         }
@@ -254,22 +262,11 @@
                             "list": [
                                 {
                                     "descriptor": { "code": "MODE" },
-                                    "value": "UPI_URI"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "collected_by": "BPP",
-                    "type": "PRE_FULFILLMENT",
-                    "tags": [
-                        {
-                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
-                            "list": [
+                                    "value": "UPI"
+                                },
                                 {
-                                    "descriptor": { "code": "MODE" },
-                                    "value": "UPI_PG"
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "URI"
                                 }
                             ]
                         }

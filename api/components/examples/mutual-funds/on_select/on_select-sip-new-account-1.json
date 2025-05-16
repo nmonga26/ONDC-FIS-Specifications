@@ -188,6 +188,10 @@
             "payments": [
                 {
                     "collected_by": "BPP",
+                    "type": "PRE_FULFILLMENT"
+                },
+                {
+                    "collected_by": "BPP",
                     "type": "PRE_FULFILLMENT",
                     "tags": [
                         {
@@ -195,7 +199,7 @@
                             "list": [
                                 {
                                     "descriptor": { "code": "MODE" },
-                                    "value": "MANDATE_REGISTRATION"
+                                    "value": "SKIP_PAYMENT"
                                 }
                             ]
                         }
@@ -210,17 +214,145 @@
                             "list": [
                                 {
                                     "descriptor": { "code": "MODE" },
-                                    "value": "MANDATE_EXISTING"
+                                    "value": "UPI_AUTOPAY"
                                 },
                                 {
-                                    "descriptor": {
-                                      "code": "MANDATE_IDENTIFIER"
-                                    },
-                                    "value": "125487"
-                                  },
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "COLLECT"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "collected_by": "BPP",
+                    "type": "PRE_FULFILLMENT",
+                    "tags": [
+                        {
+                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
+                            "list": [
                                 {
-                                    "descriptor": { "code": "TYPE" },
-                                    "value": "ENACH_MANDATE"
+                                    "descriptor": { "code": "MODE" },
+                                    "value": "UPI_AUTOPAY"
+                                },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "URI"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "collected_by": "BPP",
+                    "type": "PRE_FULFILLMENT",
+                    "tags": [
+                        {
+                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
+                            "list": [
+                                {
+                                    "descriptor": { "code": "MODE" },
+                                    "value": "NACH"
+                                },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "NETBANKING"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "collected_by": "BPP",
+                    "type": "PRE_FULFILLMENT",
+                    "tags": [
+                        {
+                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
+                            "list": [
+                                {
+                                    "descriptor": { "code": "MODE" },
+                                    "value": "NACH"
+                                },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "DEBIT_CARD"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "collected_by": "BPP",
+                    "type": "PRE_FULFILLMENT",
+                    "tags": [
+                        {
+                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
+                            "list": [
+                                {
+                                    "descriptor": { "code": "MODE" },
+                                    "value": "NACH"
+                                },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "AADHAAR"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "collected_by": "BPP",
+                    "type": "PRE_FULFILLMENT",
+                    "tags": [
+                        {
+                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
+                            "list": [
+                                {
+                                    "descriptor": { "code": "MODE" },
+                                    "value": "NACH"
+                                },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "EXISTING_MANDATE"
+                                },
+                                {
+                                    "descriptor": { "code": "MANDATE_IDENTIFIER" },
+                                    "value": "125487"
+                                },
+                                {
+                                    "descriptor": { "code": "MASKED_BANK_ACCOUNT_NUMBER" },
+                                    "value": "********3111"
+                                },
+                                {
+                                    "descriptor": { "code": "BANK_ACCOUNT_NAME" },
+                                    "value": "Harish Gupta"
+                                },
+                                {
+                                    "descriptor": { "code": "BANK_NAME" },
+                                    "value": "ICICI Bank"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "collected_by": "BPP",
+                    "type": "PRE_FULFILLMENT",
+                    "tags": [
+                        {
+                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
+                            "list": [
+                                {
+                                    "descriptor": { "code": "MODE" },
+                                    "value": "UPI_AUTOPAY"
+                                },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "EXISTING_MANDATE"
+                                },
+                                {
+                                    "descriptor": { "code": "MANDATE_IDENTIFIER" },
+                                    "value": "886985"
                                 },
                                 {
                                     "descriptor": { "code": "MASKED_BANK_ACCOUNT_NUMBER" },

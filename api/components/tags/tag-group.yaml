@@ -223,6 +223,22 @@ order:
 
   payments:
     tags:
+      - code: SOURCE_BANK_ACCOUNT
+        description: Details about the source bank account from which the payment is made
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: ACCOUNT_TYPE
+            description: The type of the source bank a/c
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: SAVINGS
+                description: A regular savings a/c
+              # - code: CURRENT
+              #   description: A regular current/checking a/c
+              # - code: NRE_SAVINGS
+              #   description: A non-resident-external savings a/c
+              # - code: NRO_SAVINGS
+              #   description: A non-resident-ordinary savings a/c
       - code: PAYMENT_METHOD
         description : Payment method details
         reference: <PR/Issue/Discussion Links md format text>
@@ -231,37 +247,58 @@ order:
             description : Mode of payment
             reference: <PR/Issue/Discussion Links md format text>
             list:
-              - code: MANDATE_REGISTRATION
-                description: New mandate registration
-                reference: <PR/Issue/Discussion Links md format text>
-              - code: MANDATE_EXISTING
-                description: Pay using existing mandate
-                reference: <PR/Issue/Discussion Links md format text>
               - code: NETBANKING
                 description: Pay via netbanking
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: UPI_COLLECT
-                description: Pay via upi collect request
+              - code: UPI
+                description: Pay via upi
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: UPI_URI
-                description: Pay via upi intent/qr through a upi uri
+              - code: UPI_AUTOPAY
+                description: Pay via upi autopay
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: UPI_PG
-                description: Pay via upi through a pg link
+              - code: NACH
+                description: Pay via nach network
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: MANDATE_IDENTIFIER
-                description: Describes the mandate Identifier
-                reference: <PR/Issue/Discussion Links md format text>
-          - code: TYPE
-            description : Type of mandate if existing mandate
+              # - code: NEFT
+              #   description: Pay via neft bank transfer
+              #   reference: <PR/Issue/Discussion Links md format text>
+              # - code: RTGS
+              #   description: Pay via rtgs bank transfer
+              #   reference: <PR/Issue/Discussion Links md format text>
+              # - code: IMPS
+              #   description: Pay via imps bank transfer
+              #   reference: <PR/Issue/Discussion Links md format text>
+              # - code: CHEQUE
+              #   description: Pay via cheque
+              #   reference: <PR/Issue/Discussion Links md format text>
+          - code: AUTH
+            description : Authorization type/mechanism
             reference: <PR/Issue/Discussion Links md format text>
             list:
-              - code: ENACH_MANDATE
-                description: eNACH mandate
+              - code: COLLECT
+                description: Collect request. Applicable for upi and upi autopay modes
                 reference: <PR/Issue/Discussion Links md format text>
-              - code: UPI_AUTOPAY_MANDATE
-                description: UPI Autopay mandate
+              - code: URI
+                description: UPI uri. Applicable for upi and upi autopay modes
                 reference: <PR/Issue/Discussion Links md format text>
+              - code: NETBANKING
+                description: Authorize via netbanking credentials. Applicable for nach mandate registration
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: DEBIT_CARD
+                description: Authorize via debit card details. Applicable for nach mandate registration
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: AADHAAR
+                description: Authorize via aadhaar number. Applicable for nach mandate registration
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: EXISTING_MANDATE
+                description: Authorize or pay via existing mandate. Applicable for both upi autopay and nach mandates
+                reference: <PR/Issue/Discussion Links md format text>
+          - code: MANDATE_IDENTIFIER
+            description : Identifier for existing mandates
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: MANDATE_LIMIT
+            description : Per debit max limit on the mandate. Buyer app can provide this if it wants to set a limit or not provide it. Final say is with the seller app. Value mentioned as integer.
+            reference: <PR/Issue/Discussion Links md format text>
           - code: MASKED_BANK_ACCOUNT_NUMBER
             description : Masked bank a/c number for existing mandates
             reference: <PR/Issue/Discussion Links md format text>

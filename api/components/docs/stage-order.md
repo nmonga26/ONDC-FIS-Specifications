@@ -23,7 +23,7 @@ If everything is ready, seller app responds with different payment options throu
 
 ##### Payment Options
 **New Mandate Registration**  
-`amount` represents the mandate limit. It should be atleast the sip instalment amount. Distributor can propose a number, but AMC will have the final say on this.
+`MANDATE_LIMIT` tag represents the max mandate limit. It should be atleast the sip instalment amount. Distributor can propose a number, but AMC will have the final say on this.
 
 **Existing Mandate Selection**  
 If the investor has an existing mandate, AMC will send that along with masked bank a/c number against which the mandate is registered.

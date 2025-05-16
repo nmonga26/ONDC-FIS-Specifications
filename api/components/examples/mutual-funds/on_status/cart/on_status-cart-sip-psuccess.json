@@ -402,7 +402,7 @@
                     "collected_by": "BPP",
                     "status": "PAID",
                     "params": {
-                        "amount": "8000",
+                        "amount": "0",
                         "currency": "INR",
                         "source_bank_code": "icic0000047",
                         "source_bank_account_number": "004701563111",
@@ -412,11 +412,44 @@
                     "type": "PRE_FULFILLMENT",
                     "tags": [
                         {
+                            "descriptor": { "name": "Source bank account", "code": "SOURCE_BANK_ACCOUNT" },
+                            "list": [
+                                {
+                                    "descriptor": { "name": "Account Type", "code": "ACCOUNT_TYPE" },
+                                    "value": "SAVINGS"
+                                }
+                            ]
+                        },
+                        {
                             "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
                             "list": [
                                 {
                                     "descriptor": { "code": "MODE" },
-                                    "value": "MANDATE_REGISTRATION"
+                                    "value": "NACH"
+                                },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "NETBANKING"
+                                },
+                                {
+                                    "descriptor": { "code": "MANDATE_LIMIT" },
+                                    "value": "50000"
+                                },
+                                {
+                                    "descriptor": { "code": "MANDATE_IDENTIFIER" },
+                                    "value": "125487"
+                                },
+                                {
+                                    "descriptor": { "code": "MASKED_BANK_ACCOUNT_NUMBER" },
+                                    "value": "********3111"
+                                },
+                                {
+                                    "descriptor": { "code": "BANK_ACCOUNT_NAME" },
+                                    "value": "Harish Gupta"
+                                },
+                                {
+                                    "descriptor": { "code": "BANK_NAME" },
+                                    "value": "ICICI Bank"
                                 }
                             ]
                         }

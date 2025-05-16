@@ -1,0 +1,20 @@
+summary: SIP - Add/Update new Payment Mandate
+
+references: if any
+steps:
+  - summary: Update
+    api: update
+    details:
+      - description: Ask for new mandate registration
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/update/update-sip-add-new-mandate.json"
+  - summary: On Update
+    api: on_update
+    details:
+      - description: Receive new mandate registration payment option. Once this payment is done, `on_status` and `on_update` etc. are the same as a regular sip flow
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_update/on_update-sip-add-new-mandate.json"
