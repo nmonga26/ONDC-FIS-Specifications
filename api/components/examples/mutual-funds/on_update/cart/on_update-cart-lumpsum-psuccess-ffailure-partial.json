@@ -112,6 +112,12 @@
                                 "value": "5000",
                                 "unit": "INR"
                             }
+                        },
+                        "allocated": {
+                            "measure": {
+                                "value": "0",
+                                "unit": "MF_UNITS"
+                            }
                         }
                     },
                     "tags": [
@@ -376,6 +382,15 @@
                     "type": "PRE_FULFILLMENT",
                     "tags": [
                         {
+                            "descriptor": { "name": "Source bank account", "code": "SOURCE_BANK_ACCOUNT" },
+                            "list": [
+                                {
+                                    "descriptor": { "name": "Account Type", "code": "ACCOUNT_TYPE" },
+                                    "value": "SAVINGS"
+                                }
+                            ]
+                        },
+                        {
                             "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
                             "list": [
                                 {
@@ -428,7 +443,7 @@
             ],
             "quote": {
                 "id": "q1",
-                "price": { "currency": "INR", "value": "8000" },
+                "price": { "currency": "INR", "value": "3000" },
                 "breakup": [
                     {
                         "item": { "id": "12391", "fulfillment_ids": ["ff_123"] },
@@ -443,12 +458,12 @@
                     {
                         "item": { "id": "15031", "fulfillment_ids": ["ff_124"] },
                         "title": "INVESTMENT",
-                        "price": { "currency": "INR", "value": "4999.75" }
+                        "price": { "currency": "INR", "value": "0" }
                     },
                     {
                         "item": { "id": "15031", "fulfillment_ids": ["ff_124"] },
                         "title": "STAMP_DUTY",
-                        "price": { "currency": "INR", "value": "0.25" }
+                        "price": { "currency": "INR", "value": "0" }
                     }
                 ]
             },

@@ -3652,54 +3652,18 @@ x-tags:
         payments:
           tags:
             - &ref_12
-              code: PAYMENT_METHOD
-              description: Payment method details
+              code: SOURCE_BANK_ACCOUNT
+              description: >-
+                Details about the source bank account from which the payment is
+                made
               reference: <PR/Issue/Discussion Links md format text>
               list:
-                - code: MODE
-                  description: Mode of payment
+                - code: ACCOUNT_TYPE
+                  description: The type of the source bank a/c
                   reference: <PR/Issue/Discussion Links md format text>
                   list:
-                    - code: MANDATE_REGISTRATION
-                      description: New mandate registration
-                      reference: <PR/Issue/Discussion Links md format text>
-                    - code: MANDATE_EXISTING
-                      description: Pay using existing mandate
-                      reference: <PR/Issue/Discussion Links md format text>
-                    - code: NETBANKING
-                      description: Pay via netbanking
-                      reference: <PR/Issue/Discussion Links md format text>
-                    - code: UPI_COLLECT
-                      description: Pay via upi collect request
-                      reference: <PR/Issue/Discussion Links md format text>
-                    - code: UPI_URI
-                      description: Pay via upi intent/qr through a upi uri
-                      reference: <PR/Issue/Discussion Links md format text>
-                    - code: UPI_PG
-                      description: Pay via upi through a pg link
-                      reference: <PR/Issue/Discussion Links md format text>
-                    - code: MANDATE_IDENTIFIER
-                      description: Describes the mandate Identifier
-                      reference: <PR/Issue/Discussion Links md format text>
-                - code: TYPE
-                  description: Type of mandate if existing mandate
-                  reference: <PR/Issue/Discussion Links md format text>
-                  list:
-                    - code: ENACH_MANDATE
-                      description: eNACH mandate
-                      reference: <PR/Issue/Discussion Links md format text>
-                    - code: UPI_AUTOPAY_MANDATE
-                      description: UPI Autopay mandate
-                      reference: <PR/Issue/Discussion Links md format text>
-                - code: MASKED_BANK_ACCOUNT_NUMBER
-                  description: Masked bank a/c number for existing mandates
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: BANK_ACCOUNT_NAME
-                  description: Bank a/c name for existing mandates
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: BANK_NAME
-                  description: Bank name for existing mandates
-                  reference: <PR/Issue/Discussion Links md format text>
+                    - code: SAVINGS
+                      description: A regular savings a/c
         tags: *ref_8
   init:
     message:
@@ -3742,15 +3706,75 @@ x-tags:
         payments:
           tags:
             - &ref_16
-              code: ERROR_INFORMATION
-              description: Describes the finder fees for buyer
+              code: PAYMENT_METHOD
+              description: Payment method details
               reference: <PR/Issue/Discussion Links md format text>
               list:
-                - code: REASON_CODE
-                  description: Describes the finder fees for buyer
+                - code: MODE
+                  description: Mode of payment
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: REASON_MESSAGE
-                  description: Describes the finder fees for buyer
+                  list:
+                    - code: NETBANKING
+                      description: Pay via netbanking
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: UPI
+                      description: Pay via upi
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: UPI_AUTOPAY
+                      description: Pay via upi autopay
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: NACH
+                      description: Pay via nach network
+                      reference: <PR/Issue/Discussion Links md format text>
+                - code: AUTH
+                  description: Authorization type/mechanism
+                  reference: <PR/Issue/Discussion Links md format text>
+                  list:
+                    - code: COLLECT
+                      description: >-
+                        Collect request. Applicable for upi and upi autopay
+                        modes
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: URI
+                      description: UPI uri. Applicable for upi and upi autopay modes
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: NETBANKING
+                      description: >-
+                        Authorize via netbanking credentials. Applicable for
+                        nach mandate registration
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: DEBIT_CARD
+                      description: >-
+                        Authorize via debit card details. Applicable for nach
+                        mandate registration
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: AADHAAR
+                      description: >-
+                        Authorize via aadhaar number. Applicable for nach
+                        mandate registration
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: EXISTING_MANDATE
+                      description: >-
+                        Authorize or pay via existing mandate. Applicable for
+                        both upi autopay and nach mandates
+                      reference: <PR/Issue/Discussion Links md format text>
+                - code: MANDATE_IDENTIFIER
+                  description: Identifier for existing mandates
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: MANDATE_LIMIT
+                  description: >-
+                    Per debit max limit on the mandate. Buyer app can provide
+                    this if it wants to set a limit or not provide it. Final say
+                    is with the seller app. Value mentioned as integer.
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: MASKED_BANK_ACCOUNT_NUMBER
+                  description: Masked bank a/c number for existing mandates
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: BANK_ACCOUNT_NAME
+                  description: Bank a/c name for existing mandates
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: BANK_NAME
+                  description: Bank name for existing mandates
                   reference: <PR/Issue/Discussion Links md format text>
         fulfillments:
           tags:
@@ -3921,7 +3945,7 @@ x-flows:
           - description: Search for all mutual fund schemes
         reference: if any
         example:
-          value: &ref_53
+          value: &ref_56
             context:
               location:
                 country:
@@ -4281,7 +4305,7 @@ x-flows:
               incremental updates
         reference: if any
         example:
-          value: &ref_54
+          value: &ref_57
             context:
               location:
                 country:
@@ -6480,14 +6504,6 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
-                    tags:
-                      - descriptor:
-                          name: Payment Method
-                          code: PAYMENT_METHOD
-                        list:
-                          - descriptor:
-                              code: MODE
-                            value: MANDATE_REGISTRATION
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -6497,13 +6513,113 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_EXISTING
+                            value: SKIP_PAYMENT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: COLLECT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: URI
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: DEBIT_CARD
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: AADHAAR
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
                           - descriptor:
                               code: MANDATE_IDENTIFIER
                             value: '125487'
                           - descriptor:
-                              code: TYPE
-                            value: ENACH_MANDATE
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '886985'
                           - descriptor:
                               code: MASKED_BANK_ACCOUNT_NUMBER
                             value: '********3111'
@@ -6606,7 +6722,7 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -6614,12 +6730,26 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -6805,7 +6935,7 @@ x-flows:
                     url: https://api.sellerapp.com/payment?k=abdafaf
                     status: NOT-PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -6813,12 +6943,26 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -6919,7 +7063,7 @@ x-flows:
                     collected_by: BPP
                     status: NOT-PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -6928,12 +7072,26 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -7137,7 +7295,7 @@ x-flows:
                     status: NOT-PAID
                     url: https://api.sellerapp.com/payment?k=abdafaf
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -7145,12 +7303,26 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -7217,7 +7389,7 @@ x-flows:
           - description: Send payment success
         reference: if any
         example:
-          value: &ref_63
+          value: &ref_65
             context:
               location:
                 country:
@@ -7384,7 +7556,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -7393,12 +7565,38 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -7648,7 +7846,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -7657,12 +7855,38 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -10044,7 +10268,7 @@ x-flows:
           - description: Send folio information as form submission
         reference: if any
         example:
-          value: &ref_55
+          value: &ref_58
             context:
               location:
                 country:
@@ -10507,7 +10731,7 @@ x-flows:
           - description: Send digilocker fetch as form submission
         reference: if any
         example:
-          value: &ref_56
+          value: &ref_59
             context:
               location:
                 country:
@@ -10583,7 +10807,7 @@ x-flows:
           - description: Ask for esign
         reference: if any
         example:
-          value: &ref_59
+          value: &ref_61
             context:
               location:
                 country:
@@ -10970,7 +11194,7 @@ x-flows:
           - description: Send esign fetch as form submission
         reference: if any
         example:
-          value: &ref_57
+          value: &ref_60
             context:
               location:
                 country:
@@ -11212,6 +11436,8 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
                           name: Payment Method
@@ -11219,7 +11445,72 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: SKIP_PAYMENT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: COLLECT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: URI
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: DEBIT_CARD
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: AADHAAR
                 tags:
                   - display: false
                     descriptor:
@@ -11434,7 +11725,7 @@ x-flows:
                     url: https://api.sellerapp.com/payment?k=abdafaf
                     status: NOT-PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -11442,12 +11733,26 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -11668,7 +11973,7 @@ x-flows:
                     status: NOT-PAID
                     url: https://api.sellerapp.com/payment?k=abdafaf
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -11676,12 +11981,26 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -11923,7 +12242,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -11932,12 +12251,38 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -12195,7 +12540,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -12204,12 +12549,38 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -12278,7 +12649,7 @@ x-flows:
           - description: Send back the list of existing folios and payment options
         reference: if any
         example:
-          value: &ref_58
+          value: &ref_53
             context:
               location:
                 country:
@@ -12493,14 +12864,6 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
-                    tags:
-                      - descriptor:
-                          name: Payment Method
-                          code: PAYMENT_METHOD
-                        list:
-                          - descriptor:
-                              code: MODE
-                            value: MANDATE_REGISTRATION
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -12510,13 +12873,113 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_EXISTING
+                            value: SKIP_PAYMENT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: COLLECT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: URI
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: DEBIT_CARD
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: AADHAAR
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
                           - descriptor:
                               code: MANDATE_IDENTIFIER
                             value: '125487'
                           - descriptor:
-                              code: TYPE
-                            value: ENACH_MANDATE
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '886985'
                           - descriptor:
                               code: MASKED_BANK_ACCOUNT_NUMBER
                             value: '********3111'
@@ -12561,7 +13024,7 @@ x-flows:
           - description: Send order details and folio details
         reference: if any
         example:
-          value: &ref_60
+          value: &ref_62
             context:
               location:
                 country:
@@ -12621,7 +13084,7 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -12629,12 +13092,26 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -12656,7 +13133,7 @@ x-flows:
           - description: Draft order is sent back with payment url
         reference: if any
         example:
-          value: &ref_61
+          value: &ref_63
             context:
               location:
                 country:
@@ -12842,7 +13319,7 @@ x-flows:
                     url: https://api.sellerapp.com/payment?k=abdafaf
                     status: NOT-PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -12850,12 +13327,26 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -12958,7 +13449,7 @@ x-flows:
                     collected_by: BPP
                     status: NOT-PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -12967,12 +13458,26 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -13198,7 +13703,7 @@ x-flows:
                     status: NOT-PAID
                     url: https://api.sellerapp.com/payment?k=abdafaf
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -13206,12 +13711,26 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -13467,7 +13986,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -13476,12 +13995,38 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -15254,7 +15799,7 @@ x-flows:
           - description: Send payment failure
         reference: if any
         example:
-          value: &ref_67
+          value: &ref_68
             context:
               location:
                 country:
@@ -15417,7 +15962,7 @@ x-flows:
                     collected_by: BPP
                     status: FAILED
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -15425,12 +15970,30 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
-                          name: Information
-                          code: ERROR_INFORMATION
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                      - descriptor:
+                          name: Information
+                          code: ERROR_INFORMATION
+                        list:
                           - descriptor:
                               name: Reason Code
                               code: REASON_CODE
@@ -15722,7 +16285,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -15731,12 +16294,38 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -15918,12 +16507,35 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_DEBIT
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 tags:
                   - display: false
                     descriptor:
@@ -16108,12 +16720,35 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_DEBIT
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -16149,7 +16784,7 @@ x-flows:
           - description: Successful sip instalment notification
         reference: if any
         example:
-          value: &ref_71
+          value: &ref_72
             context:
               location:
                 country:
@@ -16316,12 +16951,35 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_DEBIT
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -16403,7 +17061,7 @@ x-flows:
           - description: Failed sip instalment payment notification
         reference: if any
         example:
-          value: &ref_70
+          value: &ref_71
             context:
               location:
                 country:
@@ -16537,12 +17195,39 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
-                          name: Information
-                          code: ERROR_INFORMATION
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_DEBIT
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
+                      - descriptor:
+                          name: Information
+                          code: ERROR_INFORMATION
+                        list:
                           - descriptor:
                               name: Reason Code
                               code: REASON_CODE
@@ -16643,7 +17328,7 @@ x-flows:
           - description: Failed sip instalment notification
         reference: if any
         example:
-          value: &ref_72
+          value: &ref_73
             context:
               location:
                 country:
@@ -16682,6 +17367,10 @@ x-flows:
                         measure:
                           value: '3000'
                           unit: INR
+                      allocated:
+                        measure:
+                          value: '0'
+                          unit: MF_UNITS
                     fulfillment_ids:
                       - ff_009
                     payment_ids:
@@ -16792,17 +17481,40 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_DEBIT
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
                     currency: INR
-                    value: '3000'
+                    value: '0'
                   breakup:
                     - item:
                         id: '12391'
@@ -16811,7 +17523,7 @@ x-flows:
                       title: INVESTMENT
                       price:
                         currency: INR
-                        value: '2999.85'
+                        value: '0'
                     - item:
                         id: '12391'
                         fulfillment_ids:
@@ -16819,7 +17531,7 @@ x-flows:
                       title: STAMP_DUTY
                       price:
                         currency: INR
-                        value: '0.15'
+                        value: '0'
                 tags:
                   - display: false
                     descriptor:
@@ -16867,7 +17579,7 @@ x-flows:
           - description: Send parent order fulfillment cancellation status
         reference: if any
         example:
-          value: &ref_74
+          value: &ref_75
             context:
               location:
                 country:
@@ -17068,7 +17780,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -17077,12 +17789,38 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 cancellation_terms:
                   - reason_required: true
                     external_ref:
@@ -17582,7 +18320,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '8000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -17591,12 +18329,38 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 tags:
                   - display: false
                     descriptor:
@@ -17666,7 +18430,7 @@ x-flows:
           - description: Send parent order fulfillment completion status
         reference: if any
         example:
-          value: &ref_73
+          value: &ref_74
             context:
               location:
                 country:
@@ -17855,7 +18619,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '3000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -17864,12 +18628,38 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 quote:
                   id: q1
                   price:
@@ -18188,6 +18978,8 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
                           name: Payment Method
@@ -18205,7 +18997,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: UPI_COLLECT
+                            value: UPI
+                          - descriptor:
+                              code: AUTH
+                            value: COLLECT
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -18215,17 +19010,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: UPI_URI
-                  - collected_by: BPP
-                    type: PRE_FULFILLMENT
-                    tags:
-                      - descriptor:
-                          name: Payment Method
-                          code: PAYMENT_METHOD
-                        list:
+                            value: UPI
                           - descriptor:
-                              code: MODE
-                            value: UPI_PG
+                              code: AUTH
+                            value: URI
                 tags:
                   - display: false
                     descriptor:
@@ -18332,6 +19120,14 @@ x-flows:
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
@@ -18529,6 +19325,14 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
@@ -18648,6 +19452,14 @@ x-flows:
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
@@ -18863,6 +19675,14 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
@@ -18943,7 +19763,7 @@ x-flows:
           - description: Send payment success notification
         reference: if any
         example:
-          value: &ref_62
+          value: &ref_64
             context:
               location:
                 country:
@@ -19115,6 +19935,14 @@ x-flows:
                       transaction_id: '243423324'
                     type: PRE_FULFILLMENT
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
@@ -19370,6 +20198,14 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
@@ -19495,7 +20331,7 @@ x-flows:
           - description: Send payment failure notification
         reference: if any
         example:
-          value: &ref_66
+          value: &ref_67
             context:
               location:
                 country:
@@ -19667,6 +20503,14 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
@@ -19751,7 +20595,7 @@ x-flows:
           - description: Ask for new payment
         reference: if any
         example:
-          value: &ref_64
+          value: &ref_54
             context:
               location:
                 country:
@@ -19784,19 +20628,30 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: UPI_URI
+                            value: UPI
+                          - descriptor:
+                              code: AUTH
+                            value: URI
       - summary: On Update
         api: on_update
         details:
           - description: Receive new payment
         reference: if any
         example:
-          value: &ref_65
+          value: &ref_66
             context:
               location:
                 country:
@@ -19969,6 +20824,14 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
@@ -20003,12 +20866,23 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: UPI_URI
+                            value: UPI
+                          - descriptor:
+                              code: AUTH
+                            value: URI
                 tags:
                   - display: false
                     descriptor:
@@ -22175,9 +23049,10 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
                     tags:
-                      - display: true
-                        descriptor:
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
@@ -22187,14 +23062,29 @@ x-flows:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
-                      - display: true
-                        descriptor:
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
                             value: UPI
+                          - descriptor:
+                              code: AUTH
+                            value: COLLECT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI
+                          - descriptor:
+                              code: AUTH
+                            value: URI
                 quote:
                   id: q1
                   price:
@@ -22284,6 +23174,14 @@ x-flows:
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
@@ -22472,6 +23370,14 @@ x-flows:
                       source_bank_account_number: '004701563111'
                       source_bank_account_name: harish gupta
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - display: true
                         descriptor:
                           name: Payment Method
@@ -22576,6 +23482,14 @@ x-flows:
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
@@ -22796,6 +23710,14 @@ x-flows:
                       source_bank_account_number: '004701563111'
                       source_bank_account_name: harish gupta
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - display: true
                         descriptor:
                           name: Payment Method
@@ -23017,6 +23939,14 @@ x-flows:
                       source_bank_account_name: harish gupta
                       transaction_id: '243423324'
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - display: true
                         descriptor:
                           name: Payment Method
@@ -23281,6 +24211,14 @@ x-flows:
                       source_bank_account_name: harish gupta
                       transaction_id: '243423324'
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - display: true
                         descriptor:
                           name: Payment Method
@@ -27436,7 +28374,7 @@ x-flows:
           - description: Send redemption successful
         reference: if any
         example:
-          value: &ref_68
+          value: &ref_69
             context:
               location:
                 country:
@@ -28748,7 +29686,7 @@ x-flows:
           - description: Send redemption failed
         reference: if any
         example:
-          value: &ref_69
+          value: &ref_70
             context:
               location:
                 country:
@@ -28785,6 +29723,10 @@ x-flows:
                         measure:
                           value: '3000'
                           unit: INR
+                      allocated:
+                        measure:
+                          value: '0'
+                          unit: MF_UNITS
                     fulfillment_ids:
                       - ff_008
                     tags:
@@ -28914,7 +29856,7 @@ x-flows:
                   id: q1
                   price:
                     currency: INR
-                    value: '3000'
+                    value: '0'
                   breakup:
                     - item:
                         id: '12391'
@@ -28923,7 +29865,15 @@ x-flows:
                       title: REDEMPTION
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '0'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_008
+                      title: SECURITIES_TRANSACTION_TAX
+                      price:
+                        currency: INR
+                        value: '0'
                 tags:
                   - display: false
                     descriptor:
@@ -29390,6 +30340,8 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
                           name: Payment Method
@@ -29407,7 +30359,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: UPI_COLLECT
+                            value: UPI
+                          - descriptor:
+                              code: AUTH
+                            value: COLLECT
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -29417,17 +30372,10 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: UPI_URI
-                  - collected_by: BPP
-                    type: PRE_FULFILLMENT
-                    tags:
-                      - descriptor:
-                          name: Payment Method
-                          code: PAYMENT_METHOD
-                        list:
+                            value: UPI
                           - descriptor:
-                              code: MODE
-                            value: UPI_PG
+                              code: AUTH
+                            value: URI
                 tags:
                   - display: false
                     descriptor:
@@ -29579,6 +30527,14 @@ x-flows:
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
@@ -29957,6 +30913,14 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
@@ -30122,6 +31086,14 @@ x-flows:
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
@@ -30521,6 +31493,14 @@ x-flows:
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
@@ -30976,6 +31956,14 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
@@ -31430,6 +32418,14 @@ x-flows:
                       transaction_id: '243423324'
                     type: PRE_FULFILLMENT
                     tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
                       - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
@@ -31897,6 +32893,14 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
@@ -32108,6 +33112,10 @@ x-flows:
                         measure:
                           value: '5000'
                           unit: INR
+                      allocated:
+                        measure:
+                          value: '0'
+                          unit: MF_UNITS
                     tags:
                       - display: true
                         descriptor:
@@ -32321,6 +33329,14 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
@@ -32365,7 +33381,7 @@ x-flows:
                   id: q1
                   price:
                     currency: INR
-                    value: '8000'
+                    value: '3000'
                   breakup:
                     - item:
                         id: '12391'
@@ -32390,7 +33406,7 @@ x-flows:
                       title: INVESTMENT
                       price:
                         currency: INR
-                        value: '4999.75'
+                        value: '0'
                     - item:
                         id: '15031'
                         fulfillment_ids:
@@ -32398,7 +33414,7 @@ x-flows:
                       title: STAMP_DUTY
                       price:
                         currency: INR
-                        value: '0.25'
+                        value: '0'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: Cart - SIP Creation
@@ -32890,14 +33906,6 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
-                    tags:
-                      - descriptor:
-                          name: Payment Method
-                          code: PAYMENT_METHOD
-                        list:
-                          - descriptor:
-                              code: MODE
-                            value: MANDATE_REGISTRATION
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -32907,13 +33915,113 @@ x-flows:
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_EXISTING
+                            value: SKIP_PAYMENT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: COLLECT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: URI
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: DEBIT_CARD
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: AADHAAR
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
                           - descriptor:
                               code: MANDATE_IDENTIFIER
                             value: '125487'
                           - descriptor:
-                              code: TYPE
-                            value: ENACH_MANDATE
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI_AUTOPAY
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '886985'
                           - descriptor:
                               code: MASKED_BANK_ACCOUNT_NUMBER
                             value: '********3111'
@@ -33059,7 +34167,7 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     params:
-                      amount: '8000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -33067,12 +34175,26 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -33428,7 +34550,7 @@ x-flows:
                     url: https://api.sellerapp.com/payment?k=abdafaf
                     status: NOT-PAID
                     params:
-                      amount: '8000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -33436,12 +34558,26 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -33586,7 +34722,7 @@ x-flows:
                     collected_by: BPP
                     status: NOT-PAID
                     params:
-                      amount: '8000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -33594,12 +34730,26 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -33977,7 +35127,7 @@ x-flows:
                     url: https://api.sellerapp.com/payment?k=abdafaf
                     status: NOT-PAID
                     params:
-                      amount: '8000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -33985,12 +35135,26 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -34406,7 +35570,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '8000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -34415,12 +35579,38 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 tags:
                   - display: false
                     descriptor:
@@ -34873,7 +36063,7 @@ x-flows:
                     collected_by: BPP
                     status: PAID
                     params:
-                      amount: '8000'
+                      amount: '0'
                       currency: INR
                       source_bank_code: icic0000047
                       source_bank_account_number: '004701563111'
@@ -34882,12 +36072,38 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_REGISTRATION
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 tags:
                   - display: false
                     descriptor:
@@ -35255,12 +36471,35 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_DEBIT
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 tags:
                   - display: false
                     descriptor:
@@ -35647,12 +36886,35 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_DEBIT
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 tags:
                   - display: false
                     descriptor:
@@ -36062,12 +37324,35 @@ x-flows:
                     type: PRE_FULFILLMENT
                     tags:
                       - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
                           name: Payment Method
                           code: PAYMENT_METHOD
                         list:
                           - descriptor:
                               code: MODE
-                            value: MANDATE_DEBIT
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: EXISTING_MANDATE
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
                 tags:
                   - display: false
                     descriptor:
@@ -41295,7 +42580,7 @@ x-examples:
         examples:
           - summary: search for mutual funds Full Pull
             description: TBD
-            value: *ref_53
+            value: *ref_56
           - summary: search for mutual funds incremental from given time
             description: TBD
             value:
@@ -41351,7 +42636,7 @@ x-examples:
                           value: 'true'
           - summary: search for mutual funds register for incremental pull
             description: TBD
-            value: *ref_54
+            value: *ref_57
       on_search:
         examples:
           - summary: mutual funds catalog
@@ -41373,18 +42658,18 @@ x-examples:
             value: *ref_25
           - summary: submit kyc form (step 1)
             description: submit kyc form
-            value: *ref_55
+            value: *ref_58
           - summary: submit kyc form (step 2)
             description: submit kyc form
-            value: *ref_56
+            value: *ref_59
           - summary: submit kyc form (step 3)
             description: submit kyc form
-            value: *ref_57
+            value: *ref_60
       on_select:
         examples:
           - summary: send existing folios
             description: send existing folios
-            value: *ref_58
+            value: *ref_53
           - summary: send new folio xinput form
             description: send new folio xinput form
             value: *ref_24
@@ -41393,7 +42678,7 @@ x-examples:
             value: *ref_26
           - summary: send new kyc xinput form (redirection step)
             description: send new kyc xinput form (redirection step)
-            value: *ref_59
+            value: *ref_61
           - summary: send payout bank details for redemption
             description: send payout bank details for redemption
             value: *ref_47
@@ -41469,12 +42754,23 @@ x-examples:
                       type: PRE_FULFILLMENT
                       tags:
                         - descriptor:
+                            name: Source bank account
+                            code: SOURCE_BANK_ACCOUNT
+                          list:
+                            - descriptor:
+                                name: Account Type
+                                code: ACCOUNT_TYPE
+                              value: SAVINGS
+                        - descriptor:
                             name: Payment Method
                             code: PAYMENT_METHOD
                           list:
                             - descriptor:
                                 code: MODE
-                              value: UPI_COLLECT
+                              value: UPI
+                            - descriptor:
+                                code: AUTH
+                              value: COLLECT
                   tags:
                     - display: false
                       descriptor:
@@ -41492,7 +42788,7 @@ x-examples:
                           value: 'true'
           - summary: init sip existing folio
             description: init sip existing folio
-            value: *ref_60
+            value: *ref_62
           - summary: init sip new folio
             description: init sip new folio
             value: *ref_22
@@ -41676,12 +42972,23 @@ x-examples:
                       type: PRE_FULFILLMENT
                       tags:
                         - descriptor:
+                            name: Source bank account
+                            code: SOURCE_BANK_ACCOUNT
+                          list:
+                            - descriptor:
+                                name: Account Type
+                                code: ACCOUNT_TYPE
+                              value: SAVINGS
+                        - descriptor:
                             name: Payment Method
                             code: PAYMENT_METHOD
                           list:
                             - descriptor:
                                 code: MODE
-                              value: UPI_URI
+                              value: UPI
+                            - descriptor:
+                                code: AUTH
+                              value: URI
                   tags:
                     - display: false
                       descriptor:
@@ -41723,7 +43030,7 @@ x-examples:
                   updated_at: '2023-05-25T05:23:03.443Z'
           - summary: send payment url & tnc
             description: send payment url & tnc
-            value: *ref_61
+            value: *ref_63
           - summary: send order in created state
             description: send order in created state
             value: *ref_49
@@ -41771,47 +43078,47 @@ x-examples:
         examples:
           - summary: lumpsum payment success
             description: lumpsum payment success
-            value: *ref_62
+            value: *ref_64
           - summary: sip payment success
             description: sip payment success
-            value: *ref_63
+            value: *ref_65
       update:
         examples:
           - summary: update an order with a new payment
             description: bap asks for a new payment link in case of payment failure
-            value: *ref_64
+            value: *ref_54
       on_update:
         examples:
           - summary: send a new payment link
             description: bpp sends a new payment link
-            value: *ref_65
+            value: *ref_66
           - summary: lumpsum payment failure
             description: lumpsum payment failure
-            value: *ref_66
+            value: *ref_67
           - summary: sip payment failure
             description: sip payment failure
-            value: *ref_67
+            value: *ref_68
           - summary: redemption fulfillment success
             description: redemption fulfillment success
-            value: *ref_68
+            value: *ref_69
           - summary: redemption fulfillment failure
             description: redemption fulfillment failure
-            value: *ref_69
+            value: *ref_70
           - summary: sip instalment payment failed
             description: sip instalment payment failed
-            value: *ref_70
+            value: *ref_71
           - summary: sip instalment fulfillment success
             description: sip instalment fulfillment success
-            value: *ref_71
+            value: *ref_72
           - summary: sip instalment fulfillment failure
             description: sip instalment fulfillment failure
-            value: *ref_72
+            value: *ref_73
           - summary: sip order completed
             description: sip order completed
-            value: *ref_73
+            value: *ref_74
           - summary: sip order cancelled
             description: sip order cancelled
-            value: *ref_74
+            value: *ref_75
 x-attributes:
   mutual-funds:
     attribute_set:
@@ -41949,7 +43256,7 @@ x-attributes:
               usage: '--'
               description: Describe the intent to buy or avail a product or a service.
             tags:
-              BAP_TERMS: &ref_75
+              BAP_TERMS: &ref_76
                 required: Mandatory
                 type: string
                 owner: BPP
@@ -42224,7 +43531,7 @@ x-attributes:
                   usage: 234dsfs
                   description: ID of the scheme that this plan belongs to
                 tags:
-                  PLAN_INFORMATION: &ref_81
+                  PLAN_INFORMATION: &ref_82
                     required: Mandatory
                     type: object
                     owner: BPP
@@ -42237,7 +43544,7 @@ x-attributes:
                         owner: BPP
                         usage: '--'
                         description: Describes the consumer tnc
-                  PLAN_IDENTIFIERS: &ref_82
+                  PLAN_IDENTIFIERS: &ref_83
                     required: Mandatory
                     type: object
                     owner: BPP
@@ -42262,7 +43569,7 @@ x-attributes:
                         owner: BPP
                         usage: '--'
                         description: Describes the RTA Identifier
-                  PLAN_OPTIONS: &ref_83
+                  PLAN_OPTIONS: &ref_84
                     required: Mandatory
                     type: object
                     owner: BPP
@@ -42370,7 +43677,7 @@ x-attributes:
                   usage: SIP
                   description: Type of the fulfillment
                 tags:
-                  THRESHOLDS: &ref_90
+                  THRESHOLDS: &ref_91
                     required: Mandatory
                     type: object
                     owner: BPP
@@ -42470,7 +43777,7 @@ x-attributes:
                     This refers to the decription as to how that order will
                     rendered/fulfilled to the end-customers.
             tags:
-              BPP_TERMS: &ref_91
+              BPP_TERMS: &ref_92
                 required: Mandatory
                 type: string
                 owner: BPP
@@ -42614,7 +43921,7 @@ x-attributes:
               description: >-
                 This refers to the complete description of the legal contract
                 created between the buyer and the seller.
-            provider: &ref_76
+            provider: &ref_77
               id:
                 required: mandatory
                 type: string
@@ -42629,26 +43936,26 @@ x-attributes:
                 owner: BPP
                 usage: '--'
                 description: MF provider details
-            items: &ref_92
-              _description: &ref_77
+            items: &ref_93
+              _description: &ref_78
                 required: mandatory
                 type: object
                 owner: BAP/BPP
                 usage: '--'
                 description: List of mf schemes in an order
-              id: &ref_78
+              id: &ref_79
                 required: mandatory
                 type: string
                 owner: BPP
                 usage: 98dgwr41
                 description: ID of the item that is chosen, as received in the catalog
-              fulfillment_ids: &ref_79
+              fulfillment_ids: &ref_80
                 required: optional
                 type: string
                 owner: BPP
                 usage: 3bd4ea25
                 description: Unique reference ID to the fulfillment of an order
-              quantity: &ref_80
+              quantity: &ref_81
                 _description:
                   required: mandatory
                   type: object
@@ -42682,26 +43989,26 @@ x-attributes:
                       usage: amount
                       description: Type of the value of order
             fulfillments:
-              _description: &ref_84
+              _description: &ref_85
                 required: mandatory
                 type: object
                 owner: BAP
                 usage: '--'
                 description: Fulfillment details
-              type: &ref_85
+              type: &ref_86
                 required: mandatory
                 type: string
                 owner: BPP
                 usage: SIP
                 description: Type of the fulfillment chosen
-              id: &ref_86
+              id: &ref_87
                 required: mandatory
                 type: string
                 owner: BPP
                 usage: 45af324fs
                 description: ID of the fulfillment chosen
-              customer: &ref_87
-                _description: &ref_93
+              customer: &ref_88
+                _description: &ref_94
                   required: mandatory
                   type: object
                   owner: BAP
@@ -42709,7 +44016,7 @@ x-attributes:
                   description: >-
                     This refers to the description of the person that will
                     ulitmately receive the order.
-                person: &ref_94
+                person: &ref_95
                   id:
                     required: mandatory
                     type: string
@@ -42724,7 +44031,7 @@ x-attributes:
                     description: >-
                       This refers to the description of the associated person as
                       an individual entity.
-              agent: &ref_88
+              agent: &ref_89
                 _description:
                   required: mandatory
                   type: object
@@ -42772,7 +44079,7 @@ x-attributes:
                       owner: BAP
                       usage: ARN
                       description: Distributor license type
-              stops: &ref_89
+              stops: &ref_90
                 _description:
                   required: optional
                   type: array
@@ -42799,7 +44106,7 @@ x-attributes:
                       owner: BAP
                       usage: '--'
                       description: Frequency of the recurring orders in ISO8601 format
-            xinput: &ref_95
+            xinput: &ref_96
               _description:
                 required: optional
                 type: object
@@ -42837,7 +44144,7 @@ x-attributes:
                   usage: d097c2f5
                   description: Submission id of the form submission
             tags:
-              BAP_TERMS: *ref_75
+              BAP_TERMS: *ref_76
       on_select:
         context:
           location:
@@ -42963,25 +44270,25 @@ x-attributes:
               description: >-
                 This refers to the complete description of the legal contract
                 created between the buyer and the seller.
-            provider: *ref_76
-            items: &ref_101
-              _description: *ref_77
-              id: *ref_78
-              fulfillment_ids: *ref_79
-              quantity: *ref_80
+            provider: *ref_77
+            items: &ref_102
+              _description: *ref_78
+              id: *ref_79
+              fulfillment_ids: *ref_80
+              quantity: *ref_81
               tags:
-                PLAN_INFORMATION: *ref_81
-                PLAN_IDENTIFIERS: *ref_82
-                PLAN_OPTIONS: *ref_83
+                PLAN_INFORMATION: *ref_82
+                PLAN_IDENTIFIERS: *ref_83
+                PLAN_OPTIONS: *ref_84
             fulfillments:
-              _description: *ref_84
-              type: *ref_85
-              id: *ref_86
-              customer: *ref_87
-              agent: *ref_88
-              stops: *ref_89
+              _description: *ref_85
+              type: *ref_86
+              id: *ref_87
+              customer: *ref_88
+              agent: *ref_89
+              stops: *ref_90
               tags:
-                THRESHOLDS: *ref_90
+                THRESHOLDS: *ref_91
             xinput:
               _description:
                 required: optional
@@ -43090,31 +44397,31 @@ x-attributes:
                   Indicates whether the form data is mandatorily required by the
                   BPP to confirm the order.
             payments:
-              _description: &ref_96
+              _description: &ref_97
                 required: optional
                 type: list
                 owner: BPP
                 usage: '--'
                 description: List of payment options for this order
-              id: &ref_97
+              id: &ref_98
                 required: optional
                 type: string
                 owner: BPP
                 usage: pmt_1
                 description: Conditionally mandatory and optional
-              collected_by: &ref_98
+              collected_by: &ref_99
                 required: optional
                 type: string
                 owner: BPP
                 usage: BPP
                 description: Who is collecting the payment
-              type: &ref_99
+              type: &ref_100
                 required: optional
                 type: string
                 owner: BPP
                 usage: PRE_FULFILLMENT
                 description: When is the payment to be collected
-              tags: &ref_100
+              tags: &ref_101
                 _description:
                   required: optional
                   type: array
@@ -43179,7 +44486,7 @@ x-attributes:
                     usage: MANDATE_REGISTRATION
                     description: Value of the tag
             tags:
-              BPP_TERMS: *ref_91
+              BPP_TERMS: *ref_92
       init:
         context:
           location:
@@ -43305,15 +44612,15 @@ x-attributes:
               description: >-
                 This refers to the complete description of the legal contract
                 created between the buyer and the seller.
-            provider: *ref_76
-            items: *ref_92
-            fulfillments: &ref_104
-              _description: *ref_84
-              type: *ref_85
-              id: *ref_86
-              customer: &ref_102
-                _description: *ref_93
-                person: *ref_94
+            provider: *ref_77
+            items: *ref_93
+            fulfillments: &ref_105
+              _description: *ref_85
+              type: *ref_86
+              id: *ref_87
+              customer: &ref_103
+                _description: *ref_94
+                person: *ref_95
                 contact:
                   _description:
                     required: mandatory
@@ -43327,16 +44634,16 @@ x-attributes:
                     owner: BAP
                     usage: '9916587487'
                     description: Phone number of the customer on which 2fa is done
-              agent: *ref_88
-              stops: *ref_89
-            xinput: *ref_95
+              agent: *ref_89
+              stops: *ref_90
+            xinput: *ref_96
             payments:
-              _description: *ref_96
-              id: *ref_97
-              collected_by: *ref_98
-              type: *ref_99
-              tags: *ref_100
-              params: &ref_103
+              _description: *ref_97
+              id: *ref_98
+              collected_by: *ref_99
+              type: *ref_100
+              tags: *ref_101
+              params: &ref_104
                 _description:
                   required: optional
                   type: object
@@ -43380,7 +44687,7 @@ x-attributes:
                     Name on the bank a/c of the investor from which he wants to
                     make the payment
             tags:
-              BAP_TERMS: *ref_75
+              BAP_TERMS: *ref_76
       on_init:
         context:
           location:
@@ -43518,25 +44825,25 @@ x-attributes:
               owner: BAP
               usage: CREATED
               description: Status of the order at seller app end
-            provider: *ref_76
-            items: *ref_101
-            fulfillments: &ref_106
-              _description: *ref_84
-              type: *ref_85
-              id: *ref_86
-              customer: *ref_102
-              agent: *ref_88
-              stops: *ref_89
+            provider: *ref_77
+            items: *ref_102
+            fulfillments: &ref_107
+              _description: *ref_85
+              type: *ref_86
+              id: *ref_87
+              customer: *ref_103
+              agent: *ref_89
+              stops: *ref_90
               tags:
-                THRESHOLDS: *ref_90
-            xinput: *ref_95
-            payments: &ref_105
-              _description: *ref_96
-              id: *ref_97
-              collected_by: *ref_98
-              type: *ref_99
-              tags: *ref_100
-              params: *ref_103
+                THRESHOLDS: *ref_91
+            xinput: *ref_96
+            payments: &ref_106
+              _description: *ref_97
+              id: *ref_98
+              collected_by: *ref_99
+              type: *ref_100
+              tags: *ref_101
+              params: *ref_104
               url:
                 required: optional
                 type: string
@@ -43550,7 +44857,7 @@ x-attributes:
                 usage: NOT-PAID
                 description: status of the payment
             tags:
-              BPP_TERMS: *ref_91
+              BPP_TERMS: *ref_92
       confirm:
         context:
           location:
@@ -43682,14 +44989,14 @@ x-attributes:
               owner: BPP
               usage: 54adfadsf6144
               description: ID of the order at the seller app end
-            provider: *ref_76
-            items: *ref_92
-            fulfillments: *ref_104
-            xinput: *ref_95
-            payments: *ref_105
+            provider: *ref_77
+            items: *ref_93
+            fulfillments: *ref_105
+            xinput: *ref_96
+            payments: *ref_106
             tags:
-              BAP_TERMS: *ref_75
-              BPP_TERMS: *ref_91
+              BAP_TERMS: *ref_76
+              BPP_TERMS: *ref_92
       on_confirm:
         context:
           location:
@@ -43827,14 +45134,14 @@ x-attributes:
               owner: BAP
               usage: ACCEPTED
               description: Status of the order at seller app end
-            provider: *ref_76
-            items: *ref_101
-            fulfillments: *ref_106
-            xinput: *ref_95
-            payments: *ref_105
+            provider: *ref_77
+            items: *ref_102
+            fulfillments: *ref_107
+            xinput: *ref_96
+            payments: *ref_106
             tags:
-              BAP_TERMS: *ref_75
-              BPP_TERMS: *ref_91
+              BAP_TERMS: *ref_76
+              BPP_TERMS: *ref_92
       status:
         context:
           location:
@@ -44094,14 +45401,14 @@ x-attributes:
               owner: BAP
               usage: ACCEPTED
               description: Status of the order at seller app end
-            provider: *ref_76
-            items: *ref_101
-            fulfillments: *ref_106
-            xinput: *ref_95
-            payments: *ref_105
+            provider: *ref_77
+            items: *ref_102
+            fulfillments: *ref_107
+            xinput: *ref_96
+            payments: *ref_106
             tags:
-              BAP_TERMS: *ref_75
-              BPP_TERMS: *ref_91
+              BAP_TERMS: *ref_76
+              BPP_TERMS: *ref_92
       cancel:
         context:
           location:
@@ -44367,14 +45674,14 @@ x-attributes:
               owner: BAP
               usage: ACCEPTED
               description: Status of the order at seller app end
-            provider: *ref_76
-            items: *ref_101
-            fulfillments: *ref_106
-            xinput: *ref_95
-            payments: *ref_105
+            provider: *ref_77
+            items: *ref_102
+            fulfillments: *ref_107
+            xinput: *ref_96
+            payments: *ref_106
             tags:
-              BAP_TERMS: *ref_75
-              BPP_TERMS: *ref_91
+              BAP_TERMS: *ref_76
+              BPP_TERMS: *ref_92
       update:
         context:
           location:
@@ -44449,11 +45756,11 @@ x-attributes:
               usage: 54adfadsf6144
               description: ID of the order at the seller app end
             payments:
-              _description: *ref_96
-              id: *ref_97
-              collected_by: *ref_98
-              type: *ref_99
-              tags: *ref_100
+              _description: *ref_97
+              id: *ref_98
+              collected_by: *ref_99
+              type: *ref_100
+              tags: *ref_101
               params:
                 _description:
                   required: optional
@@ -44634,14 +45941,14 @@ x-attributes:
               owner: BAP
               usage: ACCEPTED
               description: Status of the order at seller app end
-            provider: *ref_76
-            items: *ref_101
-            fulfillments: *ref_106
-            xinput: *ref_95
-            payments: *ref_105
+            provider: *ref_77
+            items: *ref_102
+            fulfillments: *ref_107
+            xinput: *ref_96
+            payments: *ref_106
             tags:
-              BAP_TERMS: *ref_75
-              BPP_TERMS: *ref_91
+              BAP_TERMS: *ref_76
+              BPP_TERMS: *ref_92
 x-errorcodes:
   code:
     - Event: Distributor not empanelled

@@ -223,45 +223,60 @@
       "payments": [
         {
           "collected_by": "BPP",
-          "type": "PRE_FULFILLMENT",
-          "tags": [
-            {
-              "display": true,
-              "descriptor": {
-                "name": "Payment Method",
-                "code": "PAYMENT_METHOD"
-              },
-              "list": [
-                {
-                  "descriptor": {
-                    "code": "MODE"
-                  },
-                  "value": "NETBANKING"
-                }
-              ]
-            }
-          ]
+          "type": "PRE_FULFILLMENT"
         },
         {
-          "collected_by": "BPP",
-          "type": "PRE_FULFILLMENT",
-          "tags": [
-            {
-              "display": true,
-              "descriptor": {
-                "name": "Payment Method",
-                "code": "PAYMENT_METHOD"
-              },
-              "list": [
+            "collected_by": "BPP",
+            "type": "PRE_FULFILLMENT",
+            "tags": [
                 {
-                  "descriptor": {
-                    "code": "MODE"
-                  },
-                  "value": "UPI"
+                    "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
+                    "list": [
+                        {
+                            "descriptor": { "code": "MODE" },
+                            "value": "NETBANKING"
+                        }
+                    ]
                 }
-              ]
-            }
-          ]
+            ]
+        },
+        {
+            "collected_by": "BPP",
+            "type": "PRE_FULFILLMENT",
+            "tags": [
+                {
+                    "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
+                    "list": [
+                        {
+                            "descriptor": { "code": "MODE" },
+                            "value": "UPI"
+                        },
+                        {
+                            "descriptor": { "code": "AUTH" },
+                            "value": "COLLECT"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "collected_by": "BPP",
+            "type": "PRE_FULFILLMENT",
+            "tags": [
+                {
+                    "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
+                    "list": [
+                        {
+                            "descriptor": { "code": "MODE" },
+                            "value": "UPI"
+                        },
+                        {
+                            "descriptor": { "code": "AUTH" },
+                            "value": "URI"
+                        }
+                    ]
+                }
+            ]
         }
       ],
       "quote": {

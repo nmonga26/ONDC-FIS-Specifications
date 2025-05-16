@@ -1,0 +1,20 @@
+summary: SIP Modification - Change Amount
+
+references: if any
+steps:
+  - summary: Update
+    api: update
+    details:
+      - description: Send sip order update request with changed amount
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/update/update-sip-change-amount.json"
+  - summary: On Update
+    api: on_update
+    details:
+      - description: Send sip order changed amount confirmation
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_update/on_update-sip-change-amount.json"
