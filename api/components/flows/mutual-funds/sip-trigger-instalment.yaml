@@ -1,0 +1,37 @@
+summary: SIP - Manual Trigger Instalment
+
+references: if any
+steps:
+  - summary: Initialize the sip instalment order
+    api: init
+    details:
+      - description: Send instalment order details with the parent sip order id. As there is no fulfilment id available, buyer app doesn't send the fulfilment id, just one fulfilment with type and customer consent details. In case of cart orders, send two items and one fulfilment - and receive the actual fulfilments in the on response.
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/init/init-sip-instalment-manual-trigger.json"
+  - summary: On Init
+    api: on_init
+    details:
+      - description: Draft order is sent back with payment url
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_init/on_init-sip-instalment-manual-trigger.json"
+
+  - summary: Confirm
+    api: confirm
+    details:
+      - description: Confirm an sip instalment
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/confirm/confirm-sip-instalment-manual-trigger.json"
+  - summary: On Confirm
+    api: on_confirm
+    details:
+      - description: Send instalment order acceptance. The following status and update calls are same as other flows
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_confirm/on_confirm-sip-instalment-manual-trigger.json"
