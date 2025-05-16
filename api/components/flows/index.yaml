@@ -30,3 +30,8 @@
 - $ref: "./mutual-funds/sip-instalment-manual-payment.yaml"
 - $ref: "./mutual-funds/sip-instalment-pay-and-set-mandate.yaml"
 - $ref: "./mutual-funds/sip-trigger-instalment.yaml"
+- $ref: "./mutual-funds/switch-by-amount.yaml"
+- $ref: "./mutual-funds/stp-by-amount.yaml"
+- $ref: "./mutual-funds/stp-instalment.yaml"
+- $ref: "./mutual-funds/swp-by-amount.yaml"
+- $ref: "./mutual-funds/swp-instalment.yaml"
