@@ -1,0 +1,104 @@
+{
+    "context": {
+        "location": {
+            "country": {
+                "code": "IND"
+            },
+            "city": {
+                "code": "*"
+            }
+        },
+        "domain": "ONDC:FIS14",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "bap_id": "api.buyerapp.com",
+        "bap_uri": "https://api.buyerapp.com/ondc",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "version": "2.0.0",
+        "ttl": "PT10M",
+        "bpp_id": "api.sellerapp.com",
+        "bpp_uri": "https://api.sellerapp.com/ondc",
+        "action": "on_search"
+    },
+    "message": {
+        "catalog": {
+            "descriptor": {"name": "BPP Name"},
+            "providers": [
+                {
+                    "id": "sellerapp_id",
+                    "descriptor": {"name": "Seller App Name"},
+                    "categories": [
+                        {
+                            "id": "0",
+                            "descriptor": {"name": "Mutual Funds", "code": "MUTUAL_FUNDS"}
+                        },
+                        {
+                            "id": "MFOS",
+                            "descriptor": {"name": "MF Other Services", "code": "MF_OTHER_SERVICES"},
+                            "parent_category_id": "0"
+                        }
+                    ],
+                    "items": [
+                        {
+                            "id": "AS42134",
+                            "descriptor": {"name": "ABC Fund - Folio Services", "code": "ACCOUNT_SERVICES"},
+                            "category_ids": ["MFOS"],
+                            "creator": { "descriptor": { "name": "ABC Mutual Fund" } },
+                            "fulfillment_ids": ["ff_911", "ff_912"],
+                            "matched": true
+                        },
+                        {
+                            "id": "AS56245",
+                            "descriptor": {"name": "XYZ Fund - Folio Services", "code": "ACCOUNT_SERVICES"},
+                            "category_ids": ["MFOS"],
+                            "creator": { "descriptor": { "name": "XYZ Mutual Fund" } },
+                            "fulfillment_ids": ["ff_9923"],
+                            "matched": true
+                        },
+                        {
+                            "id": "PS5634",
+                            "descriptor": {"name": "Payment Services", "code": "PAYMENT_SERVICES"},
+                            "category_ids": ["MFOS"],
+                            "fulfillment_ids": ["ff_913"],
+                            "matched": true
+                        }
+                    ],
+                    "fulfillments": [
+                        {
+                            "id": "ff_911",
+                            "type": "ZERO_BALANCE_FOLIO"
+                        },
+                        {
+                            "id": "ff_9923",
+                            "type": "ZERO_BALANCE_FOLIO"
+                        },
+                        {
+                            "id": "ff_912",
+                            "type": "KYC"
+                        },
+                        {
+                            "id": "ff_913",
+                            "type": "PAYMENT_MANDATE"
+                        }
+                    ]
+                }
+            ],
+            "tags": [
+                {
+                    "display": false,
+                    "descriptor": {"name": "BPP Terms of Engagement", "code": "BPP_TERMS"},
+                    "list": [
+                        {
+                            "descriptor": {"name": "Static Terms (Transaction Level)", "code": "STATIC_TERMS"},
+                            "value": "https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1"
+                        },
+                        {
+                            "descriptor": {"name": "Offline Contract", "code": "OFFLINE_CONTRACT"},
+                            "value": "true"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

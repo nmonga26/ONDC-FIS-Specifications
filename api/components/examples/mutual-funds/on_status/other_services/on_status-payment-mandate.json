@@ -30,7 +30,7 @@
             },
             "items": [
                 {
-                    "id": "FS5634",
+                    "id": "PS5634",
                     "descriptor": {"name": "Payment Services", "code": "PAYMENT_SERVICES"},
                     "fulfillment_ids": ["ff_123"],
                     "payment_ids": ["pmt_123"]

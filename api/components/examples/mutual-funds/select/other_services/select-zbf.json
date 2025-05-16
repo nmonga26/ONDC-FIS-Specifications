@@ -18,67 +18,29 @@
         "ttl": "PT10M",
         "bpp_id": "api.sellerapp.com",
         "bpp_uri": "https://api.sellerapp.com/ondc",
-        "action": "on_confirm"
+        "action": "select"
     },
     "message": {
         "order": {
-            "id": "kyc_536herg9843",
-            "status": "ACCEPTED",
-            "provider": {
-                "id": "sellerapp_id",
-                "descriptor": {"name": "Seller App Name"}
-            },
+            "provider": {"id": "sellerapp_id"},
             "items": [
                 {
-                    "id": "FS23",
-                    "descriptor": {"name": "ABC Fund - Folio Services", "code": "ACCOUNT_SERVICES"},
-                    "fulfillment_ids": ["fsf_132"],
-                    "tags": [
-                        {
-                            "display": true,
-                            "descriptor": {"name": "Checklists", "code": "CHECKLISTS"},
-                            "list": [
-                                {
-                                    "descriptor": {"name": "Application Form", "code": "APPLICATION_FORM"},
-                                    "value": "6547-7456-7235-4386"
-                                },
-                                {
-                                    "descriptor": {"name": "KYC", "code": "KYC"},
-                                    "value": "1978-5697-3478-6547"
-                                },
-                                {
-                                    "descriptor": {"name": "ESIGN", "code": "ESIGN"},
-                                    "value": "8745-1247-6587-8647"
-                                }
-                            ]
-                        }
-                    ]
+                    "id": "AS42134",
+                    "fulfillment_ids": ["ff_123"]
                 }
             ],
             "fulfillments": [
                 {
-                    "id": "fsf_132",
-                    "type": "KYC",
-                    "state": {
-                        "descriptor": {"name": "Initiated", "code": "INITIATED"}
-                    },
+                    "id": "ff_123",
+                    "type": "ZERO_BALANCE_FOLIO",
                     "customer": {
                         "person": {
-                            "id": "pan:arrpp7771n",
-                            "creds": [
-                                {
-                                    "id": "115.245.207.90",
-                                    "type": "IP_ADDRESS"
-                                }
-                            ]
-                        },
-                        "contact": {
-                            "phone": "9916599123"
+                            "id": "pan:arrpp7771n"
                         }
                     },
                     "agent": {
                         "person": {
-                            "id": "euin:E52432"
+                            "id": "euin:E52432"   
                         },
                         "organization": {
                             "creds": [
@@ -124,9 +86,7 @@
                         }
                     ]
                 }
-            ],
-            "created_at": "2023-05-25T05:23:03.443Z",
-            "updated_at": "2023-05-25T05:23:03.443Z"
+            ]
         }
     }
 }

@@ -18,21 +18,19 @@
         "ttl": "PT10M",
         "bpp_id": "api.sellerapp.com",
         "bpp_uri": "https://api.sellerapp.com/ondc",
-        "action": "on_confirm"
+        "action": "on_select"
     },
     "message": {
         "order": {
-            "id": "kyc_536herg9843",
-            "status": "ACCEPTED",
             "provider": {
                 "id": "sellerapp_id",
                 "descriptor": {"name": "Seller App Name"}
             },
             "items": [
                 {
-                    "id": "FS23",
+                    "id": "AS42134",
                     "descriptor": {"name": "ABC Fund - Folio Services", "code": "ACCOUNT_SERVICES"},
-                    "fulfillment_ids": ["fsf_132"],
+                    "fulfillment_ids": ["ff_123"],
                     "tags": [
                         {
                             "display": true,
@@ -40,15 +38,7 @@
                             "list": [
                                 {
                                     "descriptor": {"name": "Application Form", "code": "APPLICATION_FORM"},
-                                    "value": "6547-7456-7235-4386"
-                                },
-                                {
-                                    "descriptor": {"name": "KYC", "code": "KYC"},
-                                    "value": "1978-5697-3478-6547"
-                                },
-                                {
-                                    "descriptor": {"name": "ESIGN", "code": "ESIGN"},
-                                    "value": "8745-1247-6587-8647"
+                                    "value": "PENDING"
                                 }
                             ]
                         }
@@ -57,23 +47,11 @@
             ],
             "fulfillments": [
                 {
-                    "id": "fsf_132",
-                    "type": "KYC",
-                    "state": {
-                        "descriptor": {"name": "Initiated", "code": "INITIATED"}
-                    },
+                    "id": "ff_123",
+                    "type": "ZERO_BALANCE_FOLIO",
                     "customer": {
                         "person": {
-                            "id": "pan:arrpp7771n",
-                            "creds": [
-                                {
-                                    "id": "115.245.207.90",
-                                    "type": "IP_ADDRESS"
-                                }
-                            ]
-                        },
-                        "contact": {
-                            "phone": "9916599123"
+                            "id": "pan:arrpp7771n"
                         }
                     },
                     "agent": {
@@ -95,21 +73,23 @@
                     }
                 }
             ],
-            "tags": [
-                {
-                    "display": false,
-                    "descriptor": {"name": "BAP Terms of Engagement", "code": "BAP_TERMS"},
-                    "list": [
-                        {
-                            "descriptor": {"name": "Static Terms (Transaction Level)", "code": "STATIC_TERMS"},
-                            "value": "https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1"
-                        },
-                        {
-                            "descriptor": {"name": "Offline Contract", "code": "OFFLINE_CONTRACT"},
-                            "value": "true"
-                        }
-                    ]
+            "xinput": {
+                "required": true,
+                "head": {
+                    "index": {
+                        "min": 0,
+                        "cur": 0,
+                        "max": 0
+                    },
+                    "headings": ["APPLICATION_FORM"]
                 },
+                "form": {
+                    "id": "form_1",
+                    "url": "https://forms.sellerapp.com/account-opening?k=234sadf234",
+                    "mime_type": "text/html"
+                }
+            },
+            "tags": [
                 {
                     "display": false,
                     "descriptor": {"name": "BPP Terms of Engagement", "code": "BPP_TERMS"},
@@ -124,9 +104,7 @@
                         }
                     ]
                 }
-            ],
-            "created_at": "2023-05-25T05:23:03.443Z",
-            "updated_at": "2023-05-25T05:23:03.443Z"
+            ]
         }
     }
 }

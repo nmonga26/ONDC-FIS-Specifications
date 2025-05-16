@@ -30,8 +30,8 @@
             },
             "items": [
                 {
-                    "id": "FS42134",
-                    "descriptor": {"name": "ABC Fund - Folio Services", "code": "FOLIO_SERVICES"},
+                    "id": "AS42134",
+                    "descriptor": {"name": "ABC Fund - Folio Services", "code": "ACCOUNT_SERVICES"},
                     "fulfillment_ids": ["ff_123"],
                     "tags": [
                         {

@@ -1,0 +1,20 @@
+summary: Other Services - Search
+
+steps:
+  - summary: Search for list of other services offered
+    api: search
+    details:
+      - description: Send the other services category code
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/search/search-other-services.json"
+
+  - summary: Respond with the catalog of other services offered
+    api: on_search
+    details:
+      - description: Receive other services list as items and fulfillments
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_search/on_search-other-services.json"
