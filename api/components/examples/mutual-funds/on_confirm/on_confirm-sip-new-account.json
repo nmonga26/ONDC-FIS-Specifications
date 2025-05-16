@@ -199,7 +199,7 @@
                     "status": "NOT-PAID",
                     "url": "https://api.sellerapp.com/payment?k=abdafaf",
                     "params": {
-                        "amount": "3000",
+                        "amount": "0",
                         "currency": "INR",
                         "source_bank_code": "icic0000047",
                         "source_bank_account_number": "004701563111",

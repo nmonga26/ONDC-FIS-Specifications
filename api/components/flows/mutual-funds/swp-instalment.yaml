@@ -1,0 +1,28 @@
+summary: SWP Instalment
+
+references: if any
+steps:
+  - summary: On Update
+    api: on_update
+    details:
+      - description: Send parent order fulfillment ongoing status
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_update/redeem/on_update-swp-ongoing.json"
+  - summary: On Confirm
+    api: on_confirm
+    details:
+      - description: Send instalment order generation notification
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_confirm/redeem/on_confirm-swp-instalment.json"
+  - summary: On Update (successful instalment)
+    api: on_update
+    details:
+      - description: Successful swp instalment notification
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_update/redeem/on_update-swp-instalment-success.json"

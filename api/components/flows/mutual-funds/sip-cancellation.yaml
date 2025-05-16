@@ -9,7 +9,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/update/update-cancel-sip.json"
+        $ref: "../../examples/mutual-funds/update/update-sip-cancel.json"
   - summary: On Update
     api: on_update
     details:

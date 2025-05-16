@@ -257,6 +257,21 @@
                             "list": [
                                 {
                                     "descriptor": { "code": "MODE" },
+                                    "value": "SKIP_PAYMENT"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "collected_by": "BPP",
+                    "type": "PRE_FULFILLMENT",
+                    "tags": [
+                        {
+                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
+                            "list": [
+                                {
+                                    "descriptor": { "code": "MODE" },
                                     "value": "UPI_AUTOPAY"
                                 },
                                 {
