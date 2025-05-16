@@ -200,12 +200,17 @@
             ],
             "quote": {
                 "id": "q1",
-                "price": { "currency": "INR", "value": "3000" },
+                "price": { "currency": "INR", "value": "0" },
                 "breakup": [
                     {
                         "item": { "id": "12391", "fulfillment_ids": ["ff_008"] },
                         "title": "REDEMPTION",
-                        "price": { "currency": "INR", "value": "3000" }
+                        "price": { "currency": "INR", "value": "0" }
+                    },
+                    {
+                        "item": { "id": "12391", "fulfillment_ids": ["ff_008"] },
+                        "title": "SECURITIES_TRANSACTION_TAX",
+                        "price": { "currency": "INR", "value": "0" }
                     }
                 ]
             },

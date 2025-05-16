@@ -434,7 +434,7 @@
             ],
             "quote": {
                 "id": "q1",
-                "price": { "currency": "INR", "value": "8000" },
+                "price": { "currency": "INR", "value": "3000" },
                 "breakup": [
                     {
                         "item": { "id": "12391", "fulfillment_ids": ["ff_123"] },
@@ -449,12 +449,12 @@
                     {
                         "item": { "id": "15031", "fulfillment_ids": ["ff_124"] },
                         "title": "INVESTMENT",
-                        "price": { "currency": "INR", "value": "4999.75" }
+                        "price": { "currency": "INR", "value": "0" }
                     },
                     {
                         "item": { "id": "15031", "fulfillment_ids": ["ff_124"] },
                         "title": "STAMP_DUTY",
-                        "price": { "currency": "INR", "value": "0.25" }
+                        "price": { "currency": "INR", "value": "0" }
                     }
                 ]
             },

@@ -16806,7 +16806,7 @@ x-flows:
                   id: q1
                   price:
                     currency: INR
-                    value: '3000'
+                    value: '0'
                   breakup:
                     - item:
                         id: '12391'
@@ -16815,7 +16815,7 @@ x-flows:
                       title: INVESTMENT
                       price:
                         currency: INR
-                        value: '2999.85'
+                        value: '0'
                     - item:
                         id: '12391'
                         fulfillment_ids:
@@ -16823,7 +16823,7 @@ x-flows:
                       title: STAMP_DUTY
                       price:
                         currency: INR
-                        value: '0.15'
+                        value: '0'
                 tags:
                   - display: false
                     descriptor:
@@ -28922,7 +28922,7 @@ x-flows:
                   id: q1
                   price:
                     currency: INR
-                    value: '3000'
+                    value: '0'
                   breakup:
                     - item:
                         id: '12391'
@@ -28931,7 +28931,15 @@ x-flows:
                       title: REDEMPTION
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '0'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_008
+                      title: SECURITIES_TRANSACTION_TAX
+                      price:
+                        currency: INR
+                        value: '0'
                 tags:
                   - display: false
                     descriptor:
@@ -32377,7 +32385,7 @@ x-flows:
                   id: q1
                   price:
                     currency: INR
-                    value: '8000'
+                    value: '3000'
                   breakup:
                     - item:
                         id: '12391'
@@ -32402,7 +32410,7 @@ x-flows:
                       title: INVESTMENT
                       price:
                         currency: INR
-                        value: '4999.75'
+                        value: '0'
                     - item:
                         id: '15031'
                         fulfillment_ids:
@@ -32410,7 +32418,7 @@ x-flows:
                       title: STAMP_DUTY
                       price:
                         currency: INR
-                        value: '0.25'
+                        value: '0'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: Cart - SIP Creation
