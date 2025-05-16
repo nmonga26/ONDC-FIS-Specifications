@@ -42,6 +42,7 @@ Fulfillment is the order processing activity, which happens after the order is a
 - `PENDING`: In case of purchases, fulfillment starts only after payment is done. This state indicates that the order is confirmed, but the payment is pending.
 - `INITIATED`: This means the fulfillment is started. In case of one time orders - the orders are sent for processing. Not applicable for recurring orders.
 - `ONGOING`: For recurring orders (sip, swp), this means the instalments are ongoing as per the schedule. Applicable only for recurring orders.
+- `PAUSED`: For recurring orders, this means the instalment generation is paused and will resume only when explicitly unpaused. Applicable only for recurring orders.
 - `COMPLETED`: For recurring orders (sip, swp), this means the instalments are completed as per the schedule and no new instalments will be generated. Applicable only for recurring orders.
 - `CANCELLED`: For recurring orders (sip, swp), this means the order is cancelled by the seller app and no new instalments will be generated.
 - `SUCCESSFUL`: Order is successfully processed. For purchase orders, this means units have been allotted.
@@ -71,14 +72,18 @@ stateDiagram-v2
     direction LR
     PENDING: fulfillment PENDING
     ONGOING: fulfillment ONGOING
+    PAUSED: fulfillment PAUSED
     COMPLETED: fulfillment COMPLETED
     CANCELLED: fulfillment CANCELLED
 
     [*] --> PENDING
     PENDING --> ONGOING
     PENDING --> CANCELLED
+    ONGOING --> PAUSED
     ONGOING --> COMPLETED
     ONGOING --> CANCELLED
+    PAUSED --> ONGOING
+    PAUSED --> CANCELLED
 ```
 
 - On fulfillment failure, order moves to cancelled state
