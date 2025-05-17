@@ -49746,6 +49746,3719 @@ x-flows:
         reference: if any
         example:
           value: *ref_57
+  - summary: Other Services - Search
+    steps:
+      - summary: Search for list of other services offered
+        api: search
+        details:
+          - description: Send the other services category code
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              action: search
+            message:
+              intent:
+                category:
+                  descriptor:
+                    code: MF_OTHER_SERVICES
+                fulfillment:
+                  agent:
+                    organization:
+                      creds:
+                        - id: ARN-125784
+                          type: ARN
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+      - summary: Respond with the catalog of other services offered
+        api: on_search
+        details:
+          - description: Receive other services list as items and fulfillments
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: on_search
+            message:
+              catalog:
+                descriptor:
+                  name: BPP Name
+                providers:
+                  - id: sellerapp_id
+                    descriptor:
+                      name: Seller App Name
+                    categories:
+                      - id: '0'
+                        descriptor:
+                          name: Mutual Funds
+                          code: MUTUAL_FUNDS
+                      - id: MFOS
+                        descriptor:
+                          name: MF Other Services
+                          code: MF_OTHER_SERVICES
+                        parent_category_id: '0'
+                    items:
+                      - id: AS42134
+                        descriptor:
+                          name: ABC Fund - Other Service
+                          code: SERVICE
+                        category_ids:
+                          - MFOS
+                        creator:
+                          descriptor:
+                            name: ABC Mutual Fund
+                        fulfillment_ids:
+                          - ff_911
+                          - ff_912
+                        matched: true
+                      - id: AS56245
+                        descriptor:
+                          name: XYZ Fund - Other Service
+                          code: SERVICE
+                        category_ids:
+                          - MFOS
+                        creator:
+                          descriptor:
+                            name: XYZ Mutual Fund
+                        fulfillment_ids:
+                          - ff_911
+                        matched: true
+                      - id: PS5634
+                        descriptor:
+                          name: Other Service
+                          code: SERVICE
+                        category_ids:
+                          - MFOS
+                        creator:
+                          descriptor:
+                            name: Seller App
+                        fulfillment_ids:
+                          - ff_913
+                        matched: true
+                    fulfillments:
+                      - id: ff_911
+                        type: ZERO_BALANCE_FOLIO
+                      - id: ff_912
+                        type: KYC
+                      - id: ff_913
+                        type: PAYMENT_MANDATE
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+  - summary: Other Services - Open Zero Balance Folio
+    references: if any
+    steps:
+      - summary: Select
+        api: select
+        details:
+          - description: Select zero balance folio service
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: select
+            message:
+              order:
+                provider:
+                  id: sellerapp_id
+                items:
+                  - id: AS42134
+                    fulfillment_ids:
+                      - ff_123
+                fulfillments:
+                  - id: ff_123
+                    type: ZERO_BALANCE_FOLIO
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+      - summary: On Select
+        api: on_select
+        details:
+          - description: Send back new account input required
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: on_select
+            message:
+              order:
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
+                items:
+                  - id: AS42134
+                    descriptor:
+                      name: ABC Fund - Other Service
+                      code: SERVICE
+                    fulfillment_ids:
+                      - ff_123
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: Checklists
+                          code: CHECKLISTS
+                        list:
+                          - descriptor:
+                              name: Application Form
+                              code: APPLICATION_FORM
+                            value: PENDING
+                fulfillments:
+                  - id: ff_123
+                    type: ZERO_BALANCE_FOLIO
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                xinput:
+                  required: true
+                  head:
+                    index:
+                      min: 0
+                      cur: 0
+                      max: 0
+                    headings:
+                      - APPLICATION_FORM
+                  form:
+                    id: form_1
+                    url: https://forms.sellerapp.com/account-opening?k=234sadf234
+                    mime_type: text/html
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: AS42134
+                        fulfillment_ids:
+                          - ff_123
+                      title: ZERO_BALANCE_FOLIO
+                      price:
+                        currency: INR
+                        value: '0'
+      - summary: Get Form
+        api: form
+        details:
+          - description: Get the form for account opening
+        reference: if any
+        example:
+          value: |-
+            <html>
+                <body>
+                    <form action="https://forms.sellerapp.com/form_submission?id=234234234" method="post">
+                        <label for="investor_name">Investor Name</label>
+                        <input id="investor_name" type="text" name="name" />
+                        
+                        <br />
+                        <label for="investor_dob">Investor Date of Birth</label>
+                        <input id="investor_dob" type="text" name="dob" />
+                        
+                        <br />
+                        <label for="investor_gender">Investor Gender</label>
+                        <select id="investor_gender" type="select" name="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="transgender">Transgender</option>
+                        </select>
+
+                        <br />
+                        <label for="investor_ms">Marital Status</label>
+                        <select id="investor_ms" type="select" name="marital_status">
+                            <option value="married">Married</option>
+                            <option value="unmarried">Unmarried</option>
+                        </select>
+
+                        <br />
+                        <label for="investor_occ">Occupation</label>
+                        <select id="investor_occ" type="select" name="occupation">
+                            <option value="business">Business</option>
+                            <option value="professional">Professional</option>
+                            <option value="self_employed">Self-employed</option>
+                            <option value="retired">Retired</option>
+                            <option value="housewife">Housewife</option>
+                            <option value="student">Student</option>
+                            <option value="public_sector_service">Public Sector Service</option>
+                            <option value="private_sector_service">Private Sector Service</option>
+                            <option value="government_service">Government Service</option>
+                            <option value="agriculture">Agriculture</option>
+                            <option value="doctor">Doctor</option>
+                            <option value="forex_dealer">Forex Dealer</option>
+                            <option value="service">Service</option>
+                            <option value="others">Others</option>
+                        </select>
+
+                        <br />
+                        <label for="investor_sw">Source of Wealth</label>
+                        <select id="investor_sw" type="select" name="source_of_wealth">
+                            <option value="salary">Salary</option>
+                            <option value="business">Business</option>
+                            <option value="gift">Gift</option>
+                            <option value="ancestral_property">Ancestral Property</option>
+                            <option value="rental_income">Rental Income</option>
+                            <option value="prize_money">Prize Money</option>
+                            <option value="royalty">Royalty</option>
+                        </select>
+
+                        <br />
+                        <label for="investor_ir">Annual Income Range</label>
+                        <select id="investor_ir" type="select" name="income_range">
+                            <option value="upto_1lakh">Below 1L</option>
+                            <option value="above_1lakh_upto_5lakh">1L to 5L</option>
+                            <option value="above_5lakh_upto_10lakh">5L to 10L</option>
+                            <option value="above_10lakh_upto_25lakh">10L to 25L</option>
+                            <option value="above_25lakh_upto_1cr">25L to 1Cr</option>
+                            <option value="above_1cr">Above 1Cr</option>
+                        </select>
+
+                        <br />
+                        <label for="investor_cob">Investor Country of Birth</label>
+                        <select id="investor_cob" type="select" name="cob">
+                            <option value="af">Afghanistan</option>
+                            <option value="ax">Aland Islands</option>
+                            <option value="al">Albania</option>
+                            <option value="dz">Algeria</option>
+                            <option value="as">American Samoa</option>
+                            <option value="ad">Andorra</option>
+                            <option value="ao">Angola</option>
+                            <option value="ai">Anguilla</option>
+                            <option value="aq">Antarctica</option>
+                            <option value="ag">Antigua and Barbuda</option>
+                            <option value="ar">Argentina</option>
+                            <option value="am">Armenia</option>
+                            <option value="aw">Aruba</option>
+                            <option value="au">Australia</option>
+                            <option value="at">Austria</option>
+                            <option value="az">Azerbaijan</option>
+                            <option value="bs">Bahamas</option>
+                            <option value="bh">Bahrain</option>
+                            <option value="bd">Bangladesh</option>
+                            <option value="bb">Barbados</option>
+                            <option value="by">Belarus</option>
+                            <option value="be">Belgium</option>
+                            <option value="bz">Belize</option>
+                            <option value="bj">Benin</option>
+                            <option value="bm">Bermuda</option>
+                            <option value="bt">Bhutan</option>
+                            <option value="bo">Bolivia</option>
+                            <option value="bq">Bonaire</option>
+                            <option value="ba">Bosnia and Herzegovina</option>
+                            <option value="bw">Botswana</option>
+                            <option value="bv">Bouvet Island</option>
+                            <option value="br">Brazil</option>
+                            <option value="io">British Indian Ocean Territory</option>
+                            <option value="vg">British Virgin Islands</option>
+                            <option value="bn">Brunei</option>
+                            <option value="bg">Bulgaria</option>
+                            <option value="bf">Burkina Faso</option>
+                            <option value="bi">Burundi</option>
+                            <option value="kh">Cambodia</option>
+                            <option value="cm">Cameroon</option>
+                            <option value="ca">Canada</option>
+                            <option value="cv">Cape Verde</option>
+                            <option value="ky">Cayman Islands</option>
+                            <option value="cf">Central African Republic</option>
+                            <option value="td">Chad</option>
+                            <option value="cl">Chile</option>
+                            <option value="cn">China</option>
+                            <option value="cx">Christmas Island</option>
+                            <option value="cc">Cocos Islands</option>
+                            <option value="co">Colombia</option>
+                            <option value="km">Comoros</option>
+                            <option value="ck">Cook Islands</option>
+                            <option value="cr">Costa Rica</option>
+                            <option value="hr">Croatia</option>
+                            <option value="cu">Cuba</option>
+                            <option value="cw">Curacao</option>
+                            <option value="cy">Cyprus</option>
+                            <option value="cz">Czech Republic</option>
+                            <option value="cd">Democratic Republic of the Congo</option>
+                            <option value="dk">Denmark</option>
+                            <option value="dj">Djibouti</option>
+                            <option value="dm">Dominica</option>
+                            <option value="do">Dominican Republic</option>
+                            <option value="tl">East Timor</option>
+                            <option value="ec">Ecuador</option>
+                            <option value="eg">Egypt</option>
+                            <option value="sv">El Salvador</option>
+                            <option value="gq">Equatorial Guinea</option>
+                            <option value="er">Eritrea</option>
+                            <option value="ee">Estonia</option>
+                            <option value="et">Ethiopia</option>
+                            <option value="fk">Falkland Islands</option>
+                            <option value="fo">Faroe Islands</option>
+                            <option value="fj">Fiji</option>
+                            <option value="fi">Finland</option>
+                            <option value="fr">France</option>
+                            <option value="gf">French Guiana</option>
+                            <option value="pf">French Polynesia</option>
+                            <option value="tf">French Southern Territories</option>
+                            <option value="ga">Gabon</option>
+                            <option value="gm">Gambia</option>
+                            <option value="ge">Georgia</option>
+                            <option value="de">Germany</option>
+                            <option value="gh">Ghana</option>
+                            <option value="gi">Gibraltar</option>
+                            <option value="gr">Greece</option>
+                            <option value="gl">Greenland</option>
+                            <option value="gd">Grenada</option>
+                            <option value="gp">Guadeloupe</option>
+                            <option value="gu">Guam</option>
+                            <option value="gt">Guatemala</option>
+                            <option value="gg">Guernsey</option>
+                            <option value="gn">Guinea</option>
+                            <option value="gw">Guinea-Bissau</option>
+                            <option value="gy">Guyana</option>
+                            <option value="ht">Haiti</option>
+                            <option value="hm">Heard Island and McDonald Islands</option>
+                            <option value="hn">Honduras</option>
+                            <option value="hk">Hong Kong</option>
+                            <option value="hu">Hungary</option>
+                            <option value="is">Iceland</option>
+                            <option value="in">India</option>
+                            <option value="id">Indonesia</option>
+                            <option value="ir">Iran</option>
+                            <option value="iq">Iraq</option>
+                            <option value="ie">Ireland</option>
+                            <option value="im">Isle of Man</option>
+                            <option value="il">Israel</option>
+                            <option value="it">Italy</option>
+                            <option value="ci">Ivory Coast</option>
+                            <option value="jm">Jamaica</option>
+                            <option value="jp">Japan</option>
+                            <option value="je">Jersey</option>
+                            <option value="jo">Jordan</option>
+                            <option value="kz">Kazakhstan</option>
+                            <option value="ke">Kenya</option>
+                            <option value="ki">Kiribati</option>
+                            <option value="xk">Kosovo</option>
+                            <option value="kw">Kuwait</option>
+                            <option value="kg">Kyrgyzstan</option>
+                            <option value="la">Laos</option>
+                            <option value="lv">Latvia</option>
+                            <option value="lb">Lebanon</option>
+                            <option value="ls">Lesotho</option>
+                            <option value="lr">Liberia</option>
+                            <option value="ly">Libya</option>
+                            <option value="li">Liechtenstein</option>
+                            <option value="lt">Lithuania</option>
+                            <option value="lu">Luxembourg</option>
+                            <option value="mo">Macao</option>
+                            <option value="mk">Macedonia</option>
+                            <option value="mg">Madagascar</option>
+                            <option value="mw">Malawi</option>
+                            <option value="my">Malaysia</option>
+                            <option value="mv">Maldives</option>
+                            <option value="ml">Mali</option>
+                            <option value="mt">Malta</option>
+                            <option value="mh">Marshall Islands</option>
+                            <option value="mq">Martinique</option>
+                            <option value="mr">Mauritania</option>
+                            <option value="mu">Mauritius</option>
+                            <option value="yt">Mayotte</option>
+                            <option value="mx">Mexico</option>
+                            <option value="fm">Micronesia</option>
+                            <option value="md">Moldova</option>
+                            <option value="mc">Monaco</option>
+                            <option value="mn">Mongolia</option>
+                            <option value="me">Montenegro</option>
+                            <option value="ms">Montserrat</option>
+                            <option value="ma">Morocco</option>
+                            <option value="mz">Mozambique</option>
+                            <option value="mm">Myanmar</option>
+                            <option value="na">Namibia</option>
+                            <option value="nr">Nauru</option>
+                            <option value="np">Nepal</option>
+                            <option value="nl">Netherlands</option>
+                            <option value="an">Netherlands Antilles</option>
+                            <option value="nc">New Caledonia</option>
+                            <option value="nz">New Zealand</option>
+                            <option value="ni">Nicaragua</option>
+                            <option value="ne">Niger</option>
+                            <option value="ng">Nigeria</option>
+                            <option value="nu">Niue</option>
+                            <option value="nf">Norfolk Island</option>
+                            <option value="mp">Northern Mariana Islands</option>
+                            <option value="kp">North Korea</option>
+                            <option value="no">Norway</option>
+                            <option value="om">Oman</option>
+                            <option value="pk">Pakistan</option>
+                            <option value="pw">Palau</option>
+                            <option value="ps">Palestinian Territory</option>
+                            <option value="pa">Panama</option>
+                            <option value="pg">Papua New Guinea</option>
+                            <option value="py">Paraguay</option>
+                            <option value="pe">Peru</option>
+                            <option value="ph">Philippines</option>
+                            <option value="pn">Pitcairn</option>
+                            <option value="pl">Poland</option>
+                            <option value="pt">Portugal</option>
+                            <option value="pr">Puerto Rico</option>
+                            <option value="qa">Qatar</option>
+                            <option value="cg">Republic of the Congo</option>
+                            <option value="re">Reunion</option>
+                            <option value="ro">Romania</option>
+                            <option value="ru">Russia</option>
+                            <option value="rw">Rwanda</option>
+                            <option value="bl">Saint Barthelemy</option>
+                            <option value="sh">Saint Helena</option>
+                            <option value="kn">Saint Kitts and Nevis</option>
+                            <option value="lc">Saint Lucia</option>
+                            <option value="mf">Saint Martin</option>
+                            <option value="pm">Saint Pierre and Miquelon</option>
+                            <option value="vc">Saint Vincent and the Grenadines</option>
+                            <option value="ws">Samoa</option>
+                            <option value="sm">San Marino</option>
+                            <option value="st">Sao Tome and Principe</option>
+                            <option value="sa">Saudi Arabia</option>
+                            <option value="sn">Senegal</option>
+                            <option value="rs">Serbia</option>
+                            <option value="cs">Serbia and Montenegro</option>
+                            <option value="sc">Seychelles</option>
+                            <option value="sl">Sierra Leone</option>
+                            <option value="sg">Singapore</option>
+                            <option value="sx">Sint Maarten</option>
+                            <option value="sk">Slovakia</option>
+                            <option value="si">Slovenia</option>
+                            <option value="sb">Solomon Islands</option>
+                            <option value="so">Somalia</option>
+                            <option value="za">South Africa</option>
+                            <option value="gs">South Georgia and the South Sandwich Islands</option>
+                            <option value="kr">South Korea</option>
+                            <option value="es">Spain</option>
+                            <option value="lk">Sri Lanka</option>
+                            <option value="sd">Sudan</option>
+                            <option value="sr">Suriname</option>
+                            <option value="sj">Svalbard and Jan Mayen</option>
+                            <option value="sz">Swaziland</option>
+                            <option value="se">Sweden</option>
+                            <option value="ch">Switzerland</option>
+                            <option value="sy">Syria</option>
+                            <option value="tw">Taiwan</option>
+                            <option value="tj">Tajikistan</option>
+                            <option value="tz">Tanzania</option>
+                            <option value="th">Thailand</option>
+                            <option value="tg">Togo</option>
+                            <option value="tk">Tokelau</option>
+                            <option value="to">Tonga</option>
+                            <option value="tt">Trinidad and Tobago</option>
+                            <option value="tn">Tunisia</option>
+                            <option value="tr">Turkey</option>
+                            <option value="tm">Turkmenistan</option>
+                            <option value="tc">Turks and Caicos Islands</option>
+                            <option value="tv">Tuvalu</option>
+                            <option value="ug">Uganda</option>
+                            <option value="ua">Ukraine</option>
+                            <option value="ae">United Arab Emirates</option>
+                            <option value="gb">United Kingdom</option>
+                            <option value="us">United States</option>
+                            <option value="um">United States Minor Outlying Islands</option>
+                            <option value="uy">Uruguay</option>
+                            <option value="vi">U.S. Virgin Islands</option>
+                            <option value="uz">Uzbekistan</option>
+                            <option value="vu">Vanuatu</option>
+                            <option value="va">Vatican</option>
+                            <option value="ve">Venezuela</option>
+                            <option value="vn">Vietnam</option>
+                            <option value="wf">Wallis and Futuna</option>
+                            <option value="eh">Western Sahara</option>
+                            <option value="ye">Yemen</option>
+                            <option value="zm">Zambia</option>
+                            <option value="zw">Zimbabwe</option>
+                        </select>
+
+                        <br />
+                        <label for="investor_pob">Investor Place of Birth</label>
+                        <input id="investor_pob" type="text" name="pob" />
+
+                        <br />
+                        <label for="investor_pe">Political Exposure</label>
+                        <select id="investor_pe" type="select" name="political_exposure">
+                            <option value="no_exposure">No exposure</option>
+                            <option value="pep">Politically Exposed</option>
+                            <option value="related_pep">Related to a Politically Exposed Person</option>
+                        </select>
+
+                        <br />
+                        <label for="investor_it">Tax residency status (India)</label>
+                        <select id="investor_it" type="select" name="india_tax_residency_status">
+                            <option value="resident">Resident</option>
+                        </select>
+
+                        <!-- Tax Residency 1 -->
+                        <br />
+                        <label for="investor_trc_country_0">Tax residency 1 (Other than India) - Country</label>
+                        <select id="investor_trc_country_0" type="select" name="trc_country[0]">
+                            <option value="af">Afghanistan</option>
+                            <option value="ax">Aland Islands</option>
+                            <option value="al">Albania</option>
+                            <option value="dz">Algeria</option>
+                            <option value="as">American Samoa</option>
+                            <option value="ad">Andorra</option>
+                            <option value="ao">Angola</option>
+                            <option value="ai">Anguilla</option>
+                            <option value="aq">Antarctica</option>
+                            <option value="ag">Antigua and Barbuda</option>
+                            <option value="ar">Argentina</option>
+                            <option value="am">Armenia</option>
+                            <option value="aw">Aruba</option>
+                            <option value="au">Australia</option>
+                            <option value="at">Austria</option>
+                            <option value="az">Azerbaijan</option>
+                            <option value="bs">Bahamas</option>
+                            <option value="bh">Bahrain</option>
+                            <option value="bd">Bangladesh</option>
+                            <option value="bb">Barbados</option>
+                            <option value="by">Belarus</option>
+                            <option value="be">Belgium</option>
+                            <option value="bz">Belize</option>
+                            <option value="bj">Benin</option>
+                            <option value="bm">Bermuda</option>
+                            <option value="bt">Bhutan</option>
+                            <option value="bo">Bolivia</option>
+                            <option value="bq">Bonaire</option>
+                            <option value="ba">Bosnia and Herzegovina</option>
+                            <option value="bw">Botswana</option>
+                            <option value="bv">Bouvet Island</option>
+                            <option value="br">Brazil</option>
+                            <option value="io">British Indian Ocean Territory</option>
+                            <option value="vg">British Virgin Islands</option>
+                            <option value="bn">Brunei</option>
+                            <option value="bg">Bulgaria</option>
+                            <option value="bf">Burkina Faso</option>
+                            <option value="bi">Burundi</option>
+                            <option value="kh">Cambodia</option>
+                            <option value="cm">Cameroon</option>
+                            <option value="ca">Canada</option>
+                            <option value="cv">Cape Verde</option>
+                            <option value="ky">Cayman Islands</option>
+                            <option value="cf">Central African Republic</option>
+                            <option value="td">Chad</option>
+                            <option value="cl">Chile</option>
+                            <option value="cn">China</option>
+                            <option value="cx">Christmas Island</option>
+                            <option value="cc">Cocos Islands</option>
+                            <option value="co">Colombia</option>
+                            <option value="km">Comoros</option>
+                            <option value="ck">Cook Islands</option>
+                            <option value="cr">Costa Rica</option>
+                            <option value="hr">Croatia</option>
+                            <option value="cu">Cuba</option>
+                            <option value="cw">Curacao</option>
+                            <option value="cy">Cyprus</option>
+                            <option value="cz">Czech Republic</option>
+                            <option value="cd">Democratic Republic of the Congo</option>
+                            <option value="dk">Denmark</option>
+                            <option value="dj">Djibouti</option>
+                            <option value="dm">Dominica</option>
+                            <option value="do">Dominican Republic</option>
+                            <option value="tl">East Timor</option>
+                            <option value="ec">Ecuador</option>
+                            <option value="eg">Egypt</option>
+                            <option value="sv">El Salvador</option>
+                            <option value="gq">Equatorial Guinea</option>
+                            <option value="er">Eritrea</option>
+                            <option value="ee">Estonia</option>
+                            <option value="et">Ethiopia</option>
+                            <option value="fk">Falkland Islands</option>
+                            <option value="fo">Faroe Islands</option>
+                            <option value="fj">Fiji</option>
+                            <option value="fi">Finland</option>
+                            <option value="fr">France</option>
+                            <option value="gf">French Guiana</option>
+                            <option value="pf">French Polynesia</option>
+                            <option value="tf">French Southern Territories</option>
+                            <option value="ga">Gabon</option>
+                            <option value="gm">Gambia</option>
+                            <option value="ge">Georgia</option>
+                            <option value="de">Germany</option>
+                            <option value="gh">Ghana</option>
+                            <option value="gi">Gibraltar</option>
+                            <option value="gr">Greece</option>
+                            <option value="gl">Greenland</option>
+                            <option value="gd">Grenada</option>
+                            <option value="gp">Guadeloupe</option>
+                            <option value="gu">Guam</option>
+                            <option value="gt">Guatemala</option>
+                            <option value="gg">Guernsey</option>
+                            <option value="gn">Guinea</option>
+                            <option value="gw">Guinea-Bissau</option>
+                            <option value="gy">Guyana</option>
+                            <option value="ht">Haiti</option>
+                            <option value="hm">Heard Island and McDonald Islands</option>
+                            <option value="hn">Honduras</option>
+                            <option value="hk">Hong Kong</option>
+                            <option value="hu">Hungary</option>
+                            <option value="is">Iceland</option>
+                            <option value="in">India</option>
+                            <option value="id">Indonesia</option>
+                            <option value="ir">Iran</option>
+                            <option value="iq">Iraq</option>
+                            <option value="ie">Ireland</option>
+                            <option value="im">Isle of Man</option>
+                            <option value="il">Israel</option>
+                            <option value="it">Italy</option>
+                            <option value="ci">Ivory Coast</option>
+                            <option value="jm">Jamaica</option>
+                            <option value="jp">Japan</option>
+                            <option value="je">Jersey</option>
+                            <option value="jo">Jordan</option>
+                            <option value="kz">Kazakhstan</option>
+                            <option value="ke">Kenya</option>
+                            <option value="ki">Kiribati</option>
+                            <option value="xk">Kosovo</option>
+                            <option value="kw">Kuwait</option>
+                            <option value="kg">Kyrgyzstan</option>
+                            <option value="la">Laos</option>
+                            <option value="lv">Latvia</option>
+                            <option value="lb">Lebanon</option>
+                            <option value="ls">Lesotho</option>
+                            <option value="lr">Liberia</option>
+                            <option value="ly">Libya</option>
+                            <option value="li">Liechtenstein</option>
+                            <option value="lt">Lithuania</option>
+                            <option value="lu">Luxembourg</option>
+                            <option value="mo">Macao</option>
+                            <option value="mk">Macedonia</option>
+                            <option value="mg">Madagascar</option>
+                            <option value="mw">Malawi</option>
+                            <option value="my">Malaysia</option>
+                            <option value="mv">Maldives</option>
+                            <option value="ml">Mali</option>
+                            <option value="mt">Malta</option>
+                            <option value="mh">Marshall Islands</option>
+                            <option value="mq">Martinique</option>
+                            <option value="mr">Mauritania</option>
+                            <option value="mu">Mauritius</option>
+                            <option value="yt">Mayotte</option>
+                            <option value="mx">Mexico</option>
+                            <option value="fm">Micronesia</option>
+                            <option value="md">Moldova</option>
+                            <option value="mc">Monaco</option>
+                            <option value="mn">Mongolia</option>
+                            <option value="me">Montenegro</option>
+                            <option value="ms">Montserrat</option>
+                            <option value="ma">Morocco</option>
+                            <option value="mz">Mozambique</option>
+                            <option value="mm">Myanmar</option>
+                            <option value="na">Namibia</option>
+                            <option value="nr">Nauru</option>
+                            <option value="np">Nepal</option>
+                            <option value="nl">Netherlands</option>
+                            <option value="an">Netherlands Antilles</option>
+                            <option value="nc">New Caledonia</option>
+                            <option value="nz">New Zealand</option>
+                            <option value="ni">Nicaragua</option>
+                            <option value="ne">Niger</option>
+                            <option value="ng">Nigeria</option>
+                            <option value="nu">Niue</option>
+                            <option value="nf">Norfolk Island</option>
+                            <option value="mp">Northern Mariana Islands</option>
+                            <option value="kp">North Korea</option>
+                            <option value="no">Norway</option>
+                            <option value="om">Oman</option>
+                            <option value="pk">Pakistan</option>
+                            <option value="pw">Palau</option>
+                            <option value="ps">Palestinian Territory</option>
+                            <option value="pa">Panama</option>
+                            <option value="pg">Papua New Guinea</option>
+                            <option value="py">Paraguay</option>
+                            <option value="pe">Peru</option>
+                            <option value="ph">Philippines</option>
+                            <option value="pn">Pitcairn</option>
+                            <option value="pl">Poland</option>
+                            <option value="pt">Portugal</option>
+                            <option value="pr">Puerto Rico</option>
+                            <option value="qa">Qatar</option>
+                            <option value="cg">Republic of the Congo</option>
+                            <option value="re">Reunion</option>
+                            <option value="ro">Romania</option>
+                            <option value="ru">Russia</option>
+                            <option value="rw">Rwanda</option>
+                            <option value="bl">Saint Barthelemy</option>
+                            <option value="sh">Saint Helena</option>
+                            <option value="kn">Saint Kitts and Nevis</option>
+                            <option value="lc">Saint Lucia</option>
+                            <option value="mf">Saint Martin</option>
+                            <option value="pm">Saint Pierre and Miquelon</option>
+                            <option value="vc">Saint Vincent and the Grenadines</option>
+                            <option value="ws">Samoa</option>
+                            <option value="sm">San Marino</option>
+                            <option value="st">Sao Tome and Principe</option>
+                            <option value="sa">Saudi Arabia</option>
+                            <option value="sn">Senegal</option>
+                            <option value="rs">Serbia</option>
+                            <option value="cs">Serbia and Montenegro</option>
+                            <option value="sc">Seychelles</option>
+                            <option value="sl">Sierra Leone</option>
+                            <option value="sg">Singapore</option>
+                            <option value="sx">Sint Maarten</option>
+                            <option value="sk">Slovakia</option>
+                            <option value="si">Slovenia</option>
+                            <option value="sb">Solomon Islands</option>
+                            <option value="so">Somalia</option>
+                            <option value="za">South Africa</option>
+                            <option value="gs">South Georgia and the South Sandwich Islands</option>
+                            <option value="kr">South Korea</option>
+                            <option value="es">Spain</option>
+                            <option value="lk">Sri Lanka</option>
+                            <option value="sd">Sudan</option>
+                            <option value="sr">Suriname</option>
+                            <option value="sj">Svalbard and Jan Mayen</option>
+                            <option value="sz">Swaziland</option>
+                            <option value="se">Sweden</option>
+                            <option value="ch">Switzerland</option>
+                            <option value="sy">Syria</option>
+                            <option value="tw">Taiwan</option>
+                            <option value="tj">Tajikistan</option>
+                            <option value="tz">Tanzania</option>
+                            <option value="th">Thailand</option>
+                            <option value="tg">Togo</option>
+                            <option value="tk">Tokelau</option>
+                            <option value="to">Tonga</option>
+                            <option value="tt">Trinidad and Tobago</option>
+                            <option value="tn">Tunisia</option>
+                            <option value="tr">Turkey</option>
+                            <option value="tm">Turkmenistan</option>
+                            <option value="tc">Turks and Caicos Islands</option>
+                            <option value="tv">Tuvalu</option>
+                            <option value="ug">Uganda</option>
+                            <option value="ua">Ukraine</option>
+                            <option value="ae">United Arab Emirates</option>
+                            <option value="gb">United Kingdom</option>
+                            <option value="us">United States</option>
+                            <option value="um">United States Minor Outlying Islands</option>
+                            <option value="uy">Uruguay</option>
+                            <option value="vi">U.S. Virgin Islands</option>
+                            <option value="uz">Uzbekistan</option>
+                            <option value="vu">Vanuatu</option>
+                            <option value="va">Vatican</option>
+                            <option value="ve">Venezuela</option>
+                            <option value="vn">Vietnam</option>
+                            <option value="wf">Wallis and Futuna</option>
+                            <option value="eh">Western Sahara</option>
+                            <option value="ye">Yemen</option>
+                            <option value="zm">Zambia</option>
+                            <option value="zw">Zimbabwe</option>
+                        </select>
+
+                        <br />
+                        <label for="investor_trc_idtype_0">Tax residency 1 (Other than India) - Tax ID Type</label>
+                        <input id="investor_trc_idtype_0" type="text" name="trc_idtype[0]" />
+
+                        <br />
+                        <label for="investor_trc_idnumber_0">Tax residency 1 (Other than India) - Tax ID Number</label>
+                        <input id="investor_trc_idnumber_0" type="text" name="trc_idnumber[0]" />
+
+                        <!-- Tax Residency 2 -->
+                        <br />
+                        <label for="investor_trc_country_1">Tax residency 2 (Other than India) - Country</label>
+                        <select id="investor_trc_country_1" type="select" name="trc_country[1]">
+                            <option value="af">Afghanistan</option>
+                            <option value="ax">Aland Islands</option>
+                            <option value="al">Albania</option>
+                            <option value="dz">Algeria</option>
+                            <option value="as">American Samoa</option>
+                            <option value="ad">Andorra</option>
+                            <option value="ao">Angola</option>
+                            <option value="ai">Anguilla</option>
+                            <option value="aq">Antarctica</option>
+                            <option value="ag">Antigua and Barbuda</option>
+                            <option value="ar">Argentina</option>
+                            <option value="am">Armenia</option>
+                            <option value="aw">Aruba</option>
+                            <option value="au">Australia</option>
+                            <option value="at">Austria</option>
+                            <option value="az">Azerbaijan</option>
+                            <option value="bs">Bahamas</option>
+                            <option value="bh">Bahrain</option>
+                            <option value="bd">Bangladesh</option>
+                            <option value="bb">Barbados</option>
+                            <option value="by">Belarus</option>
+                            <option value="be">Belgium</option>
+                            <option value="bz">Belize</option>
+                            <option value="bj">Benin</option>
+                            <option value="bm">Bermuda</option>
+                            <option value="bt">Bhutan</option>
+                            <option value="bo">Bolivia</option>
+                            <option value="bq">Bonaire</option>
+                            <option value="ba">Bosnia and Herzegovina</option>
+                            <option value="bw">Botswana</option>
+                            <option value="bv">Bouvet Island</option>
+                            <option value="br">Brazil</option>
+                            <option value="io">British Indian Ocean Territory</option>
+                            <option value="vg">British Virgin Islands</option>
+                            <option value="bn">Brunei</option>
+                            <option value="bg">Bulgaria</option>
+                            <option value="bf">Burkina Faso</option>
+                            <option value="bi">Burundi</option>
+                            <option value="kh">Cambodia</option>
+                            <option value="cm">Cameroon</option>
+                            <option value="ca">Canada</option>
+                            <option value="cv">Cape Verde</option>
+                            <option value="ky">Cayman Islands</option>
+                            <option value="cf">Central African Republic</option>
+                            <option value="td">Chad</option>
+                            <option value="cl">Chile</option>
+                            <option value="cn">China</option>
+                            <option value="cx">Christmas Island</option>
+                            <option value="cc">Cocos Islands</option>
+                            <option value="co">Colombia</option>
+                            <option value="km">Comoros</option>
+                            <option value="ck">Cook Islands</option>
+                            <option value="cr">Costa Rica</option>
+                            <option value="hr">Croatia</option>
+                            <option value="cu">Cuba</option>
+                            <option value="cw">Curacao</option>
+                            <option value="cy">Cyprus</option>
+                            <option value="cz">Czech Republic</option>
+                            <option value="cd">Democratic Republic of the Congo</option>
+                            <option value="dk">Denmark</option>
+                            <option value="dj">Djibouti</option>
+                            <option value="dm">Dominica</option>
+                            <option value="do">Dominican Republic</option>
+                            <option value="tl">East Timor</option>
+                            <option value="ec">Ecuador</option>
+                            <option value="eg">Egypt</option>
+                            <option value="sv">El Salvador</option>
+                            <option value="gq">Equatorial Guinea</option>
+                            <option value="er">Eritrea</option>
+                            <option value="ee">Estonia</option>
+                            <option value="et">Ethiopia</option>
+                            <option value="fk">Falkland Islands</option>
+                            <option value="fo">Faroe Islands</option>
+                            <option value="fj">Fiji</option>
+                            <option value="fi">Finland</option>
+                            <option value="fr">France</option>
+                            <option value="gf">French Guiana</option>
+                            <option value="pf">French Polynesia</option>
+                            <option value="tf">French Southern Territories</option>
+                            <option value="ga">Gabon</option>
+                            <option value="gm">Gambia</option>
+                            <option value="ge">Georgia</option>
+                            <option value="de">Germany</option>
+                            <option value="gh">Ghana</option>
+                            <option value="gi">Gibraltar</option>
+                            <option value="gr">Greece</option>
+                            <option value="gl">Greenland</option>
+                            <option value="gd">Grenada</option>
+                            <option value="gp">Guadeloupe</option>
+                            <option value="gu">Guam</option>
+                            <option value="gt">Guatemala</option>
+                            <option value="gg">Guernsey</option>
+                            <option value="gn">Guinea</option>
+                            <option value="gw">Guinea-Bissau</option>
+                            <option value="gy">Guyana</option>
+                            <option value="ht">Haiti</option>
+                            <option value="hm">Heard Island and McDonald Islands</option>
+                            <option value="hn">Honduras</option>
+                            <option value="hk">Hong Kong</option>
+                            <option value="hu">Hungary</option>
+                            <option value="is">Iceland</option>
+                            <option value="in">India</option>
+                            <option value="id">Indonesia</option>
+                            <option value="ir">Iran</option>
+                            <option value="iq">Iraq</option>
+                            <option value="ie">Ireland</option>
+                            <option value="im">Isle of Man</option>
+                            <option value="il">Israel</option>
+                            <option value="it">Italy</option>
+                            <option value="ci">Ivory Coast</option>
+                            <option value="jm">Jamaica</option>
+                            <option value="jp">Japan</option>
+                            <option value="je">Jersey</option>
+                            <option value="jo">Jordan</option>
+                            <option value="kz">Kazakhstan</option>
+                            <option value="ke">Kenya</option>
+                            <option value="ki">Kiribati</option>
+                            <option value="xk">Kosovo</option>
+                            <option value="kw">Kuwait</option>
+                            <option value="kg">Kyrgyzstan</option>
+                            <option value="la">Laos</option>
+                            <option value="lv">Latvia</option>
+                            <option value="lb">Lebanon</option>
+                            <option value="ls">Lesotho</option>
+                            <option value="lr">Liberia</option>
+                            <option value="ly">Libya</option>
+                            <option value="li">Liechtenstein</option>
+                            <option value="lt">Lithuania</option>
+                            <option value="lu">Luxembourg</option>
+                            <option value="mo">Macao</option>
+                            <option value="mk">Macedonia</option>
+                            <option value="mg">Madagascar</option>
+                            <option value="mw">Malawi</option>
+                            <option value="my">Malaysia</option>
+                            <option value="mv">Maldives</option>
+                            <option value="ml">Mali</option>
+                            <option value="mt">Malta</option>
+                            <option value="mh">Marshall Islands</option>
+                            <option value="mq">Martinique</option>
+                            <option value="mr">Mauritania</option>
+                            <option value="mu">Mauritius</option>
+                            <option value="yt">Mayotte</option>
+                            <option value="mx">Mexico</option>
+                            <option value="fm">Micronesia</option>
+                            <option value="md">Moldova</option>
+                            <option value="mc">Monaco</option>
+                            <option value="mn">Mongolia</option>
+                            <option value="me">Montenegro</option>
+                            <option value="ms">Montserrat</option>
+                            <option value="ma">Morocco</option>
+                            <option value="mz">Mozambique</option>
+                            <option value="mm">Myanmar</option>
+                            <option value="na">Namibia</option>
+                            <option value="nr">Nauru</option>
+                            <option value="np">Nepal</option>
+                            <option value="nl">Netherlands</option>
+                            <option value="an">Netherlands Antilles</option>
+                            <option value="nc">New Caledonia</option>
+                            <option value="nz">New Zealand</option>
+                            <option value="ni">Nicaragua</option>
+                            <option value="ne">Niger</option>
+                            <option value="ng">Nigeria</option>
+                            <option value="nu">Niue</option>
+                            <option value="nf">Norfolk Island</option>
+                            <option value="mp">Northern Mariana Islands</option>
+                            <option value="kp">North Korea</option>
+                            <option value="no">Norway</option>
+                            <option value="om">Oman</option>
+                            <option value="pk">Pakistan</option>
+                            <option value="pw">Palau</option>
+                            <option value="ps">Palestinian Territory</option>
+                            <option value="pa">Panama</option>
+                            <option value="pg">Papua New Guinea</option>
+                            <option value="py">Paraguay</option>
+                            <option value="pe">Peru</option>
+                            <option value="ph">Philippines</option>
+                            <option value="pn">Pitcairn</option>
+                            <option value="pl">Poland</option>
+                            <option value="pt">Portugal</option>
+                            <option value="pr">Puerto Rico</option>
+                            <option value="qa">Qatar</option>
+                            <option value="cg">Republic of the Congo</option>
+                            <option value="re">Reunion</option>
+                            <option value="ro">Romania</option>
+                            <option value="ru">Russia</option>
+                            <option value="rw">Rwanda</option>
+                            <option value="bl">Saint Barthelemy</option>
+                            <option value="sh">Saint Helena</option>
+                            <option value="kn">Saint Kitts and Nevis</option>
+                            <option value="lc">Saint Lucia</option>
+                            <option value="mf">Saint Martin</option>
+                            <option value="pm">Saint Pierre and Miquelon</option>
+                            <option value="vc">Saint Vincent and the Grenadines</option>
+                            <option value="ws">Samoa</option>
+                            <option value="sm">San Marino</option>
+                            <option value="st">Sao Tome and Principe</option>
+                            <option value="sa">Saudi Arabia</option>
+                            <option value="sn">Senegal</option>
+                            <option value="rs">Serbia</option>
+                            <option value="cs">Serbia and Montenegro</option>
+                            <option value="sc">Seychelles</option>
+                            <option value="sl">Sierra Leone</option>
+                            <option value="sg">Singapore</option>
+                            <option value="sx">Sint Maarten</option>
+                            <option value="sk">Slovakia</option>
+                            <option value="si">Slovenia</option>
+                            <option value="sb">Solomon Islands</option>
+                            <option value="so">Somalia</option>
+                            <option value="za">South Africa</option>
+                            <option value="gs">South Georgia and the South Sandwich Islands</option>
+                            <option value="kr">South Korea</option>
+                            <option value="es">Spain</option>
+                            <option value="lk">Sri Lanka</option>
+                            <option value="sd">Sudan</option>
+                            <option value="sr">Suriname</option>
+                            <option value="sj">Svalbard and Jan Mayen</option>
+                            <option value="sz">Swaziland</option>
+                            <option value="se">Sweden</option>
+                            <option value="ch">Switzerland</option>
+                            <option value="sy">Syria</option>
+                            <option value="tw">Taiwan</option>
+                            <option value="tj">Tajikistan</option>
+                            <option value="tz">Tanzania</option>
+                            <option value="th">Thailand</option>
+                            <option value="tg">Togo</option>
+                            <option value="tk">Tokelau</option>
+                            <option value="to">Tonga</option>
+                            <option value="tt">Trinidad and Tobago</option>
+                            <option value="tn">Tunisia</option>
+                            <option value="tr">Turkey</option>
+                            <option value="tm">Turkmenistan</option>
+                            <option value="tc">Turks and Caicos Islands</option>
+                            <option value="tv">Tuvalu</option>
+                            <option value="ug">Uganda</option>
+                            <option value="ua">Ukraine</option>
+                            <option value="ae">United Arab Emirates</option>
+                            <option value="gb">United Kingdom</option>
+                            <option value="us">United States</option>
+                            <option value="um">United States Minor Outlying Islands</option>
+                            <option value="uy">Uruguay</option>
+                            <option value="vi">U.S. Virgin Islands</option>
+                            <option value="uz">Uzbekistan</option>
+                            <option value="vu">Vanuatu</option>
+                            <option value="va">Vatican</option>
+                            <option value="ve">Venezuela</option>
+                            <option value="vn">Vietnam</option>
+                            <option value="wf">Wallis and Futuna</option>
+                            <option value="eh">Western Sahara</option>
+                            <option value="ye">Yemen</option>
+                            <option value="zm">Zambia</option>
+                            <option value="zw">Zimbabwe</option>
+                        </select>
+
+                        <br />
+                        <label for="investor_trc_idtype_1">Tax residency 2 (Other than India) - Tax ID Type</label>
+                        <input id="investor_trc_idtype_1" type="text" name="trc_idtype[1]" />
+
+                        <br />
+                        <label for="investor_trc_idnumber_1">Tax residency 2 (Other than India) - Tax ID Number</label>
+                        <input id="investor_trc_idnumber_1" type="text" name="trc_idnumber[1]" />
+
+                        <!-- Tax Residency 3 -->
+                        <br />
+                        <label for="investor_trc_country_2">Tax residency 3 (Other than India) - Country</label>
+                        <select id="investor_trc_country_2" type="select" name="trc_country[2]">
+                            <option value="af">Afghanistan</option>
+                            <option value="ax">Aland Islands</option>
+                            <option value="al">Albania</option>
+                            <option value="dz">Algeria</option>
+                            <option value="as">American Samoa</option>
+                            <option value="ad">Andorra</option>
+                            <option value="ao">Angola</option>
+                            <option value="ai">Anguilla</option>
+                            <option value="aq">Antarctica</option>
+                            <option value="ag">Antigua and Barbuda</option>
+                            <option value="ar">Argentina</option>
+                            <option value="am">Armenia</option>
+                            <option value="aw">Aruba</option>
+                            <option value="au">Australia</option>
+                            <option value="at">Austria</option>
+                            <option value="az">Azerbaijan</option>
+                            <option value="bs">Bahamas</option>
+                            <option value="bh">Bahrain</option>
+                            <option value="bd">Bangladesh</option>
+                            <option value="bb">Barbados</option>
+                            <option value="by">Belarus</option>
+                            <option value="be">Belgium</option>
+                            <option value="bz">Belize</option>
+                            <option value="bj">Benin</option>
+                            <option value="bm">Bermuda</option>
+                            <option value="bt">Bhutan</option>
+                            <option value="bo">Bolivia</option>
+                            <option value="bq">Bonaire</option>
+                            <option value="ba">Bosnia and Herzegovina</option>
+                            <option value="bw">Botswana</option>
+                            <option value="bv">Bouvet Island</option>
+                            <option value="br">Brazil</option>
+                            <option value="io">British Indian Ocean Territory</option>
+                            <option value="vg">British Virgin Islands</option>
+                            <option value="bn">Brunei</option>
+                            <option value="bg">Bulgaria</option>
+                            <option value="bf">Burkina Faso</option>
+                            <option value="bi">Burundi</option>
+                            <option value="kh">Cambodia</option>
+                            <option value="cm">Cameroon</option>
+                            <option value="ca">Canada</option>
+                            <option value="cv">Cape Verde</option>
+                            <option value="ky">Cayman Islands</option>
+                            <option value="cf">Central African Republic</option>
+                            <option value="td">Chad</option>
+                            <option value="cl">Chile</option>
+                            <option value="cn">China</option>
+                            <option value="cx">Christmas Island</option>
+                            <option value="cc">Cocos Islands</option>
+                            <option value="co">Colombia</option>
+                            <option value="km">Comoros</option>
+                            <option value="ck">Cook Islands</option>
+                            <option value="cr">Costa Rica</option>
+                            <option value="hr">Croatia</option>
+                            <option value="cu">Cuba</option>
+                            <option value="cw">Curacao</option>
+                            <option value="cy">Cyprus</option>
+                            <option value="cz">Czech Republic</option>
+                            <option value="cd">Democratic Republic of the Congo</option>
+                            <option value="dk">Denmark</option>
+                            <option value="dj">Djibouti</option>
+                            <option value="dm">Dominica</option>
+                            <option value="do">Dominican Republic</option>
+                            <option value="tl">East Timor</option>
+                            <option value="ec">Ecuador</option>
+                            <option value="eg">Egypt</option>
+                            <option value="sv">El Salvador</option>
+                            <option value="gq">Equatorial Guinea</option>
+                            <option value="er">Eritrea</option>
+                            <option value="ee">Estonia</option>
+                            <option value="et">Ethiopia</option>
+                            <option value="fk">Falkland Islands</option>
+                            <option value="fo">Faroe Islands</option>
+                            <option value="fj">Fiji</option>
+                            <option value="fi">Finland</option>
+                            <option value="fr">France</option>
+                            <option value="gf">French Guiana</option>
+                            <option value="pf">French Polynesia</option>
+                            <option value="tf">French Southern Territories</option>
+                            <option value="ga">Gabon</option>
+                            <option value="gm">Gambia</option>
+                            <option value="ge">Georgia</option>
+                            <option value="de">Germany</option>
+                            <option value="gh">Ghana</option>
+                            <option value="gi">Gibraltar</option>
+                            <option value="gr">Greece</option>
+                            <option value="gl">Greenland</option>
+                            <option value="gd">Grenada</option>
+                            <option value="gp">Guadeloupe</option>
+                            <option value="gu">Guam</option>
+                            <option value="gt">Guatemala</option>
+                            <option value="gg">Guernsey</option>
+                            <option value="gn">Guinea</option>
+                            <option value="gw">Guinea-Bissau</option>
+                            <option value="gy">Guyana</option>
+                            <option value="ht">Haiti</option>
+                            <option value="hm">Heard Island and McDonald Islands</option>
+                            <option value="hn">Honduras</option>
+                            <option value="hk">Hong Kong</option>
+                            <option value="hu">Hungary</option>
+                            <option value="is">Iceland</option>
+                            <option value="in">India</option>
+                            <option value="id">Indonesia</option>
+                            <option value="ir">Iran</option>
+                            <option value="iq">Iraq</option>
+                            <option value="ie">Ireland</option>
+                            <option value="im">Isle of Man</option>
+                            <option value="il">Israel</option>
+                            <option value="it">Italy</option>
+                            <option value="ci">Ivory Coast</option>
+                            <option value="jm">Jamaica</option>
+                            <option value="jp">Japan</option>
+                            <option value="je">Jersey</option>
+                            <option value="jo">Jordan</option>
+                            <option value="kz">Kazakhstan</option>
+                            <option value="ke">Kenya</option>
+                            <option value="ki">Kiribati</option>
+                            <option value="xk">Kosovo</option>
+                            <option value="kw">Kuwait</option>
+                            <option value="kg">Kyrgyzstan</option>
+                            <option value="la">Laos</option>
+                            <option value="lv">Latvia</option>
+                            <option value="lb">Lebanon</option>
+                            <option value="ls">Lesotho</option>
+                            <option value="lr">Liberia</option>
+                            <option value="ly">Libya</option>
+                            <option value="li">Liechtenstein</option>
+                            <option value="lt">Lithuania</option>
+                            <option value="lu">Luxembourg</option>
+                            <option value="mo">Macao</option>
+                            <option value="mk">Macedonia</option>
+                            <option value="mg">Madagascar</option>
+                            <option value="mw">Malawi</option>
+                            <option value="my">Malaysia</option>
+                            <option value="mv">Maldives</option>
+                            <option value="ml">Mali</option>
+                            <option value="mt">Malta</option>
+                            <option value="mh">Marshall Islands</option>
+                            <option value="mq">Martinique</option>
+                            <option value="mr">Mauritania</option>
+                            <option value="mu">Mauritius</option>
+                            <option value="yt">Mayotte</option>
+                            <option value="mx">Mexico</option>
+                            <option value="fm">Micronesia</option>
+                            <option value="md">Moldova</option>
+                            <option value="mc">Monaco</option>
+                            <option value="mn">Mongolia</option>
+                            <option value="me">Montenegro</option>
+                            <option value="ms">Montserrat</option>
+                            <option value="ma">Morocco</option>
+                            <option value="mz">Mozambique</option>
+                            <option value="mm">Myanmar</option>
+                            <option value="na">Namibia</option>
+                            <option value="nr">Nauru</option>
+                            <option value="np">Nepal</option>
+                            <option value="nl">Netherlands</option>
+                            <option value="an">Netherlands Antilles</option>
+                            <option value="nc">New Caledonia</option>
+                            <option value="nz">New Zealand</option>
+                            <option value="ni">Nicaragua</option>
+                            <option value="ne">Niger</option>
+                            <option value="ng">Nigeria</option>
+                            <option value="nu">Niue</option>
+                            <option value="nf">Norfolk Island</option>
+                            <option value="mp">Northern Mariana Islands</option>
+                            <option value="kp">North Korea</option>
+                            <option value="no">Norway</option>
+                            <option value="om">Oman</option>
+                            <option value="pk">Pakistan</option>
+                            <option value="pw">Palau</option>
+                            <option value="ps">Palestinian Territory</option>
+                            <option value="pa">Panama</option>
+                            <option value="pg">Papua New Guinea</option>
+                            <option value="py">Paraguay</option>
+                            <option value="pe">Peru</option>
+                            <option value="ph">Philippines</option>
+                            <option value="pn">Pitcairn</option>
+                            <option value="pl">Poland</option>
+                            <option value="pt">Portugal</option>
+                            <option value="pr">Puerto Rico</option>
+                            <option value="qa">Qatar</option>
+                            <option value="cg">Republic of the Congo</option>
+                            <option value="re">Reunion</option>
+                            <option value="ro">Romania</option>
+                            <option value="ru">Russia</option>
+                            <option value="rw">Rwanda</option>
+                            <option value="bl">Saint Barthelemy</option>
+                            <option value="sh">Saint Helena</option>
+                            <option value="kn">Saint Kitts and Nevis</option>
+                            <option value="lc">Saint Lucia</option>
+                            <option value="mf">Saint Martin</option>
+                            <option value="pm">Saint Pierre and Miquelon</option>
+                            <option value="vc">Saint Vincent and the Grenadines</option>
+                            <option value="ws">Samoa</option>
+                            <option value="sm">San Marino</option>
+                            <option value="st">Sao Tome and Principe</option>
+                            <option value="sa">Saudi Arabia</option>
+                            <option value="sn">Senegal</option>
+                            <option value="rs">Serbia</option>
+                            <option value="cs">Serbia and Montenegro</option>
+                            <option value="sc">Seychelles</option>
+                            <option value="sl">Sierra Leone</option>
+                            <option value="sg">Singapore</option>
+                            <option value="sx">Sint Maarten</option>
+                            <option value="sk">Slovakia</option>
+                            <option value="si">Slovenia</option>
+                            <option value="sb">Solomon Islands</option>
+                            <option value="so">Somalia</option>
+                            <option value="za">South Africa</option>
+                            <option value="gs">South Georgia and the South Sandwich Islands</option>
+                            <option value="kr">South Korea</option>
+                            <option value="es">Spain</option>
+                            <option value="lk">Sri Lanka</option>
+                            <option value="sd">Sudan</option>
+                            <option value="sr">Suriname</option>
+                            <option value="sj">Svalbard and Jan Mayen</option>
+                            <option value="sz">Swaziland</option>
+                            <option value="se">Sweden</option>
+                            <option value="ch">Switzerland</option>
+                            <option value="sy">Syria</option>
+                            <option value="tw">Taiwan</option>
+                            <option value="tj">Tajikistan</option>
+                            <option value="tz">Tanzania</option>
+                            <option value="th">Thailand</option>
+                            <option value="tg">Togo</option>
+                            <option value="tk">Tokelau</option>
+                            <option value="to">Tonga</option>
+                            <option value="tt">Trinidad and Tobago</option>
+                            <option value="tn">Tunisia</option>
+                            <option value="tr">Turkey</option>
+                            <option value="tm">Turkmenistan</option>
+                            <option value="tc">Turks and Caicos Islands</option>
+                            <option value="tv">Tuvalu</option>
+                            <option value="ug">Uganda</option>
+                            <option value="ua">Ukraine</option>
+                            <option value="ae">United Arab Emirates</option>
+                            <option value="gb">United Kingdom</option>
+                            <option value="us">United States</option>
+                            <option value="um">United States Minor Outlying Islands</option>
+                            <option value="uy">Uruguay</option>
+                            <option value="vi">U.S. Virgin Islands</option>
+                            <option value="uz">Uzbekistan</option>
+                            <option value="vu">Vanuatu</option>
+                            <option value="va">Vatican</option>
+                            <option value="ve">Venezuela</option>
+                            <option value="vn">Vietnam</option>
+                            <option value="wf">Wallis and Futuna</option>
+                            <option value="eh">Western Sahara</option>
+                            <option value="ye">Yemen</option>
+                            <option value="zm">Zambia</option>
+                            <option value="zw">Zimbabwe</option>
+                        </select>
+
+                        <br />
+                        <label for="investor_trc_idtype_2">Tax residency 3 (Other than India) - Tax ID Type</label>
+                        <input id="investor_trc_idtype_2" type="text" name="trc_idtype[2]" />
+
+                        <br />
+                        <label for="investor_trc_idnumber_2">Tax residency 3 (Other than India) - Tax ID Number</label>
+                        <input id="investor_trc_idnumber_2" type="text" name="trc_idnumber[2]" />
+                        
+                        <br />
+                        <label for="folio_mode_of_holding">Folio Mode of Holding</label>
+                        <select id="folio_mode_of_holding" type="select" name="mode_of_holding">
+                            <option value="single">Single</option>
+                        </select>
+
+                        <!-- Communication Address -->
+                        <br />
+                        <label for="folio_ca_line">Communication Address - Line</label>
+                        <input id="folio_ca_line" type="text" name="ca_line" />
+
+                        <br />
+                        <label for="folio_ca_postalcode">Communication Address - Pincode</label>
+                        <input id="folio_ca_postalcode" type="text" name="ca_pincode" />
+
+                        <br />
+                        <label for="folio_ca_country">Communication Address - Country</label>
+                        <select id="folio_ca_country" type="select" name="ca_country">
+                            <option value="af">Afghanistan</option>
+                            <option value="ax">Aland Islands</option>
+                            <option value="al">Albania</option>
+                            <option value="dz">Algeria</option>
+                            <option value="as">American Samoa</option>
+                            <option value="ad">Andorra</option>
+                            <option value="ao">Angola</option>
+                            <option value="ai">Anguilla</option>
+                            <option value="aq">Antarctica</option>
+                            <option value="ag">Antigua and Barbuda</option>
+                            <option value="ar">Argentina</option>
+                            <option value="am">Armenia</option>
+                            <option value="aw">Aruba</option>
+                            <option value="au">Australia</option>
+                            <option value="at">Austria</option>
+                            <option value="az">Azerbaijan</option>
+                            <option value="bs">Bahamas</option>
+                            <option value="bh">Bahrain</option>
+                            <option value="bd">Bangladesh</option>
+                            <option value="bb">Barbados</option>
+                            <option value="by">Belarus</option>
+                            <option value="be">Belgium</option>
+                            <option value="bz">Belize</option>
+                            <option value="bj">Benin</option>
+                            <option value="bm">Bermuda</option>
+                            <option value="bt">Bhutan</option>
+                            <option value="bo">Bolivia</option>
+                            <option value="bq">Bonaire</option>
+                            <option value="ba">Bosnia and Herzegovina</option>
+                            <option value="bw">Botswana</option>
+                            <option value="bv">Bouvet Island</option>
+                            <option value="br">Brazil</option>
+                            <option value="io">British Indian Ocean Territory</option>
+                            <option value="vg">British Virgin Islands</option>
+                            <option value="bn">Brunei</option>
+                            <option value="bg">Bulgaria</option>
+                            <option value="bf">Burkina Faso</option>
+                            <option value="bi">Burundi</option>
+                            <option value="kh">Cambodia</option>
+                            <option value="cm">Cameroon</option>
+                            <option value="ca">Canada</option>
+                            <option value="cv">Cape Verde</option>
+                            <option value="ky">Cayman Islands</option>
+                            <option value="cf">Central African Republic</option>
+                            <option value="td">Chad</option>
+                            <option value="cl">Chile</option>
+                            <option value="cn">China</option>
+                            <option value="cx">Christmas Island</option>
+                            <option value="cc">Cocos Islands</option>
+                            <option value="co">Colombia</option>
+                            <option value="km">Comoros</option>
+                            <option value="ck">Cook Islands</option>
+                            <option value="cr">Costa Rica</option>
+                            <option value="hr">Croatia</option>
+                            <option value="cu">Cuba</option>
+                            <option value="cw">Curacao</option>
+                            <option value="cy">Cyprus</option>
+                            <option value="cz">Czech Republic</option>
+                            <option value="cd">Democratic Republic of the Congo</option>
+                            <option value="dk">Denmark</option>
+                            <option value="dj">Djibouti</option>
+                            <option value="dm">Dominica</option>
+                            <option value="do">Dominican Republic</option>
+                            <option value="tl">East Timor</option>
+                            <option value="ec">Ecuador</option>
+                            <option value="eg">Egypt</option>
+                            <option value="sv">El Salvador</option>
+                            <option value="gq">Equatorial Guinea</option>
+                            <option value="er">Eritrea</option>
+                            <option value="ee">Estonia</option>
+                            <option value="et">Ethiopia</option>
+                            <option value="fk">Falkland Islands</option>
+                            <option value="fo">Faroe Islands</option>
+                            <option value="fj">Fiji</option>
+                            <option value="fi">Finland</option>
+                            <option value="fr">France</option>
+                            <option value="gf">French Guiana</option>
+                            <option value="pf">French Polynesia</option>
+                            <option value="tf">French Southern Territories</option>
+                            <option value="ga">Gabon</option>
+                            <option value="gm">Gambia</option>
+                            <option value="ge">Georgia</option>
+                            <option value="de">Germany</option>
+                            <option value="gh">Ghana</option>
+                            <option value="gi">Gibraltar</option>
+                            <option value="gr">Greece</option>
+                            <option value="gl">Greenland</option>
+                            <option value="gd">Grenada</option>
+                            <option value="gp">Guadeloupe</option>
+                            <option value="gu">Guam</option>
+                            <option value="gt">Guatemala</option>
+                            <option value="gg">Guernsey</option>
+                            <option value="gn">Guinea</option>
+                            <option value="gw">Guinea-Bissau</option>
+                            <option value="gy">Guyana</option>
+                            <option value="ht">Haiti</option>
+                            <option value="hm">Heard Island and McDonald Islands</option>
+                            <option value="hn">Honduras</option>
+                            <option value="hk">Hong Kong</option>
+                            <option value="hu">Hungary</option>
+                            <option value="is">Iceland</option>
+                            <option value="in">India</option>
+                            <option value="id">Indonesia</option>
+                            <option value="ir">Iran</option>
+                            <option value="iq">Iraq</option>
+                            <option value="ie">Ireland</option>
+                            <option value="im">Isle of Man</option>
+                            <option value="il">Israel</option>
+                            <option value="it">Italy</option>
+                            <option value="ci">Ivory Coast</option>
+                            <option value="jm">Jamaica</option>
+                            <option value="jp">Japan</option>
+                            <option value="je">Jersey</option>
+                            <option value="jo">Jordan</option>
+                            <option value="kz">Kazakhstan</option>
+                            <option value="ke">Kenya</option>
+                            <option value="ki">Kiribati</option>
+                            <option value="xk">Kosovo</option>
+                            <option value="kw">Kuwait</option>
+                            <option value="kg">Kyrgyzstan</option>
+                            <option value="la">Laos</option>
+                            <option value="lv">Latvia</option>
+                            <option value="lb">Lebanon</option>
+                            <option value="ls">Lesotho</option>
+                            <option value="lr">Liberia</option>
+                            <option value="ly">Libya</option>
+                            <option value="li">Liechtenstein</option>
+                            <option value="lt">Lithuania</option>
+                            <option value="lu">Luxembourg</option>
+                            <option value="mo">Macao</option>
+                            <option value="mk">Macedonia</option>
+                            <option value="mg">Madagascar</option>
+                            <option value="mw">Malawi</option>
+                            <option value="my">Malaysia</option>
+                            <option value="mv">Maldives</option>
+                            <option value="ml">Mali</option>
+                            <option value="mt">Malta</option>
+                            <option value="mh">Marshall Islands</option>
+                            <option value="mq">Martinique</option>
+                            <option value="mr">Mauritania</option>
+                            <option value="mu">Mauritius</option>
+                            <option value="yt">Mayotte</option>
+                            <option value="mx">Mexico</option>
+                            <option value="fm">Micronesia</option>
+                            <option value="md">Moldova</option>
+                            <option value="mc">Monaco</option>
+                            <option value="mn">Mongolia</option>
+                            <option value="me">Montenegro</option>
+                            <option value="ms">Montserrat</option>
+                            <option value="ma">Morocco</option>
+                            <option value="mz">Mozambique</option>
+                            <option value="mm">Myanmar</option>
+                            <option value="na">Namibia</option>
+                            <option value="nr">Nauru</option>
+                            <option value="np">Nepal</option>
+                            <option value="nl">Netherlands</option>
+                            <option value="an">Netherlands Antilles</option>
+                            <option value="nc">New Caledonia</option>
+                            <option value="nz">New Zealand</option>
+                            <option value="ni">Nicaragua</option>
+                            <option value="ne">Niger</option>
+                            <option value="ng">Nigeria</option>
+                            <option value="nu">Niue</option>
+                            <option value="nf">Norfolk Island</option>
+                            <option value="mp">Northern Mariana Islands</option>
+                            <option value="kp">North Korea</option>
+                            <option value="no">Norway</option>
+                            <option value="om">Oman</option>
+                            <option value="pk">Pakistan</option>
+                            <option value="pw">Palau</option>
+                            <option value="ps">Palestinian Territory</option>
+                            <option value="pa">Panama</option>
+                            <option value="pg">Papua New Guinea</option>
+                            <option value="py">Paraguay</option>
+                            <option value="pe">Peru</option>
+                            <option value="ph">Philippines</option>
+                            <option value="pn">Pitcairn</option>
+                            <option value="pl">Poland</option>
+                            <option value="pt">Portugal</option>
+                            <option value="pr">Puerto Rico</option>
+                            <option value="qa">Qatar</option>
+                            <option value="cg">Republic of the Congo</option>
+                            <option value="re">Reunion</option>
+                            <option value="ro">Romania</option>
+                            <option value="ru">Russia</option>
+                            <option value="rw">Rwanda</option>
+                            <option value="bl">Saint Barthelemy</option>
+                            <option value="sh">Saint Helena</option>
+                            <option value="kn">Saint Kitts and Nevis</option>
+                            <option value="lc">Saint Lucia</option>
+                            <option value="mf">Saint Martin</option>
+                            <option value="pm">Saint Pierre and Miquelon</option>
+                            <option value="vc">Saint Vincent and the Grenadines</option>
+                            <option value="ws">Samoa</option>
+                            <option value="sm">San Marino</option>
+                            <option value="st">Sao Tome and Principe</option>
+                            <option value="sa">Saudi Arabia</option>
+                            <option value="sn">Senegal</option>
+                            <option value="rs">Serbia</option>
+                            <option value="cs">Serbia and Montenegro</option>
+                            <option value="sc">Seychelles</option>
+                            <option value="sl">Sierra Leone</option>
+                            <option value="sg">Singapore</option>
+                            <option value="sx">Sint Maarten</option>
+                            <option value="sk">Slovakia</option>
+                            <option value="si">Slovenia</option>
+                            <option value="sb">Solomon Islands</option>
+                            <option value="so">Somalia</option>
+                            <option value="za">South Africa</option>
+                            <option value="gs">South Georgia and the South Sandwich Islands</option>
+                            <option value="kr">South Korea</option>
+                            <option value="es">Spain</option>
+                            <option value="lk">Sri Lanka</option>
+                            <option value="sd">Sudan</option>
+                            <option value="sr">Suriname</option>
+                            <option value="sj">Svalbard and Jan Mayen</option>
+                            <option value="sz">Swaziland</option>
+                            <option value="se">Sweden</option>
+                            <option value="ch">Switzerland</option>
+                            <option value="sy">Syria</option>
+                            <option value="tw">Taiwan</option>
+                            <option value="tj">Tajikistan</option>
+                            <option value="tz">Tanzania</option>
+                            <option value="th">Thailand</option>
+                            <option value="tg">Togo</option>
+                            <option value="tk">Tokelau</option>
+                            <option value="to">Tonga</option>
+                            <option value="tt">Trinidad and Tobago</option>
+                            <option value="tn">Tunisia</option>
+                            <option value="tr">Turkey</option>
+                            <option value="tm">Turkmenistan</option>
+                            <option value="tc">Turks and Caicos Islands</option>
+                            <option value="tv">Tuvalu</option>
+                            <option value="ug">Uganda</option>
+                            <option value="ua">Ukraine</option>
+                            <option value="ae">United Arab Emirates</option>
+                            <option value="gb">United Kingdom</option>
+                            <option value="us">United States</option>
+                            <option value="um">United States Minor Outlying Islands</option>
+                            <option value="uy">Uruguay</option>
+                            <option value="vi">U.S. Virgin Islands</option>
+                            <option value="uz">Uzbekistan</option>
+                            <option value="vu">Vanuatu</option>
+                            <option value="va">Vatican</option>
+                            <option value="ve">Venezuela</option>
+                            <option value="vn">Vietnam</option>
+                            <option value="wf">Wallis and Futuna</option>
+                            <option value="eh">Western Sahara</option>
+                            <option value="ye">Yemen</option>
+                            <option value="zm">Zambia</option>
+                            <option value="zw">Zimbabwe</option>
+                        </select>
+
+                        <br />
+                        <label for="folio_ca_nature">Communication Address - Nature</label>
+                        <select id="folio_ca_nature" type="select" name="ca_nature">
+                            <option value="residential">Residential</option>
+                            <option value="business_location">Business Location</option>
+                            <option value="registered_office">Registered Office</option>
+                        </select>
+
+                        <!-- Communication Phone -->
+                        <br />
+                        <label for="folio_cp_number">Communication Phone - Number</label>
+                        <input id="folio_cp_number" type="text" name="cp_number" />
+
+                        <br />
+                        <label for="folio_cp_belongsto">Communication Phone - Belongs To</label>
+                        <select id="folio_cp_belongsto" type="select" name="cp_belongsto">
+                            <option value="self">Self</option>
+                            <option value="spouse">Spouse</option>
+                            <option value="dependent_children">Dependent Children</option>
+                            <option value="dependent_siblings">Dependent Siblings</option>
+                            <option value="dependent_parents">Dependent Parents</option>
+                            <option value="guardian">Guardian</option>
+                            <option value="pms">PMS</option>
+                            <option value="custodian">Custodian</option>
+                            <option value="poa">POA</option>
+                        </select>
+
+                        <!-- Communication Email -->
+                        <br />
+                        <label for="folio_ce_address">Communication Email - Number</label>
+                        <input id="folio_ce_address" type="text" name="ce_address" />
+
+                        <br />
+                        <label for="folio_ce_belongsto">Communication Email - Belongs To</label>
+                        <select id="folio_ce_belongsto" type="select" name="ce_belongsto">
+                            <option value="self">Self</option>
+                            <option value="spouse">Spouse</option>
+                            <option value="dependent_children">Dependent Children</option>
+                            <option value="dependent_siblings">Dependent Siblings</option>
+                            <option value="dependent_parents">Dependent Parents</option>
+                            <option value="guardian">Guardian</option>
+                            <option value="pms">PMS</option>
+                            <option value="custodian">Custodian</option>
+                            <option value="poa">POA</option>
+                        </select>
+
+                        <!-- Payout Bank Account -->
+                        <br />
+                        <label for="folio_pba_number">Payout Bank Account - Number</label>
+                        <input id="folio_pba_number" type="text" name="pba_number" />
+
+                        <br />
+                        <label for="folio_pba_pname">Payout Bank Account - Primary Holder Name</label>
+                        <input id="folio_pba_pname" type="text" name="pba_pname" />
+
+                        <br />
+                        <label for="folio_pba_code">Payout Bank Account - IFSC Code</label>
+                        <input id="folio_pba_code" type="text" name="pba_code" />
+
+                        <br />
+                        <label for="folio_pba_type">Payout Bank Account - Type</label>
+                        <select id="folio_pba_type" type="select" name="pba_type">
+                            <option value="savings">Savings</option>
+                        </select>
+
+                        <!-- Nominee 1 -->
+                        <br />
+                        <label for="folio_nominee_name_0">Nominee 1 - Name</label>
+                        <input id="folio_nominee_name_0" type="text" name="nominee_name[0]" />
+
+                        <br />
+                        <label for="folio_nominee_pan_0">Nominee 1 - PAN</label>
+                        <input id="folio_nominee_pan_0" type="text" name="nominee_pan[0]" />
+
+                        <br />
+                        <label for="folio_nominee_dob_0">Nominee 1 - DOB</label>
+                        <input id="folio_nominee_dob_0" type="text" name="nominee_dob[0]" />
+
+                        <br />
+                        <label for="folio_nominee_relationship_0">Nominee 1 - Relationship</label>
+                        <select id="folio_nominee_relationship_0" type="select" name="nominee_relationship[0]">
+                            <option value="aunt">Aunt</option>
+                            <option value="brother_in_law">Brother In Law</option>
+                            <option value="brother">Brother</option>
+                            <option value="daughter">Daughter</option>
+                            <option value="daughter_in_law">Daughter In Law</option>
+                            <option value="father">Father</option>
+                            <option value="father_in_law">Father In Law</option>
+                            <option value="grand_daughter">Grand Daughter</option>
+                            <option value="grand_father">Grand Father</option>
+                            <option value="grand_mother">Grand Mother</option>
+                            <option value="grand_son">Grand Son</option>
+                            <option value="mother_in_law">Mother In Law</option>
+                            <option value="mother">Mother</option>
+                            <option value="nephew">Nephew</option>
+                            <option value="niece">Niece</option>
+                            <option value="sister">Sister</option>
+                            <option value="sister_in_law">Sister In Law</option>
+                            <option value="son">Son</option>
+                            <option value="son_in_law">Son In Law</option>
+                            <option value="spouse">Spouse</option>
+                            <option value="uncle">Uncle</option>
+                            <option value="court_appointed_legal_guardian">Court Appointed Legal Guardian</option>
+                            <option value="others">Others</option>
+                        </select>            
+
+                        <br />
+                        <label for="folio_nominee_gname_0">Nominee 1 - Guardian Name</label>
+                        <input id="folio_nominee_gname_0" type="text" name="nominee_guardian_name[0]" />
+
+                        <br />
+                        <label for="folio_nominee_gpan_0">Nominee 1 - Guardian PAN</label>
+                        <input id="folio_nominee_gpan_0" type="text" name="nominee_guardian_pan[0]" />
+
+                        <br />
+                        <label for="folio_nominee_per_0">Nominee 1 - Allocation Percentage</label>
+                        <input id="folio_nominee_per_0" type="text" name="nominee_percentage[0]" />
+
+                        <!-- Nominee 2 -->
+                        <br />
+                        <label for="folio_nominee_name_1">Nominee 2 - Name</label>
+                        <input id="folio_nominee_name_1" type="text" name="nominee_name[1]" />
+
+                        <br />
+                        <label for="folio_nominee_pan_1">Nominee 2 - PAN</label>
+                        <input id="folio_nominee_pan_1" type="text" name="nominee_pan[1]" />
+
+                        <br />
+                        <label for="folio_nominee_dob_1">Nominee 2 - DOB</label>
+                        <input id="folio_nominee_dob_1" type="text" name="nominee_dob[1]" />
+
+                        <br />
+                        <label for="folio_nominee_relationship_1">Nominee 2 - Relationship</label>
+                        <select id="folio_nominee_relationship_1" type="select" name="nominee_relationship[1]">
+                            <option value="aunt">Aunt</option>
+                            <option value="brother_in_law">Brother In Law</option>
+                            <option value="brother">Brother</option>
+                            <option value="daughter">Daughter</option>
+                            <option value="daughter_in_law">Daughter In Law</option>
+                            <option value="father">Father</option>
+                            <option value="father_in_law">Father In Law</option>
+                            <option value="grand_daughter">Grand Daughter</option>
+                            <option value="grand_father">Grand Father</option>
+                            <option value="grand_mother">Grand Mother</option>
+                            <option value="grand_son">Grand Son</option>
+                            <option value="mother_in_law">Mother In Law</option>
+                            <option value="mother">Mother</option>
+                            <option value="nephew">Nephew</option>
+                            <option value="niece">Niece</option>
+                            <option value="sister">Sister</option>
+                            <option value="sister_in_law">Sister In Law</option>
+                            <option value="son">Son</option>
+                            <option value="son_in_law">Son In Law</option>
+                            <option value="spouse">Spouse</option>
+                            <option value="uncle">Uncle</option>
+                            <option value="court_appointed_legal_guardian">Court Appointed Legal Guardian</option>
+                            <option value="others">Others</option>
+                        </select>            
+
+                        <br />
+                        <label for="folio_nominee_gname_1">Nominee 2 - Guardian Name</label>
+                        <input id="folio_nominee_gname_1" type="text" name="nominee_guardian_name[1]" />
+
+                        <br />
+                        <label for="folio_nominee_gpan_1">Nominee 2 - Guardian PAN</label>
+                        <input id="folio_nominee_gpan_1" type="text" name="nominee_guardian_pan[1]" />
+
+                        <br />
+                        <label for="folio_nominee_per_1">Nominee 2 - Allocation Percentage</label>
+                        <input id="folio_nominee_per_1" type="text" name="nominee_percentage[1]" />
+
+                        <!-- Nominee 3 -->
+                        <br />
+                        <label for="folio_nominee_name_2">Nominee 3 - Name</label>
+                        <input id="folio_nominee_name_2" type="text" name="nominee_name[2]" />
+
+                        <br />
+                        <label for="folio_nominee_pan_2">Nominee 3 - PAN</label>
+                        <input id="folio_nominee_pan_2" type="text" name="nominee_pan[2]" />
+
+                        <br />
+                        <label for="folio_nominee_dob_2">Nominee 3 - DOB</label>
+                        <input id="folio_nominee_dob_2" type="text" name="nominee_dob[2]" />
+
+                        <br />
+                        <label for="folio_nominee_relationship_2">Nominee 3 - Relationship</label>
+                        <select id="folio_nominee_relationship_2" type="select" name="nominee_relationship[2]">
+                            <option value="aunt">Aunt</option>
+                            <option value="brother_in_law">Brother In Law</option>
+                            <option value="brother">Brother</option>
+                            <option value="daughter">Daughter</option>
+                            <option value="daughter_in_law">Daughter In Law</option>
+                            <option value="father">Father</option>
+                            <option value="father_in_law">Father In Law</option>
+                            <option value="grand_daughter">Grand Daughter</option>
+                            <option value="grand_father">Grand Father</option>
+                            <option value="grand_mother">Grand Mother</option>
+                            <option value="grand_son">Grand Son</option>
+                            <option value="mother_in_law">Mother In Law</option>
+                            <option value="mother">Mother</option>
+                            <option value="nephew">Nephew</option>
+                            <option value="niece">Niece</option>
+                            <option value="sister">Sister</option>
+                            <option value="sister_in_law">Sister In Law</option>
+                            <option value="son">Son</option>
+                            <option value="son_in_law">Son In Law</option>
+                            <option value="spouse">Spouse</option>
+                            <option value="uncle">Uncle</option>
+                            <option value="court_appointed_legal_guardian">Court Appointed Legal Guardian</option>
+                            <option value="others">Others</option>
+                        </select>            
+
+                        <br />
+                        <label for="folio_nominee_gname_2">Nominee 3 - Guardian Name</label>
+                        <input id="folio_nominee_gname_2" type="text" name="nominee_guardian_name[2]" />
+
+                        <br />
+                        <label for="folio_nominee_gpan_2">Nominee 3 - Guardian PAN</label>
+                        <input id="folio_nominee_gpan_2" type="text" name="nominee_guardian_pan[2]" />
+
+                        <br />
+                        <label for="folio_nominee_per_2">Nominee 3 - Allocation Percentage</label>
+                        <input id="folio_nominee_per_2" type="text" name="nominee_percentage[2]" />
+
+                        <br />
+                        <input type="hidden" id="transactionId" name="transactionId" value="c04a04ee-d892-400f-bbe6-479a43b4448a">
+
+                        <input type="submit" />
+                    </form>
+                </body>
+            </html>
+      - summary: Select
+        api: select
+        details:
+          - description: Send the form submission details
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: select
+            message:
+              order:
+                provider:
+                  id: sellerapp_id
+                items:
+                  - id: AS42134
+                    fulfillment_ids:
+                      - ff_123
+                fulfillments:
+                  - id: ff_123
+                    type: ZERO_BALANCE_FOLIO
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    submission_id: 6547-7456-7235-4386
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+      - summary: On Select
+        api: on_select
+        details:
+          - description: Receive form processing success status
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: on_select
+            message:
+              order:
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
+                items:
+                  - id: AS42134
+                    descriptor:
+                      name: ABC Fund - Other Service
+                      code: SERVICE
+                    fulfillment_ids:
+                      - ff_123
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: Checklists
+                          code: CHECKLISTS
+                        list:
+                          - descriptor:
+                              name: Application Form
+                              code: APPLICATION_FORM
+                            value: 6547-7456-7235-4386
+                fulfillments:
+                  - id: ff_123
+                    type: ZERO_BALANCE_FOLIO
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: AS42134
+                        fulfillment_ids:
+                          - ff_123
+                      title: ZERO_BALANCE_FOLIO
+                      price:
+                        currency: INR
+                        value: '0'
+      - summary: Initialize the Lumpsum order
+        api: init
+        details:
+          - description: Send order details and folio details
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: init
+            message:
+              order:
+                provider:
+                  id: sellerapp_id
+                items:
+                  - id: AS42134
+                    fulfillment_ids:
+                      - ff_123
+                fulfillments:
+                  - id: ff_123
+                    type: ZERO_BALANCE_FOLIO
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599123'
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+      - summary: On Init
+        api: on_init
+        details:
+          - description: Draft order is sent back
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: on_init
+            message:
+              order:
+                id: zbf_123adf234
+                status: CREATED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
+                items:
+                  - id: AS42134
+                    descriptor:
+                      name: ABC Fund - Other Service
+                      code: SERVICE
+                    fulfillment_ids:
+                      - ff_123
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: Checklists
+                          code: CHECKLISTS
+                        list:
+                          - descriptor:
+                              name: Application Form
+                              code: APPLICATION_FORM
+                            value: 6547-7456-7235-4386
+                fulfillments:
+                  - id: ff_123
+                    type: ZERO_BALANCE_FOLIO
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599123'
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: AS42134
+                        fulfillment_ids:
+                          - ff_123
+                      title: ZERO_BALANCE_FOLIO
+                      price:
+                        currency: INR
+                        value: '0'
+      - summary: Confirm
+        api: confirm
+        details:
+          - description: Send confirmation to open folio
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: confirm
+            message:
+              order:
+                id: zbf_123adf234
+                provider:
+                  id: sellerapp_id
+                items:
+                  - id: AS42134
+                    fulfillment_ids:
+                      - ff_123
+                fulfillments:
+                  - id: ff_123
+                    type: ZERO_BALANCE_FOLIO
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599123'
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+      - summary: On Confirm
+        api: on_confirm
+        details:
+          - description: >-
+              Receive acknowledgement that order is accepted and the folio will
+              be opened
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: on_confirm
+            message:
+              order:
+                id: zbf_123adf234
+                status: ACCEPTED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
+                items:
+                  - id: AS42134
+                    descriptor:
+                      name: ABC Fund - Other Service
+                      code: SERVICE
+                    fulfillment_ids:
+                      - ff_123
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: Checklists
+                          code: CHECKLISTS
+                        list:
+                          - descriptor:
+                              name: Application Form
+                              code: APPLICATION_FORM
+                            value: 6547-7456-7235-4386
+                fulfillments:
+                  - id: ff_123
+                    type: ZERO_BALANCE_FOLIO
+                    state:
+                      descriptor:
+                        name: Initiated
+                        code: INITIATED
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599123'
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: AS42134
+                        fulfillment_ids:
+                          - ff_123
+                      title: ZERO_BALANCE_FOLIO
+                      price:
+                        currency: INR
+                        value: '0'
+                created_at: '2023-05-25T05:23:03.443Z'
+                updated_at: '2023-05-25T05:23:03.443Z'
+      - summary: On Update
+        api: on_update
+        details:
+          - description: Receive notification that the folio opening is done
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: on_update
+            message:
+              order:
+                id: zbf_123adf234
+                status: COMPLETED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
+                items:
+                  - id: AS42134
+                    descriptor:
+                      name: ABC Fund - Other Service
+                      code: SERVICE
+                    fulfillment_ids:
+                      - ff_123
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: Checklists
+                          code: CHECKLISTS
+                        list:
+                          - descriptor:
+                              name: Application Form
+                              code: APPLICATION_FORM
+                            value: 6547-7456-7235-4386
+                fulfillments:
+                  - id: ff_123
+                    type: ZERO_BALANCE_FOLIO
+                    state:
+                      descriptor:
+                        name: Successful
+                        code: SUCCESSFUL
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599123'
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: Folio
+                          code: FOLIO_INFORMATION
+                        list:
+                          - descriptor:
+                              name: Folio Number
+                              code: FOLIO_NUMBER
+                            value: 123213432/32
+                          - descriptor:
+                              name: Holding Pattern
+                              code: HOLDING_PATTERN
+                            value: SINGLE
+                          - descriptor:
+                              name: Holder Name
+                              code: HOLDER_NAME
+                            value: Satish K Perala
+                          - descriptor:
+                              name: Created On
+                              code: CREATED_ON
+                            value: 25/11/2019
+                          - descriptor:
+                              name: Email Address for 2FA
+                              code: 2FA_EMAIL_ADDRESS_MASKED
+                            value: '****sha@gmail.com'
+                          - descriptor:
+                              name: Mobile Number for 2FA
+                              code: 2FA_MOBILE_NUMBER_MASKED
+                            value: '***9345'
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: AS42134
+                        fulfillment_ids:
+                          - ff_123
+                      title: ZERO_BALANCE_FOLIO
+                      price:
+                        currency: INR
+                        value: '0'
+                created_at: '2023-05-25T05:23:03.443Z'
+                updated_at: '2023-05-25T05:23:03.443Z'
+  - summary: Other Services - New KYC
+    details:
+      - description: >-
+          This is showing independent kyc service flow. Select and Init calls
+          are similar to zero balance folio flow except that the xinput will be
+          multiple - hence now showing in this example
+    references: if any
+    steps:
+      - summary: Confirm
+        api: confirm
+        details:
+          - description: Send confirmation to perform kyc
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: confirm
+            message:
+              order:
+                id: kyc_536herg9843
+                provider:
+                  id: sellerapp_id
+                items:
+                  - id: FS23
+                    fulfillment_ids:
+                      - fsf_132
+                fulfillments:
+                  - id: fsf_132
+                    type: KYC
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599123'
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+      - summary: On Confirm
+        api: on_confirm
+        details:
+          - description: >-
+              Receive acknowledgement that order is accepted and the kyc will be
+              processed
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: on_confirm
+            message:
+              order:
+                id: kyc_536herg9843
+                status: ACCEPTED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
+                items:
+                  - id: FS23
+                    descriptor:
+                      name: ABC Fund - Other Service
+                      code: SERVICE
+                    fulfillment_ids:
+                      - fsf_132
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: Checklists
+                          code: CHECKLISTS
+                        list:
+                          - descriptor:
+                              name: Application Form
+                              code: APPLICATION_FORM
+                            value: 6547-7456-7235-4386
+                          - descriptor:
+                              name: KYC
+                              code: KYC
+                            value: 1978-5697-3478-6547
+                          - descriptor:
+                              name: ESIGN
+                              code: ESIGN
+                            value: 8745-1247-6587-8647
+                fulfillments:
+                  - id: fsf_132
+                    type: KYC
+                    state:
+                      descriptor:
+                        name: Initiated
+                        code: INITIATED
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599123'
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: FS23
+                        fulfillment_ids:
+                          - fsf_132
+                      title: KYC
+                      price:
+                        currency: INR
+                        value: '0'
+                created_at: '2023-05-25T05:23:03.443Z'
+                updated_at: '2023-05-25T05:23:03.443Z'
+      - summary: On Update
+        api: on_update
+        details:
+          - description: Receive notification that the kyc is processed successfully
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: on_update
+            message:
+              order:
+                id: kyc_536herg9843
+                status: COMPLETED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
+                items:
+                  - id: FS23
+                    descriptor:
+                      name: ABC Fund - Other Service
+                      code: SERVICE
+                    fulfillment_ids:
+                      - fsf_132
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: Checklists
+                          code: CHECKLISTS
+                        list:
+                          - descriptor:
+                              name: Application Form
+                              code: APPLICATION_FORM
+                            value: 6547-7456-7235-4386
+                          - descriptor:
+                              name: KYC
+                              code: KYC
+                            value: 1978-5697-3478-6547
+                          - descriptor:
+                              name: ESIGN
+                              code: ESIGN
+                            value: 8745-1247-6587-8647
+                fulfillments:
+                  - id: fsf_132
+                    type: KYC
+                    state:
+                      descriptor:
+                        name: Successful
+                        code: SUCCESSFUL
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599123'
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: FS23
+                        fulfillment_ids:
+                          - fsf_132
+                      title: KYC
+                      price:
+                        currency: INR
+                        value: '0'
+                created_at: '2023-05-25T05:23:03.443Z'
+                updated_at: '2023-05-25T05:23:03.443Z'
+  - summary: Other Services - Register Payment Mandate
+    references: if any
+    steps:
+      - summary: Initialize the order for mandate registration
+        api: init
+        details:
+          - description: Send order details, 2fa and bank details for mandate registration
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: init
+            message:
+              order:
+                provider:
+                  id: sellerapp_id
+                items:
+                  - id: PS5634
+                    fulfillment_ids:
+                      - ff_123
+                fulfillments:
+                  - id: ff_123
+                    type: PAYMENT_MANDATE
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599123'
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                payments:
+                  - collected_by: BPP
+                    params:
+                      amount: '0'
+                      currency: INR
+                      source_bank_code: icic0000047
+                      source_bank_account_number: '004701563111'
+                      source_bank_account_name: harish gupta
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+      - summary: On Init
+        api: on_init
+        details:
+          - description: Draft order is sent back with mandate registration url
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: on_init
+            message:
+              order:
+                id: pmtm_952jfs195
+                status: CREATED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
+                items:
+                  - id: PS5634
+                    descriptor:
+                      name: Other Service
+                      code: SERVICE
+                    fulfillment_ids:
+                      - ff_123
+                    payment_ids:
+                      - pmt_123
+                fulfillments:
+                  - id: ff_123
+                    type: PAYMENT_MANDATE
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599123'
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                payments:
+                  - id: pmt_123
+                    collected_by: BPP
+                    status: NOT-PAID
+                    url: https://api.sellerapp.com/payment?k=abdafaf
+                    params:
+                      amount: '0'
+                      currency: INR
+                      source_bank_code: icic0000047
+                      source_bank_account_number: '004701563111'
+                      source_bank_account_name: harish gupta
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: PS5634
+                        fulfillment_ids:
+                          - ff_123
+                      title: PAYMENT_MANDATE
+                      price:
+                        currency: INR
+                        value: '0'
+                created_at: '2023-05-25T05:23:03.443Z'
+                updated_at: '2023-05-25T05:23:03.443Z'
+      - summary: Confirm
+        api: confirm
+        details:
+          - description: Send confirmation to register a payment mandate
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: confirm
+            message:
+              order:
+                id: pmtm_952jfs195
+                provider:
+                  id: sellerapp_id
+                items:
+                  - id: PS5634
+                    fulfillment_ids:
+                      - ff_123
+                fulfillments:
+                  - id: ff_123
+                    type: PAYMENT_MANDATE
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599123'
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                payments:
+                  - collected_by: BPP
+                    params:
+                      amount: '0'
+                      currency: INR
+                      source_bank_code: icic0000047
+                      source_bank_account_number: '004701563111'
+                      source_bank_account_name: harish gupta
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+      - summary: On Confirm
+        api: on_confirm
+        details:
+          - description: >-
+              Receive acknowledgement that order is accepted. Now the payment
+              redirection can happen
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: on_confirm
+            message:
+              order:
+                id: pmtm_952jfs195
+                status: ACCEPTED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
+                items:
+                  - id: PS5634
+                    descriptor:
+                      name: Other Service
+                      code: SERVICE
+                    fulfillment_ids:
+                      - ff_123
+                    payment_ids:
+                      - pmt_123
+                fulfillments:
+                  - id: ff_123
+                    type: PAYMENT_MANDATE
+                    state:
+                      descriptor:
+                        name: Initiated
+                        code: INITIATED
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599123'
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                payments:
+                  - id: pmt_123
+                    collected_by: BPP
+                    status: NOT-PAID
+                    url: https://api.sellerapp.com/payment?k=abdafaf
+                    params:
+                      amount: '0'
+                      currency: INR
+                      source_bank_code: icic0000047
+                      source_bank_account_number: '004701563111'
+                      source_bank_account_name: harish gupta
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: PS5634
+                        fulfillment_ids:
+                          - ff_123
+                      title: PAYMENT_MANDATE
+                      price:
+                        currency: INR
+                        value: '0'
+                created_at: '2023-05-25T05:23:03.443Z'
+                updated_at: '2023-05-25T05:23:03.443Z'
+      - summary: Payment
+        api: form
+        details:
+          - description: >-
+              Depending on the payment mode, buyer app either redirects the
+              buyer to the PG url or show the payment option in its interface.
+              This example is showing a redirection flow
+        reference: if any
+        example:
+          value: This will redirected to different html page for payment collection
+      - summary: On Status
+        api: on_status
+        details:
+          - description: >-
+              Receive notification that the mandate is registered along with the
+              details
+        reference: if any
+        example:
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              domain: ONDC:FIS14
+              timestamp: '2023-05-25T05:23:03.443Z'
+              bap_id: api.buyerapp.com
+              bap_uri: https://api.buyerapp.com/ondc
+              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
+              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
+              version: 2.0.0
+              ttl: PT10M
+              bpp_id: api.sellerapp.com
+              bpp_uri: https://api.sellerapp.com/ondc
+              action: on_status
+            message:
+              order:
+                id: pmtm_952jfs195
+                status: COMPLETED
+                provider:
+                  id: sellerapp_id
+                  descriptor:
+                    name: Seller App Name
+                items:
+                  - id: PS5634
+                    descriptor:
+                      name: Other Service
+                      code: SERVICE
+                    fulfillment_ids:
+                      - ff_123
+                    payment_ids:
+                      - pmt_123
+                fulfillments:
+                  - id: ff_123
+                    type: PAYMENT_MANDATE
+                    state:
+                      descriptor:
+                        name: Successful
+                        code: SUCCESSFUL
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599123'
+                    agent:
+                      person:
+                        id: euin:E52432
+                      organization:
+                        creds:
+                          - id: ARN-124567
+                            type: ARN
+                          - id: ARN-123456
+                            type: SUB_BROKER_ARN
+                payments:
+                  - id: pmt_123
+                    collected_by: BPP
+                    status: PAID
+                    params:
+                      amount: '0'
+                      currency: INR
+                      source_bank_code: icic0000047
+                      source_bank_account_number: '004701563111'
+                      source_bank_account_name: harish gupta
+                      transaction_id: '243423324'
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NACH
+                          - descriptor:
+                              code: AUTH
+                            value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
+                          - descriptor:
+                              code: MANDATE_IDENTIFIER
+                            value: '125487'
+                          - descriptor:
+                              code: MASKED_BANK_ACCOUNT_NUMBER
+                            value: '********3111'
+                          - descriptor:
+                              code: BANK_ACCOUNT_NAME
+                            value: Harish Gupta
+                          - descriptor:
+                              code: BANK_NAME
+                            value: ICICI Bank
+                tags:
+                  - display: false
+                    descriptor:
+                      name: BAP Terms of Engagement
+                      code: BAP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                  - display: false
+                    descriptor:
+                      name: BPP Terms of Engagement
+                      code: BPP_TERMS
+                    list:
+                      - descriptor:
+                          name: Static Terms (Transaction Level)
+                          code: STATIC_TERMS
+                        value: >-
+                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
+                      - descriptor:
+                          name: Offline Contract
+                          code: OFFLINE_CONTRACT
+                        value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: PS5634
+                        fulfillment_ids:
+                          - ff_123
+                      title: PAYMENT_MANDATE
+                      price:
+                        currency: INR
+                        value: '0'
+                created_at: '2023-05-25T05:23:03.443Z'
+                updated_at: '2023-05-25T05:23:03.443Z'
 x-examples:
   mutual-funds:
     summary: mutual-funds
