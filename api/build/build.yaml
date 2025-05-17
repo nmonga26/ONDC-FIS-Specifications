@@ -50066,6 +50066,20 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: AS42134
+                        fulfillment_ids:
+                          - ff_123
+                      title: ZERO_BALANCE_FOLIO
+                      price:
+                        currency: INR
+                        value: '0'
       - summary: Get Form
         api: form
         details:
@@ -51875,6 +51889,20 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: AS42134
+                        fulfillment_ids:
+                          - ff_123
+                      title: ZERO_BALANCE_FOLIO
+                      price:
+                        currency: INR
+                        value: '0'
       - summary: Initialize the Lumpsum order
         api: init
         details:
@@ -52040,6 +52068,20 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: AS42134
+                        fulfillment_ids:
+                          - ff_123
+                      title: ZERO_BALANCE_FOLIO
+                      price:
+                        currency: INR
+                        value: '0'
       - summary: Confirm
         api: confirm
         details:
@@ -52226,6 +52268,20 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: AS42134
+                        fulfillment_ids:
+                          - ff_123
+                      title: ZERO_BALANCE_FOLIO
+                      price:
+                        currency: INR
+                        value: '0'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: On Update
@@ -52360,6 +52416,20 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: AS42134
+                        fulfillment_ids:
+                          - ff_123
+                      title: ZERO_BALANCE_FOLIO
+                      price:
+                        currency: INR
+                        value: '0'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: Other Services - New KYC
@@ -52477,6 +52547,20 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: FS23
+                        fulfillment_ids:
+                          - fsf_132
+                      title: KYC
+                      price:
+                        currency: INR
+                        value: '0'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: On Update
@@ -52589,6 +52673,20 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: FS23
+                        fulfillment_ids:
+                          - fsf_132
+                      title: KYC
+                      price:
+                        currency: INR
+                        value: '0'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: Other Services - Register Payment Mandate
@@ -52830,6 +52928,20 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: PS5634
+                        fulfillment_ids:
+                          - ff_123
+                      title: PAYMENT_MANDATE
+                      price:
+                        currency: INR
+                        value: '0'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: Confirm
@@ -53075,6 +53187,20 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: PS5634
+                        fulfillment_ids:
+                          - ff_123
+                      title: PAYMENT_MANDATE
+                      price:
+                        currency: INR
+                        value: '0'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: Payment
@@ -53229,6 +53355,20 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '0'
+                  breakup:
+                    - item:
+                        id: PS5634
+                        fulfillment_ids:
+                          - ff_123
+                      title: PAYMENT_MANDATE
+                      price:
+                        currency: INR
+                        value: '0'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
 x-examples:

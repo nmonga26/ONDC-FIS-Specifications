@@ -166,6 +166,17 @@
                     ]
                 }
             ],
+            "quote": {
+                "id": "q1",
+                "price": { "currency": "INR", "value": "0" },
+                "breakup": [
+                    {
+                        "item": { "id": "PS5634", "fulfillment_ids": ["ff_123"] },
+                        "title": "PAYMENT_MANDATE",
+                        "price": { "currency": "INR", "value": "0" }
+                    }
+                ]
+            },
             "created_at": "2023-05-25T05:23:03.443Z",
             "updated_at": "2023-05-25T05:23:03.443Z"
         }
