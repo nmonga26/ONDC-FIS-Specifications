@@ -41,7 +41,7 @@
                     "items": [
                         {
                             "id": "AS42134",
-                            "descriptor": {"name": "ABC Fund - Folio Services", "code": "ACCOUNT_SERVICES"},
+                            "descriptor": {"name": "ABC Fund - Other Service", "code": "SERVICE"},
                             "category_ids": ["MFOS"],
                             "creator": { "descriptor": { "name": "ABC Mutual Fund" } },
                             "fulfillment_ids": ["ff_911", "ff_912"],
@@ -49,16 +49,17 @@
                         },
                         {
                             "id": "AS56245",
-                            "descriptor": {"name": "XYZ Fund - Folio Services", "code": "ACCOUNT_SERVICES"},
+                            "descriptor": {"name": "XYZ Fund - Other Service", "code": "SERVICE"},
                             "category_ids": ["MFOS"],
                             "creator": { "descriptor": { "name": "XYZ Mutual Fund" } },
-                            "fulfillment_ids": ["ff_9923"],
+                            "fulfillment_ids": ["ff_911"],
                             "matched": true
                         },
                         {
                             "id": "PS5634",
-                            "descriptor": {"name": "Payment Services", "code": "PAYMENT_SERVICES"},
+                            "descriptor": {"name": "Other Service", "code": "SERVICE"},
                             "category_ids": ["MFOS"],
+                            "creator": { "descriptor": { "name": "Seller App" } },
                             "fulfillment_ids": ["ff_913"],
                             "matched": true
                         }
@@ -66,10 +67,6 @@
                     "fulfillments": [
                         {
                             "id": "ff_911",
-                            "type": "ZERO_BALANCE_FOLIO"
-                        },
-                        {
-                            "id": "ff_9923",
                             "type": "ZERO_BALANCE_FOLIO"
                         },
                         {

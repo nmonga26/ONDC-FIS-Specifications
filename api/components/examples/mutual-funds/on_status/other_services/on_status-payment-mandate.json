@@ -31,7 +31,7 @@
             "items": [
                 {
                     "id": "PS5634",
-                    "descriptor": {"name": "Payment Services", "code": "PAYMENT_SERVICES"},
+                    "descriptor": {"name": "Other Service", "code": "SERVICE"},
                     "fulfillment_ids": ["ff_123"],
                     "payment_ids": ["pmt_123"]
                 }

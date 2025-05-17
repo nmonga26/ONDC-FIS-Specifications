@@ -31,7 +31,7 @@
             "items": [
                 {
                     "id": "FS23",
-                    "descriptor": {"name": "ABC Fund - Folio Services", "code": "ACCOUNT_SERVICES"},
+                    "descriptor": {"name": "ABC Fund - Other Service", "code": "SERVICE"},
                     "fulfillment_ids": ["fsf_132"],
                     "tags": [
                         {

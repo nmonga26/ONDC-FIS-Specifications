@@ -49841,8 +49841,8 @@ x-flows:
                     items:
                       - id: AS42134
                         descriptor:
-                          name: ABC Fund - Folio Services
-                          code: ACCOUNT_SERVICES
+                          name: ABC Fund - Other Service
+                          code: SERVICE
                         category_ids:
                           - MFOS
                         creator:
@@ -49854,29 +49854,30 @@ x-flows:
                         matched: true
                       - id: AS56245
                         descriptor:
-                          name: XYZ Fund - Folio Services
-                          code: ACCOUNT_SERVICES
+                          name: XYZ Fund - Other Service
+                          code: SERVICE
                         category_ids:
                           - MFOS
                         creator:
                           descriptor:
                             name: XYZ Mutual Fund
                         fulfillment_ids:
-                          - ff_9923
+                          - ff_911
                         matched: true
                       - id: PS5634
                         descriptor:
-                          name: Payment Services
-                          code: PAYMENT_SERVICES
+                          name: Other Service
+                          code: SERVICE
                         category_ids:
                           - MFOS
+                        creator:
+                          descriptor:
+                            name: Seller App
                         fulfillment_ids:
                           - ff_913
                         matched: true
                     fulfillments:
                       - id: ff_911
-                        type: ZERO_BALANCE_FOLIO
-                      - id: ff_9923
                         type: ZERO_BALANCE_FOLIO
                       - id: ff_912
                         type: KYC
@@ -50009,8 +50010,8 @@ x-flows:
                 items:
                   - id: AS42134
                     descriptor:
-                      name: ABC Fund - Folio Services
-                      code: ACCOUNT_SERVICES
+                      name: ABC Fund - Other Service
+                      code: SERVICE
                     fulfillment_ids:
                       - ff_123
                     tags:
@@ -51839,8 +51840,8 @@ x-flows:
                 items:
                   - id: AS42134
                     descriptor:
-                      name: ABC Fund - Folio Services
-                      code: ACCOUNT_SERVICES
+                      name: ABC Fund - Other Service
+                      code: SERVICE
                     fulfillment_ids:
                       - ff_123
                     tags:
@@ -52019,8 +52020,8 @@ x-flows:
                 items:
                   - id: AS42134
                     descriptor:
-                      name: ABC Fund - Folio Services
-                      code: ACCOUNT_SERVICES
+                      name: ABC Fund - Other Service
+                      code: SERVICE
                     fulfillment_ids:
                       - ff_123
                     tags:
@@ -52201,8 +52202,8 @@ x-flows:
                 items:
                   - id: AS42134
                     descriptor:
-                      name: ABC Fund - Folio Services
-                      code: ACCOUNT_SERVICES
+                      name: ABC Fund - Other Service
+                      code: SERVICE
                     fulfillment_ids:
                       - ff_123
                     tags:
@@ -52319,8 +52320,8 @@ x-flows:
                 items:
                   - id: AS42134
                     descriptor:
-                      name: ABC Fund - Folio Services
-                      code: ACCOUNT_SERVICES
+                      name: ABC Fund - Other Service
+                      code: SERVICE
                     fulfillment_ids:
                       - ff_123
                     tags:
@@ -52472,8 +52473,8 @@ x-flows:
                 items:
                   - id: FS23
                     descriptor:
-                      name: ABC Fund - Folio Services
-                      code: ACCOUNT_SERVICES
+                      name: ABC Fund - Other Service
+                      code: SERVICE
                     fulfillment_ids:
                       - fsf_132
                     tags:
@@ -52598,8 +52599,8 @@ x-flows:
                 items:
                   - id: FS23
                     descriptor:
-                      name: ABC Fund - Folio Services
-                      code: ACCOUNT_SERVICES
+                      name: ABC Fund - Other Service
+                      code: SERVICE
                     fulfillment_ids:
                       - fsf_132
                     tags:
@@ -52839,8 +52840,8 @@ x-flows:
                 items:
                   - id: PS5634
                     descriptor:
-                      name: Payment Services
-                      code: PAYMENT_SERVICES
+                      name: Other Service
+                      code: SERVICE
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -53094,8 +53095,8 @@ x-flows:
                 items:
                   - id: PS5634
                     descriptor:
-                      name: Payment Services
-                      code: PAYMENT_SERVICES
+                      name: Other Service
+                      code: SERVICE
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -53250,8 +53251,8 @@ x-flows:
                 items:
                   - id: PS5634
                     descriptor:
-                      name: Payment Services
-                      code: PAYMENT_SERVICES
+                      name: Other Service
+                      code: SERVICE
                     fulfillment_ids:
                       - ff_123
                     payment_ids:

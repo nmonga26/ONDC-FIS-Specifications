@@ -31,7 +31,7 @@
             "items": [
                 {
                     "id": "AS42134",
-                    "descriptor": {"name": "ABC Fund - Folio Services", "code": "ACCOUNT_SERVICES"},
+                    "descriptor": {"name": "ABC Fund - Other Service", "code": "SERVICE"},
                     "fulfillment_ids": ["ff_123"],
                     "tags": [
                         {
