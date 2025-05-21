@@ -220,6 +220,30 @@ order:
           - code: CHILD_ORDER_ID
             description : Value is the child order id
             reference: <PR/Issue/Discussion Links md format text>
+      - code: EXTERNAL_FOLIO_INFO
+        description : Describes an external folio
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: FOLIO_NUMBER
+            description : Folio number
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: HOLDING_PATTERN
+            description : Holding pattern
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: SINGLE
+                description: Single holding pattern
+                reference: <PR/Issue/Discussion Links md format text>
+          - code: HOLDER_NAME
+            description : Name of the folio holder
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: TAX_STATUS
+            description : Tax status of the folio
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: RESIDENT_INDIVIDUAL
+                description: Indian resident as per tax authority
+                reference: <PR/Issue/Discussion Links md format text>
 
   payments:
     tags:
