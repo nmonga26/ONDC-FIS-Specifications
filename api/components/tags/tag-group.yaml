@@ -342,6 +342,34 @@ order:
           - code: REASON_MESSAGE
             description : Describes the finder fees for buyer
             reference: <PR/Issue/Discussion Links md format text>
+      - code: SETTLEMENT_DETAILS
+        description : Describes the details of the settlements made to the AMC(s)
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: AMOUNT
+            description : Amount settled to the AMC
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: CURRENCY
+            description : Currency of the amount settled
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: MODE
+            description : Mode of settlement payment
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: BANK_ACCOUNT_NUMBER
+            description : Bank a/c number to which the amount is settled
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: BANK_ACCOUNT_NAME
+            description : Name of the bank a/c to which the amount is settled
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: BANK_CODE
+            description : Code to identify the bank/branch of the account
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: TRANSACTION_ID
+            description : Unique transaction id to track the settlement
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: SETTLED_AT
+            description : Time at which the amount is settled
+            reference: <PR/Issue/Discussion Links md format text>
 
 intent:
   tags:

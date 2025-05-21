@@ -1,0 +1,135 @@
+{
+    "context": {
+        "location": {
+            "country": {
+                "code": "IND"
+            },
+            "city": {
+                "code": "*"
+            }
+        },
+        "domain": "ONDC:FIS14",
+        "timestamp": "2023-05-25T05:23:03.443Z",
+        "bap_id": "api.buyerapp.com",
+        "bap_uri": "https://api.buyerapp.com/ondc",
+        "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
+        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "version": "2.0.0",
+        "ttl": "PT10M",
+        "bpp_id": "api.sellerapp.com",
+        "bpp_uri": "https://api.sellerapp.com/ondc",
+        "action": "on_confirm"
+    },
+    "message": {
+        "order": {
+            "id": "zbf_123adf234",
+            "status": "ACCEPTED",
+            "provider": {
+                "id": "sellerapp_id",
+                "descriptor": {"name": "Seller App Name"}
+            },
+            "items": [
+                {
+                    "id": "AS42134",
+                    "descriptor": {"name": "ABC Fund - Other Service", "code": "SERVICE"},
+                    "fulfillment_ids": ["ff_123"],
+                    "tags": [
+                        {
+                            "display": true,
+                            "descriptor": {"name": "Checklists", "code": "CHECKLISTS"},
+                            "list": [
+                                {
+                                    "descriptor": {"name": "Application Form", "code": "APPLICATION_FORM"},
+                                    "value": "6547-7456-7235-4386"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "fulfillments": [
+                {
+                    "id": "ff_123",
+                    "type": "ZERO_BALANCE_FOLIO",
+                    "state": {
+                        "descriptor": {"name": "Initiated", "code": "INITIATED"}
+                    },
+                    "customer": {
+                        "person": {
+                            "id": "pan:arrpp7771n",
+                            "creds": [
+                                {
+                                    "id": "115.245.207.90",
+                                    "type": "IP_ADDRESS"
+                                }
+                            ]
+                        },
+                        "contact": {
+                            "phone": "9916599123"
+                        }
+                    },
+                    "agent": {
+                        "person": {
+                            "id": "euin:E52432"
+                        },
+                        "organization": {
+                            "creds": [
+                                {
+                                    "id": "ARN-124567",
+                                    "type": "ARN"
+                                },
+                                {
+                                    "id": "ARN-123456",
+                                    "type": "SUB_BROKER_ARN"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ],
+            "tags": [
+                {
+                    "display": false,
+                    "descriptor": {"name": "BAP Terms of Engagement", "code": "BAP_TERMS"},
+                    "list": [
+                        {
+                            "descriptor": {"name": "Static Terms (Transaction Level)", "code": "STATIC_TERMS"},
+                            "value": "https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1"
+                        },
+                        {
+                            "descriptor": {"name": "Offline Contract", "code": "OFFLINE_CONTRACT"},
+                            "value": "true"
+                        }
+                    ]
+                },
+                {
+                    "display": false,
+                    "descriptor": {"name": "BPP Terms of Engagement", "code": "BPP_TERMS"},
+                    "list": [
+                        {
+                            "descriptor": {"name": "Static Terms (Transaction Level)", "code": "STATIC_TERMS"},
+                            "value": "https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1"
+                        },
+                        {
+                            "descriptor": {"name": "Offline Contract", "code": "OFFLINE_CONTRACT"},
+                            "value": "true"
+                        }
+                    ]
+                }
+            ],
+            "quote": {
+                "id": "q1",
+                "price": { "currency": "INR", "value": "0" },
+                "breakup": [
+                    {
+                        "item": { "id": "AS42134", "fulfillment_ids": ["ff_123"] },
+                        "title": "ZERO_BALANCE_FOLIO",
+                        "price": { "currency": "INR", "value": "0" }
+                    }
+                ]
+            },
+            "created_at": "2023-05-25T05:23:03.443Z",
+            "updated_at": "2023-05-25T05:23:03.443Z"
+        }
+    }
+}
