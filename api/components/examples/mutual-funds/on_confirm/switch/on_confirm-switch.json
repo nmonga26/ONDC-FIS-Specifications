@@ -146,6 +146,9 @@
                 {
                     "id": "ff_789",
                     "type": "SWITCH_OUT",
+                    "state": {
+                        "descriptor": {"name": "Initiated", "code": "INITIATED"}
+                    },
                     "customer": {
                         "person": {
                             "id": "pan:arrpp7771n",
@@ -217,6 +220,9 @@
                 {
                     "id": "ff_124",
                     "type": "SWITCH_IN",
+                    "state": {
+                        "descriptor": {"name": "Initiated", "code": "INITIATED"}
+                    },
                     "customer": {
                         "person": {
                             "id": "pan:arrpp7771n",

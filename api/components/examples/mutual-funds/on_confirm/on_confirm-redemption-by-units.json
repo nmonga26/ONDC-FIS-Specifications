@@ -96,6 +96,9 @@
                 {
                     "id": "ff_789",
                     "type": "REDEMPTION",
+                    "state": {
+                        "descriptor": {"name": "Initiated", "code": "INITIATED"}
+                    },
                     "customer": {
                         "person": {
                             "id": "pan:arrpp7771n",
