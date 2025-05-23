@@ -113,12 +113,12 @@ message:
       ttl: P5D
     items:
       - id: CHILD_ITEM_ID_WORKING_CAPITAL_LOAN
-        parent_item_id: ITEM_ID_WORKING_CAPITAL_LOAN
+        parent_item_id: WORKING_CAPITAL_LOAN_ID_1
         descriptor:
           code: LOAN
           name: Loan
         category_ids:
-          - '101123'
+          - '101125'
         fulfillment_ids:
           - '1333'
           - '1334'

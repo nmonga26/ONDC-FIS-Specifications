@@ -34,13 +34,29 @@ message:
             descriptor:
               code: WORKING_CAPITAL_LOAN
               name: Working Captail Loan
+          - id: '101124'
+            descriptor:
+              code: SOLE_PROPRIETORSHIP
+              name: Working Captail Loan
+            parent_category_id: '101123'  
+          - id: '101125'
+            descriptor:
+              code: PRIVATE_LTD
+              name: Working Captail Loan
+            parent_category_id: '101123'    
+          - id: '101126'
+            descriptor:
+              code: PARTNERSHIP_FIRM
+              name: Working Captail Loan
+            parent_category_id: '101123'              
+        
         items:
-          - id: WORKING_CAPITAL_LOAN_ID
+          - id: WORKING_CAPITAL_LOAN_ID_1
             descriptor:
               code: LOAN
               name: Loan
             category_ids:
-              - '101123'
+              - '101125'
             matched: true
             recommended: true
             xinput:
@@ -62,6 +78,60 @@ message:
                 resubmit: false
                 multiple_sumbissions: false
               required: true
+          - id: WORKING_CAPITAL_LOAN_ID_2
+            descriptor:
+              code: LOAN
+              name: Loan
+            category_ids:
+              - '101126'
+            matched: true
+            recommended: true
+            xinput:
+              head:
+                descriptor:
+                  name: Bank Statement & GST Returns
+                index:
+                  min: 0
+                  cur: 0
+                  max: 1
+                headings:
+                  - BANK_STATEMENT_AND_GST_RETURNS
+                  - BUSINESS_AND_FINANCIAL_DOCUMENTS
+              form:
+                id: <form_gst_bank_statement_F01>
+                mime_type: text/html
+                url: >-
+                  https://bpp.credit.becknprotocol.org/xinput/form/form_gst_bank_statement
+                resubmit: false
+                multiple_sumbissions: false
+              required: true
+          - id: WORKING_CAPITAL_LOAN_ID_3
+            descriptor:
+              code: LOAN
+              name: Loan
+            category_ids:
+              - '101124'
+            matched: true
+            recommended: true
+            xinput:
+              head:
+                descriptor:
+                  name: Bank Statement & GST Returns
+                index:
+                  min: 0
+                  cur: 0
+                  max: 0
+                headings:
+                  - BANK_STATEMENT_AND_GST_RETURNS
+              form:
+                id: F01
+                mime_type: text/html
+                url: >-
+                  https://bpp.credit.becknprotocol.org/xinput/form/form_gst_bank_statement
+                resubmit: false
+                multiple_sumbissions: false
+              required: true
+        
         tags:
           - descriptor:
               code: CONTACT_INFO

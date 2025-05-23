@@ -34,13 +34,29 @@ message:
             descriptor:
               code: WORKING_CAPITAL_LOAN
               name: Working Captail Loan
+          - id: '101124'
+            descriptor:
+              code: SOLE_PROPRIETORSHIP
+              name: Working Captail Loan
+            parent_category_id: '101123'  
+          - id: '101125'
+            descriptor:
+              code: PRIVATE_LTD
+              name: Working Captail Loan
+            parent_category_id: '101123'    
+          - id: '101126'
+            descriptor:
+              code: PARTNERSHIP_FIRM
+              name: Working Captail Loan
+            parent_category_id: '101123'              
+        
         items:
-          - id: WORKING_CAPITAL_LOAN_ID
+          - id: WORKING_CAPITAL_LOAN_ID_1
             descriptor:
               code: LOAN
               name: Loan
             category_ids:
-              - '101123'
+              - '101125'
             matched: true
             recommended: true
             xinput:
