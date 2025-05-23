@@ -4405,8 +4405,12 @@ x-flows:
         example:
           value: *ref_21
   - summary: SIP Creation (New Folio)
-    reference: >-
-      https://github.com/ONDC-Official/ONDC-FIS-Specifications/blob/draft-FIS14-enhancements/api/components/docs/README.md#protocol-details
+    details:
+      - description: >-
+          If first instalment has to be generated immediately, buyer app passes
+          the optional `instructions` attribute in the fulfillment stop next to
+          `time` attribute. eg. `"instructions": { "code":
+          "GENERATE_FIRST_INSTALMENT" }`
     steps:
       - summary: Select
         api: select
@@ -7979,8 +7983,12 @@ x-flows:
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: SIP Creation (New Folio w/ KYC)
-    reference: >-
-      https://github.com/ONDC-Official/ONDC-FIS-Specifications/blob/draft-FIS14-enhancements/api/components/docs/README.md#protocol-details
+    details:
+      - description: >-
+          If first instalment has to be generated immediately, buyer app passes
+          the optional `instructions` attribute in the fulfillment stop next to
+          `time` attribute. eg. `"instructions": { "code":
+          "GENERATE_FIRST_INSTALMENT" }`
     references: if any
     steps:
       - summary: Select
@@ -12673,8 +12681,12 @@ x-flows:
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: SIP Creation (Existing Folio - Investor selects/enters a folio)
-    reference: >-
-      https://github.com/ONDC-Official/ONDC-FIS-Specifications/blob/draft-FIS14-enhancements/api/components/docs/README.md#protocol-details
+    details:
+      - description: >-
+          If first instalment has to be generated immediately, buyer app passes
+          the optional `instructions` attribute in the fulfillment stop next to
+          `time` attribute. eg. `"instructions": { "code":
+          "GENERATE_FIRST_INSTALMENT" }`
     references: if any
     steps:
       - summary: Select
