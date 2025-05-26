@@ -6764,6 +6764,11 @@ x-flows:
                       - time:
                           schedule:
                             frequency: R6/2024-05-15/P1M
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - collected_by: BPP
                     params:
@@ -6974,6 +6979,12 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -7103,6 +7114,11 @@ x-flows:
                       - time:
                           schedule:
                             frequency: R6/2024-05-15/P1M
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -7334,6 +7350,12 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -7596,6 +7618,12 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -7886,6 +7914,12 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -11768,6 +11802,12 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
+                xinput:
+                  form:
+                    id: form_3
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 8745-1247-6587-8647
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -12016,6 +12056,12 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
+                xinput:
+                  form:
+                    id: form_3
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 8745-1247-6587-8647
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -12584,6 +12630,12 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
+                xinput:
+                  form:
+                    id: form_3
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 8745-1247-6587-8647
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -16010,6 +16062,12 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -16333,6 +16391,12 @@ x-flows:
                               name: Child Order Id
                               code: CHILD_ORDER_ID
                             value: mfp_4234adfdsf4
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -17828,6 +17892,12 @@ x-flows:
                               name: Child Order Id
                               code: CHILD_ORDER_ID
                             value: mfp_4234adfdsf4
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -18667,6 +18737,12 @@ x-flows:
                               name: Child Order Id
                               code: CHILD_ORDER_ID
                             value: mfp_4234adfdsf4
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -23217,6 +23293,11 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - collected_by: BPP
                     params:
@@ -23396,6 +23477,12 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 2650edf9-e69c-45c5-b129-89838f0b716e
                 tags:
                   - display: false
                     descriptor:
@@ -23523,6 +23610,12 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -23722,6 +23815,12 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 2650edf9-e69c-45c5-b129-89838f0b716e
                 tags:
                   - display: false
                     descriptor:
@@ -23951,6 +24050,12 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 2650edf9-e69c-45c5-b129-89838f0b716e
                 tags:
                   - display: false
                     descriptor:
@@ -24223,6 +24328,12 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 2650edf9-e69c-45c5-b129-89838f0b716e
                 tags:
                   - display: false
                     descriptor:
@@ -40527,6 +40638,11 @@ x-flows:
                       - time:
                           schedule:
                             frequency: R6/2024-05-15/P1M
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -40717,6 +40833,12 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -40824,6 +40946,11 @@ x-flows:
                       - time:
                           schedule:
                             frequency: R6/2024-05-15/P1M
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -41048,6 +41175,12 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -41356,6 +41489,12 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -42613,6 +42752,12 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
