@@ -167,6 +167,16 @@
                                     "value": "Investor is blacklisted for investments"
                                 }
                             ]
+                        },
+                        {
+                            "display": true,
+                            "descriptor": {"name": "External Refs", "code": "EXTERNAL_REFS"},
+                            "list": [
+                                {
+                                    "descriptor": {"name": "RTA Identifier", "code": "RTA_IDENTIFIER"},
+                                    "value": "21432432"
+                                }
+                            ]
                         }
                     ]
                 }
