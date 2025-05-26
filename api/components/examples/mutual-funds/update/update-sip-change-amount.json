@@ -41,6 +41,20 @@
                 {
                     "id": "ff_123",
                     "type": "SIP",
+                    "customer": {
+                        "person": {
+                            "id": "pan:arrpp7771n",
+                            "creds": [
+                                {
+                                    "id": "115.245.207.90",
+                                    "type": "IP_ADDRESS"
+                                }
+                            ]
+                        },
+                        "contact": {
+                            "phone": "9916599123"
+                        }
+                    },
                     "tags": [
                         {
                             "descriptor": {"name": "Modification Information", "code": "MODIFICATION_INFO"},
@@ -48,14 +62,6 @@
                                 {
                                     "descriptor": {"name": "Modified by", "code": "MODIFIED_BY"},
                                     "value": "CONSUMER"
-                                },
-                                {
-                                    "descriptor": {"name": "Consumer IP Address", "code": "CONSUMER_IP_ADDRESS"},
-                                    "value": "115.245.207.90"
-                                },
-                                {
-                                    "descriptor": {"name": "Consumer 2FA taken on", "code": "CONSUMER_2FA"},
-                                    "value": "phone:9916599123"
                                 }
                             ]
                         }

@@ -301,10 +301,6 @@
                                 {
                                     "descriptor": {"name": "Cancelled time", "code": "CANCELLED_TIME"},
                                     "value": "2024-07-01T05:23:03.443Z"
-                                },
-                                {
-                                    "descriptor": {"name": "Consumer IP Address", "code": "CONSUMER_IP_ADDRESS"},
-                                    "value": "115.245.207.90"
                                 }
                             ]
                         }
