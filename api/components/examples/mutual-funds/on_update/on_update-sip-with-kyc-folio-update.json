@@ -284,6 +284,15 @@
           ]
         }
       ],
+      "xinput": {
+        "form": {
+          "id": "form_3"
+        },
+        "form_response": {
+          "status": "SUCCESS",
+          "submission_id": "8745-1247-6587-8647"
+        }
+      },
       "payments": [
         {
           "id": "pmt_123",
