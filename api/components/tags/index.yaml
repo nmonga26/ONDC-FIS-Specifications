@@ -117,4 +117,5 @@ on_update:
           - $ref: "./tag-group.yaml#/order/fulfillments/tags/2"
           - $ref: "./tag-group.yaml#/order/fulfillments/tags/4"
           - $ref: "./tag-group.yaml#/order/fulfillments/tags/5"
+          - $ref: "./tag-group.yaml#/order/fulfillments/tags/7"
       tags: *BAP_BPP_TERMS    

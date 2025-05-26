@@ -3974,6 +3974,13 @@ x-tags:
                 - code: CHILD_ORDER_ID
                   description: Value is the child order id
                   reference: <PR/Issue/Discussion Links md format text>
+            - code: EXTERNAL_REFS
+              description: Captures any external system references
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: RTA_IDENTIFIER
+                  description: Identifier at the RTA level
+                  reference: <PR/Issue/Discussion Links md format text>
         tags: *ref_16
 x-flows:
   - summary: Search (Full Pull)
@@ -16990,6 +16997,15 @@ x-flows:
                               name: Mobile Number for 2FA
                               code: 2FA_MOBILE_NUMBER_MASKED
                             value: '***9345'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 payments:
                   - id: pmt_567
                     collected_by: BPP
@@ -17520,6 +17536,15 @@ x-flows:
                               name: Reason Message
                               code: REASON_MESSAGE
                             value: Investor is blacklisted for investments
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 payments:
                   - id: pmt_567
                     collected_by: BPP
@@ -20237,6 +20262,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -24223,6 +24257,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 tags:
                   - display: false
                     descriptor:
@@ -28591,6 +28634,15 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 quote:
                   id: q1
                   price:
@@ -29118,6 +29170,15 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 quote:
                   id: q1
                   price:
@@ -29645,6 +29706,15 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 quote:
                   id: q1
                   price:
@@ -29917,6 +29987,15 @@ x-flows:
                               name: Reason Message
                               code: REASON_MESSAGE
                             value: Units in the folio are lien marked
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 quote:
                   id: q1
                   price:
@@ -32369,6 +32448,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                   - id: ff_124
                     type: LUMPSUM
                     state:
@@ -32843,6 +32931,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                   - id: ff_124
                     type: LUMPSUM
                     state:
@@ -33295,6 +33392,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                   - id: ff_124
                     type: LUMPSUM
                     state:
@@ -33380,6 +33486,15 @@ x-flows:
                               name: Reason Message
                               code: REASON_MESSAGE
                             value: Investor is blacklisted for investments
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -37375,6 +37490,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -44692,6 +44816,15 @@ x-flows:
                               name: Units Multiples
                               code: UNITS_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                   - id: ff_124
                     type: SWITCH_IN
                     customer:
@@ -44735,6 +44868,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 tags:
                   - display: false
                     descriptor:
@@ -46806,6 +46948,15 @@ x-flows:
                               name: Units Multiples
                               code: UNITS_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                   - id: ff_124
                     type: STP_IN_INSTALMENT
                     state:
@@ -46849,6 +47000,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 tags:
                   - display: false
                     descriptor:
@@ -48435,6 +48595,15 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 tags:
                   - display: false
                     descriptor:
