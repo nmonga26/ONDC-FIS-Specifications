@@ -203,6 +203,11 @@
                             ]
                         }
                     },
+                    "stops": [
+                        {
+                            "time": { "label": "SCHEDULED_ON", "timestamp": "2023-05-15T05:30:00.000Z" }
+                        }
+                    ],
                     "tags": [
                         {
                             "display": true,
@@ -231,6 +236,16 @@
                                 {
                                     "descriptor": {"name": "Units Multiples", "code": "UNITS_MULTIPLES"},
                                     "value": "1"
+                                }
+                            ]
+                        },
+                        {
+                            "display": true,
+                            "descriptor": {"name": "External Refs", "code": "EXTERNAL_REFS"},
+                            "list": [
+                                {
+                                    "descriptor": {"name": "RTA Identifier", "code": "RTA_IDENTIFIER"},
+                                    "value": "21432432"
                                 }
                             ]
                         }
@@ -277,6 +292,11 @@
                             ]
                         }
                     },
+                    "stops": [
+                        {
+                            "time": { "label": "SCHEDULED_ON", "timestamp": "2023-05-15T05:30:00.000Z" }
+                        }
+                    ],
                     "tags": [
                         {
                             "display": true,
@@ -293,6 +313,16 @@
                                 {
                                     "descriptor": {"name": "Amount Multiples", "code": "AMOUNT_MULTIPLES"},
                                     "value": "1"
+                                }
+                            ]
+                        },
+                        {
+                            "display": true,
+                            "descriptor": {"name": "External Refs", "code": "EXTERNAL_REFS"},
+                            "list": [
+                                {
+                                    "descriptor": {"name": "RTA Identifier", "code": "RTA_IDENTIFIER"},
+                                    "value": "21432432"
                                 }
                             ]
                         }

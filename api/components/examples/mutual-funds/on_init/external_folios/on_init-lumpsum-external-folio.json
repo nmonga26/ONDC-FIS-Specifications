@@ -18,13 +18,12 @@
         "ttl": "PT10M",
         "bpp_id": "api.sellerapp.com",
         "bpp_uri": "https://api.sellerapp.com/ondc",
-        "action": "on_update"
+        "action": "on_init"
     },
     "message": {
         "order": {
-            "id": "mfp_7657EFDFHF2342",
-            "ref_order_ids": ["mfpp_213adf123af"],
-            "status": "ACCEPTED",
+            "id": "mfpp_213adf123af",
+            "status": "CREATED",
             "provider": {
                 "id": "sellerapp_id",
                 "descriptor": {"name": "Seller App Name"}
@@ -42,8 +41,8 @@
                             }
                         }
                     },
-                    "fulfillment_ids": ["ff_009"],
-                    "payment_ids": ["pmt_234"],
+                    "fulfillment_ids": ["ff_789"],
+                    "payment_ids": ["pmt_123"],
                     "tags": [
                         {
                             "display": true,
@@ -90,31 +89,22 @@
                                     "value": "PAYOUT"
                                 }
                             ]
-                        },
-                        {
-                            "display": true,
-                            "descriptor": {"name": "Checklists", "code": "CHECKLISTS"},
-                            "list": [
-                                {
-                                    "descriptor": {"name": "Application Form", "code": "APPLICATION_FORM"},
-                                    "value": "6547-7456-7235-4386"
-                                }
-                            ]
                         }
                     ]
                 }
             ],
             "fulfillments": [
                 {
-                    "id": "ff_009",
-                    "type": "SIP_INSTALMENT",
-                    "state": {
-                        "descriptor": {"name": "Pending", "code": "PENDING"}
-                    },
+                    "id": "ff_789",
+                    "type": "LUMPSUM",
                     "customer": {
                         "person": {
                             "id": "pan:arrpp7771n",
                             "creds": [
+                                {
+                                    "id": "78953432/32",
+                                    "type": "FOLIO"
+                                },
                                 {
                                     "id": "115.245.207.90",
                                     "type": "IP_ADDRESS"
@@ -142,18 +132,55 @@
                             ]
                         }
                     },
-                    "stops": [
+                    "tags": [
                         {
-                            "time": { "label": "SCHEDULED_ON", "timestamp": "2023-05-15T05:30:00.000Z" }
+                            "descriptor": {"name": "External Folio Information", "code": "EXTERNAL_FOLIO_INFO"},
+                            "list": [
+                                {
+                                    "descriptor": {"name": "Folio Number", "code": "FOLIO_NUMBER"},
+                                    "value": "78953432/32"
+                                },
+                                {
+                                    "descriptor": {"name": "Holding Pattern", "code": "HOLDING_PATTERN"},
+                                    "value": "SINGLE"
+                                },
+                                {
+                                    "descriptor": {"name": "Holder Name", "code": "HOLDER_NAME"},
+                                    "value": "Satish K Perala"
+                                },
+                                {
+                                    "descriptor": {"name": "Tax Status", "code": "TAX_STATUS"},
+                                    "value": "resident_individual"
+                                }
+                            ]
+                        },
+                        {
+                            "display": true,
+                            "descriptor": {"name": "Thresholds", "code": "THRESHOLDS"},
+                            "list": [
+                                {
+                                    "descriptor": {"name": "Amount Minimum", "code": "AMOUNT_MIN"},
+                                    "value": "1000"
+                                },
+                                {
+                                    "descriptor": {"name": "Amount Maximum", "code": "AMOUNT_MAX"},
+                                    "value": "10000"
+                                },
+                                {
+                                    "descriptor": {"name": "Amount Multiples", "code": "AMOUNT_MULTIPLES"},
+                                    "value": "1"
+                                }
+                            ]
                         }
                     ]
                 }
             ],
             "payments": [
                 {
-                    "id": "pmt_234",
+                    "id": "pmt_123",
                     "collected_by": "BPP",
-                    "status": "FAILED", 
+                    "url": "https://api.sellerapp.com/payment?k=abdafaf",
+                    "status": "NOT-PAID",
                     "params": {
                         "amount": "3000",
                         "currency": "INR",
@@ -162,7 +189,6 @@
                         "source_bank_account_name": "harish gupta"
                     },
                     "type": "PRE_FULFILLMENT",
-                    "time": { "label": "SCHEDULED_ON", "timestamp": "2023-05-15T05:30:00.000Z" },
                     "tags": [
                         {
                             "descriptor": { "name": "Source bank account", "code": "SOURCE_BANK_ACCOUNT" },
@@ -178,77 +204,14 @@
                             "list": [
                                 {
                                     "descriptor": { "code": "MODE" },
-                                    "value": "NACH"
-                                },
-                                {
-                                    "descriptor": { "code": "AUTH" },
-                                    "value": "EXISTING_MANDATE"
-                                },
-                                {
-                                    "descriptor": { "code": "MANDATE_IDENTIFIER" },
-                                    "value": "125487"
-                                },
-                                {
-                                    "descriptor": { "code": "MASKED_BANK_ACCOUNT_NUMBER" },
-                                    "value": "********3111"
-                                },
-                                {
-                                    "descriptor": { "code": "BANK_ACCOUNT_NAME" },
-                                    "value": "Harish Gupta"
-                                },
-                                {
-                                    "descriptor": { "code": "BANK_NAME" },
-                                    "value": "ICICI Bank"
+                                    "value": "NETBANKING"
                                 }
                             ]
-                        },
-                        {
-                            "descriptor": {"name": "Information", "code": "ERROR_INFORMATION"},
-                            "list": [
-                                {
-                                    "descriptor": {"name": "Reason Code", "code": "REASON_CODE"},
-                                    "value": "insufficient_balance"
-                                },
-                                {
-                                    "descriptor": {"name": "Reason Message", "code": "REASON_MESSAGE"},
-                                    "value": "Investor bank account doesn't have sufficient balance to debit"
-                                }
-                            ]
-                        }
-                    ]    
-                }
-            ],
-            "quote": {
-                "id": "q1",
-                "price": { "currency": "INR", "value": "3000" },
-                "breakup": [
-                    {
-                        "item": { "id": "12391", "fulfillment_ids": ["ff_009"] },
-                        "title": "INVESTMENT",
-                        "price": { "currency": "INR", "value": "2999.85" }
-                    },
-                    {
-                        "item": { "id": "12391", "fulfillment_ids": ["ff_009"] },
-                        "title": "STAMP_DUTY",
-                        "price": { "currency": "INR", "value": "0.15" }
-                    }
-                ]
-            },
-            "tags": [
-                {
-                    "display": false,
-                    "descriptor": {"name": "BAP Terms of Engagement", "code": "BAP_TERMS"},
-                    "list": [
-                        {
-                            "descriptor": {"name": "Static Terms (Transaction Level)", "code": "STATIC_TERMS"},
-                            "value": "https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1"
-                        },
-                        {
-                            "descriptor": {"name": "Offline Contract", "code": "OFFLINE_CONTRACT"},
-                            "value": "true"
                         }
                     ]
-                },
+                }
+            ],
+            "tags": [
                 {
                     "display": false,
                     "descriptor": {"name": "BPP Terms of Engagement", "code": "BPP_TERMS"},
@@ -264,15 +227,22 @@
                     ]
                 }
             ],
-            "cancellation_terms": [
-                {
-                  "reason_required": true,
-                  "external_ref": {
-                    "url": "https://api.sellerapp.com/cterms?id=214werw3w4",
-                    "mimetype": "text/html"
-                  }
-                }
-              ],
+            "quote": {
+                "id": "q1",
+                "price": { "currency": "INR", "value": "3000" },
+                "breakup": [
+                    {
+                        "item": { "id": "12391", "fulfillment_ids": ["ff_789"] },
+                        "title": "INVESTMENT",
+                        "price": { "currency": "INR", "value": "2999.85" }
+                    },
+                    {
+                        "item": { "id": "12391", "fulfillment_ids": ["ff_789"] },
+                        "title": "STAMP_DUTY",
+                        "price": { "currency": "INR", "value": "0.15" }
+                    }
+                ]
+            },
             "created_at": "2023-05-25T05:23:03.443Z",
             "updated_at": "2023-05-25T05:23:03.443Z"
         }

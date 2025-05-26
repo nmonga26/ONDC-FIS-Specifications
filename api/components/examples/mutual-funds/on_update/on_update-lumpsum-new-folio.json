@@ -261,10 +261,29 @@
                   "value": "1"
                 }
               ]
+            },
+            {
+              "display": true,
+              "descriptor": {"name": "External Refs", "code": "EXTERNAL_REFS"},
+              "list": [
+                {
+                  "descriptor": {"name": "RTA Identifier", "code": "RTA_IDENTIFIER"},
+                  "value": "21432432"
+                }
+              ]
             }
           ]
         }
       ],
+      "xinput": {
+        "form": {
+          "id": "form_1"
+        },
+        "form_response": {
+          "status": "SUCCESS",
+          "submission_id": "2650edf9-e69c-45c5-b129-89838f0b716e"
+        }
+      },
       "tags": [
         {
           "display": false,

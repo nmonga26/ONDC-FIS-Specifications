@@ -113,7 +113,7 @@
                 "id": "form_2"
             },
             "form_response": {
-                "status": "SUCCESS",
+                "status": "SUBMITTED",
                 "submission_id": "20d1fd2a-827d-460e-bd72-b21064d23002"
             }
         },

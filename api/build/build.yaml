@@ -275,10 +275,6 @@ paths:
                       $ref: '#/components/schemas/Option/properties/id'
                     descriptor:
                       $ref: '#/components/schemas/Descriptor'
-                    tags:
-                      type: array
-                      items:
-                        $ref: '#/components/schemas/TagGroup'
                   required:
                     - order_id
               required:
@@ -2122,6 +2118,7 @@ components:
             - ON_FULFILLMENT
             - POST_FULFILLMENT
             - ON_ORDER
+            - REFUND
         status:
           type: string
           enum:
@@ -3553,7 +3550,7 @@ x-tags:
                     description: Describes the additional amount max value
                     reference: <PR/Issue/Discussion Links md format text>
         tags: &ref_8
-          - &ref_14
+          - &ref_15
             code: BPP_TERMS
             description: >-
               Describes the terms of engagement between the buyer app and seller
@@ -3577,7 +3574,7 @@ x-tags:
     message:
       order:
         tags: &ref_9
-          - &ref_13
+          - &ref_14
             code: BAP_TERMS
             description: >-
               Describes the terms of engagement between the buyer app and seller
@@ -3651,7 +3648,7 @@ x-tags:
                   reference: <PR/Issue/Discussion Links md format text>
         payments:
           tags:
-            - &ref_12
+            - &ref_13
               code: SOURCE_BANK_ACCOUNT
               description: >-
                 Details about the source bank account from which the payment is
@@ -3669,6 +3666,33 @@ x-tags:
     message:
       order:
         tags: *ref_9
+        fulfillments:
+          tags:
+            - &ref_12
+              code: EXTERNAL_FOLIO_INFO
+              description: Describes an external folio
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: FOLIO_NUMBER
+                  description: Folio number
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: HOLDING_PATTERN
+                  description: Holding pattern
+                  reference: <PR/Issue/Discussion Links md format text>
+                  list:
+                    - code: SINGLE
+                      description: Single holding pattern
+                      reference: <PR/Issue/Discussion Links md format text>
+                - code: HOLDER_NAME
+                  description: Name of the folio holder
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: TAX_STATUS
+                  description: Tax status of the folio
+                  reference: <PR/Issue/Discussion Links md format text>
+                  list:
+                    - code: RESIDENT_INDIVIDUAL
+                      description: Indian resident as per tax authority
+                      reference: <PR/Issue/Discussion Links md format text>
   on_init:
     message:
       order:
@@ -3677,16 +3701,20 @@ x-tags:
           tags:
             - *ref_10
             - *ref_11
+            - *ref_12
         payments:
           tags:
-            - *ref_12
+            - *ref_13
         tags: *ref_8
   confirm:
     message:
       order:
-        tags: &ref_15
-          - *ref_13
+        tags: &ref_16
           - *ref_14
+          - *ref_15
+        fulfillments:
+          tags:
+            - *ref_12
   on_confirm:
     message:
       order:
@@ -3695,17 +3723,18 @@ x-tags:
           tags:
             - *ref_10
             - *ref_11
+            - *ref_12
         payments:
           tags:
-            - *ref_12
-        tags: *ref_15
+            - *ref_13
+        tags: *ref_16
   on_status:
     message:
       order:
         items: *ref_7
         payments:
           tags:
-            - &ref_16
+            - &ref_17
               code: PAYMENT_METHOD
               description: Payment method details
               reference: <PR/Issue/Discussion Links md format text>
@@ -3778,7 +3807,7 @@ x-tags:
                   reference: <PR/Issue/Discussion Links md format text>
         fulfillments:
           tags:
-            - &ref_18
+            - &ref_19
               code: INFORMATION
               description: Describes the finder fees for buyer
               reference: <PR/Issue/Discussion Links md format text>
@@ -3804,7 +3833,7 @@ x-tags:
                 - code: NEXT_INSTALMENT_DATE
                   description: Describes the finder fees for buyer
                   reference: <PR/Issue/Discussion Links md format text>
-            - &ref_19
+            - &ref_20
               code: ERROR_INFORMATION
               description: Describes the finder fees for buyer
               reference: <PR/Issue/Discussion Links md format text>
@@ -3815,15 +3844,15 @@ x-tags:
                 - code: REASON_MESSAGE
                   description: Describes the finder fees for buyer
                   reference: <PR/Issue/Discussion Links md format text>
-        tags: *ref_15
+        tags: *ref_16
   update:
     message:
       order:
         payments:
           tags:
-            - *ref_12
-            - *ref_16
-            - &ref_17
+            - *ref_13
+            - *ref_17
+            - &ref_18
               code: SETTLEMENT_DETAILS
               description: Describes the details of the settlements made to the AMC(s)
               reference: <PR/Issue/Discussion Links md format text>
@@ -3858,13 +3887,13 @@ x-tags:
         items: *ref_7
         payments:
           tags:
-            - *ref_12
-            - *ref_16
+            - *ref_13
             - *ref_17
+            - *ref_18
         fulfillments:
           tags:
-            - *ref_18
             - *ref_19
+            - *ref_20
             - code: CANCELLATION_INFO
               description: Details about the cancellation event
               reference: <PR/Issue/Discussion Links md format text>
@@ -3945,33 +3974,14 @@ x-tags:
                 - code: CHILD_ORDER_ID
                   description: Value is the child order id
                   reference: <PR/Issue/Discussion Links md format text>
-        tags: *ref_15
-  cancel:
-    message:
-      tags:
-        - &ref_20
-          code: CONSUMER_INFO
-          description: Describes the customer info tag group.
-          reference: <PR/Issue/Discussion Links md format text>
-          list:
-            - code: IP_ADDRESS
-              description: Describes the ip_address.
+            - code: EXTERNAL_REFS
+              description: Captures any external system references
               reference: <PR/Issue/Discussion Links md format text>
-  on_cancel:
-    message:
-      order:
-        items: *ref_7
-        payments:
-          tags:
-            - *ref_16
-        fulfillments:
-          tags:
-            - *ref_18
-            - *ref_19
-        tags:
-          - *ref_13
-          - *ref_14
-          - *ref_20
+              list:
+                - code: RTA_IDENTIFIER
+                  description: Identifier at the RTA level
+                  reference: <PR/Issue/Discussion Links md format text>
+        tags: *ref_16
 x-flows:
   - summary: Search (Full Pull)
     reference: >-
@@ -4402,8 +4412,12 @@ x-flows:
         example:
           value: *ref_21
   - summary: SIP Creation (New Folio)
-    reference: >-
-      https://github.com/ONDC-Official/ONDC-FIS-Specifications/blob/draft-FIS14-enhancements/api/components/docs/README.md#protocol-details
+    details:
+      - description: >-
+          If first instalment has to be generated immediately, buyer app passes
+          the optional `instructions` attribute in the fulfillment stop next to
+          `time` attribute. eg. `"instructions": { "code":
+          "GENERATE_FIRST_INSTALMENT" }`
     steps:
       - summary: Select
         api: select
@@ -6757,6 +6771,11 @@ x-flows:
                       - time:
                           schedule:
                             frequency: R6/2024-05-15/P1M
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - collected_by: BPP
                     params:
@@ -6967,6 +6986,12 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -7096,6 +7121,11 @@ x-flows:
                       - time:
                           schedule:
                             frequency: R6/2024-05-15/P1M
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -7327,6 +7357,12 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -7589,6 +7625,12 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -7879,6 +7921,12 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -7976,8 +8024,12 @@ x-flows:
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: SIP Creation (New Folio w/ KYC)
-    reference: >-
-      https://github.com/ONDC-Official/ONDC-FIS-Specifications/blob/draft-FIS14-enhancements/api/components/docs/README.md#protocol-details
+    details:
+      - description: >-
+          If first instalment has to be generated immediately, buyer app passes
+          the optional `instructions` attribute in the fulfillment stop next to
+          `time` attribute. eg. `"instructions": { "code":
+          "GENERATE_FIRST_INSTALMENT" }`
     references: if any
     steps:
       - summary: Select
@@ -11757,6 +11809,12 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
+                xinput:
+                  form:
+                    id: form_3
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 8745-1247-6587-8647
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -12005,6 +12063,12 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
+                xinput:
+                  form:
+                    id: form_3
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 8745-1247-6587-8647
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -12573,6 +12637,12 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
+                xinput:
+                  form:
+                    id: form_3
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 8745-1247-6587-8647
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -12670,8 +12740,12 @@ x-flows:
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: SIP Creation (Existing Folio - Investor selects/enters a folio)
-    reference: >-
-      https://github.com/ONDC-Official/ONDC-FIS-Specifications/blob/draft-FIS14-enhancements/api/components/docs/README.md#protocol-details
+    details:
+      - description: >-
+          If first instalment has to be generated immediately, buyer app passes
+          the optional `instructions` attribute in the fulfillment stop next to
+          `time` attribute. eg. `"instructions": { "code":
+          "GENERATE_FIRST_INSTALMENT" }`
     references: if any
     steps:
       - summary: Select
@@ -15995,6 +16069,12 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -16318,6 +16398,12 @@ x-flows:
                               name: Child Order Id
                               code: CHILD_ORDER_ID
                             value: mfp_4234adfdsf4
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -16532,6 +16618,10 @@ x-flows:
                       descriptor:
                         name: Pending
                         code: PENDING
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - id: pmt_234
                     collected_by: BPP
@@ -16543,6 +16633,9 @@ x-flows:
                       source_bank_account_number: '004701563111'
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -16744,6 +16837,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - id: pmt_234
                     collected_by: BPP
@@ -16756,6 +16853,9 @@ x-flows:
                       source_bank_account_name: harish gupta
                       transaction_id: '243423324'
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -16945,6 +17045,10 @@ x-flows:
                       descriptor:
                         name: Successful
                         code: SUCCESSFUL
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -16975,6 +17079,15 @@ x-flows:
                               name: Mobile Number for 2FA
                               code: 2FA_MOBILE_NUMBER_MASKED
                             value: '***9345'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 payments:
                   - id: pmt_567
                     collected_by: BPP
@@ -16987,6 +17100,9 @@ x-flows:
                       source_bank_account_name: harish gupta
                       transaction_id: '243423324'
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -17220,6 +17336,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - id: pmt_234
                     collected_by: BPP
@@ -17231,6 +17351,9 @@ x-flows:
                       source_bank_account_number: '004701563111'
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -17491,6 +17614,10 @@ x-flows:
                       descriptor:
                         name: Failed
                         code: FAILED
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -17505,6 +17632,15 @@ x-flows:
                               name: Reason Message
                               code: REASON_MESSAGE
                             value: Investor is blacklisted for investments
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 payments:
                   - id: pmt_567
                     collected_by: BPP
@@ -17517,6 +17653,9 @@ x-flows:
                       source_bank_account_name: harish gupta
                       transaction_id: '243423324'
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -17813,6 +17952,12 @@ x-flows:
                               name: Child Order Id
                               code: CHILD_ORDER_ID
                             value: mfp_4234adfdsf4
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -18652,6 +18797,12 @@ x-flows:
                               name: Child Order Id
                               code: CHILD_ORDER_ID
                             value: mfp_4234adfdsf4
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -20222,6 +20373,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -23202,6 +23362,11 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - collected_by: BPP
                     params:
@@ -23381,6 +23546,12 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 2650edf9-e69c-45c5-b129-89838f0b716e
                 tags:
                   - display: false
                     descriptor:
@@ -23508,6 +23679,12 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -23707,6 +23884,12 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 2650edf9-e69c-45c5-b129-89838f0b716e
                 tags:
                   - display: false
                     descriptor:
@@ -23936,6 +24119,12 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 2650edf9-e69c-45c5-b129-89838f0b716e
                 tags:
                   - display: false
                     descriptor:
@@ -24208,6 +24397,12 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 2650edf9-e69c-45c5-b129-89838f0b716e
                 tags:
                   - display: false
                     descriptor:
@@ -27011,7 +27206,7 @@ x-flows:
                   form:
                     id: form_2
                   form_response:
-                    status: SUCCESS
+                    status: SUBMITTED
                     submission_id: 20d1fd2a-827d-460e-bd72-b21064d23002
                 fulfillments:
                   - id: ff_123
@@ -27420,7 +27615,7 @@ x-flows:
                   form:
                     id: form_3
                   form_response:
-                    status: SUCCESS
+                    status: SUBMITTED
                     submission_id: 2650edf9-e69c-45c5-b129-89838f0b716e
                 fulfillments:
                   - id: ff_123
@@ -28296,6 +28491,10 @@ x-flows:
                 fulfillments:
                   - id: ff_789
                     type: REDEMPTION
+                    state:
+                      descriptor:
+                        name: Initiated
+                        code: INITIATED
                     customer:
                       person:
                         id: pan:arrpp7771n
@@ -28572,6 +28771,15 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 quote:
                   id: q1
                   price:
@@ -28827,6 +29035,10 @@ x-flows:
                 fulfillments:
                   - id: ff_789
                     type: REDEMPTION
+                    state:
+                      descriptor:
+                        name: Initiated
+                        code: INITIATED
                     customer:
                       person:
                         id: pan:arrpp7771n
@@ -29095,6 +29307,15 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 quote:
                   id: q1
                   price:
@@ -29350,6 +29571,10 @@ x-flows:
                 fulfillments:
                   - id: ff_789
                     type: REDEMPTION
+                    state:
+                      descriptor:
+                        name: Initiated
+                        code: INITIATED
                     customer:
                       person:
                         id: pan:arrpp7771n
@@ -29618,6 +29843,15 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 quote:
                   id: q1
                   price:
@@ -29890,6 +30124,15 @@ x-flows:
                               name: Reason Message
                               code: REASON_MESSAGE
                             value: Units in the folio are lien marked
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 quote:
                   id: q1
                   price:
@@ -32342,6 +32585,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                   - id: ff_124
                     type: LUMPSUM
                     state:
@@ -32816,6 +33068,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                   - id: ff_124
                     type: LUMPSUM
                     state:
@@ -33268,6 +33529,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                   - id: ff_124
                     type: LUMPSUM
                     state:
@@ -33353,6 +33623,15 @@ x-flows:
                               name: Reason Message
                               code: REASON_MESSAGE
                             value: Investor is blacklisted for investments
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -36377,6 +36656,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -36449,6 +36732,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -36507,6 +36794,9 @@ x-flows:
                       source_bank_account_number: '004701563111'
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -36791,6 +37081,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -36863,6 +37157,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -36922,6 +37220,9 @@ x-flows:
                       source_bank_account_name: harish gupta
                       transaction_id: '243423324'
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -37229,6 +37530,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -37301,6 +37606,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -37348,6 +37657,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -37360,6 +37678,9 @@ x-flows:
                       source_bank_account_name: harish gupta
                       transaction_id: '243423324'
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -40500,6 +40821,11 @@ x-flows:
                       - time:
                           schedule:
                             frequency: R6/2024-05-15/P1M
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -40690,6 +41016,12 @@ x-flows:
                               name: Cumulative Amount Minimum
                               code: CUMULATIVE_AMOUNT_MIN
                             value: '30000'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -40797,6 +41129,11 @@ x-flows:
                       - time:
                           schedule:
                             frequency: R6/2024-05-15/P1M
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -41021,6 +41358,12 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -41329,6 +41672,12 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -41545,6 +41894,10 @@ x-flows:
                       descriptor:
                         name: Pending
                         code: PENDING
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -41736,6 +42089,10 @@ x-flows:
                       descriptor:
                         name: Pending
                         code: PENDING
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -42020,6 +42377,10 @@ x-flows:
                       descriptor:
                         name: Pending
                         code: PENDING
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -42236,6 +42597,10 @@ x-flows:
                       descriptor:
                         name: Initiated
                         code: INITIATED
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -42586,6 +42951,12 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                xinput:
+                  form:
+                    id: form_1
+                  form_response:
+                    status: SUCCESS
+                    submission_id: 6547-7456-7235-4386
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -42917,6 +43288,10 @@ x-flows:
                       descriptor:
                         name: Pending
                         code: PENDING
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - id: pmt_234
                     collected_by: BPP
@@ -43227,6 +43602,10 @@ x-flows:
                       descriptor:
                         name: Pending
                         code: PENDING
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - id: pmt_234
                     collected_by: BPP
@@ -44299,6 +44678,10 @@ x-flows:
                 fulfillments:
                   - id: ff_789
                     type: SWITCH_OUT
+                    state:
+                      descriptor:
+                        name: Initiated
+                        code: INITIATED
                     customer:
                       person:
                         id: pan:arrpp7771n
@@ -44350,6 +44733,10 @@ x-flows:
                             value: '1'
                   - id: ff_124
                     type: SWITCH_IN
+                    state:
+                      descriptor:
+                        name: Initiated
+                        code: INITIATED
                     customer:
                       person:
                         id: pan:arrpp7771n
@@ -44657,6 +45044,15 @@ x-flows:
                               name: Units Multiples
                               code: UNITS_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                   - id: ff_124
                     type: SWITCH_IN
                     customer:
@@ -44700,6 +45096,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 tags:
                   - display: false
                     descriptor:
@@ -46424,6 +46829,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -46479,6 +46888,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -46741,6 +47154,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -46771,6 +47188,15 @@ x-flows:
                               name: Units Multiples
                               code: UNITS_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                   - id: ff_124
                     type: STP_IN_INSTALMENT
                     state:
@@ -46796,6 +47222,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -46814,6 +47244,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 tags:
                   - display: false
                     descriptor:
@@ -48142,6 +48581,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -48362,6 +48805,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -48400,6 +48847,15 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 tags:
                   - display: false
                     descriptor:
@@ -53459,311 +53915,16 @@ x-flows:
                         value: '0'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
-  - summary: Instant Redemption (by amount)
+  - summary: External Folio - Lumpsum
+    details:
+      - description: >-
+          As there is no selection required, the buyer app can start the
+          transaction from `init` call. After `on_confirm`, the remaining flow
+          related to payment and on update is the same as regular lumpsum
+          transactions, hence not showing in the flow below.
     references: if any
     steps:
-      - summary: Select redemption in a particular folio and scheme
-        api: select
-        details:
-          - description: Send order details and folio details
-        reference: if any
-        example:
-          value:
-            context:
-              location:
-                country:
-                  code: IND
-                city:
-                  code: '*'
-              domain: ONDC:FIS14
-              timestamp: '2023-05-25T05:23:03.443Z'
-              bap_id: api.buyerapp.com
-              bap_uri: https://api.buyerapp.com/ondc
-              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
-              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
-              version: 2.0.0
-              ttl: PT10M
-              bpp_id: api.sellerapp.com
-              bpp_uri: https://api.sellerapp.com/ondc
-              action: select
-            message:
-              order:
-                provider:
-                  id: sellerapp_id
-                items:
-                  - id: '12391'
-                    quantity:
-                      selected:
-                        measure:
-                          value: '3000'
-                          unit: INR
-                    fulfillment_ids:
-                      - ff_789
-                fulfillments:
-                  - id: ff_789
-                    type: INSTANT_REDEMPTION
-                    customer:
-                      person:
-                        id: pan:arrpp7771n
-                        creds:
-                          - id: 78953432/32
-                            type: FOLIO
-                    agent:
-                      person:
-                        id: euin:E52432
-                      organization:
-                        creds:
-                          - id: ARN-124567
-                            type: ARN
-                          - id: ARN-123456
-                            type: SUB_BROKER_ARN
-                tags:
-                  - display: false
-                    descriptor:
-                      name: BAP Terms of Engagement
-                      code: BAP_TERMS
-                    list:
-                      - descriptor:
-                          name: Static Terms (Transaction Level)
-                          code: STATIC_TERMS
-                        value: >-
-                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
-                      - descriptor:
-                          name: Offline Contract
-                          code: OFFLINE_CONTRACT
-                        value: 'true'
-      - summary: Get the redemption payout a/c details
-        api: on_select
-        details:
-          - description: List of payout bank a/cs is sent
-        reference: if any
-        example:
-          value:
-            context:
-              location:
-                country:
-                  code: IND
-                city:
-                  code: '*'
-              domain: ONDC:FIS14
-              timestamp: '2023-05-25T05:23:03.443Z'
-              bap_id: api.buyerapp.com
-              bap_uri: https://api.buyerapp.com/ondc
-              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
-              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
-              version: 2.0.0
-              ttl: PT10M
-              bpp_id: api.sellerapp.com
-              bpp_uri: https://api.sellerapp.com/ondc
-              action: on_select
-            message:
-              order:
-                provider:
-                  id: sellerapp_id
-                  descriptor:
-                    name: Seller App Name
-                items:
-                  - id: '12391'
-                    parent_item_id: '138'
-                    descriptor:
-                      name: ABC Mid Cap Fund - Regular - Growth
-                      code: SCHEME_PLAN
-                    quantity:
-                      selected:
-                        measure:
-                          value: '3000'
-                          unit: INR
-                    fulfillment_ids:
-                      - ff_789
-                    tags:
-                      - display: true
-                        descriptor:
-                          name: Plan Information
-                          code: PLAN_INFORMATION
-                        list:
-                          - descriptor:
-                              name: Consumer Terms & Conditions
-                              code: CONSUMER_TNC
-                            value: >-
-                              https://sellerapp.com/legal/ondc:fis14/consumer_tnc.html
-                      - display: true
-                        descriptor:
-                          name: Plan Identifiers
-                          code: PLAN_IDENTIFIERS
-                        list:
-                          - descriptor:
-                              name: ISIN
-                              code: ISIN
-                            value: IN123214324
-                          - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
-                            value: 02BZ
-                          - descriptor:
-                              name: AMFI Identifier
-                              code: AMFI_IDENTIFIER
-                            value: '125487'
-                      - display: true
-                        descriptor:
-                          name: Plan Options
-                          code: PLAN_OPTIONS
-                        list:
-                          - descriptor:
-                              name: Plan
-                              code: PLAN
-                            value: REGULAR
-                          - descriptor:
-                              name: Option
-                              code: OPTION
-                            value: IDCW
-                          - descriptor:
-                              name: IDCW Option
-                              code: IDCW_OPTION
-                            value: PAYOUT
-                fulfillments:
-                  - id: ff_789
-                    type: INSTANT_REDEMPTION
-                    customer:
-                      person:
-                        id: pan:arrpp7771n
-                        creds:
-                          - id: 78953432/32
-                            type: FOLIO
-                    agent:
-                      person:
-                        id: euin:E52432
-                      organization:
-                        creds:
-                          - id: ARN-124567
-                            type: ARN
-                          - id: ARN-123456
-                            type: SUB_BROKER_ARN
-                    tags:
-                      - display: true
-                        descriptor:
-                          name: Thresholds
-                          code: THRESHOLDS
-                        list:
-                          - descriptor:
-                              name: Amount Minimum
-                              code: AMOUNT_MIN
-                            value: '1000'
-                          - descriptor:
-                              name: Amount Maximum
-                              code: AMOUNT_MAX
-                            value: '10000'
-                          - descriptor:
-                              name: Amount Multiples
-                              code: AMOUNT_MULTIPLES
-                            value: '1'
-                          - descriptor:
-                              name: Units Minimum
-                              code: UNITS_MIN
-                            value: '1'
-                          - descriptor:
-                              name: Units Maximum
-                              code: UNITS_MAX
-                            value: '500'
-                          - descriptor:
-                              name: Units Multiples
-                              code: UNITS_MULTIPLES
-                            value: '1'
-                      - display: true
-                        descriptor:
-                          name: Payout Bank Account
-                          code: PAYOUT_BANK_ACCOUNT
-                        list:
-                          - descriptor:
-                              name: Identifier
-                              code: IDENTIFIER
-                            value: ba_369823523564
-                          - descriptor:
-                              name: Account Number
-                              code: MASKED_ACCOUNT_NUMBER
-                            value: '******1234'
-                          - descriptor:
-                              name: Account Holder Name
-                              code: ACCOUNT_HOLDER_NAME
-                            value: Satish K Perala
-                          - descriptor:
-                              name: Account Type
-                              code: ACCOUNT_TYPE
-                            value: SAVINGS
-                          - descriptor:
-                              name: Bank Name
-                              code: BANK_NAME
-                            value: ICICI BANK
-                          - descriptor:
-                              name: Bank Code
-                              code: BANK_CODE
-                            value: ICIC0000047
-                      - display: true
-                        descriptor:
-                          name: Payout Bank Account
-                          code: PAYOUT_BANK_ACCOUNT
-                        list:
-                          - descriptor:
-                              name: Identifier
-                              code: IDENTIFIER
-                            value: ba_124234234234
-                          - descriptor:
-                              name: Account Number
-                              code: MASKED_ACCOUNT_NUMBER
-                            value: '******0245'
-                          - descriptor:
-                              name: Account Holder Name
-                              code: ACCOUNT_HOLDER_NAME
-                            value: Satish K Perala
-                          - descriptor:
-                              name: Account Type
-                              code: ACCOUNT_TYPE
-                            value: SAVINGS
-                          - descriptor:
-                              name: Bank Name
-                              code: BANK_NAME
-                            value: HDFC BANK
-                          - descriptor:
-                              name: Bank Code
-                              code: BANK_CODE
-                            value: HDFC0000091
-                tags:
-                  - display: false
-                    descriptor:
-                      name: BPP Terms of Engagement
-                      code: BPP_TERMS
-                    list:
-                      - descriptor:
-                          name: Static Terms (Transaction Level)
-                          code: STATIC_TERMS
-                        value: >-
-                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
-                      - descriptor:
-                          name: Offline Contract
-                          code: OFFLINE_CONTRACT
-                        value: 'true'
-                quote:
-                  id: q1
-                  price:
-                    currency: INR
-                    value: '2999.25'
-                  breakup:
-                    - item:
-                        id: '12391'
-                        fulfillment_ids:
-                          - ff_789
-                      title: REDEMPTION
-                      price:
-                        currency: INR
-                        value: '3000'
-                    - item:
-                        id: '12391'
-                        fulfillment_ids:
-                          - ff_789
-                      title: SECURITIES_TRANSACTION_TAX
-                      price:
-                        currency: INR
-                        value: '-0.75'
-      - summary: Initialize the redemption order
+      - summary: Initialize the Lumpsum order for external folio
         api: init
         details:
           - description: Send order details and folio details
@@ -53802,7 +53963,7 @@ x-flows:
                       - ff_789
                 fulfillments:
                   - id: ff_789
-                    type: INSTANT_REDEMPTION
+                    type: LUMPSUM
                     customer:
                       person:
                         id: pan:arrpp7771n
@@ -53824,13 +53985,50 @@ x-flows:
                             type: SUB_BROKER_ARN
                     tags:
                       - descriptor:
-                          name: Payout Bank Account
-                          code: PAYOUT_BANK_ACCOUNT
+                          name: External Folio Information
+                          code: EXTERNAL_FOLIO_INFO
                         list:
                           - descriptor:
-                              name: Identifier
-                              code: IDENTIFIER
-                            value: ba_369823523564
+                              name: Folio Number
+                              code: FOLIO_NUMBER
+                            value: 78953432/32
+                          - descriptor:
+                              name: Holding Pattern
+                              code: HOLDING_PATTERN
+                            value: SINGLE
+                          - descriptor:
+                              name: Holder Name
+                              code: HOLDER_NAME
+                            value: Satish K Perala
+                          - descriptor:
+                              name: Tax Status
+                              code: TAX_STATUS
+                            value: resident_individual
+                payments:
+                  - collected_by: BPP
+                    params:
+                      amount: '3000'
+                      currency: INR
+                      source_bank_code: icic0000047
+                      source_bank_account_number: '004701563111'
+                      source_bank_account_name: harish gupta
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -53849,7 +54047,7 @@ x-flows:
       - summary: On Init
         api: on_init
         details:
-          - description: Draft order is sent back
+          - description: Draft order is sent back with payment url
         reference: if any
         example:
           value:
@@ -53891,6 +54089,8 @@ x-flows:
                           unit: INR
                     fulfillment_ids:
                       - ff_789
+                    payment_ids:
+                      - pmt_123
                     tags:
                       - display: true
                         descriptor:
@@ -53938,7 +54138,7 @@ x-flows:
                             value: PAYOUT
                 fulfillments:
                   - id: ff_789
-                    type: INSTANT_REDEMPTION
+                    type: LUMPSUM
                     customer:
                       person:
                         id: pan:arrpp7771n
@@ -53959,6 +54159,26 @@ x-flows:
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
                     tags:
+                      - descriptor:
+                          name: External Folio Information
+                          code: EXTERNAL_FOLIO_INFO
+                        list:
+                          - descriptor:
+                              name: Folio Number
+                              code: FOLIO_NUMBER
+                            value: 78953432/32
+                          - descriptor:
+                              name: Holding Pattern
+                              code: HOLDING_PATTERN
+                            value: SINGLE
+                          - descriptor:
+                              name: Holder Name
+                              code: HOLDER_NAME
+                            value: Satish K Perala
+                          - descriptor:
+                              name: Tax Status
+                              code: TAX_STATUS
+                            value: resident_individual
                       - display: true
                         descriptor:
                           name: Thresholds
@@ -53976,27 +54196,34 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
-                          - descriptor:
-                              name: Units Minimum
-                              code: UNITS_MIN
-                            value: '1'
-                          - descriptor:
-                              name: Units Maximum
-                              code: UNITS_MAX
-                            value: '500'
-                          - descriptor:
-                              name: Units Multiples
-                              code: UNITS_MULTIPLES
-                            value: '1'
-                      - display: true
-                        descriptor:
-                          name: Payout Bank Account
-                          code: PAYOUT_BANK_ACCOUNT
+                payments:
+                  - id: pmt_123
+                    collected_by: BPP
+                    url: https://api.sellerapp.com/payment?k=abdafaf
+                    status: NOT-PAID
+                    params:
+                      amount: '3000'
+                      currency: INR
+                      source_bank_code: icic0000047
+                      source_bank_account_number: '004701563111'
+                      source_bank_account_name: harish gupta
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
                         list:
                           - descriptor:
-                              name: Identifier
-                              code: IDENTIFIER
-                            value: ba_369823523564
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -54016,30 +54243,30 @@ x-flows:
                   id: q1
                   price:
                     currency: INR
-                    value: '2999.25'
+                    value: '3000'
                   breakup:
                     - item:
                         id: '12391'
                         fulfillment_ids:
                           - ff_789
-                      title: REDEMPTION
+                      title: INVESTMENT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
                     - item:
                         id: '12391'
                         fulfillment_ids:
                           - ff_789
-                      title: SECURITIES_TRANSACTION_TAX
+                      title: STAMP_DUTY
                       price:
                         currency: INR
-                        value: '-0.75'
+                        value: '0.15'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: Confirm
         api: confirm
         details:
-          - description: Send order confirmation w/ 2fa details
+          - description: Send order confirmation
         reference: if any
         example:
           value:
@@ -54062,7 +54289,7 @@ x-flows:
               action: confirm
             message:
               order:
-                id: mfr_213adf123af
+                id: mfpp_213adf123af
                 provider:
                   id: sellerapp_id
                 items:
@@ -54074,9 +54301,11 @@ x-flows:
                           unit: INR
                     fulfillment_ids:
                       - ff_789
+                    payment_ids:
+                      - pmt_123
                 fulfillments:
                   - id: ff_789
-                    type: INSTANT_REDEMPTION
+                    type: LUMPSUM
                     customer:
                       person:
                         id: pan:arrpp7771n
@@ -54098,13 +54327,52 @@ x-flows:
                             type: SUB_BROKER_ARN
                     tags:
                       - descriptor:
-                          name: Payout Bank Account
-                          code: PAYOUT_BANK_ACCOUNT
+                          name: External Folio Information
+                          code: EXTERNAL_FOLIO_INFO
                         list:
                           - descriptor:
-                              name: Identifier
-                              code: IDENTIFIER
-                            value: ba_369823523564
+                              name: Folio Number
+                              code: FOLIO_NUMBER
+                            value: 78953432/32
+                          - descriptor:
+                              name: Holding Pattern
+                              code: HOLDING_PATTERN
+                            value: SINGLE
+                          - descriptor:
+                              name: Holder Name
+                              code: HOLDER_NAME
+                            value: Satish K Perala
+                          - descriptor:
+                              name: Tax Status
+                              code: TAX_STATUS
+                            value: resident_individual
+                payments:
+                  - id: pmt_123
+                    collected_by: BPP
+                    status: NOT-PAID
+                    params:
+                      amount: '3000'
+                      currency: INR
+                      source_bank_code: icic0000047
+                      source_bank_account_number: '004701563111'
+                      source_bank_account_name: harish gupta
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
+                        list:
+                          - descriptor:
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -54137,7 +54405,7 @@ x-flows:
       - summary: On Confirm
         api: on_confirm
         details:
-          - description: Send accepted order along with fulfillment status initiated
+          - description: Send order acceptance
         reference: if any
         example:
           value:
@@ -54160,7 +54428,7 @@ x-flows:
               action: on_confirm
             message:
               order:
-                id: mfr_213adf123af
+                id: mfpp_213adf123af
                 status: ACCEPTED
                 provider:
                   id: sellerapp_id
@@ -54179,6 +54447,8 @@ x-flows:
                           unit: INR
                     fulfillment_ids:
                       - ff_789
+                    payment_ids:
+                      - pmt_123
                     tags:
                       - display: true
                         descriptor:
@@ -54226,11 +54496,7 @@ x-flows:
                             value: PAYOUT
                 fulfillments:
                   - id: ff_789
-                    type: INSTANT_REDEMPTION
-                    state:
-                      descriptor:
-                        name: Initiated
-                        code: INITIATED
+                    type: LUMPSUM
                     customer:
                       person:
                         id: pan:arrpp7771n
@@ -54241,6 +54507,10 @@ x-flows:
                             type: IP_ADDRESS
                       contact:
                         phone: '9916599123'
+                    state:
+                      descriptor:
+                        name: Pending
+                        code: PENDING
                     agent:
                       person:
                         id: euin:E52432
@@ -54251,6 +54521,26 @@ x-flows:
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
                     tags:
+                      - descriptor:
+                          name: External Folio Information
+                          code: EXTERNAL_FOLIO_INFO
+                        list:
+                          - descriptor:
+                              name: Folio Number
+                              code: FOLIO_NUMBER
+                            value: 78953432/32
+                          - descriptor:
+                              name: Holding Pattern
+                              code: HOLDING_PATTERN
+                            value: SINGLE
+                          - descriptor:
+                              name: Holder Name
+                              code: HOLDER_NAME
+                            value: Satish K Perala
+                          - descriptor:
+                              name: Tax Status
+                              code: TAX_STATUS
+                            value: resident_individual
                       - display: true
                         descriptor:
                           name: Thresholds
@@ -54268,267 +54558,34 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
-                          - descriptor:
-                              name: Units Minimum
-                              code: UNITS_MIN
-                            value: '1'
-                          - descriptor:
-                              name: Units Maximum
-                              code: UNITS_MAX
-                            value: '500'
-                          - descriptor:
-                              name: Units Multiples
-                              code: UNITS_MULTIPLES
-                            value: '1'
-                      - descriptor:
-                          name: Payout Bank Account
-                          code: PAYOUT_BANK_ACCOUNT
-                        list:
-                          - descriptor:
-                              name: Identifier
-                              code: IDENTIFIER
-                            value: ba_369823523564
-                tags:
-                  - display: false
-                    descriptor:
-                      name: BAP Terms of Engagement
-                      code: BAP_TERMS
-                    list:
-                      - descriptor:
-                          name: Static Terms (Transaction Level)
-                          code: STATIC_TERMS
-                        value: >-
-                          https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1
-                      - descriptor:
-                          name: Offline Contract
-                          code: OFFLINE_CONTRACT
-                        value: 'true'
-                  - display: false
-                    descriptor:
-                      name: BPP Terms of Engagement
-                      code: BPP_TERMS
-                    list:
-                      - descriptor:
-                          name: Static Terms (Transaction Level)
-                          code: STATIC_TERMS
-                        value: >-
-                          https://sellerapp.com/legal/ondc:fis14/static_terms?v=0.1
-                      - descriptor:
-                          name: Offline Contract
-                          code: OFFLINE_CONTRACT
-                        value: 'true'
-                quote:
-                  id: q1
-                  price:
-                    currency: INR
-                    value: '2999.25'
-                  breakup:
-                    - item:
-                        id: '12391'
-                        fulfillment_ids:
-                          - ff_789
-                      title: REDEMPTION
-                      price:
-                        currency: INR
-                        value: '3000'
-                    - item:
-                        id: '12391'
-                        fulfillment_ids:
-                          - ff_789
-                      title: SECURITIES_TRANSACTION_TAX
-                      price:
-                        currency: INR
-                        value: '-0.75'
-                created_at: '2023-05-25T05:23:03.443Z'
-                updated_at: '2023-05-25T05:23:03.443Z'
-      - summary: On Update
-        api: on_update
-        details:
-          - description: Send redemption successful
-        reference: if any
-        example:
-          value:
-            context:
-              location:
-                country:
-                  code: IND
-                city:
-                  code: '*'
-              domain: ONDC:FIS14
-              timestamp: '2023-05-25T05:23:03.443Z'
-              bap_id: api.buyerapp.com
-              bap_uri: https://api.buyerapp.com/ondc
-              transaction_id: a9aaecca-10b7-4d19-b640-b047a7c62196
-              message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
-              version: 2.0.0
-              ttl: PT10M
-              bpp_id: api.sellerapp.com
-              bpp_uri: https://api.sellerapp.com/ondc
-              action: on_update
-            message:
-              order:
-                id: mfr_3454dfadssf435345
-                status: COMPLETED
-                provider:
-                  id: sellerapp_id
-                  descriptor:
-                    name: Seller App Name
-                items:
-                  - id: '12391'
-                    parent_item_id: '138'
-                    descriptor:
-                      name: ABC Mid Cap Fund - Regular - Growth
-                      code: SCHEME_PLAN
-                    quantity:
-                      selected:
-                        measure:
-                          value: '3000'
-                          unit: INR
-                      allocated:
-                        measure:
-                          value: '150.0000'
-                          unit: MF_UNITS
-                    fulfillment_ids:
-                      - ff_008
-                    tags:
-                      - display: true
-                        descriptor:
-                          name: Plan Information
-                          code: PLAN_INFORMATION
-                        list:
-                          - descriptor:
-                              name: Consumer Terms & Conditions
-                              code: CONSUMER_TNC
-                            value: >-
-                              https://sellerapp.com/legal/ondc:fis14/consumer_tnc.html
-                      - display: true
-                        descriptor:
-                          name: Plan Identifiers
-                          code: PLAN_IDENTIFIERS
-                        list:
-                          - descriptor:
-                              name: ISIN
-                              code: ISIN
-                            value: IN123214324
-                          - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
-                            value: 02BZ
-                          - descriptor:
-                              name: AMFI Identifier
-                              code: AMFI_IDENTIFIER
-                            value: '125487'
-                      - display: true
-                        descriptor:
-                          name: Plan Options
-                          code: PLAN_OPTIONS
-                        list:
-                          - descriptor:
-                              name: Plan
-                              code: PLAN
-                            value: REGULAR
-                          - descriptor:
-                              name: Option
-                              code: OPTION
-                            value: IDCW
-                          - descriptor:
-                              name: IDCW Option
-                              code: IDCW_OPTION
-                            value: PAYOUT
-                    price:
+                payments:
+                  - id: pmt_123
+                    collected_by: BPP
+                    url: https://api.sellerapp.com/payment?k=abdafaf
+                    status: NOT-PAID
+                    params:
+                      amount: '3000'
                       currency: INR
-                      value: '20.0000'
-                      listed_value: '20.2500'
-                    time:
-                      label: NAV Date
-                      timestamp: '2024-07-23T00:00:00+05:30'
-                fulfillments:
-                  - id: ff_008
-                    type: INSTANT_REDEMPTION
-                    customer:
-                      person:
-                        id: pan:arrpp7771n
-                        creds:
-                          - id: 78953432/32
-                            type: FOLIO
-                          - id: 115.245.207.90
-                            type: IP_ADDRESS
-                      contact:
-                        phone: '9916599123'
-                    agent:
-                      person:
-                        id: euin:E52432
-                      organization:
-                        creds:
-                          - id: ARN-124567
-                            type: ARN
-                          - id: ARN-123456
-                            type: SUB_BROKER_ARN
-                    state:
-                      descriptor:
-                        name: Successful
-                        code: SUCCESSFUL
+                      source_bank_code: icic0000047
+                      source_bank_account_number: '004701563111'
+                      source_bank_account_name: harish gupta
+                    type: PRE_FULFILLMENT
                     tags:
-                      - display: true
-                        descriptor:
-                          name: Thresholds
-                          code: THRESHOLDS
+                      - descriptor:
+                          name: Source bank account
+                          code: SOURCE_BANK_ACCOUNT
                         list:
                           - descriptor:
-                              name: Amount Minimum
-                              code: AMOUNT_MIN
-                            value: '1000'
-                          - descriptor:
-                              name: Amount Maximum
-                              code: AMOUNT_MAX
-                            value: '10000'
-                          - descriptor:
-                              name: Amount Multiples
-                              code: AMOUNT_MULTIPLES
-                            value: '1'
-                          - descriptor:
-                              name: Units Minimum
-                              code: UNITS_MIN
-                            value: '1'
-                          - descriptor:
-                              name: Units Maximum
-                              code: UNITS_MAX
-                            value: '500'
-                          - descriptor:
-                              name: Units Multiples
-                              code: UNITS_MULTIPLES
-                            value: '1'
-                      - display: true
-                        descriptor:
-                          name: Payout Bank Account
-                          code: PAYOUT_BANK_ACCOUNT
+                              name: Account Type
+                              code: ACCOUNT_TYPE
+                            value: SAVINGS
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
                         list:
                           - descriptor:
-                              name: Identifier
-                              code: IDENTIFIER
-                            value: ba_369823523564
-                quote:
-                  id: q1
-                  price:
-                    currency: INR
-                    value: '2999.25'
-                  breakup:
-                    - item:
-                        id: '12391'
-                        fulfillment_ids:
-                          - ff_008
-                      title: REDEMPTION
-                      price:
-                        currency: INR
-                        value: '3000'
-                    - item:
-                        id: '12391'
-                        fulfillment_ids:
-                          - ff_008
-                      title: SECURITIES_TRANSACTION_TAX
-                      price:
-                        currency: INR
-                        value: '-0.75'
+                              code: MODE
+                            value: NETBANKING
                 tags:
                   - display: false
                     descriptor:
@@ -54558,6 +54615,33 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                cancellation_terms:
+                  - reason_required: true
+                    external_ref:
+                      url: https://api.sellerapp.com/cterms?id=214werw3w4
+                      mimetype: text/html
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '3000'
+                  breakup:
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_789
+                      title: INVESTMENT
+                      price:
+                        currency: INR
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_789
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
 x-examples:

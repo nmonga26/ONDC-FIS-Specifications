@@ -140,6 +140,11 @@
                     "state": {
                         "descriptor": {"name": "Successful", "code": "SUCCESSFUL"}
                     },
+                    "stops": [
+                        {
+                            "time": { "label": "SCHEDULED_ON", "timestamp": "2023-05-15T05:30:00.000Z" }
+                        }
+                    ],
                     "tags": [
                         {
                             "display": true,
@@ -185,7 +190,17 @@
                                 "value": "***9345"
                               }
                             ]
-                          }
+                          },
+                        {
+                            "display": true,
+                            "descriptor": {"name": "External Refs", "code": "EXTERNAL_REFS"},
+                            "list": [
+                                {
+                                    "descriptor": {"name": "RTA Identifier", "code": "RTA_IDENTIFIER"},
+                                    "value": "21432432"
+                                }
+                            ]
+                        }
                     ]
                 }
             ],
@@ -203,6 +218,7 @@
                         "transaction_id": "243423324"
                     },
                     "type": "PRE_FULFILLMENT",
+                    "time": { "label": "SCHEDULED_ON", "timestamp": "2023-05-15T05:30:00.000Z" },
                     "tags": [
                         {
                             "descriptor": { "name": "Source bank account", "code": "SOURCE_BANK_ACCOUNT" },
