@@ -100,3 +100,16 @@ type:
   - code: REDEMPTION
     description: Describes the type of fulfillment.
     reference: <PR/Issue/Discussion Links md format text   
+
+customer:
+  person:
+    creds:
+      type:
+        - code: FOLIO
+          description: The folio number
+        - code: IP_ADDRESS
+          description: IP address of the machine/location from where the consumer placed the order
+        - code: 2FA_EMAIL_OTP
+          description: The actual OTP sent to the email address of the consumer (if 2fa performed via email otp)
+        - code: 2FA_PHONE_OTP
+          description: The actual OTP sent to the mobile of the consumer (if 2fa performed via phone otp)
