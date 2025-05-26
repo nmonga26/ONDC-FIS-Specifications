@@ -301,6 +301,26 @@
                                     ]
                                 }
                             ]
+                        },
+                        {
+                            "id": "ff_023",
+                            "type": "INSTANT_REDEMPTION",
+                            "tags": [
+                                {
+                                    "display": true,
+                                    "descriptor": {"name": "Thresholds", "code": "THRESHOLDS"},
+                                    "list": [
+                                        {
+                                            "descriptor": {"name": "Amount Minimum", "code": "AMOUNT_MIN"},
+                                            "value": "1000"
+                                        },
+                                        {
+                                            "descriptor": {"name": "Amount Maximum", "code": "AMOUNT_MAX"},
+                                            "value": "50000"
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }

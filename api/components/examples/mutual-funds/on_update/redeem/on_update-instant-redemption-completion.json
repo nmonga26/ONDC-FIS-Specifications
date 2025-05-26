@@ -47,7 +47,7 @@
                             }
                         }
                     },
-                    "fulfillment_ids": ["ff_008"],
+                    "fulfillment_ids": ["ff_023"],
                     "tags": [
                         {
                             "display": true,
@@ -102,7 +102,7 @@
             ],
             "fulfillments": [
                 {
-                    "id": "ff_008",
+                    "id": "ff_023",
                     "type": "INSTANT_REDEMPTION",
                     "customer": {
                         "person": {

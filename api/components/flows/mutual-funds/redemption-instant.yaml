@@ -56,8 +56,16 @@ steps:
   - summary: On Update
     api: on_update
     details:
-      - description: Send redemption successful
+      - description: Send redemption payout successful, but order in accepted state
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_update/redeem/on_update-instant-redemption.json"
+        $ref: "../../examples/mutual-funds/on_update/redeem/on_update-instant-redemption-payout-success.json"
+  - summary: On Update
+    api: on_update
+    details:
+      - description: Send order completed status with details on units, price, nav etc.
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_update/redeem/on_update-instant-redemption-completion.json"
