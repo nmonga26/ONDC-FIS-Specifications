@@ -244,6 +244,13 @@ order:
               - code: RESIDENT_INDIVIDUAL
                 description: Indian resident as per tax authority
                 reference: <PR/Issue/Discussion Links md format text>
+      - code: EXTERNAL_REFS
+        description : Captures any external system references
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: RTA_IDENTIFIER
+            description : Identifier at the RTA level
+            reference: <PR/Issue/Discussion Links md format text>
 
   payments:
     tags:

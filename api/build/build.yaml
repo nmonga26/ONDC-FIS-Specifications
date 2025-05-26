@@ -3974,6 +3974,13 @@ x-tags:
                 - code: CHILD_ORDER_ID
                   description: Value is the child order id
                   reference: <PR/Issue/Discussion Links md format text>
+            - code: EXTERNAL_REFS
+              description: Captures any external system references
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: RTA_IDENTIFIER
+                  description: Identifier at the RTA level
+                  reference: <PR/Issue/Discussion Links md format text>
         tags: *ref_16
 x-flows:
   - summary: Search (Full Pull)
@@ -16611,6 +16618,10 @@ x-flows:
                       descriptor:
                         name: Pending
                         code: PENDING
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - id: pmt_234
                     collected_by: BPP
@@ -16622,6 +16633,9 @@ x-flows:
                       source_bank_account_number: '004701563111'
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -16823,6 +16837,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - id: pmt_234
                     collected_by: BPP
@@ -16835,6 +16853,9 @@ x-flows:
                       source_bank_account_name: harish gupta
                       transaction_id: '243423324'
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -17024,6 +17045,10 @@ x-flows:
                       descriptor:
                         name: Successful
                         code: SUCCESSFUL
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -17054,6 +17079,15 @@ x-flows:
                               name: Mobile Number for 2FA
                               code: 2FA_MOBILE_NUMBER_MASKED
                             value: '***9345'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 payments:
                   - id: pmt_567
                     collected_by: BPP
@@ -17066,6 +17100,9 @@ x-flows:
                       source_bank_account_name: harish gupta
                       transaction_id: '243423324'
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -17299,6 +17336,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - id: pmt_234
                     collected_by: BPP
@@ -17310,6 +17351,9 @@ x-flows:
                       source_bank_account_number: '004701563111'
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -17570,6 +17614,10 @@ x-flows:
                       descriptor:
                         name: Failed
                         code: FAILED
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -17584,6 +17632,15 @@ x-flows:
                               name: Reason Message
                               code: REASON_MESSAGE
                             value: Investor is blacklisted for investments
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 payments:
                   - id: pmt_567
                     collected_by: BPP
@@ -17596,6 +17653,9 @@ x-flows:
                       source_bank_account_name: harish gupta
                       transaction_id: '243423324'
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -20313,6 +20373,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -28702,6 +28771,15 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 quote:
                   id: q1
                   price:
@@ -29229,6 +29307,15 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 quote:
                   id: q1
                   price:
@@ -29756,6 +29843,15 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 quote:
                   id: q1
                   price:
@@ -30028,6 +30124,15 @@ x-flows:
                               name: Reason Message
                               code: REASON_MESSAGE
                             value: Units in the folio are lien marked
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 quote:
                   id: q1
                   price:
@@ -32480,6 +32585,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                   - id: ff_124
                     type: LUMPSUM
                     state:
@@ -32954,6 +33068,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                   - id: ff_124
                     type: LUMPSUM
                     state:
@@ -33406,6 +33529,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                   - id: ff_124
                     type: LUMPSUM
                     state:
@@ -33491,6 +33623,15 @@ x-flows:
                               name: Reason Message
                               code: REASON_MESSAGE
                             value: Investor is blacklisted for investments
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -36515,6 +36656,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -36587,6 +36732,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -36645,6 +36794,9 @@ x-flows:
                       source_bank_account_number: '004701563111'
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -36929,6 +37081,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -37001,6 +37157,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -37060,6 +37220,9 @@ x-flows:
                       source_bank_account_name: harish gupta
                       transaction_id: '243423324'
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -37367,6 +37530,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -37439,6 +37606,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -37486,6 +37657,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -37498,6 +37678,9 @@ x-flows:
                       source_bank_account_name: harish gupta
                       transaction_id: '243423324'
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -41711,6 +41894,10 @@ x-flows:
                       descriptor:
                         name: Pending
                         code: PENDING
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -41902,6 +42089,10 @@ x-flows:
                       descriptor:
                         name: Pending
                         code: PENDING
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -42186,6 +42377,10 @@ x-flows:
                       descriptor:
                         name: Pending
                         code: PENDING
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -42402,6 +42597,10 @@ x-flows:
                       descriptor:
                         name: Initiated
                         code: INITIATED
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -43089,6 +43288,10 @@ x-flows:
                       descriptor:
                         name: Pending
                         code: PENDING
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - id: pmt_234
                     collected_by: BPP
@@ -43399,6 +43602,10 @@ x-flows:
                       descriptor:
                         name: Pending
                         code: PENDING
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - id: pmt_234
                     collected_by: BPP
@@ -44837,6 +45044,15 @@ x-flows:
                               name: Units Multiples
                               code: UNITS_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                   - id: ff_124
                     type: SWITCH_IN
                     customer:
@@ -44880,6 +45096,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 tags:
                   - display: false
                     descriptor:
@@ -46604,6 +46829,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -46659,6 +46888,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -46921,6 +47154,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -46951,6 +47188,15 @@ x-flows:
                               name: Units Multiples
                               code: UNITS_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                   - id: ff_124
                     type: STP_IN_INSTALMENT
                     state:
@@ -46976,6 +47222,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -46994,6 +47244,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 tags:
                   - display: false
                     descriptor:
@@ -48322,6 +48581,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -48542,6 +48805,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -48580,6 +48847,15 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 tags:
                   - display: false
                     descriptor:
