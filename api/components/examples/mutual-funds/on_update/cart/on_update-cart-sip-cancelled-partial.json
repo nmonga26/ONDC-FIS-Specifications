@@ -291,10 +291,6 @@
                                     "value": "GOAL_ACHIEVED"
                                 },
                                 {
-                                    "descriptor": {"name": "Reason Message", "code": "REASON_MESSAGE"},
-                                    "value": "Investment goal is achieved"
-                                },
-                                {
                                     "descriptor": {"name": "Cancelled by", "code": "CANCELLED_BY"},
                                     "value": "CONSUMER"
                                 },

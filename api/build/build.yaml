@@ -17923,10 +17923,6 @@ x-flows:
                               code: REASON_CODE
                             value: FAILURE_THRESHOLD_REACHED
                           - descriptor:
-                              name: Reason Message
-                              code: REASON_MESSAGE
-                            value: 3 consecutive instalments failed
-                          - descriptor:
                               name: Cancelled by
                               code: CANCELLED_BY
                             value: PROVIDER
@@ -18371,10 +18367,6 @@ x-flows:
                               name: Reason Code
                               code: REASON_CODE
                             value: GOAL_ACHIEVED
-                          - descriptor:
-                              name: Reason Message
-                              code: REASON_MESSAGE
-                            value: Investment goal is achieved
                           - descriptor:
                               name: Cancelled by
                               code: CANCELLED_BY
@@ -37949,6 +37941,8 @@ x-flows:
                       person:
                         id: pan:arrpp7771n
                         creds:
+                          - id: 78953432/32
+                            type: FOLIO
                           - id: 115.245.207.90
                             type: IP_ADDRESS
                       contact:
