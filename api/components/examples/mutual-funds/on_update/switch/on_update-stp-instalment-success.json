@@ -203,6 +203,11 @@
                             ]
                         }
                     },
+                    "stops": [
+                        {
+                            "time": { "label": "SCHEDULED_ON", "timestamp": "2023-05-15T05:30:00.000Z" }
+                        }
+                    ],
                     "tags": [
                         {
                             "display": true,
@@ -277,6 +282,11 @@
                             ]
                         }
                     },
+                    "stops": [
+                        {
+                            "time": { "label": "SCHEDULED_ON", "timestamp": "2023-05-15T05:30:00.000Z" }
+                        }
+                    ],
                     "tags": [
                         {
                             "display": true,

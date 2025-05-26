@@ -16547,6 +16547,10 @@ x-flows:
                       descriptor:
                         name: Pending
                         code: PENDING
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - id: pmt_234
                     collected_by: BPP
@@ -16558,6 +16562,9 @@ x-flows:
                       source_bank_account_number: '004701563111'
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -16759,6 +16766,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - id: pmt_234
                     collected_by: BPP
@@ -16771,6 +16782,9 @@ x-flows:
                       source_bank_account_name: harish gupta
                       transaction_id: '243423324'
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -16960,6 +16974,10 @@ x-flows:
                       descriptor:
                         name: Successful
                         code: SUCCESSFUL
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -17002,6 +17020,9 @@ x-flows:
                       source_bank_account_name: harish gupta
                       transaction_id: '243423324'
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -17235,6 +17256,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - id: pmt_234
                     collected_by: BPP
@@ -17246,6 +17271,9 @@ x-flows:
                       source_bank_account_number: '004701563111'
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -17506,6 +17534,10 @@ x-flows:
                       descriptor:
                         name: Failed
                         code: FAILED
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -17532,6 +17564,9 @@ x-flows:
                       source_bank_account_name: harish gupta
                       transaction_id: '243423324'
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -36404,6 +36439,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -36476,6 +36515,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -36534,6 +36577,9 @@ x-flows:
                       source_bank_account_number: '004701563111'
                       source_bank_account_name: harish gupta
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -36818,6 +36864,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -36890,6 +36940,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -36949,6 +37003,9 @@ x-flows:
                       source_bank_account_name: harish gupta
                       transaction_id: '243423324'
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -37256,6 +37313,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -37328,6 +37389,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -37387,6 +37452,9 @@ x-flows:
                       source_bank_account_name: harish gupta
                       transaction_id: '243423324'
                     type: PRE_FULFILLMENT
+                    time:
+                      label: SCHEDULED_ON
+                      timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - descriptor:
                           name: Source bank account
@@ -41572,6 +41640,10 @@ x-flows:
                       descriptor:
                         name: Pending
                         code: PENDING
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -41763,6 +41835,10 @@ x-flows:
                       descriptor:
                         name: Pending
                         code: PENDING
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -42047,6 +42123,10 @@ x-flows:
                       descriptor:
                         name: Pending
                         code: PENDING
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -42263,6 +42343,10 @@ x-flows:
                       descriptor:
                         name: Initiated
                         code: INITIATED
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -42944,6 +43028,10 @@ x-flows:
                       descriptor:
                         name: Pending
                         code: PENDING
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - id: pmt_234
                     collected_by: BPP
@@ -43254,6 +43342,10 @@ x-flows:
                       descriptor:
                         name: Pending
                         code: PENDING
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                 payments:
                   - id: pmt_234
                     collected_by: BPP
@@ -46459,6 +46551,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -46514,6 +46610,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -46776,6 +46876,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -46831,6 +46935,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -48177,6 +48285,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:
@@ -48397,6 +48509,10 @@ x-flows:
                             type: ARN
                           - id: ARN-123456
                             type: SUB_BROKER_ARN
+                    stops:
+                      - time:
+                          label: SCHEDULED_ON
+                          timestamp: '2023-05-15T05:30:00.000Z'
                     tags:
                       - display: true
                         descriptor:

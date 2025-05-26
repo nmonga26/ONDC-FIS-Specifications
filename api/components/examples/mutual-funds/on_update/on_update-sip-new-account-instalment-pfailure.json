@@ -141,7 +141,12 @@
                                 }
                             ]
                         }
-                    }
+                    },
+                    "stops": [
+                        {
+                            "time": { "label": "SCHEDULED_ON", "timestamp": "2023-05-15T05:30:00.000Z" }
+                        }
+                    ]
                 }
             ],
             "payments": [
@@ -157,6 +162,7 @@
                         "source_bank_account_name": "harish gupta"
                     },
                     "type": "PRE_FULFILLMENT",
+                    "time": { "label": "SCHEDULED_ON", "timestamp": "2023-05-15T05:30:00.000Z" },
                     "tags": [
                         {
                             "descriptor": { "name": "Source bank account", "code": "SOURCE_BANK_ACCOUNT" },
