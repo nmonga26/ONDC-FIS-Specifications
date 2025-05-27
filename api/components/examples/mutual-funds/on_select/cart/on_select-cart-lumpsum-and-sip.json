@@ -430,6 +430,10 @@
                                 {
                                     "descriptor": { "code": "AUTH" },
                                     "value": "COLLECT"
+                                },
+                                {
+                                    "descriptor": { "code": "MANDATE_LIMIT" },
+                                    "value": "50000"
                                 }
                             ]
                         }
@@ -449,6 +453,10 @@
                                 {
                                     "descriptor": { "code": "AUTH" },
                                     "value": "URI"
+                                },
+                                {
+                                    "descriptor": { "code": "MANDATE_LIMIT" },
+                                    "value": "50000"
                                 }
                             ]
                         }

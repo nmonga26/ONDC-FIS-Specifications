@@ -400,6 +400,10 @@
                                 {
                                     "descriptor": { "code": "BANK_NAME" },
                                     "value": "ICICI Bank"
+                                },
+                                {
+                                    "descriptor": { "code": "MANDATE_LIMIT" },
+                                    "value": "50000"
                                 }
                             ]
                         }

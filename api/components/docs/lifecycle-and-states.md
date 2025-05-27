@@ -111,7 +111,7 @@ upi mandate registration through intent/qrcode. `url` in payment params contains
 - mode: `UPI_AUTOPAY`, auth: `COLLECT`  
 upi mandate registration through collect request. `source_virtual_payment_address` in payment params contains the consumer's upi handle on which the collect request is sent. `MANDATE_LIMIT` tag captures the max mandate limit.
 - mode: `UPI_AUTOPAY`, auth: `EXISTING_MANDATE`  
-use existing upi autopay mandate for the payment (both onetime and recurring). other tags capture the details of the mandate - `MANDATE_IDENTIFIER`, `MASKED_BANK_ACCOUNT_NUMBER`, `BANK_ACCOUNT_NAME`, `BANK_NAME`  
+use existing upi autopay mandate for the payment (both onetime and recurring). other tags capture the details of the mandate - `MANDATE_IDENTIFIER`, `MASKED_BANK_ACCOUNT_NUMBER`, `BANK_ACCOUNT_NAME`, `BANK_NAME`, `MANDATE_LIMIT`  
 - mode: `NACH`, auth: `NETBANKING`  
 nach mandate registration using netbanking credentials. `url` in payment params contains the redirect url. `MANDATE_LIMIT` tag captures the max mandate limit.
 - mode: `NACH`, auth: `DEBIT_CARD`  
@@ -119,7 +119,7 @@ nach mandate registration using debit card. `url` in payment params contains the
 - mode: `NACH`, auth: `AADHAAR`  
 nach mandate registration using aadhaar number. `url` in payment params contains the redirect url. `MANDATE_LIMIT` tag captures the max mandate limit.
 - mode: `NACH`, auth: `EXISTING_MANDATE`  
-use existing nach mandate for the payment (both onetime and recurring). other tags capture the details of the mandate - `MANDATE_IDENTIFIER`, `MASKED_BANK_ACCOUNT_NUMBER`, `BANK_ACCOUNT_NAME`, `BANK_NAME`  
+use existing nach mandate for the payment (both onetime and recurring). other tags capture the details of the mandate - `MANDATE_IDENTIFIER`, `MASKED_BANK_ACCOUNT_NUMBER`, `BANK_ACCOUNT_NAME`, `BANK_NAME`, `MANDATE_LIMIT`  
 <!-- - mode: `NEFT`  
 offline bank transfer through NEFT. `bank_account_number` and `bank_code` contains BPP's bank a/c details for transfer.
 - mode: `RTGS`  

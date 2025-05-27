@@ -6574,6 +6574,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: COLLECT
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -6587,6 +6590,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: URI
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -6600,6 +6606,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -6613,6 +6622,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: DEBIT_CARD
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -6626,6 +6638,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: AADHAAR
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -6651,6 +6666,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -6676,6 +6694,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -11544,6 +11565,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: COLLECT
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -11557,6 +11581,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: URI
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -11570,6 +11597,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -11583,6 +11613,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: DEBIT_CARD
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -11596,6 +11629,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: AADHAAR
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -12994,6 +13030,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: COLLECT
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -13007,6 +13046,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: URI
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -13020,6 +13062,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -13033,6 +13078,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: DEBIT_CARD
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -13046,6 +13094,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: AADHAAR
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -13071,6 +13122,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -13096,6 +13150,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -16662,6 +16719,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -16882,6 +16942,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 quote:
                   id: q1
                   price:
@@ -17129,6 +17192,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 quote:
                   id: q1
                   price:
@@ -17380,6 +17446,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                       - descriptor:
                           name: Information
                           code: ERROR_INFORMATION
@@ -17682,6 +17751,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 quote:
                   id: q1
                   price:
@@ -34242,6 +34314,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: COLLECT
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -34255,6 +34330,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: URI
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -34268,6 +34346,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -34281,6 +34362,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: DEBIT_CARD
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -34294,6 +34378,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: AADHAAR
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -34319,6 +34406,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -34344,6 +34434,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -36824,6 +36917,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -37250,6 +37346,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -37708,6 +37807,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -39016,6 +39118,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: COLLECT
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -39029,6 +39134,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: URI
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
