@@ -3973,8 +3973,8 @@ x-tags:
               description: Captures any external system references
               reference: <PR/Issue/Discussion Links md format text>
               list:
-                - code: RTA_IDENTIFIER
-                  description: Identifier at the RTA level
+                - code: RTA_SOURCE_REF
+                  description: Identifier reported by the seller app to the RTA
                   reference: <PR/Issue/Discussion Links md format text>
         tags: *ref_16
 x-flows:
@@ -17143,8 +17143,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 payments:
                   - id: pmt_567
@@ -17702,8 +17702,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 payments:
                   - id: pmt_567
@@ -20438,8 +20438,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 payments:
                   - id: pmt_123
@@ -24462,8 +24462,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 xinput:
                   form:
@@ -28845,8 +28845,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 quote:
                   id: q1
@@ -29381,8 +29381,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 quote:
                   id: q1
@@ -29917,8 +29917,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 quote:
                   id: q1
@@ -30198,8 +30198,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 quote:
                   id: q1
@@ -32659,8 +32659,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                   - id: ff_124
                     type: LUMPSUM
@@ -33142,8 +33142,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                   - id: ff_124
                     type: LUMPSUM
@@ -33603,8 +33603,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                   - id: ff_124
                     type: LUMPSUM
@@ -33697,8 +33697,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 payments:
                   - id: pmt_123
@@ -37758,8 +37758,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 payments:
                   - id: pmt_123
@@ -45138,8 +45138,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                   - id: ff_124
                     type: SWITCH_IN
@@ -45190,8 +45190,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 tags:
                   - display: false
@@ -47282,8 +47282,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                   - id: ff_124
                     type: STP_IN_INSTALMENT
@@ -47338,8 +47338,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 tags:
                   - display: false
@@ -48941,8 +48941,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 tags:
                   - display: false

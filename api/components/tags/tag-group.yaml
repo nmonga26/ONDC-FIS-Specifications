@@ -245,8 +245,8 @@ order:
         description : Captures any external system references
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          - code: RTA_IDENTIFIER
-            description : Identifier at the RTA level
+          - code: RTA_SOURCE_REF
+            description : Identifier reported by the seller app to the RTA
             reference: <PR/Issue/Discussion Links md format text>
 
   payments:

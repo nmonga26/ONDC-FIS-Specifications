@@ -262,7 +262,7 @@
                             "descriptor": {"name": "External Refs", "code": "EXTERNAL_REFS"},
                             "list": [
                                 {
-                                    "descriptor": {"name": "RTA Identifier", "code": "RTA_IDENTIFIER"},
+                                    "descriptor": {"name": "RTA Source Ref", "code": "RTA_SOURCE_REF"},
                                     "value": "21432432"
                                 }
                             ]
@@ -378,7 +378,7 @@
                             "descriptor": {"name": "External Refs", "code": "EXTERNAL_REFS"},
                             "list": [
                                 {
-                                    "descriptor": {"name": "RTA Identifier", "code": "RTA_IDENTIFIER"},
+                                    "descriptor": {"name": "RTA Source Ref", "code": "RTA_SOURCE_REF"},
                                     "value": "21432432"
                                 }
                             ]
