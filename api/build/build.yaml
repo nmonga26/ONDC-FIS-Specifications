@@ -3962,11 +3962,6 @@ x-tags:
                 - code: CANCELLED_TIME
                   description: Captures the time of cancellation initiation
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: CONSUMER_IP_ADDRESS
-                  description: >-
-                    If it is cancelled by the consumer, the ip address of the
-                    consumer from where the request is received
-                  reference: <PR/Issue/Discussion Links md format text>
             - code: REF_ORDER_IDS
               description: Details of child order ids in case of recurring orders
               reference: <PR/Issue/Discussion Links md format text>
@@ -17928,10 +17923,6 @@ x-flows:
                               code: REASON_CODE
                             value: FAILURE_THRESHOLD_REACHED
                           - descriptor:
-                              name: Reason Message
-                              code: REASON_MESSAGE
-                            value: 3 consecutive instalments failed
-                          - descriptor:
                               name: Cancelled by
                               code: CANCELLED_BY
                             value: PROVIDER
@@ -18092,6 +18083,14 @@ x-flows:
                       descriptor:
                         name: Cancelled
                         code: CANCELLED
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599345'
                     tags:
                       - descriptor:
                           name: Cancellation Information
@@ -18105,10 +18104,6 @@ x-flows:
                               name: Cancelled by
                               code: CANCELLED_BY
                             value: CONSUMER
-                          - descriptor:
-                              name: Consumer IP Address
-                              code: CONSUMER_IP_ADDRESS
-                            value: 115.245.207.90
       - summary: On Update
         api: on_update
         details:
@@ -18373,10 +18368,6 @@ x-flows:
                               code: REASON_CODE
                             value: GOAL_ACHIEVED
                           - descriptor:
-                              name: Reason Message
-                              code: REASON_MESSAGE
-                            value: Investment goal is achieved
-                          - descriptor:
                               name: Cancelled by
                               code: CANCELLED_BY
                             value: CONSUMER
@@ -18384,10 +18375,6 @@ x-flows:
                               name: Cancelled time
                               code: CANCELLED_TIME
                             value: '2024-07-01T05:23:03.443Z'
-                          - descriptor:
-                              name: Consumer IP Address
-                              code: CONSUMER_IP_ADDRESS
-                            value: 115.245.207.90
                   - id: ff_124
                     type: SIP
                     state:
@@ -24397,6 +24384,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Identifier
+                              code: RTA_IDENTIFIER
+                            value: '21432432'
                 xinput:
                   form:
                     id: form_1
@@ -37829,6 +37825,14 @@ x-flows:
                 fulfillments:
                   - id: ff_123
                     type: SIP
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599123'
                     tags:
                       - descriptor:
                           name: Modification Information
@@ -37838,14 +37842,6 @@ x-flows:
                               name: Modified by
                               code: MODIFIED_BY
                             value: CONSUMER
-                          - descriptor:
-                              name: Consumer IP Address
-                              code: CONSUMER_IP_ADDRESS
-                            value: 115.245.207.90
-                          - descriptor:
-                              name: Consumer 2FA taken on
-                              code: CONSUMER_2FA
-                            value: phone:9916599123
       - summary: On Update
         api: on_update
         details:
@@ -38070,14 +38066,6 @@ x-flows:
                               name: Modified by
                               code: MODIFIED_BY
                             value: CONSUMER
-                          - descriptor:
-                              name: Consumer IP Address
-                              code: CONSUMER_IP_ADDRESS
-                            value: 115.245.207.90
-                          - descriptor:
-                              name: Consumer 2FA taken on
-                              code: CONSUMER_2FA
-                            value: phone:9916599123
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -38212,6 +38200,14 @@ x-flows:
                       descriptor:
                         name: Paused
                         code: PAUSED
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599123'
                     tags:
                       - descriptor:
                           name: Modification Information
@@ -38221,14 +38217,6 @@ x-flows:
                               name: Modified by
                               code: MODIFIED_BY
                             value: CONSUMER
-                          - descriptor:
-                              name: Consumer IP Address
-                              code: CONSUMER_IP_ADDRESS
-                            value: 115.245.207.90
-                          - descriptor:
-                              name: Consumer 2FA taken on
-                              code: CONSUMER_2FA
-                            value: phone:9916599123
       - summary: On Update
         api: on_update
         details:
@@ -38453,14 +38441,6 @@ x-flows:
                               name: Modified by
                               code: MODIFIED_BY
                             value: CONSUMER
-                          - descriptor:
-                              name: Consumer IP Address
-                              code: CONSUMER_IP_ADDRESS
-                            value: 115.245.207.90
-                          - descriptor:
-                              name: Consumer 2FA taken on
-                              code: CONSUMER_2FA
-                            value: phone:9916599123
                 payments:
                   - id: pmt_123
                     collected_by: BPP

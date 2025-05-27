@@ -198,10 +198,6 @@
                                     "value": "FAILURE_THRESHOLD_REACHED"
                                 },
                                 {
-                                    "descriptor": {"name": "Reason Message", "code": "REASON_MESSAGE"},
-                                    "value": "3 consecutive instalments failed"
-                                },
-                                {
                                     "descriptor": {"name": "Cancelled by", "code": "CANCELLED_BY"},
                                     "value": "PROVIDER"
                                 },

@@ -210,9 +210,6 @@ order:
           - code: CANCELLED_TIME
             description : Captures the time of cancellation initiation
             reference: <PR/Issue/Discussion Links md format text>
-          - code: CONSUMER_IP_ADDRESS
-            description : If it is cancelled by the consumer, the ip address of the consumer from where the request is received
-            reference: <PR/Issue/Discussion Links md format text>
       - code: REF_ORDER_IDS
         description : Details of child order ids in case of recurring orders
         reference: <PR/Issue/Discussion Links md format text>
