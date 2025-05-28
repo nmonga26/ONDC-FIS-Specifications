@@ -36,6 +36,7 @@
             "name": "ABC Mid Cap Fund - Regular - Growth",
             "code": "SCHEME_PLAN"
           },
+          "creator": {"descriptor": {"name": "ABC Mutual Fund"}},
           "quantity": {
             "allocated": {
               "measure": {

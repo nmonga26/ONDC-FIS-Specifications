@@ -32,6 +32,7 @@
                 {
                     "id": "PS5634",
                     "descriptor": {"name": "Other Service", "code": "SERVICE"},
+                    "creator": { "descriptor": { "name": "Seller App" } },
                     "fulfillment_ids": ["ff_123"],
                     "payment_ids": ["pmt_123"]
                 }

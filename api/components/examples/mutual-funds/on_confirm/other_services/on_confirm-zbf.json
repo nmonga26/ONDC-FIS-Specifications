@@ -32,6 +32,7 @@
                 {
                     "id": "AS42134",
                     "descriptor": {"name": "ABC Fund - Other Service", "code": "SERVICE"},
+                    "creator": { "descriptor": { "name": "ABC Mutual Fund" } },
                     "fulfillment_ids": ["ff_123"],
                     "tags": [
                         {
