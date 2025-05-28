@@ -57,6 +57,8 @@ init:
       <<: *order
       payments: &payment
         $ref: "./payment.yaml"
+      fulfillments:
+        <<: *fulfillment
 
 on_init:
   context: *context
@@ -65,6 +67,8 @@ on_init:
       <<: *order1
       status:
         $ref: './order.yaml#/status'
+      fulfillments:
+        <<: *fulfillment
 
 confirm:
   context: *context
