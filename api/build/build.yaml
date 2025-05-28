@@ -16765,7 +16765,15 @@ x-flows:
                       title: INVESTMENT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_009
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: On Status (successful instalment payment)
@@ -42073,7 +42081,15 @@ x-flows:
                       title: INVESTMENT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_009
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: Update (ask for a payment) - Child Order
@@ -42299,7 +42315,15 @@ x-flows:
                       title: INVESTMENT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_009
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: SIP Instalment - Manual Payment and set Mandate
@@ -42590,7 +42614,15 @@ x-flows:
                       title: INVESTMENT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_009
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: On Status - Child Order
@@ -42820,7 +42852,15 @@ x-flows:
                       title: INVESTMENT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_009
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: Update (ask to add existing mandate) - Parent Order
@@ -43491,7 +43531,15 @@ x-flows:
                       title: INVESTMENT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_009
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: Confirm
@@ -43805,7 +43853,15 @@ x-flows:
                       title: INVESTMENT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_009
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: Switch - by amount
