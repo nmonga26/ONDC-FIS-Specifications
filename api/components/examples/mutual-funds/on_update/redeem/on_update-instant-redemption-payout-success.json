@@ -42,6 +42,7 @@
                         }
                     },
                     "fulfillment_ids": ["ff_023"],
+                    "payment_ids": ["pmt_123"],
                     "tags": [
                         {
                             "display": true,
@@ -182,19 +183,41 @@
                     ]
                 }
             ],
+            "payments": [
+                {
+                    "id": "pmt_123",
+                    "collected_by": "CONSUMER",
+                    "status": "PAID",
+                    "params": {
+                        "amount": "3000",
+                        "currency": "INR",
+                        "bank_code": "ICIC0000047",
+                        "bank_account_number": "004701561234",
+                        "bank_account_name": "harish gupta",
+                        "transaction_id": "243423324"
+                    },
+                    "type": "ON_FULFILLMENT",
+                    "tags": [
+                        {
+                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
+                            "list": [
+                                {
+                                    "descriptor": { "code": "MODE" },
+                                    "value": "IMPS"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
             "quote": {
                 "id": "q1",
-                "price": { "currency": "INR", "value": "2999.25" },
+                "price": { "currency": "INR", "value": "3000" },
                 "breakup": [
                     {
                         "item": { "id": "12391", "fulfillment_ids": ["ff_008"] },
                         "title": "REDEMPTION",
                         "price": { "currency": "INR", "value": "3000" }
-                    },
-                    {
-                        "item": { "id": "12391", "fulfillment_ids": ["ff_008"] },
-                        "title": "SECURITIES_TRANSACTION_TAX",
-                        "price": { "currency": "INR", "value": "-0.75" }
                     }
                 ]
             },

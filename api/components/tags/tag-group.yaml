@@ -296,9 +296,9 @@ order:
               # - code: RTGS
               #   description: Pay via rtgs bank transfer
               #   reference: <PR/Issue/Discussion Links md format text>
-              # - code: IMPS
-              #   description: Pay via imps bank transfer
-              #   reference: <PR/Issue/Discussion Links md format text>
+              - code: IMPS
+                description: Pay via imps bank transfer
+                reference: <PR/Issue/Discussion Links md format text>
               # - code: CHEQUE
               #   description: Pay via cheque
               #   reference: <PR/Issue/Discussion Links md format text>

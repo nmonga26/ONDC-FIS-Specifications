@@ -3773,6 +3773,9 @@ x-tags:
                     - code: NACH
                       description: Pay via nach network
                       reference: <PR/Issue/Discussion Links md format text>
+                    - code: IMPS
+                      description: Pay via imps bank transfer
+                      reference: <PR/Issue/Discussion Links md format text>
                 - code: AUTH
                   description: Authorization type/mechanism
                   reference: <PR/Issue/Discussion Links md format text>
@@ -55121,6 +55124,8 @@ x-flows:
                           unit: INR
                     fulfillment_ids:
                       - ff_023
+                    payment_ids:
+                      - pmt_123
                     tags:
                       - display: true
                         descriptor:
@@ -55229,6 +55234,25 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                payments:
+                  - id: pmt_123
+                    collected_by: CONSUMER
+                    status: NOT-PAID
+                    params:
+                      amount: '3000'
+                      currency: INR
+                      bank_code: ICIC0000047
+                      bank_account_number: '004701561234'
+                      bank_account_name: harish gupta
+                    type: ON_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: IMPS
                 tags:
                   - display: false
                     descriptor:
@@ -55248,7 +55272,7 @@ x-flows:
                   id: q1
                   price:
                     currency: INR
-                    value: '2999.25'
+                    value: '3000'
                   breakup:
                     - item:
                         id: '12391'
@@ -55258,14 +55282,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '3000'
-                    - item:
-                        id: '12391'
-                        fulfillment_ids:
-                          - ff_789
-                      title: SECURITIES_TRANSACTION_TAX
-                      price:
-                        currency: INR
-                        value: '-0.75'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: Confirm
@@ -55306,6 +55322,8 @@ x-flows:
                           unit: INR
                     fulfillment_ids:
                       - ff_023
+                    payment_ids:
+                      - pmt_123
                 fulfillments:
                   - id: ff_023
                     type: INSTANT_REDEMPTION
@@ -55339,6 +55357,25 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                payments:
+                  - id: pmt_123
+                    collected_by: CONSUMER
+                    status: NOT-PAID
+                    params:
+                      amount: '3000'
+                      currency: INR
+                      bank_code: ICIC0000047
+                      bank_account_number: '004701561234'
+                      bank_account_name: harish gupta
+                    type: ON_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: IMPS
                 tags:
                   - display: false
                     descriptor:
@@ -55524,6 +55561,25 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                payments:
+                  - id: pmt_123
+                    collected_by: CONSUMER
+                    status: NOT-PAID
+                    params:
+                      amount: '3000'
+                      currency: INR
+                      bank_code: ICIC0000047
+                      bank_account_number: '004701561234'
+                      bank_account_name: harish gupta
+                    type: ON_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: IMPS
                 tags:
                   - display: false
                     descriptor:
@@ -55557,7 +55613,7 @@ x-flows:
                   id: q1
                   price:
                     currency: INR
-                    value: '2999.25'
+                    value: '3000'
                   breakup:
                     - item:
                         id: '12391'
@@ -55567,14 +55623,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '3000'
-                    - item:
-                        id: '12391'
-                        fulfillment_ids:
-                          - ff_789
-                      title: SECURITIES_TRANSACTION_TAX
-                      price:
-                        currency: INR
-                        value: '-0.75'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: On Update
@@ -55622,6 +55670,8 @@ x-flows:
                           unit: INR
                     fulfillment_ids:
                       - ff_023
+                    payment_ids:
+                      - pmt_123
                     tags:
                       - display: true
                         descriptor:
@@ -55734,11 +55784,31 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                payments:
+                  - id: pmt_123
+                    collected_by: CONSUMER
+                    status: PAID
+                    params:
+                      amount: '3000'
+                      currency: INR
+                      bank_code: ICIC0000047
+                      bank_account_number: '004701561234'
+                      bank_account_name: harish gupta
+                      transaction_id: '243423324'
+                    type: ON_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: IMPS
                 quote:
                   id: q1
                   price:
                     currency: INR
-                    value: '2999.25'
+                    value: '3000'
                   breakup:
                     - item:
                         id: '12391'
@@ -55748,14 +55818,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '3000'
-                    - item:
-                        id: '12391'
-                        fulfillment_ids:
-                          - ff_008
-                      title: SECURITIES_TRANSACTION_TAX
-                      price:
-                        currency: INR
-                        value: '-0.75'
                 tags:
                   - display: false
                     descriptor:
@@ -55836,6 +55898,8 @@ x-flows:
                           unit: MF_UNITS
                     fulfillment_ids:
                       - ff_023
+                    payment_ids:
+                      - pmt_123
                     tags:
                       - display: true
                         descriptor:
@@ -55955,11 +56019,31 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                payments:
+                  - id: pmt_123
+                    collected_by: CONSUMER
+                    status: PAID
+                    params:
+                      amount: '3000'
+                      currency: INR
+                      bank_code: ICIC0000047
+                      bank_account_number: '004701561234'
+                      bank_account_name: harish gupta
+                      transaction_id: '243423324'
+                    type: ON_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: IMPS
                 quote:
                   id: q1
                   price:
                     currency: INR
-                    value: '2999.25'
+                    value: '3000'
                   breakup:
                     - item:
                         id: '12391'
@@ -55969,14 +56053,6 @@ x-flows:
                       price:
                         currency: INR
                         value: '3000'
-                    - item:
-                        id: '12391'
-                        fulfillment_ids:
-                          - ff_008
-                      title: SECURITIES_TRANSACTION_TAX
-                      price:
-                        currency: INR
-                        value: '-0.75'
                 tags:
                   - display: false
                     descriptor:
