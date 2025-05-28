@@ -14,7 +14,7 @@
       "bap_uri": "https://api.buyerapp.com/ondc",
       "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
       "message_id": "3a81210a-5872-4404-83e2-d26c02626f7f",
-      "version": "2.0.0",
+      "version": "2.1.0",
       "ttl": "PT10M",
       "bpp_id": "api.sellerapp.com",
       "bpp_uri": "https://api.sellerapp.com/ondc",
