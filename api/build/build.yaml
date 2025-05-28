@@ -24638,8 +24638,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 xinput:
                   form:
@@ -55360,6 +55360,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -55678,6 +55681,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -56004,6 +56010,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -56224,6 +56233,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -56448,6 +56460,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
