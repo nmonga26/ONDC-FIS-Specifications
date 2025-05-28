@@ -31,6 +31,7 @@
                     "id": "12391",
                     "parent_item_id": "138",
                     "descriptor": {"name": "ABC Mid Cap Fund - Regular - Growth", "code": "SCHEME_PLAN"},
+                    "creator": {"descriptor": {"name": "ABC Mutual Fund"}},
                     "fulfillment_ids": ["ff_123"],
                     "quantity": {
                         "selected": {
@@ -228,6 +229,10 @@
                                 {
                                     "descriptor": { "code": "AUTH" },
                                     "value": "COLLECT"
+                                },
+                                {
+                                    "descriptor": { "code": "MANDATE_LIMIT" },
+                                    "value": "50000"
                                 }
                             ]
                         }
@@ -247,6 +252,10 @@
                                 {
                                     "descriptor": { "code": "AUTH" },
                                     "value": "URI"
+                                },
+                                {
+                                    "descriptor": { "code": "MANDATE_LIMIT" },
+                                    "value": "50000"
                                 }
                             ]
                         }
@@ -266,6 +275,10 @@
                                 {
                                     "descriptor": { "code": "AUTH" },
                                     "value": "NETBANKING"
+                                },
+                                {
+                                    "descriptor": { "code": "MANDATE_LIMIT" },
+                                    "value": "50000"
                                 }
                             ]
                         }
@@ -285,6 +298,10 @@
                                 {
                                     "descriptor": { "code": "AUTH" },
                                     "value": "DEBIT_CARD"
+                                },
+                                {
+                                    "descriptor": { "code": "MANDATE_LIMIT" },
+                                    "value": "50000"
                                 }
                             ]
                         }
@@ -304,6 +321,10 @@
                                 {
                                     "descriptor": { "code": "AUTH" },
                                     "value": "AADHAAR"
+                                },
+                                {
+                                    "descriptor": { "code": "MANDATE_LIMIT" },
+                                    "value": "50000"
                                 }
                             ]
                         }

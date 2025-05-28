@@ -33,6 +33,7 @@
                     "id": "12391",
                     "parent_item_id": "138",
                     "descriptor": {"name": "ABC Mid Cap Fund - Regular - Growth", "code": "SCHEME_PLAN"},
+                    "creator": {"descriptor": {"name": "ABC Mutual Fund"}},
                     "quantity": {
                         "selected": {
                             "measure": {
@@ -215,6 +216,10 @@
                                 {
                                     "descriptor": {"name": "Remaining Instalments", "code": "REMAINING_INSTALMENTS"},
                                     "value": "5"
+                                },
+                                {
+                                    "descriptor": {"name": "Last Instalment Date", "code": "LAST_INSTALMENT_DATE"},
+                                    "value": "15/09/2024"
                                 }
                             ]
                         }

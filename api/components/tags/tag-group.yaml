@@ -93,33 +93,17 @@ order:
             description : Mobile number to be used for doing 2fa
             reference: <PR/Issue/Discussion Links md format text>
       - code: INFORMATION
-        description : Describes the finder fees for buyer
+        description : Additional information related to the fulfillment
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          #moved as part of FOLIO_INFORMATION tag group
-          # - code: FOLIO_NUMBER
-          #   description : Describes the finder fees for buyer
-          #   reference: <PR/Issue/Discussion Links md format text>
-          - code: UNITS
-            description : Describes the finder fees for buyer
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: AMOUNT
-            description : Describes the finder fees for buyer
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: PRICE
-            description : Describes the finder fees for buyer
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: NAV
-            description : Describes the finder fees for buyer
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: NAV_DATE
-            description : Describes the finder fees for buyer
-            reference: <PR/Issue/Discussion Links md format text>
           - code: REMAINING_INSTALMENTS
-            description : Describes the finder fees for buyer
+            description : Number of instalments left in this recurring order as per the schedule
             reference: <PR/Issue/Discussion Links md format text>
           - code: NEXT_INSTALMENT_DATE
-            description : Describes the finder fees for buyer
+            description : Date of the next instalment as per the schedule
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: LAST_INSTALMENT_DATE
+            description : Date of the last instalment as per the schedule
             reference: <PR/Issue/Discussion Links md format text>
       - code: ERROR_INFORMATION
         description : Describes the finder fees for buyer
@@ -210,9 +194,6 @@ order:
           - code: CANCELLED_TIME
             description : Captures the time of cancellation initiation
             reference: <PR/Issue/Discussion Links md format text>
-          - code: CONSUMER_IP_ADDRESS
-            description : If it is cancelled by the consumer, the ip address of the consumer from where the request is received
-            reference: <PR/Issue/Discussion Links md format text>
       - code: REF_ORDER_IDS
         description : Details of child order ids in case of recurring orders
         reference: <PR/Issue/Discussion Links md format text>
@@ -248,8 +229,8 @@ order:
         description : Captures any external system references
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          - code: RTA_IDENTIFIER
-            description : Identifier at the RTA level
+          - code: RTA_SOURCE_REF
+            description : Identifier reported by the seller app to the RTA
             reference: <PR/Issue/Discussion Links md format text>
 
   payments:

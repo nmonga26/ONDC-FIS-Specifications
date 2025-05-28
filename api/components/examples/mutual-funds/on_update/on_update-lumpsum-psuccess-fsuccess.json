@@ -33,6 +33,7 @@
                     "id": "12391",
                     "parent_item_id": "138",
                     "descriptor": {"name": "ABC Mid Cap Fund - Regular - Growth", "code": "SCHEME_PLAN"},
+                    "creator": {"descriptor": {"name": "ABC Mutual Fund"}},
                     "quantity": {
                         "selected": {
                             "measure": {
@@ -197,7 +198,7 @@
                             "descriptor": {"name": "External Refs", "code": "EXTERNAL_REFS"},
                             "list": [
                                 {
-                                    "descriptor": {"name": "RTA Identifier", "code": "RTA_IDENTIFIER"},
+                                    "descriptor": {"name": "RTA Source Ref", "code": "RTA_SOURCE_REF"},
                                     "value": "21432432"
                                 }
                             ]

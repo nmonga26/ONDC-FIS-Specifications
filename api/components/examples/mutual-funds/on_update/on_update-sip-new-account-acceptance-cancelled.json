@@ -33,6 +33,7 @@
                     "id": "12391",
                     "parent_item_id": "138",
                     "descriptor": {"name": "ABC Mid Cap Fund - Regular - Growth", "code": "SCHEME_PLAN"},
+                    "creator": {"descriptor": {"name": "ABC Mutual Fund"}},
                     "quantity": {
                         "selected": {
                             "measure": {
@@ -196,10 +197,6 @@
                                 {
                                     "descriptor": {"name": "Reason Code", "code": "REASON_CODE"},
                                     "value": "FAILURE_THRESHOLD_REACHED"
-                                },
-                                {
-                                    "descriptor": {"name": "Reason Message", "code": "REASON_MESSAGE"},
-                                    "value": "3 consecutive instalments failed"
                                 },
                                 {
                                     "descriptor": {"name": "Cancelled by", "code": "CANCELLED_BY"},

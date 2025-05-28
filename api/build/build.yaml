@@ -3830,29 +3830,19 @@ x-tags:
           tags:
             - &ref_19
               code: INFORMATION
-              description: Describes the finder fees for buyer
+              description: Additional information related to the fulfillment
               reference: <PR/Issue/Discussion Links md format text>
               list:
-                - code: UNITS
-                  description: Describes the finder fees for buyer
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: AMOUNT
-                  description: Describes the finder fees for buyer
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: PRICE
-                  description: Describes the finder fees for buyer
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: NAV
-                  description: Describes the finder fees for buyer
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: NAV_DATE
-                  description: Describes the finder fees for buyer
-                  reference: <PR/Issue/Discussion Links md format text>
                 - code: REMAINING_INSTALMENTS
-                  description: Describes the finder fees for buyer
+                  description: >-
+                    Number of instalments left in this recurring order as per
+                    the schedule
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: NEXT_INSTALMENT_DATE
-                  description: Describes the finder fees for buyer
+                  description: Date of the next instalment as per the schedule
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: LAST_INSTALMENT_DATE
+                  description: Date of the last instalment as per the schedule
                   reference: <PR/Issue/Discussion Links md format text>
             - &ref_20
               code: ERROR_INFORMATION
@@ -3983,11 +3973,6 @@ x-tags:
                 - code: CANCELLED_TIME
                   description: Captures the time of cancellation initiation
                   reference: <PR/Issue/Discussion Links md format text>
-                - code: CONSUMER_IP_ADDRESS
-                  description: >-
-                    If it is cancelled by the consumer, the ip address of the
-                    consumer from where the request is received
-                  reference: <PR/Issue/Discussion Links md format text>
             - code: REF_ORDER_IDS
               description: Details of child order ids in case of recurring orders
               reference: <PR/Issue/Discussion Links md format text>
@@ -3999,8 +3984,8 @@ x-tags:
               description: Captures any external system references
               reference: <PR/Issue/Discussion Links md format text>
               list:
-                - code: RTA_IDENTIFIER
-                  description: Identifier at the RTA level
+                - code: RTA_SOURCE_REF
+                  description: Identifier reported by the seller app to the RTA
                   reference: <PR/Issue/Discussion Links md format text>
         tags: *ref_16
 x-flows:
@@ -4165,6 +4150,9 @@ x-flows:
                         descriptor:
                           name: ABC Mid Cap Fund - Regular - Growth
                           code: SCHEME_PLAN
+                        creator:
+                          descriptor:
+                            name: ABC Mutual Fund
                         category_ids:
                           - '1101'
                         parent_item_id: '138'
@@ -4561,6 +4549,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -6465,6 +6456,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -6616,6 +6610,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: COLLECT
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -6629,6 +6626,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: URI
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -6642,6 +6642,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -6655,6 +6658,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: DEBIT_CARD
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -6668,6 +6674,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: AADHAAR
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -6693,6 +6702,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -6718,6 +6730,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -6897,6 +6912,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -7264,6 +7282,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -7532,6 +7553,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -8112,6 +8136,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -10501,6 +10528,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -10704,6 +10734,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -10964,6 +10997,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -11167,6 +11203,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -11427,6 +11466,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -11586,6 +11628,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: COLLECT
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -11599,6 +11644,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: URI
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -11612,6 +11660,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -11625,6 +11676,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: DEBIT_CARD
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -11638,6 +11692,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: AADHAAR
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -11712,6 +11769,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -11962,6 +12022,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -12238,6 +12301,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -12510,6 +12576,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -12828,6 +12897,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -13036,6 +13108,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: COLLECT
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -13049,6 +13124,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: URI
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -13062,6 +13140,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -13075,6 +13156,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: DEBIT_CARD
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -13088,6 +13172,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: AADHAAR
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -13113,6 +13200,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -13138,6 +13228,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -13314,6 +13407,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     payment_ids:
                       - pmt_123
                     quantity:
@@ -13694,6 +13790,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -13978,6 +14077,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -15980,6 +16082,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -16250,6 +16355,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -16422,6 +16530,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                       - display: false
                         descriptor:
                           name: Installment Order Ids
@@ -16577,6 +16689,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -16704,6 +16819,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -16753,7 +16871,15 @@ x-flows:
                       title: INVESTMENT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_009
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: On Status (successful instalment payment)
@@ -16796,6 +16922,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -16924,6 +17053,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 quote:
                   id: q1
                   price:
@@ -16993,6 +17125,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -17122,8 +17257,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 payments:
                   - id: pmt_567
@@ -17171,6 +17306,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 quote:
                   id: q1
                   price:
@@ -17286,6 +17424,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -17422,6 +17563,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                       - descriptor:
                           name: Information
                           code: ERROR_INFORMATION
@@ -17560,6 +17704,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -17675,8 +17822,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 payments:
                   - id: pmt_567
@@ -17724,6 +17871,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 quote:
                   id: q1
                   price:
@@ -17825,6 +17975,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -17964,10 +18117,6 @@ x-flows:
                               name: Reason Code
                               code: REASON_CODE
                             value: FAILURE_THRESHOLD_REACHED
-                          - descriptor:
-                              name: Reason Message
-                              code: REASON_MESSAGE
-                            value: 3 consecutive instalments failed
                           - descriptor:
                               name: Cancelled by
                               code: CANCELLED_BY
@@ -18129,6 +18278,14 @@ x-flows:
                       descriptor:
                         name: Cancelled
                         code: CANCELLED
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599345'
                     tags:
                       - descriptor:
                           name: Cancellation Information
@@ -18142,10 +18299,6 @@ x-flows:
                               name: Cancelled by
                               code: CANCELLED_BY
                             value: CONSUMER
-                          - descriptor:
-                              name: Consumer IP Address
-                              code: CONSUMER_IP_ADDRESS
-                            value: 115.245.207.90
       - summary: On Update
         api: on_update
         details:
@@ -18180,6 +18333,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -18400,6 +18556,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                       - display: true
                         descriptor:
                           name: Cancellation Information
@@ -18410,10 +18570,6 @@ x-flows:
                               code: REASON_CODE
                             value: GOAL_ACHIEVED
                           - descriptor:
-                              name: Reason Message
-                              code: REASON_MESSAGE
-                            value: Investment goal is achieved
-                          - descriptor:
                               name: Cancelled by
                               code: CANCELLED_BY
                             value: CONSUMER
@@ -18421,10 +18577,6 @@ x-flows:
                               name: Cancelled time
                               code: CANCELLED_TIME
                             value: '2024-07-01T05:23:03.443Z'
-                          - descriptor:
-                              name: Consumer IP Address
-                              code: CONSUMER_IP_ADDRESS
-                            value: 115.245.207.90
                   - id: ff_124
                     type: SIP
                     state:
@@ -18535,6 +18687,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -18682,6 +18838,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -19044,6 +19203,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -19414,6 +19576,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -19760,6 +19925,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -20021,6 +20189,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -20272,6 +20443,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -20416,8 +20590,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 payments:
                   - id: pmt_123
@@ -20598,6 +20772,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -20918,6 +21095,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -21282,6 +21462,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -23158,6 +23341,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -23482,6 +23668,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -23816,6 +24005,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -24051,6 +24243,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -24286,6 +24481,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       allocated:
                         measure:
@@ -24641,6 +24839,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -27001,6 +27202,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -27179,6 +27383,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -27410,6 +27617,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -27588,6 +27798,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -27878,6 +28091,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -28194,6 +28410,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -28482,6 +28701,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -28689,6 +28911,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -28823,8 +29048,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 quote:
                   id: q1
@@ -29026,6 +29251,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -29225,6 +29453,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -29359,8 +29590,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 quote:
                   id: q1
@@ -29562,6 +29793,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -29761,6 +29995,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -29895,8 +30132,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 quote:
                   id: q1
@@ -30036,6 +30273,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -30176,8 +30416,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 quote:
                   id: q1
@@ -30364,6 +30604,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -30922,6 +31165,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -31495,6 +31741,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -31957,6 +32206,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -32409,6 +32661,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -32637,8 +32892,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                   - id: ff_124
                     type: LUMPSUM
@@ -32881,6 +33136,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -33120,8 +33378,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                   - id: ff_124
                     type: LUMPSUM
@@ -33378,6 +33636,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -33581,8 +33842,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                   - id: ff_124
                     type: LUMPSUM
@@ -33675,8 +33936,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 payments:
                   - id: pmt_123
@@ -33916,6 +34177,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -34292,6 +34556,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: COLLECT
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -34305,6 +34572,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: URI
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -34318,6 +34588,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: NETBANKING
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -34331,6 +34604,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: DEBIT_CARD
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -34344,6 +34620,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: AADHAAR
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -34369,6 +34648,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -34394,6 +34676,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -34611,6 +34896,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -35180,6 +35468,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -35624,6 +35915,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -36073,6 +36367,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -36293,6 +36590,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                       - display: false
                         descriptor:
                           name: Installment Order Ids
@@ -36412,6 +36713,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                       - display: false
                         descriptor:
                           name: Installment Order Ids
@@ -36567,6 +36872,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -36874,6 +37182,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -36992,6 +37303,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -37300,6 +37614,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -37419,6 +37736,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -37709,8 +38029,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 payments:
                   - id: pmt_123
@@ -37758,6 +38078,9 @@ x-flows:
                           - descriptor:
                               code: BANK_NAME
                             value: ICICI Bank
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -37875,6 +38198,14 @@ x-flows:
                 fulfillments:
                   - id: ff_123
                     type: SIP
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599123'
                     tags:
                       - descriptor:
                           name: Modification Information
@@ -37884,14 +38215,6 @@ x-flows:
                               name: Modified by
                               code: MODIFIED_BY
                             value: CONSUMER
-                          - descriptor:
-                              name: Consumer IP Address
-                              code: CONSUMER_IP_ADDRESS
-                            value: 115.245.207.90
-                          - descriptor:
-                              name: Consumer 2FA taken on
-                              code: CONSUMER_2FA
-                            value: phone:9916599123
       - summary: On Update
         api: on_update
         details:
@@ -37930,6 +38253,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -38095,6 +38421,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                       - display: false
                         descriptor:
                           name: Installment Order Ids
@@ -38116,14 +38446,6 @@ x-flows:
                               name: Modified by
                               code: MODIFIED_BY
                             value: CONSUMER
-                          - descriptor:
-                              name: Consumer IP Address
-                              code: CONSUMER_IP_ADDRESS
-                            value: 115.245.207.90
-                          - descriptor:
-                              name: Consumer 2FA taken on
-                              code: CONSUMER_2FA
-                            value: phone:9916599123
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -38258,6 +38580,14 @@ x-flows:
                       descriptor:
                         name: Paused
                         code: PAUSED
+                    customer:
+                      person:
+                        id: pan:arrpp7771n
+                        creds:
+                          - id: 115.245.207.90
+                            type: IP_ADDRESS
+                      contact:
+                        phone: '9916599123'
                     tags:
                       - descriptor:
                           name: Modification Information
@@ -38267,14 +38597,6 @@ x-flows:
                               name: Modified by
                               code: MODIFIED_BY
                             value: CONSUMER
-                          - descriptor:
-                              name: Consumer IP Address
-                              code: CONSUMER_IP_ADDRESS
-                            value: 115.245.207.90
-                          - descriptor:
-                              name: Consumer 2FA taken on
-                              code: CONSUMER_2FA
-                            value: phone:9916599123
       - summary: On Update
         api: on_update
         details:
@@ -38313,6 +38635,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -38478,6 +38803,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                       - display: false
                         descriptor:
                           name: Installment Order Ids
@@ -38499,14 +38828,6 @@ x-flows:
                               name: Modified by
                               code: MODIFIED_BY
                             value: CONSUMER
-                          - descriptor:
-                              name: Consumer IP Address
-                              code: CONSUMER_IP_ADDRESS
-                            value: 115.245.207.90
-                          - descriptor:
-                              name: Consumer 2FA taken on
-                              code: CONSUMER_2FA
-                            value: phone:9916599123
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -38737,6 +39058,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -38794,6 +39118,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_124
                     quantity:
@@ -39082,6 +39409,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: COLLECT
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
                     tags:
@@ -39095,6 +39425,9 @@ x-flows:
                           - descriptor:
                               code: AUTH
                             value: URI
+                          - descriptor:
+                              code: MANDATE_LIMIT
+                            value: '50000'
                 tags:
                   - display: false
                     descriptor:
@@ -39320,6 +39653,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -39379,6 +39715,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_124
                     payment_ids:
@@ -39902,6 +40241,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -39961,6 +40303,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_124
                     payment_ids:
@@ -40363,6 +40708,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -40422,6 +40770,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -40936,6 +41287,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -41261,6 +41615,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -41404,6 +41761,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                 xinput:
                   form:
                     id: form_1
@@ -41575,6 +41936,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -41718,6 +42082,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                 xinput:
                   form:
                     id: form_1
@@ -41862,6 +42230,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -42005,7 +42376,15 @@ x-flows:
                       title: INVESTMENT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_009
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: Update (ask for a payment) - Child Order
@@ -42057,6 +42436,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -42231,7 +42613,15 @@ x-flows:
                       title: INVESTMENT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_009
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: SIP Instalment - Manual Payment and set Mandate
@@ -42345,6 +42735,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -42522,7 +42915,15 @@ x-flows:
                       title: INVESTMENT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_009
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: On Status - Child Order
@@ -42565,6 +42966,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -42752,7 +43156,15 @@ x-flows:
                       title: INVESTMENT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_009
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: Update (ask to add existing mandate) - Parent Order
@@ -42854,6 +43266,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -42997,6 +43412,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                 xinput:
                   form:
                     id: form_1
@@ -43256,6 +43675,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -43419,7 +43841,15 @@ x-flows:
                       title: INVESTMENT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_009
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
       - summary: Confirm
@@ -43570,6 +44000,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -43733,7 +44166,15 @@ x-flows:
                       title: INVESTMENT
                       price:
                         currency: INR
-                        value: '3000'
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_009
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
                 created_at: '2023-05-25T05:23:03.443Z'
                 updated_at: '2023-05-25T05:23:03.443Z'
   - summary: Switch - by amount
@@ -43869,6 +44310,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -44241,6 +44685,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -44621,6 +45068,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -44911,6 +45361,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -45096,8 +45549,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                   - id: ff_124
                     type: SWITCH_IN
@@ -45148,8 +45601,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 tags:
                   - display: false
@@ -45337,6 +45790,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -45710,6 +46166,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -46092,6 +46551,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -46274,6 +46736,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                   - id: ff_124
                     type: STP_IN
                     state:
@@ -46330,6 +46796,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                 tags:
                   - display: false
                     descriptor:
@@ -46408,6 +46878,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -46590,6 +47063,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                       - display: false
                         descriptor:
                           name: Installment Order Ids
@@ -46659,6 +47136,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                       - display: false
                         descriptor:
                           name: Installment Order Ids
@@ -46749,6 +47230,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -47051,6 +47535,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -47240,8 +47727,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                   - id: ff_124
                     type: STP_IN_INSTALMENT
@@ -47296,8 +47783,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 tags:
                   - display: false
@@ -47469,6 +47956,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -47782,6 +48272,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -48073,6 +48566,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -48228,6 +48724,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                 tags:
                   - display: false
                     descriptor:
@@ -48305,6 +48805,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -48460,6 +48963,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                       - display: false
                         descriptor:
                           name: Installment Order Ids
@@ -48549,6 +49056,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -48762,6 +49272,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -48899,8 +49412,8 @@ x-flows:
                           code: EXTERNAL_REFS
                         list:
                           - descriptor:
-                              name: RTA Identifier
-                              code: RTA_IDENTIFIER
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
                             value: '21432432'
                 tags:
                   - display: false
@@ -49069,6 +49582,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     quantity:
@@ -49388,6 +49904,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -49695,6 +50214,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -50007,6 +50529,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -50514,6 +51039,9 @@ x-flows:
                     descriptor:
                       name: ABC Fund - Other Service
                       code: SERVICE
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     tags:
@@ -52344,6 +52872,9 @@ x-flows:
                     descriptor:
                       name: ABC Fund - Other Service
                       code: SERVICE
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     tags:
@@ -52524,6 +53055,9 @@ x-flows:
                     descriptor:
                       name: ABC Fund - Other Service
                       code: SERVICE
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     tags:
@@ -52706,6 +53240,9 @@ x-flows:
                     descriptor:
                       name: ABC Fund - Other Service
                       code: SERVICE
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     tags:
@@ -52824,6 +53361,9 @@ x-flows:
                     descriptor:
                       name: ABC Fund - Other Service
                       code: SERVICE
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
                     tags:
@@ -53064,6 +53604,9 @@ x-flows:
                     descriptor:
                       name: ABC Fund - Other Service
                       code: SERVICE
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - fsf_132
                     tags:
@@ -53190,6 +53733,9 @@ x-flows:
                     descriptor:
                       name: ABC Fund - Other Service
                       code: SERVICE
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     fulfillment_ids:
                       - fsf_132
                     tags:
@@ -53431,6 +53977,9 @@ x-flows:
                     descriptor:
                       name: Other Service
                       code: SERVICE
+                    creator:
+                      descriptor:
+                        name: Seller App
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -53686,6 +54235,9 @@ x-flows:
                     descriptor:
                       name: Other Service
                       code: SERVICE
+                    creator:
+                      descriptor:
+                        name: Seller App
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -53842,6 +54394,9 @@ x-flows:
                     descriptor:
                       name: Other Service
                       code: SERVICE
+                    creator:
+                      descriptor:
+                        name: Seller App
                     fulfillment_ids:
                       - ff_123
                     payment_ids:
@@ -54128,6 +54683,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -54486,6 +55044,9 @@ x-flows:
                     descriptor:
                       name: ABC Mid Cap Fund - Regular - Growth
                       code: SCHEME_PLAN
+                    creator:
+                      descriptor:
+                        name: ABC Mutual Fund
                     quantity:
                       selected:
                         measure:
@@ -56347,6 +56908,9 @@ x-examples:
                       descriptor:
                         name: ABC Mid Cap Fund - Regular - Growth
                         code: SCHEME_PLAN
+                      creator:
+                        descriptor:
+                          name: ABC Mutual Fund
                       payment_ids:
                         - pmt_587
                       quantity:
