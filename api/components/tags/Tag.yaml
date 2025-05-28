@@ -33,6 +33,12 @@ scheme_info:
   - code: OFFER_DOCUMENTS
     description: Scheme related documents. Typically include SID, KIM, SAI and related addendums
     reference: <PR/Issue/Discussion Links md format text>
+  - code: INVESTOR_ALLOW_LIST
+    description: Contains comma separated list if the scheme is allowed only for certain investor types eg. MINOR
+    reference: <PR/Issue/Discussion Links md format text>
+  - code: INVESTOR_BLACK_LIST
+    description: Contains comma separated list if the scheme is not allowed for certain investor types eg. NRI_US, NRI_CA
+    reference: <PR/Issue/Discussion Links md format text>
 
 plan_info:
   - code: CONSUMER_TNC
