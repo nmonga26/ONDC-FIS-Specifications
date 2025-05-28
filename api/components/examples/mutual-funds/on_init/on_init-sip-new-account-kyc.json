@@ -211,7 +211,6 @@
                 {
                     "id": "pmt_123",
                     "collected_by": "BPP",
-                    "url": "https://api.sellerapp.com/payment?k=abdafaf",
                     "status": "NOT-PAID",
                     "params": {
                         "amount": "0",

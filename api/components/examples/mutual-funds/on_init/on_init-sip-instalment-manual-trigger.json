@@ -144,7 +144,6 @@
                 {
                     "id": "pmt_234",
                     "collected_by": "BPP",
-                    "url": "upi://pay?pa=UPIID@oksbi&amp;pn=NAME&amp;&tr=123456789&amp;cu=INR&amp;am=3000",
                     "status": "NOT-PAID",
                     "params": {
                         "amount": "3000",

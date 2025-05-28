@@ -7348,7 +7348,6 @@ x-flows:
                 payments:
                   - id: pmt_123
                     collected_by: BPP
-                    url: https://api.sellerapp.com/payment?k=abdafaf
                     status: NOT-PAID
                     params:
                       amount: '0'
@@ -12489,7 +12488,6 @@ x-flows:
                 payments:
                   - id: pmt_123
                     collected_by: BPP
-                    url: https://api.sellerapp.com/payment?k=abdafaf
                     status: NOT-PAID
                     params:
                       amount: '0'
@@ -14135,7 +14133,6 @@ x-flows:
                 payments:
                   - id: pmt_123
                     collected_by: BPP
-                    url: https://api.sellerapp.com/payment?k=abdafaf
                     status: NOT-PAID
                     params:
                       amount: '0'
@@ -20555,7 +20552,6 @@ x-flows:
                 payments:
                   - id: pmt_123
                     collected_by: BPP
-                    url: https://api.sellerapp.com/payment?k=abdafaf
                     status: NOT-PAID
                     params:
                       amount: '3000'
@@ -24922,7 +24918,6 @@ x-flows:
                 payments:
                   - id: pmt_123
                     collected_by: BPP
-                    url: https://api.sellerapp.com/payment?k=abdafaf
                     status: NOT-PAID
                     params:
                       amount: '3000'
@@ -32877,7 +32872,6 @@ x-flows:
                 payments:
                   - id: pmt_123
                     collected_by: BPP
-                    url: https://api.sellerapp.com/payment?k=abdafaf
                     status: NOT-PAID
                     params:
                       amount: '8000'
@@ -36600,7 +36594,6 @@ x-flows:
                 payments:
                   - id: pmt_123
                     collected_by: BPP
-                    url: https://api.sellerapp.com/payment?k=abdafaf
                     status: NOT-PAID
                     params:
                       amount: '0'
@@ -41368,8 +41361,6 @@ x-flows:
                 payments:
                   - id: pmt_123
                     collected_by: BPP
-                    url: >-
-                      upi://pay?pa=UPIID@oksbi&amp;pn=NAME&amp;&tr=123456789&amp;cu=INR&amp;am=30000
                     status: NOT-PAID
                     params:
                       amount: '30000'
@@ -45165,8 +45156,6 @@ x-flows:
                 payments:
                   - id: pmt_234
                     collected_by: BPP
-                    url: >-
-                      upi://pay?pa=UPIID@oksbi&amp;pn=NAME&amp;&tr=123456789&amp;cu=INR&amp;am=3000
                     status: NOT-PAID
                     params:
                       amount: '3000'
@@ -55686,7 +55675,6 @@ x-flows:
                   - id: pmt_123
                     collected_by: BPP
                     status: NOT-PAID
-                    url: https://api.sellerapp.com/payment?k=abdafaf
                     params:
                       amount: '0'
                       currency: INR
@@ -56481,7 +56469,6 @@ x-flows:
                 payments:
                   - id: pmt_123
                     collected_by: BPP
-                    url: https://api.sellerapp.com/payment?k=abdafaf
                     status: NOT-PAID
                     params:
                       amount: '3000'
@@ -58730,8 +58717,6 @@ x-examples:
                   payments:
                     - id: pmt_587
                       collected_by: BPP
-                      url: >-
-                        upi://pay?pa=UPIID@oksbi&amp;pn=NAME&amp;&tr=123456789&amp;cu=INR&amp;am=3000
                       status: NOT-PAID
                       params:
                         amount: '3000'
