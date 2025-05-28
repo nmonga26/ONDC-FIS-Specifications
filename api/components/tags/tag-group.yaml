@@ -93,33 +93,17 @@ order:
             description : Mobile number to be used for doing 2fa
             reference: <PR/Issue/Discussion Links md format text>
       - code: INFORMATION
-        description : Describes the finder fees for buyer
+        description : Additional information related to the fulfillment
         reference: <PR/Issue/Discussion Links md format text>
         list:
-          #moved as part of FOLIO_INFORMATION tag group
-          # - code: FOLIO_NUMBER
-          #   description : Describes the finder fees for buyer
-          #   reference: <PR/Issue/Discussion Links md format text>
-          - code: UNITS
-            description : Describes the finder fees for buyer
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: AMOUNT
-            description : Describes the finder fees for buyer
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: PRICE
-            description : Describes the finder fees for buyer
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: NAV
-            description : Describes the finder fees for buyer
-            reference: <PR/Issue/Discussion Links md format text>
-          - code: NAV_DATE
-            description : Describes the finder fees for buyer
-            reference: <PR/Issue/Discussion Links md format text>
           - code: REMAINING_INSTALMENTS
-            description : Describes the finder fees for buyer
+            description : Number of instalments left in this recurring order as per the schedule
             reference: <PR/Issue/Discussion Links md format text>
           - code: NEXT_INSTALMENT_DATE
-            description : Describes the finder fees for buyer
+            description : Date of the next instalment as per the schedule
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: LAST_INSTALMENT_DATE
+            description : Date of the last instalment as per the schedule
             reference: <PR/Issue/Discussion Links md format text>
       - code: ERROR_INFORMATION
         description : Describes the finder fees for buyer

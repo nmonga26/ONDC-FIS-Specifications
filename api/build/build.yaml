@@ -3809,29 +3809,19 @@ x-tags:
           tags:
             - &ref_19
               code: INFORMATION
-              description: Describes the finder fees for buyer
+              description: Additional information related to the fulfillment
               reference: <PR/Issue/Discussion Links md format text>
               list:
-                - code: UNITS
-                  description: Describes the finder fees for buyer
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: AMOUNT
-                  description: Describes the finder fees for buyer
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: PRICE
-                  description: Describes the finder fees for buyer
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: NAV
-                  description: Describes the finder fees for buyer
-                  reference: <PR/Issue/Discussion Links md format text>
-                - code: NAV_DATE
-                  description: Describes the finder fees for buyer
-                  reference: <PR/Issue/Discussion Links md format text>
                 - code: REMAINING_INSTALMENTS
-                  description: Describes the finder fees for buyer
+                  description: >-
+                    Number of instalments left in this recurring order as per
+                    the schedule
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: NEXT_INSTALMENT_DATE
-                  description: Describes the finder fees for buyer
+                  description: Date of the next instalment as per the schedule
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: LAST_INSTALMENT_DATE
+                  description: Date of the last instalment as per the schedule
                   reference: <PR/Issue/Discussion Links md format text>
             - &ref_20
               code: ERROR_INFORMATION
@@ -16437,6 +16427,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                       - display: false
                         descriptor:
                           name: Installment Order Ids
@@ -18430,6 +18424,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                       - display: true
                         descriptor:
                           name: Cancellation Information
@@ -18557,6 +18555,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -36336,6 +36338,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                       - display: false
                         descriptor:
                           name: Installment Order Ids
@@ -36455,6 +36461,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                       - display: false
                         descriptor:
                           name: Installment Order Ids
@@ -38147,6 +38157,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                       - display: false
                         descriptor:
                           name: Installment Order Ids
@@ -38522,6 +38536,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                       - display: false
                         descriptor:
                           name: Installment Order Ids
@@ -41446,6 +41464,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                 xinput:
                   form:
                     id: form_1
@@ -41760,6 +41782,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                 xinput:
                   form:
                     id: form_1
@@ -43039,6 +43065,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                 xinput:
                   form:
                     id: form_1
@@ -46316,6 +46346,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                   - id: ff_124
                     type: STP_IN
                     state:
@@ -46372,6 +46406,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                 tags:
                   - display: false
                     descriptor:
@@ -46632,6 +46670,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                       - display: false
                         descriptor:
                           name: Installment Order Ids
@@ -46701,6 +46743,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                       - display: false
                         descriptor:
                           name: Installment Order Ids
@@ -48270,6 +48316,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                 tags:
                   - display: false
                     descriptor:
@@ -48502,6 +48552,10 @@ x-flows:
                               name: Remaining Instalments
                               code: REMAINING_INSTALMENTS
                             value: '5'
+                          - descriptor:
+                              name: Last Instalment Date
+                              code: LAST_INSTALMENT_DATE
+                            value: 15/09/2024
                       - display: false
                         descriptor:
                           name: Installment Order Ids

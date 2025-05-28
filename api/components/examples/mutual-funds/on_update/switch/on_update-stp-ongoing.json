@@ -243,6 +243,10 @@
                                 {
                                     "descriptor": {"name": "Remaining Instalments", "code": "REMAINING_INSTALMENTS"},
                                     "value": "5"
+                                },
+                                {
+                                    "descriptor": {"name": "Last Instalment Date", "code": "LAST_INSTALMENT_DATE"},
+                                    "value": "15/09/2024"
                                 }
                             ]
                         },
@@ -333,6 +337,10 @@
                                 {
                                     "descriptor": {"name": "Remaining Instalments", "code": "REMAINING_INSTALMENTS"},
                                     "value": "5"
+                                },
+                                {
+                                    "descriptor": {"name": "Last Instalment Date", "code": "LAST_INSTALMENT_DATE"},
+                                    "value": "15/09/2024"
                                 }
                             ]
                         },
