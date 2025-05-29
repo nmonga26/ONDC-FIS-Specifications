@@ -23,7 +23,7 @@ message:
     provider:
       id: PROVIDER_ID
       items:
-        - id: ITEM_ID_WORKING_CAPITAL_LOAN
+        - id: WORKING_CAPITAL_LOAN_ID_1
           xinput:
             form:
               id: <form_gst_bank_statement_F01>

@@ -35,7 +35,7 @@ message:
               email: john.doe@gmail.com
               phone: '7888888888'
       items:
-        - id: ITEM_ID_WORKING_CAPITAL_LOAN
+        - id: WORKING_CAPITAL_LOAN_ID_1
           xinput:
             form:
               id: <form_business_financial_F02>

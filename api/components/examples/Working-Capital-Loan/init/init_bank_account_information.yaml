@@ -47,7 +47,7 @@ message:
   
     items:
       - id: CHILD_ITEM_ID_WORKING_CAPITAL_LOAN
-        parent_item_id: ITEM_ID_WORKING_CAPITAL_LOAN
+        parent_item_id: WORKING_CAPITAL_LOAN_ID_1
         xinput:
           form:
             id: form_account_info_F05
