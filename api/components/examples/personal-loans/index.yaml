@@ -1,0 +1,176 @@
+search:
+  examples:
+    - summary: search_request_1
+      description: TBD
+      value:
+        $ref: ./search/search_request_1.yaml
+    - summary: search-request_2.yaml
+      description: TBD
+      value:
+        $ref: ./search/search_request_2.yaml
+    - summary: search-request_3.yaml
+      description: TBD
+      value:
+        $ref: ./search/search_request_3.yaml
+on_search:
+  examples:
+    - summary: on_search_request_1
+      description: TBD
+      value:
+        $ref: ./on_search/on_search_request_1.yaml
+    # - summary: on_search-request_2.yaml
+    #   description: TBD
+    #   value:
+    #     $ref: ./on_search/on_search_request_2.yaml
+    # - summary: on_search_request_3.yaml
+    #   description: TBD
+    #   value:
+    #     $ref: ./on_search/on_search_request_3.yaml
+select:
+  examples:
+    - summary: select_request_1.yaml
+      description: TBD
+      value:
+        $ref: ./select/select_request_1.yaml
+    - summary: select_request_2.yaml
+      description: TBD
+      value:
+        $ref: ./select/select_request_2.yaml
+    - summary: select_request_3.yaml
+      description: TBD
+      value:
+        $ref: ./select/select_request_3.yaml
+on_select:
+  examples:
+    - summary: on_select_request_1.yaml
+      description: TBD
+      value:
+        $ref: ./on_select/on_select_request_1.yaml
+    - summary: on_select_request_2.yaml
+      description: TBD
+      value:
+        $ref: ./on_select/on_select_request_2.yaml
+    - summary: on_select_request_3.yaml
+      description: TBD
+      value:
+        $ref: ./on_select/on_select_request_3.yaml
+init:
+  examples:
+    - summary: init_request_1.yaml
+      description: TBD
+      value:
+        $ref: ./init/init_request_1.yaml
+    - summary: init_request_2.yaml
+      description: TBD
+      value:
+        $ref: ./init/init_request_2.yaml
+    - summary: init_request_3.yaml
+      description: TBD
+      value:
+        $ref: ./init/init_request_3.yaml
+on_init:
+  examples:
+    - summary: on_init_request_1.yaml
+      description: TBD
+      value:
+        $ref: ./on_init/on_init_request_1.yaml
+    - summary: on_init_request_2.yaml
+      description: TBD
+      value:
+        $ref: ./on_init/on_init_request_2.yaml
+    - summary: on_init_request_3.yaml
+      description: TBD
+      value:
+        $ref: ./on_init/on_init_request_3.yaml
+confirm:
+  examples:
+    - summary: confirm_request_1.yaml
+      description: TBD
+      value:
+        $ref: ./confirm/confirm_request_1.yaml
+on_confirm:
+  examples:
+    - summary: on_confirm_request.yaml
+      description: TBD
+      value:
+        $ref: ./on_confirm/on_confirm_request.yaml
+update:
+  examples:
+    - summary: update_request_1.yaml
+      description: TBD
+      value:
+        $ref: ./update/update_request_1.yaml
+    - summary: update_request_2_foreclosure.yaml
+      description: TBD
+      value:
+        $ref: ./update/update_request_2_foreclosure.yaml
+    - summary: update_request_3_pre_part.yaml
+      description: TBD
+      value:
+        $ref: ./update/update_request_3_pre_part.yaml
+    - summary: update_request_4_missed_emi.yaml
+      description: TBD
+      value:
+        $ref: ./update/update_request_4_missed_emi.yaml        
+on_update:
+  examples:
+    - summary: on_update_request_1.yaml
+      description: TBD
+      value:
+        $ref: ./on_update/on_update_request_1.yaml
+    - summary: on_update-request-prepayment.yaml
+      description: TBD
+      value:
+        $ref: ./on_update/on_update_request_2.yaml
+    - summary: on_update_request_3_foreclosure.yaml
+      description: TBD
+      value:
+        $ref: ./on_update/on_update_request_3_foreclosure.yaml
+status:
+  examples:
+    - summary: example_request_1.yaml
+      description: TBD
+      value:
+        $ref: ./status/example_request_1.yaml
+# on_status:
+#   examples:
+#     - summary: on_status-request.yaml
+#       description: TBD
+#       value:
+#         $ref: ./on_status/on_status-request.yaml
+#     - summary: on_status-request-full-repayment.yaml
+#       description: TBD
+#       value:
+#         $ref: ./on_status/on_status-request-full-repayment.yaml
+#     - summary: on_status-request-late-repayment-installment.yaml
+#       description: TBD
+#       value:
+#         $ref: ./on_status/on_status-request-late-repayment-installment.yaml
+#     - summary: on_status-form-completed.yaml
+#       description: TBD
+#       value:
+#         $ref: ./on_status/on_status-form-completed.yaml
+#     - summary: on_status-form-processing.yaml
+#       description: TBD
+#       value:
+#         $ref: ./on_status/on_status-form-processing.yaml
+#     - summary: on_status-form-submitted.yaml
+#       description: TBD
+#       value:
+#         $ref: ./on_status/on_status-form-submitted.yaml
+#     - summary: on_status-request-prepayment.yaml
+#       description: TBD
+#       value:
+#         $ref: ./on_status/on_status-request-prepayment.yaml
+# support:
+#   examples:
+#     - summary: support-request.yaml
+#       description: TBD
+#       value:
+#         $ref: ./support/support-request.yaml
+# on_support:
+#   examples:
+#     - summary: on_support-request.yaml
+#       description: TBD
+#       value:
+#         $ref: ./on_support/on_support-request.yaml

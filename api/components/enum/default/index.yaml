@@ -34,7 +34,10 @@ search:
               reference: <PR/Issue/Discussion Links md format text
             - code: PARTNERSHIP_FIRM
               description: Describes the category code as PARTNERSHIP_FIRM
-              reference: <PR/Issue/Discussion Links md format text      
+              reference: <PR/Issue/Discussion Links md format text
+            - code: PERSONAL_LOAN
+              description: Describes the category code as PERSONAL_LOAN
+              reference: <PR/Issue/Discussion Links md format text       
 on_search:
   context: *a1
   message:
@@ -72,6 +75,11 @@ on_search:
                 - code: BUSINESS_AND_FINANCIAL_DOCUMENTS
                   description: Business and Financial Information
                   reference: <PR/Issue/Discussion Links md format text
+                - code: PERSONAL_INFORMATION
+                  description: Personal Information
+                  reference: <PR/Issue/Discussion Links md format text  
+
+                  
         categories:
           descriptor:
             code:
@@ -110,6 +118,16 @@ on_select:
               - code: ENTITY_KYC
                 description: Business KYC
                 reference: <PR/Issue/Discussion Links md format text
+             #PL   
+              - code: SET_LOAN_AMOUNT
+                description: set loan amount
+                reference: <PR/Issue/Discussion Links md format text
+              - code: KNOW_YOUR_CUSTOMER
+                description: KYC
+                reference: <PR/Issue/Discussion Links md format text    
+
+              
+                
       quote: &a12
         breakup:
           title:
@@ -168,6 +186,12 @@ init:
               - code: ESIGN
                 description: ESIGN of Loan Agreement
                 reference: <PR/Issue/Discussion Links md format text
+              - code: LOAN_AGREEMENT
+                description: Loan Agreement
+                reference: <PR/Issue/Discussion Links md format text  
+
+                
+
 on_init:
   context: *a1
   message:

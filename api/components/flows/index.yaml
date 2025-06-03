@@ -1,3 +1,7 @@
+- $ref: ./personal-loans/index.yaml
+- $ref: ./personal_loans_foreclosure/index.yaml
+- $ref: ./personal_loans_pre_part/index.yaml
+- $ref: ./personal_loans_missed_emi/index.yaml
 - $ref: ./credit_line_assignment/index.yaml
 - $ref: ./credit_line_assignment_sole_prop/index.yaml
 - $ref: ./credit_line_drawdown/index.yaml

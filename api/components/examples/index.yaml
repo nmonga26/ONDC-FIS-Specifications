@@ -3,3 +3,10 @@ Working-Capital-Loan:
   description: Working Capital Loan
   example_set:
     $ref: ./Working-Capital-Loan/index.yaml
+
+personal-loans:
+  summary: Personal-Loan
+  description: Personal Loan use-case
+  example_set:
+    $ref: ./personal-loans/index.yaml
+

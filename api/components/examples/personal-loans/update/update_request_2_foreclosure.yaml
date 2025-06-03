@@ -1,0 +1,25 @@
+context:
+  domain: ONDC:FIS12
+  location:
+    country:
+      code: IND
+    city:
+      code: '*'
+  transaction_id: cd66b3df-488a-42c0-8664-39438a1ff564
+  message_id: 39642031-7fb1-40b4-bafe-e719a5abdf0b
+  action: update
+  timestamp: '2025-05-30T05:33:05.443Z'
+  version: 2.3.0
+  bap_uri: https://bap.credit.becknprotocol.io/
+  bap_id: bap.credit.becknprotocol.io
+  ttl: PT10M
+  bpp_id: bpp.credit.becknprotocol.org
+  bpp_uri: https://bpp.credit.becknprotocol.org
+message:
+  update_target: payments
+  order:
+    id: ORDER_ID_PERSONAL_LOAN
+    payments:
+      - time:
+          label: FORECLOSURE
+   

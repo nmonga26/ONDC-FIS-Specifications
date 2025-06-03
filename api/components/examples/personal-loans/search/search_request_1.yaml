@@ -1,0 +1,43 @@
+context:
+  domain: ONDC:FIS12
+  location:
+    country:
+      code: IND
+    city:
+      code: '*'
+  transaction_id: cd66b3df-488a-42c0-8664-39438a1ff564
+  message_id: 3689fe98-9a3e-4322-99ba-24617400f56f
+  action: search
+  timestamp: '2025-05-30T05:23:03.443Z'
+  version: 2.3.0
+  bap_uri: https://bap.credit.becknprotocol.io/
+  bap_id: bap.credit.becknprotocol.io
+  ttl: PT10M
+message:
+  intent:
+    category:
+      descriptor:
+        code: PERSONAL_LOAN
+    tags:
+      - display: false
+        descriptor:
+          name: BAP Terms of Engagement
+          code: BAP_TERMS
+        list:
+          - descriptor:
+              code: BUYER_FINDER_FEES_TYPE
+            value: percent-annualized
+          - descriptor:
+              code: BUYER_FINDER_FEES_PERCENTAGE
+            value: "1"
+          - descriptor:
+              code: DELAY_INTEREST
+            value: "2.5"
+          - descriptor:
+              code: STATIC_TERMS
+            value: https://bap.credit.becknprotocol.io/working-capital/loans/working-capital
+          - descriptor:
+              code: OFFLINE_CONTRACT
+            value: "true"        
+    payment:
+      collected_by: BPP

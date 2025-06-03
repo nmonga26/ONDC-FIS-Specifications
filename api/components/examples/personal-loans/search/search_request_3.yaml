@@ -1,0 +1,58 @@
+context:
+  domain: ONDC:FIS12
+  location:
+    country:
+      code: IND
+    city:
+      code: '*'
+  transaction_id: cd66b3df-488a-42c0-8664-39438a1ff564
+  message_id: 5d26db2c-b678-481a-9dea-c9bb4ac8c0ee
+  action: search
+  timestamp: '2025-05-30T05:23:05.443Z'
+  version: 2.3.0
+  bap_uri: https://bap.credit.becknprotocol.io/
+  bap_id: bap.credit.becknprotocol.io
+  ttl: PT10M
+  bpp_id: bpp.credit.becknprotocol.org
+  bpp_uri: https://bpp.credit.becknprotocol.org
+message:
+  intent:
+    category:
+      descriptor:
+        code: PERSONAL_LOAN
+    provider:
+      id: PROVIDER_ID
+      items:
+        - id: ITEM_ID_PERSONAL_LOAN
+          xinput:
+            form:
+              id: F01
+            form_response:
+              status: APPROVED
+              submission_id: F01_SUBMISSION_ID
+    tags:
+      - display: false
+        descriptor:
+          name: BAP Terms of Engagement
+          code: BAP_TERMS
+        list:
+          - descriptor:
+              code: BUYER_FINDER_FEES_TYPE
+            value: percent-annualized
+          - descriptor:
+              code: BUYER_FINDER_FEES_PERCENTAGE
+            value: '1'
+          - descriptor:
+              code: DELAY_INTEREST
+            value: '2.5'
+          - descriptor:
+              code: STATIC_TERMS
+            value: >-
+              https://bap.credit.becknprotocol.io/loans/personal-loans
+          - descriptor:
+              code: OFFLINE_CONTRACT
+            value: 'true'
+  
+    payment:
+      collected_by: BPP  
+   
