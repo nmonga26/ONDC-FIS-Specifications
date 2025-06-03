@@ -31,8 +31,8 @@ If the investor has an existing mandate, AMC will send that along with masked ba
 **Netbanking**  
 For one time payment, if netbanking is supported for the given investor's bank a/c, AMC will respond with this option.
 
-**UPI Collect**  
-For one time payment, if upi collect is supported for the given investor's bank a/c, AMC will respond with this option.
+**UPI**  
+For one time payment, if upi is supported for the given investor's bank a/c, AMC will respond with this option.
 
 ```mermaid
 sequenceDiagram
@@ -74,7 +74,7 @@ sequenceDiagram
 ### Initiation
 Buyer app makes an `init` call with the details of the investor, order, the fulfillment choice and the bank a/c from where the investor want to make the payment and the payment method. Buyer app takes a clickwrap consent from the investor on the TnC, performs 2fa and sends those details.
 
-Seller app checks all the inputs and the order is created in draft state. The payment URL is sent in the response.
+Seller app checks all the inputs and the order is created in draft state.
 
 Order in `CREATED` state marks the end of this stage.
 
@@ -86,7 +86,7 @@ sequenceDiagram
     participant bpp AS AMC/Aggregator
     Note over bap, bpp: Distributor performs 2fa before confirming. <br /> Static terms cover this
     bap ->> bpp: `/init` w/ order details, fulfillment choice (onetime/sip), payment method and bank a/c
-    bpp ->> bap: `/on_init` w/ payment URL & order in `CREATED` state
+    bpp ->> bap: `/on_init` w/ order in `CREATED` state
 ```
 
 #### Initiating Redemption Order
@@ -125,13 +125,15 @@ sequenceDiagram
         end
     else payment = new mandate/ netbanking/ upi
         rect rgb(102,179,255)
-            bpp ->> bap: `/on_confirm` w/ order in `ACCEPTED` state
+            bpp ->> bap: `/on_confirm` w/ payment URL & order in `ACCEPTED` state
             bap --) Investor: Redirect to payment url
             Investor --) bpp: Completes the payment
             alt payment successful
                 bpp ->> bap: `/on_status` w/ payment in `PAID` state
             else payment failed
                 bpp ->> bap: `/on_status` w/ payment in `FAILED` state
+            else payment pending/unknown
+                bpp ->> bap: `/on_status` w/ payment in `NOT-PAID` state
             end
         end
     end

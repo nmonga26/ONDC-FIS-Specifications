@@ -80,7 +80,7 @@ The buyer app redirects the user's browser to a seller provided payment url. Aft
 
 Seller app will redirect back the user to this url: `GET <bap_subscriber_url>/callback` with the following query params:
 1. `transaction_id` (transaction id used in the context)
-2. `status` - payment status: `NOT_PAID` / `PAID` / `FAILED`
+2. `status` - payment status: `NOT-PAID` / `PAID` / `FAILED`
 3. `payment_id`
 
 Seller app will additionally send `on_status` call containing the payment status
@@ -102,7 +102,7 @@ sequenceDiagram
         bpp ->> bap: `on_status` with `status` as `FAILED`
     else payment pending
         bppf ->> bap: browser `/callback` with transaction id and not paid status
-        bpp ->> bap: `on_status` with `status` as `NOT_PAID`
+        bpp ->> bap: `on_status` with `status` as `NOT-PAID`
         Note over bap, bpp: Distributor has to wait for another `on_status` with updated payment state
         bpp ->> bap: `on_status` with `status` as `PAID`
     end

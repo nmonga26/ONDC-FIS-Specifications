@@ -32,10 +32,11 @@ Fulfillment is the order processing activity, which happens after the order is a
 
 ### Types
 
-- `LUMPSUM`
-- `SIP`
-- `REDEMPTION`
-- `SIP_INSTALMENT`
+- `LUMPSUM`, `SIP`, `SIP_INSTALMENT`
+- `REDEMPTION`, `SWP`, `SWP_INSTALMENT`
+- `SWITCH_OUT`, `STP_OUT`, `STP_OUT_INSTALMENT`
+- `SWITCH_IN`, `STP_IN`, `STP_IN_INSTALMENT`
+
 
 ### States
 
@@ -94,7 +95,8 @@ stateDiagram-v2
 
 ### Types
 
-- `PRE_FULFILLMENT`
+- `PRE_FULFILLMENT` (for purchase payments)
+- `ON_FULFILLMENT` (for redemption payouts)
 
 ### Payment methods
 
@@ -132,5 +134,5 @@ offline bank transfer through cheque. TODO -->
 ### States
 
 - `PAID`: Payment is successfully collected
-- `NOT_PAID`: Payment is pending
+- `NOT-PAID`: Payment is pending
 - `FAILED`: Payment failed either due to incorrect user action or system issues

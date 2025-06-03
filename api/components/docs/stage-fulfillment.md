@@ -1,4 +1,4 @@
-### Fulfillment (Recurring: SIP, SWP)
+### Fulfillment (Recurring: SIP, SWP, STPs)
 
 After the order is accepted, seller app performs the processing and responds with the state of order processing (fulfillment)
 
@@ -28,14 +28,14 @@ sequenceDiagram
     alt payment successful
         bpp ->> bap: `/on_status` w/ child order payment in `PAID` state
     else payment failed
-        bpp ->> bap: `/on_status` w/ child order payment in `NOT_PAID` state
+        bpp ->> bap: `/on_status` w/ child order payment in `NOT-PAID` state
     end
     end
 ```
 
 ---
 
-### Fulfillment (Onetime: Lumpsum, SIP Instalment, Redemption, SWP Instalment)
+### Fulfillment (Onetime: Lumpsum, SIP Instalment, Redemption, SWP Instalment, STP Instalments)
 
 After the order is accepted, seller app performs the processing and responds with the state of order processing.
 
