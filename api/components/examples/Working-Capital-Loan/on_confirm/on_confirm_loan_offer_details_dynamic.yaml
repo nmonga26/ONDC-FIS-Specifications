@@ -192,19 +192,19 @@ message:
               - descriptor:
                   code: MANUAL_KYC_EMANDATE_ESIGN
                   name: Manual kyc emandate esign
-                value: PENDING
+                value: COMPLETED
               - descriptor:
                   code: PERSONAL_DISCUSSION
                   name: Personal Discussion
-                value: PENDING
+                value: COMPLETED
               - descriptor:
                   code: PHYSICAL_VERIFICATION
                   name: Physical Verification
-                value: PENDING
+                value: COMPLETED
               - descriptor:
                   code: PROCESSING_FEE
                   name: Processing Fees
-                value: PENDING
+                value: COMPLETED
     payments:
       - id: PAYMENT_ID_PROCESSING_FEES
         collected_by: BPP

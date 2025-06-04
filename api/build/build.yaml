@@ -2864,6 +2864,15 @@ x-enum:
                     Working capital loan offered by financial institutions for
                     businesses
                   reference: <PR/Issue/Discussion Links md format text
+                - code: SOLE_PROPRIETORSHIP
+                  description: Describes the category code as SOLE_PROPRIETORSHIP.
+                  reference: <PR/Issue/Discussion Links md format text
+                - code: PRIVATE_LTD
+                  description: Describes the category code as PRIVATE_LTD
+                  reference: <PR/Issue/Discussion Links md format text
+                - code: PARTNERSHIP_FIRM
+                  description: Describes the category code as PARTNERSHIP_FIRM
+                  reference: <PR/Issue/Discussion Links md format text
   select:
     context: *ref_0
     message:
@@ -19344,67 +19353,20 @@ x-flows:
                           - descriptor:
                               code: MANUAL_KYC_EMANDATE_ESIGN
                               name: Manual kyc emandate esign
-                            value: PENDING
+                            value: COMPLETED
                           - descriptor:
                               code: PERSONAL_DISCUSSION
                               name: Personal Discussion
-                            value: PENDING
+                            value: COMPLETED
                           - descriptor:
                               code: PHYSICAL_VERIFICATION
                               name: Physical Verification
-                            value: PENDING
+                            value: COMPLETED
                           - descriptor:
                               code: PROCESSING_FEE
                               name: Processing Fees
-                            value: PENDING
-                    xinput:
-                      form:
-                        id: form_esign_F07
-                      form_response:
-                        status: SUCCESS
-                        submission_id: form_submission_id_esign_F07
-                payments:
-                  - id: PAYMENT_ID_PROCESSING_FEES
-                    collected_by: BPP
-                    params:
-                      amount: '1000'
-                      currency: INR
-                    status: PAID
-                    type: PRE-ORDER
-                tags:
-                  - display: false
-                    descriptor:
-                      name: BPP Terms of Engagement
-                      code: BPP_TERMS
-                    list:
-                      - descriptor:
-                          code: BUYER_FINDER_FEES_TYPE
-                        value: percent-annualized
-                      - descriptor:
-                          code: BUYER_FINDER_FEES_PERCENTAGE
-                        value: '1'
-                      - descriptor:
-                          code: SETTLEMENT_WINDOW
-                        value: PT60M
-                      - descriptor:
-                          code: SETTLEMENT_BASIS
-                        value: INVOICE_RECEIPT
-                      - descriptor:
-                          code: MANDATORY_ARBITRATION
-                        value: 'TRUE'
-                      - descriptor:
-                          code: COURT_JURISDICTION
-                        value: New Delhi
-                      - descriptor:
-                          code: STATIC_TERMS
-                        value: >-
-                          https://bpp.credit.becknprotocol.org/personal-banking/loans/personal-loan
-                      - descriptor:
-                          code: SETTLEMENT_AMOUNT
-                        value: '1159'
-                      - descriptor:
-                          code: OFFLINE_CONTRACT
-                        value: 'true'
+                            value: COMPLETED
+                        display: true
                 fulfillments:
                   - id: '1333'
                     customer:
@@ -19446,7 +19408,7 @@ x-flows:
                         list:
                           - descriptor:
                               code: MANUAL_KYC_EMANDATE_ESIGN
-                              name: manual kyc emandate esign
+                              name: Manual kyc emandate esign
                             value: COMPLETED
         details:
           - description: The lender update the order with payments details.
@@ -19689,19 +19651,19 @@ x-flows:
                           - descriptor:
                               code: MANUAL_KYC_EMANDATE_ESIGN
                               name: Manual kyc emandate esign
-                            value: PENDING
+                            value: COMPLETED
                           - descriptor:
                               code: PERSONAL_DISCUSSION
                               name: Personal Discussion
-                            value: PENDING
+                            value: COMPLETED
                           - descriptor:
                               code: PHYSICAL_VERIFICATION
                               name: Physical Verification
-                            value: PENDING
+                            value: COMPLETED
                           - descriptor:
                               code: PROCESSING_FEE
                               name: Processing Fees
-                            value: PENDING
+                            value: COMPLETED
                 payments:
                   - id: PAYMENT_ID_PROCESSING_FEES
                     collected_by: BPP
@@ -20930,7 +20892,7 @@ x-flows:
                 Lender Platform (BPP)->>Borrower Platform (BAP):on_update - Base Transaction
                 Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
                 end
-  - summary: Pre-Part Payment - Base Order.
+  - summary: Pre-Part Payment - Base Order
     details:
       - description: Detailed process for pre-part payment
         mermaid: |-
