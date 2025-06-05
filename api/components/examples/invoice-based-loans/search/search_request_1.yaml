@@ -49,7 +49,7 @@ message:
           list:
             - descriptor: 
                 code: DELAY_INTEREST
-              value: '2.5'
+              value: '5'
             - descriptor: 
                 code: STATIC_TERMS
               value: 'https://bap.credit.becknprotocol.io/personal-banking/loans/personal-loan'
