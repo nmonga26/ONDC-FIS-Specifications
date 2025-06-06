@@ -1,4 +1,4 @@
-summary: Pre-Part Payment
+summary: Pre-Part Payment - Drawdown
 details:
   - description: Detailed process for pre-part payment
     mermaid: >-
@@ -90,6 +90,7 @@ steps:
   - summary: The lender will update quotation in the base transaction
     reference: if any
     api: on_update
+    stepName: Base Order
     example:
       value:
         $ref: ../../examples/Working-Capital-Loan/on_update/on_update_pre_part_payment_base_transaction.yaml

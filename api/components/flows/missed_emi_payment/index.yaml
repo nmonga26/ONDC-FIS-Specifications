@@ -1,4 +1,4 @@
-summary: Missed EMI Payment
+summary: Missed EMI Payment - Drawdown
 details:
   - description: Detailed process for missed emi payment
     mermaid: >-
@@ -92,6 +92,7 @@ steps:
   - summary: The lender will update quotation in the base transaction
     reference: if any
     api: on_update
+    stepName: Base Order
     example:
       value:
         $ref: ../../examples/Working-Capital-Loan/on_update/on_update_missed_emi_payment_update_base_transaction.yaml
