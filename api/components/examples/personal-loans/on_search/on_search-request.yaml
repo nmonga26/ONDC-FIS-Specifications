@@ -59,12 +59,12 @@ message:
                       code: MIN_TENURE
                       name: Minimum Tenure
                       short_desc: Loan Tenure starting form 5 months
-                    value: "PT5Y"
+                    value: "P5Y"
                   - descriptor:
                       code: MAX_TENURE
                       name: Maximum Tenure
                       short_desc: Loan Tenure upto form 5 years
-                    value: "PT5Y"
+                    value: "P5Y"
                   - descriptor:
                       code: MIN_LOAN_AMOUNT
                       name: Minimum Loan Amount
