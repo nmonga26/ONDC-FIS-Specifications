@@ -60,22 +60,22 @@ message:
                       code: MIN_TENURE
                       name: Minimum Tenure
                       short_desc: Loan Tenure starting form 5 months
-                    value: "5 months"
+                    value: "P5Y"
                   - descriptor:
                       code: MAX_TENURE
                       name: Maximum Tenure
                       short_desc: Loan Tenure upto form 5 years
-                    value: "5 years"
+                    value: "P5Y"
                   - descriptor:
                       code: MIN_LOAN_AMOUNT
                       name: Minimum Loan Amount
                       short_desc: Loan Amount starting from 50,000
-                    value: "50000"
+                    value: "50000 INR"
                   - descriptor:
                       code: MAX_LOAN_AMOUNT
                       name: Minimum Loan Amount
                       short_desc: Loan Amount upto form 50,00,000
-                    value: "5000000"
+                    value: "5000000 INR"
                 display: true
               - descriptor:
                   code: CONSENT_INFO
@@ -237,7 +237,7 @@ message:
             #     status: CONSENT_CREATED
             #     submission_id: F01_SUBMISSION_ID
             #   required: true
-          - id: CHILD_ITEM_ID_INVOICE_LOAN
+          - id: CHILD_ITEM_ID_2_INVOICE_LOAN
             descriptor:
               code: INVOICE_BASED_LOAN
               name: Invoice based Loan
