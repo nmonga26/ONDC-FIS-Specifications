@@ -23900,6 +23900,7 @@ x-flows:
       - summary: The lender will update the child order
         reference: if any
         api: on_update
+        stepName: Child Order
         example:
           value:
             context:
@@ -25066,6 +25067,7 @@ x-flows:
       - summary: The lender will update the payment details in child order
         reference: if any
         api: on_update
+        stepName: Child Order
         example:
           value: *ref_44
         details:
