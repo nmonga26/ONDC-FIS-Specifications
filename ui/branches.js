@@ -1,14 +1,32 @@
 const BRANCHES = [
   {
+    code: "release-FIS12-2.0.0",
+    name: "Personal Loan",
+    short_desc: "Credit - Personal Loan use case",
+    status: "To Be Deprecated",
+  },
+  {
+    code: "release-FIS12-2.0.1",
+    name: "Personal Loan",
+    short_desc: "Credit - Personal Loan use case patch to 2.0.0",
+    status: "RELEASED",
+  },
+  {
+    code: "release-FIS14-2.0.0",
+    name: "Mutual Funds",
+    short_desc: "Investments - Mutual Funds",
+    status: "To Be Deprecated",
+  },
+  {
+    code: "release-FIS14-2.1.0",
+    name: "Mutual Funds",
+    short_desc: "Investments - Mutual Funds",
+    status: "RELEASED",
+  },
+  {
     code: "draft-FIS13-sachet",
     name: "Sachet Insurance",
     short_desc: "Insurance Sachet",
-    status: "DRAFT",
-  },
-  {
-    code: "draft-FIS14-2.1.0",
-    name: "Mutual Funds",
-    short_desc: "Investments - Mutual Funds",
     status: "DRAFT",
   },
   {
@@ -64,23 +82,5 @@ const BRANCHES = [
     name: "Gift Card",
     short_desc: "Gift - Card",
     status: "DRAFT",
-  },
-  {
-    code: "release-FIS12-2.0.1",
-    name: "Personal Loan",
-    short_desc: "Credit - Personal Loan use case patch to 2.0.0",
-    status: "RELEASED",
-  },
-  {
-    code: "release-FIS14-2.0.0",
-    name: "Mutual Funds",
-    short_desc: "Investments - Mutual Funds",
-    status: "RELEASED",
-  },
-  {
-    code: "release-FIS12-2.0.0",
-    name: "Personal Loan",
-    short_desc: "Credit - Personal Loan use case",
-    status: "To Be Deprecated",
   },
 ];
