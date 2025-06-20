@@ -113,7 +113,7 @@ message:
             currency: INR
       ttl: P5D
     items:
-      - id: CHILD_ITEM_ID_WORKING_CAPITAL_LOAN
+      - id: ITEM_ID_WORKING_CAPITAL_LOAN_DISBURSEMENT
         parent_item_id: WORKING_CAPITAL_LOAN_ID_1
         descriptor:
           code: LOAN
