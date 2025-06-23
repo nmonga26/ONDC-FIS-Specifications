@@ -5,7 +5,7 @@ context:
       code: IND
     city:
       code: '*'
-  version: 2.0.1
+  version: 2.0.2
   action: on_init
   bap_uri: https://bap.credit.becknprotocol.io/
   bap_id: bap.credit.becknprotocol.io
@@ -85,7 +85,7 @@ message:
               value: "One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound 841, Senapati Bapat Marg, Elphinstone Road, Mumbai 400013"   
         
     items:
-      - id: ITEM_ID_PERSONAL_LOAN
+      - id: ITEM_ID_PERSONAL_LOAN_2
         descriptor:
           code: PERSONAL_LOAN
           name: Personal Loan

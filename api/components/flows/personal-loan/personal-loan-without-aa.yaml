@@ -158,51 +158,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/personal-loans/select/select-request-personal-info.yaml"
-  
-  # - summary: Creates a consent request with selected product
-  #   api: on_select
-  #   details:
-  #     - description: The lender platform generates a consent request for capturing borrower's consent.
-  #       mermaid: >-
-  #         sequenceDiagram
-  #           title  Selection
-  #           participant Borrower Platform (BAP)
-  #           participant Lender Platform (BPP)
-  #           participant Lender Form Service
-  #           Borrower Platform (BAP)->>Lender Form Service: Get Form(Org Form)
-  #           Lender Form Service-->>Borrower Platform (BAP): Form Received
-  #           Borrower Platform (BAP)->>Lender Form Service: Form Submission
-  #           Lender Form Service-->>Borrower Platform (BAP): Submission ID
-  #           Borrower Platform (BAP)->>Lender Platform (BPP): select(with submissionID)
-  #           Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
-  #           rect rgb(191, 223, 255) 
-  #           Lender Platform (BPP)->>Borrower Platform (BAP):on_select
-  #           Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
-  #           end
-  #   reference: if any
-  #   example:
-  #     value:
-  #       $ref: "../../examples/personal-loans/on_select/on_select-request-consent-created.yaml"    
-  # - summary: Approval of consent request
-  #   api: select
-  #   details:
-  #     - description: The BAP approves the consent request and sends the loan product, the loan provider, and the customer's identity to the BPP.
-  #       mermaid: >-
-  #         sequenceDiagram
-  #           title  Selection
-  #           participant Borrower Platform (BAP)
-  #           participant Lender Platform (BPP)
-  #           rect rgb(191, 223, 255) 
-  #           Borrower Platform (BAP)->>Lender Platform (BPP): select(with submissionID)
-  #           Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
-  #           end
-  #           Lender Platform (BPP)->>Borrower Platform (BAP):on_select
-  #           Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
-  #   reference: if any
-  #   example:
-  #     value:
-  #       $ref: "../../examples/personal-loans/select/select-request-set-consent-approved.yaml"
+        $ref: "../../examples/personal-loans/select/select-request-personal-info_bureau.yaml"
   
   - summary: The lender offers the required form for the chosen personal loan service.
     api: on_select
@@ -222,7 +178,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/personal-loans/on_select/on_select-request-set-loan-amount.yaml"        
+        $ref: "../../examples/personal-loans/on_select/on_select-request-set-loan-amount_bureau.yaml"        
   - summary: The borrower adjusts the loan amount in the form by the lender.
     api: form
     details:
@@ -270,7 +226,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/personal-loans/select/select-request-set-loan-amount.yaml"
+        $ref: "../../examples/personal-loans/select/select-request-set-loan-amount_bureau.yaml"
   - summary: The lender sends available loan offers for the chosen personal loan service.
     api: on_select
     details:
@@ -294,7 +250,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/personal-loans/on_select/on_select-request-with-kyc-form.yaml" 
+        $ref: "../../examples/personal-loans/on_select/on_select-request-with-kyc-form_bureau.yaml" 
   - summary: The lender invoked the relevant forms like links for KYC, bank details, e-mandate etc.
     api: form
     details:
@@ -342,7 +298,7 @@ steps:
     reference: if any
     example: 
       value:
-        $ref: "../../examples/personal-loans/init/init-request-kyc-approved.yaml"
+        $ref: "../../examples/personal-loans/init/init-request-kyc-approved_bureau.yaml"
   - summary: The lender accepts the personal loan request and displays loan status details and requests for loan dispach account details.
     api: on_init
     details:
@@ -366,7 +322,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/personal-loans/on_init/on_init-request-bank-account-mandate-form.yaml" 
+        $ref: "../../examples/personal-loans/on_init/on_init-request-bank-account-mandate-form_bureau.yaml" 
   - summary: The borrower receives the bank account mandate form details form.
     api: form
     details:
@@ -415,7 +371,7 @@ steps:
     reference: if any
     example: 
       value:
-        $ref: "../../examples/personal-loans/init/init-request-emandate.yaml"
+        $ref: "../../examples/personal-loans/init/init-request-emandate_bureau.yaml"
  
   - summary: The lender accepts the personal loan request and displays loan status details and requests for e-mandate details.
     api: on_init
@@ -435,7 +391,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/personal-loans/on_init/on_init-request-emandate.yaml" 
+        $ref: "../../examples/personal-loans/on_init/on_init-request-emandate_bureau.yaml" 
   - summary: The borrower will be redirected to the e-mandate details form.
     api: form
     details:
@@ -485,7 +441,7 @@ steps:
     reference: if any
     example: 
       value:
-        $ref: "../../examples/personal-loans/init/init-request-account-info-complete.yaml"
+        $ref: "../../examples/personal-loans/init/init-request-account-info-complete_bureau.yaml"
   - summary: The lender accepts and adds terms to the request.
     api: on_init
     details:
@@ -509,7 +465,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/personal-loans/on_init/on_init-request-loan-agreement-form.yaml" 
+        $ref: "../../examples/personal-loans/on_init/on_init-request-loan-agreement-form_bureau.yaml" 
   - summary: The borrower receives the loan agreement details form.
     api: form
     details:
@@ -559,7 +515,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/personal-loans/confirm/confirm-request.yaml"         
+        $ref: "../../examples/personal-loans/confirm/confirm-request_bureau.yaml"         
   - summary: The lender confirms the personal loan order.
     api: on_confirm
     details:
@@ -585,53 +541,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/personal-loans/on_confirm/on_confirm-request.yaml" 
-  #account mointoring flow
-  # - summary: The provider platform updates the consumer.
-  #   api: on_update
-  #   details:
-  #     - description: The provider platform updates the consumer with on_update request response.
-  #       mermaid: >-
-  #         sequenceDiagram
-  #           title Order Fulfillment
-  #           participant Borrower Platform (BAP)
-  #           participant Lender Platform (BPP)
-  #           rect rgb(191, 223, 255)
-  #           Lender Platform (BPP)->>Borrower Platform (BAP):on_update
-  #           Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
-  #           end
-  #           Borrower Platform (BAP)->>Lender Platform (BPP): update-Request
-  #           Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
-  #           Lender Platform (BPP)->>Borrower Platform (BAP):on_update
-  #           Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
-  #   reference: if any
-  #   example:
-  #     value:
-  #       $ref: "../../examples/personal-loans/on_update/on_update-request-consent.yaml"
-    
-  # - summary: The borrower (BAP) sends the update request by sending the order ID.
-  #   api: update
-  #   details:
-  #     - description: The borrower (BAP) sends the update request by sending the order ID to be updated along with the object in the order to be updated as update_target.
-  #       mermaid: >-
-  #         sequenceDiagram
-  #           title Order Fulfillment
-  #           participant Borrower Platform (BAP)
-  #           participant Lender Platform (BPP)
-  #           Lender Platform (BPP)->>Borrower Platform (BAP):on_update
-  #           Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
-  #           rect rgb(191, 223, 255)
-  #           Borrower Platform (BAP)->>Lender Platform (BPP): update-Request
-  #           Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
-  #           end
-  #           Lender Platform (BPP)->>Borrower Platform (BAP):on_update
-  #           Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
-           
-  #   reference: if any
-  #   example:
-  #     value:
-  #       $ref: "../../examples/personal-loans/update/update-request-consent-approved.yaml" 
-  
+        $ref: "../../examples/personal-loans/on_confirm/on_confirm-request_bureau.yaml" 
   - summary: The provider platform send the on_status to consumer.
     api: on_status
     details:
@@ -658,7 +568,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/personal-loans/on_status/on_status-request-without-AA.yaml"
+        $ref: "../../examples/personal-loans/on_status/on_status-request-without-AA_bureau.yaml"
   
   
   - summary: The borrower seeks the most recent loan status update.
@@ -679,7 +589,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/personal-loans/status/status-request.yaml" 
+        $ref: "../../examples/personal-loans/status/status-request_order.yaml" 
   - summary: The lender shares the latest loan status with the borrower.
     api: on_status
     details:
@@ -698,4 +608,4 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/personal-loans/on_status/on_status-request.yaml"
+        $ref: "../../examples/personal-loans/on_status/on_status-request_bureau.yaml"

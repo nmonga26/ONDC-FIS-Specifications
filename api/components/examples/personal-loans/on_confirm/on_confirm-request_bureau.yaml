@@ -86,7 +86,7 @@ message:
               value: "One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound 841, Senapati Bapat Marg, Elphinstone Road, Mumbai 400013"   
     
     items:
-      - id: ITEM_ID_PERSONAL_LOAN_2
+      - id: ITEM_ID_PERSONAL_LOAN_1
         descriptor:
           code: PERSONAL_LOAN
           name: Personal Loan

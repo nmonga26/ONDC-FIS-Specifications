@@ -9,7 +9,7 @@ context:
   message_id: bb579fb8-cb82-4824-be12-fcbc405b6608
   action: on_support
   timestamp: "2023-05-25T05:23:03.443Z"
-  version: 2.0.1
+  version: 2.0.2
   bap_uri: https://bap.credit.becknprotocol.io/
   bap_id: bap.credit.becknprotocol.io
   ttl: PT10M
@@ -17,7 +17,7 @@ context:
   bpp_uri: https://bpp.credit.becknprotocol.org
 message:
   support:
-    order_id: ITEM_ID_PERSONAL_LOAN
+    order_id: ITEM_ID_PERSONAL_LOAN_2
     phone: 1800 1080
     email: customer.care@icicibank.com
     url: https://www.icicibank.com/helpdesk
