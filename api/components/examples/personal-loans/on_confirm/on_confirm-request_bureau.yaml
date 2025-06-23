@@ -86,7 +86,7 @@ message:
               value: "One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound 841, Senapati Bapat Marg, Elphinstone Road, Mumbai 400013"   
     
     items:
-      - id: ITEM_ID_PERSONAL_LOAN_2
+      - id: ITEM_ID_PERSONAL_LOAN_1
         descriptor:
           code: PERSONAL_LOAN
           name: Personal Loan
@@ -116,7 +116,6 @@ message:
               - descriptor:
                   code: APPLICATION_FEE
                   name: Application Fees
-                  short_desc: Application Fees
                 value: "1000 INR"
               - descriptor:
                   code: FORECLOSURE_FEE
@@ -126,7 +125,6 @@ message:
               - descriptor:
                   code: INTEREST_RATE_CONVERSION_CHARGE
                   name: interest rate conversion charges
-                  short_desc: Interest rate conversion charges
                 value: "1000 INR"
               - descriptor:
                   code: DELAY_PENALTY_FEE
