@@ -116,6 +116,7 @@ message:
               - descriptor:
                   code: APPLICATION_FEE
                   name: Application Fees
+                  short_desc: Application Fees
                 value: "1000 INR"
               - descriptor:
                   code: FORECLOSURE_FEE
@@ -125,6 +126,7 @@ message:
               - descriptor:
                   code: INTEREST_RATE_CONVERSION_CHARGE
                   name: interest rate conversion charges
+                  short_desc: Interest rate conversion charges
                 value: "1000 INR"
               - descriptor:
                   code: DELAY_PENALTY_FEE
@@ -214,7 +216,15 @@ message:
         - title: OTHER_CHARGES
           price:
             value: "0"
-            currency: INR          
+            currency: INR
+        - title: OUTSTANDING_PRINCIPAL
+          price:
+            value: '200000'
+            currency: INR
+        - title: OUTSTANDING_INTEREST
+          price:
+            value: '30000'
+            currency: INR              
       ttl: PT15D
     fulfillments:
       - customer:
