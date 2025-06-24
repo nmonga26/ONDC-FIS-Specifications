@@ -13,3 +13,11 @@ xinput:
       - code: REJECTED
         description: When form gets rejected
         reference: <PR/Issue/Discussion Links md format text
+      - code: OFFLINE_PENDING
+        description: Describes status for offline forms
+        reference: <PR/Issue/Discussion Links md format text
+      -  code: COMPLETED
+        description: Describes status for offline forms
+        reference: <PR/Issue/Discussion Links md format text    
+
+        
