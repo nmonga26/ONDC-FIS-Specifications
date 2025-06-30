@@ -206,6 +206,13 @@ async function renderBranchesTable() {
     response.some(item2 => item1.code === item2.name)
   );
 
+   const statusColors = {
+    RELEASED: "#28a745",
+    DRAFT: "#ffc107",
+    DEPRECATED: "#dc3545",
+    TO_BE_DEPRECATED: "#ff851b"
+  };
+
   let tableBody = ''
 
   filteredBranches.forEach(branch => {
@@ -213,7 +220,9 @@ async function renderBranchesTable() {
     <tr>
     <td>${branch.name}</td>
     <td>${branch.short_desc}</td>
-    <td>${branch.status}</td>
+    <td>
+      <span class="badge" style="background-color: ${statusColors[branch.status]};"> ${branch.status}</span>
+    </td>
     <td class="branchLink" onClick="resolveHomePage('${branch.code}')">${branch.code}</td>
     </tr>
     `
