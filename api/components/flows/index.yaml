@@ -2,6 +2,7 @@
 - $ref: "./personal-loan/personal-loan-without-aa.yaml"
 - $ref: "./personal-loan/personal-loan-without-acoount-monitoring.yaml"
 - $ref: "./personal-loan/personal_multi_offer.yaml"
+- $ref: "./personal-loan/personal-loan-offline.yaml"
 # - $ref: "./personal-loan/personal-loan-prepayment.yaml"
 - $ref: "./personal-loan/form-status-text-html.yaml"
 - $ref: "./personal-loan/form-status-application-html.yaml"
