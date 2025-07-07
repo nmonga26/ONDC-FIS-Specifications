@@ -21,5 +21,15 @@ xinput:
       - code: SUCCESS
         description: When form gets submitted successfully
         reference: <PR/Issue/Discussion Links md format text    
-
-                                   
+  head:
+    headings:
+      - code: KYC
+        description: Describes the form heading as KYC
+        reference: <PR/Issue/Discussion Links md format text
+      - code: KYC_OFFLINE
+        description: Describes the form heading as KYC_OFFLINE
+        reference: <PR/Issue/Discussion Links md format text
+      - code: JOURNEY_OFFLINE
+        description: Describes the form heading as JOURNEY_OFFLINE
+        reference: <PR/Issue/Discussion Links md format text
+                             
