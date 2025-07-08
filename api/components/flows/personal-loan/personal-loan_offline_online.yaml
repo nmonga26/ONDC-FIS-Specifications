@@ -1,4 +1,4 @@
-summary: Personal Loan - Offline
+summary: Personal Loan - Offline & Online
 details:
   - description: Discovery of Funds
     mermaid: >-
@@ -292,7 +292,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/personal-loans/on_select/on_select-request-with-kyc-form_offline.yaml" 
+        $ref: "../../examples/personal-loans/on_select/on_select-request-with-kyc-form_offline_online.yaml" 
   - summary: The lender invoked the relevant forms like links for KYC, bank details, e-mandate etc.
     api: form
     details:
@@ -376,7 +376,7 @@ steps:
     example:
       value: 
         $ref: ../../examples/personal-loans/on_status/on_status-form-offline-kyc_completed.yaml                                           
-  - summary: The borrower initiates the personal loan request
+  - summary: The borrower initiates the personal loan request.
     api: init
     details:
       - description: The borrower platform initiates the personal loan request.
@@ -413,7 +413,31 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/personal-loans/on_init/on_init-request-offine.yaml"
+        $ref: "../../examples/personal-loans/on_init/on_init-request-offine_online_aggrement.yaml"
+  - summary: The borrower receives the loan agreement details form.
+    api: form
+    details:
+      - description: The lender platform sends the form to collect e-sign on loan agreement from the borrower.
+        mermaid: >-
+          sequenceDiagram
+            title Order Confirmation
+            participant Borrower Platform (BAP)
+            participant Lender Platform (BPP)
+            participant Lender Form Service
+            rect rgb(191, 223, 255)
+            Borrower Platform (BAP)->>Lender Form Service: Get Form(Loan agreement)
+            Lender Form Service-->>Borrower Platform (BAP): Form Received
+            Borrower Platform (BAP)->>Lender Form Service: Form Submission
+            Lender Form Service-->>Borrower Platform (BAP): Submission ID
+            end
+            Borrower Platform (BAP)->>Lender Platform (BPP): confirm(with submissionID)
+            Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
+            Lender Platform (BPP)->>Borrower Platform (BAP):on_confirm
+            Borrower Platform (BAP)-->>Lender Platform (BPP): ACK
+    reference: if any
+    example:
+      value:
+        $ref: ../../examples/personal-loans/forms/emandate.html
   - summary: The borrower confirms the personal loan request.
     api: confirm
     details:
@@ -423,6 +447,11 @@ steps:
             title Order Confirmation
             participant Borrower Platform (BAP)
             participant Lender Platform (BPP)
+            participant Lender Form Service
+            Borrower Platform (BAP)->>Lender Form Service: Get Form(Loan agreement)
+            Lender Form Service-->>Borrower Platform (BAP): Form Received
+            Borrower Platform (BAP)->>Lender Form Service: Form Submission
+            Lender Form Service-->>Borrower Platform (BAP): Submission ID
             rect rgb(191, 223, 255)
             Borrower Platform (BAP)->>Lender Platform (BPP): confirm(with submissionID)
             Lender Platform (BPP)-->>Borrower Platform (BAP):ACK
@@ -432,7 +461,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/personal-loans/confirm/confirm_request_offline.yaml"         
+        $ref: "../../examples/personal-loans/confirm/confirm-request.yaml"         
   - summary: The lender confirms the personal loan order.
     api: on_confirm
     details:
