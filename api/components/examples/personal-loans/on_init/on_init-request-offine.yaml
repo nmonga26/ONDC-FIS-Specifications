@@ -217,7 +217,7 @@ message:
             email: john.doe@example.com
         state:
           descriptor:
-            code: DISBURSED
+            code: SANCTIONED
     payments:
       - id: PAYMENT_ID_PERSONAL_LOAN
         type: ON_ORDER
