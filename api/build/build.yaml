@@ -41263,6 +41263,15 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 tags:
                   - display: false
                     descriptor:
@@ -42369,6 +42378,15 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 tags:
                   - display: false
                     descriptor:
@@ -58184,6 +58202,15 @@ x-flows:
                               name: Units Multiples
                               code: UNITS_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                   - id: ff_124
                     type: SWITCH_IN
                     state:
@@ -58227,6 +58254,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 tags:
                   - display: false
                     descriptor:
@@ -60350,6 +60386,15 @@ x-flows:
                               name: Units Multiples
                               code: UNITS_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                   - id: ff_124
                     type: STP_IN_INSTALMENT
                     state:
@@ -60397,6 +60442,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 tags:
                   - display: false
                     descriptor:
@@ -62136,6 +62190,15 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 tags:
                   - display: false
                     descriptor:
@@ -70098,6 +70161,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -71064,6 +71136,15 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 payments:
                   - id: pmt_123
                     collected_by: CONSUMER
