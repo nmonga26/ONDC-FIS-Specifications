@@ -137,6 +137,18 @@
                         {
                             "time": { "label": "SCHEDULED_ON", "timestamp": "2023-05-15T05:30:00.000Z" }
                         }
+                    ],
+                    "tags": [
+                        {
+                            "display": true,
+                            "descriptor": {"name": "External Refs", "code": "EXTERNAL_REFS"},
+                            "list": [
+                                {
+                                    "descriptor": {"name": "RTA Source Ref", "code": "RTA_SOURCE_REF"},
+                                    "value": "21432432"
+                                }
+                            ]
+                        }
                     ]
                 }
             ],

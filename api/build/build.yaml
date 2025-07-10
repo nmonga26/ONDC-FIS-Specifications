@@ -22398,6 +22398,16 @@ x-flows:
                       - time:
                           label: SCHEDULED_ON
                           timestamp: '2023-05-15T05:30:00.000Z'
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 tags:
                   - display: false
                     descriptor:
@@ -22816,6 +22826,16 @@ x-flows:
                       - time:
                           label: SCHEDULED_ON
                           timestamp: '2023-05-15T05:30:00.000Z'
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 payments:
                   - id: pmt_234
                     collected_by: BPP
@@ -25877,6 +25897,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -26141,6 +26170,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -31834,6 +31872,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 xinput:
                   form:
                     id: form_1
@@ -32113,6 +32160,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 xinput:
                   form:
                     id: form_1
@@ -38552,6 +38608,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 xinput:
                   form:
                     id: form_3
@@ -38839,6 +38904,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 xinput:
                   form:
                     id: form_3
@@ -40066,6 +40140,15 @@ x-flows:
                               name: Identifier
                               code: IDENTIFIER
                             value: ba_369823523564
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 tags:
                   - display: false
                     descriptor:
@@ -44328,6 +44411,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                   - id: ff_124
                     type: LUMPSUM
                     state:
@@ -44429,6 +44521,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -44793,6 +44894,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                   - id: ff_124
                     type: LUMPSUM
                     state:
@@ -44894,6 +45004,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -49429,6 +49548,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                   - id: ff_124
                     type: SIP_INSTALMENT
                     state:
@@ -49505,6 +49633,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 tags:
                   - display: false
                     descriptor:
@@ -50250,6 +50387,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                   - id: ff_124
                     type: SIP_INSTALMENT
                     state:
@@ -50326,6 +50472,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 payments:
                   - id: pmt_123
                     collected_by: BPP
@@ -53218,6 +53373,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                   - id: ff_124
                     type: SIP
                     state:
@@ -53685,6 +53849,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                   - id: ff_124
                     type: SIP
                     state:
@@ -55071,6 +55244,16 @@ x-flows:
                       - time:
                           label: SCHEDULED_ON
                           timestamp: '2023-05-15T05:30:00.000Z'
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -55807,6 +55990,16 @@ x-flows:
                       - time:
                           label: SCHEDULED_ON
                           timestamp: '2023-05-15T05:30:00.000Z'
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 payments:
                   - collected_by: BPP
                     type: PRE_FULFILLMENT
@@ -56839,6 +57032,16 @@ x-flows:
                       - time:
                           label: SCHEDULED_ON
                           timestamp: '2023-05-15T05:30:00.000Z'
+                    tags:
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 payments:
                   - id: pmt_234
                     collected_by: BPP
@@ -63098,6 +63301,15 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                      - display: true
+                        descriptor:
+                          name: External Refs
+                          code: EXTERNAL_REFS
+                        list:
+                          - descriptor:
+                              name: RTA Source Ref
+                              code: RTA_SOURCE_REF
+                            value: '21432432'
                 payments:
                   - id: pmt_123
                     collected_by: BAP

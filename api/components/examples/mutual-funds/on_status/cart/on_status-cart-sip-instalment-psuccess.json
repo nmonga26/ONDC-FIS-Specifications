@@ -249,6 +249,16 @@
                                     "value": "1"
                                 }
                             ]
+                        },
+                        {
+                            "display": true,
+                            "descriptor": {"name": "External Refs", "code": "EXTERNAL_REFS"},
+                            "list": [
+                                {
+                                    "descriptor": {"name": "RTA Source Ref", "code": "RTA_SOURCE_REF"},
+                                    "value": "21432432"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -344,6 +354,16 @@
                                 {
                                     "descriptor": {"name": "Amount Multiples", "code": "AMOUNT_MULTIPLES"},
                                     "value": "1"
+                                }
+                            ]
+                        },
+                        {
+                            "display": true,
+                            "descriptor": {"name": "External Refs", "code": "EXTERNAL_REFS"},
+                            "list": [
+                                {
+                                    "descriptor": {"name": "RTA Source Ref", "code": "RTA_SOURCE_REF"},
+                                    "value": "21432432"
                                 }
                             ]
                         }
