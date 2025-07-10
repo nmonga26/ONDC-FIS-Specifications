@@ -18,7 +18,7 @@
         "ttl": "PT10M",
         "bpp_id": "api.sellerapp.com",
         "bpp_uri": "https://api.sellerapp.com/ondc",
-        "action": "on_confirm"
+        "action": "on_update"
     },
     "message": {
         "order": {
@@ -36,6 +36,7 @@
                     "descriptor": {"name": "ABC Mid Cap Fund - Regular - Growth", "code": "SCHEME_PLAN"},
                     "creator": {"descriptor": {"name": "ABC Mutual Fund"}},
                     "fulfillment_ids": ["ff_123"],
+                    "payment_ids": ["pmt_123"],
                     "quantity": {
                         "selected": {
                             "measure": {
@@ -95,9 +96,11 @@
                 },
                 {
                     "id": "15031",
-                    "parent_item_id": "9773",
+                    "parent_item_id": "150",
                     "descriptor": {"name": "XYZ Liquid Fund - Regular - Growth", "code": "SCHEME_PLAN"},
+                    "creator": {"descriptor": {"name": "XYZ Mutual Fund"}},
                     "fulfillment_ids": ["ff_124"],
+                    "payment_ids": ["pmt_123"],
                     "quantity": {
                         "selected": {
                             "measure": {
@@ -123,15 +126,15 @@
                             "list": [
                                 {
                                     "descriptor": {"name": "ISIN", "code": "ISIN"},
-                                    "value": "IN912757345"
+                                    "value": "IN123214325"
                                 },
                                 {
                                     "descriptor": {"name": "RTA Identifier", "code": "RTA_IDENTIFIER"},
-                                    "value": "14BZ"
+                                    "value": "02BZ"
                                 },
                                 {
                                     "descriptor": {"name": "AMFI Identifier", "code": "AMFI_IDENTIFIER"},
-                                    "value": "975342"
+                                    "value": "125488"
                                 }
                             ]
                         },
@@ -145,7 +148,11 @@
                                 },
                                 {
                                     "descriptor": {"name": "Option", "code": "OPTION"},
-                                    "value": "GROWTH"
+                                    "value": "IDCW"
+                                },
+                                {
+                                    "descriptor": {"name": "IDCW Option", "code": "IDCW_OPTION"},
+                                    "value": "PAYOUT"
                                 }
                             ]
                         }
@@ -206,7 +213,7 @@
                             "list": [
                                 {
                                     "descriptor": {"name": "Folio Number", "code": "FOLIO_NUMBER"},
-                                    "value": "1232132132/32"
+                                    "value": "98945436/98"
                                 },
                                 {
                                     "descriptor": {"name": "Holding Pattern", "code": "HOLDING_PATTERN"},
@@ -218,7 +225,7 @@
                                 },
                                 {
                                     "descriptor": {"name": "Created On", "code": "CREATED_ON"},
-                                    "value": "25/11/2019"
+                                    "value": "25/11/2024"
                                 },
                                 {
                                     "descriptor": {"name": "Email Address for 2FA", "code": "2FA_EMAIL_ADDRESS_MASKED"},
@@ -261,7 +268,7 @@
                             "id": "pan:arrpp7771n",
                             "creds": [
                                 {
-                                    "id": "98945436/98",
+                                    "id": "1232132132/32",
                                     "type": "FOLIO"
                                 },
                                 {
@@ -348,7 +355,66 @@
                     ]
                 }
             ],
-
+            "payments": [
+                {
+                    "id": "pmt_123",
+                    "collected_by": "BPP",
+                    "status": "NOT-PAID",
+                    "params": {
+                        "amount": "8000",
+                        "currency": "INR",
+                        "source_bank_code": "icic0000047",
+                        "source_bank_account_number": "004701563111",
+                        "source_bank_account_name": "harish gupta"
+                    },
+                    "type": "PRE_FULFILLMENT",
+                    "time": { "label": "SCHEDULED_ON", "timestamp": "2023-05-15T05:30:00.000Z" },
+                    "tags": [
+                        {
+                            "descriptor": { "name": "Source bank account", "code": "SOURCE_BANK_ACCOUNT" },
+                            "list": [
+                                {
+                                    "descriptor": { "name": "Account Type", "code": "ACCOUNT_TYPE" },
+                                    "value": "SAVINGS"
+                                }
+                            ]
+                        },
+                        {
+                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
+                            "list": [
+                                {
+                                    "descriptor": { "code": "MODE" },
+                                    "value": "NACH"
+                                },
+                                {
+                                    "descriptor": { "code": "AUTH" },
+                                    "value": "EXISTING_MANDATE"
+                                },
+                                {
+                                    "descriptor": { "code": "MANDATE_IDENTIFIER" },
+                                    "value": "125487"
+                                },
+                                {
+                                    "descriptor": { "code": "MASKED_BANK_ACCOUNT_NUMBER" },
+                                    "value": "********3111"
+                                },
+                                {
+                                    "descriptor": { "code": "BANK_ACCOUNT_NAME" },
+                                    "value": "Harish Gupta"
+                                },
+                                {
+                                    "descriptor": { "code": "BANK_NAME" },
+                                    "value": "ICICI Bank"
+                                },
+                                {
+                                    "descriptor": { "code": "MANDATE_LIMIT" },
+                                    "value": "50000"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
             "tags": [
                 {
                     "display": false,
@@ -419,4 +485,4 @@
             "updated_at": "2023-05-25T05:23:03.443Z"
         }
     }
-}
+} 

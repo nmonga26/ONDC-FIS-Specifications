@@ -18,6 +18,14 @@ steps:
     example:
       value:
         $ref: "../../examples/mutual-funds/on_confirm/on_confirm-sip-new-account-instalment-acceptance.json"
+  - summary: On Update (with payment details)
+    api: on_update
+    details:
+      - description: Send instalment order with payment details for processing
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_update/on_update-sip-instalment-with-payments.json"
   - summary: On Status (successful instalment payment)
     api: on_status
     details:
