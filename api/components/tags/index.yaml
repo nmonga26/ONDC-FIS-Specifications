@@ -101,6 +101,9 @@ update:
           - $ref: "./tag-group.yaml#/order/payments/tags/0"
           - $ref: "./tag-group.yaml#/order/payments/tags/1"
           - $ref: "./tag-group.yaml#/order/payments/tags/3"
+      fulfillments:
+        tags:
+          - $ref: "./tag-group.yaml#/order/fulfillments/tags/4"
 
 on_update:
   message:
