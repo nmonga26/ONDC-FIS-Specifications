@@ -22720,7 +22720,7 @@ x-flows:
                 id: mfp_7657EFDFHF2342
                 ref_order_ids:
                   - mfpp_213adf123af
-                status: COMPLETED
+                status: ACCEPTED
                 provider:
                   id: sellerapp_id
                   descriptor:
