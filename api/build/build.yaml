@@ -3332,7 +3332,7 @@ x-tags:
                   - code: false
                     description: De-register for unsolicited calls of incremental pull
               - code: CHANGES_FROM
-                description: Pull schemes which are updated from the given date
+                description: Schemes updated from given date
           - code: BAP_TERMS
             description: >-
               Describes the terms of engagement between the buyer app and seller
@@ -3399,14 +3399,12 @@ x-tags:
                       and related addendums
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: INVESTOR_ALLOW_LIST
-                    description: >-
-                      Contains comma separated list if the scheme is allowed
-                      only for certain investor types eg. MINOR
+                    description: Allowed investor types (e.g., MINOR). Comma separated
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: INVESTOR_BLACK_LIST
                     description: >-
-                      Contains comma separated list if the scheme is not allowed
-                      for certain investor types eg. NRI_US, NRI_CA
+                      Restricted investor types (e.g., NRI_US, NRI_CA). Comma
+                      separated
                     reference: <PR/Issue/Discussion Links md format text>
               - code: PLAN_INFORMATION
                 description: Information about the scheme
@@ -3433,7 +3431,7 @@ x-tags:
                 reference: <PR/Issue/Discussion Links md format text>
                 list:
                   - code: PLAN
-                    description: Type of plan - regular/ direct etc.
+                    description: Plan type (regular/direct etc.)
                     reference: <PR/Issue/Discussion Links md format text>
                     list:
                       - code: regular
@@ -3449,7 +3447,7 @@ x-tags:
                         description: Institutional scheme
                         reference: <PR/Issue/Discussion Links md format text>
                   - code: OPTION
-                    description: Option of the plan - growth/idcw etc.
+                    description: Plan option (growth/idcw etc.)
                     reference: <PR/Issue/Discussion Links md format text>
                     list:
                       - code: growth
@@ -3480,9 +3478,7 @@ x-tags:
                         description: Yearly IDCW option
                         reference: <PR/Issue/Discussion Links md format text>
                   - code: IDCW_OPTION
-                    description: >-
-                      For idcw scheme plans, this captures idcw options -
-                      reinvestment/payout
+                    description: IDCW option (reinvestment/payout)
                     reference: <PR/Issue/Discussion Links md format text>
                     list:
                       - code: payout
@@ -3496,16 +3492,16 @@ x-tags:
                 reference: <PR/Issue/Discussion Links md format text>
                 list:
                   - code: APPLICATION_FORM
-                    description: Type of plan - regular/ direct etc.
+                    description: Application form requirement
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: APPLICATION_FORM_WITH_KYC
                     description: Application form with KYC requirement
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: KYC
-                    description: Type of plan - regular/ direct etc.
+                    description: KYC verification requirement
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: ESIGN
-                    description: Type of plan - regular/ direct etc.
+                    description: E-signature requirement
                     reference: <PR/Issue/Discussion Links md format text>
           fulfillments:
             tags:
@@ -3520,28 +3516,28 @@ x-tags:
                     description: Maximum investment amount
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: AMOUNT_MULTIPLES
-                    description: Multiples allowed
+                    description: Investment amount multiples
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: UNITS_MIN
-                    description: Min units
+                    description: Minimum units
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: UNITS_MAX
-                    description: Max units
+                    description: Maximum units
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: UNITS_MULTIPLES
-                    description: Multiples of units allowed
+                    description: Unit multiples allowed
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: INSTALMENTS_COUNT_MIN
-                    description: Min instalments for systematic orders
+                    description: Minimum instalments for recurring orders
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: INSTALMENTS_COUNT_MAX
-                    description: Max instalments for systematic orders
+                    description: Maximum instalments for recurring orders
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: CUMULATIVE_AMOUNT_MIN
-                    description: Min cumulative amount for systematic orders
+                    description: Minimum cumulative amount for recurring orders
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: FREQUENCY
-                    description: Frequency for systematic orders in ISO8601 Duration format
+                    description: SIP frequency (ISO8601 format)
                     reference: <PR/Issue/Discussion Links md format text>
                     list:
                       - code: P1M
@@ -3575,10 +3571,10 @@ x-tags:
                     description: Allowed dates as per the frequency for systematic orders
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: ADDITIONAL_AMOUNT_MIN
-                    description: Describes the additional amount min value
+                    description: Minimum additional amount
                     reference: <PR/Issue/Discussion Links md format text>
                   - code: ADDITIONAL_AMOUNT_MAX
-                    description: Describes the additional amount max value
+                    description: Maximum additional amount
                     reference: <PR/Issue/Discussion Links md format text>
         tags: &ref_8
           - &ref_15
@@ -3633,52 +3629,52 @@ x-tags:
           tags:
             - &ref_10
               code: FOLIO_INFORMATION
-              description: Describes the finder fees for buyer
+              description: Mutual fund folio details
               reference: <PR/Issue/Discussion Links md format text>
               list:
                 - code: FOLIO_NUMBER
-                  description: Describes the finder fees for buyer
+                  description: Mutual fund folio number
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: HOLDING_PATTERN
-                  description: Describes the finder fees for buyer
+                  description: Folio holding pattern (single/joint)
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: HOLDER_NAME
-                  description: Describes the finder fees for buyer
+                  description: Name of the folio holder
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: CREATED_ON
-                  description: Describes the finder fees for buyer
+                  description: Folio creation date
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: 2FA_EMAIL_ADDRESS_MASKED
-                  description: Email id to be used for doing 2fa
+                  description: Email for 2FA verification
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: 2FA_MOBILE_NUMBER_MASKED
-                  description: Mobile number to be used for doing 2fa
+                  description: Mobile number for 2FA verification
                   reference: <PR/Issue/Discussion Links md format text>
             - &ref_11
               code: PAYOUT_BANK_ACCOUNT
-              description: Details of the payout bank account
+              description: Redemption payout bank account details
               reference: <PR/Issue/Discussion Links md format text>
               list:
                 - code: IDENTIFIER
-                  description: Describes the finder fees for buyer
+                  description: Bank account identifier
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: MASKED_ACCOUNT_NUMBER
-                  description: Describes the finder fees for buyer
+                  description: Masked bank account number
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: ACCOUNT_HOLDER_NAME
                   description: Name of the account holder
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: ACCOUNT_HOLDER_NUMBER
-                  description: Describes the finder fees for buyer
+                  description: Account holder number
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: ACCOUNT_TYPE
-                  description: Describes the finder fees for buyer
+                  description: Type of bank account
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: BANK_NAME
-                  description: Describes the finder fees for buyer
+                  description: Name of the bank
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: BANK_CODE
-                  description: Describes the finder fees for buyer
+                  description: Bank branch code
                   reference: <PR/Issue/Discussion Links md format text>
         payments:
           tags:
@@ -3866,14 +3862,14 @@ x-tags:
                   reference: <PR/Issue/Discussion Links md format text>
             - &ref_20
               code: ERROR_INFORMATION
-              description: Describes the finder fees for buyer
+              description: Error details for failed fulfillments
               reference: <PR/Issue/Discussion Links md format text>
               list:
                 - code: REASON_CODE
-                  description: Describes the finder fees for buyer
+                  description: Error reason code
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: REASON_MESSAGE
-                  description: Describes the finder fees for buyer
+                  description: Error description message
                   reference: <PR/Issue/Discussion Links md format text>
         tags: *ref_16
   update:
@@ -3960,7 +3956,7 @@ x-tags:
                         case.
                       reference: <PR/Issue/Discussion Links md format text>
                     - code: CUSTOM_REASON
-                      description: Capture any other reason apart from the standard list.
+                      description: Custom cancellation reason
                       reference: <PR/Issue/Discussion Links md format text>
                     - code: TIMEOUT
                       description: >-
@@ -3968,20 +3964,20 @@ x-tags:
                         the fulfillment in this case.
                       reference: <PR/Issue/Discussion Links md format text>
                 - code: REASON_MESSAGE
-                  description: Descriptive message for the cancellation reason
+                  description: Cancellation reason description
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: CANCELLED_BY
-                  description: Describes who initiated the cancellation
+                  description: Who initiated the cancellation
                   reference: <PR/Issue/Discussion Links md format text>
                   list:
                     - code: CONSUMER
-                      description: It means the consumer initiated the cancellation
+                      description: Consumer initiated cancellation
                       reference: <PR/Issue/Discussion Links md format text>
                     - code: PROVIDER
-                      description: It means the cancellation is initiated by the provider
+                      description: Provider initiated cancellation
                       reference: <PR/Issue/Discussion Links md format text>
                 - code: CANCELLED_TIME
-                  description: Captures the time of cancellation initiation
+                  description: Cancellation initiation time
                   reference: <PR/Issue/Discussion Links md format text>
             - code: MODIFICATION_INFO
               description: Describes modification information for fulfillments
@@ -4016,10 +4012,10 @@ x-tags:
               reference: <PR/Issue/Discussion Links md format text>
               list:
                 - code: CHILD_ORDER_ID
-                  description: Value is the child order id
+                  description: Individual Recurring instalment order ID
                   reference: <PR/Issue/Discussion Links md format text>
             - code: EXTERNAL_REFS
-              description: Captures any external system references
+              description: External system references
               reference: <PR/Issue/Discussion Links md format text>
               list:
                 - code: RTA_SOURCE_REF

@@ -34,10 +34,10 @@ scheme_info:
     description: Scheme related documents. Typically include SID, KIM, SAI and related addendums
     reference: <PR/Issue/Discussion Links md format text>
   - code: INVESTOR_ALLOW_LIST
-    description: Contains comma separated list if the scheme is allowed only for certain investor types eg. MINOR
+    description: Allowed investor types (e.g., MINOR). Comma separated
     reference: <PR/Issue/Discussion Links md format text>
   - code: INVESTOR_BLACK_LIST
-    description: Contains comma separated list if the scheme is not allowed for certain investor types eg. NRI_US, NRI_CA
+    description: Restricted investor types (e.g., NRI_US, NRI_CA). Comma separated
     reference: <PR/Issue/Discussion Links md format text>
 
 plan_info:
@@ -58,7 +58,7 @@ plan_ids:
 
 plan_options:
   - code: PLAN
-    description: Type of plan - regular/ direct etc.
+    description: Plan type (regular/direct etc.)
     reference: <PR/Issue/Discussion Links md format text>
     list:
       - code: regular
@@ -74,7 +74,7 @@ plan_options:
         description: Institutional scheme
         reference: <PR/Issue/Discussion Links md format text>
   - code: OPTION
-    description: Option of the plan - growth/idcw etc.
+    description: Plan option (growth/idcw etc.)
     reference: <PR/Issue/Discussion Links md format text>
     list:
       - code: growth
@@ -105,7 +105,7 @@ plan_options:
         description: Yearly IDCW option
         reference: <PR/Issue/Discussion Links md format text>
   - code: IDCW_OPTION
-    description: For idcw scheme plans, this captures idcw options - reinvestment/payout
+    description: IDCW option (reinvestment/payout)
     reference: <PR/Issue/Discussion Links md format text>
     list:
       - code: payout
@@ -116,16 +116,16 @@ plan_options:
         reference: <PR/Issue/Discussion Links md format text>
 checklists:
   - code: APPLICATION_FORM
-    description: Type of plan - regular/ direct etc.
+    description: Application form requirement
     reference: <PR/Issue/Discussion Links md format text>
   - code: APPLICATION_FORM_WITH_KYC
     description: Application form with KYC requirement
     reference: <PR/Issue/Discussion Links md format text>
   - code: KYC
-    description: Type of plan - regular/ direct etc.
+    description: KYC verification requirement
     reference: <PR/Issue/Discussion Links md format text>
   - code: ESIGN
-    description: Type of plan - regular/ direct etc.
+    description: E-signature requirement
     reference: <PR/Issue/Discussion Links md format text>    
 
 thresholds:
@@ -136,28 +136,28 @@ thresholds:
     description: Maximum investment amount
     reference: <PR/Issue/Discussion Links md format text>
   - code: AMOUNT_MULTIPLES
-    description: Multiples allowed
+    description: Investment amount multiples
     reference: <PR/Issue/Discussion Links md format text>
   - code: UNITS_MIN
-    description: Min units
+    description: Minimum units
     reference: <PR/Issue/Discussion Links md format text>
   - code: UNITS_MAX
-    description: Max units
+    description: Maximum units
     reference: <PR/Issue/Discussion Links md format text>
   - code: UNITS_MULTIPLES
-    description: Multiples of units allowed
+    description: Unit multiples allowed
     reference: <PR/Issue/Discussion Links md format text>
   - code: INSTALMENTS_COUNT_MIN
-    description: Min instalments for systematic orders
+    description: Minimum instalments for recurring orders
     reference: <PR/Issue/Discussion Links md format text>
   - code: INSTALMENTS_COUNT_MAX
-    description: Max instalments for systematic orders
+    description: Maximum instalments for recurring orders
     reference: <PR/Issue/Discussion Links md format text>
   - code: CUMULATIVE_AMOUNT_MIN
-    description: Min cumulative amount for systematic orders
+    description: Minimum cumulative amount for recurring orders
     reference: <PR/Issue/Discussion Links md format text>
   - code: FREQUENCY
-    description: Frequency for systematic orders in ISO8601 Duration format
+    description: SIP frequency (ISO8601 format)
     reference: <PR/Issue/Discussion Links md format text>
     list:
       - code: P1M
@@ -191,8 +191,8 @@ thresholds:
     description: Allowed dates as per the frequency for systematic orders
     reference: <PR/Issue/Discussion Links md format text>
   - code: ADDITIONAL_AMOUNT_MIN
-    description: Describes the additional amount min value
+    description: Minimum additional amount
     reference: <PR/Issue/Discussion Links md format text>
   - code: ADDITIONAL_AMOUNT_MAX
-    description: Describes the additional amount max value
+    description: Maximum additional amount
     reference: <PR/Issue/Discussion Links md format text>

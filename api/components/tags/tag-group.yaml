@@ -71,26 +71,26 @@ order:
   fulfillments:
     tags: 
       - code: FOLIO_INFORMATION
-        description : Describes the finder fees for buyer
+        description : Mutual fund folio details
         reference: <PR/Issue/Discussion Links md format text>
         list:
           - code: FOLIO_NUMBER
-            description : Describes the finder fees for buyer
+            description : Mutual fund folio number
             reference: <PR/Issue/Discussion Links md format text>
           - code: HOLDING_PATTERN
-            description : Describes the finder fees for buyer
+            description : Folio holding pattern (single/joint)
             reference: <PR/Issue/Discussion Links md format text>
           - code: HOLDER_NAME
-            description : Describes the finder fees for buyer
+            description : Name of the folio holder
             reference: <PR/Issue/Discussion Links md format text>
           - code: CREATED_ON
-            description : Describes the finder fees for buyer
+            description : Folio creation date
             reference: <PR/Issue/Discussion Links md format text>
           - code: 2FA_EMAIL_ADDRESS_MASKED
-            description : Email id to be used for doing 2fa
+            description : Email for 2FA verification
             reference: <PR/Issue/Discussion Links md format text>
           - code: 2FA_MOBILE_NUMBER_MASKED
-            description : Mobile number to be used for doing 2fa
+            description : Mobile number for 2FA verification
             reference: <PR/Issue/Discussion Links md format text>
       - code: INFORMATION
         description : Additional information related to the fulfillment
@@ -106,39 +106,39 @@ order:
             description : Date of the last instalment as per the schedule
             reference: <PR/Issue/Discussion Links md format text>
       - code: ERROR_INFORMATION
-        description : Describes the finder fees for buyer
+        description : Error details for failed fulfillments
         reference: <PR/Issue/Discussion Links md format text>
         list:
           - code: REASON_CODE
-            description : Describes the finder fees for buyer
+            description : Error reason code
             reference: <PR/Issue/Discussion Links md format text>
           - code: REASON_MESSAGE
-            description : Describes the finder fees for buyer
+            description : Error description message
             reference: <PR/Issue/Discussion Links md format text>
       - code: PAYOUT_BANK_ACCOUNT
-        description : Details of the payout bank account
+        description : Redemption payout bank account details
         reference: <PR/Issue/Discussion Links md format text>
         list:
           - code: IDENTIFIER
-            description : Describes the finder fees for buyer
+            description : Bank account identifier
             reference: <PR/Issue/Discussion Links md format text>
           - code: MASKED_ACCOUNT_NUMBER
-            description : Describes the finder fees for buyer
+            description : Masked bank account number
             reference: <PR/Issue/Discussion Links md format text>
           - code: ACCOUNT_HOLDER_NAME
             description : Name of the account holder
             reference: <PR/Issue/Discussion Links md format text>
           - code: ACCOUNT_HOLDER_NUMBER
-            description : Describes the finder fees for buyer
+            description : Account holder number
             reference: <PR/Issue/Discussion Links md format text>
           - code: ACCOUNT_TYPE
-            description : Describes the finder fees for buyer
+            description : Type of bank account
             reference: <PR/Issue/Discussion Links md format text>
           - code: BANK_NAME
-            description : Describes the finder fees for buyer
+            description : Name of the bank
             reference: <PR/Issue/Discussion Links md format text>
           - code: BANK_CODE
-            description : Describes the finder fees for buyer
+            description : Bank branch code
             reference: <PR/Issue/Discussion Links md format text>
       - code: CANCELLATION_INFO
         description : Details about the cancellation event
@@ -176,33 +176,33 @@ order:
                 description: The max allowed number of consecutive sip instalment faillures reached. Provider cancels the sip in this case.
                 reference: <PR/Issue/Discussion Links md format text>
               - code: "CUSTOM_REASON"
-                description: Capture any other reason apart from the standard list.
+                description: Custom cancellation reason
                 reference: <PR/Issue/Discussion Links md format text>
               - code: "TIMEOUT"
                 description: Payment is not received within time. Provider cancels the fulfillment in this case.
                 reference: <PR/Issue/Discussion Links md format text>
           - code: REASON_MESSAGE
-            description : Descriptive message for the cancellation reason
+            description : Cancellation reason description
             reference: <PR/Issue/Discussion Links md format text>
           - code: CANCELLED_BY
-            description : Describes who initiated the cancellation
+            description : Who initiated the cancellation
             reference: <PR/Issue/Discussion Links md format text>
             list:
               - code: CONSUMER
-                description: It means the consumer initiated the cancellation
+                description: Consumer initiated cancellation
                 reference: <PR/Issue/Discussion Links md format text>
               - code: PROVIDER
-                description: It means the cancellation is initiated by the provider
+                description: Provider initiated cancellation
                 reference: <PR/Issue/Discussion Links md format text>
           - code: CANCELLED_TIME
-            description : Captures the time of cancellation initiation
+            description : Cancellation initiation time
             reference: <PR/Issue/Discussion Links md format text>
       - code: REF_ORDER_IDS
         description : Details of child order ids in case of recurring orders
         reference: <PR/Issue/Discussion Links md format text>
         list:
           - code: CHILD_ORDER_ID
-            description : Value is the child order id
+            description : Individual Recurring instalment order ID
             reference: <PR/Issue/Discussion Links md format text>
       - code: EXTERNAL_FOLIO_INFO
         description : Describes an external folio
@@ -229,7 +229,7 @@ order:
                 description: Indian resident as per tax authority
                 reference: <PR/Issue/Discussion Links md format text>
       - code: EXTERNAL_REFS
-        description : Captures any external system references
+        description : External system references
         reference: <PR/Issue/Discussion Links md format text>
         list:
           - code: RTA_SOURCE_REF
@@ -338,14 +338,14 @@ order:
             description : Bank name for existing mandates
             reference: <PR/Issue/Discussion Links md format text>
       - code: ERROR_INFORMATION
-        description : Describes the finder fees for buyer
+        description : Payment error details
         reference: <PR/Issue/Discussion Links md format text>
         list:
           - code: REASON_CODE
-            description : Describes the finder fees for buyer
+            description : Payment error code
             reference: <PR/Issue/Discussion Links md format text>
           - code: REASON_MESSAGE
-            description : Describes the finder fees for buyer
+            description : Payment error message
             reference: <PR/Issue/Discussion Links md format text>
       - code: SETTLEMENT_DETAILS
         description : Describes the details of the settlements made to the AMC(s)
@@ -391,7 +391,7 @@ intent:
             - code: false
               description: De-register for unsolicited calls of incremental pull
         - code: CHANGES_FROM
-          description: Pull schemes which are updated from the given date
+          description: Schemes updated from given date
     - code: BAP_TERMS
       description : Describes the terms of engagement between the buyer app and seller app, as set by buyer app
       reference: <PR/Issue/Discussion Links md format text>
