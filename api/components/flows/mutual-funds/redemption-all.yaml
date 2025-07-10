@@ -1,10 +1,43 @@
 summary: Redemption - redeem all
 reference: https://github.com/ONDC-Official/ONDC-FIS-Specifications/blob/draft-FIS14-enhancements/api/components/docs/README.md#protocol-details
 details:
-  - description: select/on_select, init/on_init are similar in nature, hence showing only from confirm call in the example.
+  - description: Only difference from regular redemption by units is to send -1 as units in the quantity selected block
 
 references: if any
 steps:
+  - summary: Select redemption in a particular folio and scheme
+    api: select
+    details:
+      - description: Send order details and folio details
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/select/redeem/select-redemption-all.json"
+  - summary: Get the redemption payout a/c details
+    api: on_select
+    details:
+      - description: List of payout bank a/cs is sent
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_select/redeem/on_select-redemption-all.json"
+
+  - summary: Initialize the redemption order
+    api: init
+    details:
+      - description: Send order details and folio details
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/init/redeem/init-redemption-all.json"
+  - summary: On Init
+    api: on_init
+    details:
+      - description: Draft order is sent back with tnc
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/on_init/redeem/on_init-redemption-all.json"
 
   - summary: Confirm
     api: confirm
@@ -13,7 +46,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/confirm/confirm-redemption-all.json"
+        $ref: "../../examples/mutual-funds/confirm/redeem/confirm-redemption-all.json"
   - summary: On Confirm
     api: on_confirm
     details:
@@ -21,7 +54,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_confirm/on_confirm-redemption-all.json"
+        $ref: "../../examples/mutual-funds/on_confirm/redeem/on_confirm-redemption-all.json"
 
   - summary: On Update
     api: on_update
@@ -30,4 +63,4 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_update/on_update-redemption-all-success.json"
+        $ref: "../../examples/mutual-funds/on_update/redeem/on_update-redemption-all-success.json"
