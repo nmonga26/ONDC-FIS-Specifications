@@ -18,11 +18,11 @@
         "ttl": "PT10M",
         "bpp_id": "api.sellerapp.com",
         "bpp_uri": "https://api.sellerapp.com/ondc",
-        "action": "on_confirm"
+        "action": "on_status"
     },
     "message": {
         "order": {
-            "id": "mfp_213adf123af",
+            "id": "mfpp_213adf123af",
             "status": "ACCEPTED",
             "provider": {
                 "id": "sellerapp_id",
@@ -42,7 +42,7 @@
                             }
                         }
                     },
-                    "fulfillment_ids": ["ff_123"],
+                    "fulfillment_ids": ["ff_789"],
                     "payment_ids": ["pmt_123"],
                     "tags": [
                         {
@@ -92,34 +92,38 @@
                             ]
                         },
                         {
-                        "display": true,
-                        "descriptor": {"name": "Checklists", "code": "CHECKLISTS"},
-                        "list": [
-                            {
-                                "descriptor": {"name": "Application Form", "code": "APPLICATION_FORM"},
-                                "value": "6547-7456-7235-4386"
-                            }
-                        ]
-                    }
+                            "display": true,
+                            "descriptor": {"name": "Checklists", "code": "CHECKLISTS"},
+                            "list": [
+                                {
+                                    "descriptor": {"name": "Application Form", "code": "APPLICATION_FORM"},
+                                    "value": "6547-7456-7235-4386"
+                                }
+                            ]
+                        }
                     ]
                 }
             ],
             "fulfillments": [
                 {
-                    "id": "ff_123",
+                    "id": "ff_789",
                     "type": "LUMPSUM",
                     "state": {
-                    "descriptor": {"name": "Pending", "code": "PENDING"}
+                        "descriptor": {"name": "Initiated", "code": "INITIATED"}
                     },
                     "customer": {
                         "person": {
                             "id": "pan:arrpp7771n",
                             "creds": [
-                            {
-                                "id": "115.245.207.90",
-                                "type": "IP_ADDRESS"
-                            }
-                        ]
+                                {
+                                    "id": "78953432/32",
+                                    "type": "FOLIO"
+                                },
+                                {
+                                    "id": "115.245.207.90",
+                                    "type": "IP_ADDRESS"
+                                }
+                            ]
                         },
                         "contact": {
                             "phone": "9916599123"
@@ -145,15 +149,45 @@
                     "tags": [
                         {
                             "display": true,
+                            "descriptor": {"name": "Folio", "code": "FOLIO_INFORMATION"},
+                            "list": [
+                                {
+                                    "descriptor": {"name": "Folio Number", "code": "FOLIO_NUMBER"},
+                                    "value": "123213432/32"
+                                },
+                                {
+                                    "descriptor": {"name": "Holding Pattern", "code": "HOLDING_PATTERN"},
+                                    "value": "SINGLE"
+                                },
+                                {
+                                    "descriptor": {"name": "Holder Name", "code": "HOLDER_NAME"},
+                                    "value": "Satish K Perala"
+                                },
+                                {
+                                    "descriptor": {"name": "Created On", "code": "CREATED_ON"},
+                                    "value": "25/11/2019"
+                                },
+                                {
+                                    "descriptor": {"name": "Email Address for 2FA", "code": "2FA_EMAIL_ADDRESS_MASKED"},
+                                    "value": "****sha@gmail.com"
+                                },
+                                {
+                                    "descriptor": {"name": "Mobile Number for 2FA", "code": "2FA_MOBILE_NUMBER_MASKED"},
+                                    "value": "***9345"
+                                }
+                            ]
+                        },
+                        {
+                            "display": true,
                             "descriptor": {"name": "Thresholds", "code": "THRESHOLDS"},
                             "list": [
                                 {
                                     "descriptor": {"name": "Amount Minimum", "code": "AMOUNT_MIN"},
-                                    "value": "5000"
+                                    "value": "1000"
                                 },
                                 {
                                     "descriptor": {"name": "Amount Maximum", "code": "AMOUNT_MAX"},
-                                    "value": "50000"
+                                    "value": "10000"
                                 },
                                 {
                                     "descriptor": {"name": "Amount Multiples", "code": "AMOUNT_MULTIPLES"},
@@ -177,38 +211,54 @@
                 {
                     "id": "pmt_123",
                     "collected_by": "BPP",
-                    "status": "NOT-PAID",
-                    "url": "https://api.sellerapp.com/payment?k=abdafaf",
+                    "status": "PAID",
                     "params": {
                         "amount": "3000",
                         "currency": "INR",
                         "source_bank_code": "icic0000047",
                         "source_bank_account_number": "004701563111",
-                        "source_bank_account_name": "harish gupta"
+                        "source_bank_account_name": "harish gupta",
+                        "transaction_id": "243423324"
                     },
                     "type": "PRE_FULFILLMENT",
                     "tags": [
-                    {
-                        "descriptor": { "name": "Source bank account", "code": "SOURCE_BANK_ACCOUNT" },
-                        "list": [
-                            {
-                                "descriptor": { "name": "Account Type", "code": "ACCOUNT_TYPE" },
-                                "value": "SAVINGS"
-                            }
-                        ]
-                    },
-                    {
-                        "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
-                        "list": [
-                            {
-                                "descriptor": { "code": "MODE" },
-                                "value": "NETBANKING"
-                            }
-                        ]
-                    }
+                        {
+                            "descriptor": { "name": "Source bank account", "code": "SOURCE_BANK_ACCOUNT" },
+                            "list": [
+                                {
+                                    "descriptor": { "name": "Account Type", "code": "ACCOUNT_TYPE" },
+                                    "value": "SAVINGS"
+                                }
+                            ]
+                        },
+                        {
+                            "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
+                            "list": [
+                                {
+                                    "descriptor": { "code": "MODE" },
+                                    "value": "NETBANKING"
+                                }
+                            ]
+                        }
                     ]
                 }
             ],
+            "quote": {
+                "id": "q1",
+                "price": { "currency": "INR", "value": "3000" },
+                "breakup": [
+                    {
+                        "item": { "id": "12391", "fulfillment_ids": ["ff_789"] },
+                        "title": "INVESTMENT",
+                        "price": { "currency": "INR", "value": "2999.85" }
+                    },
+                    {
+                        "item": { "id": "12391", "fulfillment_ids": ["ff_789"] },
+                        "title": "STAMP_DUTY",
+                        "price": { "currency": "INR", "value": "0.15" }
+                    }
+                ]
+            },
             "tags": [
                 {
                     "display": false,
@@ -248,24 +298,9 @@
                     }
                 }
             ],
-            "quote": {
-                "id": "q1",
-                "price": { "currency": "INR", "value": "3000" },
-                "breakup": [
-                    {
-                        "item": { "id": "12391", "fulfillment_ids": ["ff_789"] },
-                        "title": "INVESTMENT",
-                        "price": { "currency": "INR", "value": "2999.85" }
-                    },
-                    {
-                        "item": { "id": "12391", "fulfillment_ids": ["ff_789"] },
-                        "title": "STAMP_DUTY",
-                        "price": { "currency": "INR", "value": "0.15" }
-                    }
-                ]
-            },
             "created_at": "2023-05-25T05:23:03.443Z",
             "updated_at": "2023-05-25T05:23:03.443Z"
+
         }
     }
 }

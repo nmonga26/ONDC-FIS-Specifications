@@ -27,6 +27,7 @@ steps:
     example:
       value:
         $ref: "../../examples/mutual-funds/forms/account-opening.html"
+
   - summary: Submit Form
     api: select
     details:
@@ -94,11 +95,3 @@ steps:
     example:
       value:
         $ref: "../../examples/mutual-funds/on_status/on_status-sip-new-account-psuccess.json"
-  - summary: On Update
-    api: on_update
-    details:
-      - description: Send folio details
-    reference: if any
-    example:
-      value:
-        $ref: "../../examples/mutual-funds/on_update/on_update-sip-new-account-folio-update.json"      

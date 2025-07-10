@@ -13,17 +13,15 @@
         "bap_id": "api.buyerapp.com",
         "bap_uri": "https://api.buyerapp.com/ondc",
         "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
-        "message_id": "bb579fb8-cb82-4824-be12-fcbc405b6608",
+        "message_id": "89118579-e8be-4588-ad3f-a90b59447b1c",
         "version": "2.1.0",
         "ttl": "PT10M",
         "bpp_id": "api.sellerapp.com",
         "bpp_uri": "https://api.sellerapp.com/ondc",
-        "action": "on_confirm"
+        "action": "on_select"
     },
     "message": {
         "order": {
-            "id": "mfp_213adf123af",
-            "status": "ACCEPTED",
             "provider": {
                 "id": "sellerapp_id",
                 "descriptor": {"name": "Seller App Name"}
@@ -34,6 +32,7 @@
                     "parent_item_id": "138",
                     "descriptor": {"name": "ABC Mid Cap Fund - Regular - Growth", "code": "SCHEME_PLAN"},
                     "creator": {"descriptor": {"name": "ABC Mutual Fund"}},
+                    "fulfillment_ids": ["ff_123"],
                     "quantity": {
                         "selected": {
                             "measure": {
@@ -42,8 +41,6 @@
                             }
                         }
                     },
-                    "fulfillment_ids": ["ff_123"],
-                    "payment_ids": ["pmt_123"],
                     "tags": [
                         {
                             "display": true,
@@ -92,37 +89,34 @@
                             ]
                         },
                         {
-                        "display": true,
-                        "descriptor": {"name": "Checklists", "code": "CHECKLISTS"},
-                        "list": [
-                            {
-                                "descriptor": {"name": "Application Form", "code": "APPLICATION_FORM"},
-                                "value": "6547-7456-7235-4386"
-                            }
-                        ]
-                    }
+                            "display": true,
+                            "descriptor": {"name": "Checklists", "code": "CHECKLISTS"},
+                            "list": [
+                                {
+                                    "descriptor": {"name": "Application Form", "code": "APPLICATION_FORM"},
+                                    "value": "6547-7456-7235-4386"
+                                }
+                            ]
+                        }
                     ]
                 }
             ],
+            "xinput": {
+                "form": {
+                    "id": "form_1"
+                },
+                "form_response": {
+                    "status": "SUCCESS",
+                    "submission_id": "6547-7456-7235-4386"
+                }
+            },
             "fulfillments": [
                 {
                     "id": "ff_123",
                     "type": "LUMPSUM",
-                    "state": {
-                    "descriptor": {"name": "Pending", "code": "PENDING"}
-                    },
                     "customer": {
                         "person": {
-                            "id": "pan:arrpp7771n",
-                            "creds": [
-                            {
-                                "id": "115.245.207.90",
-                                "type": "IP_ADDRESS"
-                            }
-                        ]
-                        },
-                        "contact": {
-                            "phone": "9916599123"
+                            "id": "pan:arrpp7771n"
                         }
                     },
                     "agent": {
@@ -149,11 +143,11 @@
                             "list": [
                                 {
                                     "descriptor": {"name": "Amount Minimum", "code": "AMOUNT_MIN"},
-                                    "value": "5000"
+                                    "value": "1000"
                                 },
                                 {
                                     "descriptor": {"name": "Amount Maximum", "code": "AMOUNT_MAX"},
-                                    "value": "50000"
+                                    "value": "10000"
                                 },
                                 {
                                     "descriptor": {"name": "Amount Multiples", "code": "AMOUNT_MULTIPLES"},
@@ -164,66 +158,7 @@
                     ]
                 }
             ],
-            "xinput": {
-                "form": {
-                    "id": "form_1"
-                },
-                "form_response": {
-                    "status": "SUCCESS",
-                    "submission_id": "6547-7456-7235-4386"
-                }
-            },
-            "payments": [
-                {
-                    "id": "pmt_123",
-                    "collected_by": "BPP",
-                    "status": "NOT-PAID",
-                    "url": "https://api.sellerapp.com/payment?k=abdafaf",
-                    "params": {
-                        "amount": "3000",
-                        "currency": "INR",
-                        "source_bank_code": "icic0000047",
-                        "source_bank_account_number": "004701563111",
-                        "source_bank_account_name": "harish gupta"
-                    },
-                    "type": "PRE_FULFILLMENT",
-                    "tags": [
-                    {
-                        "descriptor": { "name": "Source bank account", "code": "SOURCE_BANK_ACCOUNT" },
-                        "list": [
-                            {
-                                "descriptor": { "name": "Account Type", "code": "ACCOUNT_TYPE" },
-                                "value": "SAVINGS"
-                            }
-                        ]
-                    },
-                    {
-                        "descriptor": { "name": "Payment Method", "code": "PAYMENT_METHOD" },
-                        "list": [
-                            {
-                                "descriptor": { "code": "MODE" },
-                                "value": "NETBANKING"
-                            }
-                        ]
-                    }
-                    ]
-                }
-            ],
             "tags": [
-                {
-                    "display": false,
-                    "descriptor": {"name": "BAP Terms of Engagement", "code": "BAP_TERMS"},
-                    "list": [
-                        {
-                            "descriptor": {"name": "Static Terms (Transaction Level)", "code": "STATIC_TERMS"},
-                            "value": "https://buyerapp.com/legal/ondc:fis14/static_terms?v=0.1"
-                        },
-                        {
-                            "descriptor": {"name": "Offline Contract", "code": "OFFLINE_CONTRACT"},
-                            "value": "true"
-                        }
-                    ]
-                },
                 {
                     "display": false,
                     "descriptor": {"name": "BPP Terms of Engagement", "code": "BPP_TERMS"},
@@ -238,34 +173,7 @@
                         }
                     ]
                 }
-            ],
-            "cancellation_terms": [
-                {
-                    "reason_required": true,
-                    "external_ref": {
-                        "url": "https://api.sellerapp.com/cterms?id=214werw3w4",
-                        "mimetype": "text/html"
-                    }
-                }
-            ],
-            "quote": {
-                "id": "q1",
-                "price": { "currency": "INR", "value": "3000" },
-                "breakup": [
-                    {
-                        "item": { "id": "12391", "fulfillment_ids": ["ff_789"] },
-                        "title": "INVESTMENT",
-                        "price": { "currency": "INR", "value": "2999.85" }
-                    },
-                    {
-                        "item": { "id": "12391", "fulfillment_ids": ["ff_789"] },
-                        "title": "STAMP_DUTY",
-                        "price": { "currency": "INR", "value": "0.15" }
-                    }
-                ]
-            },
-            "created_at": "2023-05-25T05:23:03.443Z",
-            "updated_at": "2023-05-25T05:23:03.443Z"
+            ]
         }
     }
 }

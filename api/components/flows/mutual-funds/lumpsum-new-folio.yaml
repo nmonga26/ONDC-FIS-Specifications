@@ -9,7 +9,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/select/select-lumpsum-new-folio.json"
+        $ref: "../../examples/mutual-funds/select/select-lumpsum.json"
   - summary: On Select
     api: on_select
     details:
@@ -26,22 +26,24 @@ steps:
     example:
       value:
         $ref: "../../examples/mutual-funds/forms/account-opening.html"
+
   - summary: Select
     api: select
     details:
-      - description: Scheme selection
+      - description: Send folio information as form submission
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/select/select-lumpsum-new-folio_1.json"
+        $ref: "../../examples/mutual-funds/select/select-lumpsum-new-folio-1.json"
   - summary: On Select
     api: on_select
     details:
-      - description: Send back new account input required
+      - description: Send success status
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_select/on_select-lumpsum-new-folio_1.json"      
+        $ref: "../../examples/mutual-funds/on_select/on_select-lumpsum-new-folio-1.json"      
+
   - summary: Initialize the Lumpsum order
     api: init
     details:
@@ -76,6 +78,14 @@ steps:
       value:
         $ref: "../../examples/mutual-funds/on_confirm/on_confirm-lumpsum-new-folio.json"
 
+  - summary: Payment
+    api: form
+    details:
+      - description: Depending on the payment mode, buyer app either redirects the buyer to the PG url or show the payment option in its interface. This example is showing a redirection flow
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/forms/payment-gateway.html"
   - summary: On Status
     api: on_status
     details:
@@ -83,7 +93,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_status/on_status-lumpsum-new-folio.json"      
+        $ref: "../../examples/mutual-funds/on_status/on_status-lumpsum-new-folio-psuccess.json"      
 
   - summary: On Update
     api: on_update
@@ -92,5 +102,4 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_update/on_update-lumpsum-new-folio.json"
-
+        $ref: "../../examples/mutual-funds/on_update/on_update-lumpsum-new-folio-psuccess-fsuccess.json"
