@@ -99,7 +99,7 @@
                     "id": "ff_789",
                     "type": "SIP",
                     "state": {
-                        "descriptor": {"name": "Ongoing", "code": "ONGOING"}
+                        "descriptor": {"name": "Pending", "code": "PENDING"}
                     },
                     "customer": {
                         "person": {
