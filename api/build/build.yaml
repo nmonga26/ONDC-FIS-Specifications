@@ -4630,15 +4630,6 @@ x-flows:
                               name: IDCW Option
                               code: IDCW_OPTION
                             value: PAYOUT
-                      - display: true
-                        descriptor:
-                          name: Checklists
-                          code: CHECKLISTS
-                        list:
-                          - descriptor:
-                              name: Application Form
-                              code: APPLICATION_FORM
-                            value: PENDING
                 fulfillments:
                   - id: ff_123
                     type: SIP
@@ -9888,23 +9879,6 @@ x-flows:
                               name: IDCW Option
                               code: IDCW_OPTION
                             value: PAYOUT
-                      - display: true
-                        descriptor:
-                          name: Checklists
-                          code: CHECKLISTS
-                        list:
-                          - descriptor:
-                              name: Application Form
-                              code: APPLICATION_FORM_WITH_KYC
-                            value: PENDING
-                          - descriptor:
-                              name: KYC
-                              code: KYC
-                            value: PENDING
-                          - descriptor:
-                              name: ESIGN
-                              code: ESIGN
-                            value: PENDING
                 fulfillments:
                   - id: ff_123
                     type: SIP
@@ -27317,15 +27291,6 @@ x-flows:
                               name: IDCW Option
                               code: IDCW_OPTION
                             value: PAYOUT
-                      - display: true
-                        descriptor:
-                          name: Checklists
-                          code: CHECKLISTS
-                        list:
-                          - descriptor:
-                              name: Application Form
-                              code: APPLICATION_FORM
-                            value: PENDING
                 xinput:
                   required: true
                   head:
@@ -32649,23 +32614,6 @@ x-flows:
                               name: IDCW Option
                               code: IDCW_OPTION
                             value: PAYOUT
-                      - display: true
-                        descriptor:
-                          name: Checklists
-                          code: CHECKLISTS
-                        list:
-                          - descriptor:
-                              name: Application Form
-                              code: APPLICATION_FORM_WITH_KYC
-                            value: PENDING
-                          - descriptor:
-                              name: KYC
-                              code: KYC
-                            value: PENDING
-                          - descriptor:
-                              name: ESIGN
-                              code: ESIGN
-                            value: PENDING
                 xinput:
                   required: true
                   head:
@@ -64073,16 +64021,6 @@ x-flows:
                         name: ABC Mutual Fund
                     fulfillment_ids:
                       - ff_123
-                    tags:
-                      - display: true
-                        descriptor:
-                          name: Checklists
-                          code: CHECKLISTS
-                        list:
-                          - descriptor:
-                              name: Application Form
-                              code: APPLICATION_FORM
-                            value: PENDING
                 fulfillments:
                   - id: ff_123
                     type: ZERO_BALANCE_FOLIO

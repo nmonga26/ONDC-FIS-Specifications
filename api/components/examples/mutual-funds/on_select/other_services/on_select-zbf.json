@@ -31,19 +31,7 @@
                     "id": "AS42134",
                     "descriptor": {"name": "ABC Fund - Other Service", "code": "SERVICE"},
                     "creator": { "descriptor": { "name": "ABC Mutual Fund" } },
-                    "fulfillment_ids": ["ff_123"],
-                    "tags": [
-                        {
-                            "display": true,
-                            "descriptor": {"name": "Checklists", "code": "CHECKLISTS"},
-                            "list": [
-                                {
-                                    "descriptor": {"name": "Application Form", "code": "APPLICATION_FORM"},
-                                    "value": "PENDING"
-                                }
-                            ]
-                        }
-                    ]
+                    "fulfillment_ids": ["ff_123"]
                 }
             ],
             "fulfillments": [

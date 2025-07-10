@@ -87,25 +87,7 @@
                                   "value": "PAYOUT"
                               }
                           ]
-                      },
-                      {
-                        "display": true,
-                        "descriptor": {"name": "Checklists", "code": "CHECKLISTS"},
-                        "list": [
-                            {
-                                "descriptor": {"name": "Application Form", "code": "APPLICATION_FORM_WITH_KYC"},
-                                "value": "PENDING"
-                            },
-                            {
-                                "descriptor": {"name": "KYC", "code": "KYC"},
-                                "value": "PENDING"
-                            },
-                            {
-                                "descriptor": {"name": "ESIGN", "code": "ESIGN"},
-                                "value": "PENDING"
-                            }
-                        ]
-                    }
+                      }
                   ]
               }
           ],
