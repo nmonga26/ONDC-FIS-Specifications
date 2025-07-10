@@ -31028,6 +31028,28 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '3000'
+                  breakup:
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_123
+                      title: INVESTMENT
+                      price:
+                        currency: INR
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_123
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
       - summary: Initialize the Lumpsum order
         api: init
         details:
@@ -37708,6 +37730,28 @@ x-flows:
                           name: Offline Contract
                           code: OFFLINE_CONTRACT
                         value: 'true'
+                quote:
+                  id: q1
+                  price:
+                    currency: INR
+                    value: '3000'
+                  breakup:
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_123
+                      title: INVESTMENT
+                      price:
+                        currency: INR
+                        value: '2999.85'
+                    - item:
+                        id: '12391'
+                        fulfillment_ids:
+                          - ff_123
+                      title: STAMP_DUTY
+                      price:
+                        currency: INR
+                        value: '0.15'
       - summary: Initialize the Lumpsum order
         api: init
         details:
