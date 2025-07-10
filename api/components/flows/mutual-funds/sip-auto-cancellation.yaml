@@ -10,4 +10,4 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_update/on_update-sip-new-account-acceptance-cancelled.json"
+        $ref: "../../examples/mutual-funds/on_update/on_update-sip-new-folio-acceptance-cancelled.json"

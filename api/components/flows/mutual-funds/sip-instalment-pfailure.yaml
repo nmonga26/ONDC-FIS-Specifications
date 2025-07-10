@@ -9,7 +9,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_update/on_update-sip-new-account-acceptance-ongoing.json"
+        $ref: "../../examples/mutual-funds/on_update/on_update-sip-new-folio-acceptance-ongoing.json"
   - summary: On Confirm
     api: on_confirm
     details:
@@ -17,7 +17,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_confirm/on_confirm-sip-new-account-instalment-acceptance.json"
+        $ref: "../../examples/mutual-funds/on_confirm/on_confirm-sip-new-folio-instalment-acceptance.json"
   - summary: On Update (with payment details)
     api: on_update
     details:
@@ -33,4 +33,4 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_update/on_update-sip-new-account-instalment-pfailure.json"
+        $ref: "../../examples/mutual-funds/on_update/on_update-sip-new-folio-instalment-pfailure.json"

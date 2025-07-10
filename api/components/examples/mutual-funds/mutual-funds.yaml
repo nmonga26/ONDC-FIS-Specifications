@@ -36,19 +36,19 @@ select:
     - summary: submit new folio form
       description: submit new folio form
       value:
-        $ref: "./select/select-sip-new-account-1.json"
+        $ref: "./select/select-sip-new-folio-1.json"
     - summary: submit kyc form (step 1)
       description: submit kyc form
       value:
-        $ref: "./select/select-sip-new-account-with-kyc-1.json"
+        $ref: "./select/select-sip-new-folio-with-kyc-1.json"
     - summary: submit kyc form (step 2)
       description: submit kyc form
       value:
-        $ref: "./select/select-sip-new-account-with-kyc-2.json"
+        $ref: "./select/select-sip-new-folio-with-kyc-2.json"
     - summary: submit kyc form (step 3)
       description: submit kyc form
       value:
-        $ref: "./select/select-sip-new-account-with-kyc-3.json"
+        $ref: "./select/select-sip-new-folio-with-kyc-3.json"
 on_select:
   examples:
     - summary: send existing folios
@@ -58,15 +58,15 @@ on_select:
     - summary: send new folio xinput form
       description: send new folio xinput form
       value:
-        $ref: "./on_select/on_select-sip-new-account.json"
+        $ref: "./on_select/on_select-sip-new-folio.json"
     - summary: send payment options
       description: send payment options
       value:
-        $ref: "./on_select/on_select-sip-new-account-1.json"
+        $ref: "./on_select/on_select-sip-new-folio-1.json"
     - summary: send new kyc xinput form (redirection step)
       description: send new kyc xinput form (redirection step)
       value:
-        $ref: "./on_select/on_select-sip-new-account-with-kyc-2.json"
+        $ref: "./on_select/on_select-sip-new-folio-with-kyc-2.json"
     - summary: send payout bank details for redemption
       description: send payout bank details for redemption
       value:
@@ -85,11 +85,11 @@ init:
     - summary: init sip existing folio
       description: init sip existing folio
       value:
-        $ref: "./init/init-sip-existing-account.json"
+        $ref: "./init/init-sip-existing-folio.json"
     - summary: init sip new folio
       description: init sip new folio
       value:
-        $ref: "./init/init-sip-new-account.json"
+        $ref: "./init/init-sip-new-folio.json"
     - summary: init redemption order
       description: init redemption order
       value:
@@ -107,7 +107,7 @@ on_init:
     - summary: send payment url & tnc
       description: send payment url & tnc
       value:
-        $ref: "./on_init/on_init-sip-existing-account.json"
+        $ref: "./on_init/on_init-sip-existing-folio.json"
     - summary: send order in created state
       description: send order in created state
       value:
@@ -118,7 +118,7 @@ confirm:
     - summary: confirm sip
       description: confirm sip
       value:
-        $ref: "./confirm/confirm-sip-new-account.json"
+        $ref: "./confirm/confirm-sip-new-folio.json"
     - summary: confirm redemption
       description: confirm redemption
       value:
@@ -128,11 +128,11 @@ on_confirm:
     - summary: confirm order w/ accepted state
       description: confirm order w/ accepted state
       value:
-        $ref: "./on_confirm/on_confirm-sip-new-account.json"
+        $ref: "./on_confirm/on_confirm-sip-new-folio.json"
     - summary: sip instalment created
       description: sip instalment created
       value:
-        $ref: "./on_confirm/on_confirm-sip-new-account-instalment-acceptance.json"
+        $ref: "./on_confirm/on_confirm-sip-new-folio-instalment-acceptance.json"
 
 status:
   examples:
@@ -149,7 +149,7 @@ on_status:
     - summary: sip payment success
       description: sip payment success
       value:
-        $ref: "./on_status/on_status-sip-new-account-psuccess.json"
+        $ref: "./on_status/on_status-sip-new-folio-psuccess.json"
 
 update:
   examples:
@@ -170,7 +170,7 @@ on_update:
     - summary: sip payment failure
       description: sip payment failure
       value:
-        $ref: "./on_update/on_update-sip-new-account-pfailure.json"
+        $ref: "./on_update/on_update-sip-new-folio-pfailure.json"
     - summary: redemption fulfillment success
       description: redemption fulfillment success
       value:
@@ -182,20 +182,20 @@ on_update:
     - summary: sip instalment payment failed
       description: sip instalment payment failed
       value:
-        $ref: "./on_update/on_update-sip-new-account-instalment-pfailure.json"
+        $ref: "./on_update/on_update-sip-new-folio-instalment-pfailure.json"
     - summary: sip instalment fulfillment success
       description: sip instalment fulfillment success
       value:
-        $ref: "./on_update/on_update-sip-new-account-instalment-acceptance-success.json"
+        $ref: "./on_update/on_update-sip-new-folio-instalment-acceptance-success.json"
     - summary: sip instalment fulfillment failure
       description: sip instalment fulfillment failure
       value:
-        $ref: "./on_update/on_update-sip-new-account-instalment-acceptance-failure.json"
+        $ref: "./on_update/on_update-sip-new-folio-instalment-acceptance-failure.json"
     - summary: sip order completed
       description: sip order completed
       value:
-        $ref: "./on_update/on_update-sip-new-account-acceptance-completed.json"
+        $ref: "./on_update/on_update-sip-new-folio-acceptance-completed.json"
     - summary: sip order cancelled
       description: sip order cancelled
       value:
-        $ref: "./on_update/on_update-sip-new-account-acceptance-cancelled.json"
+        $ref: "./on_update/on_update-sip-new-folio-acceptance-cancelled.json"

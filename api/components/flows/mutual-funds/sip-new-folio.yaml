@@ -18,7 +18,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_select/on_select-sip-new-account.json"
+        $ref: "../../examples/mutual-funds/on_select/on_select-sip-new-folio.json"
   - summary: Get Form
     api: form
     details:
@@ -35,7 +35,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/select/select-sip-new-account-1.json"
+        $ref: "../../examples/mutual-funds/select/select-sip-new-folio-1.json"
   - summary: On Select
     api: on_select
     details:
@@ -43,7 +43,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_select/on_select-sip-new-account-1.json"
+        $ref: "../../examples/mutual-funds/on_select/on_select-sip-new-folio-1.json"
 
   - summary: Initialize the SIP order
     api: init
@@ -52,7 +52,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/init/init-sip-new-account.json"
+        $ref: "../../examples/mutual-funds/init/init-sip-new-folio.json"
   - summary: On Init
     api: on_init
     details:
@@ -60,7 +60,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_init/on_init-sip-new-account.json"
+        $ref: "../../examples/mutual-funds/on_init/on_init-sip-new-folio.json"
 
   - summary: Confirm
     api: confirm
@@ -69,7 +69,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/confirm/confirm-sip-new-account.json"
+        $ref: "../../examples/mutual-funds/confirm/confirm-sip-new-folio.json"
   - summary: On Confirm
     api: on_confirm
     details:
@@ -77,7 +77,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_confirm/on_confirm-sip-new-account.json"
+        $ref: "../../examples/mutual-funds/on_confirm/on_confirm-sip-new-folio.json"
 
   - summary: Payment
     api: form
@@ -94,7 +94,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_status/on_status-sip-new-account-psuccess.json"
+        $ref: "../../examples/mutual-funds/on_status/on_status-sip-new-folio-psuccess.json"
   - summary: On Update
     api: on_update
     details:
@@ -102,4 +102,4 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_update/on_update-sip-new-account-psuccess-fstarted.json"
+        $ref: "../../examples/mutual-funds/on_update/on_update-sip-new-folio-psuccess-fstarted.json"

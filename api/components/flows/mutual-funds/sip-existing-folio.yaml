@@ -28,7 +28,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/init/init-sip-existing-account.json"
+        $ref: "../../examples/mutual-funds/init/init-sip-existing-folio.json"
   - summary: On Init
     api: on_init
     details:
@@ -36,7 +36,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_init/on_init-sip-existing-account.json"
+        $ref: "../../examples/mutual-funds/on_init/on_init-sip-existing-folio.json"
 
   - summary: Confirm
     api: confirm
@@ -45,7 +45,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/confirm/confirm-sip-existing-account.json"
+        $ref: "../../examples/mutual-funds/confirm/confirm-sip-existing-folio.json"
   - summary: On Confirm
     api: on_confirm
     details:
@@ -53,7 +53,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_confirm/on_confirm-sip-existing-account.json"
+        $ref: "../../examples/mutual-funds/on_confirm/on_confirm-sip-existing-folio.json"
 
   - summary: Payment
     api: form
@@ -70,7 +70,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_status/on_status-sip-existing-account-psuccess.json"
+        $ref: "../../examples/mutual-funds/on_status/on_status-sip-existing-folio-psuccess.json"
   - summary: On Update
     api: on_update
     details:
@@ -78,4 +78,4 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_update/on_update-sip-existing-account-psuccess-fstarted.json"
+        $ref: "../../examples/mutual-funds/on_update/on_update-sip-existing-folio-psuccess-fstarted.json"
