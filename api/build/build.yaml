@@ -30976,6 +30976,45 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                payments:
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NETBANKING
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI
+                          - descriptor:
+                              code: AUTH
+                            value: COLLECT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI
+                          - descriptor:
+                              code: AUTH
+                            value: URI
                 tags:
                   - display: false
                     descriptor:
@@ -37617,6 +37656,45 @@ x-flows:
                               name: Amount Multiples
                               code: AMOUNT_MULTIPLES
                             value: '1'
+                payments:
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: NETBANKING
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI
+                          - descriptor:
+                              code: AUTH
+                            value: COLLECT
+                  - collected_by: BPP
+                    type: PRE_FULFILLMENT
+                    tags:
+                      - descriptor:
+                          name: Payment Method
+                          code: PAYMENT_METHOD
+                        list:
+                          - descriptor:
+                              code: MODE
+                            value: UPI
+                          - descriptor:
+                              code: AUTH
+                            value: URI
                 tags:
                   - display: false
                     descriptor:
