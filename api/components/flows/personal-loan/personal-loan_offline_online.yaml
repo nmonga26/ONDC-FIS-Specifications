@@ -485,7 +485,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/personal-loans/on_confirm/on_confirm_request_offline.yaml" 
+        $ref: "../../examples/personal-loans/on_confirm/on_confirm_request_offline_online.yaml" 
   #consent-handler flow
   # - summary: The provider platform updates the consumer.
   #   api: on_update
