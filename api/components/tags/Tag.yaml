@@ -118,6 +118,9 @@ checklists:
   - code: APPLICATION_FORM
     description: Type of plan - regular/ direct etc.
     reference: <PR/Issue/Discussion Links md format text>
+  - code: APPLICATION_FORM_WITH_KYC
+    description: Application form with KYC requirement
+    reference: <PR/Issue/Discussion Links md format text>
   - code: KYC
     description: Type of plan - regular/ direct etc.
     reference: <PR/Issue/Discussion Links md format text>
@@ -193,9 +196,3 @@ thresholds:
   - code: ADDITIONAL_AMOUNT_MAX
     description: Describes the additional amount max value
     reference: <PR/Issue/Discussion Links md format text>
-
-
-
-  
-                 
-

@@ -104,6 +104,7 @@ update:
       fulfillments:
         tags:
           - $ref: "./tag-group.yaml#/order/fulfillments/tags/4"
+          - $ref: "./tag-group.yaml#/order/fulfillments/tags/8"
 
 on_update:
   message:

@@ -125,6 +125,9 @@ order:
           - code: MASKED_ACCOUNT_NUMBER
             description : Describes the finder fees for buyer
             reference: <PR/Issue/Discussion Links md format text>
+          - code: ACCOUNT_HOLDER_NAME
+            description : Name of the account holder
+            reference: <PR/Issue/Discussion Links md format text>
           - code: ACCOUNT_HOLDER_NUMBER
             description : Describes the finder fees for buyer
             reference: <PR/Issue/Discussion Links md format text>
@@ -232,6 +235,20 @@ order:
           - code: RTA_SOURCE_REF
             description : Identifier reported by the seller app to the RTA
             reference: <PR/Issue/Discussion Links md format text>
+      - code: MODIFICATION_INFO
+        description: Describes modification information for fulfillments
+        reference: <PR/Issue/Discussion Links md format text>
+        list:
+          - code: MODIFIED_BY
+            description: Describes who modified the fulfillment
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: CONSUMER
+                description: Modified by consumer
+                reference: <PR/Issue/Discussion Links md format text>
+              - code: PROVIDER
+                description: Modified by provider
+                reference: <PR/Issue/Discussion Links md format text>
 
   payments:
     tags:

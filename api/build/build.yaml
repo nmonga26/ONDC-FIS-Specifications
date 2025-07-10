@@ -3498,6 +3498,9 @@ x-tags:
                   - code: APPLICATION_FORM
                     description: Type of plan - regular/ direct etc.
                     reference: <PR/Issue/Discussion Links md format text>
+                  - code: APPLICATION_FORM_WITH_KYC
+                    description: Application form with KYC requirement
+                    reference: <PR/Issue/Discussion Links md format text>
                   - code: KYC
                     description: Type of plan - regular/ direct etc.
                     reference: <PR/Issue/Discussion Links md format text>
@@ -3661,6 +3664,9 @@ x-tags:
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: MASKED_ACCOUNT_NUMBER
                   description: Describes the finder fees for buyer
+                  reference: <PR/Issue/Discussion Links md format text>
+                - code: ACCOUNT_HOLDER_NAME
+                  description: Name of the account holder
                   reference: <PR/Issue/Discussion Links md format text>
                 - code: ACCOUNT_HOLDER_NUMBER
                   description: Describes the finder fees for buyer
@@ -3977,6 +3983,20 @@ x-tags:
                 - code: CANCELLED_TIME
                   description: Captures the time of cancellation initiation
                   reference: <PR/Issue/Discussion Links md format text>
+            - code: MODIFICATION_INFO
+              description: Describes modification information for fulfillments
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: MODIFIED_BY
+                  description: Describes who modified the fulfillment
+                  reference: <PR/Issue/Discussion Links md format text>
+                  list:
+                    - code: CONSUMER
+                      description: Modified by consumer
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: PROVIDER
+                      description: Modified by provider
+                      reference: <PR/Issue/Discussion Links md format text>
   on_update:
     message:
       order:
