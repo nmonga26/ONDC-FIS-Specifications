@@ -58,7 +58,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_status/on_status-lumpsum-with-kyc-2.json"
+        $ref: "../../examples/mutual-funds/on_status/on_status-lumpsum-new-folio-with-kyc-f2submitted.json"
 
   - summary: Submit Form
     api: select
@@ -91,7 +91,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_status/on_status-lumpsum-with-kyc-3.json"
+        $ref: "../../examples/mutual-funds/on_status/on_status-lumpsum-new-folio-with-kyc-f3submitted.json"
 
   - summary: Select
     api: select
