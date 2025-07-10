@@ -13,7 +13,7 @@
       "bap_id": "api.buyerapp.com",
       "bap_uri": "https://api.buyerapp.com/ondc",
       "transaction_id": "a9aaecca-10b7-4d19-b640-b047a7c62196",
-      "message_id": "6c8500ad-53b2-44f3-adc6-863bd06d3f98",
+      "message_id": "ff0c306a-2402-4b83-a0fd-3d2abdc2ad65",
       "version": "2.1.0",
       "ttl": "PT10M",
       "bpp_id": "api.sellerapp.com",
@@ -65,6 +65,14 @@
                   }
               }
           ],
+          "xinput": {
+            "form": {
+                "id": "form_1"
+            },
+            "form_response": {
+                "submission_id": "4e6d19d3-f8b5-43d5-9d89-ab5b95af3d92"
+            }
+        },
           "tags": [
               {
                   "display": false,

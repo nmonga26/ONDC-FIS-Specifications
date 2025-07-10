@@ -28,6 +28,7 @@ steps:
     example:
       value:
         $ref: "../../examples/mutual-funds/forms/account-opening-with-kyc.html"
+
   - summary: Submit Form
     api: select
     details:
@@ -60,6 +61,7 @@ steps:
     example:
       value:
         $ref: "../../examples/mutual-funds/on_status/on_status-sip-new-account-with-kyc-f2submitted.json"
+
   - summary: Submit Form
     api: select
     details:
@@ -92,6 +94,7 @@ steps:
     example:
       value:
         $ref: "../../examples/mutual-funds/on_status/on_status-sip-new-account-with-kyc-f3submitted.json"      
+
   - summary: Submit Form
     api: select
     details:
@@ -116,7 +119,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/init/init-sip-new-account.json"
+        $ref: "../../examples/mutual-funds/init/init-sip-new-account-with-kyc.json"
   - summary: On Init
     api: on_init
     details:
@@ -124,7 +127,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_init/on_init-sip-new-account-kyc.json"
+        $ref: "../../examples/mutual-funds/on_init/on_init-sip-new-account-with-kyc.json"
 
   - summary: Confirm
     api: confirm
@@ -133,7 +136,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/confirm/confirm-sip-new-account.json"
+        $ref: "../../examples/mutual-funds/confirm/confirm-sip-new-account-with-kyc.json"
   - summary: On Confirm
     api: on_confirm
     details:
@@ -141,7 +144,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_confirm/on_confirm-sip-new-account-kyc.json"
+        $ref: "../../examples/mutual-funds/on_confirm/on_confirm-sip-new-account-with-kyc.json"
 
   - summary: Payment
     api: form
@@ -154,16 +157,8 @@ steps:
   - summary: On Status
     api: on_status
     details:
-      - description: Send payment success
+      - description: Send payment success and order in accepted state
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_status/on_status-sip-new-psuccess-kyc.json"
-  - summary: On Update
-    api: on_update
-    details:
-      - description: Send folio details
-    reference: if any
-    example:
-      value:
-        $ref: "../../examples/mutual-funds/on_update/on_update-sip-with-kyc-folio-update.json"       
+        $ref: "../../examples/mutual-funds/on_status/on_status-sip-new-account-with-kyc-psuccess.json"

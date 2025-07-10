@@ -9,7 +9,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/select/select-lumpsum-new-folio-with-kyc-1.json"
+        $ref: "../../examples/mutual-funds/select/select-lumpsum.json"
   - summary: On Select
     api: on_select
     details:
@@ -17,7 +17,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_select/on_select-lumpsum-new-folio-with-kyc_1.json"
+        $ref: "../../examples/mutual-funds/on_select/on_select-lumpsum-new-folio-with-kyc.json"
   - summary: Get Form
     api: form
     details:
@@ -26,6 +26,7 @@ steps:
     example:
       value:
         $ref: "../../examples/mutual-funds/forms/account-opening-with-kyc.html"
+
   - summary: Submit Form
     api: select
     details:
@@ -33,7 +34,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/select/select-lumpsum-new-folio-with-kyc-2.json"
+        $ref: "../../examples/mutual-funds/select/select-lumpsum-new-folio-with-kyc-1.json"
   - summary: On Select
     api: on_select
     details:
@@ -41,7 +42,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_select/on_select-lumpsum-new-folio-with-kyc_2.json"
+        $ref: "../../examples/mutual-funds/on_select/on_select-lumpsum-new-folio-with-kyc-1.json"
   - summary: Get Form
     api: form
     details:
@@ -58,6 +59,7 @@ steps:
     example:
       value:
         $ref: "../../examples/mutual-funds/on_status/on_status-lumpsum-with-kyc-2.json"
+
   - summary: Submit Form
     api: select
     details:
@@ -65,7 +67,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/select/select-lumpsum-new-folio-with-kyc-3.json"
+        $ref: "../../examples/mutual-funds/select/select-lumpsum-new-folio-with-kyc-2.json"
   - summary: On Select
     api: on_select
     details:
@@ -73,7 +75,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_select/on_select-lumpsum-new-folio-with-kyc_3.json"
+        $ref: "../../examples/mutual-funds/on_select/on_select-lumpsum-new-folio-with-kyc-2.json"
   - summary: Get Form
     api: form
     details:
@@ -90,22 +92,24 @@ steps:
     example:
       value:
         $ref: "../../examples/mutual-funds/on_status/on_status-lumpsum-with-kyc-3.json"
+
   - summary: Select
     api: select
     details:
-      - description: Scheme selection
+      - description: Send esign fetch as form submission
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/select/select-lumpsum-new-folio_1.json"
+        $ref: "../../examples/mutual-funds/select/select-lumpsum-new-folio-with-kyc-3.json"
   - summary: On Select
     api: on_select
     details:
-      - description: Send back new account input required
+      - description: Send success status
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_select/on_select-lumpsum-new-folio_1.json"
+        $ref: "../../examples/mutual-funds/on_select/on_select-lumpsum-new-folio-with-kyc-3.json"
+
   - summary: Initialize the Lumpsum order
     api: init
     details:
@@ -113,7 +117,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/init/init-lumpsum-new-folio.json"
+        $ref: "../../examples/mutual-funds/init/init-lumpsum-new-folio-with-kyc.json"
   - summary: On Init
     api: on_init
     details:
@@ -121,7 +125,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_init/on_init-lumpsum-new-folio.json"
+        $ref: "../../examples/mutual-funds/on_init/on_init-lumpsum-new-folio-with-kyc.json"
 
   - summary: Confirm
     api: confirm
@@ -130,7 +134,7 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/confirm/confirm-lumpsum-new-folio.json"
+        $ref: "../../examples/mutual-funds/confirm/confirm-lumpsum-new-folio-with-kyc.json"
   - summary: On Confirm
     api: on_confirm
     details:
@@ -138,8 +142,16 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_confirm/on_confirm-lumpsum-new-folio.json"
+        $ref: "../../examples/mutual-funds/on_confirm/on_confirm-lumpsum-new-folio-with-kyc.json"
 
+  - summary: Payment
+    api: form
+    details:
+      - description: Depending on the payment mode, buyer app either redirects the buyer to the PG url or show the payment option in its interface. This example is showing a redirection flow
+    reference: if any
+    example:
+      value:
+        $ref: "../../examples/mutual-funds/forms/payment-gateway.html"
   - summary: On Status
     api: on_status
     details:
@@ -147,13 +159,13 @@ steps:
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_status/on_status-lumpsum-new-folio.json"
+        $ref: "../../examples/mutual-funds/on_status/on_status-lumpsum-new-folio-with-kyc-psuccess.json"
 
   - summary: On Update
     api: on_update
     details:
-      - description: Send payment failure notification
+      - description: Send fulfillment success notification
     reference: if any
     example:
       value:
-        $ref: "../../examples/mutual-funds/on_update/on_update-lumpsum-new-folio.json"
+        $ref: "../../examples/mutual-funds/on_update/on_update-lumpsum-new-folio-with-kyc-psuccess-fsuccess.json"
