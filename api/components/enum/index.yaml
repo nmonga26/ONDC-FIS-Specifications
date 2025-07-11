@@ -24,8 +24,9 @@ on_search:
           descriptor:
             code:
               $ref: "./item.yaml#/codes"
-        fulfillments: &fulfillment
-          $ref: "./fulfillment.yaml"
+        fulfillments: &fulfillment_basic
+          type:
+            $ref: "./fulfillment.yaml#/type"
 
 select:
   context: *context
@@ -38,17 +39,32 @@ select:
             measure:
               unit:
                 $ref: "./item.yaml#/units"
-      fulfillments: *fulfillment
+      fulfillments: *fulfillment_basic
+      payments: &payment_basic
+        collected_by:
+          $ref: "./payment.yaml#/collected_by"
+        type:
+          $ref: "./payment.yaml#/type"
+      xinput: &xinput_basic
+        form_response:
+          status:
+            $ref: "./xinput.yaml#/form_response_status"
 
 on_select:
   context: *context
   message:
-    order:
+    order: &order_select
       <<: *order
-      # xinput:
-      #   head:
-      #     headings:
-      #       $ref: "./xinput.yaml#/heading"
+      fulfillments: *fulfillment_basic
+      payments: *payment_basic
+      xinput: *xinput_basic
+      quote: &quote_basic
+        price:
+          currency:
+            $ref: "./quote.yaml#/currency"
+        breakup:
+          title:
+            $ref: "./quote.yaml#/title"
 
 init:
   context: *context
@@ -58,7 +74,8 @@ init:
       payments: &payment
         $ref: "./payment.yaml"
       fulfillments:
-        <<: *fulfillment
+        <<: *fulfillment_basic
+      xinput: *xinput_basic
 
 on_init:
   context: *context
@@ -68,19 +85,83 @@ on_init:
       status:
         $ref: './order.yaml#/status'
       fulfillments:
-        <<: *fulfillment
+        <<: *fulfillment_basic
+      payments: *payment_basic
+      xinput: *xinput_basic
+      quote: *quote_basic
 
 confirm:
   context: *context
   message:
-    order: *order2
+    order: &order_confirm
+      <<: *order2
+      fulfillments: *fulfillment_basic
+      payments: *payment_basic
+      xinput: *xinput_basic
 
 on_confirm:
   context: *context
   message:
-    order: *order2
+    order: &order3
+      <<: *order2
+      fulfillments:
+        type:
+          $ref: "./fulfillment.yaml#/type"
+        state:
+          $ref: "./fulfillment.yaml#/state"
+        customer:
+          person:
+            creds:
+              type:
+                $ref: "./fulfillment.yaml#/customer/person/creds/type"
+        agent:
+          organization:
+            creds:
+              type:
+                $ref: "./fulfillment.yaml#/agent/organization/creds/type"
+      payments:
+        collected_by:
+          $ref: "./payment.yaml#/collected_by"
+        status:
+          $ref: "./payment.yaml#/status"
+        type:
+          $ref: "./payment.yaml#/type"
+      xinput:
+        form_response:
+          status:
+            $ref: "./xinput.yaml#/form_response_status"
+      quote: *quote_basic
 
 on_status:
   context: *context
   message:
-    order: *order2
+    order: &order4
+      <<: *order3
+
+on_update:
+  context: *context
+  message:
+    order: &order5
+      <<: *order4
+
+update:
+  context: *context
+  message:
+    order:
+      fulfillments:
+        type:
+          $ref: "./fulfillment.yaml#/type"
+        state:
+          $ref: "./fulfillment.yaml#/state"
+        customer:
+          person:
+            creds:
+              type:
+                $ref: "./fulfillment.yaml#/customer/person/creds/type"
+        agent:
+          organization:
+            creds:
+              type:
+                $ref: "./fulfillment.yaml#/agent/organization/creds/type"
+      payments: *payment_basic
+      xinput: *xinput_basic
