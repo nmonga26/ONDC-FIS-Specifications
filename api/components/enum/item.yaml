@@ -1,15 +1,18 @@
 codes: 
   - code: SCHEME
-    description: Describes, a kind of investment which requires to make payments at regular intervals.
+    description: Mutual fund scheme
     reference: <PR/Issue/Discussion Links md format text
   - code: SCHEME_PLAN
-    description: Describes, a kind of investment which requires to pay the entire amount at once.
+    description: Mutual fund scheme plan
+    reference: <PR/Issue/Discussion Links md format text
+  - code: SERVICE
+    description: Other service (KYC, payment mandate, etc.)
     reference: <PR/Issue/Discussion Links md format text
 
 units:
   - code: INR
-    description: Invest or redeem using amount
+    description: Indian Rupees
     reference: <PR/Issue/Discussion Links md format text
   - code: MF_UNITS
-    description: Invest or redeem using mf units
+    description: Mutual Fund Units
     reference: <PR/Issue/Discussion Links md format text

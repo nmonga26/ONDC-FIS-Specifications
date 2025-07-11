@@ -1,7 +1,26 @@
 collected_by:
   - code: BPP
-    description: when seller app is collecting the payment
+    description: Seller app collecting payment
     reference: <PR/Issue/Discussion Links md format text
   - code: BAP
-    description: when buyer app is collecting the payment
-    reference: <PR/Issue/Discussion Links md format text   
+    description: Buyer app collecting payment
+    reference: <PR/Issue/Discussion Links md format text
+
+status:
+  - code: NOT-PAID
+    description: Payment not yet made
+    reference: <PR/Issue/Discussion Links md format text
+  - code: PAID
+    description: Payment completed successfully
+    reference: <PR/Issue/Discussion Links md format text
+  - code: FAILED
+    description: Payment failed
+    reference: <PR/Issue/Discussion Links md format text
+
+type:
+  - code: PRE_FULFILLMENT
+    description: Payment before fulfillment
+    reference: <PR/Issue/Discussion Links md format text
+  - code: ON_FULFILLMENT
+    description: Payment during fulfillment
+    reference: <PR/Issue/Discussion Links md format text

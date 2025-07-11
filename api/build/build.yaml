@@ -2782,80 +2782,54 @@ x-enum:
         country:
           code:
             - code: IND
-              description: Represents the country
+              description: India
               reference: <PR/Issue/Discussion Links md format text>
         city:
           code:
-            - code: std:080
-              description: Bangalore
+            - code: '*'
+              description: Any city (wildcard)
               reference: <PR/Issue/Discussion Links md format text>
       domain:
         - code: ONDC:FIS14
-          description: Describes investment domain.
+          description: Financial Investment Services domain
           reference: <PR/Issue/Discussion Links md format text>
       action:
         - code: search
-          description: buyer app specifies the search intent
+          description: Buyer app specifies search intent
           reference: <PR/Issue/Discussion Links md format text>
         - code: on_search
-          description: seller app responds with the catalog based on the search intent
+          description: Seller app responds with catalog
           reference: <PR/Issue/Discussion Links md format text>
         - code: select
-          description: buyer app specifies the items & quantity selected by a buyer
+          description: Buyer app specifies selected items
           reference: <PR/Issue/Discussion Links md format text>
         - code: on_select
-          description: >-
-            seller app responds with the serviceability info, quote & O2D TAT
-            for selected items;
+          description: Seller app responds with serviceability and quote
           reference: <PR/Issue/Discussion Links md format text>
         - code: init
-          description: >-
-            buyer & seller app specify & agree to the terms & conditions prior
-            to placing the order;
+          description: Buyer and seller agree to terms
           reference: <PR/Issue/Discussion Links md format text>
         - code: on_init
-          description: >-
-            buyer & seller app specify & agree to the terms & conditions prior
-            to placing the order;
+          description: Response to init with agreed terms
           reference: <PR/Issue/Discussion Links md format text>
         - code: confirm
-          description: buyer app places the order on behalf of the buyer;
+          description: Buyer app places order
           reference: <PR/Issue/Discussion Links md format text>
         - code: on_confirm
-          description: >-
-            seller app responds to the order placed either through
-            auto-acceptance or deferred acceptance or rejection of the order
+          description: Seller app responds to order
           reference: <PR/Issue/Discussion Links md format text>
         - code: update
-          description: updates in the serviceable loc happens here
+          description: Buyer app requests order updates
           reference: <PR/Issue/Discussion Links md format text>
         - code: on_update
-          description: seller app responds with serviceable
-          reference: <PR/Issue/Discussion Links md format text
-        - code: cancel
-          description: Cancellation of ride
+          description: Seller app responds with updates
           reference: <PR/Issue/Discussion Links md format text>
-        - code: on_cancel
-          description: Specifiy the cancellation of the state
-          reference: <PR/Issue/Discussion Links md format text>
-        - code: track
-          description: Track the order
-          reference: <PR/Issue/Discussion Links md format text>
-        - code: on_track
-          description: Return tracking infomation of the order
-          reference: <PR/Issue/Discussion Links md format text
         - code: status
-          description: Request for status of the vehicle
+          description: Request for order status
           reference: <PR/Issue/Discussion Links md format text>
         - code: on_status
-          description: Return order with status , Driver pickup - driver drop
+          description: Response with order status
           reference: <PR/Issue/Discussion Links md format text>
-        - code: support
-          description: Fetch support information related to a particular order
-          reference: <PR/Issue/Discussion Links md format text>
-        - code: on_support
-          description: Return support information related to order
-          reference: <PR/Issue/Discussion Links md format text
     message:
       intent:
         category:
@@ -3124,62 +3098,91 @@ x-enum:
             descriptor: &ref_2
               code:
                 - code: SCHEME
-                  description: >-
-                    Describes, a kind of investment which requires to make
-                    payments at regular intervals.
+                  description: Mutual fund scheme
                   reference: <PR/Issue/Discussion Links md format text
                 - code: SCHEME_PLAN
-                  description: >-
-                    Describes, a kind of investment which requires to pay the
-                    entire amount at once.
+                  description: Mutual fund scheme plan
+                  reference: <PR/Issue/Discussion Links md format text
+                - code: SERVICE
+                  description: Other service (KYC, payment mandate, etc.)
                   reference: <PR/Issue/Discussion Links md format text
           fulfillments: &ref_3
             state:
               descriptor:
                 code:
                   - code: PENDING
-                    description: represents fulfillment state
+                    description: Fulfillment is waiting to be processed
                     reference: <PR/Issue/Discussion Links md format text
                   - code: INITIATED
-                    description: represents fulfillment state
-                    reference: <PR/Issue/Discussion Links md format text
-                  - code: INPROGRESS
-                    description: represents fulfillment state
+                    description: Fulfillment has been started
                     reference: <PR/Issue/Discussion Links md format text
                   - code: COMPLETED
-                    description: represents fulfillment state
+                    description: Fulfillment has been completed successfully
                     reference: <PR/Issue/Discussion Links md format text
                   - code: CANCELLED
-                    description: represents fulfillment state
+                    description: Fulfillment has been cancelled
                     reference: <PR/Issue/Discussion Links md format text
                   - code: SUCCESSFUL
-                    description: represents fulfillment state
+                    description: Fulfillment was successful
                     reference: <PR/Issue/Discussion Links md format text
                   - code: FAILED
-                    description: represents fulfillment state
+                    description: Fulfillment failed
+                    reference: <PR/Issue/Discussion Links md format text
+                  - code: ONGOING
+                    description: Fulfillment is ongoing/active
+                    reference: <PR/Issue/Discussion Links md format text
+                  - code: PAUSED
+                    description: Fulfillment has been paused
                     reference: <PR/Issue/Discussion Links md format text
             type:
-              - code: LUMPSUMP
-                description: Describes the type of fulfillment.
+              - code: LUMPSUM
+                description: One-time investment in mutual fund
                 reference: <PR/Issue/Discussion Links md format text
               - code: SIP
-                description: Describes the type of fulfillment.
+                description: Systematic Investment Plan
                 reference: <PR/Issue/Discussion Links md format text
-              - code: WITHDRAWAL
-                description: Describes the type of fulfillment.
+              - code: SIP_INSTALMENT
+                description: SIP installment
                 reference: <PR/Issue/Discussion Links md format text
               - code: SWP
-                description: Describes the type of fulfillment.
+                description: Systematic Withdrawal Plan
                 reference: <PR/Issue/Discussion Links md format text
               - code: REDEMPTION
-                description: Describes the type of fulfillment.
+                description: Redemption of mutual fund units
+                reference: <PR/Issue/Discussion Links md format text
+              - code: SWITCH_OUT
+                description: Switch out from one scheme to another
+                reference: <PR/Issue/Discussion Links md format text
+              - code: SWITCH_IN
+                description: Switch in to another scheme
+                reference: <PR/Issue/Discussion Links md format text
+              - code: STP_OUT
+                description: Systematic Transfer Plan - out from source scheme
+                reference: <PR/Issue/Discussion Links md format text
+              - code: STP_IN
+                description: Systematic Transfer Plan - in to target scheme
+                reference: <PR/Issue/Discussion Links md format text
+              - code: STP_OUT_INSTALMENT
+                description: STP out installment
+                reference: <PR/Issue/Discussion Links md format text
+              - code: STP_IN_INSTALMENT
+                description: STP in installment
+                reference: <PR/Issue/Discussion Links md format text
+              - code: KYC
+                description: Know Your Customer verification
+                reference: <PR/Issue/Discussion Links md format text
+              - code: PAYMENT_MANDATE
+                description: Payment mandate registration
+                reference: <PR/Issue/Discussion Links md format text
+              - code: ZERO_BALANCE_FOLIO
+                description: Zero balance folio creation
                 reference: <PR/Issue/Discussion Links md format text
             customer:
               person:
                 creds:
                   type:
                     - code: FOLIO
-                      description: The folio number
+                      description: Mutual fund folio number
                     - code: IP_ADDRESS
                       description: >-
                         IP address of the machine/location from where the
@@ -3192,6 +3195,16 @@ x-enum:
                       description: >-
                         The actual OTP sent to the mobile of the consumer (if
                         2fa performed via phone otp)
+            agent:
+              organization:
+                creds:
+                  type:
+                    - code: ARN
+                      description: AMFI Registration Number
+                    - code: SUB_BROKER_ARN
+                      description: Sub-broker AMFI Registration Number
+                    - code: RIA
+                      description: SEBI Registered Investment Advisor
   select:
     context: *ref_0
     message:
@@ -3203,10 +3216,10 @@ x-enum:
               measure:
                 unit:
                   - code: INR
-                    description: Invest or redeem using amount
+                    description: Indian Rupees
                     reference: <PR/Issue/Discussion Links md format text
                   - code: MF_UNITS
-                    description: Invest or redeem using mf units
+                    description: Mutual Fund Units
                     reference: <PR/Issue/Discussion Links md format text
         fulfillments: *ref_3
   on_select:
@@ -3224,10 +3237,27 @@ x-enum:
         payments: &ref_5
           collected_by:
             - code: BPP
-              description: when seller app is collecting the payment
+              description: Seller app collecting payment
               reference: <PR/Issue/Discussion Links md format text
             - code: BAP
-              description: when buyer app is collecting the payment
+              description: Buyer app collecting payment
+              reference: <PR/Issue/Discussion Links md format text
+          status:
+            - code: NOT-PAID
+              description: Payment not yet made
+              reference: <PR/Issue/Discussion Links md format text
+            - code: PAID
+              description: Payment completed successfully
+              reference: <PR/Issue/Discussion Links md format text
+            - code: FAILED
+              description: Payment failed
+              reference: <PR/Issue/Discussion Links md format text
+          type:
+            - code: PRE_FULFILLMENT
+              description: Payment before fulfillment
+              reference: <PR/Issue/Discussion Links md format text
+            - code: ON_FULFILLMENT
+              description: Payment during fulfillment
               reference: <PR/Issue/Discussion Links md format text
   on_init:
     context: *ref_0
@@ -3238,19 +3268,22 @@ x-enum:
         payments: *ref_5
         status:
           - code: CREATED
-            description: Reflects current order status
+            description: Order has been created
             reference: <PR/Issue/Discussion Links md format text
           - code: ACCEPTED
-            description: Reflects current order status
+            description: Order has been accepted
             reference: <PR/Issue/Discussion Links md format text
           - code: REJECTED
-            description: Reflects current order status
+            description: Order has been rejected
             reference: <PR/Issue/Discussion Links md format text
           - code: CANCELLED
-            description: Reflects current order status
+            description: Order has been cancelled
             reference: <PR/Issue/Discussion Links md format text
           - code: COMPLETED
-            description: Reflects current order status
+            description: Order has been completed
+            reference: <PR/Issue/Discussion Links md format text
+          - code: FAILED
+            description: Order has failed
             reference: <PR/Issue/Discussion Links md format text
   confirm:
     context: *ref_0
@@ -3264,56 +3297,6 @@ x-enum:
     context: *ref_0
     message:
       order: *ref_6
-  cancel:
-    context: *ref_0
-    message:
-      cancellation_reason_id:
-        - code: '00'
-          description: >-
-            TECHNICAL_REASON. This is when the buyer app wants to cancel the
-            order because the investor dropped off in between or just to keep
-            the order status at buyer app and seller app in sync. This is not
-            with investor input.
-          reference: <PR/Issue/Discussion Links md format text>
-        - code: '01'
-          description: >-
-            AMOUNT_NOT_AVAILABLE. Investor doesn't have the money to continue
-            investing
-          reference: <PR/Issue/Discussion Links md format text>
-        - code: '02'
-          description: >-
-            SCHEME_NOT_PERFORMING. Investor did not get returns as expected as
-            the scheme is not performing
-          reference: <PR/Issue/Discussion Links md format text>
-        - code: '03'
-          description: SERVICE_ISSUE. Investor is not satisfied with the service
-          reference: <PR/Issue/Discussion Links md format text>
-        - code: '04'
-          description: LOAD_REVISED. Investor is not satisfied with revision on load
-          reference: <PR/Issue/Discussion Links md format text>
-        - code: '05'
-          description: >-
-            WISH_TO_INVEST_IN_ANOTHER_SCHEME. Investor wishes to invest in
-            another scheme
-          reference: <PR/Issue/Discussion Links md format text>
-        - code: '06'
-          description: >-
-            CHANGE_IN_FUND_MANAGER. Investor is not satisfied with change in
-            fund manager
-          reference: <PR/Issue/Discussion Links md format text>
-        - code: '07'
-          description: GOAL_ACHIEVED. The goal for sip is achieved earlier than planned
-          reference: <PR/Issue/Discussion Links md format text>
-        - code: '08'
-          description: >-
-            FAILURE_THRESHOLD_REACHED. The max allowed number of consecutive sip
-            instalment faillures reached. Provider cancels the sip in this case.
-          reference: <PR/Issue/Discussion Links md format text>
-        - code: '09'
-          description: >-
-            CUSTOM_REASON. Capture any other reason apart from the standard
-            list.
-          reference: <PR/Issue/Discussion Links md format text>
 x-tags:
   search:
     message:

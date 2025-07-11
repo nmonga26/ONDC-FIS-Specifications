@@ -2,69 +2,51 @@ location:
   country:
     code: 
       - code: IND
-        description: Represents the country
+        description: India
         reference: <PR/Issue/Discussion Links md format text>
   city:
     code:
-      - code: std:080
-        description: Bangalore
+      - code: "*"
+        description: Any city (wildcard)
         reference: <PR/Issue/Discussion Links md format text>      
 domain:
   - code: ONDC:FIS14
-    description: Describes investment domain.
+    description: Financial Investment Services domain
     reference: <PR/Issue/Discussion Links md format text>
 action:
   - code: search
-    description: buyer app specifies the search intent
+    description: Buyer app specifies search intent
     reference: <PR/Issue/Discussion Links md format text>
   - code: on_search
-    description: seller app responds with the catalog based on the search intent
+    description: Seller app responds with catalog
     reference: <PR/Issue/Discussion Links md format text>
   - code: select
-    description: buyer app specifies the items & quantity selected by a buyer
+    description: Buyer app specifies selected items
     reference: <PR/Issue/Discussion Links md format text>
   - code: on_select
-    description: seller app responds with the serviceability info, quote & O2D TAT for selected items;
+    description: Seller app responds with serviceability and quote
     reference: <PR/Issue/Discussion Links md format text>
   - code: init
-    description: buyer & seller app specify & agree to the terms & conditions prior to placing the order;
+    description: Buyer and seller agree to terms
     reference: <PR/Issue/Discussion Links md format text>
   - code: on_init
-    description: buyer & seller app specify & agree to the terms & conditions prior to placing the order;
+    description: Response to init with agreed terms
     reference: <PR/Issue/Discussion Links md format text>
   - code: confirm
-    description: buyer app places the order on behalf of the buyer;
+    description: Buyer app places order
     reference: <PR/Issue/Discussion Links md format text>
   - code: on_confirm
-    description: seller app responds to the order placed either through auto-acceptance or deferred acceptance or rejection of the order
+    description: Seller app responds to order
     reference: <PR/Issue/Discussion Links md format text>
   - code: update
-    description: updates in the serviceable loc happens here
+    description: Buyer app requests order updates
     reference: <PR/Issue/Discussion Links md format text>
   - code: on_update
-    description: seller app responds with serviceable
-    reference: <PR/Issue/Discussion Links md format text
-  - code: cancel
-    description: Cancellation of ride
+    description: Seller app responds with updates
     reference: <PR/Issue/Discussion Links md format text>
-  - code: on_cancel
-    description: Specifiy the cancellation of the state
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: track
-    description: Track the order
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: on_track
-    description: Return tracking infomation of the order
-    reference: <PR/Issue/Discussion Links md format text
   - code: status
-    description: Request for status of the vehicle
+    description: Request for order status
     reference: <PR/Issue/Discussion Links md format text>
   - code: on_status
-    description: Return order with status , Driver pickup - driver drop
+    description: Response with order status
     reference: <PR/Issue/Discussion Links md format text>
-  - code: support
-    description: Fetch support information related to a particular order
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: on_support
-    description: Return support information related to order
-    reference: <PR/Issue/Discussion Links md format text

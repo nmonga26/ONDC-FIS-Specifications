@@ -1,0 +1,45 @@
+currency:
+  - code: INR
+    description: Indian Rupees
+    reference: <PR/Issue/Discussion Links md format text
+
+title:
+  - code: INVESTMENT
+    description: Investment amount
+    reference: <PR/Issue/Discussion Links md format text
+  - code: STAMP_DUTY
+    description: Stamp duty charges
+    reference: <PR/Issue/Discussion Links md format text
+  - code: SIP
+    description: Systematic Investment Plan
+    reference: <PR/Issue/Discussion Links md format text
+  - code: REDEMPTION
+    description: Redemption amount
+    reference: <PR/Issue/Discussion Links md format text
+  - code: SECURITIES_TRANSACTION_TAX
+    description: Securities transaction tax
+    reference: <PR/Issue/Discussion Links md format text
+  - code: SWITCH_OUT
+    description: Switch out amount
+    reference: <PR/Issue/Discussion Links md format text
+  - code: SWITCH_IN
+    description: Switch in amount
+    reference: <PR/Issue/Discussion Links md format text
+  - code: STP_OUT
+    description: Systematic Transfer Plan out
+    reference: <PR/Issue/Discussion Links md format text
+  - code: STP_IN
+    description: Systematic Transfer Plan in
+    reference: <PR/Issue/Discussion Links md format text
+  - code: ZERO_BALANCE_FOLIO
+    description: Zero balance folio service
+    reference: <PR/Issue/Discussion Links md format text
+  - code: SWP
+    description: Systematic Withdrawal Plan
+    reference: <PR/Issue/Discussion Links md format text
+  - code: KYC
+    description: Know Your Customer service
+    reference: <PR/Issue/Discussion Links md format text
+  - code: PAYMENT_MANDATE
+    description: Payment mandate service
+    reference: <PR/Issue/Discussion Links md format text 

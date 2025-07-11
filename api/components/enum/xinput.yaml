@@ -1,10 +1,24 @@
 heading:
   - code: APPLICATION_FORM
-    description: Form to capture kyc details (for non compliant customers) or new folio opening details (for kyc compliant customers)
+    description: Form to capture new folio opening details
+    reference: <PR/Issue/Discussion Links md format text
+  - code: APPLICATION_FORM_WITH_KYC
+    description: Form to capture KYC details and new folio opening details
     reference: <PR/Issue/Discussion Links md format text
   - code: KYC
-    description: KYC Verifications are performed through this form redirect
+    description: KYC verifications are performed through this form redirect
     reference: <PR/Issue/Discussion Links md format text
   - code: ESIGN
-    description: Esign of the kyc application form is done through this form redirect
+    description: E-sign of the KYC application form is done through this form redirect
+    reference: <PR/Issue/Discussion Links md format text
+
+form_response_status:
+  - code: SUCCESS
+    description: Form submission successful
+    reference: <PR/Issue/Discussion Links md format text
+  - code: FAILED
+    description: Form submission failed
+    reference: <PR/Issue/Discussion Links md format text
+  - code: SUBMITTED
+    description: Form has been submitted
     reference: <PR/Issue/Discussion Links md format text
