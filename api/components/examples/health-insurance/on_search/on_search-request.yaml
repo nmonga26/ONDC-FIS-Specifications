@@ -100,7 +100,7 @@ message:
                   cur: 0
                   max: 0
                 headings:
-                  - Insured Personal Details
+                  - INSURED_PERSONAL_DETAILS
               form:
                 id: FO1
                 mime_type: text/html
@@ -268,7 +268,7 @@ message:
                   cur: 0
                   max: 0
                 headings:
-                  - Insured Personal Details
+                  - INSURED_PERSONAL_DETAILS
               form:
                 id: FO2
                 mime_type: text/html-multi

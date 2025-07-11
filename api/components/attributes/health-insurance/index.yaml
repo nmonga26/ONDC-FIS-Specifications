@@ -2961,7 +2961,7 @@ on_init:
           usage: PRE-FULLFILMENT
           description: Describes payment type
         url:
-          required: mandatory
+          required: optional
           type: string
           owner: BPP
           usage: >-
@@ -4187,19 +4187,19 @@ on_confirm:
         state:
           descriptor:
             code:
-              required: mandatory
+              required: optional
               type: string
               owner: BPP
               usage: GRANTED
               description: Describes the fulfillments state
             _description:
-              required: mandatory
+              required: optional
               type: object
               owner: BPP
               usage: '--'
               description: Describes the fulfillments state's descriptor
           _description:
-            required: mandatory
+            required: optional
             type: object
             owner: BAP/BPP
             usage: '--'
@@ -4291,7 +4291,7 @@ on_confirm:
           usage: BPP
           description: Describes the collected by of payment
         url:
-          required: optional
+          required: mandatory
           type: false
           owner: false
           usage: >-
@@ -4299,7 +4299,7 @@ on_confirm:
           description: false
         params:
           amount:
-            required: mandatory
+            required: optional
             type: number
             owner: BPP
             usage: 1000
@@ -4323,7 +4323,7 @@ on_confirm:
             usage: INR
             description: Describes currency to be paid in
           transaction_id:
-            required: mandatory
+            required: optional
             type: string
             owner: BAP
             usage: 079c071b-8972-4f0f-b553-12e894617860
@@ -4542,49 +4542,49 @@ on_confirm:
       documents:
         descriptor:
           code:
-            required: mandatory
+            required: optional
             type: string
             owner: BPP
             usage: POLICY_DOC
             description: Describes the code of document
           name:
-            required: mandatory
+            required: optional
             type: string
             owner: BPP
             usage: Insurance Policy Document
             description: Describes the name of document
           short_desc:
-            required: mandatory
+            required: optional
             type: string
             owner: BPP
             usage: Download your digitally signed policy document here
             description: Describes the short description of document
           long_desc:
-            required: mandatory
+            required: optional
             type: string
             owner: BPP
             usage: Download you digitally signed policy document here
             description: Describes the long description of document
           _description:
-            required: mandatory
+            required: optional
             type: object
             owner: BPP
             usage: '--'
             description: Describes descriptor of document
         mime_type:
-          required: mandatory
+          required: optional
           type: string
           owner: BPP
           usage: application/pdf
           description: Describes the mime type of document
         url:
-          required: mandatory
+          required: optional
           type: string
           owner: BPP
           usage: https://abcinsurance.com/policies/O1.pdf
           description: Describes the url of document
         _description:
-          required: mandatory
+          required: optional
           type: object
           owner: BPP
           usage: '--'
