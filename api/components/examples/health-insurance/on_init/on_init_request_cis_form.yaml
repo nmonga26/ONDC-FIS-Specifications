@@ -94,7 +94,7 @@ message:
               - CIS
           form:
             id: FO8
-            mime_type: text/html
+            mime_type: application/html
             url: https://fis.test.bpp.io/form/nominee_dtls?formid=FO8
             resubmit: true
             multiple_sumbissions: false
