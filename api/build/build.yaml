@@ -3358,7 +3358,7 @@ x-flows:
               timestamp: '2023-07-24T05:39:31.700Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               intent:
                 category:
@@ -3440,7 +3440,7 @@ x-flows:
               timestamp: '2023-07-24T05:39:40.104Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               catalog:
                 descriptor:
@@ -3697,7 +3697,7 @@ x-flows:
                               cur: 0
                               max: 0
                             headings:
-                              - Insured Personal Details
+                              - INSURED_PERSONAL_DETAILS
                           form:
                             id: FO2
                             mime_type: text/html-multi
@@ -3964,7 +3964,7 @@ x-flows:
               bpp_id: fis.test.bpp.io
               bpp_uri: https://fis.test.bpp.io/
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               intent:
                 category:
@@ -4055,7 +4055,7 @@ x-flows:
               timestamp: '2023-07-24T05:39:40.104Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               catalog:
                 descriptor:
@@ -4523,7 +4523,7 @@ x-flows:
               timestamp: '2023-07-24T05:40:18.651Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 items:
@@ -4572,7 +4572,7 @@ x-flows:
               timestamp: '2023-07-24T05:40:26.618Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 items:
@@ -4636,7 +4636,7 @@ x-flows:
                     xinput:
                       head:
                         descriptor:
-                          name: Customer Information
+                          name: EKYC
                         index:
                           min: 0
                           cur: 0
@@ -4771,7 +4771,7 @@ x-flows:
               timestamp: '2023-07-24T05:40:48.432Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -4884,7 +4884,7 @@ x-flows:
               timestamp: '2023-07-24T05:41:01.775Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -4955,7 +4955,7 @@ x-flows:
                     xinput:
                       head:
                         descriptor:
-                          name: Customer Information
+                          name: Proposer details
                         index:
                           min: 0
                           cur: 0
@@ -5544,7 +5544,7 @@ x-flows:
               timestamp: '2023-07-24T05:40:48.432Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -5659,7 +5659,7 @@ x-flows:
               timestamp: '2023-07-24T05:41:01.775Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -5730,7 +5730,7 @@ x-flows:
                     xinput:
                       head:
                         descriptor:
-                          name: Customer Information
+                          name: CIS
                         index:
                           min: 0
                           cur: 1
@@ -5969,7 +5969,7 @@ x-flows:
               timestamp: '2023-07-24T05:40:48.432Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -6082,7 +6082,7 @@ x-flows:
               timestamp: '2023-07-24T05:41:01.775Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -6153,7 +6153,7 @@ x-flows:
                     xinput:
                       head:
                         descriptor:
-                          name: Customer Information
+                          name: Nominee Details
                         index:
                           min: 0
                           cur: 2
@@ -6346,7 +6346,7 @@ x-flows:
               timestamp: '2023-07-24T05:41:20.401Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -6494,7 +6494,7 @@ x-flows:
               timestamp: '2023-07-24T05:41:32.487Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -6721,7 +6721,7 @@ x-flows:
               timestamp: '2023-07-24T05:41:32.487Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -7601,7 +7601,7 @@ x-flows:
               timestamp: '2023-07-24T05:41:47.097Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: PT10M
-              version: 2.0.0
+              version: 2.0.1
             message:
               ref_id: c04a04ee-d892-400f-bbe6-479a43b4448a
       - summary: Insurer returns the health insurance status update (Form Processing)
@@ -7640,7 +7640,7 @@ x-flows:
               timestamp: '2023-07-24T05:41:01.775Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -7935,7 +7935,7 @@ x-flows:
               timestamp: '2023-07-24T05:42:00.067Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 items:
@@ -8163,7 +8163,7 @@ x-flows:
               timestamp: '2023-07-24T05:43:08.910Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -8440,7 +8440,7 @@ x-flows:
               timestamp: '2023-07-24T05:43:20.910Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -8722,7 +8722,7 @@ x-flows:
               timestamp: '2023-07-24T05:42:00.067Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 id: POLICY_ID
@@ -8996,7 +8996,7 @@ x-flows:
               timestamp: '2023-07-24T05:43:30.910Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -9324,7 +9324,7 @@ x-flows:
               timestamp: '2023-07-24T05:43:08.910Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -9599,7 +9599,7 @@ x-flows:
               timestamp: '2023-07-24T05:43:20.910Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -9873,7 +9873,7 @@ x-flows:
               timestamp: '2023-07-24T05:43:25.910Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -10184,7 +10184,7 @@ x-flows:
               timestamp: '2023-07-24T05:43:29.513Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: PT2H
-              version: 2.0.0
+              version: 2.0.1
             message:
               cancellation_reason_id: '5'
               descriptor:
@@ -10228,7 +10228,7 @@ x-flows:
               timestamp: '2023-07-24T05:44:29.513Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -10486,7 +10486,7 @@ x-flows:
               timestamp: '2023-07-24T05:46:29.513Z'
               transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
               ttl: P24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -10726,7 +10726,7 @@ x-examples:
                 timestamp: '2023-07-24T05:40:48.432Z'
                 transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
                 ttl: P24H
-                version: 2.0.0
+                version: 2.0.1
               message:
                 order:
                   fulfillments:
@@ -10822,7 +10822,7 @@ x-examples:
                 timestamp: '2023-07-24T05:41:01.775Z'
                 transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
                 ttl: P24H
-                version: 2.0.0
+                version: 2.0.1
               message:
                 order:
                   fulfillments:
@@ -11049,7 +11049,7 @@ x-examples:
                 timestamp: '2023-07-22T15:01:17.694Z'
                 transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
                 ttl: PT24M
-                version: 2.0.0
+                version: 2.0.1
               message:
                 order:
                   fulfillments:
@@ -11230,7 +11230,7 @@ x-examples:
                 timestamp: '2023-07-24T05:42:54.121Z'
                 transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
                 ttl: PT50M
-                version: 2.0.0
+                version: 2.0.1
               message:
                 update_target: order.fulfillments[0].customer.contact.phone
                 order:
@@ -11268,7 +11268,7 @@ x-examples:
                 timestamp: '2023-07-24T05:41:47.097Z'
                 transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
                 ttl: PT10M
-                version: 2.0.0
+                version: 2.0.1
               message:
                 order_id: POLICY_ID
           - summary: review-form-status-request
@@ -11290,7 +11290,7 @@ x-examples:
                 timestamp: '2023-07-24T05:41:47.097Z'
                 transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
                 ttl: PT10M
-                version: 2.0.0
+                version: 2.0.1
               message:
                 ref_id: c04a04ee-d892-400f-bbe6-479a43b4448a
           - summary: form-status-request
@@ -11312,7 +11312,7 @@ x-examples:
                 timestamp: '2023-07-24T05:41:47.097Z'
                 transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
                 ttl: PT10M
-                version: 2.0.0
+                version: 2.0.1
               message:
                 ref_id: c04a04ee-d892-400f-bbe6-479a43b4448a
           - summary: status-request-form-ped
@@ -11337,7 +11337,7 @@ x-examples:
                 timestamp: '2023-07-24T05:41:47.097Z'
                 transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
                 ttl: PT10M
-                version: 2.0.0
+                version: 2.0.1
               message:
                 ref_id: c04a04ee-d892-400f-bbe6-479a43b4448a
       on_status:
@@ -11361,7 +11361,7 @@ x-examples:
                 timestamp: '2023-07-24T05:42:00.067Z'
                 transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
                 ttl: P24H
-                version: 2.0.0
+                version: 2.0.1
               message:
                 order:
                   fulfillments:
@@ -11550,7 +11550,7 @@ x-examples:
                 timestamp: '2023-07-24T05:42:00.067Z'
                 transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
                 ttl: P24H
-                version: 2.0.0
+                version: 2.0.1
               message:
                 order:
                   items:
@@ -11782,7 +11782,7 @@ x-examples:
                 timestamp: '2023-07-24T05:42:00.067Z'
                 transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
                 ttl: P24H
-                version: 2.0.0
+                version: 2.0.1
               message:
                 order:
                   id: POLICY_ID
@@ -12030,7 +12030,7 @@ x-examples:
                 timestamp: '2023-07-24T05:42:00.067Z'
                 transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
                 ttl: P24H
-                version: 2.0.0
+                version: 2.0.1
               message:
                 order:
                   items:
@@ -12170,7 +12170,7 @@ x-examples:
                 timestamp: '2023-07-24T05:42:00.067Z'
                 transaction_id: c04a04ee-d892-400f-bbe6-479a43b4448a
                 ttl: P24H
-                version: 2.0.0
+                version: 2.0.1
               message:
                 order:
                   items:
@@ -12387,7 +12387,7 @@ x-attributes:
             required: mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -12710,7 +12710,7 @@ x-attributes:
             required: mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -13422,7 +13422,7 @@ x-attributes:
             required: mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -13727,7 +13727,7 @@ x-attributes:
             required: mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -14381,7 +14381,7 @@ x-attributes:
             required: mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -14809,7 +14809,7 @@ x-attributes:
             required: mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -15664,7 +15664,7 @@ x-attributes:
             required: mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -16226,7 +16226,7 @@ x-attributes:
             required: mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -17068,7 +17068,7 @@ x-attributes:
             required: mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -17211,7 +17211,7 @@ x-attributes:
             required: mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -18059,7 +18059,7 @@ x-attributes:
             required: mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -18189,7 +18189,7 @@ x-attributes:
             required: mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -19090,7 +19090,7 @@ x-attributes:
             required: mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -19267,7 +19267,7 @@ x-attributes:
             required: mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -20259,4 +20259,4 @@ x-sandboxui:
       link: https://fis-staging.ondc.org
 x-changeLog:
   filenames:
-    - FIS13_2.0.0_160524.md
+    - FIS13_2.0.1_140725.md
