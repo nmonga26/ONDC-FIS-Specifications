@@ -2833,6 +2833,20 @@ x-enum:
                   - code: SUCCESS
                     description: When form gets submitted successfully
                     reference: <PR/Issue/Discussion Links md format text
+              head:
+                headings:
+                  - code: INDIVIDUAL_INFORMATION
+                    description: Describes the form heading as INDIVIDUAL_INFORMATION
+                    reference: <PR/Issue/Discussion Links md format text
+                  - code: ADDITIONAL_INFORMATION
+                    description: Describes the form heading as ADDITIONAL_INFORMATION
+                    reference: <PR/Issue/Discussion Links md format text
+                  - code: AADHAR_KYC
+                    description: Describes the form heading as AADHAR_KYC
+                    reference: <PR/Issue/Discussion Links md format text
+                  - code: CIS
+                    description: Describes the form heading as CIS
+                    reference: <PR/Issue/Discussion Links md format text
   select:
     context: *ref_0
     message:
@@ -3329,7 +3343,7 @@ x-flows:
               timestamp: '2023-07-22T15:01:07.785Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               intent:
                 category:
@@ -3407,7 +3421,7 @@ x-flows:
               timestamp: '2023-07-22T15:01:17.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24M
-              version: 2.0.0
+              version: 2.0.1
             message:
               catalog:
                 descriptor:
@@ -3469,7 +3483,7 @@ x-flows:
                               cur: 0
                               max: 0
                             headings:
-                              - Individual Information
+                              - INDIVIDUAL_INFORMATION
                           form:
                             id: F01
                             mime_type: text/html
@@ -3585,7 +3599,7 @@ x-flows:
               timestamp: '2023-07-22T15:03:18.179Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 items:
@@ -3641,7 +3655,7 @@ x-flows:
               timestamp: '2023-07-22T15:03:18.179Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 items:
@@ -3684,8 +3698,8 @@ x-flows:
                           cur: 0
                           max: 1
                         headings:
-                          - additional information form
-                          - Aadhar/kyc form
+                          - ADDITIONAL_INFORMATION
+                          - AADHAR_KYC
                       form:
                         id: F02
                         mime_type: text/html
@@ -3789,7 +3803,7 @@ x-flows:
               timestamp: '2023-07-22T15:03:18.179Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 items:
@@ -3843,7 +3857,7 @@ x-flows:
               timestamp: '2023-07-22T15:03:18.179Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 items:
@@ -4003,7 +4017,7 @@ x-flows:
               timestamp: '2023-07-22T15:01:17.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24M
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -4034,7 +4048,7 @@ x-flows:
                       bank_code: SBIN0001234
                       currency: INR
                     status: NOT-PAID
-                    type: PRE-ORDER
+                    type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
                           code: BUYER_FINDER_FEES
@@ -4098,7 +4112,9 @@ x-flows:
                   price:
                     currency: INR
                     value: '1000'
-      - summary: Insurer returns the response to initailized marine insurance plan
+      - summary: >-
+          Insurer returns the response to initailized marine insurance plan &
+          provides link to CIS form
         api: on_init
         details:
           - description: >-
@@ -4139,7 +4155,7 @@ x-flows:
               timestamp: '2023-07-22T15:01:17.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24M
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -4170,6 +4186,23 @@ x-flows:
                       range:
                         start: '2023-07-01T07:12:29.429Z'
                         end: '2023-07-30T07:12:47.419Z'
+                    xinput:
+                      head:
+                        descriptor:
+                          name: CIS form
+                        index:
+                          min: 0
+                          cur: 0
+                          max: 0
+                        headings:
+                          - CIS
+                      form:
+                        id: F04
+                        mime_type: application/html
+                        url: https://fis.test.bpp.io/form/add_info?formId=F04
+                        resubmit: true
+                        multiple_sumbissions: false
+                      required: true
                     tags:
                       - descriptor:
                           name: Policy Details
@@ -4215,8 +4248,7 @@ x-flows:
                       range:
                         end: '2023-07-30T15:44:19.166Z'
                         start: '2023-07-01T15:44:19.166Z'
-                    type: PRE-ORDER
-                    url: https://payment.fis.test.bpp.io
+                    type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
                           code: BUYER_FINDER_FEES
@@ -4289,6 +4321,33 @@ x-flows:
                   price:
                     currency: INR
                     value: '1000'
+      - summary: Buyer app fetches the CIS details form
+        api: form
+        details:
+          - description: >-
+              Buyer app fetches the CIS details form from the insurer using the
+              link provided in the previous step.
+            mermaid: |-
+              sequenceDiagram
+                title  Selection
+                participant Buyer Platform (BAP)
+                participant Insurer Platform (BPP)
+                participant Insurer Form Service
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->> Insurer Form Service: Get Form
+                Insurer Form Service-->>Buyer Platform (BAP): Form Received
+                Buyer Platform (BAP)->>Insurer Form Service: Form Submission
+                Insurer Form Service-->>Buyer Platform (BAP): Submission ID 
+                end
+                Buyer Platform (BAP)->>Insurer Platform (BPP): confirm(with submissionID)
+                Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
+                Insurer Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
+                Insurer Platform (BPP)->>Buyer Platform (BAP):on_update
+                Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
+        reference: if any
+        example:
+          value: This will redirected to different html page
       - summary: Buyer app confirms the marine insurance request
         api: confirm
         details:
@@ -4297,16 +4356,23 @@ x-flows:
               the necessary information as per the terms.
             mermaid: |-
               sequenceDiagram
-                title  Order Confirmation
+                title  Selection
                 participant Buyer Platform (BAP)
                 participant Insurer Platform (BPP)
                 participant Insurer Form Service
+
+                Buyer Platform (BAP)->> Insurer Form Service: Get Form
+                Insurer Form Service-->>Buyer Platform (BAP): Form Received
+                Buyer Platform (BAP)->>Insurer Form Service: Form Submission
+                Insurer Form Service-->>Buyer Platform (BAP): Submission ID 
                 rect rgb(191, 223, 255)
                 Buyer Platform (BAP)->>Insurer Platform (BPP): confirm(with submissionID)
                 Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
                 end
                 Insurer Platform (BPP)->>Buyer Platform (BAP):on_confirm
-                Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK 
+                Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
+                Insurer Platform (BPP)->>Buyer Platform (BAP):on_update
+                Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
         reference: if any
         example:
           value: &ref_23
@@ -4326,7 +4392,7 @@ x-flows:
               timestamp: '2023-07-22T15:01:17.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24M
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 fulfillments:
@@ -4355,6 +4421,12 @@ x-flows:
                     type: POLICY
                 items:
                   - id: I1
+                    xinput:
+                      form:
+                        id: F04
+                      form_response:
+                        status: SUCCESS
+                        submission_id: 9c02f215-e129-42d1-8693-ba0c04d6a336
                     price:
                       value: '1000'
                     time:
@@ -4402,9 +4474,8 @@ x-flows:
                       bank_account_number: '1800002341'
                       bank_code: SBIN0001234
                       currency: INR
-                      transaction_id: 079c071b-8972-4f0f-b553-12e894617860
-                    status: PAID
-                    type: PRE-ORDER
+                    status: NOT-PAID
+                    type: PRE-FULFILLMENT
                     tags:
                       - descriptor:
                           code: BUYER_FINDER_FEES
@@ -4476,19 +4547,26 @@ x-flows:
               details.
             mermaid: |-
               sequenceDiagram
-                title  Order Confirmation
+                title  Selection
                 participant Buyer Platform (BAP)
                 participant Insurer Platform (BPP)
                 participant Insurer Form Service
+                Buyer Platform (BAP)->> Insurer Form Service: Get Form
+                Insurer Form Service-->>Buyer Platform (BAP): Form Received
+                Buyer Platform (BAP)->>Insurer Form Service: Form Submission
+                Insurer Form Service-->>Buyer Platform (BAP): Submission ID 
+                
                 Buyer Platform (BAP)->>Insurer Platform (BPP): confirm(with submissionID)
                 Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
                 rect rgb(191, 223, 255)
                 Insurer Platform (BPP)->>Buyer Platform (BAP):on_confirm
-                Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK 
+                Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
                 end
+                Insurer Platform (BPP)->>Buyer Platform (BAP):on_update
+                Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
         reference: if any
         example:
-          value: &ref_13
+          value: &ref_24
             context:
               domain: ONDC:FIS13
               location:
@@ -4505,7 +4583,239 @@ x-flows:
               timestamp: '2023-07-22T15:01:17.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24M
-              version: 2.0.0
+              version: 2.0.1
+            message:
+              order:
+                id: O1
+                status: ACTIVE
+                fulfillments:
+                  - customer:
+                      contact:
+                        email: joe.adam@abc.org
+                        phone: +91-9999999999
+                      person:
+                        dob: '1990-01-21'
+                        gender: male
+                        name: Joe Adam
+                        tags:
+                          - descriptor:
+                              code: PERSON_ADDITIONAL_DETAILS
+                            list:
+                              - descriptor:
+                                  name: Politically exposed person
+                                  code: POLITICALLY_EXPOSED_PERSON
+                                value: 'false'
+                              - descriptor:
+                                  name: Gstin
+                                  code: GSTIN
+                                value: 20JDVIEHVJDSN
+                      organization:
+                        address: 1/4 ABC Society, XYZ Locality, Bangalore, Karnataka
+                    id: FULFILMENT_ID
+                    type: POLICY
+                items:
+                  - id: '1'
+                    price:
+                      currency: INR
+                      value: '900'
+                    category_ids:
+                      - C1
+                    descriptor:
+                      name: ABC Marine Insurance Policy
+                      short_desc: ABC Marine Insurance Class A
+                    time:
+                      label: Coverage Time
+                      range:
+                        start: '2023-07-01T07:12:29.429Z'
+                        end: '2023-07-30T07:12:47.419Z'
+                    fulfillment_ids:
+                      - FULFILMENT_ID
+                    tags:
+                      - descriptor:
+                          name: Policy Details
+                          code: POLICY_DETAILS
+                        list:
+                          - descriptor:
+                              name: Commodity type
+                              code: COMMODITY_TYPE
+                            value: FOOD
+                          - descriptor:
+                              name: Sum insured
+                              code: SUM_INSURED
+                            value: '100000'
+                          - descriptor:
+                              name: Mode of conveyance
+                              code: MODE_OF_CONVEYANCE
+                            value: Cargo
+                          - descriptor:
+                              name: Basis of valuation
+                              code: BASIS_OF_VALUATION
+                            value: '5'
+                          - descriptor:
+                              name: Policy start date
+                              code: POLICY_START_DATE
+                            value: '2023-07-01'
+                          - descriptor:
+                              name: Invoice number
+                              code: INVOICE_NUMBER
+                            value: 08790dd7
+                          - descriptor:
+                              name: Invoice date
+                              code: INVOICE_DATE
+                            value: '2023-06-21'
+                payments:
+                  - collected_by: BPP
+                    url: https://payment.fis.test.bpp.io
+                    params:
+                      amount: '1000'
+                      bank_account_number: '1800002341'
+                      bank_code: SBIN0001234
+                      currency: INR
+                    status: NOT-PAID
+                    type: PRE-FULFILLMENT
+                    time:
+                      range:
+                        end: '2023-07-30T15:44:19.166Z'
+                        start: '2023-07-01T15:44:19.166Z'
+                    tags:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES
+                        display: false
+                        list:
+                          - descriptor:
+                              code: BUYER_FINDER_FEES_TYPE
+                            value: percent-annualized
+                          - descriptor:
+                              code: BUYER_FINDER_FEES_PERCENTAGE
+                            value: '1'
+                      - descriptor:
+                          code: SETTLEMENT_TERMS
+                        display: false
+                        list:
+                          - descriptor:
+                              code: SETTLEMENT_WINDOW
+                            value: PT60M
+                          - descriptor:
+                              code: SETTLEMENT_BASIS
+                            value: Delivery
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: upi
+                          - descriptor:
+                              code: MANDATORY_ARBITRATION
+                            value: 'true'
+                          - descriptor:
+                              code: COURT_JURISDICTION
+                            value: New Delhi
+                          - descriptor:
+                              code: DELAY_INTEREST
+                            value: '2.5'
+                          - descriptor:
+                              code: STATIC_TERMS
+                            value: >-
+                              https://www.icicibank.com/personal-banking/loans/personal-loan
+                          - descriptor:
+                              code: SETTLEMENT_AMOUNT
+                            value: '1000'
+                          - descriptor:
+                              code: OFFLINE_CONTRACT
+                            value: 'true'
+                provider:
+                  descriptor:
+                    long_desc: >-
+                      ABC Insurance Ltd. Deals in multiple Insurance Services
+                      like Health, Motor, Marine etc
+                    name: ABC Insurance Ltd.
+                    short_desc: 'ABC Insurance Ltd. India '
+                    images:
+                      - url: >-
+                          https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
+                  id: e5585415-bce5-46b5-aeba-9f6b83df5ffa
+                quote:
+                  id: Q1
+                  breakup:
+                    - price:
+                        value: '900'
+                        currency: INR
+                      title: BASE_PRICE
+                    - price:
+                        value: '50'
+                        currency: INR
+                      title: TAX
+                    - price:
+                        value: '50'
+                        currency: INR
+                      title: PROCESSING_FEE
+                  price:
+                    currency: INR
+                    value: '1000'
+                cancellation_terms:
+                  - fulfillment_state:
+                      descriptor:
+                        name: Insurance processing
+                        code: INSURANCE_PROCESSING
+                    cancellation_fee:
+                      percentage: 3%
+                    external_ref:
+                      mimetype: text/html
+                      url: https://icicibank.com/loan/tnc.html
+                  - fulfillment_state:
+                      descriptor:
+                        name: Insurance_granted
+                        code: INSURANCE_GRANTED
+                    cancellation_fee:
+                      percentage: 5%
+                    external_ref:
+                      mimetype: text/html
+                      url: https://icicibank.com/loan/tnc.html
+                created_at: '2023-07-24T05:41:32.487Z'
+                updated_at: '2023-07-24T05:41:32.487Z'
+      - summary: Provider platform sends unsolicated on_update.
+        api: on_update
+        details:
+          - description: >-
+              The insurer initiates an unsolicited on_update API call to notify
+              the updated payment status
+            mermaid: |-
+              sequenceDiagram
+                title Initializing Order
+                participant Buyer Platform (BAP)
+                participant Insurer Platform (BPP)
+                participant Insurer Form Service
+                Buyer Platform (BAP)->>Insurer Form Service: Get Form
+                Insurer Form Service-->>Buyer Platform (BAP): Form Received
+                Buyer Platform (BAP)->>Insurer Form Service: Form Submission
+                Insurer Form Service-->>Buyer Platform (BAP): Submission ID
+                
+                Buyer Platform (BAP)->>Insurer Platform (BPP): confirm(with submissionID)
+                Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
+                
+                Insurer Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
+                rect rgb(191, 223, 255)
+                Insurer Platform (BPP)->>Buyer Platform (BAP):on_update
+                Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
+                end
+        reference: if any
+        example:
+          value: &ref_13
+            context:
+              domain: ONDC:FIS13
+              location:
+                country:
+                  code: IND
+                city:
+                  code: '*'
+              action: on_update
+              bap_id: fis.test.bap.io
+              bap_uri: https://fis.test.bap.io/
+              bpp_id: fis.test.bpp.io
+              bpp_uri: https://fis.test.bpp.io/
+              message_id: 2c65fbd8-31c6-45c1-8cf8-522fbd548c7d
+              timestamp: '2023-07-22T15:01:17.694Z'
+              transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
+              ttl: PT24M
+              version: 2.0.1
             message:
               order:
                 id: O1
@@ -4597,7 +4907,7 @@ x-flows:
                       currency: INR
                       transaction_id: 079c071b-8972-4f0f-b553-12e894617860
                     status: PAID
-                    type: PRE-ORDER
+                    type: PRE-FULFILLMENT
                     time:
                       range:
                         end: '2023-07-30T15:44:19.166Z'
@@ -4727,7 +5037,7 @@ x-flows:
             title Order Fulfillment
             participant Buyer Platform (BAP)
             participant Insurer Platform (BPP)
-            Insurer Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Insurer Platform (BPP)->>Buyer Platform (BAP):on_update
             Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
             Insurer Platform (BPP)->>Buyer Platform (BAP):on_update
             Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
@@ -4740,7 +5050,7 @@ x-flows:
       - summary: >-
           Insurer confirms the marine insurance order & provides the claim form
           URL
-        api: on_confirm
+        api: on_update
         details:
           - description: >-
               Insurer confirms the marine insurace order and provides the
@@ -4751,7 +5061,7 @@ x-flows:
                 participant Buyer Platform (BAP)
                 participant Insurer Platform (BPP)
                 rect rgb(191, 223, 255) 
-                Insurer Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Insurer Platform (BPP)->>Buyer Platform (BAP):on_update
                 Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
                 end
                 Insurer Platform (BPP)->>Buyer Platform (BAP):on_update
@@ -4779,7 +5089,7 @@ x-flows:
                 title Order Fulfillment
                 participant Buyer Platform (BAP)
                 participant Insurer Platform (BPP)
-                Insurer Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Insurer Platform (BPP)->>Buyer Platform (BAP):on_update
                 Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
                 rect rgb(191, 223, 255)  
                 Insurer Platform (BPP)->>Buyer Platform (BAP):on_update
@@ -4804,7 +5114,7 @@ x-flows:
               timestamp: '2023-07-22T15:03:17.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24M
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 id: O1
@@ -4910,7 +5220,7 @@ x-flows:
                       currency: INR
                       transaction_id: 079c071b-8972-4f0f-b553-12e894617860
                     status: PAID
-                    type: PRE-ORDER
+                    type: PRE-FULFILLMENT
                     time:
                       range:
                         end: '2023-07-30T15:44:19.166Z'
@@ -5070,7 +5380,7 @@ x-flows:
               timestamp: '2023-07-22T15:03:18.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24M
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 id: O1
@@ -5179,7 +5489,7 @@ x-flows:
                       currency: INR
                       transaction_id: 079c071b-8972-4f0f-b553-12e894617860
                     status: PAID
-                    type: PRE-ORDER
+                    type: PRE-FULFILLMENT
                     time:
                       range:
                         end: '2023-07-30T15:44:19.166Z'
@@ -5340,7 +5650,7 @@ x-flows:
               timestamp: '2023-07-22T15:03:19.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24M
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 id: O1
@@ -5449,7 +5759,7 @@ x-flows:
                       currency: INR
                       transaction_id: 079c071b-8972-4f0f-b553-12e894617860
                     status: PAID
-                    type: PRE-ORDER
+                    type: PRE-FULFILLMENT
                     time:
                       range:
                         end: '2023-07-30T15:44:19.166Z'
@@ -5609,7 +5919,7 @@ x-flows:
               timestamp: '2023-07-22T15:03:20.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24M
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 id: O1
@@ -5721,7 +6031,7 @@ x-flows:
                       currency: INR
                       transaction_id: 079c071b-8972-4f0f-b553-12e894617860
                     status: PAID
-                    type: PRE-ORDER
+                    type: PRE-FULFILLMENT
                     time:
                       range:
                         end: '2023-07-30T15:44:19.166Z'
@@ -5851,7 +6161,7 @@ x-flows:
             title Order Fulfillment
             participant Buyer Platform (BAP)
             participant Insurer Platform (BPP)
-            Insurer Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Insurer Platform (BPP)->>Buyer Platform (BAP):on_update
             Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
             Buyer Platform (BAP)->>Insurer Platform (BPP): cancel
             Insurer Platform (BPP)-->>Buyer Platform (BAP):ACK
@@ -5862,7 +6172,7 @@ x-flows:
       - summary: >-
           Insurer confirms the marine insurance order & provides the
           cancellation URL
-        api: on_confirm
+        api: on_update
         details:
           - description: >-
               Insurer confirms the marine insurace order and provides the
@@ -5873,7 +6183,7 @@ x-flows:
                 participant Buyer Platform (BAP)
                 participant Insurer Platform (BPP)
                 rect rgb(191, 223, 255)
-                Insurer Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Insurer Platform (BPP)->>Buyer Platform (BAP):on_update
                 Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
                 end
         reference: if any
@@ -5898,7 +6208,7 @@ x-flows:
                 Buyer Platform (BAP)-->>Insurer Platform (BPP): ACK
         reference: if any
         example:
-          value: &ref_24
+          value: &ref_25
             context:
               action: cancel
               bap_id: fis.test.bap.io
@@ -5915,7 +6225,7 @@ x-flows:
               timestamp: '2023-07-22T15:10:50.780Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT2H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order_id: '01'
               cancellation_reason_id: '5'
@@ -5959,7 +6269,7 @@ x-flows:
               timestamp: '2023-07-22T15:01:17.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24M
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 id: O1
@@ -6051,7 +6361,7 @@ x-flows:
                       currency: INR
                       transaction_id: 079c071b-8972-4f0f-b553-12e894617860
                     status: PAID
-                    type: PRE-ORDER
+                    type: PRE-FULFILLMENT
                     time:
                       range:
                         end: '2023-07-30T15:44:19.166Z'
@@ -6211,7 +6521,7 @@ x-flows:
               timestamp: '2023-07-22T15:01:25.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24M
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 id: O1
@@ -6303,7 +6613,7 @@ x-flows:
                       currency: INR
                       transaction_id: 079c071b-8972-4f0f-b553-12e894617860
                     status: PAID
-                    type: PRE-ORDER
+                    type: PRE-FULFILLMENT
                     time:
                       range:
                         end: '2023-07-30T15:44:19.166Z'
@@ -6513,7 +6823,7 @@ x-flows:
               timestamp: '2023-07-22T15:03:19.179Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 items:
@@ -6629,7 +6939,7 @@ x-flows:
               timestamp: '2023-07-22T15:01:17.694Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24M
-              version: 2.0.0
+              version: 2.0.1
             message:
               ref_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
       - summary: >-
@@ -6672,7 +6982,7 @@ x-flows:
               timestamp: '2023-07-22T15:03:19.179Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 items:
@@ -6963,7 +7273,7 @@ x-flows:
               timestamp: '2023-07-22T15:03:18.179Z'
               transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
               ttl: PT24H
-              version: 2.0.0
+              version: 2.0.1
             message:
               order:
                 items:
@@ -7094,7 +7404,7 @@ x-examples:
         examples:
           - summary: on_confirm
             description: TBD
-            value: *ref_13
+            value: *ref_24
       status:
         examples:
           - summary: status
@@ -7116,7 +7426,7 @@ x-examples:
                 timestamp: '2023-07-22T15:01:17.694Z'
                 transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
                 ttl: PT24M
-                version: 2.0.0
+                version: 2.0.1
               message:
                 order_id: '01'
       on_status:
@@ -7140,7 +7450,7 @@ x-examples:
                 timestamp: '2023-07-22T15:03:18.179Z'
                 transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
                 ttl: PT24H
-                version: 2.0.0
+                version: 2.0.1
               message:
                 order:
                   id: 5adadc9a-48a0-4ff6-8779-084272d9d2bc
@@ -7234,7 +7544,7 @@ x-examples:
                         range:
                           end: '2023-07-30T15:44:19.166Z'
                           start: '2023-07-01T15:44:19.166Z'
-                      type: PRE-ORDER
+                      type: PRE-FULFILLMENT
                       url: https://payment.fis.test.bpp.io
                       tags:
                         - descriptor:
@@ -7312,7 +7622,7 @@ x-examples:
         examples:
           - summary: cancel
             description: TBD
-            value: *ref_24
+            value: *ref_25
       on_cancel:
         examples:
           - summary: on_cancel
@@ -7334,7 +7644,7 @@ x-examples:
                 timestamp: '2023-07-22T15:01:17.694Z'
                 transaction_id: a4db048b-d07c-40e0-9c0b-b7f006c4df74
                 ttl: PT24M
-                version: 2.0.0
+                version: 2.0.1
               message:
                 order:
                   id: 5adadc9a-48a0-4ff6-8779-084272d9d2bc
@@ -7425,7 +7735,7 @@ x-examples:
                         range:
                           end: '2023-07-30T15:44:19.166Z'
                           start: '2023-07-01T15:44:19.166Z'
-                      type: PRE-ORDER
+                      type: PRE-FULFILLMENT
                       url: https://payment.fis.test.bpp.io
                       tags:
                         - descriptor:
@@ -7575,7 +7885,7 @@ x-attributes:
             required: Mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -7816,7 +8126,7 @@ x-attributes:
             required: Mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -8340,7 +8650,7 @@ x-attributes:
             required: Mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -8598,7 +8908,7 @@ x-attributes:
             required: mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -9073,7 +9383,7 @@ x-attributes:
             required: Mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -9556,7 +9866,7 @@ x-attributes:
             required: Mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -9996,7 +10306,7 @@ x-attributes:
                 usage: PRE-ORDER
                 description: Describes when a payment has to be paid
               url:
-                required: Mandatory
+                required: Optional
                 type: string
                 owner: BPP
                 usage: https://payment.fis.test.bpp.io
@@ -10262,7 +10572,7 @@ x-attributes:
             required: Mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -10503,7 +10813,7 @@ x-attributes:
                   usage: INR
                   description: Currency in whcih payment has to be paid
                 transaction_id:
-                  required: Mandatory
+                  required: Optional
                   type: string
                   owner: BPP
                   usage: INR
@@ -10763,7 +11073,7 @@ x-attributes:
             required: Mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -11060,7 +11370,7 @@ x-attributes:
                   usage: INR
                   description: Currency in whcih payment has to be paid
                 transaction_id:
-                  required: Mandatory
+                  required: Optional
                   type: string
                   owner: BPP
                   usage: INR
@@ -11389,49 +11699,49 @@ x-attributes:
             documents:
               descriptor:
                 code:
-                  required: mandatory
+                  required: Optional
                   type: string
                   owner: BPP
                   usage: POLICY_DOC
                   description: Describes the code of document
                 name:
-                  required: mandatory
+                  required: Optional
                   type: string
                   owner: BPP
                   usage: Insurance Policy Document
                   description: Describes the name of document
                 short_desc:
-                  required: mandatory
+                  required: Optional
                   type: string
                   owner: BPP
                   usage: Download your digitally signed policy document here
                   description: Describes the short description of document
                 long_desc:
-                  required: mandatory
+                  required: Optional
                   type: string
                   owner: BPP
                   usage: Download you digitally signed policy document here
                   description: Describes the long description of document
                 _description:
-                  required: mandatory
+                  required: Optional
                   type: object
                   owner: BPP
                   usage: '--'
                   description: Describes descriptor of document
               mime_type:
-                required: mandatory
+                required: Optional
                 type: string
                 owner: BPP
                 usage: application/pdf
                 description: Describes the mime type of document
               url:
-                required: mandatory
+                required: Optional
                 type: string
                 owner: BPP
                 usage: https://abcinsurance.com/policies/O1.pdf
                 description: Describes the url of document
               _description:
-                required: mandatory
+                required: Optional
                 type: object
                 owner: BPP
                 usage: '--'
@@ -11513,7 +11823,7 @@ x-attributes:
             required: Mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -11637,7 +11947,7 @@ x-attributes:
             required: mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -12461,7 +12771,7 @@ x-attributes:
             required: mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -12604,7 +12914,7 @@ x-attributes:
             required: mandatory
             type: integer
             owner: BAP
-            usage: 2.0.0
+            usage: 2.0.1
             description: >-
               Describes the version of transaction protocol being used by the
               sender.
@@ -13437,4 +13747,4 @@ x-sandboxui:
       link: https://fis-staging.ondc.org
 x-changeLog:
   filenames:
-    - FIS13_2.0.0_070524.md
+    - FIS13_2.0.1_150725.md
